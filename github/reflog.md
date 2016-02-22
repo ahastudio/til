@@ -1,4 +1,4 @@
-= 특정 Commit으로 master 브랜치 복구
+# 특정 Commit으로 master 브랜치 복구
 
 ```
 $ curl -u ahastudio -X POST \
