@@ -172,6 +172,8 @@ PHP 컴파일(설치)할 때 활성화해야 함.
 ## Built-in HTTP Server
 [PHP 5.4.0](http://php.net/releases/5_4_0.php)에서 도입됨.
 
+참고: http://php.net/manual/kr/features.commandline.webserver.php
+
 ```
 $ php -S localhost:4000
 ```
