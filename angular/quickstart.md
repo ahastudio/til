@@ -9,7 +9,7 @@ $ npm install -g typescript
 
 `package.json` 만들기:
 ```
-$ npm init --yes --name="myproject"
+$ npm init --yes
 $ npm install systemjs --save
 $ npm install angular2@2.0.0-beta.14 --save
 $ npm install rxjs@5.0.0-beta.2 --save
