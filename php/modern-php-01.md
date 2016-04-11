@@ -166,5 +166,23 @@ $app->bind(function () {
 echo $app->run();
 ```
 
+## Zend OPcache
+PHP 컴파일(설치)할 때 활성화해야 함.
 
+## Built-in HTTP Server
+[PHP 5.4.0](http://php.net/releases/5_4_0.php)에서 도입됨.
+
+```
+$ php -S localhost:4000
+```
+
+http://localhost:4000/
+
+```
+$ php -S localhost:4000 -c app/config/php.ini
+```
+
+```
+$ php -S localhost:4000 router.php
+```
 
