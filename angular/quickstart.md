@@ -1,11 +1,27 @@
 # Angular 2 시작하기
 
+## Node Version Manager
+
+https://github.com/creationix/nvm
+
+```
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+```
+
+## TypeScript
+
 https://www.npmjs.com/package/typescript
 
-TypeScript 패키지 설치:
 ```
 $ npm install -g typescript
 ```
+
+`tsconfig.json` 만들기:
+```
+$ tsc --init --module system --moduleResolution node
+```
+
+## NPM
 
 `package.json` 만들기:
 ```
@@ -15,10 +31,9 @@ $ npm install angular2@2.0.0-beta.14 --save
 $ npm install rxjs@5.0.0-beta.2 --save
 ```
 
-`tsconfig.json` 만들기:
-```
-$ tsc --init --module system --moduleResolution node
-```
+## SystemJS
+
+https://github.com/systemjs/systemjs
 
 `config.js` 만들기:
 ```javascript
@@ -31,6 +46,8 @@ System.config({
   }
 });
 ```
+
+## Angular 2
 
 `app/main.ts` 만들기:
 ```typescript
