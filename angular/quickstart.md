@@ -8,6 +8,15 @@ https://github.com/creationix/nvm
 $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 ```
 
+## Node.js
+
+https://nodejs.org/
+
+```
+$ nvm install v5.10.1
+$ nvm alias default v5.10.1
+```
+
 ## TypeScript
 
 https://www.npmjs.com/package/typescript
