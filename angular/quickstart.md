@@ -27,7 +27,8 @@ $ npm install -g typescript
 
 `tsconfig.json` 만들기:
 ```
-$ tsc --init --module system --moduleResolution node
+$ tsc --init --module system --moduleResolution node \
+    --emitDecoratorMetadata --experimentalDecorators
 ```
 
 ## NPM
@@ -60,6 +61,8 @@ System.config({
 
 `app/main.ts` 만들기:
 ```typescript
+/// <reference path="../node_modules/angular2/typings/browser.d.ts" />
+
 import {bootstrap} from 'angular2/platform/browser';
 import {Component} from 'angular2/core';
 
