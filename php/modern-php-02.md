@@ -1,6 +1,6 @@
 # Modern PHP - Chapter 2. Features
 
-## Namespace
+## Namespaces
 > 모던 PHP 기능 중 꼭 하나만 알아야 한다면 그것은 네임스페이스일 것이다.
 
 [PHP 5.3.0](http://php.net/releases/5_3_0.php)에서 도입됨.
@@ -22,7 +22,7 @@ use VendorName\Component\Foo;
 
 see also [PSR-4: Autoloader](http://www.php-fig.org/psr/psr-4/).
 
-## Interface
+## Code to an Interface
 객체지향 PHP의 주요 개념.
 
 객체 자체가 아니라 기능에 의존하게 함. 어떻게 구현했는지 관심을 가질 필요가 없어진다.
@@ -64,7 +64,7 @@ class HtmlDocument implements Documentable
 }
 ```
 
-## Trait
+## Traits
 [PHP 5.4.0](http://php.net/releases/5_4_0.php)에서 도입됨.
 
 고전적인 상속 모델을 해치지 않으면서 코드 재사용성을 높인다. [Ruby의 Mixin](http://ruby-doc.com/docs/ProgrammingRuby/html/tut_modules.html)과 같다.
@@ -95,7 +95,7 @@ $store = new RetailStore();
 $store->setAddress('Seoul, Korea');
 ```
 
-## Generator
+## Generators
 [PHP 5.5.0](http://php.net/releases/5_5_0.php)에서 도입됨.
 
 > 제너레이터는 단순한 이터레이터다.
@@ -120,7 +120,7 @@ foreach (myGenerator() as $value)
 
 see also [ircmaxell’s blog: What Generators Can Do For You](http://blog.ircmaxell.com/2012/07/what-generators-can-do-for-you.html).
 
-## Closure
+## Closures
 [PHP 5.3.0](http://php.net/releases/5_3_0.php)에서 도입됨.
 
 > 클로저는 생성 당시 자신의 주변 상태를 캡슐화한 함수다.
@@ -184,7 +184,7 @@ echo $app->run();
 ## Zend OPcache
 PHP 컴파일(설치)할 때 활성화해야 함.
 
-## Built-in HTTP Server
+## Built-in HTTP server
 [PHP 5.4.0](http://php.net/releases/5_4_0.php)에서 도입됨.
 
 참고: http://php.net/manual/kr/features.commandline.webserver.php
