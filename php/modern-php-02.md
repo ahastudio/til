@@ -29,7 +29,8 @@ see also [PSR-4: Autoloader](http://www.php-fig.org/psr/psr-4/).
 
 ```php
 <?php
-interface Documentable {
+interface Documentable
+{
     public function getId();
     public function getContent();
 }
@@ -37,18 +38,22 @@ interface Documentable {
 
 ```php
 <?php
-class HtmlDocument implements Documentable {
+class HtmlDocument implements Documentable
+{
     protected $url;
 
-    public function __construct($url) {
+    public function __construct($url)
+    {
         $this->url = $url;
     }
 
-    public function getId() {
+    public function getId()
+    {
         return $this->url;
     }
 
-    public function getContent() {
+    public function getContent()
+    {
         $ch = curl_init();
         curl_Setopt($ch, CURLOPT_URL, $this->url);
         // ...(중략)...
@@ -66,10 +71,12 @@ class HtmlDocument implements Documentable {
 
 ```php
 <?php
-trait Geocodable {
+trait Geocodable
+{
     protected $address;
 
-    public function setAddress($address) {
+    public function setAddress($address)
+    {
         $this->address = $address;
     }
 }
@@ -77,7 +84,8 @@ trait Geocodable {
 
 ```php
 <?php
-class RetailStore {
+class RetailStore
+{
     use Geocodable;
 }
 ```
@@ -96,14 +104,16 @@ Lazy 계산을 통해 메모리 효율을 높이고 성능을 향상시킨다.
 
 ```php
 <?php
-function myGenerator() {
+function myGenerator()
+{
     yield 'value1';
     yield 'value2';
 }
 ```
 
 ```php
-foreach (myGenerator() as $value) {
+foreach (myGenerator() as $value)
+{
     echo $value, PHP_EOL;
 }
 ```
@@ -121,7 +131,8 @@ see also [ircmaxell’s blog: What Generators Can Do For You](http://blog.ircmax
 
 ```php
 <?php
-$hello = function ($name) {
+$hello = function ($name)
+{
     return sprintf('Hello %s', $name);
 }
 
@@ -132,7 +143,8 @@ echo $hello('Josh');
 
 ```php
 <?php
-function enclosePerson($name) {
+function enclosePerson($name)
+{
     return function ($doCommand) use ($name) {
         return sprintf('%s, %s', $name, $doCommand;
     };
@@ -145,15 +157,18 @@ echo $clay('let me out!');
 
 ```php
 <?php
-class App {
+class App
+{
     protected $callback = null;
     protected $body = '';
 
-    public function bind($callback) {
+    public function bind($callback)
+    {
         $callback->bindTo($this, __CLASS__);
     }
 
-    public function run() {
+    public function run()
+    {
         $callback();
         return $body;
     }
@@ -187,4 +202,3 @@ $ php -S localhost:4000 -c app/config/php.ini
 ```
 $ php -S localhost:4000 router.php
 ```
-
