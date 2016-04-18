@@ -37,7 +37,7 @@ $ tsc --init --module system --moduleResolution node \
 ```
 $ npm init --yes
 $ npm install systemjs --save
-$ npm install angular2@2.0.0-beta.14 --save
+$ npm install angular2@2.0.0-beta.15 --save
 $ npm install rxjs@5.0.0-beta.2 --save
 ```
 
