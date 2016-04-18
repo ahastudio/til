@@ -31,6 +31,28 @@ $ tsc --init --module system --moduleResolution node \
     --emitDecoratorMetadata --experimentalDecorators
 ```
 
+## Typings
+
+https://www.npmjs.com/package/typings
+
+```
+$ npm install -g typings
+```
+
+`typings.json` 만들기:
+```
+$ typings install es6-shim --ambient --save
+```
+
+`tsconfig.json` 파일의 `exclude` 항목에 `typings` 추가:
+```
+    "exclude": [
+        "node_modules",
+        "typings/main",
+        "typings/main.d.ts"
+    ]
+```
+
 ## NPM
 
 `package.json` 만들기:
@@ -61,8 +83,6 @@ System.config({
 
 `app/main.ts` 만들기:
 ```typescript
-/// <reference path="../node_modules/angular2/typings/browser.d.ts" />
-
 import {bootstrap} from 'angular2/platform/browser';
 import {Component} from 'angular2/core';
 
