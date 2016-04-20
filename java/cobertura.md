@@ -23,4 +23,5 @@ apply plugin: 'net.saliman.cobertura'
 
 ```
 $ ./gradlew cobertura
+$ open build/reports/cobertura/index.html
 ```
