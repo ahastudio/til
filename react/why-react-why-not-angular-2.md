@@ -60,7 +60,7 @@ let List = function({ items }) {
 
 JavaScript의 힘의 일부는 느슨함이고, 저는 이걸 진짜로 즐기고 있어요. :) 저는 커뮤니티가 이 지점에서 나뉜다는 걸 알고 있습니다: 독자의 절반은 고개를 끄덕일 거고, 다른 절반은 제가 미쳤다고 생각할 겁니다(“JavaScript는 끔직합니다! TypeScript는 제대로 된 언어로 만들어줍니다!”).
 
-공식적으론, [Angular 2를 JavaScript로](https://daveceddia.com/angular-2-in-plain-js) 코딩하는 게 가능하고, 작동하지만, 아직 지원이 ㅈ부족합니다. 제 생각에 대부분은 TypeScript를 쓸 거고, Stack Overflow 질문이나 다른 커뮤니티 지원이 많지 않을 거라, JavaScript로 Angular 2를 쓰는 건 뭔가 문제가 생길 때마다 사투를 벌이게 될 겁니다.
+공식적으론, [Angular 2를 JavaScript로](https://daveceddia.com/angular-2-in-plain-js) 코딩하는 게 가능하고, 작동하지만, 아직 지원이 좀 부족합니다. 제 생각에 대부분은 TypeScript를 쓸 거고, Stack Overflow 질문이나 다른 커뮤니티 지원이 많지 않을 거라, JavaScript로 Angular 2를 쓰는 건 뭔가 문제가 생길 때마다 사투를 벌이게 될 겁니다.
 
 ## React
 
