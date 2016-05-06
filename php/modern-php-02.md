@@ -193,7 +193,7 @@ PHP 컴파일(설치)할 때 활성화해야 함.
 $ php -S localhost:4000
 ```
 
-http://localhost:4000/
+[http://localhost:4000/](http://localhost:4000/)
 
 ```
 $ php -S localhost:4000 -c app/config/php.ini
