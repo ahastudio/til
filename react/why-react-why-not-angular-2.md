@@ -1,4 +1,4 @@
-# [Why React? Why not Angular 2? – Angularity](https://daveceddia.com/why-react-why-not-angular2/)
+# [Why React? Why not Angular 2?](https://daveceddia.com/why-react-why-not-angular2/)
 
 Angular 1.x가 낡어가고 Angular 2가 분발하서, 많은 1.x 개발자들은 다음이 뭘까 궁금해 하고 있습니다. Angular 2를 선택해야 할까? React는? 아니면 다른 거?
 
@@ -12,5 +12,5 @@ Angular 1.x가 낡어가고 Angular 2가 분발하서, 많은 1.x 개발자들�
 
 뭐든지 사용하기 전에 같은 이름을 4번이나 타이핑합니다.
 
-https://daveceddia.com/images/yo-dawg-imports.jpg
+![YO DAWG](https://daveceddia.com/images/yo-dawg-imports.jpg)
 
