@@ -14,3 +14,15 @@ Angular 1.x가 낡어가고 Angular 2가 분발하서, 많은 1.x 개발자들�
 
 ![YO DAWG](https://daveceddia.com/images/yo-dawg-imports.jpg)
 
+오, 하나 더: 앱을 시작할 때(Angular 2에서 bootstrap 실행할 때), 나중에 주입할 provider 목록을 넘겨줘야 합니다. 이건 기억할 게 하나 더 생기는 거고, 에러가 날 수 있는 게 하나 더 생기는 겁니다.
+
+이런 걸 하는 이유는 (Spring처럼) DI 시스템을 이용해서 wire하기 위해서다.
+
+Angular 1에선 모듈 시스템으로 쓰기 위해 DI 시스템이 필요했습니다. 하지만 모듈이 생기고, 변환기(Babel이나 TypeScript 컴파일러 등)가 import나 require 등을 가능하게 한 지금은 DI의 혜택이 별로 없습니다. 그냥 import해서 쓰면 됩니다.
+
+프레임웤 레벨의 DI 없이 테스트하는 건 좀 어렵지만, 해결할 방법은 이미 있습니다.
+
+# Angular 특화 구문
+
+(...작성 중...)
+
