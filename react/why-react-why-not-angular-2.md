@@ -1,4 +1,6 @@
-# [Why React? Why not Angular 2?](https://daveceddia.com/why-react-why-not-angular2/)
+원문: [Why React? Why not Angular 2?](https://daveceddia.com/why-react-why-not-angular2/)
+
+# 나는 왜 Angular 2가 아니라 React를 선택했나?
 
 Angular 1.x가 낡어가고 Angular 2가 분발하서, 많은 1.x 개발자들은 다음이 뭘까 궁금해 하고 있습니다. Angular 2를 선택해야 할까? React는? 아니면 다른 거?
 
