@@ -1,6 +1,6 @@
 원문: [Programming by poking: why MIT stopped teaching SICP](http://www.posteriorscience.net/?p=206)
 
-# Programming by poking: why MIT stopped teaching SICP
+# 찔러보기식 개발: 왜 MIT는 SICP 수업을 때려쳤나?
 
 > Gerry Sussman was asked why MIT stopped teaching the legendary 6.001 course, which was based on Sussman and Abelson’s classic text [The Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/sicp/)(SICP).
 
