@@ -18,14 +18,6 @@ $ nvm use 6.2.0
 $ nvm alias default v6.2.0
 ```
 
-## TypeScript
-
-https://www.npmjs.com/package/typescript
-
-```
-$ npm install -g typescript
-```
-
 ## Angular CLI
 
 ```
