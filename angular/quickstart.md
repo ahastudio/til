@@ -20,8 +20,10 @@ $ nvm alias default v6.2.0
 
 ## Angular CLI
 
+https://cli.angular.io/
+
 ```
-$ https://cli.angular.io/
+$ npm install -g angular-cli
 ```
 
 ## 프로젝트 생성
