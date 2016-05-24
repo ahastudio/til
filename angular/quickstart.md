@@ -13,8 +13,9 @@ $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh |
 https://nodejs.org/
 
 ```
-$ nvm install v5.10.1
-$ nvm alias default v5.10.1
+$ nvm install 6.2.0
+$ nvm use 6.2.0
+$ nvm alias default v6.2.0
 ```
 
 ## TypeScript
