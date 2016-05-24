@@ -25,111 +25,45 @@ https://www.npmjs.com/package/typescript
 $ npm install -g typescript
 ```
 
-`tsconfig.json` 만들기:
-```
-$ tsc --init --module system --moduleResolution node \
-    --emitDecoratorMetadata --experimentalDecorators
-```
-
-## Typings
-
-https://www.npmjs.com/package/typings
+## Angular CLI
 
 ```
-$ npm install -g typings
+$ https://cli.angular.io/
 ```
 
-`typings.json` 만들기:
-```
-$ typings install es6-shim --ambient --save
-```
+## 프로젝트 생성
 
-`tsconfig.json` 파일의 `exclude` 항목에 `typings` 추가:
 ```
-    "exclude": [
-        "node_modules",
-        "typings/main",
-        "typings/main.d.ts"
-    ]
+$ ng new PROJECT_NAME
+$ cd PROJECT_NAME
 ```
 
-## NPM
+프로젝트 이름으로 `AppComponent` 파일과 클래스 등을 만들기 때문에, 저는 `application` 같은 이름으로 만들고 나중에 프로젝트 폴더 이름과 `package.json` 둘만 고칩니다.
 
-`package.json` 만들기:
+## 서버 실행
+
 ```
-$ npm init --yes
-$ npm install systemjs --save
-$ npm install angular2@2.0.0-beta.15 --save
-$ npm install rxjs@5.0.0-beta.2 --save
+$ ng serve
 ```
 
-## SystemJS
+http://localhost:4200/
 
-https://github.com/systemjs/systemjs
+## 테스트 실행
 
-`config.js` 만들기:
-```javascript
-System.config({
-  packages: {
-    app: {
-      format: 'register',
-      defaultExtension: 'js'
-    }
-  }
-});
+```
+$ ng test
 ```
 
-## Angular 2
+## 배포용 빌드
 
-`app/main.ts` 만들기:
-```typescript
-import {bootstrap} from 'angular2/platform/browser';
-import {Component} from 'angular2/core';
-
-@Component({
-  selector: 'my-app',
-  template: `
-    <h1>Hello, {{name}}!</h1>
-    <input [(ngModel)]="name">
-    <ol *ngIf="items.length">
-      <li *ngFor="#item of items">{{item}}</li>
-    </ol>
-    `
-})
-class App {
-  name: string = 'world';
-
-  get items(): string[] {
-    return this.name.split('');
-  }
-}
-
-bootstrap(App);
 ```
-
-`index.html` 만들기:
-```html
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Angular2</title>
-</head>
-<body>
-  <my-app></my-app>
-  <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-  <script src="node_modules/systemjs/dist/system.src.js"></script>
-  <script src="node_modules/rxjs/bundles/Rx.js"></script>
-  <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-  <script src="config.js"></script>
-  <script>
-    System.import('app/main');
-  </script>
-</body>
-</html>
+$ ng build -prod
 ```
 
 ```
-$ tsc
+$ cd dist
 $ php -S localhost:8000
 ```
+
+http://localhost:8000/
+
