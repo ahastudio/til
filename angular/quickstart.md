@@ -39,7 +39,7 @@ $ cd PROJECT_NAME
 $ ng serve
 ```
 
-http://localhost:4200/
+[http://localhost:4200/](http://localhost:4200/)
 
 ## 테스트 실행
 
@@ -58,5 +58,5 @@ $ cd dist
 $ php -S localhost:8000
 ```
 
-http://localhost:8000/
+[http://localhost:8000/](http://localhost:8000/)
 
