@@ -3,4 +3,5 @@
 Influenced by https://github.com/thoughtbot/til
 
 ## Daily Log
-* 07-15 - 5
+* 07-15 - 5 / 7
+* 07-16 - 5
