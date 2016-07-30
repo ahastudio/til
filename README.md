@@ -18,3 +18,4 @@ Influenced by https://github.com/thoughtbot/til
 * 07/27 - 7 / 6
 * 07/28 - 6 / 5
 * 07/29 - 5 / 8
+* 07/30 - 6
