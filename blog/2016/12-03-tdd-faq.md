@@ -4,7 +4,7 @@
 
 ---
 
-# 12-03 - TDD FAQ
+# 2016-12-03 - TDD FAQ
 
 ## 저자
 [@ahastudio](http://j.mp/1ea27KW) - 코딩의 신[神]. 게임과 웹 등 다양한 분야를 떠돌았고, 최근엔 Lean Startup과 Machine Learning을 공부하면서 가르치고 있습니다.
