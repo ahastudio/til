@@ -1,5 +1,9 @@
 # 2015-12-30 - 2015년을 뒤돌아 보다.
 
+![사진](https://pbs.twimg.com/media/CXX5qTJUQAAUgVe.jpg)
+
+![사진](https://pbs.twimg.com/media/CXX5qXwUoAAZ_Zt.jpg)
+
 안녕하세요. “반성의 아이콘” 아샬입니다.
 
 2015년 12월 29일, 종무식을 하루 앞두고 B 프로젝트 회고를 진행했습니다. 10월 13일에 진행한 A팀 회고에 이어서 올해 말에 두 번이나 프로젝트 회고를 하다니... ㅎㄷㄷ
