@@ -11,7 +11,7 @@
 
 ## 시작하며
 
-Ruby의 강점 중 하나로 메타프로그래밍이 자주 언급됩니다. “Meta-”는 어떤 의미일까요? Ruby EDSL에서 살짝 맛본 메타프로그래밍을 좀더 알아봅시다.
+Ruby의 강점 중 하나로 메타프로그래밍이 자주 언급됩니다. “Meta-”는 어떤 의미일까요? [Ruby EDSL](http://j.mp/2gbVefz)에서 살짝 맛본 메타프로그래밍을 좀더 알아봅시다.
 
 ## 준비물
 
@@ -45,7 +45,7 @@ class Human
 end
 ```
 
-`attr_accessor`는 뭘까요? [Ruby EDSL](http://j.mp/2gbVefz)을 보신 분은 짐작하시게씨만, 이건 그냥 클래스 메서드입니다. 바로 `name=`(setter)과 `name`(getter)를 만들어주는 녀석이죠. 만들어준다? 네, 우리가 따로 코드를 작성하지 않아도 간절히 원하면 우주가 나서서 도와준다는 의미죠.
+`attr_accessor`는 뭘까요? [Ruby EDSL](http://j.mp/2gbVefz)을 보신 분은 짐작하시겠지만, 이건 그냥 클래스 메서드입니다. 바로 `name=`(setter)과 `name`(getter)을 만들어주는 녀석이죠. 만들어준다? 네, 우리가 따로 코드를 작성하지 않아도 간절히 원하면 우주가 나서서 도와준다는 의미죠.
 
 ```ruby
 human = Human.new
