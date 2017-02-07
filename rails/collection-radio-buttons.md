@@ -2,6 +2,8 @@
 
 여러 개 중 하나를 선택해야 할 경우, 라디오 버튼을 사용할 수 있다.
 
+반복적으로 `radio_button`과 `label`을 사용하는 코드:
+
 ```ruby
 <% Tag.all.each do |tag| %>
   <%= f.radio_button :tag_id, tag.id %>
