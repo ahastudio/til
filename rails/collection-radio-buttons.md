@@ -21,7 +21,7 @@
 
 ```ruby
 <%= f.collection_radio_buttons :tag_id, Tag.all, :id, :name do |item_form| %>
-  <div>
+  <div class="tag">
     <%= item_form.radio_button %>
     <%= item_form.label %>
   </div>
@@ -33,3 +33,4 @@
 - http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-radio_button
 - http://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-radio_button
 - http://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-collection_radio_buttons
+- https://github.com/rails/rails/blob/master/actionview/lib/action_view/helpers/tags/collection_helpers.rb
