@@ -4,3 +4,6 @@ webpack module bundler
 
 Beginner Webpack Tutorial
 - https://github.com/AriaFallah/WebpackTutorial
+
+DevServer
+- https://webpack.js.org/configuration/dev-server/
