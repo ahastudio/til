@@ -1,3 +1,3 @@
 # The Go Programming Language
 
-https://golang.org/
+<https://golang.org/>
