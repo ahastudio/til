@@ -1,8 +1,10 @@
+# Webpack and Rollup: the same but different
+
 원문: [https://medium.com/webpack/webpack-and-rollup-the-same-but-different-a41ad427058c](http://j.mp/2o8Z9jT)
 
-날림 번역입니다. 피드백은 Issue Tracker에 부탁드립니다: https://github.com/ahastudio/til/issues
+날림 번역입니다. 피드백은 Issue Tracker에 부탁드립니다: <https://github.com/ahastudio/til/issues>
 
-# Webpack and Rollup: the same but different
+---
 
 이번 주에 Facebook은 기존의 빌드 프로세스를 Rollup 기반으로 바꾼 [엄청난 PR(monster pull request)](https://github.com/facebook/react/pull/9327)을 머지했습니다. 이 일은 [몇몇](https://twitter.com/stanlemon/status/849366789825994752) [사람들](https://twitter.com/MrMohtas/status/849362334988595201)[에게](https://twitter.com/kyleholzinger/status/849683292760797184) “왜 webpack 대신 Rollup을 쓴다는 거지?”란 질문을 던졌습니다.
 
