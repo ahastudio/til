@@ -1,9 +1,13 @@
-webpack module bundler
-- https://webpack.github.io/
-- https://github.com/webpack/webpack
+# Webpack module bundler
 
-Beginner Webpack Tutorial
-- https://github.com/AriaFallah/WebpackTutorial
+<https://webpack.js.org/>
 
-DevServer
-- https://webpack.js.org/configuration/dev-server/
+<https://github.com/webpack/webpack>
+
+## Configuration
+
+<https://webpack.js.org/configuration/>
+
+## DevServer
+
+<https://webpack.js.org/configuration/dev-server/>
