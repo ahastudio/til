@@ -7,7 +7,3 @@
 ## Configuration
 
 <https://webpack.js.org/configuration/>
-
-## DevServer
-
-<https://webpack.js.org/configuration/dev-server/>
