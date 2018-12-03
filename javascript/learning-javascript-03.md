@@ -19,6 +19,9 @@
 - <https://developer.mozilla.org/en-US/docs/Glossary/Mutable>
 - <https://developer.mozilla.org/en-US/docs/Glossary/Immutable>
 
+Assignment
+- <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators>
+
 ## Literal
 
 > In computer science, a **literal** is a *notation* for representing a *fixed value* in source code.
