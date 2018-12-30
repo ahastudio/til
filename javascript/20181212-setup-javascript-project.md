@@ -396,6 +396,10 @@ ESLint를 실행하면 `test`나 `expect` 같은 게 정의되지 않았다는 �
 npm test
 ```
 
+## Sample Code
+
+[https://github.com/ahastudio/javascript-sample-project](http://j.mp/2AkJkfA)
+
 ---
 
 - [아듀 2018!](https://adieu2018.ahastudio.com/)
