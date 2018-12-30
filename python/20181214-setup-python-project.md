@@ -226,6 +226,13 @@ pip install -U pylava
 pylava
 ```
 
+`venv` 폴더가 있다면 그것도 포함해서 검사하기 때문에 지나치게 오래 걸린다.
+`--skip` 플래그로 해당 폴더를 제외하자.
+
+```bash
+pylava --skip "venv/*"
+```
+
 [Pylint](https://github.com/pylava/pylava_pylint)도 함께 사용해 보자.
 Pylava의 기본 Linter 목록은
 [여기](https://github.com/pylava/pylava/blob/master/pylava/config.py)에서
@@ -236,7 +243,7 @@ Pylava의 기본 Linter 목록은
 pip install -U pylava-pylint
 
 # Linter 목록 바꿔서 실행
-pylava --linters "pycodestyle,pyflakes,mccabe,pylint"
+pylava --skip "venv/*" --linters "pycodestyle,pyflakes,mccabe,pylint"
 ```
 
 매번 `linters` 플래그를 적어주는 게 불편하다면
@@ -244,6 +251,7 @@ pylava --linters "pycodestyle,pyflakes,mccabe,pylint"
 
 ```ini
 [pylava]
+skip = venv/*
 linters = pycodestyle,pyflakes,mccabe,pylint
 ```
 
