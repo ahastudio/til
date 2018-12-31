@@ -79,6 +79,9 @@ pyenv install --list | grep -v -
 pyenv install $(pyenv install --list | grep -v - | tail -1)
 ```
 
+설치 중 문제가 발생하면 pyenv GitHub Wiki의
+[Common build problems 문서](http://j.mp/2StRQjt)를 참고해 해결한다.
+
 방금 설치한 최신 버전을 기본으로 사용하게 한다.
 
 ```bash
