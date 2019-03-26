@@ -82,6 +82,21 @@ pyenv install $(pyenv install --list | grep -v - | tail -1)
 설치 중 문제가 발생하면 pyenv GitHub Wiki의
 [Common build problems 문서](http://j.mp/2StRQjt)를 참고해 해결한다.
 
+예를 들어, Mac 사용자는 다음을 먼저 실행해야 한다.
+
+```bash
+# Xcode Command Line Tools 설치
+xcode-select --install
+
+# 의존성이 있는 패키지 설치
+brew install readline xz zlib sqlite3
+
+# zlib 설정
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
+```
+
 방금 설치한 최신 버전을 기본으로 사용하게 한다.
 
 ```bash
@@ -92,6 +107,12 @@ pyenv global $(pyenv install --list | grep -v - | tail -1)
 
 ```bash
 pyenv versions
+```
+
+## pip 업그레이드
+
+```bash
+pip install --upgrade pip
 ```
 
 ## 가상 환경 만들기
