@@ -37,13 +37,24 @@ brew update && brew upgrade pyenv
 curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 ```
 
-`.bash_profile` 등에 다음을 포함시킨다.
+Mac, Linux 사용자 모두 `.bash_profile` 등에 다음을 포함시킨다.
 
 ```bash
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+```
+
+만약 컴퓨터에 익숙하지 않다면 그냥 다음과 같이 입력하면 된다.
+
+```bash
+echo '
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+' >> ~/.bash_profile
+
+source ~/.bash_profile
 ```
 
 최신 버전의 파이썬을 지원하지 않을 땐 `pyenv`를 업그레이드하면 된다.
