@@ -82,11 +82,16 @@ pyenv install $(pyenv install --list | grep -v - | tail -1)
 설치 중 문제가 발생하면 pyenv GitHub Wiki의
 [Common build problems 문서](http://j.mp/2StRQjt)를 참고해 해결한다.
 
-예를 들어, Mac 사용자는 다음을 먼저 실행해야 한다.
+예를 들어, Mac 사용자는 다음과 같이 한다.
 
 ```bash
 # Xcode Command Line Tools 설치
 xcode-select --install
+
+# 이미 설치된 상태라면
+# “xcode-select: error: command line tools are already installed,
+# use "Software Update" to install updates”라고 뜸.
+# 그럴 땐 당황하지 말고 아래 명령을 이어서 입력한다.
 
 # 의존성이 있는 패키지 설치
 brew install readline xz zlib sqlite3
@@ -95,6 +100,9 @@ brew install readline xz zlib sqlite3
 export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
 export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
+
+# 위에 써놨던 거지만... 다시 설치 시도!
+pyenv install $(pyenv install --list | grep -v - | tail -1)
 ```
 
 방금 설치한 최신 버전을 기본으로 사용하게 한다.
