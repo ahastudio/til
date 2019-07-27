@@ -37,6 +37,8 @@ brew update && brew upgrade pyenv
 curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 ```
 
+### Mac 사용자, Linux 사용자 공통
+
 Mac, Linux 사용자 모두 `.bash_profile` 등에 다음을 포함시킨다.
 
 ```bash
