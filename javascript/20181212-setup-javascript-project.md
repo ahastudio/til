@@ -35,7 +35,6 @@ NVM이 설치되면 `~/.bash_profile`에 다음이 추가된다.
 ```bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
 
 맥 사용자는 Homebrew를 통해 설치하지 않도록 주의한다.
@@ -96,27 +95,6 @@ echo "$(nvm current)" > .nvmrc
 
 ```bash
 cat .nvmrc
-```
-
-매번 `nvm use`를 입력하는 게 귀찮은 Mac, Linux 사용자는
-`AVN(Automatic Version Switching for Node.js)`을 설치하면 편하다.
-
-```bash
-npm install -g avn avn-nvm
-avn setup
-```
-
-`avn setup`은 `~/.bash_profile`에 다음을 추가한다.
-
-```bash
-[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
-```
-
-앞으로 해당 프로젝트 폴더로 이동하면 다음과 같은 메시지가 출력되고
-자동으로 해당 버전을 사용하게 된다(생각보다는 느리다).
-
-```text
-avn activated v10.15.0 via ../my-project/.nvmrc (avn-nvm v10.15.0)
 ```
 
 ## 프로젝트 초기화
