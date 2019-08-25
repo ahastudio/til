@@ -79,3 +79,7 @@ assert shorten_to_date('Tuesday January 29, 10pm') == 'Tuesday January 29'
 def shorten_to_date(long_date):
     return long_date.split(',')[0]
 ```
+
+## 더 보기
+
+- <https://github.com/ahastudio/til/blob/master/python/str-join.md>
