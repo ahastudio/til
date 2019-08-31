@@ -14,3 +14,8 @@ IDDD
 
 PoEAA
 <https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=68433810>
+
+## JUnit
+
+자바와 JUnit을 활용한 실용주의 단위 테스트
+<https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=195813359>
