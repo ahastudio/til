@@ -62,7 +62,11 @@
     - [오브젝트 #2](https://youtu.be/moSl4WS3O0Q)
 1. 8월 - 읽기 좋은 코드가 좋은 코드다
     - [“읽기 좋은 코드가 좋은 코드다” 책 소개](https://youtu.be/YY-6B8zEbu0)
+    - [한윤석님의 모임 후기](http://j.mp/2lUn607)
 1. 9월 - 클린 아키텍처
     - [개발자, 한 달에 책 한 권 읽기 DEMO](https://youtu.be/9u8x_ON903U)
     - [라이브 스트리밍 #43 - 클린 아키텍처 읽기](https://youtu.be/WPvJ9jO5Ne4)
     - [라이브 스트리밍 #44 - 클린 아키텍처 읽기 Part 2](https://youtu.be/GHf4JnFSOis)
+    - [개발자의 앞길에 맵핵 시전 - 공통 폐쇄 원칙](http://j.mp/2lQpRiQ)
+    - [한윤석님의 모임 후기](http://j.mp/2nusKGq)
+    - [정기욱님의 모임 후기](http://j.mp/2mBL54j)
