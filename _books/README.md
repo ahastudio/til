@@ -20,6 +20,6 @@
 - 도메인 주도 설계 (위키북스)
 - [클린 아키텍처](http://j.mp/2MujJse) (인사이트)
 - [린 UX](http://j.mp/2AmSebW) (한빛미디어)
-- [스트린트](http://j.mp/2AfuKFM) (김영사)
+- [스프린트](http://j.mp/2AfuKFM) (김영사)
 - 훔쳐라, 아티스트처럼 (중앙books)
 - 보여줘라, 아티스트처럼 (중앙books)
