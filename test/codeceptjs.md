@@ -29,6 +29,19 @@ exports.config = {
 };
 ```
 
+## CircleCI
+
+Browser Testing
+<https://circleci.com/docs/2.0/browser-testing/>
+
+```yaml
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:jessie-node-browsers
+```
+
 ## Example
 
 - <https://github.com/ahastudio/CodingLife/tree/master/20190910/codeceptjs>
