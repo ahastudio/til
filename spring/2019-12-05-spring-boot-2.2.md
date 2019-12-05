@@ -1,5 +1,12 @@
 # Spring Boot 2.2로 업그레이드하기
 
+[아듀 2019!](https://adieu2019.ahastudio.com/)
+
+- 이전 글:
+- 다음 글:
+
+---
+
 참고: [패캠 강의 프로젝트 업그레이드 Pull Request](http://j.mp/2Yfc6ZW)
 
 ## Gradle 파일 수정
@@ -60,3 +67,10 @@
 ```diff
 - @RunWith(SpringRunner.class)
 ```
+
+---
+
+[아듀 2019!](https://adieu2019.ahastudio.com/)
+
+- 이전 글:
+- 다음 글:
