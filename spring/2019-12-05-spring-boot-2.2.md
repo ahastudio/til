@@ -2,7 +2,7 @@
 
 [아듀 2019!](https://adieu2019.ahastudio.com/)
 
-- 이전 글:
+- 이전 글: [Kotlin + Spring Boot 맛보기](http://j.mp/2RvIA0H)
 - 다음 글:
 
 ---
@@ -72,5 +72,5 @@
 
 [아듀 2019!](https://adieu2019.ahastudio.com/)
 
-- 이전 글:
+- 이전 글: [Kotlin + Spring Boot 맛보기](http://j.mp/2RvIA0H)
 - 다음 글:
