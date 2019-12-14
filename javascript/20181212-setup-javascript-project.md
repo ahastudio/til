@@ -20,14 +20,16 @@ NVM을 사용하면 이게 가능하다.
 ### Mac, Linux 사용자
 
 맥이나 리눅스에선
-[NVM(Node Version Manager)](https://github.com/creationix/nvm)을 먼저 설치하고,
+[NVM(Node Version Manager)](https://github.com/nvm-sh/nvm)을 먼저 설치하고,
 이걸 통해서 여러 버전의 Node.js를 관리한다.
 
-설치 스크립트는 <https://github.com/creationix/nvm#installation> 참고.
-2018년 말 현재 기준으로 NVM 최신 버전은 `0.33.11`이다.
+설치 스크립트는
+[https://github.com/nvm-sh/nvm#install--update-script](http://j.mp/2rJefRL)
+참고.
+2019년 말 기준으로 NVM 최신 버전은 `0.35.1`이다.
 
 ```bash
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
 ```
 
 NVM이 설치되면 `~/.bash_profile`에 다음이 추가된다.
@@ -35,6 +37,7 @@ NVM이 설치되면 `~/.bash_profile`에 다음이 추가된다.
 ```bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
 
 맥 사용자는 Homebrew를 통해 설치하지 않도록 주의한다.
