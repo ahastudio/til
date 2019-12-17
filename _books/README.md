@@ -21,5 +21,5 @@
 - [클린 아키텍처](http://j.mp/2MujJse) (인사이트)
 - [린 UX](http://j.mp/2AmSebW) (한빛미디어)
 - [스프린트](http://j.mp/2AfuKFM) (김영사)
-- 훔쳐라, 아티스트처럼 (중앙books)
-- 보여줘라, 아티스트처럼 (중앙books)
+- [훔쳐라, 아티스트처럼](http://j.mp/2Es7nei) (중앙books)
+- [보여줘라, 아티스트처럼](http://j.mp/35zMN7G) (중앙books)
