@@ -38,19 +38,16 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        os: [ubuntu-18.04]
-        node-version: [12.x]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: File list
-        run: ls -al
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Show files
+      run: ls -al
 ```
 
-## NPM
+## Node.js + NPM
 
+Node.js를 실행할 환경을 지정하고,
 NPM으로 의존성을 설치하고, 테스트를 실행합시다.
 
 ```yaml
@@ -74,7 +71,8 @@ jobs:
 
 ## Pull Request
 
-해당 저장소를 Fork 하고, PR을 날렸을 때 작동하도록 액션 초반부에 `pull_request`를 추가합니다.
+해당 저장소를 Fork 하고, PR을 날렸을 때 작동하도록
+액션 초반부에 `pull_request`를 추가합니다.
 
 ```yaml
 name: CI
@@ -99,7 +97,7 @@ jobs:
 
 `master` 브랜치에 Merge 됐을 때 자동으로 deploy 할 수 있도록 준비합시다.
 
-`if`와 `github.ref`를 이용해 브랜치 이름을 확인하면 됩니다.
+`if`에서 `github.ref`를 이용해 브랜치 이름을 확인하면 됩니다.
 
 ```yaml
 name: CI
@@ -110,6 +108,32 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-18.04]
+        node-version: [12.x]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm test
+      - name: Deploy
+        if: github.ref == 'refs/heads/master'
+        run: echo "Hello, world!"
+```
+
+## OS 추가
+
+다른 환경에서도 잘 되는지 확인하기 위해 `os` 항목을 늘려줍니다.
+
+```yaml
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, ubuntu-16.04, macos-latest, windows-latest]
         node-version: [12.x]
     steps:
       - name: Checkout
