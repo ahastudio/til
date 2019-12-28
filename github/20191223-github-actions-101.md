@@ -147,6 +147,8 @@ jobs:
         run: echo "Hello, world!"
 ```
 
+참고: [Virtual environments for GitHub-hosted runners](http://j.mp/39h8yLH)
+
 ---
 
 - [아듀 2019!](https://adieu2019.ahastudio.com/)
