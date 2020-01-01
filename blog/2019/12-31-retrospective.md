@@ -1,7 +1,7 @@
 # 2019년 회고
 
 - [아듀 2019!](https://adieu2019.ahastudio.com/)
-- 이전 글: [2019년 회고: 비전공자에서 개발자가 되기까지](http://j.mp/36gz7Pc)
+- 이전 글: [2019년 회고: 비전공자에서 개발자가 되기까지](https://j.mp/36gz7Pc)
 
 ---
 
@@ -87,7 +87,7 @@ Git & GitHub, Docker, TDD, CI를 각자 독립적으로 다뤘지만
 일단 커뮤니티가 만들어지고, 그 위에 무언가를 얹는 게 효과적인 것 같다.
 
 3월 7일 (목) -
-밴드 다운더라인 Single 발매 - “[Broken Memories](http://j.mp/2Qyc7EY)”
+밴드 다운더라인 Single 발매 - “[Broken Memories](https://j.mp/2Qyc7EY)”
 
 내가 좋아하는 노래 스타일 중 하나가 바로 랩으로 가다가 후렴에서 고음으로 지르는 건데,
 여기에 속하는 노래 둘을 작년 말에 녹음해서 올해 음원으로 내놓게 됐다.
@@ -101,7 +101,7 @@ iMac Pro 언박싱
 
 2년 할부로 구입한 달래님의 iMac Pro를 개봉했다.
 
-[![iMac Pro 개봉기](https://img.youtube.com/vi/reylbyk04eU/maxresdefault.jpg)](http://j.mp/2QdlQ4h)
+[![iMac Pro 개봉기](https://img.youtube.com/vi/reylbyk04eU/maxresdefault.jpg)](https://j.mp/2QdlQ4h)
 
 3월 13일 (수) ~ 4월 15일 (수) -
 학습신공
@@ -163,12 +163,12 @@ Spring은 실무에서 안 쓴지 좀 됐기 때문이다.
 
 나도 중학생 때 내가 읽은 책 저자를 찾아가서 인터뷰를 했던 기억이 생생하다.
 
-[![thumbnail](https://img.youtube.com/vi/6vYeji7A3u8/maxresdefault.jpg)](http://j.mp/39s5ZGM)
+[![thumbnail](https://img.youtube.com/vi/6vYeji7A3u8/maxresdefault.jpg)](https://j.mp/39s5ZGM)
 
 5월 22일 (수) -
 SASEUL Origin Conference
 
-[초보자를 위한 블록체인의 기반 기술 설명](http://j.mp/2ST8D2H)
+[초보자를 위한 블록체인의 기반 기술 설명](https://j.mp/2ST8D2H)
 
 ![아샬](https://yt3.ggpht.com/yCoSelqfoJ6d9l07ExOS1PrB2ce6zsiUVRqsrkKtVKqlU7tsmA8jw5Or1Q40kd70LhuJQVUqV2xcpw=s1600-nd)
 
@@ -201,7 +201,7 @@ Friday Night Training 2nd
 6월 29일 (토) -
 Spring Seoul 참가
 
-[![스프린트 서울 후기](https://img.youtube.com/vi/a_zCy0qg7Qk/maxresdefault.jpg)](http://j.mp/37phv3W)
+[![스프린트 서울 후기](https://img.youtube.com/vi/a_zCy0qg7Qk/maxresdefault.jpg)](https://j.mp/37phv3W)
 
 ## 7월
 
@@ -226,7 +226,9 @@ Clean Code를 작성하기 위해 Feedback이 필요하다는 점과
 
 다른 곳에서도 워크샵 형태로 여러 번 반복했는데, 매번 효과가 좋았다.
 
-관심 있는 회사는 [달랩에 문의](http://j.mp/2FbFJT6)하시라.
+관심 있는 회사는 [달랩에 문의](https://j.mp/2FbFJT6)하시라.
+
+[![코딩의 이해](https://cdn.slidesharecdn.com/ss_thumbnails/20190708coding-191006180952-thumbnail-3.jpg)](https://j.mp/2r5PtKU)
 
 7월 16일 (화) ~ 11월 11일 (월) -
 달랩 멘토링 짝 프로그래밍
@@ -249,7 +251,7 @@ Clean Code를 작성하기 위해 Feedback이 필요하다는 점과
 7월 17일 (수) ~ 10월 30일 (수) -
 GOOSGBT 온라인 스터디
 
-[협력적 책 읽기](http://j.mp/2ZF6qcp) 참고.
+[협력적 책 읽기](https://j.mp/2ZF6qcp) 참고.
 
 7월 27일 (토) -
 달랩 멘토링 모임 #3
@@ -282,7 +284,7 @@ PyCon Korea 2019 라이트닝 토크 발표
 
 달랩 홈페이지를 리뉴얼하고, 멘토링 2기 모집을 시작하고, 블로그를 시작했다.
 
-[달랩 블로그를 시작합니다](http://j.mp/2QfatsT)
+[달랩 블로그를 시작합니다](https://j.mp/2QfatsT)
 
 9월 21일 (토) ~ 11월 30일 (토) -
 [달랩 멘토링](https://bit.ly/2MkJKrJ) 2기
@@ -305,14 +307,14 @@ PyCon Korea 2019 라이트닝 토크 발표
 10월 15일 (화) ~ 11월 7일 (목) -
 [프로자백러](https://j.mp/35b7KpK) 1기
 
-[![회고](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/73159928_420740105231119_8291915633843177475_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=6leR-KnNMrMAX-mme4N&oh=9f3e58f17b21a874a20a125a4003d59c&oe=5E9BF71D)](http://j.mp/2QA07mm)
+[![회고](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/73159928_420740105231119_8291915633843177475_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=6leR-KnNMrMAX-mme4N&oh=9f3e58f17b21a874a20a125a4003d59c&oe=5E9BF71D)](https://j.mp/2QA07mm)
 
 10월 12일 (화) ~ 12월 5일 (목) -
 [프로자백러](https://j.mp/35b7KpK) 2기
 
 [프로자백러 2기를 모집합니다](https://j.mp/2NiQeJ4)
 
-[![회고](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/75487953_189802738731035_3985087645955140818_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=111&_nc_ohc=RJ7FbS4NNIUAX-80x3_&oh=d7cc9d6437651e15a2108781e68a169e&oe=5EB34C83)](http://j.mp/39yVHoz)
+[![회고](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/75487953_189802738731035_3985087645955140818_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=111&_nc_ohc=RJ7FbS4NNIUAX-80x3_&oh=d7cc9d6437651e15a2108781e68a169e&oe=5EB34C83)](https://j.mp/39yVHoz)
 
 10월 22일 (화) ~ 12월 17일 (화) -
 코딩 도장
@@ -415,10 +417,10 @@ PyCon Korea 2019 라이트닝 토크 발표
 
 [아샬의 2018년 회고](https://j.mp/2Ari9zI).
 
-“[개발자 회고 모음](http://j.mp/2tjY2CW)”이란 GitHub 저장소가 있다.
+“[개발자 회고 모음](https://j.mp/2tjY2CW)”이란 GitHub 저장소가 있다.
 다른 개발자들이 어떻게 살았고 무엇을 배웠는지 궁금하면 방문해서 살펴보자.
 
 ---
 
 - [아듀 2019!](https://adieu2019.ahastudio.com/)
-- 이전 글: [2019년 회고: 비전공자에서 개발자가 되기까지](http://j.mp/36gz7Pc)
+- 이전 글: [2019년 회고: 비전공자에서 개발자가 되기까지](https://j.mp/36gz7Pc)
