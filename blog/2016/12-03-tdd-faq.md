@@ -40,7 +40,7 @@ console.log((3).square()); // 9가 출력되는지 눈으로 확인한다.
 자동화된 단위 테스트 코드는 다음과 같습니다.
 
 ```javascript
-var assertEqual = function (e, a) {
+function assertEqual(e, a) {
     if (e !== a) {
         throw 'Test Fail!\nExpected: ' + e + '\nActual: ' + a;
     }
@@ -60,7 +60,7 @@ TDD는 인터페이스와 예제, 기대하는 결과를 먼저 작성하는 걸
 제곱을 구하는 프로그램을 JavaScript로 작성해 봅시다.
 
 ```javascript
-var assertEqual = function (e, a) {
+function assertEqual(e, a) {
     if (e !== a) {
         throw 'Test Fail!\nExpected: ' + e + '\nActual: ' + a;
     }
@@ -74,7 +74,7 @@ assertEqual(1, Math.square(1));
 맨 처음엔 `Math.square`가 없다고 에러를 냅니다. 재빨리 다음 코드를 작성합니다.
 
 ```javascript
-Math.square = function (x) {
+Math.square = (x) => {
     return 1;
 };
 
@@ -91,7 +91,7 @@ assertEqual(4, Math.square(2));
 실패하는 걸 볼 수 있고, 재빨리 다른 코드를 더합니다.
 
 ```javascript
-Math.square = function (x) {
+Math.square = (x) => {
     if (x === 2) {
         return 4;
     }
@@ -105,7 +105,7 @@ assertEqual(4, Math.square(2));
 “의도”를 드러냅니다. `4`는 어떤 의미죠? `2`의 제곱, 즉 `2 * 2`죠.
 
 ```javascript
-Math.square = function (x) {
+Math.square = (x) => {
     if (x === 2) {
         return 2 * 2;
     }
@@ -119,7 +119,7 @@ assertEqual(4, Math.square(2));
 `2`는 어디서 왔죠? 우리가 함수를 호출할 때 넘겨준 거죠.
 
 ```javascript
-Math.square = function (x) {
+Math.square = (x) => {
     if (x === 2) {
         return x * x;
     }
@@ -133,7 +133,7 @@ assertEqual(4, Math.square(2));
 혹시 `1`일 때도 동일하게 적용 가능할까요? `1`을 넣었을 때 `1`이 나온 이유도 살펴보죠.
 
 ```javascript
-Math.square = function (x) {
+Math.square = (x) => {
     if (x === 2) {
         return x * x;
     }
@@ -149,7 +149,7 @@ assertEqual(4, Math.square(2));
 `1`도 우리가 넘겨준 거였네요.
 
 ```javascript
-Math.square = function (x) {
+Math.square = (x) => {
     if (x === 2) {
         return x * x;
     }
@@ -165,9 +165,7 @@ assertEqual(4, Math.square(2));
 공통된 부분을 합치고(중복을 제거하고), 다른 예제도 통과하는지 확인합니다.
 
 ```javascript
-Math.square = function (x) {
-    return x * x;
-};
+Math.square = (x) => x * x;
 
 assertEqual(1, Math.square(1));
 assertEqual(4, Math.square(2));
@@ -185,9 +183,7 @@ assertEqual(1, (1).square());
 `square`란 함수가 없다고 하니 재빨리 더합니다.
 
 ```javascript
-Math.square = function (x) {
-    return x * x;
-};
+Math.square = (x) => x * x;
 
 assertEqual(1, Math.square(1));
 assertEqual(4, Math.square(2));
