@@ -648,3 +648,11 @@ test('sample', () => {
   expect(solve([5, 0, 2, 7])).toEqual([2, 5, 7, 9, 12]);
 });
 ```
+
+## BONUS
+
+좀더 일반적인 풀이가 궁금하시면
+[pytest 맛보기](https://www.youtube.com/watch?v=88qxXM3oI0w)
+영상을 참고하세요.
+TDD 등을 배울 때는 관련 자료를 글로 보는 것보다
+코딩 과정을 눈으로 확인하는 게 훨씬 효과적입니다.
