@@ -551,7 +551,7 @@ function solve(numbers) {
 }
 ```
 
-`slice`를 두번 쓰는 이유는 중간에 있는 값을 제거학기 위해서입니다.
+`slice`를 두번 쓰는 이유는 중간에 있는 값을 제거하기 위해서입니다.
 `removeAt` 함수를 만들어 보죠.
 
 ```javascript
