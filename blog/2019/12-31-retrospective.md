@@ -18,7 +18,7 @@
 [라스님과 짝 프로그래밍](https://j.mp/36hEcXM)을 한 게 좋았는데,
 그때 경험을 여러 번 반복해서 써먹었다.
 
-![아샬](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/47690735_365204310945007_1358622672881142583_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=GS76EEr_iiwAX8yM57h&oh=c2b3b699de47897326c8ce064df9e37f&oe=5EAE9E8A)
+[![아샬](./images/agilefest.jpg)](https://j.mp/3qOaPa9)
 
 1월 16일 (수) -
 \#강남미술관 - “마녀의 초대장” 전시 관람.
@@ -81,7 +81,7 @@ Git & GitHub, Docker, TDD, CI를 각자 독립적으로 다뤘지만
 ## 3월
 
 3월 6일 (수) -
-[달랩 멘토링](https://bit.ly/2MkJKrJ) 시작
+[달랩 멘토링](https://j.mp/2MkJKrJ) 시작
 
 이때 만든 페이스북 비공개 그룹이 지금까지 유용하게 쓰이고 있다.
 일단 커뮤니티가 만들어지고, 그 위에 무언가를 얹는 게 효과적인 것 같다.
@@ -134,7 +134,7 @@ DSA의 탈을 쓴 짝 프로그래밍과 TDD 수업이었다.
 
 프로그래밍하는 습관을 완전히 바꿀 수 있는 혁명적인 수업이었다고 자부한다.
 
-[![회고](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/59885009_466042357472130_1740988051151265784_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=106&_nc_ohc=GBfg-T8bHpgAX_BO8wt&oh=442aefe2ceb0bc5d3393113a252ea20a&oe=5E9602C0)](https://j.mp/2X4D05t)
+[![회고](./images/dsa.jpg)](https://j.mp/2X4D05t)
 
 4월 25일 (목) ~ 5월 30일 (목) -
 만들면서 배우는 블록체인
@@ -186,7 +186,7 @@ SASEUL Origin Conference
 6월 20일 (목) -
 우아한 객체지향 세미나 참석
 
-[![오브젝트](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s750x750/64609576_106773987174161_2224448477763663834_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=105&_nc_ohc=06Dmglznh4MAX_ezV_v&oh=93e6b696fe11d9650b04a579e44ba32c&oe=5E958BC2)](https://j.mp/2ZDExBu)
+[![오브젝트](./images/object.jpg)](https://j.mp/2ZDExBu)
 
 6월 21일 (금) ~ 7월 12일 (금) -
 Friday Night Training 2nd
@@ -307,14 +307,14 @@ PyCon Korea 2019 라이트닝 토크 발표
 10월 15일 (화) ~ 11월 7일 (목) -
 [프로자백러](https://j.mp/35b7KpK) 1기
 
-[![회고](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/73159928_420740105231119_8291915633843177475_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=6leR-KnNMrMAX-mme4N&oh=9f3e58f17b21a874a20a125a4003d59c&oe=5E9BF71D)](https://j.mp/2QA07mm)
+[![회고](./images/java-backend-01.jpg)](https://j.mp/2QA07mm)
 
 10월 12일 (화) ~ 12월 5일 (목) -
 [프로자백러](https://j.mp/35b7KpK) 2기
 
 [프로자백러 2기를 모집합니다](https://j.mp/2NiQeJ4)
 
-[![회고](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/75487953_189802738731035_3985087645955140818_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=111&_nc_ohc=RJ7FbS4NNIUAX-80x3_&oh=d7cc9d6437651e15a2108781e68a169e&oe=5EB34C83)](https://j.mp/39yVHoz)
+[![회고](./images/java-backend-02.jpg)](https://j.mp/39yVHoz)
 
 10월 22일 (화) ~ 12월 17일 (화) -
 코딩 도장
@@ -332,19 +332,19 @@ PyCon Korea 2019 라이트닝 토크 발표
 
 가벼운 마음으로 갔는데 이후 CTO가 됐다.
 
-[![헤이그라운드](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/72784224_554908418599659_1164399381297267310_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=103&_nc_ohc=Un5mOQaxYYEAX8yxxw2&oh=0dc6db94051eac8018e236565e15fb3f&oe=5EADB250)](https://j.mp/2F8Uxlv)
+[![헤이그라운드](./images/heyground.jpg)](https://j.mp/2F8Uxlv)
 
 11월 18일 (월) -
 [마이크로프로텍트](https://j.mp/microprotect)에 CTO로 합류
 
-[![길순이](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/74904228_1935298696614645_8723010168538151910_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=109&_nc_ohc=lYP1QWo-mZoAX-ImpII&oh=4af0df813914a8ba6671228faa773357&oe=5EA3F954)](https://j.mp/39yVhP1)
+[![길순이](./images/gilsoon.jpg)](https://j.mp/39yVhP1)
 
 11월 23일 (토) -
 마소콘 2019
 
 사람들을 만나는 건 언제나 즐거운 일이지!
 
-[![아샬](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/74339311_150497096304883_1512814441056634447_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=BycWqK0d9g8AX_IKWuI&oh=e2747439451a98032882474b73341103&oe=5E9FAE2A)](https://j.mp/2FcCaME)
+[![아샬](./images/masocon.jpg)](https://j.mp/2FcCaME)
 
 11월 30일 (토) -
 달랩 멘토링 모임 #7
@@ -356,22 +356,22 @@ PyCon Korea 2019 라이트닝 토크 발표
 
 ['세상에 하나뿐인 보험사'를 세상에 처음 공개하는 날](https://j.mp/2MHHvQ4)
 
-[![photo](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/75160874_543928423120906_7118413996895191570_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=110&_nc_ohc=RxzCKlwMo3EAX8zU_bC&oh=e24f32c5698871b999bd7647e150cf7d&oe=5EB19253)](https://j.mp/2Qf2qfG)
+[![photo](./images/microprotect-first-open.jpg)](https://j.mp/2Qf2qfG)
 
 12월 13일 (금) -
 데잇걸즈 데모데이
 
-[![수고하셨습니다](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/74967667_2625738494363790_1992704675854907249_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=106&_nc_ohc=pi8WEWtQjpoAX_hPAri&oh=1be7f08c3150bd39111887fa8639701a&oe=5EA6EC41)](https://j.mp/2EdDbU3)
+[![수고하셨습니다](./images/dataitgirls.jpg)](https://j.mp/2EdDbU3)
 
 12월 24일 (화) ~ 12월 25일 (수) -
 초콜릿파우더 크리스마스 파티
 
-[![아이스크림 케이크](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/75562960_241469110158079_5143918529881151932_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=9IzFqbZNxhQAX9KK6xR&oh=2d9c4efc1f20884a7989a09b9f1d2241&oe=5EA4E540)](https://j.mp/2SJNSpO)
+[![아이스크림 케이크](./images/christmas.jpg)](https://j.mp/2SJNSpO)
 
 12월 26일 (목) -
 달랩 멘토링 모임 #8 (송년회)
 
-[![photo](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/78820129_443215286557121_770246088165606378_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=105&_nc_ohc=QVa57yup4VwAX95Mha0&oh=795847e1dd5613e8e176cf706ef8419d&oe=5E99F701)](https://j.mp/36eMOyn)
+[![photo](./images/mentoring.jpg)](https://j.mp/36eMOyn)
 
 12월 27일 (금) -
 임프로그 홈커밍데이 참석
@@ -381,7 +381,7 @@ PyCon Korea 2019 라이트닝 토크 발표
 12월 28일 (토) -
 안녕 2019, 안녕 파이썬 2 참석
 
-[![photo](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/76884936_163431198353116_5599423534315310824_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=104&_nc_ohc=vhN-HiJCCIMAX8tSsl-&oh=81ee54c4f798ab178da66ff6c61d0458&oe=5EB40318)](https://j.mp/2SFod1D)
+[![photo](./images/python.jpg)](https://j.mp/2SFod1D)
 
 ## 개발자, 한 달에 책 한 권 읽기
 
@@ -398,7 +398,7 @@ PyCon Korea 2019 라이트닝 토크 발표
 - 11월 18일 (월) - “자바와 JUnit을 활용한 실용주의 단위 테스트”
 - 12월 23일 (월) - “심플 소프트웨어”
 
-![일일신우일신](https://scontent-icn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/50481269_370364803539958_4207834132796209928_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=110&_nc_ohc=3nh8Bmp_PhkAX-VVo5K&oh=10dfe7757e17eb79001a276f57328cbf&oe=5EA3C33B)
+![일일신우일신](https://instagram.ficn1-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/50481269_370364803539958_4207834132796209928_n.jpg?_nc_ht=scontent-icn1-1.cdninstagram.com&_nc_cat=110&_nc_ohc=3nh8Bmp_PhkAX-VVo5K&oh=10dfe7757e17eb79001a276f57328cbf&oe=5EA3C33B)
 
 ## 기업 강의 및 컨설팅
 
