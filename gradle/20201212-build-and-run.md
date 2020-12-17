@@ -1,5 +1,11 @@
 # Gradle로 프로젝트 빌드하고 실행하기
 
+- [아듀 2020!](https://adieu2020.ahastudio.com/)
+- 이전 글: [익스트림 프로그래밍 실천방법]
+- 다음 글: [클린 애자일 리뷰+]
+
+---
+
 Gradle을 이용해 프로젝트를 빌드하고 실행하는 방법을 정리했습니다.
 
 ## 프로젝트 만들고 확인하기
@@ -430,3 +436,9 @@ java -jar app/build/libs/fat-app.jar
 ## 소스 코드
 
 [https://github.com/ahastudio/CodingLife/tree/main/20201212/java](https://j.mp/3ndnQaT)
+
+---
+
+- [아듀 2020!](https://adieu2020.ahastudio.com/)
+- 이전 글: [익스트림 프로그래밍 실천방법]
+- 다음 글: [클린 애자일 리뷰+]

@@ -1,5 +1,11 @@
 # CodeceptJS 3 시작하기
 
+- [아듀 2020!](https://adieu2020.ahastudio.com/)
+- 이전 글: [Docker 컨테이너로 간단히 Python 개발 시작하기](https://j.mp/3mUGowl)
+- 다음 글: [Cypress 시작하기](https://j.mp/3gBwqOd)
+
+---
+
 테스트 코드 작성은 이제 올바르게 개발을 하는 조직에선
 상식으로 자리 잡았다고 생각합니다.
 어떤 걸 만들지 미리 정의하고, 올바르게 만들었는지 확인하고,
@@ -140,3 +146,9 @@ CodeceptJS의 가장 큰 장점은 JavaScript를 DSL처럼 활용하고 있기 �
 프로그래머가 아니라도 작성 또는 검토가 가능하다는 점입니다.
 누군가에게 완전히 떠넘기지 말고, 협력적으로 인수 테스트를 작성하면
 우리가 함께 만들고 있는 게 어떤 건지 명확히 공유할 수 있을 겁니다.
+
+---
+
+- [아듀 2020!](https://adieu2020.ahastudio.com/)
+- 이전 글: [Docker 컨테이너로 간단히 Python 개발 시작하기](https://j.mp/3mUGowl)
+- 다음 글: [Cypress 시작하기](https://j.mp/3gBwqOd)

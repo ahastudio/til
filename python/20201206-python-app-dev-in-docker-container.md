@@ -1,5 +1,11 @@
 # Docker 컨테이너로 간단히 Python 개발 시작하기
 
+- [아듀 2020!](https://adieu2020.ahastudio.com/)
+- 이전 글: [CORS에 대한 간단한 소개](https://j.mp/2JR0PvV)
+- 다음 글: [CodeceptJS 3 시작하기](https://j.mp/2JRdDT2)
+
+---
+
 ## 문제
 
 Mac OS X에서 [`pytest-watch`](https://github.com/joeyespo/pytest-watch)가 사용하는
@@ -126,3 +132,9 @@ echo "source venv/bin/activate" > _profile
 # 이제는 이 스크립트만 실행하면 됩니다.
 ./dev.sh
 ```
+
+---
+
+- [아듀 2020!](https://adieu2020.ahastudio.com/)
+- 이전 글: [CORS에 대한 간단한 소개](https://j.mp/2JR0PvV)
+- 다음 글: [CodeceptJS 3 시작하기](https://j.mp/2JRdDT2)
