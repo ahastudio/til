@@ -1,7 +1,7 @@
 # 익스트림 프로그래밍 실천방법
 
 - [아듀 2020!](https://adieu2020.ahastudio.com/)
-- 이전 글: [똑같이 “P”가 들어가지만 뜻이 다른 용어]
+- 이전 글: [똑같이 “P”가 들어가지만 뜻이 다른 용어](https://j.mp/3pmUAzc)
 - 다음 글: [클린 애자일 리뷰+]
 
 ---
@@ -10,8 +10,7 @@
 주로 익스트림 프로그래밍(XP)을 따르고 있습니다.
 여기선 XP의 실천방법을 거칠게 요약하겠습니다.
 
-![XP Practices](./images/xp-circles.jpg)
-(이미지 출처: [What is Extreme Programming?](https://j.mp/3aIsHNZ))
+<img src="./images/xp-circles.jpg" alt="XP Practices" width="360" />
 
 ## Business Practices
 
@@ -129,10 +128,11 @@
 
 ## 참고
 
+- 이미지 출처: [What is Extreme Programming?](https://j.mp/3aIsHNZ)
 - [Wikipedia:Extreme_programming_practices](https://j.mp/2Kulu9I)
 
 ---
 
 - [아듀 2020!](https://adieu2020.ahastudio.com/)
-- 이전 글: [똑같이 “P”가 들어가지만 뜻이 다른 용어]
+- 이전 글: [똑같이 “P”가 들어가지만 뜻이 다른 용어](https://j.mp/3pmUAzc)
 - 다음 글: [클린 애자일 리뷰+]
