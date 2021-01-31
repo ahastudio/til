@@ -10,8 +10,8 @@ const b = [...a, 4];
 ```
 
 ```javascript
-function push(xs, x) {
-  return [...xs, x];
+function push(xs, value) {
+  return [...xs, value];
 }
 ```
 
@@ -45,3 +45,43 @@ function pop(xs) {
   ];
 }
 ```
+
+## Remove (by value)
+
+```javascript
+const a = [1, 2, 3];
+const b = a.filter(i => i !== 2);
+```
+
+```javascript
+function remove(xs, value) {
+  return xs.filter(x => x !== value);
+}
+```
+
+## Remove (by index)
+
+```javascript
+const a = [1, 2, 3];
+const b = a.filter((_, i) => i !== 1);
+```
+
+```javascript
+function removeAt(xs, index) {
+  return xs.filter((_, i) => i !== index);
+}
+```
+
+또는
+
+```javascript
+const a = [1, 2, 3];
+const b = [...a.slice(0, 1), ...a.slice(1 + 1)];
+```
+
+```javascript
+function removeAt(xs, index) {
+  return [...a.slice(0, index), ...a.slice(index + 1)];
+}
+```
+
