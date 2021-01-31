@@ -85,3 +85,18 @@ function removeAt(xs, index) {
 }
 ```
 
+죽어도 `splice`를 쓰고 싶다면...
+
+```javascript
+const a = [1, 2, 3];
+const b = [...a];
+b.splice(1, 1);
+```
+
+```javascript
+function removeAt(xs, index) {
+  const clone = [...xs];
+  clone.splice(index, 1);
+  return clone;
+}
+```
