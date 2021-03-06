@@ -3,7 +3,7 @@
 ## Install
 
 ```bash
-brew install openjdk
+brew install openjdk gradle
 ```
 
 `~/.zprofile`
