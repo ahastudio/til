@@ -30,7 +30,7 @@ jobs:
         node-version: [12.x]
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Install dependencies
         run: npm ci
       - name: Lint
@@ -40,7 +40,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Deploy
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
@@ -49,4 +49,4 @@ jobs:
           FOLDER: dist
 ```
 
-예제: <https://github.com/microprotect/microprotect.com/blob/master/.github/workflows/ci.yml>
+예제: <https://github.com/microprotect/microprotect.com/blob/main/.github/workflows/ci.yml>
