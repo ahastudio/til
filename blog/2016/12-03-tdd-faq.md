@@ -1,16 +1,16 @@
-- [2016년 이상한모임 Advent Calendar](http://j.mp/1IEFJ77)
-- 이전 글: 12월 2일, [초심자가 타입 시스템에 대해 오해하는 몇 가지](http://j.mp/2gMvjfv)
-- 다음 글: 12월 4일, [서버리스 일 년간 약 판 회고](http://j.mp/2gvh2TJ)
+- [2016년 이상한모임 Advent Calendar](https://j.mp/3vfFcIf)
+- 이전 글: 12월 2일, [초심자가 타입 시스템에 대해 오해하는 몇 가지](https://j.mp/2gMvjfv)
+- 다음 글: 12월 4일, [서버리스 일 년간 약 판 회고](https://j.mp/2gvh2TJ)
 
 ---
 
 # 2016-12-03 - TDD FAQ
 
 ## 저자
-[@ahastudio](http://j.mp/1ea27KW) - 코딩의 신[神]. 게임과 웹 등 다양한 분야를 떠돌았고, 최근엔 Lean Startup과 Machine Learning을 공부하면서 가르치고 있습니다.
+[@ahastudio](https://j.mp/1ea27KW) - 코딩의 신[神]. 게임과 웹 등 다양한 분야를 떠돌았고, 최근엔 Lean Startup과 Machine Learning을 공부하면서 가르치고 있습니다.
 
 ## 시작하며
-2016년에도 [이상한모임 대림절 달력](http://j.mp/1IEFJ77)에 참여하게 되었습니다. 계속 몸 상태가 안 좋아서 또 급히 쓰게 됐네요.
+2016년에도 [이상한모임 대림절 달력](https://j.mp/3vfFcIf)에 참여하게 되었습니다. 계속 몸 상태가 안 좋아서 또 급히 쓰게 됐네요.
 
 무슨 글을 쓸까 고민하다가 뻔한 내용을 재탕하기로 했습니다. 기초적인 내용도 도움이 될 분이 계실 거라는 기대가 빗나가지 않길 바랍니다.
 
@@ -316,6 +316,6 @@ TDD는 필연적으로 더 많은 결정, 더 많은 대화, 더 많은 갈등�
 
 ---
 
-- [2016년 이상한모임 Advent Calendar](http://j.mp/1IEFJ77)
-- 이전 글: 12월 2일, [초심자가 타입 시스템에 대해 오해하는 몇 가지](http://j.mp/2gMvjfv)
-- 다음 글: 12월 4일, [서버리스 일 년간 약 판 회고](http://j.mp/2gvh2TJ)
+- [2016년 이상한모임 Advent Calendar](https://j.mp/3vfFcIf)
+- 이전 글: 12월 2일, [초심자가 타입 시스템에 대해 오해하는 몇 가지](https://j.mp/2gMvjfv)
+- 다음 글: 12월 4일, [서버리스 일 년간 약 판 회고](https://j.mp/2gvh2TJ)
