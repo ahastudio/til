@@ -30,3 +30,12 @@ module.exports = {
   // ...(중략...)
 };
 ```
+
+## 테스트를 멈추게 만드는 범인 찾기 (Ruby 스크립트)
+
+```
+Dir.glob('src/*.test.*').each do |name|
+  puts "\n\n*** Run test: #{name}"
+  system("npx jest --runInBand --detectOpenHandles #{name}")
+end
+```
