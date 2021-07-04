@@ -19,6 +19,8 @@ Github Actions 오픈소스 목록: <https://github-actions.netlify.app/>
 
 ## CI/CD
 
+### Front-end
+
 ```yaml
 name: CI
 on: [push, pull_request]
@@ -49,4 +51,6 @@ jobs:
           FOLDER: dist
 ```
 
-예제: <https://github.com/CodeSoom/cicd-example>
+### 예제
+
+<https://github.com/CodeSoom/cicd-example>
