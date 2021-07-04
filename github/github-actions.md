@@ -6,7 +6,7 @@
 
 저장소: <https://github.com/actions>
 
-Github Actions 오픈소스 목록: <https://github-actions.netlify.com/>
+Github Actions 오픈소스 목록: <https://github-actions.netlify.app/>
 
 ## Articles
 
@@ -49,4 +49,4 @@ jobs:
           FOLDER: dist
 ```
 
-예제: <https://github.com/microprotect/microprotect.com/blob/main/.github/workflows/ci.yml>
+예제: <https://github.com/CodeSoom/cicd-example>
