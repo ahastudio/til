@@ -66,7 +66,10 @@ jobs:
           cache-to: type=inline
 ```
 
-### GitHub Pages
+### Deploy to GitHub Pages
+
+GitHub Pages Deploy Action
+<https://github.com/marketplace/actions/deploy-to-github-pages>
 
 ```yaml
 name: CI
@@ -99,12 +102,11 @@ jobs:
 
       - name: Deploy
         if: github.ref == 'refs/heads/main'
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BASE_BRANCH: master
-          BRANCH: gh-pages
-          FOLDER: dist
+          branch: gh-pages
+          folder: dist
+          clean: false
 ```
 
 ### 예제
