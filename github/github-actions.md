@@ -21,14 +21,9 @@ Github Actions 오픈소스 목록: <https://github-actions.netlify.app/>
 
 ### Docker
 
-Introducing GitHub Container Registry
-<https://github.blog/2020-09-01-introducing-github-container-registry/>
-
-Working with the Container registry
-<https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry>
-
-Build and push Docker images
-<https://github.com/marketplace/actions/build-and-push-docker-images>
+- [Introducing GitHub Container Registry](https://github.blog/2020-09-01-introducing-github-container-registry/)
+- [Working with the Container registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
+- [Build and push Docker images](https://github.com/marketplace/actions/build-and-push-docker-images)
 
 ```yaml
 name: CI
@@ -68,8 +63,7 @@ jobs:
 
 ### Deploy to GitHub Pages
 
-GitHub Pages Deploy Action
-<https://github.com/marketplace/actions/deploy-to-github-pages>
+- [GitHub Pages Deploy Action](https://github.com/marketplace/actions/deploy-to-github-pages)
 
 ```yaml
 name: CI
