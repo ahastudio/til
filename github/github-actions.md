@@ -109,6 +109,6 @@ jobs:
           clean: false
 ```
 
-### 예제
+### 코드숨 CI/CD 예제 (by [한윤석](https://github.com/hannut91))
 
 <https://github.com/CodeSoom/cicd-example>
