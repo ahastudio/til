@@ -19,28 +19,84 @@ Github Actions 오픈소스 목록: <https://github-actions.netlify.app/>
 
 ## CI/CD
 
-### Front-end
+### Docker
+
+Introducing GitHub Container Registry
+<https://github.blog/2020-09-01-introducing-github-container-registry/>
+
+Working with the Container registry
+<https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry>
+
+Build and push Docker images
+<https://github.com/marketplace/actions/build-and-push-docker-images>
 
 ```yaml
 name: CI
+
 on: [push, pull_request]
+
 jobs:
   build:
-    runs-on: ubuntu-18.04
-    strategy:
-      matrix:
-        node-version: [12.x]
+    runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
+          password: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/ahastudio/demo:latest
+          cache-from: type=registry,ref=ghcr.io/ahastudio/demo:latest
+          cache-to: type=inline
+```
+
+### GitHub Pages
+
+```yaml
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Install dependencies
         run: npm ci
+
       - name: Lint
         run: npx eslint .
+
       - name: Run tests
         run: npm test
+
       - name: Build
         run: npm run build
+
       - name: Deploy
         if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@releases/v3
