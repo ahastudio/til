@@ -168,26 +168,6 @@ source venv/bin/activate
 앞에 `(venv)`가 붙는 걸 확인할 수 있다.
 가상 환경에서 나오고 싶다면 `deactivate`를 입력하면 된다.
 
-매번 `activate` 하는 게 귀찮다면
-[pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)를 사용하면 된다.
-이렇게 하면 해당 프로젝트에 `venv` 폴더가 필요 없지만
-`pyenv`의 버전으로 가상 환경이 추가된다는 점에 주의하자.
-
-```bash
-# 파이썬 3.7.2로 my-project-3.7.2 버전 생성
-pyenv virtualenv 3.7.2 my-project-3.7.2
-
-# 내가 만든 버전이 추가됐나 확인
-pyenv versions
-
-# 내가 만든 버전 사용
-pyenv local my-project-3.7.2
-```
-
-`PyCharm` 등의 IDE에서 해당 프로젝트를 사용할 때는
-올바른 버전 세팅이 오히려 귀찮을 수 있으니
-그냥 평범하게 `virtualenv`를 쓰는 게 나을 수도 있다.
-
 이제 가상 환경 안에서 독립적인 의존성 관리가 가능하다.
 
 ```bash
@@ -206,8 +186,6 @@ pip freeze | xargs pip uninstall -y
 # 라이브러리 설치
 pip install -r requirements.txt
 ```
-
-`pyenv-virtualenv`를 사용한다면 `README` 등에 어떻게 세팅하는지 꼭 써주자.
 
 ## pytest 설치
 
