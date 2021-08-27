@@ -87,7 +87,7 @@ docker run --rm -it \
 
 이제 `pytest`와 `pytest-watch`를 설치하고 잘 작동하는지 확인합니다.
 
-컨테이너 안에 다시 들억가서 설치해 봅시다.
+컨테이너 안에 다시 들어가서 설치해 봅시다.
 
 ```bash
 python -m pip install -U pip
