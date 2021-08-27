@@ -8,8 +8,8 @@
 
 ## 문제
 
-Mac OS X에서 [`pytest-watch`](https://github.com/joeyespo/pytest-watch)가 사용하는
-[`watchdog`](https://github.com/gorakhargosh/watchdog)이
+Mac OS X에서 [`pytest-watch`](https://j.mp/2WtCd2e)가 사용하는
+[`watchdog`](https://j.mp/3jm0Jvn)이
 올바르게 작동하지 않는 상황을 발견했습니다.
 
 ```bash
@@ -39,7 +39,7 @@ docker run --rm -it python:3.9 bash
 잘 되는 걸 확인했으니 본격적인 환경 설정에 들어갑시다.
 
 현재 폴더를 개발하는데 쓸 수 있도록
-[volume](https://docs.docker.com/storage/volumes/)을 추가해 봅니다.
+[volume](https://j.mp/3zibCUu)을 추가해 봅니다.
 컨테이너 안에서는 `/work` 폴더를 사용하도록 하고, working directory로 지정합니다.
 
 ```bash
@@ -49,23 +49,22 @@ docker run --rm -it \
     python:3.9 bash
 ```
 
-## Virtualenv
+## Virtual Environments
 
 컨테이너가 실행될 때마다 기존에 설치한 패키지 등이 모두 사라지므로
 현재 폴더에 패키지 등을 고스란히 남기기 위해
-[`virtualenv`](https://github.com/pypa/virtualenv)를 사용하겠습니다.
+[`venv`](https://j.mp/2Y1Hijj)를 사용하겠습니다.
 
-컨테이너 안에서 다음과 같이 `virtualenv`를 설치하고 `venv` 폴더를 만듭니다.
+컨테이너 안에서 다음과 같이 가상 환경을 위한 `.venv` 폴더를 만듭니다.
 
 ```bash
-pip install virtualenv
-virtualenv venv
+pyhton -m venv .venv
 ```
 
 격리된 가상 환경을 사용하려면 다음과 같이 해야 합니다.
 
 ```bash
-source venv/bin/activate
+source .venv/bin/activate
 ```
 
 Docker 컨테이너를 실행하고 매번 이걸 실행하는 건 불편한 것 같습니다.
@@ -73,7 +72,7 @@ Docker 컨테이너를 실행하고 매번 이걸 실행하는 건 불편한 것
 `_profile` 파일을 만들어서 컨테이너를 실행할 때 `.bashrc`로 사용하겠습니다.
 
 ```bash
-echo "source venv/bin/activate" > _profile
+echo "source .venv/bin/activate" > _profile
 ```
 
 ```bash
@@ -91,11 +90,11 @@ docker run --rm -it \
 컨테이너 안에 다시 들억가서 설치해 봅시다.
 
 ```bash
-pip install -U pip
-pip install pytest pytest-watch
+python -m pip install -U pip
+python -m pip install pytest pytest-watch
 ```
 
-컨테이너에서 나갔다가 다시 컨텡이너에 들어가서 잘 되는지 확인합니다.
+컨테이너에서 나갔다가 다시 컨테이너에 들어가서 잘 되는지 확인합니다.
 
 ```bash
 pytest
@@ -118,8 +117,8 @@ echo -e "docker run --rm -it \\
     python:3.9 bash" > dev.sh
 chmod +x dev.sh
 
-# Virtualenv를 위한 임시 세팅
-echo "pip install virtualenv && virtualenv venv" > _profile
+# Virtual Environments를 위한 임시 세팅
+echo "pyhton -m venv .venv" > _profile
 ./dev.sh
 
 # 컨테이너에서 바로 빠져나옵니다
@@ -127,7 +126,7 @@ exit
 ########################
 
 # 제대로 된 환경 세팅
-echo "source venv/bin/activate" > _profile
+echo "source .venv/bin/activate" > _profile
 
 # 이제는 이 스크립트만 실행하면 됩니다.
 ./dev.sh
