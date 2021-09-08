@@ -6,7 +6,11 @@
 
 저장소: <https://github.com/actions>
 
-Github Actions 오픈소스 목록: <https://github-actions.netlify.app/>
+Github Actions 오픈소스 목록:
+<https://github-actions.netlify.app/>
+
+Awesome Actions:
+<https://github.com/sdras/awesome-actions>
 
 ## Articles
 
