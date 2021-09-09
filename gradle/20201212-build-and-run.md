@@ -1,7 +1,7 @@
 # Gradle로 프로젝트 빌드하고 실행하기
 
 - [아듀 2020!](https://adieu2020.ahastudio.com/)
-- 이전 글: [익스트림 프로그래밍 실천방법]
+- 이전 글: [익스트림 프로그래밍 실천방법](https://j.mp/3pmUxn0)
 - 다음 글: [클린 애자일 리뷰+]
 
 ---
@@ -440,5 +440,5 @@ java -jar app/build/libs/fat-app.jar
 ---
 
 - [아듀 2020!](https://adieu2020.ahastudio.com/)
-- 이전 글: [익스트림 프로그래밍 실천방법]
+- 이전 글: [익스트림 프로그래밍 실천방법](https://j.mp/3pmUxn0)
 - 다음 글: [클린 애자일 리뷰+]
