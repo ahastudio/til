@@ -11,3 +11,7 @@ Shields.io: Quality metadata badges for open source projects
 ## Code Review
 
 [Ignore white space in code review | The GitHub Blog](https://github.blog/2018-05-01-ignore-white-space-in-code-review/)
+
+## GitHub Virtual Meetup
+
+[GitHub Virtual Meetup: in Korea](https://j.mp/3Ec6DHY)
