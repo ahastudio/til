@@ -117,4 +117,9 @@ jobs:
 
 ### 코드숨 CI/CD 예제 (by [한윤석](https://github.com/hannut91))
 
-<https://github.com/CodeSoom/cicd-example>
+[https://github.com/CodeSoom/cicd-example](https://j.mp/3zYw90K)
+
+사용된 Actions:
+- [Checkout](https://github.com/actions/checkout)
+- [setup-node](https://github.com/actions/setup-node)
+- [SSH Remote Commands](https://github.com/marketplace/actions/ssh-remote-commands)
