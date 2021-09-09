@@ -30,6 +30,8 @@ Awesome Actions:
 
 - [Introducing GitHub Container Registry](https://github.blog/2020-09-01-introducing-github-container-registry/)
 - [Working with the Container registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
+
+GitHub Marketplace:
 - [Build and push Docker images](https://github.com/marketplace/actions/build-and-push-docker-images)
 
 ```yaml
@@ -68,9 +70,12 @@ jobs:
           cache-to: type=inline
 ```
 
-### Deploy to GitHub Pages
+### GitHub Pages
 
-- [GitHub Pages Deploy Action](https://github.com/marketplace/actions/deploy-to-github-pages)
+GitHub Marketplace:
+- [GitHub Pages action](https://github.com/marketplace/actions/github-pages-action)
+- [Deploy to GitHub Pages](https://github.com/marketplace/actions/deploy-to-github-pages) (아래 예제에서 사용)
+- [GH Pages deploy](https://github.com/marketplace/actions/gh-pages-deploy)
 
 ```yaml
 name: CI
