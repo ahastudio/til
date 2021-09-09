@@ -6,6 +6,9 @@
 
 저장소: <https://github.com/actions>
 
+Quickstart for GitHub Actions:
+<https://docs.github.com/en/actions/quickstart>
+
 Github Actions 오픈소스 목록:
 <https://github-actions.netlify.app/>
 
