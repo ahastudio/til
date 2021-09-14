@@ -39,12 +39,12 @@ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer 
 
 ### Mac 사용자, Linux 사용자 공통
 
-Mac, Linux 사용자 모두 `.bash_profile` 등에 다음을 포함시킨다.
+Mac, Linux 사용자 모두 홈 디렉터리의 `.bash_profile`(또는 `.zprofile`)에 다음을 포함시킨다.
 
 ```bash
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
 ```
 
 만약 컴퓨터에 익숙하지 않다면 그냥 다음과 같이 입력하면 된다.
@@ -53,7 +53,7 @@ eval "$(pyenv init -)"
 echo '
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
 ' >> ~/.bash_profile
 
 source ~/.bash_profile
