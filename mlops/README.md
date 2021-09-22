@@ -27,6 +27,5 @@ MLOps-Basics
 
 ---
 
-<https://mlops-github.com/>
-
-<https://mlops.githubapp.com/>
+MLOpsKR YouTube
+<https://www.youtube.com/channel/UC-h50KWXerxYMDMGSMbGR2Q/videos>
