@@ -15,6 +15,12 @@
 
 <https://github.com/cometkim/rescript-ink>
 
+## Start with ReScript Project Template
+
+```bash
+npx degit https://github.com/rescript-lang/rescript-project-template
+```
+
 ## 처음 시작하는 사람을 위한 ReScript 프로젝트
 
 <https://github.com/ChangJoo-Park/rescript-example-for-starter>
