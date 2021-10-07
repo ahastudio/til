@@ -6,6 +6,8 @@
 
 ## `compile`과 `runtime` 제거
 
+`implementation`과 `runtimeOnly`로 변경하세요.
+
 <https://docs.gradle.org/7.0/userguide/upgrading_version_6.html#sec:configuration_removal>
 
 <https://github.com/jwtk/jjwt/pull/664>
