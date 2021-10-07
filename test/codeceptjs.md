@@ -1,9 +1,9 @@
 # CodeceptJS
 
-Effective End 2 End Testing for NodeJS
+> Supercharged End 2 End Testing Framework for NodeJS
 
 - <https://codecept.io/>
-- <https://github.com/Codeception/CodeceptJS>
+- <https://github.com/codeceptjs/CodeceptJS>
 
 ## Puppeteer Chrome Window Size
 
