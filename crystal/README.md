@@ -1,8 +1,13 @@
 # The Crystal Programming Language
 
+공식 웹사이트:
 <https://crystal-lang.org/>
 
+GitHub 저장소:
 <https://github.com/crystal-lang/crystal>
+
+Crysta Book 한국어판:
+<https://kr.crystal-lang.org/>
 
 ## `CrystalShards.org`
 
