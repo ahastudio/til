@@ -24,6 +24,10 @@ Awesome Actions:
 - [How to use GitHub Actions in GitKraken](https://support.gitkraken.com/git-workflows-and-extensions/github-actions/)
 - [An Unintentionally Comprehensive Introduction to GitHub Actions CI - DEV Community 👩‍💻👨‍💻](https://dev.to/bnb/an-unintentionally-comprehensive-introduction-to-github-actions-ci-blm)
 
+## Simple Example
+
+<https://github.com/ahastudio/github-actions-example>
+
 ## CI/CD
 
 ### Docker
