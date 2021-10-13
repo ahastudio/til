@@ -4,6 +4,12 @@
 
 <https://github.com/lua/lua>
 
+## LuaRocks
+
+<https://luarocks.org/>
+
+<https://github.com/luarocks/luarocks>
+
 ## LuaJIT
 
 <https://luajit.org/>
