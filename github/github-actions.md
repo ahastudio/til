@@ -23,6 +23,7 @@ Awesome Actions:
 - [Trying GitHub Actions | Better world by better software](https://glebbahmutov.com/blog/trying-github-actions/)
 - [How to use GitHub Actions in GitKraken](https://support.gitkraken.com/git-workflows-and-extensions/github-actions/)
 - [An Unintentionally Comprehensive Introduction to GitHub Actions CI - DEV Community 👩‍💻👨‍💻](https://dev.to/bnb/an-unintentionally-comprehensive-introduction-to-github-actions-ci-blm)
+- [GitHub Actions 워크플로우의 승인 기능 사용하기](https://blog.outsider.ne.kr/1556)
 
 ## Simple Example
 
