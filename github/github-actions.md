@@ -37,6 +37,7 @@ Awesome Actions:
 - [Working with the Container registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
 
 GitHub Marketplace:
+
 - [Build and push Docker images](https://github.com/marketplace/actions/build-and-push-docker-images)
 
 ```yaml
@@ -78,6 +79,7 @@ jobs:
 ### GitHub Pages
 
 GitHub Marketplace:
+
 - [GitHub Pages action](https://github.com/marketplace/actions/github-pages-action)
 - [Deploy to GitHub Pages](https://github.com/marketplace/actions/deploy-to-github-pages) (아래 예제에서 사용)
 - [GH Pages deploy](https://github.com/marketplace/actions/gh-pages-deploy)
@@ -122,9 +124,12 @@ jobs:
 
 ### 코드숨 CI/CD 예제 (by [한윤석](https://github.com/hannut91))
 
+[코드숨 CI/CD 세미나](https://j.mp/3j3qe4d)
+
 [https://github.com/CodeSoom/cicd-example](https://j.mp/3zYw90K)
 
 사용된 Actions:
+
 - [Checkout](https://github.com/actions/checkout)
 - [setup-node](https://github.com/actions/setup-node)
 - [SSH Remote Commands](https://github.com/marketplace/actions/ssh-remote-commands)

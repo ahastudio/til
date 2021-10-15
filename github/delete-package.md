@@ -1,8 +1,9 @@
 # Delete package
 
-Delete the package at the top of the versions list from Github Package Registry.
+Delete the package at the top of the versions list
+from Github Package Registry.
 
-<https://github.com/user/repo/packages/0000/versions>
+`https://github.com/user/repo/packages/0000/versions`
 
 ```javascript
 document.querySelector('.btn-danger').click();
