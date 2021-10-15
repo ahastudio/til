@@ -117,6 +117,8 @@
     지금은 생각이 더 필요할 겁니다.
     혼자서 어렵다면? 동료와 함께 합니다.
 
+    참고: [TDD FAQ](https://github.com/ahastudio/til/blob/main/blog/2016/12-03-tdd-faq.md)
+
 1. Refactoring
 
     나쁜 조직은 시간이 지날수록 모든 게 복잡해집니다.
