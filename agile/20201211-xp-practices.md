@@ -6,8 +6,7 @@
 
 ---
 
-[마이크로프로텍트](https://j.mp/2zbAZx7)는
-주로 익스트림 프로그래밍(XP)을 따르고 있습니다.
+저는 주로 익스트림 프로그래밍(XP)을 따르고 있습니다.
 여기선 XP의 실천방법을 거칠게 요약하겠습니다.
 
 <img src="./images/xp-circles.jpg" alt="XP Practices" width="360" />
