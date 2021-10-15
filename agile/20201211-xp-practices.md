@@ -58,7 +58,7 @@
     단 하나의 `main` 브랜치를 중심으로 관리하고,
     [`develop` 등 다른 꼼수를 사용하지 않습니다](https://github.com/ahastudio/til/blob/main/git/github-flow.md).
     자동화된 테스트를 통해 최대한 미리 검증하려고 노력하고,
-    그 결과는 손쉽게 실제 제품/서비스에 반영돼야 합니다.
+    [그 결과는 손쉽게 실제 제품/서비스에 반영돼야 합니다](https://github.com/ahastudio/til/tree/main/devops).
 
 1. Collective Ownership
 
