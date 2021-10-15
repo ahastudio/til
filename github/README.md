@@ -10,8 +10,17 @@ Shields.io: Quality metadata badges for open source projects
 
 ## Code Review
 
-[Ignore white space in code review | The GitHub Blog](https://github.blog/2018-05-01-ignore-white-space-in-code-review/)
+[Ignore white space in code review | The GitHub Blog](https://j.mp/3FOLSTl)
 
 ## GitHub Virtual Meetup
 
 [GitHub Virtual Meetup: in Korea](https://j.mp/3Ec6DHY)
+
+## GitHub Actions for MLOps
+
+[Using GitHub Actions for MLOps & Data Science | The GitHub Blog](https://j.mp/3FGMIS2)
+
+## Machine Learning Ops
+
+- <https://mlops-github.com/>
+- <https://mlops.githubapp.com/>
