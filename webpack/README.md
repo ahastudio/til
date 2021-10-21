@@ -10,3 +10,8 @@
 
 Zero-configuration
 → [Poi](https://github.com/ahastudio/til/blob/main/webpack/poi.md)
+
+## Optimization
+
+Most popular mistake to ruin Webpack bundle optimization
+<https://codecrumbs.io/library/most-popular-mistake-webpack>

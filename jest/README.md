@@ -1,11 +1,16 @@
 # Jest · 🃏 Delightful JavaScript Testing
 
-- <https://jestjs.io/>
-- <https://github.com/facebook/jest>
+<https://jestjs.io/>
+
+<https://github.com/facebook/jest>
 
 ## Awesome Jest
 
 <https://github.com/jest-community/awesome-jest>
+
+## `jest-extended` - Additional Jest matchers
+
+<https://github.com/jest-community/jest-extended>
 
 ## Jest Plugins
 
@@ -33,7 +38,7 @@ module.exports = {
 
 ## 테스트를 멈추게 만드는 범인 찾기 (Ruby 스크립트)
 
-```
+```ruby
 Dir.glob('src/*.test.*').each do |name|
   puts "\n\n*** Run test: #{name}"
   system("npx jest --runInBand --detectOpenHandles #{name}")
