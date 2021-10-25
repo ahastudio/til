@@ -1,7 +1,8 @@
 # Planning Poker
 
-Planning Poker: An Agile Estimating and Planning Technique
-<https://www.mountaingoatsoftware.com/agile/planning-poker>
+[Planning Poker: An Agile Estimating and Planning Technique](https://www.mountaingoatsoftware.com/agile/planning-poker)
+
+[A brief overview of planning poker - Work Life by Atlassian](https://www.atlassian.com/blog/platform/a-brief-overview-of-planning-poker)
 
 ## 온라인 도구
 

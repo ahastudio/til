@@ -11,3 +11,10 @@ User Story Template Advantages
 
 “As a, I want, So that” Considered Harmful
 <https://blog.crisp.se/2014/09/25/david-evans/as-a-i-want-so-that-considered-harmful>
+
+## 스토리 포인트 추정
+
+[What are story points and how do you estimate them?](https://www.atlassian.com/agile/project-management/estimation)
+
+Planning Poker:
+<https://github.com/ahastudio/til/blob/main/agile/planning-poker.md>
