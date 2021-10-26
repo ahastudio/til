@@ -18,7 +18,7 @@
 [라스님과 짝 프로그래밍](https://j.mp/36hEcXM)을 한 게 좋았는데,
 그때 경험을 여러 번 반복해서 써먹었다.
 
-[![아샬](./images/agilefest.jpg)](https://j.mp/3qOaPa9)
+[<img src="./images/agilefest.jpg" width="200" alt="아샬" />](https://j.mp/3qOaPa9)
 
 1월 16일 (수) -
 \#강남미술관 - “마녀의 초대장” 전시 관람.
@@ -26,12 +26,12 @@
 책이 날아다니는 것처럼 연출된 곳이 있어서 거기서 찍은 사진을 한동안 프로필 사진으로 사용했는데,
 사람들이 어떻게 찍은 거냐고 자주 물어봤다.
 
-![아샬](https://pbs.twimg.com/media/DxFrJFaUcAA47SB?format=jpg)
+<img src="https://pbs.twimg.com/media/DxFrJFaUcAA47SB?format=jpg" width="200" alt="아샬" />
 
 1월 18일 (금) -
 “[코딩의 신 아샬](https://j.mp/2zQxElp)” 유튜브 채널 구독자 5천 명 돌파.
 
-![screenshot](https://pbs.twimg.com/media/DxM1La_VYAUJ0Ic?format=jpg)
+<img src="https://pbs.twimg.com/media/DxM1La_VYAUJ0Ic?format=jpg" width="200" alt="Screenshot" />
 
 1월 22일 (화) -
 GDG Seoul New years Meetup -
@@ -60,7 +60,7 @@ Git & GitHub, Docker, TDD, CI를 각자 독립적으로 다뤘지만
 2월 9일 (토) -
 2019년 신년회 “자 이제 시작이야”
 
-![card](https://yt3.ggpht.com/ZNz49xKpwCeb9WEAKwowgLwHBEAc8ef3Z6iiubUktIxRabuWkwQ3au2VeBAC4p1XHxDjdwUmWgZ6_RU=s1024-nd)
+<img src="https://yt3.ggpht.com/ZNz49xKpwCeb9WEAKwowgLwHBEAc8ef3Z6iiubUktIxRabuWkwQ3au2VeBAC4p1XHxDjdwUmWgZ6_RU=s1024-nd" width="200" alt="Card" />
 
 2월 10일 (일) -
 달랩 멘토링 1기 모집
@@ -76,7 +76,7 @@ Git & GitHub, Docker, TDD, CI를 각자 독립적으로 다뤘지만
 
 멘티 모집을 하면서 [달랩 홈페이지](https://j.mp/2DvViVs)를 처음으로 공개했다.
 
-![card](https://yt3.ggpht.com/L286hXSTUqjf3TroI6ewPcLf7mpoECbSs2NmuPRTAC44tEQOjdAHQVfUIiAQm5xIC0pMwxhvcGm-Rzw=s700-nd)
+<img src="https://yt3.ggpht.com/L286hXSTUqjf3TroI6ewPcLf7mpoECbSs2NmuPRTAC44tEQOjdAHQVfUIiAQm5xIC0pMwxhvcGm-Rzw=s700-nd" width="200" alt="Card" />
 
 ## 3월
 
@@ -94,14 +94,14 @@ Git & GitHub, Docker, TDD, CI를 각자 독립적으로 다뤘지만
 
 내가 내 노래에 취하는 게 이상할 수 있겠지만, 정말 좋다.
 
-[![cover](https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/04/b7/f5/04b7f5cf-0336-f0fd-8846-25621d795066/asset.jpg/313x0w.jpg)](https://j.mp/2QC0pJh)
+[<img src="https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/04/b7/f5/04b7f5cf-0336-f0fd-8846-25621d795066/asset.jpg/313x0w.jpg" width="200" alt="Cover" />](https://j.mp/2QC0pJh)
 
 3월 9일 (토) -
 iMac Pro 언박싱
 
 2년 할부로 구입한 달래님의 iMac Pro를 개봉했다.
 
-[![iMac Pro 개봉기](https://img.youtube.com/vi/reylbyk04eU/maxresdefault.jpg)](https://j.mp/2QdlQ4h)
+[<img src="https://img.youtube.com/vi/reylbyk04eU/maxresdefault.jpg" width="300" alt="iMac Pro 개봉기" />](https://j.mp/2QdlQ4h)
 
 3월 13일 (수) ~ 4월 15일 (수) -
 학습신공
@@ -163,14 +163,14 @@ Spring은 실무에서 안 쓴지 좀 됐기 때문이다.
 
 나도 중학생 때 내가 읽은 책 저자를 찾아가서 인터뷰를 했던 기억이 생생하다.
 
-[![thumbnail](https://img.youtube.com/vi/6vYeji7A3u8/maxresdefault.jpg)](https://j.mp/39s5ZGM)
+[<img src="https://img.youtube.com/vi/6vYeji7A3u8/maxresdefault.jpg" width="300" alt="thumbnail" />](https://j.mp/39s5ZGM)
 
 5월 22일 (수) -
 SASEUL Origin Conference
 
 [초보자를 위한 블록체인의 기반 기술 설명](https://j.mp/2ST8D2H)
 
-![아샬](https://yt3.ggpht.com/yCoSelqfoJ6d9l07ExOS1PrB2ce6zsiUVRqsrkKtVKqlU7tsmA8jw5Or1Q40kd70LhuJQVUqV2xcpw=s1600-nd)
+<img src="https://yt3.ggpht.com/yCoSelqfoJ6d9l07ExOS1PrB2ce6zsiUVRqsrkKtVKqlU7tsmA8jw5Or1Q40kd70LhuJQVUqV2xcpw=s1600-nd" width="300" alt="아샬" />
 
 ## 6월
 
@@ -186,7 +186,7 @@ SASEUL Origin Conference
 6월 20일 (목) -
 우아한 객체지향 세미나 참석
 
-[![오브젝트](./images/object.jpg)](https://j.mp/2ZDExBu)
+[<img src="./images/object.jpg" width="200" alt="오브젝트 저자 싸인" />](https://j.mp/2ZDExBu)
 
 6월 21일 (금) ~ 7월 12일 (금) -
 Friday Night Training 2nd
@@ -196,12 +196,12 @@ Friday Night Training 2nd
 
 [Fast Campus 올인원 패키지 자바 웹 개발](https://j.mp/2ZSHzAO)
 
-![screenshot](https://yt3.ggpht.com/oMbO_fWkG_ydZLlF-vkPyw2X5MNhBp__KMUKTwwUOCQGiOI4eLyXKqrV6j9ixkD3rBMT21Om_FDwiA=s1024-nd)
+<img src="https://yt3.ggpht.com/oMbO_fWkG_ydZLlF-vkPyw2X5MNhBp__KMUKTwwUOCQGiOI4eLyXKqrV6j9ixkD3rBMT21Om_FDwiA=s1024-nd" width="300" alt="Screenshot" />
 
 6월 29일 (토) -
 Spring Seoul 참가
 
-[![스프린트 서울 후기](https://img.youtube.com/vi/a_zCy0qg7Qk/maxresdefault.jpg)](https://j.mp/37phv3W)
+[<img src="https://img.youtube.com/vi/a_zCy0qg7Qk/maxresdefault.jpg" width="300" alt="스프린트 서울 후기" />](https://j.mp/37phv3W)
 
 ## 7월
 
@@ -213,7 +213,7 @@ Spring Seoul 참가
 
 하지만 유튜브를 통해서 많은 기회를 얻었고, 많은 걸 배울 수 있었다.
 
-![screenshot](https://pbs.twimg.com/media/D-WrJXvUcAAhXsD?format=jpg)
+<img src="https://pbs.twimg.com/media/D-WrJXvUcAAhXsD?format=jpg" width="300" alt="Screenshot" />
 
 7월 4일 (목) -
 짝 작업 몰입 워크샵
@@ -228,7 +228,7 @@ Clean Code를 작성하기 위해 Feedback이 필요하다는 점과
 
 관심 있는 회사는 [달랩에 문의](https://j.mp/2FbFJT6)하시라.
 
-[![코딩의 이해](https://cdn.slidesharecdn.com/ss_thumbnails/20190708coding-191006180952-thumbnail-3.jpg)](https://j.mp/2r5PtKU)
+[<img src="https://cdn.slidesharecdn.com/ss_thumbnails/20190708coding-191006180952-thumbnail-3.jpg" width="300" alt="코딩의 이해" />](https://j.mp/2r5PtKU)
 
 7월 16일 (화) ~ 11월 11일 (월) -
 달랩 멘토링 짝 프로그래밍
@@ -246,7 +246,7 @@ Clean Code를 작성하기 위해 Feedback이 필요하다는 점과
 
 정말 많은 걸 배우고 느낄 수 있는 시간이었습니다.
 
-![명탐정](https://yt3.ggpht.com/pAU8k4vXjAZgh_i5_h0bfk9FbS3AXo4nzevJvKLEXvUrwKrBTzT4i4NP8J40fKqJL9MhPAMcjS_Z4Os=s1600-nd)
+<img src="https://yt3.ggpht.com/pAU8k4vXjAZgh_i5_h0bfk9FbS3AXo4nzevJvKLEXvUrwKrBTzT4i4NP8J40fKqJL9MhPAMcjS_Z4Os=s1600-nd" width="200" alt="명탐정" />
 
 7월 17일 (수) ~ 10월 30일 (수) -
 GOOSGBT 온라인 스터디
@@ -261,7 +261,7 @@ GOOSGBT 온라인 스터디
 8월 17일 (토) -
 PyCon Korea 2019 라이트닝 토크 발표
 
-![빠르게 기술을 습득하는 비법](https://yt3.ggpht.com/MbU-qP7rYmxz399xT3LmBMmF5y8AsvzeQBPAgUhfZEaL1WGlq_1kNX6P107BdiaemkpUnDEIHKpgXw=s1600-nd)
+<img src="https://yt3.ggpht.com/MbU-qP7rYmxz399xT3LmBMmF5y8AsvzeQBPAgUhfZEaL1WGlq_1kNX6P107BdiaemkpUnDEIHKpgXw=s1600-nd" width="200" alt="빠르게 기술을 습득하는 비법" />
 
 8월 24일 (토) -
 “TDD로 프론트엔드 개발하기” 세미나
@@ -332,19 +332,19 @@ PyCon Korea 2019 라이트닝 토크 발표
 
 가벼운 마음으로 갔는데 이후 CTO가 됐다.
 
-[![헤이그라운드](./images/heyground.jpg)](https://j.mp/2F8Uxlv)
+[<img src="./images/heyground.jpg" width="200" alt="헤이그라운드" />](https://j.mp/2F8Uxlv)
 
 11월 18일 (월) -
 [마이크로프로텍트](https://j.mp/microprotect)에 CTO로 합류
 
-[![길순이](./images/gilsoon.jpg)](https://j.mp/39yVhP1)
+[<img src="./images/gilsoon.jpg" width="200" alt="길순이" />](https://j.mp/39yVhP1)
 
 11월 23일 (토) -
 마소콘 2019
 
 사람들을 만나는 건 언제나 즐거운 일이지!
 
-[![아샬](./images/masocon.jpg)](https://j.mp/2FcCaME)
+[<img src="./images/masocon.jpg" width="200" alt="아샬" />](https://j.mp/2FcCaME)
 
 11월 30일 (토) -
 달랩 멘토링 모임 #7
@@ -356,22 +356,22 @@ PyCon Korea 2019 라이트닝 토크 발표
 
 ['세상에 하나뿐인 보험사'를 세상에 처음 공개하는 날](https://j.mp/2MHHvQ4)
 
-[![photo](./images/microprotect-first-open.jpg)](https://j.mp/2Qf2qfG)
+[<img src="./images/microprotect-first-open.jpg" width="200" alt="photo" />](https://j.mp/2Qf2qfG)
 
 12월 13일 (금) -
 데잇걸즈 데모데이
 
-[![수고하셨습니다](./images/dataitgirls.jpg)](https://j.mp/2EdDbU3)
+[<img src="./images/dataitgirls.jpg" width="200" alt="수고하셨습니다" />](https://j.mp/2EdDbU3)
 
 12월 24일 (화) ~ 12월 25일 (수) -
 초콜릿파우더 크리스마스 파티
 
-[![아이스크림 케이크](./images/christmas.jpg)](https://j.mp/2SJNSpO)
+[<img src="./images/christmas.jpg" width="200" alt="아이스크림 케이크" />](https://j.mp/2SJNSpO)
 
 12월 26일 (목) -
 달랩 멘토링 모임 #8 (송년회)
 
-[![photo](./images/mentoring.jpg)](https://j.mp/36eMOyn)
+[<img src="./images/mentoring.jpg" width="200" alt="photo" />](https://j.mp/36eMOyn)
 
 12월 27일 (금) -
 임프로그 홈커밍데이 참석
@@ -381,7 +381,7 @@ PyCon Korea 2019 라이트닝 토크 발표
 12월 28일 (토) -
 안녕 2019, 안녕 파이썬 2 참석
 
-[![photo](./images/python.jpg)](https://j.mp/2SFod1D)
+[<img src="./images/python.jpg" width="200" alt="photo" />](https://j.mp/2SFod1D)
 
 ## 개발자, 한 달에 책 한 권 읽기
 
