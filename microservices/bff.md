@@ -2,4 +2,6 @@
 
 [The Back-end for Front-end Pattern (BFF) by Phil Calçado (Sep 18, 2015)](https://j.mp/3imGgWg)
 
-[BFF @ SoundCloud | Thoughtworks](https://www.thoughtworks.com/insights/blog/bff-soundcloud)
+[BFF @ SoundCloud | Thoughtworks](https://j.mp/3pzDXnk)
+
+![Evolution of BFF](https://www.thoughtworks.com/content/dam/thoughtworks/images/photography/inline-image/insights/blog/frontend/blg_inline_bff_soundcloud_03.png)
