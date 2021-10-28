@@ -93,13 +93,14 @@ jobs:
   build:
     runs-on: ubuntu-18.04
 
-    strategy:
-      matrix:
-        node-version: [12.x]
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
       - name: Install dependencies
         run: npm ci
@@ -108,14 +109,31 @@ jobs:
         run: npx eslint .
 
       - name: Run tests
-        run: npm test
+        run: npx jest
 
       - name: Build
         run: npm run build
 
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-18.04
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Download production artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist/
+
       - name: Deploy
-        if: github.ref == 'refs/heads/main'
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages
           folder: dist
