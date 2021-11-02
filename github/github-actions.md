@@ -35,6 +35,8 @@ Awesome Actions:
 
 - [Introducing GitHub Container Registry](https://github.blog/2020-09-01-introducing-github-container-registry/)
 - [Working with the Container registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
+- [Publishing and installing a package with GitHub Actions - GitHub Docs](https://docs.github.com/en/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)
+- [Publishing Docker images](https://docs.github.com/en/actions/publishing-packages/publishing-docker-images)
 
 GitHub Marketplace:
 
@@ -45,34 +47,32 @@ name: CI
 
 on: [push, pull_request]
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-
-      - name: Login to GitHub Container Registry
+      - name: Log in to the Container registry
         uses: docker/login-action@v1
         with:
-          registry: ghcr.io
-          username: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
-          password: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
-
-      - name: Build and push
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: ghcr.io/ahastudio/demo:latest
-          cache-from: type=registry,ref=ghcr.io/ahastudio/demo:latest
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           cache-to: type=inline
 ```
 
@@ -92,46 +92,36 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-18.04
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14'
-
       - name: Install dependencies
         run: npm ci
-
       - name: Lint
         run: npx eslint .
-
       - name: Run tests
         run: npx jest
-
       - name: Build
         run: npm run build
-
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:
           name: dist
           path: dist/
-
   deploy:
     needs: build
     runs-on: ubuntu-18.04
     if: github.ref == 'refs/heads/main'
-
     steps:
       - name: Download production artifacts
         uses: actions/download-artifact@v2
         with:
           name: dist
           path: dist/
-
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
