@@ -134,7 +134,8 @@ jobs:
 
 [코드숨 CI/CD 세미나](https://j.mp/3j3qe4d)
 
-[https://github.com/CodeSoom/cicd-example](https://j.mp/3zYw90K)
+- [https://github.com/CodeSoom/cicd-example](https://j.mp/3zYw90K)
+- [https://github.com/CodeSoom/cicd-example2](https://j.mp/3GHa1Mh)
 
 사용된 Actions:
 
