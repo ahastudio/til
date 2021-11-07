@@ -21,3 +21,7 @@
 <https://serverjs.io/>
 
 <https://github.com/franciscop/server>
+
+## Error handling
+
+[A Comprehensive Guide To Error Handling In Node.js - Honeybadger Developer Blog](https://www.honeybadger.io/blog/errors-nodejs/)
