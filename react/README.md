@@ -1,8 +1,24 @@
-React - A JavaScript library for building user interfaces
-- http://facebook.github.io/react/
-- https://github.com/facebook/react
+# React - A JavaScript library for building user interfaces
 
-New Versioning Scheme
-- https://facebook.github.io/react/blog/2016/02/19/new-versioning-scheme.html
+<https://reactjs.org/>
 
+<https://github.com/facebook/react>
+
+## React 버전 15
+
+[New Versioning Scheme – React Blog](https://reactjs.org/blog/2016/02/19/new-versioning-scheme.html)
+
+> Today we’re announcing that we’re switching to major revisions for React.
 > The current version is 0.14.7. The next release will be: 15.0.0
+
+## State Management
+
+[mobx vs recoil vs redux | npm trends](https://www.npmtrends.com/redux-vs-mobx-vs-recoil)
+
+[State of JS 2020: Data Layer](https://2020.stateofjs.com/en-US/technologies/datalayer/)
+
+- <https://github.com/ahastudio/til/blob/main/react/redux.md>
+- <https://github.com/ahastudio/til/blob/main/react/mobx.md>
+- <https://github.com/ahastudio/til/blob/main/react/recoil.md>
+- <https://github.com/ahastudio/til/blob/main/react/teaful.md>
+- <https://github.com/ahastudio/til/blob/main/react/micro-state.md>
