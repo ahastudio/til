@@ -32,3 +32,5 @@ useHooks - Easy to understand React Hook recipes
 
 React Hooks Community Examples - CodeSandbox
 <https://codesandbox.io/react-hooks>
+
+[Common React Hooks Mistakes You Should Avoid | by Piumi Liyana Gunawardhana](https://blog.bitsrc.io/common-react-hooks-mistakes-every-developer-should-avoid-defd47d09d8c)
