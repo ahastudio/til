@@ -1,7 +1,7 @@
 # React Router
 
-- https://reacttraining.com/react-router/
-- https://github.com/ReactTraining/react-router
+- <https://reacttraining.com/react-router/>
+- <https://github.com/ReactTraining/react-router>
 
 ## Testing
 

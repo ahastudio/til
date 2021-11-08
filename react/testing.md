@@ -2,8 +2,8 @@
 
 ## React
 
-http://facebook.github.io/jest/docs/en/tutorial-react.html
+<http://facebook.github.io/jest/docs/en/tutorial-react.html>
 
 ## Mocking
 
-http://facebook.github.io/jest/docs/en/manual-mocks.html
+<http://facebook.github.io/jest/docs/en/manual-mocks.html>
