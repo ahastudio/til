@@ -6,6 +6,10 @@
 
 [https://github.com/ahastudio/CodingLife/tree/main/20211004/typescript](https://j.mp/3BlN2mV)
 
+## Developer experience in TypeScript
+
+[It's not JavaScript's ugly cousin. See how Typescript improves Developer Experience](https://tsh.io/blog/typescript-improves-developer-experience/)
+
 ## 30 Seconds of Typescript
 
 > Inspired by 30-seconds-of-code
