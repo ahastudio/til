@@ -11,6 +11,10 @@
 > Today we’re announcing that we’re switching to major revisions for React.
 > The current version is 0.14.7. The next release will be: 15.0.0
 
+## React 18
+
+[The Plan for React 18 – React Blog](https://reactjs.org/blog/2021/06/08/the-plan-for-react-18.html)
+
 ## State Management
 
 [mobx vs recoil vs redux | npm trends](https://www.npmtrends.com/redux-vs-mobx-vs-recoil)
