@@ -30,4 +30,6 @@
 
 ## React with TypeScript
 
+[React TypeScript Cheatsheets](https://react-typescript-cheatsheet.netlify.app/)
+
 [React with TypeScript Cheatsheet | by Nathan Sebhastian](https://blog.bitsrc.io/react-with-typescript-cheatsheet-9dd891dc5bfe)
