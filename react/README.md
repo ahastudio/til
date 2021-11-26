@@ -27,3 +27,7 @@
 - <https://github.com/ahastudio/til/blob/main/react/teaful.md>
 - <https://github.com/ahastudio/til/blob/main/react/micro-state.md>
 - <https://github.com/ahastudio/til/blob/main/react/use-change.md>
+
+## React with TypeScript
+
+[React with TypeScript Cheatsheet | by Nathan Sebhastian](https://blog.bitsrc.io/react-with-typescript-cheatsheet-9dd891dc5bfe)
