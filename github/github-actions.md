@@ -25,6 +25,8 @@ Awesome Actions:
 - [An Unintentionally Comprehensive Introduction to GitHub Actions CI - DEV Community 👩‍💻👨‍💻](https://dev.to/bnb/an-unintentionally-comprehensive-introduction-to-github-actions-ci-blm)
 - [GitHub Actions 워크플로우의 승인 기능 사용하기](https://blog.outsider.ne.kr/1556)
 
+[How we implemented C++ and JavaScript integration tests with GitHub Actions - YouTube](https://www.youtube.com/watch?v=DdlzDklYHVs)
+
 ## Simple Example
 
 <https://github.com/ahastudio/github-actions-example>
