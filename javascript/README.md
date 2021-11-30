@@ -19,3 +19,9 @@
 ## HASTY - JS perfomance testing made easy
 
 <https://hasty.dev/>
+
+## node-stdlib-browser
+
+> Node standard library for browser.
+
+<https://github.com/niksy/node-stdlib-browser>
