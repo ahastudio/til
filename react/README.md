@@ -33,3 +33,10 @@
 [React TypeScript Cheatsheets](https://react-typescript-cheatsheet.netlify.app/)
 
 [React with TypeScript Cheatsheet | by Nathan Sebhastian](https://blog.bitsrc.io/react-with-typescript-cheatsheet-9dd891dc5bfe)
+
+## 온라인 상점 예제
+
+> A demo online clothing store built with TailwindCSS, React Hooks,
+> Redux Toolkit, React Router 6
+
+<https://github.com/oojr/demo-store>
