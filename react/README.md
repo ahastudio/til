@@ -19,6 +19,8 @@
 
 ## State Management
 
+[Do You Know the 5 Types of States in React? | by Vithushan Jey](https://javascript.plainenglish.io/do-you-know-the-5-types-of-states-in-react-8734a04a5ffb)
+
 [mobx vs recoil vs redux | npm trends](https://www.npmtrends.com/redux-vs-mobx-vs-recoil)
 
 [State of JS 2020: Data Layer](https://2020.stateofjs.com/en-US/technologies/datalayer/)
