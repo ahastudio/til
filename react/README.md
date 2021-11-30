@@ -15,6 +15,8 @@
 
 [The Plan for React 18 – React Blog](https://reactjs.org/blog/2021/06/08/the-plan-for-react-18.html)
 
+[React 18: An overview of its new features and updates | DhiWise](https://medium.com/dhiwise/react-18-new-features-and-updates-2e608d862a6d)
+
 ## State Management
 
 [mobx vs recoil vs redux | npm trends](https://www.npmtrends.com/redux-vs-mobx-vs-recoil)
