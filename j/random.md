@@ -19,4 +19,4 @@ NB. 1~6 중 (중복 없이) 3개를 얻는다.
 1 + 3 ? 6
 ```
 
-참고: http://www.jsoftware.com/help/learning/19.htm
+참고: <http://www.jsoftware.com/help/learning/19.htm>
