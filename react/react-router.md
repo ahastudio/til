@@ -1,10 +1,13 @@
-# React Router
+# React Router - Declarative routing for React apps at any scale
 
-- <https://reacttraining.com/react-router/>
-- <https://github.com/ReactTraining/react-router>
+<https://reactrouter.com/>
+
+<https://github.com/remix-run/react-router>
+
+(옛날 주소: <https://reacttraining.com/react-router/>)
 
 ## Testing
 
 `MemoryRouter`를 활용한다.
 
-https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/testing.md
+<https://reactrouter.com/docs/en/v6/api#memoryrouter>
