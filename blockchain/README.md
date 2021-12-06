@@ -6,3 +6,6 @@
 ## NFT
 
 [Tools for automated NFT minting - Julian Ćwirko - JavaScript and such](https://www.julian.io/articles/elven-nft-tools.html)
+
+CryptoPunks
+<https://www.larvalabs.com/cryptopunks>
