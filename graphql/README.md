@@ -2,6 +2,10 @@
 
 <https://graphql.org/>
 
+## How to GraphQL - The Fullstack Tutorial for GraphQL
+
+<https://www.howtographql.com/>
+
 ## Explore GraphQL
 
 <https://www.graphql.com/>
@@ -20,3 +24,11 @@
 
 - <https://www.envelop.dev/>
 - <https://github.com/dotansimha/envelop>
+
+## Wrapping a REST API in GraphQL
+
+<https://graphql.org/blog/rest-api-graphql-wrapper/>
+
+## GraphQL vs REST - A comparison
+
+[How to GraphQL - GraphQL is the better REST](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/)
