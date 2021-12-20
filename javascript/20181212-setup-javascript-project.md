@@ -10,66 +10,68 @@ Node.js를 설치하고, 프로젝트를 진행할 수 있는 Node.js 패키지�
 코드 퀄리티를 일정 수준 이상으로 유지할 수 있도록 `lint`와 `test`를
 실행할 수 있는 상태를 만든다.
 
-## NVM(Node Version Manager) 설치
+## fnm (Fast Node Manager) 설치
 
 계속 업그레이드되는 Node.js로 프로젝트를 진행하다 보면
 프로젝트마다 서로 다른 버전을 사용하는 경우가 있다.
 그래서 여러 버전의 Node.js를 설치해서 사용하고 싶을 때가 있는데,
-NVM을 사용하면 이게 가능하다.
+[`fnm`](https://github.com/Schniz/fnm)을
+사용하면 이게 가능하다.
 
 ### Mac, Linux 사용자
 
-맥이나 리눅스에선
-[NVM(Node Version Manager)](https://github.com/nvm-sh/nvm)을 먼저 설치하고,
-이걸 통해서 여러 버전의 Node.js를 관리한다.
-
-설치 스크립트는
-[https://github.com/nvm-sh/nvm#install--update-script](http://j.mp/2rJefRL)
-참고.
-2019년 말 기준으로 NVM 최신 버전은 `0.35.1`이다.
+[Homebrew](https://brew.sh/)를 이용해
+`fnm`을 설치할 수 있다.
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+brew install fnm
 ```
 
-NVM이 설치되면 `~/.bash_profile`에 다음이 추가된다.
+`~/.bashrc` 또는 `~/.zshrc`에 다음을 추가한다.
 
 ```bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(fnm env)"
 ```
 
-맥 사용자는 Homebrew를 통해 설치하지 않도록 주의한다.
+현재 터미널에서 바로 사용하고 싶다면 위 명령을 그대로 입력한다.
 
 ### Windows 사용자
 
-윈도에선 [NVM for Windows](https://github.com/coreybutler/nvm-windows)를
-먼저 설치하고, 이걸 통해서 여러 버전의 Node.js를 관리한다.
+Windows 사용자는
+[Scoop](https://scoop.sh/) 또는
+[Chocolatey](https://chocolatey.org/)를 사용해
+`fnm`을 설치할 수 있다.
 
-인스톨러를 <https://github.com/coreybutler/nvm-windows/releases>에서 받아서
-실행해 설치한다.
+```bash
+scoop install fnm
+
+# 또는
+
+choco install fnm
+```
 
 ## Node.js 설치
 
 설치 가능한 버전 확인.
 
 ```bash
-nvm ls-remote
+fnm ls-remote
 ```
 
 LTS(Long Term Support) 버전을 설치하고 기본으로 사용하게 한다.
 
 ```bash
-nvm install --lts
-nvm use --lts
-nvm alias default $(nvm current)
+fnm install --lts
+fnm use lts-latest
+fnm default $(fnm current)
 ```
 
 설치된 상태 확인.
 
 ```bash
-nvm ls
+fnm list
+
+fnm current
 ```
 
 ## NPM 업그레이드
@@ -86,12 +88,12 @@ npm install -g npm
 ```bash
 mkdir my-project
 cd my-project
-nvm use default
-echo "$(nvm current)" > .nvmrc
+fnm use default
+echo "$(fnm current)" > .nvmrc
 ```
 
 나중에 시스템에 설치된 Node.js 버전과 프로젝트에서 사용하는 Node.js 버전이
-다른 상황이 오더라도 `nvm use` 명령을 통해 프로젝트에서 사용하고 있는 버전을
+다른 상황이 오더라도 `fnm use` 명령을 통해 프로젝트에서 사용하고 있는 버전을
 쉽게 사용할 수 있다.
 
 또는 `.nvmrc` 파일을 확인함으로써 어떤 버전으로 개발했는지 알 수 있다.
