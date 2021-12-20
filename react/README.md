@@ -4,6 +4,12 @@
 
 <https://github.com/facebook/react>
 
+## both
+
+[Dominic Gannaway on Twitter: "Q: Is React a framework or a library? A: It's both." / Twitter](https://twitter.com/trueadm/status/1194567962784653312)
+
+![It's both](./images/react-is-both.png)
+
 ## React 버전 15
 
 [New Versioning Scheme – React Blog](https://reactjs.org/blog/2016/02/19/new-versioning-scheme.html)
