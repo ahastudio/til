@@ -18,3 +18,7 @@ User Story Template Advantages
 
 Planning Poker:
 <https://github.com/ahastudio/til/blob/main/agile/planning-poker.md>
+
+## Xper 위키의 사용자 스토리 사례
+
+[Xper:Xper Wiki Tests](https://web.archive.org/web/20061012054901/http://xper.org/wiki/xp/XperWikiTests)
