@@ -68,3 +68,4 @@ XP와 Scrum 등에선 매일 아침마다 (정확히는 일을 시작하기 전�
 참고:
 
 - [Xper:Stand Up Meeting](https://j.mp/3e4BytU)
+- [Morning Roll Call](https://j.mp/3JrhMY7)
