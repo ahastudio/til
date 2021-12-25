@@ -8,6 +8,10 @@
 
 <https://github.com/facebookexperimental/Recoil>
 
+## Selector
+
+<https://recoiljs.org/ko/docs/basic-tutorial/selectors/>
+
 ## Examples
 
 ### 🎨 Recoil Design Tool
