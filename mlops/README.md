@@ -29,3 +29,8 @@ MLOps-Basics
 
 MLOpsKR YouTube
 <https://www.youtube.com/channel/UC-h50KWXerxYMDMGSMbGR2Q/videos>
+
+---
+
+모두의 MLOps
+<https://mlops-for-all.github.io/>
