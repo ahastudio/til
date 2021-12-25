@@ -18,6 +18,10 @@
 
 ## Examples
 
+### Getting Started with Create React App
+
+<https://github.com/facebookexperimental/Recoil/tree/main/packages-ext/todo-example>
+
 ### 🎨 Recoil Design Tool
 
 <https://github.com/jacques-blom/recoil-design-tool>
