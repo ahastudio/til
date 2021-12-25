@@ -50,3 +50,11 @@
 > Redux Toolkit, React Router 6
 
 <https://github.com/oojr/demo-store>
+
+## Excalidraw
+
+> Virtual whiteboard for sketching hand-drawn like diagrams
+
+<https://github.com/excalidraw/excalidraw>
+
+<https://excalidraw.com/>
