@@ -12,3 +12,9 @@
 ## TIL
 
 - [오늘 나는 무엇을 배웠나?](https://dal-lab.com/2019/09/18/today-i-learned/)
+
+## 기년회
+
+- [애자일 이야기 : 망년회 대신 기년회](http://agile.egloos.com/4016733)
+  - 본문: [망년회 대신 기년회](https://j.mp/3Hd3GHF)
+  - [Xper:2007년송년회](https://j.mp/3eqEQrr)
