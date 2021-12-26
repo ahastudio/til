@@ -18,3 +18,15 @@
 
 Renaissance Club
 <https://web.archive.org/web/20061012034147/http://xper.org/wiki/seminar/RenaissanceClub>
+
+## 프로그래밍, 어떻게 공부할 것인가
+
+<https://mindscale.kr/course/how-to-learn-prg/>
+
+<https://github.com/Gyubin/TIL/blob/master/ETC/how_to_study_programming.md>
+
+## 2배속으로 강의 보기
+
+[강의 영상을 2배속으로 두번 보는게, 정상 속도로 1번 보는 것 보다 학습효과가 더 좋다 | GeekNews](https://news.hada.io/topic?id=5615)
+
+[Watching A Lecture Twice At Double Speed Can Benefit Learning Better Than Watching It Once At Normal Speed – Research Digest](https://digest.bps.org.uk/2021/12/21/watching-a-lecture-twice-at-double-speed-can-benefit-learning-better-than-watching-it-once-at-normal-speed/)
