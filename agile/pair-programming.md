@@ -5,3 +5,5 @@
 [Let The Junior Drive](https://wiki.c2.com/?LetTheJuniorDrive)
 
 [Engineer Notebook: An Extreme Programming Episode (by Robert C. Martin and Robert S. Koss)](https://j.mp/3E3qloo)
+
+[On Pair Programming](https://martinfowler.com/articles/on-pair-programming.html)
