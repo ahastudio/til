@@ -9,3 +9,9 @@
 <https://martinfowler.com/articles/continuousIntegration.html>
 
 <https://martinfowler.com/articles/originalContinuousIntegration.html>
+
+## 10+ Deploys Per Day: Dev and Ops Cooperation at Flickr
+
+[Velocity 09: John Allspaw and Paul Hammond, "10+ Deploys Per Day: Dev and Ops Cooperation at Flickr" - YouTube](https://www.youtube.com/watch?v=LdOe18KhtT4)
+
+슬라이드: <https://www.slideshare.net/jallspaw/10-deploys-per-day-dev-and-ops-cooperation-at-flickr>
