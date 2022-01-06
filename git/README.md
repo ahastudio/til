@@ -24,3 +24,9 @@ Git 작업 흐름도
 
 소프트웨어 개발 Workflow for Team
 <https://www.youtube.com/watch?v=T5aFdA5tsEo>
+
+## Stop GitFlow
+
+[GitFlow considered harmful | End of Line Blog](https://www.endoflineblog.com/gitflow-considered-harmful)
+
+[Please stop recommending Git Flow! – George Stocker](https://georgestocker.com/2020/03/04/please-stop-recommending-git-flow/)
