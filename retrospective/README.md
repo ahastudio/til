@@ -9,6 +9,15 @@
 - [[함께 일하기] 온라인 근무와 회고 | 우아한형제들 기술블로그](https://techblog.woowahan.com/2713/)
 - [[스타트업과 함께 성장하기] 회고 없는 성장은 없다 - 모비인사이드 MOBIINSIDE](https://www.mobiinside.co.kr/2020/10/23/jhs/)
 
+## 회고 프레임워크
+
+[4 Frameworks for Reflecting on Your Work and Running Better Projects | Service Design Blog by Neuromagic](https://sdg.neuromagic.com/en/retrospective-framework/)
+
+1. KPT(A) → [OKR 실천편 - 구글, 페이스북, 유튜브 최고의 기업 최강의 프레임워크](https://j.mp/3eX5Qze)
+1. Starfish
+1. World Cafe → [월드 카페 - 7가지 미래형 카페식 대화법](https://j.mp/3F1kLTk)
+1. Timeline → [애자일 회고 - 최고의 팀을 만드는 애자일 기법](https://j.mp/3zu72n9)
+
 ## 기년회
 
 - [애자일 이야기 : 망년회 대신 기년회](http://agile.egloos.com/4016733)
