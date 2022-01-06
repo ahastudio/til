@@ -2,6 +2,7 @@
 
 ## Acceptance Test
 
+- <https://github.com/ahastudio/til/blob/main/test/cypress.md>
 - <https://github.com/ahastudio/til/blob/main/test/codeceptjs.md>
 - <https://github.com/ahastudio/til/blob/main/python/pyccuracy.md>
 
