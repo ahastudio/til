@@ -50,6 +50,14 @@
 
 [React with TypeScript Cheatsheet | by Nathan Sebhastian](https://blog.bitsrc.io/react-with-typescript-cheatsheet-9dd891dc5bfe)
 
+## Bit: Component-driven development platform
+
+> A tool for component-driven application development.
+
+<https://bit.dev/>
+
+<https://github.com/teambit/bit>
+
 ## 온라인 상점 예제
 
 > A demo online clothing store built with TailwindCSS, React Hooks,
