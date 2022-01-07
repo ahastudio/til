@@ -1,0 +1,36 @@
+# Mock API
+
+## JSON Server
+
+> Get a full fake REST API with zero coding in less than 30 seconds (seriously)
+
+<https://github.com/typicode/json-server>
+
+## Mock Service Worker (MSW)
+
+> Seamless REST/GraphQL API mocking library for browser and Node.js.
+
+<https://github.com/mswjs/msw>
+
+## MockServer
+
+> MockServer enables easy mocking of any system you integrate
+> with via HTTP or HTTPS with clients written in Java, JavaScript and Ruby.
+
+<https://mock-server.com/>
+
+<https://github.com/mock-server/mockserver>
+
+## Mockoon
+
+> Create mock APIs in seconds with Mockoon
+
+<https://mockoon.com/>
+
+<https://github.com/mockoon/mockoon>
+
+## Mocktail
+
+> Free, 11MB, containerized, self-hosted mock server.
+
+<https://github.com/Huseyinnurbaki/mocktail>
