@@ -138,12 +138,6 @@ pip install --upgrade pip
 
 ## 가상 환경 만들기
 
-먼저 [`virtualenv`](https://github.com/pypa/virtualenv)를 설치한다.
-
-```bash
-pip install virtualenv
-```
-
 프로젝트 폴더를 만들고, 파이썬 버전을 명시한다.
 프로젝트 이름은 `my-project`라고 가정하고, 파이썬 3.7.2 버전을 사용하겠다.
 
@@ -156,7 +150,7 @@ pyenv local 3.7.2
 해당 프로젝트에서 사용할 가상 환경을 `venv` 폴더에 만든다.
 
 ```bash
-virtualenv venv
+python -m venv venv
 ```
 
 가상 환경에 진입한다.
