@@ -21,14 +21,6 @@
 
 <https://github.com/mock-server/mockserver>
 
-## Mockoon
-
-> Create mock APIs in seconds with Mockoon
-
-<https://mockoon.com/>
-
-<https://github.com/mockoon/mockoon>
-
 ## Mocktail
 
 > Free, 11MB, containerized, self-hosted mock server.
