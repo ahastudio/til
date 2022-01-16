@@ -6,12 +6,6 @@
 
 <https://github.com/typicode/json-server>
 
-## Mock Service Worker (MSW)
-
-> Seamless REST/GraphQL API mocking library for browser and Node.js.
-
-<https://github.com/mswjs/msw>
-
 ## MockServer
 
 > MockServer enables easy mocking of any system you integrate
