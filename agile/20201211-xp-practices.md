@@ -26,7 +26,7 @@
 1. Planning Game
 
     프로젝트는 작은 단위로 반복 진행됩니다.
-    마이크로프로텍트는 1주 단위를 사용합니다.
+    저는 주로 1주 단위를 사용합니다.
     [사용자 스토리](https://github.com/ahastudio/til/blob/main/agile/user-story.md)로
     사용자의 가치와 기능을 모두 표현하려고 노력하고,
     이를 작은 작업으로 분해해 진행합니다.
