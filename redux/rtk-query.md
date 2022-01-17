@@ -19,3 +19,7 @@
 옛날 저장소: <https://github.com/rtk-incubator/rtk-query>
 
 [Release v1.6.0 : RTK Query! · reduxjs/redux-toolkit](https://github.com/reduxjs/redux-toolkit/releases/tag/v1.6.0)
+
+## 예제
+
+- <https://github.com/ahastudio/CodingLife/tree/main/20211221/react>
