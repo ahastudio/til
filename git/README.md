@@ -30,3 +30,7 @@ Git 작업 흐름도
 [GitFlow considered harmful | End of Line Blog](https://www.endoflineblog.com/gitflow-considered-harmful)
 
 [Please stop recommending Git Flow! – George Stocker](https://georgestocker.com/2020/03/04/please-stop-recommending-git-flow/)
+
+## Branch Patterns
+
+[Patterns for Managing Source Code Branches](https://martinfowler.com/articles/branching-patterns.html)
