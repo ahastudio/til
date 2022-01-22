@@ -17,3 +17,7 @@ BROWSER=none
 
 참고:
 [Disabling opening of the browser in server start](https://github.com/facebookincubator/create-react-app/issues/873)
+
+## Heroku로 배포
+
+<https://github.com/ahastudio/til/tree/main/heroku#create-react-app>
