@@ -22,3 +22,7 @@ Vite based tooling for react
 
 Creating a React.js App using Vite
 <https://www.section.io/engineering-education/creating-a-react-app-using-vite/>
+
+## 예제
+
+[https://github.com/ahastudio/CodingLife/tree/main/20211009/vite](https://j.mp/3AoIY5B)
