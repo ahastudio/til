@@ -1,5 +1,22 @@
 # Bundler
 
+## SWC - Rust-based platform for the Web
+
+ <https://swc.rs/>
+
+ <https://github.com/swc-project/swc>
+
+### `@swc/jest`
+
+> Super-fast alternative for babel-jest or ts-jest without type checking
+
+<https://github.com/swc-project/jest>
+
+[Speed up TypeScript with Jest | miyauci.me](https://miyauchi.dev/posts/speeding-up-jest/)
+
+예제:
+[https://github.com/ahastudio/CodingLife/tree/main/20220124/react-swc](https://j.mp/33L9xWw)
+
 ## esbuild - An extremely fast JavaScript bundler
 
 <https://esbuild.github.io/>
