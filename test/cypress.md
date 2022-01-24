@@ -18,3 +18,15 @@ Cypress에서 `click` 등 몇 가지 동작을 테스트하려고 하면,
 <https://docs.cypress.io/guides/references/configuration#Actionability>
 
 <https://docs.cypress.io/guides/core-concepts/interacting-with-elements#Actionability>
+
+## `type()`
+
+마우스를 조작하던 도중에 `type()`을 쓰면
+클릭 이벤트가 개입해서 문제가 될 수 있음.
+
+<https://docs.cypress.io/api/commands/type#When-element-is-not-in-focus>
+
+> **When element is not in focus**
+>
+> If the element is currently not in focus, before issuing any keystrokes
+> Cypress will first issue a .click() to the element to bring it into focus.
