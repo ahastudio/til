@@ -10,9 +10,11 @@
 
 > Super-fast alternative for babel-jest or ts-jest without type checking
 
+<https://swc.rs/docs/usage/jest>
+
 <https://github.com/swc-project/jest>
 
-[Speed up TypeScript with Jest | miyauci.me](https://miyauchi.dev/posts/speeding-up-jest/)
+[Speed up TypeScript with Jest | miyauci.me](https://j.mp/3nTKBTE)
 
 예제:
 [https://github.com/ahastudio/CodingLife/tree/main/20220124/react-swc](https://j.mp/33L9xWw)
@@ -22,6 +24,13 @@
 <https://esbuild.github.io/>
 
 <https://github.com/evanw/esbuild>
+
+### esbuild-jest - A Jest transformer using esbuild
+
+<https://github.com/aelbore/esbuild-jest>
+
+`inject`를 지원하지 않아서 React를 쓸 때 애로사항이 꽃필 것이다.
+→ 결론: `@swc/jest` 쓰세요.
 
 ## Snowpack - lightning-fast frontend build tool
 
