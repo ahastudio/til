@@ -14,10 +14,10 @@
 
 <https://github.com/swc-project/jest>
 
-[Speed up TypeScript with Jest | miyauci.me](https://j.mp/3nTKBTE)
+[Speed up TypeScript with Jest | miyauci.me](https://bit.ly/3nTKBTE)
 
 예제:
-[https://github.com/ahastudio/CodingLife/tree/main/20220124/react-swc](https://j.mp/33L9xWw)
+[https://github.com/ahastudio/CodingLife/tree/main/20220124/react-swc](https://bit.ly/33L9xWw)
 
 ## esbuild - An extremely fast JavaScript bundler
 

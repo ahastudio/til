@@ -8,4 +8,4 @@
 
 ## 예제
 
-[https://github.com/ahastudio/CodingLife/tree/main/20220123/vitest](https://j.mp/3qTTWgk)
+[https://github.com/ahastudio/CodingLife/tree/main/20220123/vitest](https://bit.ly/3qTTWgk)
