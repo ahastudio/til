@@ -25,3 +25,11 @@
 ## Error handling
 
 [A Comprehensive Guide To Error Handling In Node.js - Honeybadger Developer Blog](https://www.honeybadger.io/blog/errors-nodejs/)
+
+## Upgrade packages
+
+<https://github.com/raineorshine/npm-check-updates>
+
+```bash
+npx -p npm-check-updates ncu --upgrade
+```
