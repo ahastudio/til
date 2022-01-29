@@ -6,7 +6,7 @@
 
 ## 주석을 쓰면 안 좋다고 하던데?
 
-https://codesoom-group.slack.com/archives/C015Y4HM1J8/p1629638188092500?thread_ts=1629622504.081000&channel=C015Y4HM1J8&message_ts=1629638188.092500
+<https://codesoom-group.slack.com/archives/C015Y4HM1J8/p1629638188092500?thread_ts=1629622504.081000&channel=C015Y4HM1J8&message_ts=1629638188.092500>
 
 > Javadoc은 엄밀히 말하면 주석보다는 문서화에 대한 겁니다.
 > 코드를 보는 사람이 어려운 코드를 이해할 수 있도록 주석을 다는 경우가 많은데,

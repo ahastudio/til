@@ -2,7 +2,7 @@
 
 ## `SDKMAN!`으로 설치
 
-Install:
+SDKMAN! 설치:
 
 ```bash
 curl -s "https://get.sdkman.io" | bash
@@ -15,8 +15,9 @@ curl -s "https://get.sdkman.io" | bash
 ```zsh
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-export JAVA_HOME=${SDKMAN_CANDIDATES_DIR}/java/current/
 ```
+
+OpenJDK 설치:
 
 ```bash
 sdk list java | grep tem
@@ -29,6 +30,8 @@ sdk current
 
 java -version
 ```
+
+Gradle 설치:
 
 ```bash
 sdk list gradle
