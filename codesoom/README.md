@@ -13,3 +13,5 @@
 [node_modules가 PR에 포함됐을 때 대처법](https://github.com/CodeSoom/project-react-6-Superduper-India/pull/2#issuecomment-1021832882)
 
 [Gradle과 Lombok을 최신 버전으로 업그레이드](https://github.com/CodeSoom/project-spring-4-kyuwon53/issues/3#issuecomment-1028946936)
+
+[Redux를 쓸 때 의도가 드러나는 액션 이름 만들기](https://github.com/CodeSoom/project-react-6-eunseo-kim/pull/7#discussion_r798735679)
