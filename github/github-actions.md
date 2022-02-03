@@ -27,6 +27,10 @@ Awesome Actions:
 
 [How we implemented C++ and JavaScript integration tests with GitHub Actions - YouTube](https://www.youtube.com/watch?v=DdlzDklYHVs)
 
+## GitHub Actions by Example
+
+<https://www.actionsbyexample.com/>
+
 ## Simple Example
 
 <https://github.com/ahastudio/github-actions-example>
