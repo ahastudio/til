@@ -11,3 +11,5 @@
 [커밋 메시지 예시](https://github.com/CodeSoom/project-react-6-Superduper-India/pull/3#issuecomment-1022156455)
 
 [node_modules가 PR에 포함됐을 때 대처법](https://github.com/CodeSoom/project-react-6-Superduper-India/pull/2#issuecomment-1021832882)
+
+[Gradle과 Lombok을 최신 버전으로 업그레이드](https://github.com/CodeSoom/project-spring-4-kyuwon53/issues/3#issuecomment-1028946936)
