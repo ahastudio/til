@@ -182,7 +182,7 @@ Codewars의 “NBA full 48 minutes average” 문제:
 한 경기에서 몇 분을 뛰었는지 입력했을 때
 48분을 모두 뛰면 몇 득점을 할지 추측해 봅시다.
 
-```
+```txt
 ppg (points per game) : mpg (minutes per game) = ? : 48
 
 ? = ppg * 48 / mpg

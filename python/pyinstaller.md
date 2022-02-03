@@ -1,4 +1,4 @@
 # PyInstaller
 
-- http://www.pyinstaller.org/
-- https://github.com/pyinstaller/pyinstaller
+- <http://www.pyinstaller.org/>
+- <https://github.com/pyinstaller/pyinstaller>

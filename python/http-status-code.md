@@ -24,4 +24,4 @@ def test_create_post():
     assert response.status_code == HTTPStatus.CREATED
 ```
 
-https://docs.python.org/3/library/http.html#http-status-codes
+<https://docs.python.org/3/library/http.html#http-status-codes>

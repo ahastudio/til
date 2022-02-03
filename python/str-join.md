@@ -58,7 +58,7 @@
 ## 연습 문제
 
 Codewars의 “split() and its good friend join()” 문제:
-https://www.codewars.com/kata/training-js-number-18-methods-of-string-object-concat-split-and-its-good-friend-join/train/python
+<https://www.codewars.com/kata/training-js-number-18-methods-of-string-object-concat-split-and-its-good-friend-join/train/python>
 
 ```python
 assert split_and_merge('My name is John',' ') == 'M y n a m e i s J o h n'
@@ -105,4 +105,4 @@ def split_and_merge(string, sp):
 
 ## 더 보기
 
-- <https://github.com/ahastudio/til/blob/master/python/str-split.md>
+<https://github.com/ahastudio/til/blob/master/python/str-split.md>

@@ -82,4 +82,4 @@ def shorten_to_date(long_date):
 
 ## 더 보기
 
-- <https://github.com/ahastudio/til/blob/master/python/str-join.md>
+<https://github.com/ahastudio/til/blob/master/python/str-join.md>

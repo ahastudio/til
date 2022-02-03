@@ -9,7 +9,7 @@
 
 ### Log In
 
-```
+```txt
 As a registered user
 I want to log in
 So that I can use this service fully
@@ -41,7 +41,7 @@ Then
 
 ### Log out
 
-```
+```txt
 As a registered user
 I want to log out
 So that I can use this service as a guest
@@ -60,7 +60,7 @@ Then
 
 ### Search
 
-```
+```txt
 As a guest
 I want to search with query text
 So that I can find contents that have my insteresting issue
