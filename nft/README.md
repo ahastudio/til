@@ -36,6 +36,14 @@
 Collab.Land - Serving Tokenized Communities.
 <https://collab.land/>
 
+## NFT 마켓
+
+OpenSea, the largest NFT marketplace
+<https://opensea.io/>
+
+Async Art - Create and Collect Dynamic, Interactive NFTs
+<https://async.art/>
+
 ## 이더리움 NFT 프로젝트 몇 가지
 
 ### Fishy Fam
@@ -96,3 +104,18 @@ Sale:
 
 Transfer:
 <https://etherscan.io/tx/0xfaa7635252fd322958ecc14532ee09c031fe9c90c44f760e8232d8f1aa4259b6>
+
+### 디지털 아트 - Embrace Your Awesomeness
+
+<https://async.art/art/master/0xb6dae651468e9593e4581705a09c10a76ac1e0c8-4709>
+
+<https://async-explorer.herokuapp.com/test/canvasID=61e80d4cba22471aa07ace6c>
+
+현재 시각에 따라 다른 이미지를 보여준다.
+Day일 때 이미지와 Night일 때 이미지.
+
+<img src="https://storage.googleapis.com/art-creation-test/0xfc2bc6c51fea103fb548070e46a160aa5c5de0e3/61e80d4cba22471aa07ace6c/layers/01_background/01_STATE_day/01_NORMAL.jpg?5095" height="200"> <img src="https://storage.googleapis.com/art-creation-test/0xfc2bc6c51fea103fb548070e46a160aa5c5de0e3/61e80d4cba22471aa07ace6c/layers/01_background/02_STATE_night/01_NORMAL.jpg?4411" height="200">
+
+<https://etherscan.io/token/0xb6dae651468e9593e4581705a09c10a76ac1e0c8?a=4709>
+
+<https://etherscan.io/address/0xb6dae651468e9593e4581705a09c10a76ac1e0c8#code>
