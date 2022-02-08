@@ -36,6 +36,10 @@
 Collab.Land - Serving Tokenized Communities.
 <https://collab.land/>
 
+## Articles
+
+[지난 3개월간 NFT/web3를 공부하고 느낀 점 — Super Urban People](https://mirror.xyz/easyto.eth/ipzzJZ3pSvTGyMfXsojU-emkhF-N0ElVr-g81UmRVTM)
+
 ## NFT 마켓
 
 OpenSea, the largest NFT marketplace
