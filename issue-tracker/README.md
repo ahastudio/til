@@ -9,6 +9,12 @@
 Top 25+ Reasons Why Jira Sucks (in 2022)
 <https://whyjirasucks.com/>
 
+### JiraCLI
+
+> Feature-rich Interactive Jira Command Line
+
+<https://github.com/ankitpokhrel/jira-cli>
+
 ## Shortcut - Project Management for Software Teams
 
 <https://shortcut.com/>
