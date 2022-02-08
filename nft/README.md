@@ -28,6 +28,16 @@
 Collab.Land - Serving Tokenized Communities.
 <https://collab.land/>
 
+## 이더리움 NFT 프로젝트 몇 가지
+
+Fishy Fam
+<https://fishyfam.io/>
+
+Lucky Lion Club Official (LLC)
+<https://opensea.io/collection/llc-lucky-lion-club-official>
+
+![LLC Twitter Cover](https://pbs.twimg.com/profile_banners/1484106864073793538/1643553725/1500x500)
+
 ## 클레이튼 NFT 프로젝트 몇 가지
 
 META CATS – 멀티메타버스를 정복할 고양이
