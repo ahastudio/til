@@ -4,6 +4,14 @@
 
 <https://ethereum.org/en/nft/>
 
+## CryptoZombies
+
+> 크립토좀비 - 이더리움 게임을 만드는 법을 학습하세요. Loom Network가 개발했습니다.
+
+<https://cryptozombies.io/>
+
+<https://cryptozombies.io/ko/>
+
 ## OpenSea
 
 > OpenSea is the world's first and largest NFT marketplace
