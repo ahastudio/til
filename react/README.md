@@ -23,6 +23,20 @@
 
 [React 18: An overview of its new features and updates | DhiWise](https://medium.com/dhiwise/react-18-new-features-and-updates-2e608d862a6d)
 
+## Deep dive into React codebase
+
+EP1: Prerequisites
+<https://dev.to/fromaline/deep-dive-into-react-codebase-ep1-prerequisites-33ak>
+
+EP2: What package from the repo is the most popular on npm?
+<https://dev.to/fromaline/deep-dive-into-react-codebase-ep2-what-package-from-the-repo-is-the-most-popular-on-npm-2328>
+
+EP3: Reverse engineer the most famous React snippet
+<https://dev.to/fromaline/deep-dive-into-react-codebase-ep3-reverse-engineer-the-most-famous-react-snippet-njj>
+
+EP4: How ReactDOM.render works
+<https://dev.to/fromaline/deep-dive-into-react-codebase-ep4-how-reactdomrender-works-32n6>
+
 ## State Management
 
 [Do You Know the 5 Types of States in React? | by Vithushan Jey](https://javascript.plainenglish.io/do-you-know-the-5-types-of-states-in-react-8734a04a5ffb)
