@@ -50,6 +50,30 @@ Async Art - Create and Collect Dynamic, Interactive NFTs
 
 ## 이더리움 NFT 프로젝트 몇 가지
 
+### Bored Ape Yacht Club
+
+<https://opensea.io/collection/boredapeyachtclub>
+
+### Angry Ape Army
+
+<https://opensea.io/collection/angry-ape-army>
+
+### Monster Ape Club
+
+<https://opensea.io/collection/monsterapeclub-original>
+
+### HAPE PRIME
+
+<https://opensea.io/collection/hapeprime>
+
+### PartyBear
+
+<https://opensea.io/collection/partybear>
+
+### SlimHoods
+
+<https://opensea.io/collection/slimhoods>
+
 ### Fishy Fam
 
 ![FishyFam Cover](https://pbs.twimg.com/profile_banners/1475129133374091266/1642090705/1500x500)
@@ -125,3 +149,9 @@ Day일 때 이미지와 Night일 때 이미지.
 <https://etherscan.io/token/0xb6dae651468e9593e4581705a09c10a76ac1e0c8?a=4709>
 
 <https://etherscan.io/address/0xb6dae651468e9593e4581705a09c10a76ac1e0c8#code>
+
+### PUNKS Comic
+
+<https://punkscomic.com/>
+
+<https://opensea.io/collection/punks-comic>
