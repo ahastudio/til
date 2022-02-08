@@ -84,6 +84,8 @@ Transfer:
 
 ![BEANS NFTs by Dumb Ways to Die Cover](https://pbs.twimg.com/profile_banners/1478190104841625601/1643991597/1500x500)
 
+[Dumb Ways to Die - YouTube](https://www.youtube.com/watch?v=IJNR2EpS0jw)
+
 <https://www.beansnfts.io/>
 
 <https://opensea.io/collection/beans-dumb-ways-to-die>
