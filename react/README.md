@@ -35,6 +35,7 @@
 - <https://github.com/ahastudio/til/blob/main/react/mobx.md>
 - <https://github.com/ahastudio/til/blob/main/react/recoil.md>
 - <https://github.com/ahastudio/til/blob/main/react/hookstate.md>
+- <https://github.com/ahastudio/til/blob/main/react/zustand.md>
 - <https://github.com/ahastudio/til/blob/main/react/teaful.md>
 - <https://github.com/ahastudio/til/blob/main/react/micro-state.md>
 - <https://github.com/ahastudio/til/blob/main/react/use-change.md>
