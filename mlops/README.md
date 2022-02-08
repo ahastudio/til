@@ -41,3 +41,10 @@
 ## Mastering Large Datasets with Python
 
 <https://github.com/jtwool/mastering-large-datasets>
+
+## VESSL - Easiest way to build ML workflows
+
+<https://vessl.ai/>
+
+VESSL Docs
+<https://docs.vessl.ai/>
