@@ -37,3 +37,7 @@
 <https://mlops-for-all.github.io/>
 
 [모두의 MLOps (1) MLOps에 첫걸음을 내딛는 분들을 위한 지침서 | by Jongseob Jeon | We’re Team MakinaRocks! | Jan, 2022 | Medium](https://medium.com/makinarocks/%EB%AA%A8%EB%91%90%EC%9D%98-mlops-1-mlops%EC%97%90-%EC%B2%AB%EA%B1%B8%EC%9D%8C%EC%9D%84-%EB%82%B4%EB%94%9B%EB%8A%94-%EB%B6%84%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%A7%80%EC%B9%A8%EC%84%9C-ac2740ccd4eb)
+
+## Mastering Large Datasets with Python
+
+<https://github.com/jtwool/mastering-large-datasets>
