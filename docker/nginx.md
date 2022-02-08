@@ -2,6 +2,14 @@
 
 <https://hub.docker.com/_/nginx/>
 
+## Nginx 실행 테스트
+
+```bash
+docker run -it --rm --name nginx -p 8080:80 nginx
+```
+
+<http://localhost:8080/>
+
 ## 간단한 HTML 띄우기
 
 ```bash
