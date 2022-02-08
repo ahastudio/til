@@ -40,6 +40,12 @@
 - <https://github.com/ahastudio/til/blob/main/react/micro-state.md>
 - <https://github.com/ahastudio/til/blob/main/react/use-change.md>
 
+## Higher-Order Component (고차 컴포넌트)
+
+<https://ko.reactjs.org/docs/higher-order-components.html>
+
+[Do React Hooks Replace Higher Order Components (HOCs)? | by Eric Elliott | JavaScript Scene | Medium](https://medium.com/javascript-scene/do-react-hooks-replace-higher-order-components-hocs-7ae4a08b7b58)
+
 ## Router
 
 - <https://github.com/ahastudio/til/blob/main/react/react-router.md>
