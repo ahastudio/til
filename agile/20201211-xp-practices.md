@@ -52,7 +52,7 @@
 
 ## Team Practices
 
-1. Continuous Integration
+1. [Continuous Integration](https://github.com/ahastudio/til/blob/main/agile/continuous-integration.md)
 
     각 작업은 작게 진행하지만 모두 제품에 바로 반영됩니다.
     단 하나의 `main` 브랜치를 중심으로 관리하고,
@@ -100,7 +100,7 @@
     지금 필요한 걸 만족시키는 가장 단순한 일을 하려고 노력합니다.
     [Xper:SimpleDesign](https://j.mp/37MLvK8) 참고.
 
-1. Pair Programming
+1. [Pair Programming](https://github.com/ahastudio/til/blob/main/agile/pair-programming.md)
 
     혼자 하기 어려운 일은 둘이 함께합니다.
     혼자서 하는 게 더 효율적이라고 생각될 때는
@@ -108,7 +108,7 @@
     협업은 어렵지만, 그 결과는 대단합니다.
     등을 맡길 수 있는 든든한 팀원들인지 항상 자문합니다.
 
-1. Test-Driven Development
+1. [Test-Driven Development](https://github.com/ahastudio/til/blob/main/agile/test-driven-development.md)
 
     모든 일을 하기 전에 어떻게 사용할지 먼저 고민합니다.
     어떤 걸 바꿀 때는 무슨 일이 벌어질지 생각합니다.

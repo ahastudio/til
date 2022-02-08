@@ -6,9 +6,7 @@
 
 ## Continuous Integration
 
-<https://martinfowler.com/articles/continuousIntegration.html>
-
-<https://martinfowler.com/articles/originalContinuousIntegration.html>
+<https://github.com/ahastudio/til/blob/main/agile/continuous-integration.md>
 
 ## 10+ Deploys Per Day: Dev and Ops Cooperation at Flickr
 
