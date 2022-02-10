@@ -54,6 +54,10 @@ Async Art - Create and Collect Dynamic, Interactive NFTs
 
 <https://opensea.io/collection/boredapeyachtclub>
 
+### Mutant Ape Yacht Club
+
+<https://opensea.io/collection/mutant-ape-yacht-club>
+
 ### Angry Ape Army
 
 <https://opensea.io/collection/angry-ape-army>
