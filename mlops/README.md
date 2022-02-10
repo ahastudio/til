@@ -48,3 +48,19 @@
 
 VESSL Docs
 <https://docs.vessl.ai/>
+
+## CLOW
+
+[DEVIEW 2021 :: 이제는 운영을 고민할때! ML 서비스 지속가능한 운영도구 CLOW](https://deview.kr/2021/sessions/466)
+
+## Rekcurd
+
+[Clova에서 사용하는 머신 러닝 모듈 관리 플랫폼, Rekcurd를 소개합니다 - LINE ENGINEERING](https://engineering.linecorp.com/ko/blog/drucker-management-operation-machine-learning-module-clova/)
+
+## Awesome BlahBlah
+
+Awesome MLOps
+<https://github.com/kelvins/awesome-mlops>
+
+Awesome production machine learning
+<https://github.com/EthicalML/awesome-production-machine-learning>
