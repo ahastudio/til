@@ -6,6 +6,12 @@ Awesome data annotation
 Computer Vision Annotation Formats
 <https://roboflow.com/formats>
 
+## LabelMe
+
+<http://labelme.csail.mit.edu/>
+
+<https://github.com/CSAILVision/LabelMeAnnotationTool>
+
 ## Computer Vision Annotation Tool (CVAT)
 
 <https://github.com/openvinotoolkit/cvat>
