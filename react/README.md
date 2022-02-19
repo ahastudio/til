@@ -66,11 +66,14 @@ EP4: How ReactDOM.render works
 - <https://github.com/ahastudio/til/blob/main/react/react-location.md>
 - <https://github.com/ahastudio/til/blob/main/react/router5.md>
 
-## React with TypeScript
+## React TypeScript Cheatsheets
 
-[React TypeScript Cheatsheets](https://react-typescript-cheatsheet.netlify.app/)
+- <https://github.com/typescript-cheatsheets/react>
+- <https://react-typescript-cheatsheet.netlify.app/>
 
-[React with TypeScript Cheatsheet | by Nathan Sebhastian](https://blog.bitsrc.io/react-with-typescript-cheatsheet-9dd891dc5bfe)
+## React with TypeScript Cheatsheet
+
+<https://blog.bitsrc.io/react-with-typescript-cheatsheet-9dd891dc5bfe>
 
 ## Bit: Component-driven development platform
 
