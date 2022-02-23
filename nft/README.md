@@ -4,6 +4,28 @@
 
 <https://ethereum.org/en/nft/>
 
+## Articles
+
+[NFT가 도대체 뭐야? - MIT Technology Review](https://www.technologyreview.kr/what-is-nft/)
+
+[초등학생도 이해하는 NFT 따라하기 - CoinDesk Korea 신뢰 그 이상의 가치](https://www.coindeskkorea.com/news/articleView.html?idxno=76262)
+
+[NFT(대체불가능토큰)의 약점 - CoinDesk Korea 신뢰 그 이상의 가치](https://www.coindeskkorea.com/news/articleView.html?idxno=73064)
+
+[당신이 NFT에 대해 알아야 할 모든 것 | 요즘IT](https://yozm.wishket.com/magazine/detail/1192/)
+
+[Cool Cats NFT를 구축하면서 배운 것 | 요즘IT](https://yozm.wishket.com/magazine/detail/1196/)
+
+[Web3에 대한 나의 첫인상 | GeekNews](https://news.hada.io/topic?id=5771)
+
+[saconyreview - web3/NFT: 이게 최선입니까?](https://saconyreview.glivery.co.kr/p/2274495848821)
+
+[NFT, 재미에서 일상으로 (92p PDF) | GeekNews](https://news.hada.io/topic?id=6000)
+
+[“6월부터 특허청이 NFT 발행·거래 때 법 위반 여부 직접 조사” - CoinDesk Korea 신뢰 그 이상의 가치](https://www.coindeskkorea.com/news/articleView.html?idxno=77823)
+
+[상상초월 가격의 NFT 그림, 정말 그만한 가치가 있을까? 유현준이 보는 NFT 예술 - YouTube](https://www.youtube.com/watch?v=9z4rfZjEGWA)
+
 ## CryptoZombies
 
 > 크립토좀비 - 이더리움 게임을 만드는 법을 학습하세요. Loom Network가 개발했습니다.
