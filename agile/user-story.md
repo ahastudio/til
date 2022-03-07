@@ -22,3 +22,7 @@ Planning Poker:
 ## Xper 위키의 사용자 스토리 사례
 
 [Xper:Xper Wiki Tests](https://web.archive.org/web/20061012054901/http://xper.org/wiki/xp/XperWikiTests)
+
+## Use Case
+
+[Use Cases and Scenarios](https://www.inflectra.com/Ideas/Topic/Use-Cases.aspx)
