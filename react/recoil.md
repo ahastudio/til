@@ -8,6 +8,10 @@
 
 <https://github.com/facebookexperimental/Recoil>
 
+## Articles
+
+[Recoil - 또 다른 React 상태 관리 라이브러리? | TOAST UI :: Make Your Web Delicious!](https://ui.toast.com/weekly-pick/ko_20200616)
+
 ## Selector
 
 <https://recoiljs.org/ko/docs/basic-tutorial/selectors/>
@@ -24,7 +28,7 @@
 
 [RecoilJS, How to get values and set values outside of Component (EN) | by Veep Cream Ka | Medium](https://dev-mobile-veep.medium.com/recoiljs-how-to-get-values-and-set-values-outside-of-component-en-d37e76b231be)
 
-## R E C O I L - N E X U S
+## RECOIL-NEXUS
 
 `recoil-outside`에서 영감을 얻어 TypeScript로 작성한 도구.
 
