@@ -97,3 +97,11 @@ EP4: How ReactDOM.render works
 <https://github.com/excalidraw/excalidraw>
 
 <https://excalidraw.com/>
+
+## usehooks-ts
+
+> React hooks library, written in Typescript
+
+<https://usehooks-ts.com/>
+
+<https://github.com/juliencrn/usehooks-ts>
