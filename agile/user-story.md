@@ -7,7 +7,7 @@ User Story Template Advantages
 <https://www.mountaingoatsoftware.com/blog/advantages-of-the-as-a-user-i-want-user-story-template>
 
 올바른 유저 스토리 작성을 위한 엔지니어링 가이드
-<https://wholeman.dev/posts/guide-to-writing-correct-user-stories/>
+<https://github.com/wholemann/blog/blob/master/content/posts/guide-to-writing-correct-user-stories.md>
 
 “As a, I want, So that” Considered Harmful
 <https://blog.crisp.se/2014/09/25/david-evans/as-a-i-want-so-that-considered-harmful>
