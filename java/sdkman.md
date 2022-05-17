@@ -20,7 +20,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 ```bash
 sdk list java | grep tem
 
-sdk install java 17.0.1-tem
+sdk install java 18.0.1-tem
 
 sdk list java | grep installed
 
