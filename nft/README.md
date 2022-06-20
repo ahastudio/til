@@ -102,9 +102,9 @@ Async Art - Create and Collect Dynamic, Interactive NFTs
 
 ### Fishy Fam
 
-![FishyFam Cover](https://pbs.twimg.com/profile_banners/1475129133374091266/1642090705/1500x500)
-
 <https://fishyfam.io/>
+
+<https://twitter.com/fishyfamNFT>
 
 <https://opensea.io/collection/fishyfam>
 
@@ -126,7 +126,11 @@ Transfer:
 
 ### Lucky Lion Club Official (LLC)
 
-![LLC Twitter Cover](https://pbs.twimg.com/profile_banners/1484106864073793538/1643553725/1500x500)
+![LLC Twitter Cover](https://pbs.twimg.com/profile_banners/1484106864073793538/1644784655/1500x500)
+
+<https://luckylionclubnft.com/>
+
+<https://twitter.com/Lucky_Lion_Club>
 
 <https://opensea.io/collection/llc-lucky-lion-club-official>
 
