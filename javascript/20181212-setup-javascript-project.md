@@ -316,7 +316,7 @@ const b = [
   2,
 ];
 
-print(b.map(i => i + a)) ;
+print(b.map(i => i + a));
 ```
 
 ## Jest 설치
