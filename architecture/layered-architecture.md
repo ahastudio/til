@@ -1,6 +1,8 @@
 # Layered Architecture
 
-## DDD의 구분
+## 에릭 에반스의 “DDD”에 나온 구분
+
+<https://wikibook.co.kr/article/layered-architecture/>
 
 1. UI Layer
 1. Application Layer
