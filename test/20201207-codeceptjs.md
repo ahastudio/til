@@ -39,6 +39,15 @@ CodeceptJS를 간단히 설치해 보죠.
 npx create-codeceptjs .
 ```
 
+이 작업은 `package.json` 파일의 들여 쓰기를 스페이스 4칸으로 바꾸기 때문에
+다시 원상복귀시키겠습니다.
+
+```bash
+sed "s/    /  /g" package.json > package.json.tmp
+rm package.json
+mv package.json.tmp package.json
+```
+
 이제 우리는 3가지 방식으로 테스트를 실행할 수 있습니다.
 
 ```bash
@@ -61,6 +70,14 @@ npm run codeceptjs:demo:headless
 
 npm run codeceptjs:demo:ui
 ```
+
+예제를 잘 봤다면 더이상 필요 없으니 예제를 제거합니다.
+
+```bash
+npm uninstall @codeceptjs/examples
+```
+
+`package.json` 파일에서 `codeceptjs:demo` 명령 3종도 삭제합니다.
 
 ## CodeceptJS 프로젝트 세팅
 
