@@ -9,3 +9,9 @@
 ## Example
 
 <https://github.com/ahastudio?tab=achievements>
+
+## Quickdraw
+
+PR을 5분 안에 닫으면 획득할 수 있다.
+
+![Quickdraw](https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/main/images/quickdraw-default.png)
