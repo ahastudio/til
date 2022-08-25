@@ -15,6 +15,12 @@
 
 <https://github.com/citerus/dddsample-core>
 
+## Implementing Domain-Driven Design
+
+<http://aladin.kr/p/xnRRz>
+
+<https://github.com/VaughnVernon/IDDD_Samples>
+
 ## TypeScript DDD Example
 
 > Complete project applying Hexagonal Architecture and
