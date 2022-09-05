@@ -28,11 +28,13 @@
 
 ## CryptoZombies
 
+> #1 Solidity Tutorial & Ethereum Blockchain Programming Course
+
 > 크립토좀비 - 이더리움 게임을 만드는 법을 학습하세요. Loom Network가 개발했습니다.
 
 <https://cryptozombies.io/>
 
-<https://cryptozombies.io/ko/>
+Course: <https://cryptozombies.io/ko/course>
 
 ## OpenSea
 
