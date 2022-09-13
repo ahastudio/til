@@ -8,3 +8,7 @@
 
 The Java™ Tutorials
 <https://docs.oracle.com/javase/tutorial/>
+
+## The Java® Language Specification
+
+<https://docs.oracle.com/javase/specs/jls/se17/html/index.html>
