@@ -6,7 +6,11 @@
 
 ## Storybook Tutorials
 
-[리액트(React)를 위한 스토리북(Storybook) 튜토리얼](https://storybook.js.org/tutorials/intro-to-storybook/react/ko/get-started/)
+리액트(React)를 위한 스토리북(Storybook) 튜토리얼:
+<https://storybook.js.org/tutorials/intro-to-storybook/react/ko/get-started/>
+
+Chromatic's Intro to Storybook React template:
+<https://github.com/chromaui/intro-storybook-react-template>
 
 ## Chromatic: Storybook deployment, review, and test
 
