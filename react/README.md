@@ -17,6 +17,10 @@
 > Today we’re announcing that we’re switching to major revisions for React.
 > The current version is 0.14.7. The next release will be: 15.0.0
 
+## React 버전 17
+
+[Introducing the New JSX Transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html)
+
 ## React 버전 18
 
 [The Plan for React 18 – React Blog](https://reactjs.org/blog/2021/06/08/the-plan-for-react-18.html)
