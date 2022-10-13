@@ -1,5 +1,7 @@
 # Code Review
 
+[리팩토링 회의 – Kwang Yul Seo](https://kwangyulseo.com/2015/05/02/%eb%a6%ac%ed%8c%a9%ed%86%a0%eb%a7%81-%ed%9a%8c%ec%9d%98/)
+
 ## Google
 
 [Getting the Certification to Review Code at Google](https://www.pullrequest.com/blog/google-code-review-readability-certification/)
