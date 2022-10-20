@@ -6,6 +6,8 @@
 
 ## Domain-Driven Hexagon
 
+![Diagram](https://github.com/Sairyss/domain-driven-hexagon/blob/master/assets/images/DomainDrivenHexagon.png)
+
 <https://github.com/Sairyss/domain-driven-hexagon>
 
 ![Explicit Architecture](https://docs.google.com/drawings/d/e/2PACX-1vQ5ps72uaZcEJzwnJbPhzUfEeBbN6CJ04j7hl2i3K2HHatNcsoyG2tgX2vnrN5xxDKLp5Jm5bzzmZdv/pub?w=960&amp;h=657)
