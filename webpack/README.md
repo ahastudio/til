@@ -15,3 +15,7 @@ Zero-configuration
 
 Most popular mistake to ruin Webpack bundle optimization
 <https://codecrumbs.io/library/most-popular-mistake-webpack>
+
+## Example
+
+<https://github.com/ahastudio/CodingLife/tree/main/20211130/webpack>
