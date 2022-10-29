@@ -13,3 +13,11 @@
 ## The State of Microservices Today
 
 <https://blog.codeship.com/the-state-of-microservices-today/>
+
+## Microservices: From Design to Deployment E-Book
+
+<https://www.nginx.com/blog/microservices-from-design-to-deployment-ebook-nginx/>
+
+## The Microservices Reference Architecture E-Book
+
+<https://www.nginx.com/blog/microservices-reference-architecture-free-ebook-nginx/>
