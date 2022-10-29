@@ -15,3 +15,8 @@
 
 - <https://github.com/Kodein-Framework/Kodein-DI>
 - <https://docs.kodein.org/kodein-di>
+
+### Dagger Hiit
+
+- <https://developer.android.com/codelabs/android-dagger#0>
+- <https://dagger.dev/tutorial/>
