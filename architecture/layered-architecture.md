@@ -4,6 +4,10 @@
 
 <https://martinfowler.com/bliki/PresentationDomainDataLayering.html>
 
+1. Presentation
+1. Domain
+1. Data
+
 ## 에릭 에반스의 “DDD”에 나온 4계층
 
 <https://wikibook.co.kr/article/layered-architecture/>
