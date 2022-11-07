@@ -8,6 +8,9 @@
 1. Domain
 1. Data
 
+[N-tier Architecture](./n-tier-architecture.md)
+참고.
+
 ## 에릭 에반스의 “DDD”에 나온 4계층
 
 <https://wikibook.co.kr/article/layered-architecture/>
