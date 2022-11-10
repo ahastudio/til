@@ -18,15 +18,11 @@ implementation 'org.modelmapper:modelmapper:2.3.0'
 
 ```java
 class User {
-    @Setter
-    @Getter
     private String username;
 }
 ```
 
 ```java
-@Setter
-@Getter
 class UserDTO {
     private String username;
 }
@@ -36,6 +32,10 @@ class UserDTO {
 
 ```java
 ModelMapper modelMapper = new ModelMapper();
+
+modelMapper.getConfiguration()
+        .setFieldMatchingEnabled(true)
+        .setFieldAccessLevel(Configuration.AccessLevel.PRIVATE);
 ```
 
 ```java
@@ -44,4 +44,13 @@ UserDTO userDTO = modelMapper.map(user, UserDTO.class);
 
 ```java
 User user = modelMapper.map(userDTO, User.class);
+```
+
+## Converter
+
+```java
+modelMapper.addConverter(
+        context -> FieldUtils.getField(
+                context.getSource(), "value", Integer.class),
+        Level.class, Integer.class);
 ```
