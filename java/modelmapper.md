@@ -23,7 +23,7 @@ class User {
 ```
 
 ```java
-class UserDTO {
+class UserDto {
     private String username;
 }
 ```
@@ -39,11 +39,11 @@ modelMapper.getConfiguration()
 ```
 
 ```java
-UserDTO userDTO = modelMapper.map(user, UserDTO.class);
+UserDto userDto = modelMapper.map(user, UserDto.class);
 ```
 
 ```java
-User user = modelMapper.map(userDTO, User.class);
+User user = modelMapper.map(userDto, User.class);
 ```
 
 ## Converter
