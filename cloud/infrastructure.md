@@ -14,6 +14,10 @@
 
 <https://fly.io/>
 
+→ Docker 지원.
+무료 플랜으로 Spring 앱을 돌리기엔 메모리가 부족하지만,
+Spring Native를 사용하면 개선 가능함.
+
 ## Vercel
 
 > Develop. Preview. Ship. For the best frontend teams
