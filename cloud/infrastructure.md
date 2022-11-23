@@ -6,6 +6,8 @@
 
 <https://www.heroku.com/home>
 
+→ 무료 플랜 사라짐. 대안으로 Fly 추천.
+
 ## Fly
 
 > Deploy app servers close to your users
