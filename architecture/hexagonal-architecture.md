@@ -4,6 +4,10 @@
 
 ![Hexagonal architecture basic.gif](https://alistair.cockburn.us/wp-content/uploads/2018/02/Hexagonal-architecture-basic-1.gif)
 
+[Ready for changes with Hexagonal Architecture | by Netflix Technology Blog](https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749)
+
+![The dependency graph in Hexagonal Architecture goes inward](https://miro.medium.com/max/1400/1*NfFzI7Z-E3ypn8ahESbDzw.webp)
+
 ## Domain-Driven Hexagon
 
 ![Diagram](https://github.com/Sairyss/domain-driven-hexagon/blob/master/assets/images/DomainDrivenHexagon.png)
