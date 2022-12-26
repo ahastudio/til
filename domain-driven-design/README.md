@@ -27,3 +27,11 @@
 > Domain-Driven Design patterns
 
 <https://github.com/CodelyTV/typescript-ddd-example>
+
+## 사례
+
+[Database Driven Development에서 진짜 DDD로의 선회 -1- - 컬리 기술 블로그](https://helloworld.kurly.com/blog/road-to-ddd/)
+
+[Database Driven Development에서 진짜 DDD로의 선회, 이벤트 스토밍 -2- - 컬리 기술 블로그](https://helloworld.kurly.com/blog/event-storming/)
+
+[추천팀의 DDD 도입기 – tech.kakao.com](https://tech.kakao.com/2022/12/12/ddd-of-recommender-team/)
