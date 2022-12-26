@@ -1,4 +1,4 @@
-# TypeScript: Typed JavaScript at Any Scale
+# TypeScript: JavaScript with syntax for types
 
 <https://www.typescriptlang.org/>
 
