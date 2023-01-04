@@ -27,3 +27,7 @@ Test Driven Development
 [Xper:TDD수련법](https://web.archive.org/web/20061012050617/http://xper.org/wiki/xp/TDD_bc_f6_b7_c3_b9_fd)
 
 [[OKKYCON] 이혜승 - 테알못 신입은 어떻게 테스트를 시작했을까?](https://www.slideshare.net/OKJSP/okkycon-120498066)
+
+<https://github.com/ahastudio/til/blob/main/blog/2016/12-03-tdd-faq.md>
+
+<https://github.com/ahastudio/til/blob/main/jest/20201204-simple-tdd-example.md>
