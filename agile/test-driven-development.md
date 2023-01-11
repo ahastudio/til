@@ -11,10 +11,8 @@ Test Driven Development
 
 <https://www.oreilly.com/library/view/test-driven-development/0321146530/>
 
-<https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530>
-
-번역서:
-<https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=37469717>
+- 원서: <https://a.co/d/faRGN86>
+- 번역서: <http://aladin.kr/p/dGXdZ>
 
 [Xper:Test Driven Development By Example](https://web.archive.org/web/20061012041417/http://xper.org/wiki/xp/TestDrivenDevelopmentByExample)
 
