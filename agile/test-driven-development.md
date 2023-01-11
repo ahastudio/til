@@ -5,6 +5,8 @@ Test Driven Development
 
 [Xper:Test Driven Development](https://web.archive.org/web/20070628064054/http://xper.org/wiki/xp/TestDrivenDevelopment)
 
+[Code the Unit Test First](http://www.extremeprogramming.org/rules/testfirst.html)
+
 ## Test Driven Development: By Example
 
 <https://www.oreilly.com/library/view/test-driven-development/0321146530/>
