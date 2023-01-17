@@ -28,8 +28,10 @@ Test Driven Development
 
 [[OKKYCON] 이혜승 - 테알못 신입은 어떻게 테스트를 시작했을까?](https://www.slideshare.net/OKJSP/okkycon-120498066)
 
-<https://github.com/ahastudio/til/blob/main/blog/2016/12-03-tdd-faq.md>
+## 아샬이 만든 자료
 
-<https://github.com/ahastudio/til/blob/main/jest/20201204-simple-tdd-example.md>
+[TDD FAQ](https://github.com/ahastudio/til/blob/main/blog/2016/12-03-tdd-faq.md)
 
-[Java+JUnit TDD 실습](https://www.youtube.com/playlist?list=PLbdtsbZUwdeRirBYnWrMSvKYS4CcmXCeU)
+[Jest를 이용한 간단한 TDD 예제](https://github.com/ahastudio/til/blob/main/jest/20201204-simple-tdd-example.md)
+
+[📺 Java+JUnit TDD 실습](https://www.youtube.com/playlist?list=PLbdtsbZUwdeRirBYnWrMSvKYS4CcmXCeU)
