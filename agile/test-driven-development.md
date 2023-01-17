@@ -31,3 +31,5 @@ Test Driven Development
 <https://github.com/ahastudio/til/blob/main/blog/2016/12-03-tdd-faq.md>
 
 <https://github.com/ahastudio/til/blob/main/jest/20201204-simple-tdd-example.md>
+
+[Java+JUnit TDD 실습](https://www.youtube.com/playlist?list=PLbdtsbZUwdeRirBYnWrMSvKYS4CcmXCeU)
