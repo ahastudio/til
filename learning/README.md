@@ -18,14 +18,11 @@
 
 ## 르네상스인
 
-르네상스인 다빈치
-<https://www.hankyung.com/opinion/article/2019043005971>
+['르네상스인' 다빈치](https://bit.ly/3DtvJ68)
 
-르네상스맨
-<http://no-smok.net/nsmk/%EB%A5%B4%EB%84%A4%EC%83%81%EC%8A%A4%EB%A7%A8>
+[NoSmoke:르네상스맨](https://bit.ly/3HlGxVf)
 
-Renaissance Club
-<https://web.archive.org/web/20061012034147/http://xper.org/wiki/seminar/RenaissanceClub>
+[seminar:Renaissance Club](https://bit.ly/3wLqxHd)
 
 ## 프로그래밍 공부법
 
