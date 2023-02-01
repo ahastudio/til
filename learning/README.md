@@ -27,7 +27,11 @@
 Renaissance Club
 <https://web.archive.org/web/20061012034147/http://xper.org/wiki/seminar/RenaissanceClub>
 
-## 프로그래밍, 어떻게 공부할 것인가
+## 프로그래밍 공부법
+
+[토비님의 공부법](https://bit.ly/3kX1gXR)
+
+### 프로그래밍, 어떻게 공부할 것인가 (by 김창준)
 
 <https://mindscale.kr/course/how-to-learn-prg/>
 
