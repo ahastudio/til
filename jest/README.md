@@ -44,3 +44,9 @@ Dir.glob('src/*.test.*').each do |name|
   system("npx jest --runInBand --detectOpenHandles #{name}")
 end
 ```
+
+## Articles
+
+[Why Is My Jest Test Suite So Slow? | by Steven Lemon](https://blog.bitsrc.io/why-is-my-jest-suite-so-slow-2a4859bb9ac0)
+→ 한국어 번역:
+[내가 작성한 Jest 테스트는 왜 이렇게 느릴까?](https://velog.io/@sehyunny/why-is-my-jest-test-suit-so-slow)
