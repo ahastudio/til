@@ -43,7 +43,7 @@ npx eslint --init
 
 XO 관련 의존성 제거하고, 에어비앤비 관련 의존성 설치.
 
-```json
+```bash
 npm uninstall eslint-config-xo \
     eslint-config-xo-typescript
 
