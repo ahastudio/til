@@ -50,3 +50,36 @@ end
 [Why Is My Jest Test Suite So Slow? | by Steven Lemon](https://blog.bitsrc.io/why-is-my-jest-suite-so-slow-2a4859bb9ac0)
 → 한국어 번역:
 [내가 작성한 Jest 테스트는 왜 이렇게 느릴까?](https://velog.io/@sehyunny/why-is-my-jest-test-suit-so-slow)
+
+## SWC
+
+```bash
+npm i -D jest @types/jest @swc/core @swc/jest
+```
+
+`jest.config.js` 파일:
+
+```javascript
+module.exports = {
+  // setupFilesAfterEnv: [
+  //   '<rootDir>/src/setupTests.ts',
+  // ],
+  transform: {
+    '^.+\\.jsx?$': ['@swc/jest', {
+      jsc: {
+        parser: {
+          // jsx: true,
+          // decorators: true,
+        },
+        transform: {
+          // react: {
+          //   runtime: 'automatic',
+          // },
+          legacyDecorator: true,
+          decoratorMetadata: true,
+        },
+      },
+    }],
+  },
+};
+```
