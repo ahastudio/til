@@ -130,11 +130,26 @@ module.exports = {
 
 ## VS Code 설정 파일 생성
 
+`.vscode` 디렉터리 및 `settings.json` 파일 생성.
+
 ```bash
 mkdir .vscode
 
-curl https://raw.githubusercontent.com/ahastudio/CodingLife/main/20211008/react/.vscode/settings.json \
-  -o .vscode/settings.json
+touch .vscode/settings.json
+```
+
+`.vscode/settings.json` 파일은 다음과 같이 작성한다.
+
+```json
+{
+    "editor.rulers": [
+        80
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "trailing-spaces.trimOnSave": true
+}
 ```
 
 ## Jest 세팅
