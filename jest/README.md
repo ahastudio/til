@@ -61,13 +61,15 @@ npm i -D jest @types/jest @swc/core @swc/jest
 
 ```javascript
 module.exports = {
+  // testEnvironment: 'jsdom',
   // setupFilesAfterEnv: [
   //   '<rootDir>/src/setupTests.ts',
   // ],
   transform: {
-    '^.+\\.jsx?$': ['@swc/jest', {
+    '^.+\\.(t|j)sx?$': ['@swc/jest', {
       jsc: {
         parser: {
+          syntax: 'typescript',
           // jsx: true,
           // decorators: true,
         },
@@ -75,8 +77,8 @@ module.exports = {
           // react: {
           //   runtime: 'automatic',
           // },
-          legacyDecorator: true,
-          decoratorMetadata: true,
+          // legacyDecorator: true,
+          // decoratorMetadata: true,
         },
       },
     }],
