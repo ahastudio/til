@@ -29,6 +29,12 @@ npm i -D typescript
 npx tsc --init
 ```
 
+`tsconfig.json` 파일에서 `jsx` 관련 항목 주석을 제거하고 수정.
+
+```json
+    "jsx": "react-jsx",
+```
+
 ## ESLint 세팅
 
 개발할 때만 사용하는 ESLint 설치.
