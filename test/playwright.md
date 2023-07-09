@@ -6,6 +6,8 @@
 
 <https://github.com/microsoft/playwright>
 
+[Microsoft Announces Playwright Alternative to Puppeteer](https://www.infoq.com/news/2020/01/playwright-browser-automation/)
+
 ## Page
 
 <https://playwright.dev/docs/api/class-page>
