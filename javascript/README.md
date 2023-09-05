@@ -33,3 +33,8 @@
 
 MDN ❯ 개발자를 위한 웹 기술 ❯ JavaScript
 <https://developer.mozilla.org/ko/docs/Web/JavaScript>
+
+## Simple Frontend Framework
+
+- <https://alpinejs.dev/>
+- <https://htmx.org/>
