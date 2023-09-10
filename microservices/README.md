@@ -8,11 +8,13 @@
 ## Microservice Trade-Offs
 
 - <https://martinfowler.com/articles/microservice-trade-offs.html>
-- 한국어 번역: <https://haruair.com/blog/3066>
+- 한국어 번역: <[https://haruair.com/blog/3066](https://edykim.com/ko/post/microservice-tradeoff/)>
 
 ## The State of Microservices Today
 
-<https://blog.codeship.com/the-state-of-microservices-today/>
+2015년 12월 16일에 작성한 글.
+
+<https://www.cloudbees.com/blog/the-state-of-microservices-today>
 
 ## Microservices: From Design to Deployment E-Book
 
