@@ -32,3 +32,11 @@
 <https://vanilla-extract.style/>
 
 <https://github.com/seek-oss/vanilla-extract>
+
+## Kuma UI
+
+> 🐻‍❄️ A Headless, Utility-First, and Zero-Runtime UI Component Library ✨
+
+<https://kuma-ui.com/>
+
+<https://github.com/kuma-ui/kuma-ui>
