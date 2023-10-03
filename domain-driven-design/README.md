@@ -2,6 +2,10 @@
 
 <https://martinfowler.com/bliki/DomainDrivenDesign.html>
 
+## DDD is not what they told you
+
+<https://dev.to/franiglesias/ddd-is-not-what-they-told-you-3jem>
+
 ## DDD Sample Application
 
 > One of the most requested aids to coming up to speed on DDD
