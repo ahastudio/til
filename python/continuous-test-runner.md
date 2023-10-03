@@ -1,3 +1,9 @@
 # Continuous Test Runner
 
-- https://github.com/joeyespo/pytest-watch
+## pytest-watch - Continuous pytest runner
+
+<https://github.com/joeyespo/pytest-watch>
+
+```bash
+ptw
+```
