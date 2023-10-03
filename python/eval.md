@@ -8,7 +8,7 @@
 
 <https://docs.python.org/3/library/ast.html#ast.literal_eval>
 
-## 응용
+## 참고할 수 있는 Ruby 응용 사례
 
-- [Ruby EDSL(Embedded Domain Specific Language)](https://github.com/ahastudio/til/blob/master/ruby/20161201-edsl.md)
-- [Ruby Meta-programming](https://github.com/ahastudio/til/blob/master/ruby/20161207-metaprogramming.md)
+- [Ruby EDSL(Embedded Domain Specific Language)](https://github.com/ahastudio/til/blob/main/ruby/20161201-edsl.md)
+- [Ruby Meta-programming](https://github.com/ahastudio/til/blob/main/ruby/20161207-metaprogramming.md)
