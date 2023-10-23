@@ -39,3 +39,7 @@
 [강의 영상을 2배속으로 두번 보는게, 정상 속도로 1번 보는 것 보다 학습효과가 더 좋다 | GeekNews](https://news.hada.io/topic?id=5615)
 
 [Watching A Lecture Twice At Double Speed Can Benefit Learning Better Than Watching It Once At Normal Speed – Research Digest](https://digest.bps.org.uk/2021/12/21/watching-a-lecture-twice-at-double-speed-can-benefit-learning-better-than-watching-it-once-at-normal-speed/)
+
+## Readership Training
+
+[하루에 스무 권 읽기](https://web.archive.org/web/20221003165732/http://agile.egloos.com/4215677)
