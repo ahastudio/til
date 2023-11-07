@@ -30,7 +30,9 @@
 
 ### 프로그래밍, 어떻게 공부할 것인가 (by 김창준)
 
-<https://mindscale.kr/course/how-to-learn-prg/>
+[https://mindscale.kr/course/how-to-learn-prg/](https://web.archive.org/web/20220701023258/https://mindscale.kr/course/how-to-learn-prg/)
+
+[프로그래밍 어떻게 공부할 것인가 YouTube Playlist](https://www.youtube.com/playlist?list=PLE9xnLCpxz5wZnYt3F1Rgsp_cpIIQrwo9)
 
 <https://github.com/Gyubin/TIL/blob/master/ETC/how_to_study_programming.md>
 
