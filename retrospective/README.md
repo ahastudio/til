@@ -20,10 +20,13 @@
 
 ## 기년회
 
-- [애자일 이야기 : 망년회 대신 기년회](http://agile.egloos.com/4016733)
-  - 본문: [망년회 대신 기년회](https://j.mp/311f36f)
-  - 수정된 버전: [망년회 대신 기년회](https://j.mp/3Hd3GHF)
-  - [Xper:2007년송년회](https://j.mp/3eqEQrr)
+[애자일 이야기 : 망년회 대신 기년회](https://web.archive.org/web/20230302194930/http://agile.egloos.com/4016733)
+
+- 본문: [망년회 대신 기년회](https://j.mp/311f36f)
+- 수정된 버전: [망년회 대신 기년회](https://j.mp/3Hd3GHF)
+- [Xper:2007년송년회](https://j.mp/3eqEQrr)
+
+[한 해 돌아보기 - HR 블레틴](https://hrbulletin.net/tools/%ed%95%9c-%ed%95%b4-%eb%8f%8c%ec%95%84%eb%b3%b4%ea%b8%b0/)
 
 ## TIL
 
