@@ -1,4 +1,4 @@
-# Unity
+# Unity 실시간 개발 플랫폼 | 3D, 2D, VR 및 AR 엔진
 
 <https://unity.com/kr>
 
