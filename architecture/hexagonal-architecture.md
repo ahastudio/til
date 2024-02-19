@@ -14,6 +14,12 @@
 
 <https://github.com/Sairyss/domain-driven-hexagon>
 
+## Explicit Architecture
+
 ![Explicit Architecture](https://docs.google.com/drawings/d/e/2PACX-1vQ5ps72uaZcEJzwnJbPhzUfEeBbN6CJ04j7hl2i3K2HHatNcsoyG2tgX2vnrN5xxDKLp5Jm5bzzmZdv/pub?w=960&amp;h=657)
 
 [DDD, Hexagonal, Onion, Clean, CQRS, … How I put it all together](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/)
+
+<https://github.com/hgraca/explicit-architecture-php>
+
+<https://github.com/hgraca/explicit-architecture-reactjs>
