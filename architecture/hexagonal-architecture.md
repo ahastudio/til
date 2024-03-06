@@ -20,6 +20,9 @@
 
 [DDD, Hexagonal, Onion, Clean, CQRS, … How I put it all together](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/)
 
-<https://github.com/hgraca/explicit-architecture-php>
+한국어 번역:
+[DDD, Hexagonal, Onion, Clean, CQRS, … 이 모든 것을 어떻게 함께 사용할까요?](https://junghan92.medium.com/%EB%B2%88%EC%97%AD-ddd-hexagonal-onion-clean-cqrs-%EC%9D%B4-%EB%AA%A8%EB%93%A0-%EA%B2%83%EC%9D%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%A8%EA%BB%98-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C%EC%9A%94-7453ead460d4)
 
-<https://github.com/hgraca/explicit-architecture-reactjs>
+Demo:
+- <https://github.com/hgraca/explicit-architecture-php>
+- <https://github.com/hgraca/explicit-architecture-reactjs>
