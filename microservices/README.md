@@ -23,3 +23,8 @@
 ## The Microservices Reference Architecture E-Book
 
 <https://www.nginx.com/blog/microservices-reference-architecture-free-ebook-nginx/>
+
+## Monolith First
+
+- [In defense of simple architectures](https://danluu.com/simple-architectures/)
+- 한국어 번역: [단순한 아키텍처를 옹호하며 (2022) | GeekNews](https://news.hada.io/topic?id=13754)
