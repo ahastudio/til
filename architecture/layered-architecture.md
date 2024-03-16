@@ -1,5 +1,10 @@
 # Layered Architecture
 
+> One of the powerful features of the layered architecture pattern
+> is the **separation of concerns** among components.
+>
+> (from <https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch01.html>
+
 ## 전통적인 3계층
 
 <https://martinfowler.com/bliki/PresentationDomainDataLayering.html>
