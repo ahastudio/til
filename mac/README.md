@@ -86,3 +86,23 @@ mise list ruby
 ruby -v
 # → 마찬가지로 .ruby-version 파일 인식
 ```
+
+### Go 설치
+
+```bash
+mise use --global go@1.22.1
+
+mise list go
+
+go version
+```
+
+### Rust 설치
+
+```bash
+mise use --global rust@1.77.0
+
+mise list rust
+
+cargo --version
+```
