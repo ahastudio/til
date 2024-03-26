@@ -18,6 +18,8 @@
 무료 플랜으로 Spring 앱을 돌리기엔 메모리가 부족하지만,
 Spring Native를 사용하면 개선 가능함.
 
+[Go 프로젝트를 EC2에서 Fly.io로 이관한 후기: 더 재미나고, 월 $9 절약 | GeekNews](https://news.hada.io/topic?id=8604)
+
 ## Vercel
 
 > Develop. Preview. Ship. For the best frontend teams
