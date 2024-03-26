@@ -21,3 +21,11 @@
 <https://asdf-vm.com/>
 
 <https://github.com/asdf-vm/asdf>
+
+## mise-en-place
+
+> The front-end to your dev env
+
+<https://mise.jdx.dev/>
+
+<https://github.com/jdx/mise>
