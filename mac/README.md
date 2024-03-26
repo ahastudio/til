@@ -41,6 +41,21 @@ eval "$(mise activate zsh)"
 
 echo 'eval "$(mise activate zsh)"' >> ~/.zprofile
 
+# Node.js
+
+mise use --global node@20.11.1
+
+mise install node@18.19.1
+
+mise list node
+
+node -v
+# → .nvmrc 파일 인식
+# 만약 .nvmrc 파일에 명시된 버전이 없다면 자동으로 설치된다.
+
+# 명시적으로 설치할 수도 있다.
+mise install
+
 # Python
 
 mise use --global python@3.12.2
@@ -56,18 +71,14 @@ python --version
 # 명시적으로 설치할 수도 있다.
 mise install
 
-# Node.js
+# Ruby
 
-mise use --global node@20.11.1
+brew install openssl@3 readline libyaml gmp
 
-mise install node@18.19.1
+mise use --global ruby@3.3.0
 
-mise list node
+mise list ruby
 
-node -v
-# → .nvmrc 파일 인식
-# 만약 .nvmrc 파일에 명시된 버전이 없다면 자동으로 설치된다.
-
-# 명시적으로 설치할 수도 있다.
-mise install
+ruby -v
+# → 마찬가지로 .ruby-version 파일 인식
 ```
