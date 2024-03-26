@@ -33,16 +33,16 @@
 <https://formulae.brew.sh/formula/mise>
 
 ```bash
-# 설치 및 설정
-
 brew install mise
 
 eval "$(mise activate zsh)"
 
 echo 'eval "$(mise activate zsh)"' >> ~/.zprofile
+```
 
-# Node.js
+### Node.js 설치
 
+```bash
 mise use --global node@20.11.1
 
 mise install node@18.19.1
@@ -55,9 +55,11 @@ node -v
 
 # 명시적으로 설치할 수도 있다.
 mise install
+```
 
-# Python
+### Python 설치
 
+```bash
 mise use --global python@3.12.2
 
 mise install python@3.11.8
@@ -70,9 +72,11 @@ python --version
 
 # 명시적으로 설치할 수도 있다.
 mise install
+```
 
-# Ruby
+### Ruby 설치
 
+```bash
 brew install openssl@3 readline libyaml gmp
 
 mise use --global ruby@3.3.0
