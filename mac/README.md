@@ -50,8 +50,11 @@ mise install python@3.11.8
 mise list python
 
 python --version
-
 # → .python-version 파일 인식
+# 만약 .python-version 파일에 명시된 버전이 없다면 자동으로 설치된다.
+
+# 명시적으로 설치할 수도 있다.
+mise install
 
 # Node.js
 
@@ -62,6 +65,9 @@ mise install node@18.19.1
 mise list node
 
 node -v
-
 # → .nvmrc 파일 인식
+# 만약 .nvmrc 파일에 명시된 버전이 없다면 자동으로 설치된다.
+
+# 명시적으로 설치할 수도 있다.
+mise install
 ```
