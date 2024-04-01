@@ -139,3 +139,8 @@ EP4: How ReactDOM.render works
 <https://usehooks-ts.com/>
 
 <https://github.com/juliencrn/usehooks-ts>
+
+[Migrate to v3](https://usehooks-ts.com/migrate-to-v3)
+- `useFetch` 없어짐.
+  [SWR](https://swr.vercel.app/ko)을 쓰면 그나마 제일 비슷하다.
+- `useEffectOnce` 없어짐. `useEffectOnce(effect)` 대신 `useEffect(effect, [])`를 쓰면 된다.
