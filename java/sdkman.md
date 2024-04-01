@@ -17,12 +17,22 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 ```
 
+## SDKMAN! 업데이트
+
+```bash
+sdk selfupdate
+```
+
 ## OpenJDK 설치
+
+<https://en.wikipedia.org/wiki/Java_version_history>
+
+LTS인 17 버전 설치.
 
 ```bash
 sdk list java | grep tem
 
-sdk install java 19.0.2-tem
+sdk install java 17.0.10-tem
 
 sdk list java | grep installed
 
