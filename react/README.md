@@ -61,6 +61,8 @@ EP4: How ReactDOM.render works
 
 [재조정 (Reconciliation) – React](https://ko.legacy.reactjs.org/docs/reconciliation.html)
 
+[React 렌더링 과정으로 알아보는 선언적이라는 의미](https://pozafly.github.io/react/declarative-meaning-of-react-rendering-process/)
+
 [Why React Re-Renders](https://www.joshwcomeau.com/react/why-react-re-renders/) \
 → 한국어 번역:
 [왜 리액트에서 리렌더링이 발생하는가](https://medium.com/@yujso66/%EB%B2%88%EC%97%AD-%EC%99%9C-%EB%A6%AC%EC%95%A1%ED%8A%B8%EC%97%90%EC%84%9C-%EB%A6%AC%EB%A0%8C%EB%8D%94%EB%A7%81%EC%9D%B4-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94%EA%B0%80-74dd239b0063)
