@@ -27,6 +27,10 @@
 
 [React 18: An overview of its new features and updates | DhiWise](https://medium.com/dhiwise/react-18-new-features-and-updates-2e608d862a6d)
 
+## Rules of React
+
+<https://react.dev/reference/rules>
+
 ## React Patterns
 
 <https://reactpatterns.com/>
