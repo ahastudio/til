@@ -51,6 +51,10 @@ EP4: How ReactDOM.render works
 
 ## Rendering
 
+[State: A Component's Memory – React](https://react.dev/learn/state-a-components-memory)
+→ 한국어 번역:
+[State: 컴포넌트의 메모리 – React](https://react-ko.dev/learn/state-a-components-memory)
+
 [Render and Commit – React](https://react.dev/learn/render-and-commit) \
 → 한국어 번역:
 [렌더링하고 커밋하기 – React](https://react-ko.dev/learn/render-and-commit)
