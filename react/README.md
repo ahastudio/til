@@ -45,6 +45,22 @@ EP3: Reverse engineer the most famous React snippet
 EP4: How ReactDOM.render works
 <https://dev.to/fromaline/deep-dive-into-react-codebase-ep4-how-reactdomrender-works-32n6>
 
+## Rendering
+
+[Render and Commit – React](https://react.dev/learn/render-and-commit) \
+→ 한국어 번역:
+[렌더링하고 커밋하기 – React](https://react-ko.dev/learn/render-and-commit)
+
+[State as a Snapshot – React](https://react.dev/learn/state-as-a-snapshot)
+→ 한국어 번역:
+[스냅샷으로서의 state – React](https://react-ko.dev/learn/state-as-a-snapshot)
+
+[재조정 (Reconciliation) – React](https://ko.legacy.reactjs.org/docs/reconciliation.html)
+
+[Why React Re-Renders](https://www.joshwcomeau.com/react/why-react-re-renders/) \
+→ 한국어 번역:
+[왜 리액트에서 리렌더링이 발생하는가](https://medium.com/@yujso66/%EB%B2%88%EC%97%AD-%EC%99%9C-%EB%A6%AC%EC%95%A1%ED%8A%B8%EC%97%90%EC%84%9C-%EB%A6%AC%EB%A0%8C%EB%8D%94%EB%A7%81%EC%9D%B4-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94%EA%B0%80-74dd239b0063)
+
 ## State Management
 
 [Do You Know the 5 Types of States in React? | by Vithushan Jey](https://javascript.plainenglish.io/do-you-know-the-5-types-of-states-in-react-8734a04a5ffb)
