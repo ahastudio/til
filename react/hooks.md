@@ -9,6 +9,8 @@ Hooks at a Glance
 Hooks API Reference
 <https://reactjs.org/docs/hooks-reference.html>
 
+[React는 Hooks를 배열로 관리하고 있다](https://pozafly.github.io/react/react-is-managing-hooks-as-an-array/)
+
 ## Tutorials
 
 Why React Hooks?
