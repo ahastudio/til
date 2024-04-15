@@ -4,6 +4,12 @@
 
 <https://martinfowler.com/eaaCatalog/index.html>
 
+## Transaction Script vs Domain Model
+
+<https://martinfowler.com/eaaCatalog/transactionScript.html>
+
+<https://martinfowler.com/eaaCatalog/domainModel.html>
+
 ## DAO vs Repository
 
 [DAO와 REPOSITORY 논쟁](https://web.archive.org/web/20140630162632/http://aeternum.egloos.com/1160846)
@@ -13,5 +19,3 @@
 <https://martinfowler.com/eaaCatalog/tableDataGateway.html>
 
 <https://martinfowler.com/eaaCatalog/repository.html>
-
-<https://martinfowler.com/eaaCatalog/domainModel.html>
