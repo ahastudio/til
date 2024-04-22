@@ -3,9 +3,9 @@
 > FUSE-based file system for replicating SQLite databases
 > across a cluster of machines
 
-<​​https://github.com/superfly/litefs>
+​​https://github.com/superfly/litefs
 
-<https://fly.io/docs/litefs/>
+https://fly.io/docs/litefs/
 
 [Introducing LiteFS · The Fly Blog](https://fly.io/blog/introducing-litefs/) \
 → 한국어 요약:
