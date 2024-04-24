@@ -42,7 +42,7 @@ console.log((3).square()); // 9가 출력되는지 눈으로 확인한다.
 ```javascript
 function assertEqual(e, a) {
     if (e !== a) {
-        throw 'Test Fail!\nExpected: ' + e + '\nActual: ' + a;
+        throw `Test Fail!\nExpected: ${e}\nActual: ${a}`;
     }
 };
 
@@ -62,7 +62,7 @@ TDD는 인터페이스와 예제, 기대하는 결과를 먼저 작성하는 걸
 ```javascript
 function assertEqual(e, a) {
     if (e !== a) {
-        throw 'Test Fail!\nExpected: ' + e + '\nActual: ' + a;
+        throw `Test Fail!\nExpected: ${e}\nActual: ${a}`;
     }
 };
 // 여기까지는 바로 위에서 다룬 코드죠?
@@ -196,7 +196,7 @@ Number.prototype.square = function () {
 assertEqual(1, (1).square());
 ```
 
-리팩터링([Inline Method](http://j.mp/2gMziIG))!
+리팩터링([Inline Method](https://j.mp/2gMziIG))!
 
 
 ```javascript
@@ -240,12 +240,12 @@ TDD는 테스트 코드를 먼저 작성하는 것이 전부가 아닙니다. �
 스펙이 명확하다면 그걸 어떻게 사용할지 간단한 예제 코드를 작성해 보세요.
 
 ```javascript
-var human = new Human({
-    name: '강동원'
+const human = new Human({
+    name: '강동원',
 });
 
-human.on('talk', function () {
-    return '나는 ' + this.alias() + '다.';
+human.on('talk', function() {
+    return `나는 ${this.alias()}다.`;
 });
 
 assertEqual('강동원: 나는 강참치다.', human.talk());
@@ -254,16 +254,16 @@ assertEqual('강동원: 나는 강참치다.', human.talk());
 이제 구현하면 되겠죠?
 
 ```javascript
-var Human = function (options) {
-    this.name = options.name;
-    this.alias = () => this.name.replace('동원', '참치');
-}
+class Human {
+    constructor({ name }) {
+        this.name = options.name;
+        this.alias = () => this.name.replace('동원', '참치');
+    }
 
-Human.prototype.on = function (event, callback) {
-    this[event] =  function () {
-        return this.name + ': ' + callback.apply(this);
-    };
-};
+    on(event, callback) {
+        this[event] = () => `${this.name}: ${callback.apply(this)}`;
+    }
+}
 
 // 일부러 alias와 on을 다르게 구현했습니다. 둘은 어떻게 다를까요? :)
 ```
@@ -290,7 +290,7 @@ Human.prototype.on = function (event, callback) {
 
 우리가 시스템을 분할/설계하는 건 계층구조를 만드는 겁니다. 거칠게 요약하면 모든 객체지향 개발은 레이어를 쌓는 작업입니다. 레이어가 너무 깊어서 이해하기 어려워도 문제겠지만, 너무 레이어가 없어서 한번에 협력해야 하는 객체가 많아도 문제입니다.
 
-UML을 활용하고 있다면, 클래스 다이어그램 외에 시퀀스 다이어그램과 협력 다이어그램을 그려볼 것을 권합니다. 뭔가 복잡하게 그려진다면, 분명히 더 쉽게 그릴 수 있는 방법이 있을 겁니다. 다양한 디자인 패턴을 활용해 보세요(놀랍게도, 12월 [개발자, 한 달에 책 한 권 읽기](http://j.mp/2H2MNnw)에선 “GoF의 디자인 패턴”을 함께 읽습니다...는 홍보).
+UML을 활용하고 있다면, 클래스 다이어그램 외에 시퀀스 다이어그램과 협력 다이어그램을 그려볼 것을 권합니다. 뭔가 복잡하게 그려진다면, 분명히 더 쉽게 그릴 수 있는 방법이 있을 겁니다. 다양한 디자인 패턴을 활용해 보세요(놀랍게도, 12월 [개발자, 한 달에 책 한 권 읽기](https://j.mp/2H2MNnw)에선 “GoF의 디자인 패턴”을 함께 읽습니다…는 홍보).
 
 ## 실무에서 TDD를 하나요?
 
