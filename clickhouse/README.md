@@ -8,6 +8,10 @@ https://clickhouse.com/
 
 <https://db-engines.com/en/system/ClickHouse>
 
+## Cloudflare 사례
+
+[Log analytics using ClickHouse](https://blog.cloudflare.com/log-analytics-using-clickhouse)
+
 ## 1조 행 챌린지
 
 [ClickHouse and The One Trillion Row Challenge](https://clickhouse.com/blog/clickhouse-1-trillion-row-challenge)
