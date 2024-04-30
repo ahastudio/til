@@ -1,16 +1,12 @@
 # MLOps
 
-## What is MLOps?
+![MLOps: The AI Lifecycle for IT Production](https://blogs.nvidia.com/wp-content/uploads/2020/09/1-MLOps-NVIDIA-invert-final.jpg)
 
-<https://blogs.nvidia.com/blog/2020/09/03/what-is-mlops/>
+[What is MLOps? | NVIDIA Blog](https://blogs.nvidia.com/blog/2020/09/03/what-is-mlops/)
 
-## Machine Learning Engineering for Production (MLOps) Specialization
+[Machine Learning Engineering for Production (MLOps) Specialization - DeepLearning.AI](https://www.deeplearning.ai/courses/machine-learning-engineering-for-production-mlops/)
 
-<https://www.deeplearning.ai/program/machine-learning-engineering-for-production-mlops/>
-
-## The Road to MLOps: Machine Learning as an Engineering Discipline
-
-<https://builtin.com/machine-learning/mlops>
+[The Road to MLOps: Machine Learning as an Engineering Discipline | Built In](https://builtin.com/machine-learning/mlops)
 
 ## MLOps: Continuous delivery and automation pipelines in machine learning
 
