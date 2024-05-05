@@ -26,3 +26,9 @@ Mirror of the official PostgreSQL Git repository:
 [Postgres 큐 기술 선택 | GeekNews](https://news.hada.io/topic?id=11042)
 
 [MongoDB에서 PostgreSQL로 대규모 이전한 후기 | GeekNews](https://news.hada.io/topic?id=14067)
+
+## Index
+
+[PostgreSQL: Documentation: 16: Chapter 11. Indexes](https://www.postgresql.org/docs/current/indexes.html) \
+→ 한국어 번역:
+[인덱스 개요](https://datarian.io/blog/postgresql-introduction-to-indexes)
