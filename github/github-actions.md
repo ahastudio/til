@@ -27,6 +27,8 @@ Awesome Actions:
 
 [How we implemented C++ and JavaScript integration tests with GitHub Actions - YouTube](https://www.youtube.com/watch?v=DdlzDklYHVs)
 
+[GitHub Actions로 개선하는 코드 리뷰 문화](https://toss.tech/article/25431)
+
 ## GitHub Actions by Example
 
 <https://www.actionsbyexample.com/>
