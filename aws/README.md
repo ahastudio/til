@@ -7,3 +7,5 @@
 ## Amazon Kinesis
 
 <https://aws.amazon.com/ko/kinesis/>
+
+<https://aws.amazon.com/ko/kinesis/data-streams/>
