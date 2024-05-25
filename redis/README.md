@@ -22,17 +22,7 @@ Redis Fork.
 
 Redis Fork.
 
-<https://valkey.io/>
-
-<https://github.com/valkey-io/valkey>
-
-[Linux Foundation Launches Open Source Valkey Community](https://www.linuxfoundation.org/press/linux-foundation-launches-open-source-valkey-community)
-
-[Valkey - 리눅스 재단(Linux Foundation)이 발표한 Redis의 오픈소스 | GeekNews](https://news.hada.io/topic?id=14057)
-
-[Valkey is Rapidly Overtaking Redis - DevOps.com](https://devops.com/valkey-is-rapidly-overtaking-redis/)
-→ 한국어 요약:
-[GN⁺: Valkey가 빠르게 Redis를 대체하고 있음 | GeekNews](https://news.hada.io/topic?id=14436)
+[valkey.md](./valkey.md)
 
 ### Apache Kvrocks
 
