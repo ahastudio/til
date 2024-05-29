@@ -37,6 +37,22 @@ Awesome Actions:
 
 <https://github.com/ahastudio/github-actions-example>
 
+## Action 만들기
+
+<https://docs.github.com/en/actions/creating-actions>
+
+### Composite
+
+여러 Step을 하나의 Action으로 합쳐줄 수 있습니다.
+
+<https://docs.github.com/en/actions/creating-actions/creating-a-composite-action>
+
+### JavaScript 코드로 만들기
+
+기본 실행 외에 Job이 끝날 때 처리(post) 등을 포함할 수 있다.
+
+<https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action>
+
 ## CI/CD
 
 ### Docker
