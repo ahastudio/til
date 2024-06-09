@@ -77,10 +77,17 @@ OpenOPC Gateway Proxy에서 [Pyro 5](https://github.com/irmen/Pyro5)를 사용.
 - <https://openopc.sourceforge.net/>
 - <https://github.com/sightmachine/OpenOPC>
 
-### 다른 언어 OPC DA 라이브러리
+### OPC DA in Go
 
-- Go: <https://github.com/konimarti/opc>
-- Node.js: <https://github.com/st-one-io/node-dcom>
+Go로 프로그래밍할 수 있는 라이브러리도 제공하지만,
+CLI에서 사용할 수 있는 도구를 바로 써먹기 좋다.
+
+<https://github.com/konimarti/opc>
+
+### Npde.js 라이브러리
+
+- OPC DA 통신 라이브러리: <https://github.com/st-one-io/node-opc-da>
+- DCOM 라이브러리: <https://github.com/st-one-io/node-dcom>
 
 ### OLE Automation
 
