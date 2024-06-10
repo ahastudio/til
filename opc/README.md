@@ -26,6 +26,9 @@ OPC Foundation: <https://opcfoundation.org/>
 
 ### OPC UA 라이브러리
 
+OPC UA는 OPC Classic보다 현대적이라,
+라이브러리만 있으면 서버와 클라이언트 모두 개발 가능하다.
+
 - Python: <https://github.com/FreeOpcUa/opcua-asyncio>
 - Go: <https://github.com/gopcua/opcua>
 - Node.js: <https://github.com/node-opcua/node-opcua>
