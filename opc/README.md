@@ -20,9 +20,9 @@ OPC Foundation: <https://opcfoundation.org/>
 
 ### UA Part 1: Overview and Concepts - 5 Overview
 
-![OPC UA target applications](https://reference.opcfoundation.org/api/image/get/6/image004.png)
-
 <https://reference.opcfoundation.org/Core/Part1/v105/docs/5>
+
+![OPC UA target applications](https://reference.opcfoundation.org/api/image/get/6/image004.png)
 
 ### OPC UA 라이브러리
 
