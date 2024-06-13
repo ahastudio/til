@@ -12,6 +12,10 @@
 
 ---
 
+[Okta vs Keycloak: Comparison and easy Okta to Keycloak migration guide](https://pretius.com/blog/okta-vs-keycloak-comparison/)
+
+---
+
 Harbor
 https://goharbor.io/docs/2.6.0/administration/configure-authentication/oidc-auth/
 
