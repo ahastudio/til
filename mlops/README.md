@@ -8,6 +8,10 @@
 
 [The Road to MLOps: Machine Learning as an Engineering Discipline | Built In](https://builtin.com/machine-learning/mlops)
 
+[Machine Learning Operations (MLOps): Overview, Definition, and Architecture](https://arxiv.org/abs/2205.02302)
+(2022년 5월 논문) \
+➡ [PDF](https://arxiv.org/ftp/arxiv/papers/2205/2205.02302.pdf)
+
 ## MLOps: Continuous delivery and automation pipelines in machine learning
 
 <https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning>
