@@ -4,6 +4,10 @@
 
 <https://github.com/grafana/grafana>
 
+## Google Trends
+
+<https://trends.google.com/trends/explore?date=all&q=Kibana,Grafana&hl=en>
+
 ## Installation (Container)
 
 [Run Grafana Docker image | Grafana documentation](https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/)
