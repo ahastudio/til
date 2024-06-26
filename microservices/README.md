@@ -28,3 +28,7 @@
 
 - [In defense of simple architectures](https://danluu.com/simple-architectures/)
 - 한국어 번역: [단순한 아키텍처를 옹호하며 (2022) | GeekNews](https://news.hada.io/topic?id=13754)
+
+## Message Queue
+
+[메시지 큐 기반 아키텍처가 요즘 인기가 떨어지는 이유는 뭔가요?](https://news.hada.io/topic?id=15456)
