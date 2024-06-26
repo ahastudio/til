@@ -1,4 +1,6 @@
-# Microservices Architecture
+# Microservices
+
+Microservice Architecture
 
 ## James Lewes와 Martin Fowler의 글
 
