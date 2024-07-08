@@ -166,3 +166,11 @@ jobs:
 - [Checkout](https://github.com/actions/checkout)
 - [setup-node](https://github.com/actions/setup-node)
 - [SSH Remote Commands](https://github.com/marketplace/actions/ssh-remote-commands)
+
+## act
+
+> Run your GitHub Actions locally 🚀
+
+<https://nektosact.com/>
+
+<https://github.com/nektos/act>
