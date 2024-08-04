@@ -18,3 +18,7 @@ Top 25+ Reasons Why Jira Sucks (in 2022)
 ## Shortcut - Project Management for Software Teams
 
 <https://shortcut.com/>
+
+## ClickUp™ | One app to replace them all
+
+<https://clickup.com/>
