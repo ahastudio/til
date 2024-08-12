@@ -6,8 +6,17 @@
 
 <https://www.atlassian.com/software/jira>
 
-Top 25+ Reasons Why Jira Sucks (in 2022)
-<https://whyjirasucks.com/>
+## Jira Pricing Plans
+
+<https://www.atlassian.com/software/jira/pricing>
+
+- Free: 10명까지는 무료
+- Standard: 월 7.16달러/인
+- Premium: 월 12.48달러/인
+
+## 문제점
+
+[Top 25+ Reasons Why Jira Sucks (in 2022)](https://whyjirasucks.com/)
 
 ### JiraCLI
 
@@ -20,13 +29,13 @@ Top 25+ Reasons Why Jira Sucks (in 2022)
 <https://shortcut.com/>
 
 - Free
-- Team: 월 8.5달러/인
-- Business: 월 12달러/인
+- Team: 월 10달러/인
+- Business: 월 16달러/인
 
 ## ClickUp™ | One app to replace them all
 
 <https://clickup.com/>
 
 - Free: 기본 무료
-- Unlimited: 월 7달러/인
-- Business: 월 12달러/인
+- Unlimited: 월 10달러/인
+- Business: 월 19달러/인
