@@ -32,7 +32,7 @@ LTS인 21 버전 설치.
 ```bash
 sdk list java | grep tem
 
-sdk install java 21.0.3-tem
+sdk install java 21.0.4-tem
 
 sdk list java | grep installed
 
@@ -44,7 +44,7 @@ java -version
 Java 21 버전을 기본으로 설정.
 
 ```bash
-sdk default java 21.0.3-tem
+sdk default java 21.0.4-tem
 
 sdk current
 
