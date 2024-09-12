@@ -8,8 +8,9 @@
 curl -s "https://get.sdkman.io" | bash
 ```
 
-`~/.zshrc` 파일에 범용이 아닌 설정이 추가됨.
+원래는 `~/.zshrc` 파일에 범용이 아닌 설정이 추가됨.
 
+자동으로 추가된 설정 대신,
 `~/.zprofile` 파일에 범용 설정 추가:
 
 ```zsh
