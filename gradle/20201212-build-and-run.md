@@ -15,10 +15,12 @@ Gradle을 이용해 프로젝트를 빌드하고 실행하는 방법을 정리�
 ```bash
 gradle init \
     --type java-application \
-    --dsl groovy \
+    --dsl kotlin \
     --test-framework junit-jupiter \
-    --project-name demo \
-    --package com.example
+    --package com.example \
+    --project-name demo  \
+    --no-split-project  \
+    --java-version 21
 ```
 
 Gradle로 빠르게 확인해 보겠습니다.
@@ -71,15 +73,15 @@ java -classpath app/build/classes/java/main/ com.example.App
 
 간단히 Spring 의존성을 추가해 보겠습니다.
 
-`app/build.gradle` 파일에 다음과 같이 의존성을 추가합니다.
+`app/build.gradle.kts` 파일에 다음과 같이 의존성을 추가합니다.
 
-```gradle
+```gradle.kts
 dependencies {
     // 기존 의존성을 일단 그대로 두고 아래를 추가합니다.
 
     // Use Spring framework
-    implementation 'org.springframework:spring:5.3.2'
-    implementation 'org.springframework:spring-context:5.3.2'
+    implementation("org.springframework:spring-core:6.1.13")
+    implementation("org.springframework:spring-context:6.1.13")
 }
 ```
 
@@ -134,19 +136,18 @@ javac -d app/build/classes/java/main/ \
 
 ```txt
     app/src/main/java/com/example/App.java
-
 app/src/main/java/com/example/App.java:3: error: package org.springframework.context does not exist
 import org.springframework.context.ApplicationContext;
                                   ^
 ```
 
 의존성을 `build/dependencies`로 모으기 위해
-`app/build.gradle` 파일을 변경합니다.
+`app/build.gradle.kts` 파일을 변경합니다.
 
-```gradle
-task copyDependencies(type: Copy) {
-    from configurations.default
-    into 'build/dependencies'
+```gradle.kts
+tasks.register<Copy>("copyDependencies") {
+    from(configurations.runtimeClasspath)
+    into("build/dependencies")
 }
 ```
 
@@ -222,6 +223,11 @@ JAR 파일을 `classpath`로 잡아서 실행해 봅시다.
 java -classpath "app/build/libs/app.jar" com.example.App
 ```
 
+```txt
+Error: Unable to initialize main class com.example.App
+Caused by: java.lang.NoClassDefFoundError: org/springframework/context/ApplicationContext
+```
+
 의존성 문제가 있으니 JAR 파일을 더 모아서 실행합시다.
 
 ```bash
@@ -274,6 +280,10 @@ java -classpath "app/build/distributions/app/lib/*" com.example.App
 java -jar app/build/libs/app.jar
 ```
 
+```txt
+no main manifest attribute, in app/build/libs/app.jar
+```
+
 압축을 풀어서 확인해 봅시다.
 
 ```bash
@@ -294,12 +304,12 @@ Manifest 속성을 확인해 보면 Manifest 버전만 있다는 걸 알 수 있
 cat app/build/libs/app/META-INF/MANIFEST.MF
 ```
 
-`app/build.gradle`에 `jar` 작업에 대한 옵션을 추가합니다.
+`app/build.gradle.kts`에 `jar` 작업에 대한 옵션을 추가합니다.
 
-```gradle
-jar {
+```gradle.kts
+tasks.jar {
     manifest {
-        attributes 'Main-Class': 'com.example.App'
+        attributes["Main-Class"] = "com.example.App"
     }
 }
 ```
@@ -322,6 +332,11 @@ cat app/build/libs/app/META-INF/MANIFEST.MF
 java -jar app/build/libs/app.jar
 ```
 
+```txt
+Error: Unable to initialize main class com.example.App
+Caused by: java.lang.NoClassDefFoundError: org/springframework/context/ApplicationContext
+```
+
 자, 이제 거의 다 왔어요. 힘냅시다!
 
 ## Fat JAR 파일 만들기
@@ -332,20 +347,25 @@ java -jar app/build/libs/app.jar
 
 ```bash
 ls -al app/build/libs/app.jar
-# => 1252 bytes
+# => 1,252 bytes
 ```
 
-`app/build.gradle`에 의존성 추가 설정을 추가합니다.
+`app/build.gradle.kts`에 의존성 추가 설정을 추가합니다.
 
-```gradle
-jar {
+```gradle.kts
+tasks.jar {
     manifest {
-        attributes 'Main-Class': 'com.example.App'
+        attributes["Main-Class"] = "com.example.App"
     }
 
-    from {
-        configurations.default.collect { it.isDirectory() ? it : zipTree(it) }
-    }
+    from(
+        configurations.runtimeClasspath.get().map {
+            if (it.isDirectory) it
+            else zipTree(it)
+        }
+    )
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 ```
 
@@ -359,7 +379,7 @@ Fat JAR 파일의 크기를 확인해 보면 확실히 커진 걸 알 수 있습
 
 ```bash
 ls -al app/build/libs/app.jar
-# => 7079384 bytes
+# => 8,148,594 bytes
 ```
 
 압축을 풀어서 확인해 봅시다.
@@ -384,42 +404,53 @@ java -jar app/build/libs/app.jar
 
 평범한 JAR 파일과 Fat JAR 파일을 만드는 작업을 분리해 봅시다.
 Fat JAR 파일을 만드는 작업을 `fatJar`라고 합시다.
-`app/build.gradle` 파일의 관련 코드를 다음과 같이 변경합니다.
+`app/build.gradle.kts` 파일의 관련 코드를 다음과 같이 변경합니다.
 
-```gradle
-# jar는 삭제하고 tasks.withType(Jar)로 공통 요소를 추출합니다.
-tasks.withType(Jar) {
+```gradle.kts
+# tasks.jar는 삭제하고 tasks.withType<Jar>로 공통 요소를 추출합니다.
+tasks.withType<Jar> {
     manifest {
-        attributes 'Main-Class': 'com.example.App'
+        attributes["Main-Class"] = "com.example.App"
     }
 }
 
-task fatJar(type: Jar) {
-    archiveBaseName = 'fat-app'
+tasks.register<Jar>("fatJar") {
+    archiveBaseName = "fat-app"
 
-    from sourceSets.main.output
+    from(sourceSets.main.get().output)
 
-    from {
-        configurations.default.collect { it.isDirectory() ? it : zipTree(it) }
-    }
-}
-```
+    from(
+        configurations.runtimeClasspath.get().map {
+            if (it.isDirectory) it
+            else zipTree(it)
+        }
+    )
 
-`fatJar` 작업은 이렇게 써도 됩니다.
-
-```gradle
-task fatJar(type: Jar) {
-    archiveBaseName = 'fat-app'
-
-    with jar
-
-    from {
-        configurations.default.collect { it.isDirectory() ? it : zipTree(it) }
-    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 ```
 
-빌드해서 둘을 비교해 봅시다.
+`from(sourceSets.main.get().output)` 대신
+`with(tasks.jar.get())`를 써서 더 간단히 정리할 수도 있습니다.
+
+```gradle.kts
+tasks.register<Jar>("fatJar") {
+    archiveBaseName = "fat-app"
+
+    with(tasks.jar.get())
+
+    from(
+        configurations.runtimeClasspath.get().map {
+            if (it.isDirectory) it
+            else zipTree(it)
+        }
+    )
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+```
+
+둘 다 빌드해서 비교해 봅시다.
 
 ```bash
 ./gradlew clean jar fatJar
@@ -436,6 +467,10 @@ java -jar app/build/libs/fat-app.jar
 ## 소스 코드
 
 [https://github.com/ahastudio/CodingLife/tree/main/20201212/java](https://j.mp/3ndnQaT)
+
+## 참고
+
+[Build Init Plugin](https://docs.gradle.org/current/userguide/build_init_plugin.html)
 
 ---
 
