@@ -6,7 +6,7 @@
 brew install intellij-idea-ce
 ```
 
-## Command-line interface
+## CLI Shell Script
 
 [Command-line interface | IntelliJ IDEA Documentation](https://www.jetbrains.com/help/idea/working-with-the-ide-features-from-command-line.html)
 
