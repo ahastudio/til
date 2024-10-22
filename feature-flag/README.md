@@ -10,7 +10,7 @@
 
 [Feature Flag - 안전하고 신뢰할 수 있는 배포로 나아가는 열쇠 🔑 | 11번가 TechBlog — 11번가 기술블로그](https://11st-tech.github.io/2023/11/07/openfeature/)
 
-[Trunk-based development, Feature Flag, micro PR 와 함께 주 2회 배포하기 | 29CM TEAM](https://medium.com/29cm/trunk-based-development-feature-flag-micro-pr-%EC%99%80-%ED%95%A8%EA%BB%98-%EC%A3%BC-2%ED%9A%8C-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0-b703d646d945)
+[Trunk-based development, Feature Flag, micro PR 와 함께 주 2회 배포하기 | 29CM TEAM](https://bit.ly/3BUoxSL)
 
 ## Flipper Cloud
 
