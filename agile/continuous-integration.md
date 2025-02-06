@@ -12,6 +12,12 @@
 
 <https://www.gocd.org/2017/05/16/its-not-CI-its-CI-theatre.html>
 
+## Read-Only Main Branch
+
+[Master Branch Must Be Read-Only](https://www.yegor256.com/2014/07/21/read-only-master-branch.html)
+
+[Continuous Integration is Dead](https://www.yegor256.com/2014/10/08/continuous-integration-is-dead.html)
+
 ## Pre-commit 비판
 
 [Pre-commit: Don’t git hooked! | Thoughtworks](https://www.thoughtworks.com/insights/blog/pre-commit-don-t-git-hooked)
