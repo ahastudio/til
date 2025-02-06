@@ -18,6 +18,8 @@
 
 [Continuous Integration is Dead](https://www.yegor256.com/2014/10/08/continuous-integration-is-dead.html)
 
+[지속적인 통합, 이제는 이렇게 합니다 - YouTube](https://www.youtube.com/watch?v=ICopKeN5ajQ)
+
 ## Pre-commit 비판
 
 [Pre-commit: Don’t git hooked! | Thoughtworks](https://www.thoughtworks.com/insights/blog/pre-commit-don-t-git-hooked)
