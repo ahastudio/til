@@ -63,6 +63,12 @@
 
 <https://github.com/Unleash/unleash>
 
+## ConfigCat
+
+> Feature Flag Service for Teams
+
+<https://configcat.com/>
+
 ## OpenFeature
 
 <https://openfeature.dev/>
