@@ -12,6 +12,8 @@
 
 [Trunk-based development, Feature Flag, micro PR 와 함께 주 2회 배포하기 | 29CM TEAM](https://bit.ly/3BUoxSL)
 
+[피처 플래그 개발기: 실시간 데이터 동기화를 향한 여정 | 카카오페이 기술 블로그](https://tech.kakaopay.com/post/feature-flag/)
+
 ## Flipper Cloud
 
 > Control Your Code. Instantly. Across all environments.
