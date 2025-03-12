@@ -22,6 +22,13 @@
 
 <https://github.com/deepakshrma/30-seconds-of-typescript>
 
+## TypeScript 7 (native)
+
+[A 10x Faster TypeScript](https://devblogs.microsoft.com/typescript/typescript-native-port/)
+
+Staging repo for development of native port of TypeScript:
+<https://github.com/microsoft/typescript-go>
+
 ## Articles
 
 [Fully Typed Web Apps | Epic Web Dev](https://www.epicweb.dev/fully-typed-web-apps) \
