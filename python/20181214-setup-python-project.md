@@ -1,5 +1,10 @@
 # Python 프로젝트 시작하기
 
+아래 내용은 더이상 유효하지 않습니다.
+[새 문서를 참고해 주세요](./setup-python-project.md).
+
+---
+
 - [아듀 2018!](https://adieu2018.ahastudio.com/)
 - 이전 글: [C++에서 어셈블리 공부하기](http://j.mp/2Q7SPUw)
 - 다음 글:
