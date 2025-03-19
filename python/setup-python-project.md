@@ -22,7 +22,13 @@ curl https://mise.run | sh
 
 ### Mac 사용자, Linux 사용자 공통
 
-홈 디렉터리의 `.bash_profile`(또는 `.zprofile`) 파일에 다음을 추가합니다.
+홈 디렉터리의 `.bash_profile` 파일에 다음을 추가합니다.
+
+```bash
+eval "$(mise activate bash)"
+```
+
+Zsh을 사용한다면 `.zprofile` 파일에 다음을 추가합니다.
 
 ```bash
 eval "$(mise activate zsh)"
