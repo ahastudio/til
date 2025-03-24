@@ -27,6 +27,13 @@
 
 [React 18: An overview of its new features and updates | DhiWise](https://medium.com/dhiwise/react-18-new-features-and-updates-2e608d862a6d)
 
+## React 버전 19
+
+[React v19 – React](https://react.dev/blog/2024/12/05/react-19)
+
+한국어 요약:
+[React 19 | GeekNews](https://news.hada.io/topic?id=18129)
+
 ## React Compiler
 
 [I tried React Compiler today, and guess what... 😉](https://www.developerway.com/posts/i-tried-react-compiler) \
