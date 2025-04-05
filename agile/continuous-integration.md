@@ -10,7 +10,7 @@
 
 ## It's not CI, it's just CI Theatre
 
-<https://www.gocd.org/2017/05/16/its-not-CI-its-CI-theatre.html>
+<https://www.gocd.org/2017/05/16/its-not-ci-its-ci-theatre/>
 
 ## Read-Only Main Branch
 
