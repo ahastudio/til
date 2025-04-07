@@ -72,38 +72,26 @@ cd my-project
 uv run main.py
 ```
 
-## pytest 설치
+## pytest
 
 <https://github.com/pytest-dev/pytest>
 
 ```bash
-uv add --dev pytest
+uvx pytest
 ```
 
-```bash
-uv run pytest
-```
-
-## pytest-watcher 설치
+## pytest-watcher
 
 <https://github.com/olzhasar/pytest-watcher>
 
 ```bash
-uv add --dev pytest-watcher
+uvx ptw . --now --clear
 ```
 
-```bash
-uv run ptw . --now --clear
-```
-
-## Ruff 설치
+## Ruff
 
 <https://github.com/astral-sh/ruff>
 
 ```bash
-uv add --dev ruff
-```
-
-```bash
-uv run ruff check
+uvx ruff check
 ```
