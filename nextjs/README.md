@@ -22,7 +22,9 @@
 
 [Next.js 13.4 | Next.js ](https://nextjs.org/blog/next-13-4) \
 → 한국어 요약:
-[Next.js 13.4 릴리즈 App Router 안정화, Server Actions al | GeekNews](https://news.hada.io/topic?id=9130)
+[Next.js 13.4 릴리즈 App Router 안정화, Server Actions al | GeekNews](https://news.hada.io/topic?id=9130) \
+→ 한국어 번역:
+[\[번역\] Next.js 13.4](https://velog.io/@typo/next.js-13.4)
 
 ## Next.js 14
 
