@@ -1,7 +1,3 @@
 # React Query
 
-> Hooks for fetching, caching and updating asynchronous data in React
-
-<https://react-query.tanstack.com/>
-
-<https://github.com/tannerlinsley/react-query>
+See <https://github.com/ahastudio/til/blob/main/react/tanstack-query.md>.
