@@ -1,7 +1,8 @@
-원문:
-[Why React? Why not Angular 2?](https://daveceddia.com/why-react-why-not-angular2/)
-
 # 나는 왜 Angular 2가 아니라 React를 선택했나?
+
+> *원문:
+> [Why React? Why not Angular 2?](https://daveceddia.com/why-react-why-not-angular2/)
+> (April 26, 2016)*
 
 Angular 1.x가 낡어가고 Angular 2가 분발하서,
 많은 1.x 개발자들은 다음이 뭘까 궁금해 하고 있습니다.
@@ -35,9 +36,9 @@ Angular 1에선 모듈 시스템으로 쓰기 위해 DI 시스템이 필요했�
 import나 require 등을 가능하게 한 지금은 DI의 혜택이 별로 없습니다.
 그냥 import해서 쓰면 됩니다.
 
-프레임웤 레벨의 DI 없이 테스트하는 건 좀 어렵지만, 해결할 방법은 이미 있습니다.
+프레임워크 레벨의 DI 없이 테스트하는 건 좀 어렵지만, 해결할 방법은 이미 있습니다.
 
-# Angular 특화 문법
+## Angular 특화 문법
 
 자주 인용되는 Angular의 장점 중 하나는
 프로그래머가 아닌 사람도 쓰기 좋다는 겁니다.
