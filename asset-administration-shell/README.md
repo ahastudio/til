@@ -6,6 +6,18 @@
 
 <https://github.com/admin-shell-io/aas-specs>
 
+## Eclipse AASX Package Explorer and Server
+
+<https://projects.eclipse.org/projects/dt.aaspe>
+
+### Eclipse AASX Package Explorer
+
+<https://github.com/eclipse-aaspe/package-explorer>
+
+### Eclipse AASX Server
+
+<https://github.com/eclipse-aaspe/server>
+
 ## OPC UA
 
 <https://github.com/ahastudio/til/tree/main/opc>
