@@ -18,7 +18,7 @@ Andrej Karpathy의 트윗:
 - [GitHub Copilot](https://github.com/features/copilot)
 - [Cursor](https://cursor.com/)
 - [Claude Code](https://www.anthropic.com/claude-code)
-- [Codex](https://developers.openai.com/codex/cli/)
+- [Codex](./codex.md)
 - [Windsurf Cascade](https://windsurf.com/cascade)
 - [Replit Agent](https://replit.com/products/agent)
 - [Zencoder](https://zencoder.ai/)
