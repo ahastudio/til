@@ -26,3 +26,7 @@
 Demo:
 - <https://github.com/hgraca/explicit-architecture-php>
 - <https://github.com/hgraca/explicit-architecture-reactjs>
+
+## 흔한 오해
+
+https://tech.kakaopay.com/post/home-hexagonal-architecture/
