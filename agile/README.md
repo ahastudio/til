@@ -6,6 +6,12 @@
 - [애자일 조직의 조건](https://hrbulletin.net/agile/%ec%95%a0%ec%9e%90%ec%9d%bc-%ec%a1%b0%ec%a7%81%ec%9d%98-%ec%a1%b0%ea%b1%b4/)
 - [방법론 도입이 실패하는 이유](http://agile.egloos.com/5906079)
 
+## War Room
+
+<https://hygger.io/blog/agile-best-practices-why-your-team-needs-a-war-room/>
+
+<https://web.archive.org/web/20230612095235/http://agile.egloos.com/1500395>
+
 ## 애자일 안한 이야기
 
 <https://www.slideshare.net/gyumee/ss-250847726>
