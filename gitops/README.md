@@ -11,3 +11,9 @@
 ## Awesome-GitOps
 
 <https://github.com/weaveworks/awesome-gitops>
+
+## OpenGitOps
+
+<https://opengitops.dev/>
+
+<https://github.com/open-gitops/project>
