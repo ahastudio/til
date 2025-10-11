@@ -38,8 +38,6 @@ Andrej Karpathy의 트윗:
 
 [What I learned trying seven coding agents](https://www.understandingai.org/p/what-i-learned-trying-seven-coding)
 
-[You are using Cursor AI incorrectly...](https://ghuntley.com/stdlib/)
-
 ## 비판
 
 ### Vibe Coding Is The WORST IDEA Of 2025
@@ -53,3 +51,11 @@ Andrej Karpathy의 트윗:
 [Toby Lee - 모든 개발자의 필독서인 "모던 소프트웨어 엔지니어링"의 저자인 데이비드 팔리의 바이브 코딩에 대한 비판적인 영상을 봤다. | Facebook](https://www.facebook.com/tobyilee/posts/pfbid032q2pLke5Hxf9bb7nxPFxtMy5dSecSrbNsyvfDU8sYuAQMcV1aX5KUQhzhWCxJiYol)
 
 [박성철 - 코드를 작성과 관련해 컴퓨터 업계는 늘 둘로 나뉘어 있었다. | Facebook](https://www.facebook.com/fupfin.geek/posts/pfbid02cxgfujcuHJjumpGBM1BHopGKfe491D6DsMr33M1KMZimKmxo6vRLMWZCmJhJ4bJ6l)
+
+## Groundhog AI Coding Assistant
+
+<https://github.com/ghuntley/groundhog>
+
+[You are using Cursor AI incorrectly...](https://ghuntley.com/stdlib/)
+
+[From Design doc to code: the Groundhog AI coding assistant (and new Cursor vibecoding meta)](https://ghuntley.com/specs/)
