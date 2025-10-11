@@ -14,7 +14,7 @@ Andrej Karpathy의 트윗:
 ## Coding Agents
 
 - [GitHub Copilot](https://github.com/features/copilot)
-- [Cursor](https://cursor.com/)
+- [Cursor](./cursor.md)
 - [Claude Code](https://www.anthropic.com/claude-code)
 - [Codex](./codex.md)
 - [Windsurf Cascade](https://windsurf.com/cascade)
