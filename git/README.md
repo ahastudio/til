@@ -34,3 +34,13 @@ Git 작업 흐름도
 ## Branch Patterns
 
 [Patterns for Managing Source Code Branches](https://martinfowler.com/articles/branching-patterns.html)
+
+## Branchless workflow for Git
+
+> High-velocity, monorepo-scale workflow for Git
+
+<https://github.com/arxanas/git-branchless>
+
+## Articles
+
+[더 나은 Git 워크플로우를 향해서 :: BlaCk_Log](https://black7375.tistory.com/92)
