@@ -4,6 +4,10 @@
 
 ## “기술 부채” 비유의 창시자가 설명하는 “기술 부채”
 
+[Debt Metaphor - YouTube](https://www.youtube.com/watch?v=pqeJFYwnkjE)
+
+[Debt Metaphor - SecondB Summary](https://secondb.ai/summary/4543/)
+
 <https://wiki.c2.com/?WardExplainsDebtMetaphor>
 
 > I thought that rushing software out the door to get some experience with it
