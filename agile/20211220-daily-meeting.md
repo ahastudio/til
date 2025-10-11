@@ -1,9 +1,9 @@
 # 일일 회의
 
 톰 피터스는
-[The Project 50 (Reinventing Work)](https://j.mp/3paC7se)
+[The Project 50 (Reinventing Work)](https://www.penguinrandomhouse.com/books/130184/the-project50-reinventing-work-by-tom-peters/)
 (번역서:
-[톰 피터스 Wow 프로젝트 2](https://j.mp/30GnzHt))에서
+[톰 피터스 Wow 프로젝트 2](https://product.kyobobook.co.kr/detail/S000000706315))에서
 “15분 미팅”을 제안했고,
 XP와 Scrum 등에선 매일 아침마다 (정확히는 일을 시작하기 전에)
 서로 어떤 일을 하는지 공유하는 회의를 갖습니다.
@@ -22,12 +22,12 @@ XP와 Scrum 등에선 매일 아침마다 (정확히는 일을 시작하기 전�
   → 우리가 달성하기로 한 목표에 어떻게 연결이 되는가?
   - Scrum에서 Daily Scrum을 하게 된 이유 중 하나가
     Sprint 목표와 무관한 작업이 외부에서 끼어드는지 파악하는 것입니다.
-    ([Agile Software Development with Scrum](https://j.mp/3yIRvzj)
+    ([Agile Software Development with Scrum](https://product.kyobobook.co.kr/detail/S000001469826)
     참고)
 - 오늘 어떤 일을 해야 할지 고민하게 됩니다.
   - 작업을 쳐내는 게 아니라, 이 작업을 완료했을 때 제품이 어떻게 되는지,
     우리 목표에 어떻게 연결이 되는지,
-    [어떤 가치를 전달하게 되는지](https://bit.ly/4fCLYPK)
+    [어떤 가치를 전달하게 되는지](https://web.archive.org/web/20180715075950/http://agile.egloos.com/3584440)
     고려해야 합니다.
 - 나에게 필요한 게 뭔지, 부족한 게 뭔지 알게 됩니다.
   - 가장 빠른 해결책은 늘 동일합니다: **팀에 도움을 요청하기**.
@@ -67,5 +67,5 @@ XP와 Scrum 등에선 매일 아침마다 (정확히는 일을 시작하기 전�
 
 참고:
 
-- [Xper:Stand Up Meeting](https://j.mp/3e4BytU)
-- [Morning Roll Call](https://j.mp/3JrhMY7)
+- [Xper:Stand Up Meeting](https://web.archive.org/web/20061012045122/http://xper.org/wiki/xp/StandUpMeeting)
+- [Morning Roll Call](https://web.archive.org/web/20061012112120/http://bdn.borland.com/article/0,1410,29686,00.html)

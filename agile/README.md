@@ -12,6 +12,6 @@
 
 <https://web.archive.org/web/20230612095235/http://agile.egloos.com/1500395>
 
-## 애자일 안한 이야기
+## 애자일 안한 이야기 by 박성철
 
-<https://www.slideshare.net/gyumee/ss-250847726>
+<https://www.slideshare.net/slideshow/ss-250847726/250847726>

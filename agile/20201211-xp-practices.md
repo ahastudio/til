@@ -1,8 +1,8 @@
 # 익스트림 프로그래밍 실천방법
 
 - [아듀 2020!](https://adieu2020.ahastudio.com/)
-- 이전 글: [똑같이 “P”가 들어가지만 뜻이 다른 용어](https://j.mp/3pmUAzc)
-- 다음 글: [Gradle로 프로젝트 빌드하고 실행하기](https://j.mp/3mdDrGd)
+- 이전 글: [똑같이 “P”가 들어가지만 뜻이 다른 용어](https://github.com/ahastudio/til/blob/main/management/20201210-product.md)
+- 다음 글: [Gradle로 프로젝트 빌드하고 실행하기](https://github.com/ahastudio/til/blob/main/gradle/20201212-build-and-run.md)
 
 ---
 
@@ -135,5 +135,5 @@
 ---
 
 - [아듀 2020!](https://adieu2020.ahastudio.com/)
-- 이전 글: [똑같이 “P”가 들어가지만 뜻이 다른 용어](https://j.mp/3pmUAzc)
-- 다음 글: [Gradle로 프로젝트 빌드하고 실행하기](https://j.mp/3mdDrGd)
+- 이전 글: [똑같이 “P”가 들어가지만 뜻이 다른 용어](https://github.com/ahastudio/til/blob/main/management/20201210-product.md)
+- 다음 글: [Gradle로 프로젝트 빌드하고 실행하기](https://github.com/ahastudio/til/blob/main/gradle/20201212-build-and-run.md)
