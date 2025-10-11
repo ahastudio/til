@@ -1,4 +1,4 @@
-# GitHub Copilot Instructions for TIL Repository
+# AI Agents Configuration for TIL Repository
 
 ## Git Commit Message Guide
 
