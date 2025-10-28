@@ -19,3 +19,5 @@
 ## Code Review
 
 <https://developers.openai.com/codex/cloud/code-review>
+
+<https://chatgpt.com/codex/settings/code-review>
