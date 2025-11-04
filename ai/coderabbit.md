@@ -2,6 +2,10 @@
 
 <https://www.coderabbit.ai/>
 
+## CodeRabbit CLI - AI Code Reviews in CLI
+
+<https://www.coderabbit.ai/cli>
+
 ## 아샬의 트윗
 
 ### 2024년 7월 24일
