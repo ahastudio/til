@@ -2,6 +2,16 @@
 
 <https://www.coderabbit.ai/>
 
+## Review instructions
+
+<https://docs.coderabbit.ai/guides/review-instructions>
+
+`.coderabbit.yaml` 파일 예시:
+
+```yaml
+language: ko-KR
+```
+
 ## CodeRabbit CLI - AI Code Reviews in CLI
 
 <https://www.coderabbit.ai/cli>
