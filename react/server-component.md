@@ -25,3 +25,7 @@
 [React for Two Computers — overreacted](https://overreacted.io/react-for-two-computers/) \
 → 한국어 번역:
 [\[번역\] 두 대의 컴퓨터를 위한 리액트 — 유승완](https://imnotadevleoper.tistory.com/363)
+
+## Can I use React Server Components (RSCs) today?
+
+<https://rsc.krasimirtsonev.com/>
