@@ -12,6 +12,10 @@
 language: ko-KR
 ```
 
+## Articles
+
+[코드 리뷰 요정, CodeRabbit이 나타났다 🐰](https://tech.inflab.com/20250303-introduce-coderabbit/)
+
 ## CodeRabbit CLI - AI Code Reviews in CLI
 
 <https://www.coderabbit.ai/cli>
