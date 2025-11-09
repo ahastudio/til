@@ -14,9 +14,23 @@
 2. Do NOT guess, assume, or explain
 3. WAIT for user clarification
 
-## Git Commit Message Protocol (MANDATORY)
+## Korean Communication
 
-### Before Writing Any Commit Message
+Respond in Korean unless instructed otherwise.
+Technical terms may use both languages (e.g. 웹소켓(WebSocket)).
+
+## Terminal Policy
+
+**NEVER** use `run_in_terminal` tool or suggest terminal commands.
+
+## Git Commit Message Guide
+
+Based on:
+
+- <https://github.com/agis/git-style-guide>
+- <https://cbea.ms/git-commit/>
+
+### Before Writing Any Commit Message (MANDATORY)
 
 **REQUIRED STEPS:**
 
@@ -30,22 +44,6 @@
 - Writing commit messages without verification
 - Assuming or guessing what is staged
 - Proceeding when verification returns empty results
-
-## Terminal Policy
-
-**NEVER** use `run_in_terminal` tool or suggest terminal commands.
-
-## Korean Communication
-
-Respond in Korean unless instructed otherwise.
-Technical terms may use both languages (e.g. 웹소켓(WebSocket)).
-
-## Git Commit Message Format
-
-Based on:
-
-- <https://github.com/agis/git-style-guide>
-- <https://cbea.ms/git-commit/>
 
 ### Rules
 
