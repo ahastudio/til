@@ -26,6 +26,8 @@
 → 한국어 번역:
 [\[번역\] 두 대의 컴퓨터를 위한 리액트 — 유승완](https://imnotadevleoper.tistory.com/363)
 
-## Can I use React Server Components (RSCs) today?
+## React Server Components (RSCs) support across frameworks and libraries
+
+> Can I use React Server Components (RSCs) today?
 
 <https://rsc.krasimirtsonev.com/>
