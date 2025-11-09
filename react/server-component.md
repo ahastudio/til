@@ -31,3 +31,11 @@
 > Can I use React Server Components (RSCs) today?
 
 <https://rsc.krasimirtsonev.com/>
+
+## Rari (Runtime Accelerated Rendering Infrastructure)
+
+<https://rari.build/>
+
+<https://github.com/rari-build/rari>
+
+[Rari - 초고속 React Server Components 프레임워크 | GeekNews](https://news.hada.io/topic?id=24168)
