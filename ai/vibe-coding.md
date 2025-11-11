@@ -59,3 +59,9 @@ Andrej Karpathy의 트윗:
 [You are using Cursor AI incorrectly...](https://ghuntley.com/stdlib/)
 
 [From Design doc to code: the Groundhog AI coding assistant (and new Cursor vibecoding meta)](https://ghuntley.com/specs/)
+
+## Beyond Vibe Coding: From Coder to AI-Era Developer
+
+<https://beyond.addy.ie/>
+
+<https://www.oreilly.com/library/view/beyond-vibe-coding/9798341634749/>
