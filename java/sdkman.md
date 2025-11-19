@@ -33,8 +33,16 @@ LTS인 21 버전 설치.
 ```bash
 sdk list java | grep tem
 
-sdk install java 21.0.4-tem
+sdk install java 21.0.9-tem
+```
 
+```bash
+sdk list java | grep amzn
+
+sdk install java 21.0.9-amzn
+```
+
+```bash
 sdk list java | grep installed
 
 sdk current
