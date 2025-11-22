@@ -71,3 +71,25 @@ sdk install gradle
 
 sdk current
 ```
+
+## Env Command
+
+프로젝트별로 사용할 SDK 버전 관리를 위해 `.sdkmanrc` 파일을 사용할 수 있습니다.
+
+`.sdkmanrc` 파일 생성.
+
+```bash
+sdk env init
+```
+
+`.sdkmanrc` 파일에 명시된 SDK 버전 설치.
+
+```bash
+sdk env install
+```
+
+`.sdkmanrc` 파일에 명시된 SDK 버전 사용.
+
+```bash
+sdk env
+```
