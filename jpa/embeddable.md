@@ -8,13 +8,15 @@
 
 ```java
 class User {
-  @EmbeddedId
-  private UserId id;
+    @EmbeddedId
+    private UserId id;
 }
 
 @Embeddable
-class UserId {
-  private Long value;
+@Access(AccessType.FIELD)
+record UserId(
+    Long value
+) {
 }
 ```
 
@@ -24,19 +26,22 @@ class UserId {
 
 ```java
 class User {
-  @Embedded
-  private Pet role;
-}
-
-@Embeddable
-class Pet {
-  @Embedded
-  private Level level;
+    @Embedded
+    private Pet role;
 }
 
 @Embeddable
 @Access(AccessType.FIELD)
-class Level {
-  private Integer value;
+record Pet(
+    @Embedded
+    private Level level
+) {
+}
+
+@Embeddable
+@Access(AccessType.FIELD)
+record Level(
+    Integer value
+) {
 }
 ```
