@@ -23,6 +23,12 @@ Technical terms may use both languages (e.g. 웹소켓(WebSocket)).
 
 **NEVER** use `run_in_terminal` tool or suggest terminal commands.
 
+## Markdown Line Length
+
+Keep all markdown documents within 80 columns.
+Count Korean characters as 2 columns each (CJK width).
+Break lines at natural boundaries (sentence ends, clause breaks).
+
 ## Git Commit Message Guide
 
 Based on:
