@@ -24,3 +24,13 @@
 - [스프린트](https://bit.ly/2AfuKFM) (김영사)
 - [훔쳐라, 아티스트처럼](https://bit.ly/2Es7nei) (중앙books)
 - [보여줘라, 아티스트처럼](https://bit.ly/35zMN7G) (중앙books)
+
+## DDD
+
+- Blue Book: https://product.kyobobook.co.kr/detail/S000001514402
+- Red Book: https://product.kyobobook.co.kr/detail/S000000935852
+
+## Web API
+
+- https://product.kyobobook.co.kr/detail/S000211692731
+- https://product.kyobobook.co.kr/detail/S000211655004
