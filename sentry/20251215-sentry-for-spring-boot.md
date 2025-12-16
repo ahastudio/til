@@ -37,7 +37,7 @@ Sentry Gradle Plugin은 Spring Boot 버전에 맞는 Starter를
 sentry:
   dsn: ${SENTRY_DSN:https://examplePublicKey@o0.ingest.sentry.io/0}
   environment: ${SENTRY_ENV:development}
-  send-default-pii: true
+  send-default-pii: ${SENTRY_SEND_PII:false}
   traces-sample-rate: 1.0
   logs:
     enabled: true
