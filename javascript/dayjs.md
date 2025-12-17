@@ -14,8 +14,6 @@
 
 <https://day.js.org/docs/en/plugin/utc>
 
-utc>
-
 ## Duration 플러그인
 
 <https://day.js.org/docs/en/plugin/duration>
