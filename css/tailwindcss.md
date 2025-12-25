@@ -21,3 +21,9 @@
 <https://headlessui.com/>
 
 <https://github.com/tailwindlabs/headlessui>
+
+## 자식 요소 타겟팅
+
+[Tailwind CSS: Targeting Child Elements (when you have to) · cekrem.github.io](https://cekrem.github.io/posts/tailwind-targeting-child-elements/) \
+→ 한국어 번역:
+[(번역) Tailwind CSS: 자식 요소 타겟팅이 필요할 때](https://velog.io/@tap_kim/tailwind-targeting-child-elements)
