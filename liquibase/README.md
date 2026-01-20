@@ -75,8 +75,18 @@ export DB_PASSWORD=mypassword
 
 ## 마이그레이션 파일 작성
 
-`src/main/resources/db/changelog/db.changelog-master.sql` 파일을
-생성하고 ChangeSet을 작성합니다.
+마스터 파일 `src/main/resources/db/changelog/db.changelog-master.sql`을
+생성하고, 디렉토리의 모든 마이그레이션 파일을 자동으로 포함시킵니다.
+
+```sql
+--liquibase formatted sql
+
+--includeAll path:db/changelog/changes
+```
+
+개별 마이그레이션 파일을 타임스탬프 기반 이름으로 생성합니다.
+
+`src/main/resources/db/changelog/changes/20240115-001-create-users.sql`:
 
 ```sql
 --liquibase formatted sql
@@ -88,14 +98,22 @@ CREATE TABLE users (
     email VARCHAR(100) NOT NULL
 );
 --rollback DROP TABLE users;
+```
+
+`src/main/resources/db/changelog/changes/20240115-002-add-created-at.sql`:
+
+```sql
+--liquibase formatted sql
 
 --changeset developer:20240115-002
 ALTER TABLE users ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 --rollback ALTER TABLE users DROP COLUMN created_at;
+```
 
---changeset developer:20240115-003
-CREATE INDEX idx_users_username ON users(username);
---rollback DROP INDEX idx_users_username;
+`src/main/resources/db/changelog/changes/20240116-001-add-users.sql`:
+
+```sql
+--liquibase formatted sql
 
 --changeset developer:20240116-001
 INSERT INTO users (username, email) VALUES ('admin', 'admin@example.com');
@@ -103,16 +121,16 @@ INSERT INTO users (username, email) VALUES ('user1', 'user1@example.com');
 --rollback DELETE FROM users WHERE username IN ('admin', 'user1');
 ```
 
-### ChangeSet 작성 규칙
+### 마이그레이션 파일 작성 규칙
 
-- **ID는 타임스탬프 기반**: `YYYYMMDD-001` 형식으로 작성하면
-  여러 개발자가 동시 작업할 때 충돌을 방지할 수 있습니다.
-- **한 번 적용된 ChangeSet은 수정 금지**: 수정이 필요하면
-  새로운 ChangeSet을 추가합니다.
+- **파일명은 타임스탬프 기반**: `YYYYMMDD-NNN-description.sql` 형식으로
+  작성하면 알파벳 순서로 정렬되어 올바른 순서로 실행됩니다.
+- **한 번 적용된 파일은 수정 금지**: 수정이 필요하면 새로운 파일을
+  추가합니다.
 - **롤백 구문 필수**: 각 ChangeSet에 `--rollback` 주석으로
   롤백 SQL을 명시합니다.
-- **하나의 변경사항 단위**: 하나의 ChangeSet에는 하나의 변경사항을
-  포함하되, 관련된 여러 쿼리는 함께 묶을 수 있습니다.
+- **하나의 변경사항 단위**: 하나의 파일에는 하나의 ChangeSet만
+  포함합니다.
 
 ## 변경사항 적용
 
