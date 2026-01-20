@@ -8,36 +8,41 @@ Source control for your database
 
 ## 소개
 
-Liquibase는 데이터베이스 스키마 변경을 추적, 관리, 적용하는 오픈소스 데이터베이스 마이그레이션 도구입니다.
+Liquibase는 데이터베이스 스키마 변경을 추적, 관리, 적용하는 오픈소스 도구입니다. SQL 형식으로 변경사항을 작성하고, 여러 데이터베이스 벤더(PostgreSQL, MySQL, Oracle 등)를 지원합니다.
 
-- SQL, XML, YAML, JSON 등 다양한 형식으로 변경사항 작성 가능
-- 여러 데이터베이스 벤더 지원 (MySQL, PostgreSQL, Oracle, SQL Server 등)
-- 롤백 기능 제공
-- CI/CD 파이프라인 통합 가능
+## Step 1: Gradle 플러그인 설정
 
-## 주요 개념
+`build.gradle`에 Liquibase 플러그인을 추가합니다.
 
-### ChangeLog
+```gradle
+plugins {
+    id 'org.liquibase.gradle' version '2.2.2'
+}
 
-데이터베이스 변경 내역을 기록하는 파일. 모든 변경사항(changeset)을 순서대로 포함합니다.
+dependencies {
+    liquibaseRuntime 'org.liquibase:liquibase-core:4.25.1'
+    liquibaseRuntime 'org.postgresql:postgresql:42.7.1'
+    liquibaseRuntime 'info.picocli:picocli:4.7.5'
+}
 
-### ChangeSet
+liquibase {
+    activities {
+        main {
+            changelogFile 'src/main/resources/db/changelog/db.changelog-master.sql'
+            url System.getenv('DB_URL')
+            username System.getenv('DB_USERNAME')
+            password System.getenv('DB_PASSWORD')
+            driver 'org.postgresql.Driver'
+        }
+    }
+}
+```
 
-데이터베이스에 적용할 하나의 변경 단위. 각 changeset은 고유한 ID와 작성자를 가집니다.
+## Step 2: 마이그레이션 파일 작성
 
-### Preconditions
+### 방법 1: 단일 파일 방식
 
-변경사항을 적용하기 전에 확인할 조건을 정의합니다.
-
-### Rollback
-
-변경사항을 되돌리는 방법을 정의합니다.
-
-## 기본 사용법
-
-### SQL 형식 예제
-
-ChangeSet ID를 타임스탬프로 사용하면 여러 개발자가 동시에 작업할 때 충돌을 방지할 수 있습니다.
+`src/main/resources/db/changelog/db.changelog-master.sql` 파일을 생성하고 모든 ChangeSet을 작성합니다.
 
 ```sql
 --liquibase formatted sql
@@ -64,19 +69,16 @@ INSERT INTO users (username, email) VALUES ('user1', 'user1@example.com');
 --rollback DELETE FROM users WHERE username IN ('admin', 'user1');
 ```
 
-각 ChangeSet에는 롤백 구문을 명시할 수 있으며, 필요한 경우 여러 개의 SQL 쿼리를 실행할 수 있습니다.
+### 방법 2: 분산 파일 방식
 
-### 마이그레이션 파일 생성
-
-새로운 마이그레이션 파일은 직접 생성합니다. 타임스탬프 기반 파일명을 사용하면 관리가 편리합니다.
+개별 마이그레이션 파일을 생성합니다.
 
 ```bash
-# 파일명 예시
 src/main/resources/db/changelog/changes/20240115-create-users-table.sql
 src/main/resources/db/changelog/changes/20240116-add-created-at-column.sql
 ```
 
-마스터 changelog 파일에서 개별 파일들을 include:
+마스터 파일에서 include로 참조합니다.
 
 ```sql
 -- db.changelog-master.sql
@@ -86,51 +88,31 @@ src/main/resources/db/changelog/changes/20240116-add-created-at-column.sql
 --include file:changes/20240116-add-created-at-column.sql
 ```
 
-또는 단일 파일에 모든 ChangeSet을 작성할 수도 있습니다.
+### ChangeSet 작성 규칙
 
-## Liquibase 명령 실행 (Gradle)
+- **ID는 타임스탬프 기반**: `YYYYMMDD-001` 형식으로 작성하면 여러 개발자가 동시 작업할 때 충돌을 방지할 수 있습니다.
+- **한 번 적용된 ChangeSet은 수정 금지**: 수정이 필요하면 새로운 ChangeSet을 추가합니다.
+- **롤백 구문 필수**: 각 ChangeSet에 `--rollback` 주석으로 롤백 SQL을 명시합니다.
+- **하나의 변경사항 단위**: 하나의 ChangeSet에는 하나의 변경사항을 포함하되, 관련된 여러 쿼리는 함께 묶을 수 있습니다.
 
-### Gradle 플러그인 설정
+## Step 3: 환경 변수 설정
 
-`build.gradle` 또는 `build.gradle.kts`에 Liquibase 플러그인 추가:
-
-```gradle
-plugins {
-    id 'org.liquibase.gradle' version '2.2.2'
-}
-
-dependencies {
-    liquibaseRuntime 'org.liquibase:liquibase-core:4.25.1'
-    liquibaseRuntime 'org.postgresql:postgresql:42.7.1'
-    liquibaseRuntime 'info.picocli:picocli:4.7.5'
-}
-
-liquibase {
-    activities {
-        main {
-            changelogFile 'src/main/resources/db/changelog/db.changelog-master.sql'
-            url System.getenv('DB_URL')
-            username System.getenv('DB_USERNAME')
-            password System.getenv('DB_PASSWORD')
-            driver 'org.postgresql.Driver'
-        }
-    }
-}
-```
-
-### 변경사항 적용
+데이터베이스 접속 정보를 환경 변수로 설정합니다.
 
 ```bash
-# 환경 변수 설정
 export DB_URL=jdbc:postgresql://localhost:5432/mydb
 export DB_USERNAME=myuser
 export DB_PASSWORD=mypassword
+```
+
+## Step 4: 변경사항 적용
+
+```bash
+# SQL 미리보기 (실행하지 않고 확인)
+./gradlew updateSQL
 
 # 변경사항 적용
 ./gradlew update
-
-# SQL 미리보기 (실행하지 않고 확인)
-./gradlew updateSQL
 
 # 현재 상태 확인
 ./gradlew status
@@ -139,17 +121,17 @@ export DB_PASSWORD=mypassword
 ./gradlew validate
 ```
 
-### 롤백
+## Step 5: 롤백
 
 ```bash
+# 롤백 SQL 미리보기
+./gradlew rollbackCountSQL -PliquibaseCommandValue=1
+
 # 특정 개수만큼 롤백
 ./gradlew rollbackCount -PliquibaseCommandValue=1
 
 # 특정 날짜로 롤백
 ./gradlew rollbackToDate -PliquibaseCommandValue=2024-01-15
-
-# 롤백 SQL 미리보기
-./gradlew rollbackCountSQL -PliquibaseCommandValue=1
 
 # 특정 태그로 롤백
 ./gradlew rollback -PliquibaseCommandValue=version-1.0
@@ -157,14 +139,14 @@ export DB_PASSWORD=mypassword
 
 ## Spring Boot 통합
 
-### Gradle 설정
+Spring Boot 프로젝트에서 사용하는 경우:
 
-Spring Boot에서 Liquibase를 사용하려면 의존성만 추가하면 됩니다. Gradle 플러그인 설정은 위의 "Liquibase 명령 실행 (Gradle)" 섹션을 참고하세요.
+### Gradle 설정
 
 ```gradle
 dependencies {
     implementation 'org.liquibase:liquibase-core'
-    runtimeOnly 'org.postgresql:postgresql'  // 또는 사용하는 DB 드라이버
+    runtimeOnly 'org.postgresql:postgresql'
 }
 ```
 
@@ -183,34 +165,4 @@ spring:
     enabled: false  # 자동 적용 비활성화
 ```
 
-`enabled: false`로 설정하여 애플리케이션 시작 시 자동으로 마이그레이션이 실행되지 않도록 합니다. 마이그레이션은 Liquibase CLI를 통해 명시적으로 실행합니다.
-
-## 베스트 프랙티스
-
-1. **타임스탬프 기반 ID 사용**
-   - 형식: `YYYYMMDD-001`, `YYYYMMDD-002` 등
-   - 여러 개발자가 동시 작업 시 충돌 방지
-   - 시간 순서대로 자동 정렬
-
-2. **하나의 ChangeSet에 하나의 변경사항만 포함**
-   - 롤백과 디버깅이 쉬워짐
-   - 단, 관련된 여러 쿼리는 하나의 ChangeSet에 포함 가능
-
-3. **절대 이미 적용된 ChangeSet을 수정하지 않기**
-   - 체크섬 오류 발생
-   - 새로운 ChangeSet으로 수정사항 추가
-
-4. **항상 롤백 구문 작성**
-   - `--rollback` 주석으로 롤백 SQL 명시
-   - DROP, DELETE 등은 데이터 손실 주의
-
-5. **환경별 설정 관리**
-   - Context와 Label을 활용하여 환경별로 다른 변경사항 적용
-
-## 참고 자료
-
-[Liquibase Documentation](https://docs.liquibase.com/)
-
-[Liquibase Best Practices](https://www.liquibase.com/blog/liquibase-best-practices)
-
-[Spring Boot with Liquibase](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.data-initialization.migration-tool.liquibase)
+`enabled: false`로 설정하여 애플리케이션 시작 시 자동 마이그레이션을 비활성화하고, Gradle 명령으로 명시적으로 실행합니다.
