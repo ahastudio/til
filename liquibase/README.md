@@ -33,7 +33,7 @@ dependencies {
 liquibase {
     activities.register("main") {
         this.arguments = mapOf(
-            "changelogFile" to "src/main/resources/db/changelog/db.changelog-master.sql",
+            "changelogFile" to "src/main/resources/db/changelog/db.changelog.sql",
             "url" to System.getenv("DB_URL"),
             "username" to System.getenv("DB_USERNAME"),
             "password" to System.getenv("DB_PASSWORD"),
@@ -56,7 +56,7 @@ spring:
     driver-class-name: org.postgresql.Driver
 
   liquibase:
-    change-log: classpath:db/changelog/db.changelog-master.sql
+    change-log: classpath:db/changelog/db.changelog.sql
     enabled: false  # 자동 적용 비활성화
 ```
 
@@ -73,10 +73,26 @@ export DB_USERNAME=myuser
 export DB_PASSWORD=mypassword
 ```
 
+## 기존 데이터베이스에 적용하기
+
+이미 운영 중인 데이터베이스가 있다면, 현재 스키마 상태를 기준점으로
+설정하고 앞으로의 변경사항만 추적합니다.
+
+```bash
+# Liquibase 메타데이터 테이블 초기화
+./gradlew update
+```
+
+처음 실행하면 `DATABASECHANGELOG`, `DATABASECHANGELOGLOCK` 테이블이
+생성됩니다. 이 테이블들이 변경 이력을 추적합니다.
+
+기존 테이블이나 데이터는 전혀 건드리지 않습니다.
+이후부터 추가하는 마이그레이션 파일만 실행됩니다.
+
 ## 마이그레이션 파일 작성
 
-마스터 파일 `src/main/resources/db/changelog/db.changelog-master.sql`을
-생성하고, 디렉토리의 모든 마이그레이션 파일을 자동으로 포함시킵니다.
+진입점 파일 `src/main/resources/db/changelog/db.changelog.sql`을
+생성하고, changes 디렉토리의 모든 파일을 자동으로 포함시킵니다.
 
 ```sql
 --liquibase formatted sql
