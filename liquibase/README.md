@@ -48,42 +48,9 @@ CREATE TABLE users (
 );
 ```
 
-## Gradle 명령어
+## Spring Boot 실행
 
-Liquibase Gradle 플러그인을 사용하는 경우:
-
-```gradle
-plugins {
-    id 'org.liquibase.gradle' version '2.2.0'
-}
-
-liquibase {
-    activities {
-        main {
-            changeLogFile 'src/main/resources/db/changelog/db.changelog-master.sql'
-            url 'jdbc:postgresql://localhost:5432/mydb'
-            username 'myuser'
-            password 'mypassword'
-        }
-    }
-}
-```
-
-```bash
-# 변경사항 적용
-./gradlew update
-
-# 롤백
-./gradlew rollbackCount -PliquibaseCommandValue=1
-
-# 현재 상태 확인
-./gradlew status
-
-# SQL 생성 (실행하지 않고 확인)
-./gradlew updateSQL
-```
-
-Spring Boot를 사용하는 경우, 애플리케이션 실행 시 자동으로 적용됩니다.
+Spring Boot 애플리케이션 실행 시 자동으로 Liquibase가 적용됩니다.
 
 ```bash
 # Spring Boot 애플리케이션 실행 시 자동 적용
