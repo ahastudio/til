@@ -1,8 +1,8 @@
 # Planning with Files
 
-컨텍스트 윈도우 대신 파일 시스템에 계획을 저장해서 Claude가 목표를 잃지 않게 하는 패턴
-
 <https://github.com/OthmanAdi/planning-with-files>
+
+Claude가 긴 작업 중 목표를 잊어버리거나, 컨텍스트 리셋되면 진행 상황을 잃어버리는 문제를 해결합니다. 컨텍스트 윈도우 대신 파일 시스템에 계획을 저장해서 같은 에러를 반복하지 않게 합니다.
 
 ## 설치
 
@@ -58,9 +58,3 @@ claude plugins install OthmanAdi/planning-with-files
 ### Next
 - Deploy to staging
 ```
-
-## 왜 쓰나?
-
-- Claude가 긴 작업 중 목표를 잊어버리는 걸 방지
-- 컨텍스트 리셋돼도 진행 상황 유지
-- 같은 에러 반복 안 함
