@@ -103,11 +103,18 @@ touch src/main/resources/db/changelog/changes/$(date +%Y%m%d%H%M%S)-create-users
 --liquibase formatted sql
 
 --changeset developer:20250115143022
+-- 사용자 기본 정보를 저장하는 테이블
 CREATE TABLE users (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL
 );
+
+COMMENT ON TABLE users IS '사용자';
+COMMENT ON COLUMN users.id IS '사용자 ID';
+COMMENT ON COLUMN users.username IS '사용자명 (로그인 ID)';
+COMMENT ON COLUMN users.email IS '이메일 주소';
+
 --rollback DROP TABLE users;
 ```
 
@@ -117,7 +124,11 @@ CREATE TABLE users (
 --liquibase formatted sql
 
 --changeset developer:20250115144531
+-- 사용자 생성 시각 추적
 ALTER TABLE users ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+COMMENT ON COLUMN users.created_at IS '생성 시각';
+
 --rollback ALTER TABLE users DROP COLUMN created_at;
 ```
 
