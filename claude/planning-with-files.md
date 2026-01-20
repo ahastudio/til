@@ -9,6 +9,9 @@ Claude가 긴 작업 중 목표를 잊어버리거나,
 
 ## 설치
 
+[File-based Planning Workflow](../ai/file-based-planning-workflow.md)
+개념을 구현한 Claude Code 플러그인입니다.
+
 ```bash
 claude plugins install OthmanAdi/planning-with-files
 ```
