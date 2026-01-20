@@ -37,24 +37,71 @@ Liquibase는 데이터베이스 스키마 변경을 추적, 관리, 적용하는
 
 ### SQL 형식 예제
 
+ChangeSet ID를 타임스탬프로 사용하면 여러 개발자가 동시에 작업할 때 충돌을 방지할 수 있습니다.
+
 ```sql
 --liquibase formatted sql
 
---changeset developer:1
+--changeset developer:20240115-001
 CREATE TABLE users (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL
 );
+--rollback DROP TABLE users;
+
+--changeset developer:20240115-002
+ALTER TABLE users ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+--rollback ALTER TABLE users DROP COLUMN created_at;
+
+--changeset developer:20240115-003
+CREATE INDEX idx_users_username ON users(username);
+--rollback DROP INDEX idx_users_username;
+
+--changeset developer:20240116-001
+INSERT INTO users (username, email) VALUES ('admin', 'admin@example.com');
+INSERT INTO users (username, email) VALUES ('user1', 'user1@example.com');
+--rollback DELETE FROM users WHERE username IN ('admin', 'user1');
 ```
+
+각 ChangeSet에는 롤백 구문을 명시할 수 있으며, 필요한 경우 여러 개의 SQL 쿼리를 실행할 수 있습니다.
 
 ## Spring Boot 실행
 
 Spring Boot 애플리케이션 실행 시 자동으로 Liquibase가 적용됩니다.
 
 ```bash
-# Spring Boot 애플리케이션 실행 시 자동 적용
+# 애플리케이션 실행 시 자동 적용
 ./gradlew bootRun
+```
+
+### 롤백
+
+롤백이 필요한 경우 Liquibase CLI를 사용하거나 Gradle 플러그인을 사용할 수 있습니다.
+
+```bash
+# Liquibase CLI 설치
+brew install liquibase  # macOS
+# 또는 https://www.liquibase.com/download 에서 다운로드
+
+# 특정 개수만큼 롤백
+liquibase --defaults-file=liquibase.properties rollback-count 1
+
+# 특정 날짜로 롤백
+liquibase --defaults-file=liquibase.properties rollback-to-date 2024-01-15
+
+# 특정 태그로 롤백
+liquibase --defaults-file=liquibase.properties rollback version-1.0
+```
+
+`liquibase.properties` 파일 예시:
+
+```properties
+changeLogFile=src/main/resources/db/changelog/db.changelog-master.sql
+url=${DB_URL}
+username=${DB_USERNAME}
+password=${DB_PASSWORD}
+driver=org.postgresql.Driver
 ```
 
 ## Spring Boot 통합
@@ -97,18 +144,22 @@ export DB_PASSWORD=mypassword
 
 ## 베스트 프랙티스
 
-1. **하나의 ChangeSet에 하나의 변경사항만 포함**
-   - 롤백과 디버깅이 쉬워짐
+1. **타임스탬프 기반 ID 사용**
+   - 형식: `YYYYMMDD-001`, `YYYYMMDD-002` 등
+   - 여러 개발자가 동시 작업 시 충돌 방지
+   - 시간 순서대로 자동 정렬
 
-2. **절대 이미 적용된 ChangeSet을 수정하지 않기**
+2. **하나의 ChangeSet에 하나의 변경사항만 포함**
+   - 롤백과 디버깅이 쉬워짐
+   - 단, 관련된 여러 쿼리는 하나의 ChangeSet에 포함 가능
+
+3. **절대 이미 적용된 ChangeSet을 수정하지 않기**
    - 체크섬 오류 발생
    - 새로운 ChangeSet으로 수정사항 추가
 
-3. **의미있는 ID와 설명 사용**
-   - 변경 이력 추적이 용이
-
-4. **롤백 전략 명시**
-   - 자동 롤백이 불가능한 경우 명시적으로 정의
+4. **항상 롤백 구문 작성**
+   - `--rollback` 주석으로 롤백 SQL 명시
+   - DROP, DELETE 등은 데이터 손실 주의
 
 5. **환경별 설정 관리**
    - Context와 Label을 활용하여 환경별로 다른 변경사항 적용
