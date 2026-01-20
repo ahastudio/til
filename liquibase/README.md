@@ -10,9 +10,9 @@ Source control for your database
 
 Liquibase는 데이터베이스 스키마 변경을 추적, 관리, 적용하는 오픈소스 도구입니다. SQL 형식으로 변경사항을 작성하고, 여러 데이터베이스 벤더(PostgreSQL, MySQL, Oracle 등)를 지원합니다.
 
-## Step 1: Gradle 플러그인 설정
+## Step 1: Gradle 설정
 
-`build.gradle`에 Liquibase 플러그인을 추가합니다.
+`build.gradle`에 Liquibase 의존성과 플러그인을 추가합니다.
 
 ```gradle
 plugins {
@@ -20,6 +20,9 @@ plugins {
 }
 
 dependencies {
+    implementation 'org.liquibase:liquibase-core'
+    runtimeOnly 'org.postgresql:postgresql'
+
     liquibaseRuntime 'org.liquibase:liquibase-core:4.25.1'
     liquibaseRuntime 'org.postgresql:postgresql:42.7.1'
     liquibaseRuntime 'info.picocli:picocli:4.7.5'
@@ -38,7 +41,36 @@ liquibase {
 }
 ```
 
-## Step 2: 마이그레이션 파일 작성
+## Step 2: application.yml 설정
+
+Spring Boot 설정 파일을 작성합니다.
+
+```yaml
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.sql
+    enabled: false  # 자동 적용 비활성화
+```
+
+`enabled: false`로 설정하여 애플리케이션 시작 시 자동 마이그레이션을 비활성화하고, Gradle 명령으로 명시적으로 실행합니다.
+
+## Step 3: 환경 변수 설정
+
+데이터베이스 접속 정보를 환경 변수로 설정합니다.
+
+```bash
+export DB_URL=jdbc:postgresql://localhost:5432/mydb
+export DB_USERNAME=myuser
+export DB_PASSWORD=mypassword
+```
+
+## Step 4: 마이그레이션 파일 작성
 
 ### 방법 1: 단일 파일 방식
 
@@ -95,17 +127,7 @@ src/main/resources/db/changelog/changes/20240116-add-created-at-column.sql
 - **롤백 구문 필수**: 각 ChangeSet에 `--rollback` 주석으로 롤백 SQL을 명시합니다.
 - **하나의 변경사항 단위**: 하나의 ChangeSet에는 하나의 변경사항을 포함하되, 관련된 여러 쿼리는 함께 묶을 수 있습니다.
 
-## Step 3: 환경 변수 설정
-
-데이터베이스 접속 정보를 환경 변수로 설정합니다.
-
-```bash
-export DB_URL=jdbc:postgresql://localhost:5432/mydb
-export DB_USERNAME=myuser
-export DB_PASSWORD=mypassword
-```
-
-## Step 4: 변경사항 적용
+## Step 5: 변경사항 적용
 
 ```bash
 # SQL 미리보기 (실행하지 않고 확인)
@@ -121,7 +143,7 @@ export DB_PASSWORD=mypassword
 ./gradlew validate
 ```
 
-## Step 5: 롤백
+## Step 6: 롤백
 
 ```bash
 # 롤백 SQL 미리보기
@@ -136,33 +158,3 @@ export DB_PASSWORD=mypassword
 # 특정 태그로 롤백
 ./gradlew rollback -PliquibaseCommandValue=version-1.0
 ```
-
-## Spring Boot 통합
-
-Spring Boot 프로젝트에서 사용하는 경우:
-
-### Gradle 설정
-
-```gradle
-dependencies {
-    implementation 'org.liquibase:liquibase-core'
-    runtimeOnly 'org.postgresql:postgresql'
-}
-```
-
-### application.yml 설정
-
-```yaml
-spring:
-  datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
-    driver-class-name: org.postgresql.Driver
-
-  liquibase:
-    change-log: classpath:db/changelog/db.changelog-master.sql
-    enabled: false  # 자동 적용 비활성화
-```
-
-`enabled: false`로 설정하여 애플리케이션 시작 시 자동 마이그레이션을 비활성화하고, Gradle 명령으로 명시적으로 실행합니다.
