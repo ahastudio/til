@@ -113,15 +113,15 @@ CREATE TABLE users (
 --rollback DROP TABLE users;
 ```
 
-`src/main/resources/db/changelog/changes/20250115144531-add-email-index.sql`:
+`src/main/resources/db/changelog/changes/20250115144531-add-created-at-index.sql`:
 
 ```sql
 --liquibase formatted sql
 
 --changeset developer:20250115144531
--- 이메일 검색 성능 향상을 위한 인덱스
-CREATE INDEX idx_users_email ON users(email);
---rollback DROP INDEX idx_users_email ON users;
+-- 생성 시각 기준 조회 성능 향상을 위한 인덱스
+CREATE INDEX idx_users_created_at ON users(created_at);
+--rollback DROP INDEX idx_users_created_at ON users;
 ```
 
 ### 작성 규칙
