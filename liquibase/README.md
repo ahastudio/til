@@ -66,24 +66,47 @@ INSERT INTO users (username, email) VALUES ('user1', 'user1@example.com');
 
 각 ChangeSet에는 롤백 구문을 명시할 수 있으며, 필요한 경우 여러 개의 SQL 쿼리를 실행할 수 있습니다.
 
-## Spring Boot 실행
+## Liquibase 명령 실행
 
-Spring Boot 애플리케이션 실행 시 자동으로 Liquibase가 적용됩니다.
+### Liquibase CLI 설치
 
 ```bash
-# 애플리케이션 실행 시 자동 적용
-./gradlew bootRun
+brew install liquibase  # macOS
+# 또는 https://www.liquibase.com/download 에서 다운로드
+```
+
+`liquibase.properties` 파일 작성:
+
+```properties
+changeLogFile=src/main/resources/db/changelog/db.changelog-master.sql
+url=${DB_URL}
+username=${DB_USERNAME}
+password=${DB_PASSWORD}
+driver=org.postgresql.Driver
+classpath=build/libs/postgresql-42.7.1.jar
+```
+
+### 변경사항 적용
+
+```bash
+# 환경 변수 설정
+export DB_URL=jdbc:postgresql://localhost:5432/mydb
+export DB_USERNAME=myuser
+export DB_PASSWORD=mypassword
+
+# 변경사항 적용
+liquibase --defaults-file=liquibase.properties update
+
+# SQL 미리보기 (실행하지 않고 확인)
+liquibase --defaults-file=liquibase.properties update-sql
+
+# 현재 상태 확인
+liquibase --defaults-file=liquibase.properties status
 ```
 
 ### 롤백
 
-롤백이 필요한 경우 Liquibase CLI를 사용하거나 Gradle 플러그인을 사용할 수 있습니다.
-
 ```bash
-# Liquibase CLI 설치
-brew install liquibase  # macOS
-# 또는 https://www.liquibase.com/download 에서 다운로드
-
 # 특정 개수만큼 롤백
 liquibase --defaults-file=liquibase.properties rollback-count 1
 
@@ -92,16 +115,9 @@ liquibase --defaults-file=liquibase.properties rollback-to-date 2024-01-15
 
 # 특정 태그로 롤백
 liquibase --defaults-file=liquibase.properties rollback version-1.0
-```
 
-`liquibase.properties` 파일 예시:
-
-```properties
-changeLogFile=src/main/resources/db/changelog/db.changelog-master.sql
-url=${DB_URL}
-username=${DB_USERNAME}
-password=${DB_PASSWORD}
-driver=org.postgresql.Driver
+# 롤백 SQL 미리보기
+liquibase --defaults-file=liquibase.properties rollback-count-sql 1
 ```
 
 ## Spring Boot 통합
@@ -127,20 +143,10 @@ spring:
 
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.sql
-    enabled: true
+    enabled: false  # 자동 적용 비활성화
 ```
 
-환경 변수를 통해 데이터베이스 접속 정보를 주입합니다. Spring Boot는 `spring.datasource` 설정을 자동으로 Liquibase에 전달합니다.
-
-```bash
-# 환경 변수 설정 예시
-export DB_URL=jdbc:postgresql://localhost:5432/mydb
-export DB_USERNAME=myuser
-export DB_PASSWORD=mypassword
-
-# 애플리케이션 실행
-./gradlew bootRun
-```
+`enabled: false`로 설정하여 애플리케이션 시작 시 자동으로 마이그레이션이 실행되지 않도록 합니다. 마이그레이션은 Liquibase CLI를 통해 명시적으로 실행합니다.
 
 ## 베스트 프랙티스
 
