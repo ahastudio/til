@@ -33,7 +33,7 @@ dependencies {
 liquibase {
     activities.register("main") {
         this.arguments = mapOf(
-            "changelogFile" to "src/main/resources/db/changelog/db.changelog.sql",
+            "changelogFile" to "src/main/resources/db/changelog/db.changelog-main.yaml",
             "url" to System.getenv("DB_URL"),
             "username" to System.getenv("DB_USERNAME"),
             "password" to System.getenv("DB_PASSWORD"),
@@ -56,7 +56,7 @@ spring:
     driver-class-name: org.postgresql.Driver
 
   liquibase:
-    change-log: classpath:db/changelog/db.changelog.sql
+    change-log: classpath:db/changelog/db.changelog-main.yaml
     enabled: false  # 자동 적용 비활성화
 ```
 
@@ -73,10 +73,61 @@ export DB_USERNAME=myuser
 export DB_PASSWORD=mypassword
 ```
 
+## 마이그레이션 파일 작성
+
+진입점 파일 `src/main/resources/db/changelog/db.changelog-main.yaml`을
+생성하고, changes 디렉토리의 모든 SQL 파일을 포함시킵니다.
+
+```yaml
+databaseChangeLog:
+  - includeAll:
+      path: db/changelog/changes/
+```
+
+개별 마이그레이션 파일을 타임스탬프 기반 이름으로 생성합니다.
+파일은 알파벳 순서로 실행되므로 `YYYYMMDD-NNN-description.sql` 형식을
+사용합니다.
+
+`src/main/resources/db/changelog/changes/20250115-001-create-users.sql`:
+
+```sql
+--liquibase formatted sql
+
+--changeset developer:20250115-001
+CREATE TABLE users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL
+);
+--rollback DROP TABLE users;
+```
+
+`src/main/resources/db/changelog/changes/20250115-002-add-created-at.sql`:
+
+```sql
+--liquibase formatted sql
+
+--changeset developer:20250115-002
+ALTER TABLE users ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+--rollback ALTER TABLE users DROP COLUMN created_at;
+```
+
+### 작성 규칙
+
+- **파일명**: `YYYYMMDD-NNN-description.sql` 형식으로 작성합니다.
+  알파벳 순서로 정렬되어 올바른 순서로 실행됩니다.
+- **ChangeSet ID**: `author:YYYYMMDD-NNN` 형식을 사용합니다.
+  파일명의 날짜 부분과 일치시키면 관리가 편합니다.
+- **수정 금지**: 한 번 적용된 파일은 절대 수정하지 않습니다.
+  수정이 필요하면 새로운 파일을 추가합니다.
+- **롤백 필수**: 각 ChangeSet에 `--rollback` 주석으로
+  롤백 SQL을 반드시 명시합니다.
+- **하나의 변경**: 하나의 파일에는 하나의 ChangeSet만 포함합니다.
+
 ## 기존 데이터베이스에 적용하기
 
-이미 운영 중인 데이터베이스가 있다면, 현재 스키마 상태를 기준점으로
-설정하고 앞으로의 변경사항만 추적합니다.
+이미 운영 중인 데이터베이스가 있다면, 현재 상태를 기준점으로
+설정합니다.
 
 ```bash
 # Liquibase 메타데이터 테이블 초기화
@@ -87,66 +138,7 @@ export DB_PASSWORD=mypassword
 생성됩니다. 이 테이블들이 변경 이력을 추적합니다.
 
 기존 테이블이나 데이터는 전혀 건드리지 않습니다.
-이후부터 추가하는 마이그레이션 파일만 실행됩니다.
-
-## 마이그레이션 파일 작성
-
-진입점 파일 `src/main/resources/db/changelog/db.changelog.sql`을
-생성하고, changes 디렉토리의 모든 파일을 자동으로 포함시킵니다.
-
-```sql
---liquibase formatted sql
-
---includeAll path:db/changelog/changes
-```
-
-개별 마이그레이션 파일을 타임스탬프 기반 이름으로 생성합니다.
-
-`src/main/resources/db/changelog/changes/20240115-001-create-users.sql`:
-
-```sql
---liquibase formatted sql
-
---changeset developer:20240115-001
-CREATE TABLE users (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    email VARCHAR(100) NOT NULL
-);
---rollback DROP TABLE users;
-```
-
-`src/main/resources/db/changelog/changes/20240115-002-add-created-at.sql`:
-
-```sql
---liquibase formatted sql
-
---changeset developer:20240115-002
-ALTER TABLE users ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
---rollback ALTER TABLE users DROP COLUMN created_at;
-```
-
-`src/main/resources/db/changelog/changes/20240116-001-add-users.sql`:
-
-```sql
---liquibase formatted sql
-
---changeset developer:20240116-001
-INSERT INTO users (username, email) VALUES ('admin', 'admin@example.com');
-INSERT INTO users (username, email) VALUES ('user1', 'user1@example.com');
---rollback DELETE FROM users WHERE username IN ('admin', 'user1');
-```
-
-### 마이그레이션 파일 작성 규칙
-
-- **파일명은 타임스탬프 기반**: `YYYYMMDD-NNN-description.sql` 형식으로
-  작성하면 알파벳 순서로 정렬되어 올바른 순서로 실행됩니다.
-- **한 번 적용된 파일은 수정 금지**: 수정이 필요하면 새로운 파일을
-  추가합니다.
-- **롤백 구문 필수**: 각 ChangeSet에 `--rollback` 주석으로
-  롤백 SQL을 명시합니다.
-- **하나의 변경사항 단위**: 하나의 파일에는 하나의 ChangeSet만
-  포함합니다.
+이후 추가하는 마이그레이션 파일만 실행됩니다.
 
 ## 변경사항 적용
 
@@ -177,7 +169,7 @@ INSERT INTO users (username, email) VALUES ('user1', 'user1@example.com');
 ./gradlew rollbackCount -PliquibaseCommandValue=1
 
 # 특정 날짜까지 롤백
-./gradlew rollbackToDate -PliquibaseCommandValue=2024-01-15
+./gradlew rollbackToDate -PliquibaseCommandValue=2025-01-15
 
 # 특정 태그까지 롤백
 ./gradlew rollback -PliquibaseCommandValue=version-1.0
