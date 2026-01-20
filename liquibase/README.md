@@ -8,10 +8,8 @@ Source control for your database
 
 ## 소개
 
-Liquibase는 데이터베이스 스키마 변경을 추적, 관리, 적용하는
-오픈소스 도구입니다.
-SQL 형식으로 변경사항을 작성하고, 여러 데이터베이스 벤더
-(PostgreSQL, MySQL, Oracle 등)를 지원합니다.
+Liquibase는 데이터베이스 스키마 변경을 추적, 관리, 적용하는 오픈소스 도구입니다.
+SQL 형식으로 변경사항을 작성하고, 여러 데이터베이스 벤더(PostgreSQL, MySQL, Oracle 등)를 지원합니다.
 
 ## Gradle 설정
 
@@ -61,8 +59,7 @@ spring:
     enabled: false  # 자동 적용 비활성화
 ```
 
-`enabled: false`로 설정하여 애플리케이션 시작 시 자동 마이그레이션을
-비활성화하고, Gradle 명령으로 명시적으로 실행합니다.
+`enabled: false`로 설정하여 애플리케이션 시작 시 자동 마이그레이션을 비활성화하고, Gradle 명령으로 명시적으로 실행합니다.
 
 ## 환경 변수 설정
 
@@ -76,8 +73,7 @@ export DB_PASSWORD=mypassword
 
 ## 마이그레이션 파일 작성
 
-진입점 파일 `src/main/resources/db/changelog/db.changelog-main.yaml`을
-생성하고, changes 디렉토리의 모든 SQL 파일을 포함시킵니다.
+진입점 파일 `src/main/resources/db/changelog/db.changelog-main.yaml`을 생성하고, changes 디렉토리의 모든 SQL 파일을 포함시킵니다.
 
 ```yaml
 databaseChangeLog:
@@ -86,8 +82,7 @@ databaseChangeLog:
 ```
 
 개별 마이그레이션 파일을 타임스탬프 기반 이름으로 생성합니다.
-파일은 알파벳 순서로 실행되므로 `YYYYMMDDHHMMSS-description.sql`
-형식을 사용합니다.
+파일은 알파벳 순서로 실행되므로 `YYYYMMDDHHMMSS-description.sql` 형식을 사용합니다.
 초 단위까지 포함하면 여러 개발자가 동시에 작업해도 충돌하지 않습니다.
 
 ```bash
@@ -157,16 +152,14 @@ CREATE INDEX idx_posts_created_at ON posts(created_at);
 
 ## 기존 데이터베이스에 적용하기
 
-이미 운영 중인 데이터베이스가 있다면, 현재 상태를 기준점으로
-설정합니다.
+이미 운영 중인 데이터베이스가 있다면, 현재 상태를 기준점으로 설정합니다.
 
 ```bash
 # Liquibase 메타데이터 테이블 초기화
 ./gradlew update
 ```
 
-처음 실행하면 `DATABASECHANGELOG`, `DATABASECHANGELOGLOCK` 테이블이
-생성됩니다.
+처음 실행하면 `DATABASECHANGELOG`, `DATABASECHANGELOGLOCK` 테이블이 생성됩니다.
 이 테이블들이 변경 이력을 추적합니다.
 
 기존 테이블이나 데이터는 전혀 건드리지 않습니다.
