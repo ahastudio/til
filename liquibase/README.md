@@ -12,31 +12,31 @@ Liquibase는 데이터베이스 스키마 변경을 추적, 관리, 적용하는
 
 ## Step 1: Gradle 설정
 
-`build.gradle`에 Liquibase 의존성과 플러그인을 추가합니다.
+`build.gradle.kts`에 Liquibase 의존성과 플러그인을 추가합니다.
 
-```gradle
+```kotlin
 plugins {
-    id 'org.liquibase.gradle' version '2.2.2'
+    id("org.liquibase.gradle") version "2.2.2"
 }
 
 dependencies {
-    implementation 'org.liquibase:liquibase-core'
-    runtimeOnly 'org.postgresql:postgresql'
+    implementation("org.liquibase:liquibase-core")
+    runtimeOnly("org.postgresql:postgresql")
 
-    liquibaseRuntime 'org.liquibase:liquibase-core:4.25.1'
-    liquibaseRuntime 'org.postgresql:postgresql:42.7.1'
-    liquibaseRuntime 'info.picocli:picocli:4.7.5'
+    liquibaseRuntime("org.liquibase:liquibase-core:4.25.1")
+    liquibaseRuntime("org.postgresql:postgresql:42.7.1")
+    liquibaseRuntime("info.picocli:picocli:4.7.5")
 }
 
 liquibase {
-    activities {
-        main {
-            changelogFile 'src/main/resources/db/changelog/db.changelog-master.sql'
-            url System.getenv('DB_URL')
-            username System.getenv('DB_USERNAME')
-            password System.getenv('DB_PASSWORD')
-            driver 'org.postgresql.Driver'
-        }
+    activities.register("main") {
+        this.arguments = mapOf(
+            "changelogFile" to "src/main/resources/db/changelog/db.changelog-master.sql",
+            "url" to System.getenv("DB_URL"),
+            "username" to System.getenv("DB_USERNAME"),
+            "password" to System.getenv("DB_PASSWORD"),
+            "driver" to "org.postgresql.Driver"
+        )
     }
 }
 ```
