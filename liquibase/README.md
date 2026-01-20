@@ -73,9 +73,9 @@ dependencies {
 ```yaml
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/mydb
-    username: myuser
-    password: mypassword
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   liquibase:
@@ -83,7 +83,17 @@ spring:
     enabled: true
 ```
 
-Spring Boot는 `spring.datasource` 설정을 자동으로 Liquibase에 전달하므로, 별도의 환경변수 설정 없이 application.yml만으로 데이터베이스 연결이 가능합니다.
+환경 변수를 통해 데이터베이스 접속 정보를 주입합니다. Spring Boot는 `spring.datasource` 설정을 자동으로 Liquibase에 전달합니다.
+
+```bash
+# 환경 변수 설정 예시
+export DB_URL=jdbc:postgresql://localhost:5432/mydb
+export DB_USERNAME=myuser
+export DB_PASSWORD=mypassword
+
+# 애플리케이션 실행
+./gradlew bootRun
+```
 
 ## 베스트 프랙티스
 
