@@ -35,33 +35,6 @@ Liquibase는 데이터베이스 스키마 변경을 추적, 관리, 적용하는
 
 ## 기본 사용법
 
-### XML 형식 예제
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<databaseChangeLog
-    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
-
-    <changeSet id="1" author="developer">
-        <createTable tableName="users">
-            <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="username" type="varchar(50)">
-                <constraints nullable="false" unique="true"/>
-            </column>
-            <column name="email" type="varchar(100)">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-    </changeSet>
-
-</databaseChangeLog>
-```
-
 ### SQL 형식 예제
 
 ```sql
@@ -73,37 +46,6 @@ CREATE TABLE users (
     username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL
 );
-```
-
-### YAML 형식 예제
-
-```yaml
-databaseChangeLog:
-  - changeSet:
-      id: 1
-      author: developer
-      changes:
-        - createTable:
-            tableName: users
-            columns:
-              - column:
-                  name: id
-                  type: bigint
-                  autoIncrement: true
-                  constraints:
-                    primaryKey: true
-                    nullable: false
-              - column:
-                  name: username
-                  type: varchar(50)
-                  constraints:
-                    nullable: false
-                    unique: true
-              - column:
-                  name: email
-                  type: varchar(100)
-                  constraints:
-                    nullable: false
 ```
 
 ## CLI 명령어
@@ -157,7 +99,7 @@ dependencies {
 ```yaml
 spring:
   liquibase:
-    change-log: classpath:db/changelog/db.changelog-master.yaml
+    change-log: classpath:db/changelog/db.changelog-master.sql
     enabled: true
 ```
 
