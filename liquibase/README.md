@@ -89,6 +89,14 @@ databaseChangeLog:
 사용합니다. 초 단위까지 포함하면 여러 개발자가 동시에 작업해도 충돌하지
 않습니다.
 
+```bash
+# 타임스탬프 생성
+date +%Y%m%d%H%M%S
+
+# 파일 바로 생성
+touch src/main/resources/db/changelog/changes/$(date +%Y%m%d%H%M%S)-create-users.sql
+```
+
 `src/main/resources/db/changelog/changes/20250115143022-create-users.sql`:
 
 ```sql
