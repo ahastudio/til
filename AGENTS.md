@@ -21,7 +21,7 @@ Technical terms may use both languages (e.g. 웹소켓(WebSocket)).
 
 ## Terminal Policy
 
-**NEVER** use `run_in_terminal` tool or suggest terminal commands.
+Terminal commands are allowed when necessary for the task.
 
 ## Markdown Line Length
 
@@ -40,10 +40,11 @@ Based on:
 
 **REQUIRED STEPS:**
 
-1. Call `get_changed_files` with `sourceControlState: ["staged"]`
-2. Verify response contains actual staged files with diffs
-3. If empty: STOP and inform user
-4. Only then write commit message based on verified content
+1. Run `git diff --staged --stat` to see changed files summary
+2. Run `git diff --staged` to see full diff of staged changes
+3. Verify there are actual staged changes
+4. If empty: STOP and inform user
+5. Only then write commit message based on verified content
 
 **PROHIBITED:**
 
