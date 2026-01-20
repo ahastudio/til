@@ -105,31 +105,23 @@ touch src/main/resources/db/changelog/changes/$(date +%Y%m%d%H%M%S)-create-users
 --changeset developer:20250115143022
 -- 사용자 기본 정보를 저장하는 테이블
 CREATE TABLE users (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    email VARCHAR(100) NOT NULL
-);
-
-COMMENT ON TABLE users IS '사용자';
-COMMENT ON COLUMN users.id IS '사용자 ID';
-COMMENT ON COLUMN users.username IS '사용자명 (로그인 ID)';
-COMMENT ON COLUMN users.email IS '이메일 주소';
-
+    id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '사용자 ID',
+    username VARCHAR(50) NOT NULL UNIQUE COMMENT '사용자명 (로그인 ID)',
+    email VARCHAR(100) NOT NULL COMMENT '이메일 주소',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '생성 시각'
+) COMMENT='사용자';
 --rollback DROP TABLE users;
 ```
 
-`src/main/resources/db/changelog/changes/20250115144531-add-created-at.sql`:
+`src/main/resources/db/changelog/changes/20250115144531-add-email-index.sql`:
 
 ```sql
 --liquibase formatted sql
 
 --changeset developer:20250115144531
--- 사용자 생성 시각 추적
-ALTER TABLE users ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
-
-COMMENT ON COLUMN users.created_at IS '생성 시각';
-
---rollback ALTER TABLE users DROP COLUMN created_at;
+-- 이메일 검색 성능 향상을 위한 인덱스
+CREATE INDEX idx_users_email ON users(email);
+--rollback DROP INDEX idx_users_email ON users;
 ```
 
 ### 작성 규칙
