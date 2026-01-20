@@ -66,24 +66,56 @@ INSERT INTO users (username, email) VALUES ('user1', 'user1@example.com');
 
 각 ChangeSet에는 롤백 구문을 명시할 수 있으며, 필요한 경우 여러 개의 SQL 쿼리를 실행할 수 있습니다.
 
-## Liquibase 명령 실행
+### 마이그레이션 파일 생성
 
-### Liquibase CLI 설치
+새로운 마이그레이션 파일은 직접 생성합니다. 타임스탬프 기반 파일명을 사용하면 관리가 편리합니다.
 
 ```bash
-brew install liquibase  # macOS
-# 또는 https://www.liquibase.com/download 에서 다운로드
+# 파일명 예시
+src/main/resources/db/changelog/changes/20240115-create-users-table.sql
+src/main/resources/db/changelog/changes/20240116-add-created-at-column.sql
 ```
 
-`liquibase.properties` 파일 작성:
+마스터 changelog 파일에서 개별 파일들을 include:
 
-```properties
-changeLogFile=src/main/resources/db/changelog/db.changelog-master.sql
-url=${DB_URL}
-username=${DB_USERNAME}
-password=${DB_PASSWORD}
-driver=org.postgresql.Driver
-classpath=build/libs/postgresql-42.7.1.jar
+```sql
+-- db.changelog-master.sql
+--liquibase formatted sql
+
+--include file:changes/20240115-create-users-table.sql
+--include file:changes/20240116-add-created-at-column.sql
+```
+
+또는 단일 파일에 모든 ChangeSet을 작성할 수도 있습니다.
+
+## Liquibase 명령 실행 (Gradle)
+
+### Gradle 플러그인 설정
+
+`build.gradle` 또는 `build.gradle.kts`에 Liquibase 플러그인 추가:
+
+```gradle
+plugins {
+    id 'org.liquibase.gradle' version '2.2.2'
+}
+
+dependencies {
+    liquibaseRuntime 'org.liquibase:liquibase-core:4.25.1'
+    liquibaseRuntime 'org.postgresql:postgresql:42.7.1'
+    liquibaseRuntime 'info.picocli:picocli:4.7.5'
+}
+
+liquibase {
+    activities {
+        main {
+            changelogFile 'src/main/resources/db/changelog/db.changelog-master.sql'
+            url System.getenv('DB_URL')
+            username System.getenv('DB_USERNAME')
+            password System.getenv('DB_PASSWORD')
+            driver 'org.postgresql.Driver'
+        }
+    }
+}
 ```
 
 ### 변경사항 적용
@@ -95,34 +127,39 @@ export DB_USERNAME=myuser
 export DB_PASSWORD=mypassword
 
 # 변경사항 적용
-liquibase --defaults-file=liquibase.properties update
+./gradlew update
 
 # SQL 미리보기 (실행하지 않고 확인)
-liquibase --defaults-file=liquibase.properties update-sql
+./gradlew updateSQL
 
 # 현재 상태 확인
-liquibase --defaults-file=liquibase.properties status
+./gradlew status
+
+# 변경사항 검증
+./gradlew validate
 ```
 
 ### 롤백
 
 ```bash
 # 특정 개수만큼 롤백
-liquibase --defaults-file=liquibase.properties rollback-count 1
+./gradlew rollbackCount -PliquibaseCommandValue=1
 
 # 특정 날짜로 롤백
-liquibase --defaults-file=liquibase.properties rollback-to-date 2024-01-15
-
-# 특정 태그로 롤백
-liquibase --defaults-file=liquibase.properties rollback version-1.0
+./gradlew rollbackToDate -PliquibaseCommandValue=2024-01-15
 
 # 롤백 SQL 미리보기
-liquibase --defaults-file=liquibase.properties rollback-count-sql 1
+./gradlew rollbackCountSQL -PliquibaseCommandValue=1
+
+# 특정 태그로 롤백
+./gradlew rollback -PliquibaseCommandValue=version-1.0
 ```
 
 ## Spring Boot 통합
 
 ### Gradle 설정
+
+Spring Boot에서 Liquibase를 사용하려면 의존성만 추가하면 됩니다. Gradle 플러그인 설정은 위의 "Liquibase 명령 실행 (Gradle)" 섹션을 참고하세요.
 
 ```gradle
 dependencies {
