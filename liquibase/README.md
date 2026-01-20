@@ -8,9 +8,11 @@ Source control for your database
 
 ## 소개
 
-Liquibase는 데이터베이스 스키마 변경을 추적, 관리, 적용하는 오픈소스 도구입니다. SQL 형식으로 변경사항을 작성하고, 여러 데이터베이스 벤더(PostgreSQL, MySQL, Oracle 등)를 지원합니다.
+Liquibase는 데이터베이스 스키마 변경을 추적, 관리, 적용하는
+오픈소스 도구입니다. SQL 형식으로 변경사항을 작성하고,
+여러 데이터베이스 벤더(PostgreSQL, MySQL, Oracle 등)를 지원합니다.
 
-## Step 1: Gradle 설정
+## Gradle 설정
 
 `build.gradle.kts`에 Liquibase 의존성과 플러그인을 추가합니다.
 
@@ -41,7 +43,7 @@ liquibase {
 }
 ```
 
-## Step 2: application.yml 설정
+## application.yml 설정
 
 Spring Boot 설정 파일을 작성합니다.
 
@@ -58,9 +60,10 @@ spring:
     enabled: false  # 자동 적용 비활성화
 ```
 
-`enabled: false`로 설정하여 애플리케이션 시작 시 자동 마이그레이션을 비활성화하고, Gradle 명령으로 명시적으로 실행합니다.
+`enabled: false`로 설정하여 애플리케이션 시작 시
+자동 마이그레이션을 비활성화하고, Gradle 명령으로 명시적으로 실행합니다.
 
-## Step 3: 환경 변수 설정
+## 환경 변수 설정
 
 데이터베이스 접속 정보를 환경 변수로 설정합니다.
 
@@ -70,11 +73,10 @@ export DB_USERNAME=myuser
 export DB_PASSWORD=mypassword
 ```
 
-## Step 4: 마이그레이션 파일 작성
+## 마이그레이션 파일 작성
 
-### 방법 1: 단일 파일 방식
-
-`src/main/resources/db/changelog/db.changelog-master.sql` 파일을 생성하고 모든 ChangeSet을 작성합니다.
+`src/main/resources/db/changelog/db.changelog-master.sql` 파일을
+생성하고 ChangeSet을 작성합니다.
 
 ```sql
 --liquibase formatted sql
@@ -101,33 +103,18 @@ INSERT INTO users (username, email) VALUES ('user1', 'user1@example.com');
 --rollback DELETE FROM users WHERE username IN ('admin', 'user1');
 ```
 
-### 방법 2: 분산 파일 방식
-
-개별 마이그레이션 파일을 생성합니다.
-
-```bash
-src/main/resources/db/changelog/changes/20240115-create-users-table.sql
-src/main/resources/db/changelog/changes/20240116-add-created-at-column.sql
-```
-
-마스터 파일에서 include로 참조합니다.
-
-```sql
--- db.changelog-master.sql
---liquibase formatted sql
-
---include file:changes/20240115-create-users-table.sql
---include file:changes/20240116-add-created-at-column.sql
-```
-
 ### ChangeSet 작성 규칙
 
-- **ID는 타임스탬프 기반**: `YYYYMMDD-001` 형식으로 작성하면 여러 개발자가 동시 작업할 때 충돌을 방지할 수 있습니다.
-- **한 번 적용된 ChangeSet은 수정 금지**: 수정이 필요하면 새로운 ChangeSet을 추가합니다.
-- **롤백 구문 필수**: 각 ChangeSet에 `--rollback` 주석으로 롤백 SQL을 명시합니다.
-- **하나의 변경사항 단위**: 하나의 ChangeSet에는 하나의 변경사항을 포함하되, 관련된 여러 쿼리는 함께 묶을 수 있습니다.
+- **ID는 타임스탬프 기반**: `YYYYMMDD-001` 형식으로 작성하면
+  여러 개발자가 동시 작업할 때 충돌을 방지할 수 있습니다.
+- **한 번 적용된 ChangeSet은 수정 금지**: 수정이 필요하면
+  새로운 ChangeSet을 추가합니다.
+- **롤백 구문 필수**: 각 ChangeSet에 `--rollback` 주석으로
+  롤백 SQL을 명시합니다.
+- **하나의 변경사항 단위**: 하나의 ChangeSet에는 하나의 변경사항을
+  포함하되, 관련된 여러 쿼리는 함께 묶을 수 있습니다.
 
-## Step 5: 변경사항 적용
+## 변경사항 적용
 
 ```bash
 # SQL 미리보기 (실행하지 않고 확인)
@@ -143,18 +130,21 @@ src/main/resources/db/changelog/changes/20240116-add-created-at-column.sql
 ./gradlew validate
 ```
 
-## Step 6: 롤백
+## 롤백
+
+롤백은 항상 최근 적용된 ChangeSet부터 역순으로 진행됩니다.
+특정 ChangeSet 하나만 선택적으로 롤백할 수 없습니다.
 
 ```bash
 # 롤백 SQL 미리보기
 ./gradlew rollbackCountSQL -PliquibaseCommandValue=1
 
-# 특정 개수만큼 롤백
+# 최근 N개 롤백 (예: 최근 1개)
 ./gradlew rollbackCount -PliquibaseCommandValue=1
 
-# 특정 날짜로 롤백
+# 특정 날짜까지 롤백
 ./gradlew rollbackToDate -PliquibaseCommandValue=2024-01-15
 
-# 특정 태그로 롤백
+# 특정 태그까지 롤백
 ./gradlew rollback -PliquibaseCommandValue=version-1.0
 ```
