@@ -48,31 +48,46 @@ CREATE TABLE users (
 );
 ```
 
-## CLI 명령어
+## Gradle 명령어
+
+Liquibase Gradle 플러그인을 사용하는 경우:
+
+```gradle
+plugins {
+    id 'org.liquibase.gradle' version '2.2.0'
+}
+
+liquibase {
+    activities {
+        main {
+            changeLogFile 'src/main/resources/db/changelog/db.changelog-master.sql'
+            url 'jdbc:postgresql://localhost:5432/mydb'
+            username 'myuser'
+            password 'mypassword'
+        }
+    }
+}
+```
 
 ```bash
 # 변경사항 적용
-liquibase update
-
-# 특정 개수만큼 적용
-liquibase update-count 3
-
-# 특정 태그까지 적용
-liquibase update-to-tag version-1.0
+./gradlew update
 
 # 롤백
-liquibase rollback-count 1
-liquibase rollback-to-date 2024-01-01
-liquibase rollback <tag>
+./gradlew rollbackCount -PliquibaseCommandValue=1
 
 # 현재 상태 확인
-liquibase status
-
-# 변경사항 검증
-liquibase validate
+./gradlew status
 
 # SQL 생성 (실행하지 않고 확인)
-liquibase update-sql
+./gradlew updateSQL
+```
+
+Spring Boot를 사용하는 경우, 애플리케이션 실행 시 자동으로 적용됩니다.
+
+```bash
+# Spring Boot 애플리케이션 실행 시 자동 적용
+./gradlew bootRun
 ```
 
 ## Spring Boot 통합
@@ -82,26 +97,26 @@ liquibase update-sql
 ```gradle
 dependencies {
     implementation 'org.liquibase:liquibase-core'
+    runtimeOnly 'org.postgresql:postgresql'  // 또는 사용하는 DB 드라이버
 }
-```
-
-### Maven 설정
-
-```xml
-<dependency>
-    <groupId>org.liquibase</groupId>
-    <artifactId>liquibase-core</artifactId>
-</dependency>
 ```
 
 ### application.yml 설정
 
 ```yaml
 spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydb
+    username: myuser
+    password: mypassword
+    driver-class-name: org.postgresql.Driver
+
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.sql
     enabled: true
 ```
+
+Spring Boot는 `spring.datasource` 설정을 자동으로 Liquibase에 전달하므로, 별도의 환경변수 설정 없이 application.yml만으로 데이터베이스 연결이 가능합니다.
 
 ## 베스트 프랙티스
 
