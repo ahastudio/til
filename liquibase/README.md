@@ -108,30 +108,20 @@ CREATE TABLE users (
     id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '사용자 ID',
     username VARCHAR(50) NOT NULL UNIQUE COMMENT '사용자명 (로그인 ID)',
     email VARCHAR(100) NOT NULL COMMENT '이메일 주소',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '생성 시각',
-    KEY idx_users_created_at (created_at)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '생성 시각'
 ) COMMENT='사용자';
 --rollback DROP TABLE users;
 ```
 
-`src/main/resources/db/changelog/changes/20250115144531-create-posts.sql`:
+`src/main/resources/db/changelog/changes/20250115144531-add-users-index.sql`:
 
 ```sql
 --liquibase formatted sql
 
 --changeset developer:20250115144531
--- 게시글을 저장하는 테이블
-CREATE TABLE posts (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '게시글 ID',
-    user_id BIGINT NOT NULL COMMENT '작성자 ID',
-    title VARCHAR(200) NOT NULL COMMENT '제목',
-    content TEXT NOT NULL COMMENT '내용',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '생성 시각',
-    KEY idx_posts_user_id (user_id),
-    KEY idx_posts_created_at (created_at),
-    FOREIGN KEY (user_id) REFERENCES users(id)
-) COMMENT='게시글';
---rollback DROP TABLE posts;
+-- 생성 시각 기준 조회 성능 향상
+CREATE INDEX idx_users_created_at ON users(created_at);
+--rollback DROP INDEX idx_users_created_at ON users;
 ```
 
 ### 작성 규칙
