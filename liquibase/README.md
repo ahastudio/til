@@ -85,15 +85,16 @@ databaseChangeLog:
 ```
 
 개별 마이그레이션 파일을 타임스탬프 기반 이름으로 생성합니다.
-파일은 알파벳 순서로 실행되므로 `YYYYMMDD-NNN-description.sql` 형식을
-사용합니다.
+파일은 알파벳 순서로 실행되므로 `YYYYMMDDHHMMSS-description.sql` 형식을
+사용합니다. 초 단위까지 포함하면 여러 개발자가 동시에 작업해도 충돌하지
+않습니다.
 
-`src/main/resources/db/changelog/changes/20250115-001-create-users.sql`:
+`src/main/resources/db/changelog/changes/20250115143022-create-users.sql`:
 
 ```sql
 --liquibase formatted sql
 
---changeset developer:20250115-001
+--changeset developer:20250115143022
 CREATE TABLE users (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -102,22 +103,23 @@ CREATE TABLE users (
 --rollback DROP TABLE users;
 ```
 
-`src/main/resources/db/changelog/changes/20250115-002-add-created-at.sql`:
+`src/main/resources/db/changelog/changes/20250115144531-add-created-at.sql`:
 
 ```sql
 --liquibase formatted sql
 
---changeset developer:20250115-002
+--changeset developer:20250115144531
 ALTER TABLE users ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 --rollback ALTER TABLE users DROP COLUMN created_at;
 ```
 
 ### 작성 규칙
 
-- **파일명**: `YYYYMMDD-NNN-description.sql` 형식으로 작성합니다.
+- **파일명**: `YYYYMMDDHHMMSS-description.sql` 형식으로 작성합니다.
+  생성 시각을 초 단위까지 포함하여 충돌을 방지합니다.
   알파벳 순서로 정렬되어 올바른 순서로 실행됩니다.
-- **ChangeSet ID**: `author:YYYYMMDD-NNN` 형식을 사용합니다.
-  파일명의 날짜 부분과 일치시키면 관리가 편합니다.
+- **ChangeSet ID**: `author:YYYYMMDDHHMMSS` 형식을 사용합니다.
+  파일명의 타임스탬프 부분과 일치시키면 관리가 편합니다.
 - **수정 금지**: 한 번 적용된 파일은 절대 수정하지 않습니다.
   수정이 필요하면 새로운 파일을 추가합니다.
 - **롤백 필수**: 각 ChangeSet에 `--rollback` 주석으로
