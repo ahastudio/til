@@ -193,6 +193,11 @@ CREATE INDEX idx_posts_created_at ON posts(created_at);
 롤백은 항상 최근 적용된 ChangeSet부터 역순으로 진행됩니다.
 특정 ChangeSet 하나만 선택적으로 롤백할 수 없습니다.
 
+마이그레이션 파일의 `--rollback` 구문은 적용할 때와 반대 순서로
+작성해야 합니다. 테이블을 만들고 인덱스를 만들었다면, 롤백할 때는
+인덱스를 먼저 삭제하고 테이블을 삭제합니다. 각 SQL 문마다
+`--rollback`을 앞에 붙여야 하며, 위에서부터 순서대로 실행됩니다.
+
 ```bash
 # 롤백 SQL 미리보기
 ./gradlew rollbackCountSQL -PliquibaseCommandValue=1
