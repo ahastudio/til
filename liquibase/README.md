@@ -113,8 +113,7 @@ CREATE TABLE users (
 
 CREATE INDEX idx_users_created_at ON users(created_at);
 
---rollback DROP INDEX idx_users_created_at ON users;
---rollback DROP TABLE users;
+--rollback DROP INDEX idx_users_created_at ON users; DROP TABLE users;
 ```
 
 `src/main/resources/db/changelog/changes/20250115144531-create-posts.sql`:
@@ -136,9 +135,7 @@ CREATE TABLE posts (
 CREATE INDEX idx_posts_user_id ON posts(user_id);
 CREATE INDEX idx_posts_created_at ON posts(created_at);
 
---rollback DROP INDEX idx_posts_created_at ON posts;
---rollback DROP INDEX idx_posts_user_id ON posts;
---rollback DROP TABLE posts;
+--rollback DROP INDEX idx_posts_created_at ON posts; DROP INDEX idx_posts_user_id ON posts; DROP TABLE posts;
 ```
 
 ### 작성 규칙
