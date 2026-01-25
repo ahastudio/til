@@ -87,6 +87,7 @@ AI가 작업 전후로 이 파일들을 읽고 업데이트하여 영구 메모�
 > **2-Action Rule**: 2번의 조회/검색 후 즉시 업데이트하세요.
 
 ## Requirements
+
 - [ ] 사용자 등록 (이메일 + 비밀번호)
 - [ ] 로그인 및 세션 관리
 - [ ] 비밀번호 재설정 기능
@@ -95,12 +96,14 @@ AI가 작업 전후로 이 파일들을 읽고 업데이트하여 영구 메모�
 ## Research Findings
 
 ### 코드베이스 구조
+
 - 백엔드: Express.js + TypeScript
 - 프론트엔드: React 18 + Vite
 - DB: PostgreSQL (모델: Sequelize)
 - 인증: 현재 없음 → 새로 구축
 
 ### 기존 패턴
+
 - API 라우트: `src/routes/` 디렉토리
 - 미들웨어: `src/middleware/`
 - 에러 처리: 중앙화된 에러 핸들러 (`src/utils/errors.ts`)
@@ -117,7 +120,9 @@ AI가 작업 전후로 이 파일들을 읽고 업데이트하여 영구 메모�
 ## Issues Encountered
 
 ### 1. bcrypt 설치 실패
+
 **문제**: node-gyp 컴파일 에러
+
 **해결**:
 ```bash
 npm install -g node-gyp
@@ -126,38 +131,49 @@ node-gyp rebuild
 **결과**: 성공
 
 ### 2. Redis 연결 타임아웃
+
 **문제**: localhost:6379 연결 안 됨
+
 **원인**: Redis 서버 미실행
+
 **해결**: `docker-compose up redis`
+
 **결과**: 해결됨
 
 ## Resources
 
 ### 문서
+
 - [Passport.js JWT Strategy](https://www.passportjs.org/packages/passport-jwt/)
 - [bcrypt 보안 가이드](https://github.com/kelektiv/node.bcrypt.js#security-issues-and-concerns)
 
 ### 코드 참조
+
 - 에러 핸들러: `src/utils/errors.ts:45`
 - DB 설정: `src/config/database.ts:12`
 - 환경 변수: `.env.example:8-15`
 
 ### API 엔드포인트
+
 - POST `/api/auth/register`
 - POST `/api/auth/login`
 - POST `/api/auth/logout`
 - GET `/api/auth/me`
 
-## Visual/Browser Findings
+## Learnings
 
 ### 데이터베이스 스키마 (2025-01-21 10:30)
+
 ERD 다이어그램 확인:
+
 - `users` 테이블: id, email, password_hash, created_at
 - `sessions` 테이블: 없음 (Redis 사용)
 - Foreign keys: `posts.user_id` → `users.id`
 
 ### UI 목업 (2025-01-21 11:00)
+
 Figma에서 확인한 로그인 화면:
+
 - 이메일/비밀번호 입력
 - "Remember me" 체크박스
 - Google OAuth 버튼 (Phase 2에서 구현)
@@ -173,15 +189,15 @@ Figma에서 확인한 로그인 화면:
 ## Session 2025-01-20
 
 ### Phase 1: Requirements & Discovery ✅
-**시작**: 2025-01-20 14:00
-**완료**: 2025-01-20 16:30
 
 **작업 내역**:
+
 1. 사용자 요구사항 문서화
 2. 코드베이스 탐색 완료
 3. 기술 스택 조사 및 결정
 
 **생성/수정 파일**:
+
 - `docs/auth-requirements.md` (새로 생성)
 
 ---
@@ -189,9 +205,9 @@ Figma에서 확인한 로그인 화면:
 ## Session 2025-01-21
 
 ### Phase 2: Planning & Structure 🔄
-**시작**: 2025-01-21 09:00
 
 **작업 내역**:
+
 1. 프로젝트 구조 설계 완료
 2. 의존성 패키지 설치
    - passport
@@ -202,12 +218,14 @@ Figma에서 확인한 로그인 화면:
 3. 환경 변수 설정 (.env.example 업데이트)
 
 **생성/수정 파일**:
+
 - `src/auth/passport-config.ts` (새로 생성)
 - `src/middleware/auth.ts` (새로 생성)
 - `src/types/user.ts` (새로 생성)
 - `.env.example` (수정)
 
 ### Phase 3: Implementation ⏸️
+
 아직 시작 안 함
 
 ## Test Results
