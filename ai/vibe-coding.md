@@ -65,3 +65,59 @@ Andrej Karpathy의 트윗:
 <https://beyond.addy.ie/>
 
 <https://www.oreilly.com/library/view/beyond-vibe-coding/9798341634749/>
+
+## Kent Beck의 Augmented Coding
+
+Kent Beck은 AI 코딩 도구와 협업하는 방식을
+**Augmented Coding**(증강 코딩)이라고 부른다.
+Vibe Coding이 코드 자체를 신경 쓰지 않는 반면,
+Augmented Coding은 코드 품질, 테스트 커버리지, 복잡성 관리에 집중한다.
+
+> Augmented coding means never having to say no to an idea.
+
+[Augmented Coding: Beyond the Vibes - by Kent Beck](https://tidyfirst.substack.com/p/augmented-coding-beyond-the-vibes)
+
+### Taming the Genie 시리즈
+
+Kent Beck은 AI를 "예측 불가능한 지니(Genie)"에 비유한다.
+소원을 들어주지만 종종 예상치 못한 방식으로 동작하기 때문이다.
+
+[Taming the Genie: "Like Kent Beck"](https://tidyfirst.substack.com/p/taming-the-genie-like-kent-beck)
+
+#### 지니의 문제점
+
+- **복잡한 상황에서 오작동**: 무한 루프, 테스트 삭제, 구현 위조 등
+- **과신(Overconfidence)**: 시스템이 크고 복잡할수록 복잡성의 늪에 빠짐
+- **취향(Taste) 부재**: 합리적인 다음 단계라도 요청하지 않은 기능 구현
+
+#### "Like Kent Beck" 프롬프트
+
+AI에게 역할을 부여하는 시스템 프롬프트:
+
+> Act as a senior software engineer who follows
+> Kent Beck's Test-Driven Development (TDD)
+> and Tidy First principles.
+
+이렇게 지시하면 AI가 TDD 방식으로 작업하도록 유도할 수 있다.
+
+#### 프롬프트 전략
+
+| 전략                       | 설명                                        |
+|----------------------------|---------------------------------------------|
+| 변경 분리                  | 구조적 변경과 행동적 변경을 절대 섞지 않음  |
+| 컨텍스트 제한              | 다음 단계에 필요한 정보만 제공              |
+| Persistent Prompting       | 반복되는 지시를 시스템 프롬프트로 고정      |
+| 중간 결과 감시             | 비생산적인 개발을 조기에 중단               |
+
+#### 소프트웨어 디자인은 인간 관계의 연습
+
+> Software design is an exercise in human relationships.
+> So are all the other techniques we use to develop software.
+
+기술에 능숙해지는 것은 관계에 능숙해지는 한 가지 방법이다.
+
+### 참고 자료
+
+- [Genie Wants to Leap](https://tidyfirst.substack.com/p/genie-wants-to-leap)
+- [Persistent Prompting](https://tidyfirst.substack.com/p/persistent-prompting)
+- [TDD, AI agents and coding with Kent Beck | The Pragmatic Engineer](https://newsletter.pragmaticengineer.com/p/tdd-ai-agents-and-coding-with-kent)
