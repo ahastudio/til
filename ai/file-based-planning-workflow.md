@@ -29,53 +29,68 @@ AI가 작업 전후로 이 파일들을 읽고 업데이트하여 영구 메모�
 # Project: [프로젝트명]
 
 ## Goal
+
 명확한 최종 목표 (북극성 역할)
 
 ## Current Phase
+
 🔄 Phase 2: Planning & Structure
 
 ## Phases
 
 ### Phase 1: Requirements & Discovery ✅
+
 - [x] 사용자 요구사항 확인
 - [x] 기존 코드베이스 탐색
 - [x] 제약사항 문서화
 
 ### Phase 2: Planning & Structure 🔄
+
 - [x] 아키텍처 설계
 - [ ] 디렉토리 구조 생성
 - [ ] 인터페이스 정의
 
 ### Phase 3: Implementation ⏸️
+
 - [ ] 핵심 기능 구현
 - [ ] 단위 테스트 작성
 - [ ] 통합
 
 ### Phase 4: Testing & Verification ⏸️
+
 - [ ] 요구사항 검증
 - [ ] 테스트 실행 및 결과 로깅
 
 ### Phase 5: Delivery ⏸️
+
 - [ ] 최종 리뷰
 - [ ] 사용자 전달
 
 ## Key Questions
-| 질문 | 답변 | 출처 |
-|------|------|------|
-| 어떤 DB를 사용하나? | PostgreSQL 14 | .env 파일 |
-| 인증 방식은? | JWT + Redis 세션 | src/auth/README.md |
+
+1. 어떤 DB를 사용하나?
+2. 인증 방식은?
 
 ## Decisions Made
-| 결정 | 근거 | 날짜 |
+
+| 결정 | 근거 |
 |------|------|------|
-| TypeScript 사용 | 타입 안전성, 팀 표준 | 2025-01-21 |
-| Redis 세션 저장소 | 빠른 만료 처리 | 2025-01-21 |
+| TypeScript 사용 | 타입 안전성, 팀 표준 |
+| PostgreSQL 14 | 인증 데이터의 정합성과 신뢰성 |
+| JWT + Redis 세션 | 확장성 + 빠른 만료 처리 |
 
 ## Errors Encountered
-| 시도 | 에러 | 해결책 | 소요 시간 |
+
+| 에러 | 시도 | 해결 |
 |------|------|--------|----------|
-| 1 | npm install 실패 | package-lock.json 삭제 후 재설치 | 10분 |
-| 3 | TypeScript 컴파일 에러 | tsconfig strictNullChecks 비활성화 | 20분 |
+| npm install 실패 | 1 | package-lock.json 삭제 후 재설치 |
+| TypeScript 컴파일 에러 | 3 | tsconfig strictNullChecks 비활성화 |
+
+## Notes
+
+- 진행할 때마다 Phase 상태를 업데이트하세요: 대기 중 → 진행 중 → 완료
+- 중요한 결정을 내리기 전에 이 계획을 다시 읽어보세요. ((attention manipulation))
+- *모든* 오류를 기록하세요. 삽질을 반복하는 걸 막을 수 있습니다.
 ```
 
 ### findings.md
@@ -83,8 +98,7 @@ AI가 작업 전후로 이 파일들을 읽고 업데이트하여 영구 메모�
 ````markdown
 # Findings & Decisions
 
-> **중요**: 멀티모달 콘텐츠(이미지, 브라우저 결과)는 지속되지 않습니다.
-> **2-Action Rule**: 2번의 조회/검색 후 즉시 업데이트하세요.
+> *기술적 발견, 중요한 결정이 있을 때마다 이 파일을 즉시 업데이트하세요.*
 
 ## Requirements
 
@@ -185,6 +199,8 @@ Figma에서 확인한 로그인 화면:
 
 ```markdown
 # Progress Log
+
+> *각 단계를 완료하거나 문제가 발생하면 업데이트하세요.*
 
 ## Session 2025-01-20
 
