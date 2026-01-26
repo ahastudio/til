@@ -73,16 +73,16 @@ AI가 작업 전후로 이 파일들을 읽고 업데이트하여 영구 메모�
 
 ## Decisions Made
 
-| 결정 | 근거 |
-| ---- | ---- |
+| Decision | Rationale |
+| -------- | --------- |
 | TypeScript 사용 | 타입 안전성, 팀 표준 |
 | PostgreSQL 14 | 인증 데이터의 정합성과 신뢰성 |
 | JWT + Redis 세션 | 확장성 + 빠른 만료 처리 |
 
 ## Errors Encountered
 
-| 에러 | 시도 | 해결 |
-| ---- | ---- | ------ |
+| Error | Attempt | Resolution |
+| ----- | ------- | ---------- |
 | npm install 실패 | 1 | package-lock.json 삭제 후 재설치 |
 | TypeScript 컴파일 에러 | 3 | tsconfig strictNullChecks 비활성화 |
 
@@ -124,12 +124,12 @@ AI가 작업 전후로 이 파일들을 읽고 업데이트하여 영구 메모�
 
 ## Technical Decisions
 
-| 결정 | 이유 | 트레이드오프 |
-| ---- | ---- | ----------- |
-| Passport.js 사용 | 검증된 인증 라이브러리 | 학습 곡선 있음 |
-| JWT 토큰 (24시간) | Stateless, 확장성 | 즉시 무효화 불가 |
-| Redis 세션 저장소 | 빠른 조회, 자동 만료 | 추가 인프라 필요 |
-| bcrypt (10 rounds) | 보안 표준 | 느린 해싱 = 서버 부하 |
+| Decision | Rationale |
+| -------- | --------- |
+| Passport.js 사용 | 검증된 인증 라이브러리 |
+| JWT 토큰 (24시간) | Stateless, 확장성 |
+| Redis 세션 저장소 | 빠른 조회, 자동 만료 |
+| bcrypt (10 rounds) | 보안 표준 |
 
 ## Issues Encountered
 
