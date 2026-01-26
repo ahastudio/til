@@ -18,7 +18,7 @@ AI가 작업 전후로 이 파일들을 읽고 업데이트하여 영구 메모�
 ### 파일 구조
 
 | 파일 | 역할 | 업데이트 시점 |
-|------|------|--------------|
+| ---- | ---- | ------------ |
 | **plan.md** | 전체 계획 및 단계 추적 | 새로운 단계 시작 시 |
 | **findings.md** | 기술적 발견사항 및 결정 | 탐색 및 조사 후 즉시 |
 | **progress.md** | 세션별 작업 내역 | 각 작업 세션마다 |
@@ -74,7 +74,7 @@ AI가 작업 전후로 이 파일들을 읽고 업데이트하여 영구 메모�
 ## Decisions Made
 
 | 결정 | 근거 |
-|------|------|------|
+| ---- | ---- |
 | TypeScript 사용 | 타입 안전성, 팀 표준 |
 | PostgreSQL 14 | 인증 데이터의 정합성과 신뢰성 |
 | JWT + Redis 세션 | 확장성 + 빠른 만료 처리 |
@@ -82,7 +82,7 @@ AI가 작업 전후로 이 파일들을 읽고 업데이트하여 영구 메모�
 ## Errors Encountered
 
 | 에러 | 시도 | 해결 |
-|------|------|--------|----------|
+| ---- | ---- | ------ |
 | npm install 실패 | 1 | package-lock.json 삭제 후 재설치 |
 | TypeScript 컴파일 에러 | 3 | tsconfig strictNullChecks 비활성화 |
 
@@ -125,7 +125,7 @@ AI가 작업 전후로 이 파일들을 읽고 업데이트하여 영구 메모�
 ## Technical Decisions
 
 | 결정 | 이유 | 트레이드오프 |
-|------|------|-------------|
+| ---- | ---- | ----------- |
 | Passport.js 사용 | 검증된 인증 라이브러리 | 학습 곡선 있음 |
 | JWT 토큰 (24시간) | Stateless, 확장성 | 즉시 무효화 불가 |
 | Redis 세션 저장소 | 빠른 조회, 자동 만료 | 추가 인프라 필요 |
@@ -176,7 +176,7 @@ node-gyp rebuild
 
 ## Learnings
 
-### 데이터베이스 스키마 (2025-01-21 10:30)
+### 데이터베이스 스키마 (2026-01-21 10:30)
 
 ERD 다이어그램 확인:
 
@@ -184,7 +184,7 @@ ERD 다이어그램 확인:
 - `sessions` 테이블: 없음 (Redis 사용)
 - Foreign keys: `posts.user_id` → `users.id`
 
-### UI 목업 (2025-01-21 11:00)
+### UI 목업 (2026-01-21 11:00)
 
 Figma에서 확인한 로그인 화면:
 
@@ -202,7 +202,7 @@ Figma에서 확인한 로그인 화면:
 
 > *각 단계를 완료하거나 문제가 발생하면 업데이트하세요.*
 
-## Session 2025-01-20
+## Session 2026-01-20
 
 ### Phase 1: Requirements & Discovery ✅
 
@@ -218,7 +218,7 @@ Figma에서 확인한 로그인 화면:
 
 ---
 
-## Session 2025-01-21
+## Session 2026-01-21
 
 ### Phase 2: Planning & Structure 🔄
 
@@ -246,8 +246,8 @@ Figma에서 확인한 로그인 화면:
 
 ## Test Results
 
-| 테스트명 | 입력 | 예상 결과 | 실제 결과 | 통과 |
-|---------|------|----------|----------|------|
+| Test | Input | Expected | Actual | Status |
+| ---- | ----- | -------- | ------ | ------ |
 | 사용자 등록 | valid email/password | 201 Created | 201 Created | ✅ |
 | 중복 이메일 등록 | existing email | 409 Conflict | 409 Conflict | ✅ |
 | 잘못된 로그인 | wrong password | 401 Unauthorized | 500 Error | ❌ |
@@ -255,24 +255,24 @@ Figma에서 확인한 로그인 화면:
 
 ## Error Log
 
-| 시각 | 단계 | 에러 유형 | 시도 | 해결 방법 |
-|------|------|----------|------|-----------|
-| 09:15 | Setup | bcrypt 설치 실패 | 1 | node-gyp 재빌드 |
-| 10:30 | Config | Redis 연결 실패 | 1 | Docker 컨테이너 시작 |
-| 11:45 | Test | 비밀번호 검증 500 에러 | 2 | bcrypt.compare await 추가 |
-| 14:20 | Test | JWT 만료 시간 에러 | 1 | expiresIn 형식 수정 ('24h') |
+| Timestamp | Error | Attempt | Resolution |
+| --------- | ----- | ------- | ---------- |
+| 2026-01-21 09:15 | bcrypt 설치 실패 | 1 | node-gyp 재빌드 |
+| 2026-01-21 10:30 | Redis 연결 실패 | 1 | Docker 컨테이너 시작 |
+| 2026-01-21 11:45 | 비밀번호 검증 500 에러 | 2 | bcrypt.compare await 추가 |
+| 2026-01-21 14:20 | JWT 만료 시간 에러 | 1 | expiresIn 형식 수정 ('24h') |
 
 ## 5-Question Reboot Check
 
 작업 재개 시 이 질문들로 컨텍스트 복구:
 
-| 질문 | 답변 |
-|------|------|
+| Question | Answer |
+| -------- | ------ |
 | 1. 현재 어느 단계인가? | Phase 2: Planning & Structure (90% 완료) |
-| 2. 다음에 할 일은? | Phase 3 시작: 사용자 등록 엔드포인트 구현 |
-| 3. 전체 목표는? | 세션 관리를 포함한 안전한 사용자 인증 시스템 구축 |
-| 4. 지금까지 배운 것? | - Redis 필수, bcrypt async 처리 필요, JWT 형식 주의 |
-| 5. 완료한 작업은? | 프로젝트 구조 설계, 의존성 설치, 설정 파일 생성 |
+| 2. 다음에 할 일은? | Remaining phases |
+| 3. 목표는? | 세션 관리를 포함한 안전한 사용자 인증 시스템 구축 |
+| 4. 지금까지 배운 것? | See findings.md |
+| 5. 완료한 작업은? | See above |
 ```
 
 ## 비교: Spec-Driven Development
