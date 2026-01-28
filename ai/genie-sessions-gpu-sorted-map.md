@@ -16,8 +16,9 @@ Kent Beck은 Genie Sessions을 통해 Augmented Coding(증강 코딩)을 시연�
 
 ### AI는 친구이자 학습 파트너
 
-Kent Beck은 AI와 함께 코딩하는 것을
-"두 명의 인간 프로그래머와 Genie"가 함께하는 형태로 비유한다.
+Kent Beck은 라이브 코딩을 "두 명의 인간 프로그래머와 Genie"가
+함께하는 형태로 비유한다.
+Kent Beck(개발자) + 시청자(함께 배우는 사람) + AI(Genie)가 협업하는 구조다.
 
 AI를 단순한 코드 생성기가 아닌, "리소스" 또는 "친구"로 활용한다.
 
