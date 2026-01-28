@@ -12,6 +12,9 @@ Claude로 몇 주간 코딩한 후 남긴 여러 가지 메모.
 > I really am mostly programming in English now,
 > a bit sheepishly telling the LLM what code to write... in words.
 
+즉, 이제는 대부분 영어로 프로그래밍하고 있다.
+약간 쑥스럽게 LLM에게 어떤 코드를 작성할지... 말로 지시하면서.
+
 자존심이 좀 상하지만, 큰 "코드 액션" 단위로 소프트웨어를 다루는 힘은
 너무나 유용하다. 특히 적응하고, 설정하고, 사용법을 배우고,
 무엇을 할 수 있고 없는지 파악한 후에는 더욱 그렇다.
