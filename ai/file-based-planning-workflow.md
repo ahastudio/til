@@ -219,8 +219,6 @@ Figma에서 확인한 로그인 화면:
 
 - `docs/auth-requirements.md` (새로 생성)
 
----
-
 ## Session 2026-01-21
 
 ### Phase 2: Planning & Structure 🔄
