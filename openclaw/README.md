@@ -8,7 +8,7 @@ Personal AI Assistant.
 
 ## Karpathy's Take
 
-Karpathy의 2026년 1월 30일 트윗:
+Karpathy의 2026년 1월 31일 트윗:
 <https://twitter.com/karpathy/status/2017442712388309406>
 
 Karpathy는 과장을 잘 하지 않는 인물로 알려져 있다.
