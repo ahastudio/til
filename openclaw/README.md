@@ -8,6 +8,9 @@ Personal AI Assistant.
 
 ## Karpathy's Take
 
+Karpathy의 2026년 1월 30일 트윗:
+<https://twitter.com/karpathy/status/2017442712388309406>
+
 Karpathy는 과장을 잘 하지 않는 인물로 알려져 있다.
 그런 그가 "takeoff-adjacent"(테이크오프에 근접한)라는 표현을 썼다는 점이 주목할 만하다.
 
@@ -50,5 +53,3 @@ Karpathy는 "스카이넷은 아니지만 대규모 보안 악몽"이라고 경�
 
 자율 에이전트의 집단 행동이 이론이 아닌 현실이 되었다.
 준비가 안 된 상태에서 새로운 패러다임이 도래하고 있다.
-
-<https://twitter.com/karpathy/status/2017442712388309406>
