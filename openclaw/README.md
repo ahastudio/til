@@ -8,7 +8,6 @@ Personal AI Assistant.
 
 ## Karpathy's Take
 
-> What's currently going on at Moltbook is genuinely the most incredible
-> sci-fi takeoff-adjacent thing I have seen recently.
+Moltbook에서 벌어지는 일이 최근 본 것 중 가장 SF적인 "테이크오프" 순간이라고 평가.
 
 <https://twitter.com/karpathy/status/2017442712388309406>
