@@ -1,7 +1,7 @@
 # Boris Cherny의 Claude Code 사용 노하우
 
-- 2026-01-02 <https://twitter.com/bcherny/status/2007179832300581177>
-- 2026-01-29 <https://twitter.com/bcherny/status/2017742741636321619>
+- 2026-01-03 <https://twitter.com/bcherny/status/2007179832300581177>
+- 2026-02-01 <https://twitter.com/bcherny/status/2017742741636321619>
 
 Boris Cherny는 Claude Code의 창시자입니다.
 그가 공유한 실전 사용 팁을 정리합니다.
