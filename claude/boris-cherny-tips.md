@@ -1,9 +1,12 @@
 # Boris Cherny의 Claude Code 사용 노하우
 
+- <https://x.com/bcherny/status/2007179832300581177>
+- <https://x.com/bcherny/status/2017742741636321619>
+
 Boris Cherny는 Claude Code의 창시자입니다.
 그가 공유한 실전 사용 팁을 정리합니다.
 
-## 병렬 작업 극대화
+## 병렬 작업
 
 ### Git Worktree 활용
 
@@ -91,9 +94,3 @@ Claude는 스스로 지켜야 할 규칙을 매우 잘 문서화합니다.
 
 Claude가 스스로 작업을 검증할 수 있는 피드백 루프를 제공하는 것이
 최종 결과물 품질을 **2~3배** 높이는 가장 중요한 요소입니다.
-
-## 참고 자료
-
-- [Claude Code 창시자가 공유한 실전 사용 팁](https://news.hada.io/topic?id=26330)
-- [Claude Code 창시자 Boris Cherny가 Claude Code를 사용하는 방법](https://news.hada.io/topic?id=25570)
-- [Boris Cherny Twitter](https://x.com/bcherny)
