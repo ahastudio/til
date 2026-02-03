@@ -1,6 +1,9 @@
 # Karpathy-Inspired Claude Code Guidelines
 
-Forrest Chang의 GitHub 저장소:
+Tweet:
+<https://twitter.com/jiayuan_jy/status/2015998216517583211>
+
+GitHub Repository:
 <https://github.com/forrestchang/andrej-karpathy-skills>
 
 [Karpathy의 Claude Coding Notes](./karpathy-claude-coding-notes.md)에서
