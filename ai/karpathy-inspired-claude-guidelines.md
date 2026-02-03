@@ -6,8 +6,7 @@ Tweet:
 GitHub Repository:
 <https://github.com/forrestchang/andrej-karpathy-skills>
 
-[Karpathy의 Claude Coding Notes](./karpathy-claude-coding-notes.md)에서
-지적한 문제들을 해결하기 위한 실용적인 가이드라인.
+[Karpathy가 지적한 문제](./karpathy-claude-coding-notes.md)를 해결하기 위한 실용적인 가이드라인.
 
 ## Karpathy가 지적한 세 가지 함정
 
