@@ -1,5 +1,8 @@
 # Claude Code를 활용한 코드 리뷰 자동화
 
+- 트윗: <https://x.com/sanyuan0704/status/2018940363277586677>
+- GitHub: <https://github.com/sanyuan0704/code-review-expert>
+
 ## 소개
 
 [Code Review Expert](https://github.com/sanyuan0704/code-review-expert)는
@@ -178,7 +181,3 @@ claude plugins add https://github.com/sanyuan0704/code-review-expert
 
 - [Claude Code](./claude-code.md)
 - [Karpathy-Inspired Claude Guidelines](../ai/karpathy-inspired-claude-guidelines.md)
-
-## 참고
-
-- GitHub: <https://github.com/sanyuan0704/code-review-expert>
