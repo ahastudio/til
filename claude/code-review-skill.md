@@ -1,11 +1,10 @@
 # Claude Code를 활용한 코드 리뷰 자동화
 
+## Code Review Expert
+
 - 트윗: <https://x.com/sanyuan0704/status/2018940363277586677>
 - GitHub: <https://github.com/sanyuan0704/code-review-expert>
 
-## 소개
-
-[Code Review Expert](https://github.com/sanyuan0704/code-review-expert)는
 sanyuan0704가 만든 Claude Code 스킬로, 시니어 엔지니어 수준의 코드 리뷰를
 자동화한다.
 
