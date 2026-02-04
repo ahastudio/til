@@ -2,7 +2,7 @@
 
 ## Code Review Expert
 
-- 트윗: <https://x.com/sanyuan0704/status/2018940363277586677>
+- 트윗: <https://twitter.com/sanyuan0704/status/2018940363277586677>
 - GitHub: <https://github.com/sanyuan0704/code-review-expert>
 
 sanyuan0704가 만든 Claude Code 스킬로, 시니어 엔지니어 수준의 코드 리뷰를
