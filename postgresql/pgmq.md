@@ -72,9 +72,7 @@ SELECT * FROM pgmq.read('my_queue', 30, 1);
 SELECT pgmq.delete('my_queue', 1);
 ```
 
-## 클라이언트 라이브러리
-
-### Java (Spring Boot)
+## Java (Spring Boot)
 
 <https://github.com/adamalexandru4/pgmq-spring>
 
@@ -94,7 +92,7 @@ PGMQMessage message = pgmqClient.read(queue,
 pgmqClient.delete(queue, messageId);
 ```
 
-### Kotlin
+## Kotlin
 
 <https://github.com/vdsirotkin/pgmq-kotlin-jvm>
 
@@ -112,7 +110,7 @@ data class PgmqConfigurationProps(
 ) : PgmqConfiguration
 ```
 
-### TypeScript
+## TypeScript
 
 <https://github.com/Muhammad-Magdi/pgmq-js>
 
@@ -143,7 +141,7 @@ const received = await pgmq.msg.read<Msg>('my_queue', 30);
 await pgmq.msg.archive('my_queue', msgId);
 ```
 
-### Python (SQLAlchemy)
+## Python (SQLAlchemy)
 
 <https://github.com/jason810496/pgmq-sqlalchemy>
 
@@ -169,7 +167,7 @@ msg = pgmq.read('my_queue')
 msgs = pgmq.read_batch('my_queue', 10)
 ```
 
-### Ruby
+## Ruby
 
 <https://github.com/mensfeld/pgmq-ruby>
 
