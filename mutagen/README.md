@@ -44,20 +44,7 @@ ssh-copy-id your-username@192.168.1.100
 cd ~/my-project
 ```
 
-### 5. 동기화 제외 파일 설정
-
-프로젝트 루트에 `.mutagen-ignore` 파일 생성:
-
-```
-node_modules/
-.git/
-*.log
-.DS_Store
-dist/
-build/
-```
-
-### 6. 프로젝트 동기화 시작
+### 5. 프로젝트 동기화 시작
 
 동기화 시작:
 
@@ -67,7 +54,7 @@ mutagen sync create . your-username@192.168.1.100:~/my-project
 
 파일 변경사항이 자동으로 양방향 동기화됩니다. 로컬에서 코드를 수정하면 원격에 즉시 반영되고, 원격에서 빌드 결과물이 생성되면 로컬에도 동기화됩니다.
 
-### 7. 동기화 상태 확인
+### 6. 동기화 상태 확인
 
 동기화 상태 확인:
 
