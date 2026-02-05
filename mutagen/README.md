@@ -8,7 +8,7 @@
 
 <https://github.com/mutagen-io/mutagen>
 
-## 설치(Installation)
+## 설치
 
 ### macOS
 
@@ -20,9 +20,9 @@ brew install mutagen-io/mutagen/mutagen
 
 <https://github.com/mutagen-io/mutagen/releases>에서 바이너리 다운로드
 
-## 기본 사용법(Basic Usage)
+## 기본 사용법
 
-### 파일 동기화(File Sync)
+### 파일 동기화
 
 로컬과 원격 서버 간 파일 동기화:
 
@@ -34,7 +34,7 @@ mutagen sync create <로컬경로> <사용자>@<호스트>:<원격경로>
 mutagen sync create ~/project user@example.com:~/project
 ```
 
-### 포트 포워딩(Port Forwarding)
+### 포트 포워딩
 
 원격 서버의 포트를 로컬에서 접근:
 
@@ -46,7 +46,7 @@ mutagen forward create <로컬포트> <사용자>@<호스트>:<원격포트>
 mutagen forward create tcp:localhost:3000 user@example.com:tcp:localhost:3000
 ```
 
-## 주요 명령어(Key Commands)
+## 주요 명령어
 
 ```bash
 # 모든 세션 목록 확인
@@ -69,7 +69,7 @@ mutagen sync terminate --all
 mutagen forward terminate --all
 ```
 
-## 설정 파일(Configuration)
+## 설정 파일
 
 프로젝트 루트에 `mutagen.yml` 파일로 설정 관리:
 
@@ -94,7 +94,7 @@ sync:
 mutagen project start
 ```
 
-## 유용한 팁(Tips)
+## 유용한 팁
 
 - **성능**: `.mutagen-ignore` 파일로 불필요한 파일 제외
 - **충돌 해결**: `two-way-resolved` 모드는 최신 파일 우선
