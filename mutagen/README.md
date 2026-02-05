@@ -6,13 +6,11 @@
 
 <https://github.com/mutagen-io/mutagen>
 
-## 설치
+## 세팅
 
 ```bash
 brew install mutagen-io/mutagen/mutagen
 ```
-
-## 빠른 시작
 
 ### 1. SSH 연결 설정
 
