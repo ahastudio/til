@@ -28,30 +28,6 @@ brew install mutagen-io/mutagen/mutagen
 
 시스템 설정 > 일반 > 공유 > 원격 로그인 활성화
 
-**[로컬]** SSH 키 생성 (없다면):
-
-```bash
-ssh-keygen -t rsa -b 4096
-```
-
-**[로컬]** 원격 Mac에 공개키 복사:
-
-```bash
-# 192.168.1.100을 원격 Mac IP로 변경
-ssh-copy-id your-username@192.168.1.100
-```
-
-**[로컬]** `~/.ssh/config` 파일로 연결 간소화:
-
-```bash
-Host remote-mac
-    HostName 192.168.1.100
-    User your-username
-    IdentityFile ~/.ssh/id_rsa
-```
-
-이제 `ssh remote-mac`으로 간단하게 접속할 수 있습니다.
-
 ### 3. 프로젝트 동기화
 
 **[로컬]** 프로젝트 폴더에서 동기화 시작:
