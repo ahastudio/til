@@ -18,11 +18,11 @@
 
 ### 1. 원격 컴퓨터에 원격 로그인 활성화
 
-**[원격]** 시스템 설정 > 일반 > 공유 > 원격 로그인 활성화
+시스템 설정 > 일반 > 공유 > 원격 로그인 활성화
 
 ### 2. Mutagen 설치
 
-**[로컬]** Homebrew로 설치:
+Homebrew로 설치:
 
 ```bash
 brew install mutagen-io/mutagen/mutagen
@@ -30,7 +30,7 @@ brew install mutagen-io/mutagen/mutagen
 
 ### 3. SSH 공개키 복사
 
-**[로컬]** 원격 Mac에 공개키 복사:
+원격 Mac에 공개키 복사:
 
 ```bash
 ssh-copy-id your-username@192.168.1.100
@@ -38,7 +38,7 @@ ssh-copy-id your-username@192.168.1.100
 
 ### 4. 프로젝트 폴더로 이동
 
-**[로컬]** 작업할 프로젝트 폴더로 이동:
+작업할 프로젝트 폴더로 이동:
 
 ```bash
 cd ~/my-project
@@ -46,7 +46,7 @@ cd ~/my-project
 
 ### 5. 동기화 제외 파일 설정
 
-**[로컬]** 프로젝트 루트에 `.mutagen-ignore` 파일 생성:
+프로젝트 루트에 `.mutagen-ignore` 파일 생성:
 
 ```
 node_modules/
@@ -59,7 +59,7 @@ build/
 
 ### 6. 프로젝트 동기화 시작
 
-**[로컬]** 동기화 시작:
+동기화 시작:
 
 ```bash
 mutagen sync create . your-username@192.168.1.100:~/my-project
@@ -69,7 +69,7 @@ mutagen sync create . your-username@192.168.1.100:~/my-project
 
 ### 7. 동기화 상태 확인
 
-**[로컬]** 동기화 상태 확인:
+동기화 상태 확인:
 
 ```bash
 # 동기화 상태 확인
@@ -81,7 +81,7 @@ mutagen sync monitor
 
 ## 세션 관리
 
-**[로컬]** 세션 관리:
+세션 관리:
 
 ```bash
 # 세션 일시정지 (배터리 절약)
