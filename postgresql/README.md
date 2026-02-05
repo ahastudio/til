@@ -13,6 +13,12 @@ Mirror of the official PostgreSQL Git repository:
 
 [Neon - 서버리스 Postgres 오픈소스 | GeekNews](https://news.hada.io/topic?id=6658)
 
+## PGMQ — Postgres Message Queue
+
+<https://github.com/pgmq/pgmq>
+
+[PGMQ](./pgmq.md)
+
 ## Articles
 
 [Postgres는 언제부터 멋있어졌을까 | GeekNews](https://news.hada.io/topic?id=10344)
