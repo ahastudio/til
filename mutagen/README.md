@@ -8,8 +8,6 @@
 
 <https://github.com/mutagen-io/mutagen>
 
----
-
 ## 설치(Installation)
 
 ### macOS
@@ -21,8 +19,6 @@ brew install mutagen-io/mutagen/mutagen
 ### Linux/Windows
 
 <https://github.com/mutagen-io/mutagen/releases>에서 바이너리 다운로드
-
----
 
 ## 기본 사용법(Basic Usage)
 
@@ -50,8 +46,6 @@ mutagen forward create <로컬포트> <사용자>@<호스트>:<원격포트>
 mutagen forward create tcp:localhost:3000 user@example.com:tcp:localhost:3000
 ```
 
----
-
 ## 주요 명령어(Key Commands)
 
 ```bash
@@ -74,8 +68,6 @@ mutagen forward terminate <세션명>
 mutagen sync terminate --all
 mutagen forward terminate --all
 ```
-
----
 
 ## 설정 파일(Configuration)
 
@@ -101,8 +93,6 @@ sync:
 ```bash
 mutagen project start
 ```
-
----
 
 ## 유용한 팁(Tips)
 
