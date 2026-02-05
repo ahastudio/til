@@ -1,6 +1,8 @@
 # Mutagen
 
-> 로컬 개발 환경을 그대로 유지하면서 원격 서버에서 작업하기
+> Cloud-based development using your local tools
+
+> Fast file synchronization and network forwarding for remote development
 
 <https://mutagen.io/>
 
