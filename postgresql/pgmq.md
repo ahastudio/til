@@ -209,6 +209,24 @@ amplification을 줄일 수 있다.
 
 참고: <https://github.com/tembo-io/pgmq/issues/255>
 
+## Transactional Outbox 패턴
+
+PGMQ는 PostgreSQL 확장이므로 일반 트랜잭션 내에서 동작한다.
+비즈니스 로직과 메시지 발행을 원자적으로 처리할 수 있다.
+
+```sql
+BEGIN;
+-- 비즈니스 로직
+INSERT INTO orders (id, user_id, total) VALUES (123, 1, 50000);
+
+-- 같은 트랜잭션에서 메시지 전송
+SELECT pgmq.send('order_events', '{"order_id": 123, "event": "created"}');
+COMMIT;
+```
+
+실패 시 둘 다 롤백된다. 별도 outbox 테이블 없이 PGMQ 큐 자체가 outbox
+역할을 한다.
+
 ## 사용 사례
 
 - Tembo
