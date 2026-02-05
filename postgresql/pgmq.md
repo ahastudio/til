@@ -110,18 +110,6 @@ COMMIT;
 실패 시 둘 다 롤백된다. 별도 outbox 테이블 없이 PGMQ 큐 자체가 outbox
 역할을 한다.
 
-## 사용 사례
-
-- Tembo
-- Supabase
-- Sprinters
-- pgflow
-
-## 참고
-
-[Postgres 큐 기술 선택 | GeekNews](
-https://news.hada.io/topic?id=11042)
-
 ## Java (Spring Boot) 예제
 
 <https://github.com/adamalexandru4/pgmq-spring>
@@ -171,3 +159,27 @@ msg = pgmq.read('order_events')
 # 배치 읽기
 msgs = pgmq.read_batch('order_events', 10)
 ```
+
+## 사용 사례
+
+### Tembo
+
+PGMQ 개발사. PostgreSQL 클라우드 플랫폼으로, 확장 생태계(Trunk)를 통해
+다양한 PostgreSQL 확장을 쉽게 배포하고 사용할 수 있게 한다.
+
+<https://tembo.io/>
+
+### Supabase
+
+Supabase Queues로 PGMQ를 통합 제공. 별도의 Redis나 외부 메시지 브로커 없이
+Supabase 프로젝트 내에서 메시지 큐를 사용할 수 있다.
+
+<https://supabase.com/docs/guides/queues>
+
+### pgflow
+
+Supabase용 워크플로우 엔진. PGMQ, pg_cron, Edge Functions를 조합하여
+선언적 워크플로우를 구현한다. 외부 서비스(Bull, Redis, Temporal) 없이
+Postgres만으로 워크플로우 상태를 관리한다.
+
+<https://www.pgflow.dev/>
