@@ -8,15 +8,21 @@
 
 ## 세팅
 
+용어 정리:
+- **로컬 Mac**: 내 개발 머신 (코드 작성)
+- **원격 Mac**: 빌드/실행 머신 (성능 좋은 Mac)
+
+### 1. Mutagen 설치
+
+**[로컬]** Homebrew로 설치:
+
 ```bash
 brew install mutagen-io/mutagen/mutagen
 ```
 
-### 1. SSH 연결 설정
+### 2. SSH 연결 설정
 
-원격 Mac에 SSH로 연결할 수 있도록 설정합니다.
-
-**원격 Mac에서** (동기화 대상):
+**[원격]** 원격 로그인 활성화:
 
 ```bash
 # 시스템 설정 > 일반 > 공유 > 원격 로그인 활성화
@@ -24,9 +30,20 @@ brew install mutagen-io/mutagen/mutagen
 sudo systemsetup -setremotelogin on
 ```
 
-**로컬 Mac에서**:
+**[로컬]** SSH 키 생성 (없다면):
 
-`~/.ssh/config` 파일을 만들어 연결을 간단하게 만듭니다:
+```bash
+ssh-keygen -t rsa -b 4096
+```
+
+**[로컬]** 원격 Mac에 공개키 복사:
+
+```bash
+# 192.168.1.100을 원격 Mac IP로 변경
+ssh-copy-id your-username@192.168.1.100
+```
+
+**[로컬]** `~/.ssh/config` 파일로 연결 간소화:
 
 ```bash
 Host remote-mac
@@ -37,19 +54,9 @@ Host remote-mac
 
 이제 `ssh remote-mac`으로 간단하게 접속할 수 있습니다.
 
-SSH 키가 없다면:
+### 3. 프로젝트 동기화
 
-```bash
-# 키 생성
-ssh-keygen -t rsa -b 4096
-
-# 원격 Mac에 공개키 복사
-ssh-copy-id remote-mac
-```
-
-### 2. 프로젝트 동기화 시작
-
-로컬 프로젝트 폴더를 원격 Mac과 동기화합니다:
+**[로컬]** 프로젝트 폴더에서 동기화 시작:
 
 ```bash
 cd ~/my-project
@@ -58,9 +65,9 @@ mutagen sync create . remote-mac:~/my-project
 
 파일 변경사항이 자동으로 양방향 동기화됩니다. 로컬에서 코드를 수정하면 원격에 즉시 반영되고, 원격에서 빌드 결과물이 생성되면 로컬에도 동기화됩니다.
 
-### 3. 원격 서버 포트 접근
+### 4. 포트 포워딩
 
-원격에서 실행 중인 웹 서버(예: localhost:3000)를 로컬 브라우저에서 열 수 있습니다:
+**[로컬]** 원격 서버 포트를 로컬에서 접근:
 
 ```bash
 mutagen forward create tcp:localhost:3000 remote-mac:tcp:localhost:3000
@@ -68,7 +75,9 @@ mutagen forward create tcp:localhost:3000 remote-mac:tcp:localhost:3000
 
 이제 로컬 브라우저에서 `http://localhost:3000`으로 접속하면 원격 서버에 연결됩니다.
 
-### 4. 작업 확인
+### 5. 작업 확인
+
+**[로컬]** 동기화 상태 확인:
 
 ```bash
 # 동기화 상태 확인
@@ -83,7 +92,7 @@ mutagen sync monitor
 
 ## 프로젝트 설정 파일
 
-매번 명령어를 입력하기 번거롭다면, 프로젝트 루트에 `mutagen.yml` 파일을 만듭니다:
+**[로컬]** 매번 명령어를 입력하기 번거롭다면, 프로젝트 루트에 `mutagen.yml` 파일을 만듭니다:
 
 ```yaml
 sync:
@@ -106,19 +115,21 @@ forward:
     destination: "remote-mac:tcp:localhost:3000"
 ```
 
-이제 한 번에 시작:
+**[로컬]** 한 번에 시작:
 
 ```bash
 mutagen project start
 ```
 
-작업 종료:
+**[로컬]** 작업 종료:
 
 ```bash
 mutagen project terminate
 ```
 
 ## 자주 사용하는 명령어
+
+**[로컬]** 세션 관리:
 
 ```bash
 # 세션 일시정지 (배터리 절약)
@@ -136,7 +147,7 @@ mutagen forward terminate --all
 
 ### 동기화에서 제외할 파일
 
-프로젝트 루트에 `.mutagen-ignore` 파일 생성:
+**[로컬]** 프로젝트 루트에 `.mutagen-ignore` 파일 생성:
 
 ```
 node_modules/
@@ -153,7 +164,7 @@ build/
 
 ### 여러 원격 Mac 관리
 
-`~/.ssh/config`에 여러 호스트를 추가:
+**[로컬]** `~/.ssh/config`에 여러 호스트를 추가:
 
 ```
 Host work-mac
