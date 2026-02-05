@@ -1,8 +1,6 @@
 # Mutagen
 
-> Cloud-based development using your local tools
-
-> Fast file synchronization and network forwarding for remote development
+> 로컬 개발 환경을 그대로 유지하면서 원격 서버에서 작업하기
 
 <https://mutagen.io/>
 
@@ -10,92 +8,163 @@
 
 ## 설치
 
-### macOS
-
 ```bash
 brew install mutagen-io/mutagen/mutagen
 ```
 
-### Linux/Windows
+## 빠른 시작
 
-<https://github.com/mutagen-io/mutagen/releases>에서 바이너리 다운로드
+### 1. SSH 연결 설정
 
-## 기본 사용법
+원격 Mac에 SSH로 연결할 수 있도록 설정합니다.
 
-### 파일 동기화
-
-로컬과 원격 서버 간 파일 동기화:
+**원격 Mac에서** (동기화 대상):
 
 ```bash
-# 동기화 세션 생성
-mutagen sync create <로컬경로> <사용자>@<호스트>:<원격경로>
-
-# 예시
-mutagen sync create ~/project user@example.com:~/project
+# 시스템 설정 > 일반 > 공유 > 원격 로그인 활성화
+# 또는 터미널에서:
+sudo systemsetup -setremotelogin on
 ```
 
-### 포트 포워딩
+**로컬 Mac에서**:
 
-원격 서버의 포트를 로컬에서 접근:
+`~/.ssh/config` 파일을 만들어 연결을 간단하게 만듭니다:
 
 ```bash
-# 포워딩 세션 생성
-mutagen forward create <로컬포트> <사용자>@<호스트>:<원격포트>
-
-# 예시 (원격 3000번 포트를 로컬 3000번으로)
-mutagen forward create tcp:localhost:3000 user@example.com:tcp:localhost:3000
+Host remote-mac
+    HostName 192.168.1.100
+    User your-username
+    IdentityFile ~/.ssh/id_rsa
 ```
 
-## 주요 명령어
+이제 `ssh remote-mac`으로 간단하게 접속할 수 있습니다.
+
+SSH 키가 없다면:
 
 ```bash
-# 모든 세션 목록 확인
+# 키 생성
+ssh-keygen -t rsa -b 4096
+
+# 원격 Mac에 공개키 복사
+ssh-copy-id remote-mac
+```
+
+### 2. 프로젝트 동기화 시작
+
+로컬 프로젝트 폴더를 원격 Mac과 동기화합니다:
+
+```bash
+cd ~/my-project
+mutagen sync create . remote-mac:~/my-project
+```
+
+파일 변경사항이 자동으로 양방향 동기화됩니다. 로컬에서 코드를 수정하면 원격에 즉시 반영되고, 원격에서 빌드 결과물이 생성되면 로컬에도 동기화됩니다.
+
+### 3. 원격 서버 포트 접근
+
+원격에서 실행 중인 웹 서버(예: localhost:3000)를 로컬 브라우저에서 열 수 있습니다:
+
+```bash
+mutagen forward create tcp:localhost:3000 remote-mac:tcp:localhost:3000
+```
+
+이제 로컬 브라우저에서 `http://localhost:3000`으로 접속하면 원격 서버에 연결됩니다.
+
+### 4. 작업 확인
+
+```bash
+# 동기화 상태 확인
 mutagen sync list
+
+# 포트 포워딩 상태 확인
 mutagen forward list
 
-# 세션 상태 모니터링
+# 실시간 모니터링
 mutagen sync monitor
-
-# 세션 일시정지/재개
-mutagen sync pause <세션명>
-mutagen sync resume <세션명>
-
-# 세션 종료
-mutagen sync terminate <세션명>
-mutagen forward terminate <세션명>
-
-# 모든 세션 종료
-mutagen sync terminate --all
-mutagen forward terminate --all
 ```
 
-## 설정 파일
+## 프로젝트 설정 파일
 
-프로젝트 루트에 `mutagen.yml` 파일로 설정 관리:
+매번 명령어를 입력하기 번거롭다면, 프로젝트 루트에 `mutagen.yml` 파일을 만듭니다:
 
 ```yaml
 sync:
   defaults:
+    mode: "two-way-resolved"
     ignore:
       vcs: true
       paths:
         - "node_modules/"
         - ".git/"
         - "*.log"
-  project:
+        - ".DS_Store"
+  my-project:
     alpha: "."
-    beta: "user@example.com:~/project"
-    mode: "two-way-resolved"
+    beta: "remote-mac:~/my-project"
+
+forward:
+  web-server:
+    source: "tcp:localhost:3000"
+    destination: "remote-mac:tcp:localhost:3000"
 ```
 
-설정 파일을 사용한 세션 생성:
+이제 한 번에 시작:
 
 ```bash
 mutagen project start
 ```
 
-## 유용한 팁
+작업 종료:
 
-- **성능**: `.mutagen-ignore` 파일로 불필요한 파일 제외
-- **충돌 해결**: `two-way-resolved` 모드는 최신 파일 우선
-- **SSH 설정**: `~/.ssh/config`에 호스트 별칭 설정하면 편리
+```bash
+mutagen project terminate
+```
+
+## 자주 사용하는 명령어
+
+```bash
+# 세션 일시정지 (배터리 절약)
+mutagen sync pause --all
+
+# 세션 재개
+mutagen sync resume --all
+
+# 모든 세션 종료
+mutagen sync terminate --all
+mutagen forward terminate --all
+```
+
+## 팁
+
+### 동기화에서 제외할 파일
+
+프로젝트 루트에 `.mutagen-ignore` 파일 생성:
+
+```
+node_modules/
+.git/
+*.log
+.DS_Store
+dist/
+build/
+```
+
+### 충돌 해결
+
+`two-way-resolved` 모드는 최신 파일을 자동으로 선택합니다. 같은 파일을 양쪽에서 동시에 수정하면 나중에 저장된 버전이 반영됩니다.
+
+### 여러 원격 Mac 관리
+
+`~/.ssh/config`에 여러 호스트를 추가:
+
+```
+Host work-mac
+    HostName 192.168.1.100
+    User work-user
+
+Host home-mac
+    HostName 192.168.1.200
+    User home-user
+```
+
+각각 다른 동기화 세션으로 관리할 수 있습니다.
