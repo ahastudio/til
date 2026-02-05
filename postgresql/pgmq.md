@@ -189,6 +189,26 @@ client.delete('my_queue', msg.msg_id)
 client.drop_queue('my_queue')
 ```
 
+## PubSub 패턴 구현
+
+PGMQ는 Point-to-Point 메시징만 지원한다. PubSub이 필요하면 컨슈머별 큐를
+만들고 Fan-out하는 방식을 사용한다.
+
+```sql
+-- 컨슈머별 큐 생성
+SELECT pgmq.create('topic_consumer_a');
+SELECT pgmq.create('topic_consumer_b');
+
+-- Fan-out: 모든 큐에 전송
+SELECT pgmq.send('topic_consumer_a', '{"event": "created"}');
+SELECT pgmq.send('topic_consumer_b', '{"event": "created"}');
+```
+
+메시지 본문이 크면 별도 테이블에 저장하고 ID만 참조하면 write
+amplification을 줄일 수 있다.
+
+참고: <https://github.com/tembo-io/pgmq/issues/255>
+
 ## 사용 사례
 
 - Tembo
