@@ -72,123 +72,6 @@ SELECT * FROM pgmq.read('my_queue', 30, 1);
 SELECT pgmq.delete('my_queue', 1);
 ```
 
-## Java (Spring Boot) 예제
-
-<https://github.com/adamalexandru4/pgmq-spring>
-
-```java
-// 큐 생성
-PGMQueue queue = new PGMQueue("my_queue");
-pgmqClient.createQueue(queue);
-
-// 메시지 전송
-long messageId = pgmqClient.send(queue, "{\"key\": \"value\"}");
-
-// 메시지 읽기 (visibility timeout 30초)
-PGMQMessage message = pgmqClient.read(queue,
-    new PGMQVisiblityTimeout(30)).orElseThrow();
-
-// 메시지 삭제
-pgmqClient.delete(queue, messageId);
-```
-
-## Kotlin 예제
-
-<https://github.com/vdsirotkin/pgmq-kotlin-jvm>
-
-```kotlin
-// Spring 설정
-@Bean
-fun pgmqConnectionFactory(dataSource: DataSource) =
-    PgmqConnectionFactory {
-        DataSourceUtils.getConnection(dataSource)
-    }
-
-@ConfigurationProperties(prefix = "pgmq")
-data class PgmqConfigurationProps(
-    override val defaultVisibilityTimeout: Duration = 30.seconds
-) : PgmqConfiguration
-```
-
-## TypeScript 예제
-
-<https://github.com/Muhammad-Magdi/pgmq-js>
-
-```typescript
-import { Pgmq } from 'pgmq-js';
-
-// 연결
-const pgmq = await Pgmq.new({
-  host: 'localhost',
-  database: 'postgres',
-  password: 'password',
-  port: 5432,
-  user: 'postgres',
-});
-
-// 큐 생성
-await pgmq.queue.create('my_queue');
-
-// 메시지 전송
-interface Msg { id: number; name: string; }
-const msg: Msg = { id: 1, name: 'test' };
-const msgId = await pgmq.msg.send('my_queue', msg);
-
-// 메시지 읽기 (visibility timeout 30초)
-const received = await pgmq.msg.read<Msg>('my_queue', 30);
-
-// 메시지 아카이빙
-await pgmq.msg.archive('my_queue', msgId);
-```
-
-## Python (SQLAlchemy) 예제
-
-<https://github.com/jason810496/pgmq-sqlalchemy>
-
-```python
-from pgmq_sqlalchemy import PGMQueue
-
-pgmq = PGMQueue(dsn='postgresql://user:pass@localhost:5432/db')
-
-# 큐 생성
-pgmq.create_queue('my_queue')
-
-# 메시지 전송
-msg = {'key': 'value'}
-msg_id = pgmq.send('my_queue', msg)
-
-# 배치 전송
-msg_ids = pgmq.send_batch('my_queue', [msg, msg])
-
-# 메시지 읽기
-msg = pgmq.read('my_queue')
-
-# 배치 읽기
-msgs = pgmq.read_batch('my_queue', 10)
-```
-
-## Ruby 예제
-
-<https://github.com/mensfeld/pgmq-ruby>
-
-```ruby
-# 큐 생성
-client.create('my_queue')
-
-# 메시지 전송
-msg_id = client.produce('my_queue', '{"key":"value"}')
-
-# 메시지 읽기 (visibility timeout 30초)
-msg = client.read('my_queue', vt: 30)
-puts msg.message
-
-# 메시지 삭제
-client.delete('my_queue', msg.msg_id)
-
-# 큐 삭제
-client.drop_queue('my_queue')
-```
-
 ## PubSub 패턴 구현
 
 PGMQ는 Point-to-Point 메시징만 지원한다. PubSub이 필요하면 컨슈머별 큐를
@@ -238,3 +121,53 @@ COMMIT;
 
 [Postgres 큐 기술 선택 | GeekNews](
 https://news.hada.io/topic?id=11042)
+
+## Java (Spring Boot) 예제
+
+<https://github.com/adamalexandru4/pgmq-spring>
+
+```java
+// 큐 생성
+PGMQueue queue = new PGMQueue("order_events");
+pgmqClient.createQueue(queue);
+
+// 트랜잭션 내에서 비즈니스 로직 + 메시지 전송
+@Transactional
+public void createOrder(Order order) {
+    orderRepository.save(order);
+    pgmqClient.send(queue, toJson(new OrderCreatedEvent(order.getId())));
+}
+
+// 메시지 읽기 (visibility timeout 30초)
+PGMQMessage message = pgmqClient.read(queue,
+    new PGMQVisiblityTimeout(30)).orElseThrow();
+
+// 메시지 삭제
+pgmqClient.delete(queue, message.getMsgId());
+```
+
+## Python (SQLAlchemy) 예제
+
+<https://github.com/jason810496/pgmq-sqlalchemy>
+
+```python
+from pgmq_sqlalchemy import PGMQueue
+from sqlalchemy.orm import Session
+
+pgmq = PGMQueue(dsn='postgresql://user:pass@localhost:5432/db')
+
+# 큐 생성
+pgmq.create_queue('order_events')
+
+# 트랜잭션 내에서 비즈니스 로직 + 메시지 전송
+def create_order(session: Session, order: Order):
+    session.add(order)
+    pgmq.send('order_events', {'order_id': order.id, 'event': 'created'})
+    session.commit()
+
+# 메시지 읽기
+msg = pgmq.read('order_events')
+
+# 배치 읽기
+msgs = pgmq.read_batch('order_events', 10)
+```
