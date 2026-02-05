@@ -110,28 +110,77 @@ COMMIT;
 실패 시 둘 다 롤백된다. 별도 outbox 테이블 없이 PGMQ 큐 자체가 outbox
 역할을 한다.
 
-## Java (Spring Boot) 예제
+## Spring Boot 예제
 
 <https://github.com/adamalexandru4/pgmq-spring>
 
 ```java
-// 큐 생성
-PGMQueue queue = new PGMQueue("order_events");
-pgmqClient.createQueue(queue);
+// 설정
+@Configuration
+public class PgmqConfig {
 
-// 트랜잭션 내에서 비즈니스 로직 + 메시지 전송
-@Transactional
-public void createOrder(Order order) {
-    orderRepository.save(order);
-    pgmqClient.send(queue, toJson(new OrderCreatedEvent(order.getId())));
+    @Bean
+    public PGMQClient pgmqClient(DataSource dataSource) {
+        return new PGMQClient(dataSource);
+    }
+
+    @Bean
+    public PGMQueue orderEventsQueue(PGMQClient pgmqClient) {
+        PGMQueue queue = new PGMQueue("order_events");
+        pgmqClient.createQueue(queue);
+        return queue;
+    }
 }
 
-// 메시지 읽기 (visibility timeout 30초)
-PGMQMessage message = pgmqClient.read(queue,
-    new PGMQVisiblityTimeout(30)).orElseThrow();
+// 서비스
+@Service
+@RequiredArgsConstructor
+public class OrderService {
 
-// 메시지 삭제
-pgmqClient.delete(queue, message.getMsgId());
+    private final OrderRepository orderRepository;
+    private final PGMQClient pgmqClient;
+    private final PGMQueue orderEventsQueue;
+    private final ObjectMapper objectMapper;
+
+    @Transactional
+    public Order createOrder(CreateOrderRequest request) {
+        // 비즈니스 로직
+        Order order = Order.create(request);
+        orderRepository.save(order);
+
+        // 같은 트랜잭션에서 메시지 전송
+        String payload = objectMapper.writeValueAsString(
+            new OrderCreatedEvent(order.getId(), order.getTotal())
+        );
+        pgmqClient.send(orderEventsQueue, payload);
+
+        return order;
+        // 커밋 시 order 저장과 메시지 전송이 함께 반영됨
+        // 실패 시 둘 다 롤백
+    }
+}
+
+// 컨슈머
+@Component
+@RequiredArgsConstructor
+public class OrderEventConsumer {
+
+    private final PGMQClient pgmqClient;
+    private final PGMQueue orderEventsQueue;
+
+    @Scheduled(fixedDelay = 1000)
+    public void consume() {
+        pgmqClient.read(orderEventsQueue, new PGMQVisibilityTimeout(30))
+            .ifPresent(message -> {
+                try {
+                    process(message);
+                    pgmqClient.delete(orderEventsQueue, message.getMsgId());
+                } catch (Exception e) {
+                    // visibility timeout 후 재처리됨
+                }
+            });
+    }
+}
 ```
 
 ## Python (SQLAlchemy) 예제
