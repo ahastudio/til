@@ -26,11 +26,7 @@ brew install mutagen-io/mutagen/mutagen
 
 **[원격]** 원격 로그인 활성화:
 
-```bash
-# 시스템 설정 > 일반 > 공유 > 원격 로그인 활성화
-# 또는 터미널에서:
-sudo systemsetup -setremotelogin on
-```
+시스템 설정 > 일반 > 공유 > 원격 로그인 활성화
 
 **[로컬]** SSH 키 생성 (없다면):
 
