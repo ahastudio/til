@@ -74,17 +74,6 @@ SELECT pgmq.delete('my_queue', 1);
 
 ## 클라이언트 라이브러리
 
-공식 지원:
-
-- Rust
-- Python (psycopg3)
-
-커뮤니티 지원:
-
-- Go, Elixir, Java, Kotlin
-- Node.js, TypeScript
-- .NET, Ruby, PHP 등
-
 ### Java (Spring Boot)
 
 <https://github.com/adamalexandru4/pgmq-spring>
