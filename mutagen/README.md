@@ -72,6 +72,34 @@ mutagen sync resume --all
 mutagen sync terminate --all
 ```
 
+## 전역 Ignore 설정
+
+`~/.mutagen.yml` 파일로 전역 ignore 규칙을 설정할 수 있습니다.
+모든 동기화 세션에 공통으로 적용됩니다.
+
+```yaml
+sync:
+  defaults:
+    ignore:
+      vcs: true
+      paths:
+        - ".claude/settings.local.json"
+        - ".DS_Store"
+        - ".git"
+        - ".gradle"
+        - ".idea/libraries"
+        - ".idea/modules"
+        - ".idea/workspace.xml"
+        - ".venv*"
+        - "_venv*"
+        - "bin"
+        - "build*"
+        - "logs"
+```
+
+- `vcs: true`: VCS 관련 파일을 자동으로 무시합니다.
+- `paths`: 추가로 무시할 경로 패턴을 지정합니다.
+
 ## Cloud-based Development
 
 Mutagen의 슬로건은
