@@ -8,7 +8,7 @@
 - [WG-Easy](https://github.com/wg-easy/wg-easy) -
   WireGuard에 웹 UI를 씌운 것.
   Docker 한 줄이면 시작. 가장 쉽게 WireGuard를 쓰는 법.
-- [Headscale](https://github.com/juanfont/headscale) -
+- [Headscale](./headscale.md) -
   Tailscale 컨트롤 서버의 오픈소스 구현체.
   공식 Tailscale 클라이언트를 그대로 사용 가능.
   mesh 네트워크, NAT 자동 통과, ACL 지원.
