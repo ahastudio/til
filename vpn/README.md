@@ -2,8 +2,7 @@
 
 ## 오픈소스 설치형 VPN 솔루션
 
-- [WireGuard](https://www.wireguard.com/)
-  ([노트](./wireguard.md)) -
+- [WireGuard](./wireguard.md) -
   리눅스 커널 내장. 최고 성능. ~4,000줄 코드라 감사 용이.
   기기가 많아지면 설정 관리가 복잡해지는 게 단점.
 - [WG-Easy](https://github.com/wg-easy/wg-easy) -
@@ -25,11 +24,9 @@
 - [Algo VPN](https://github.com/trailofbits/algo) -
   클라우드(AWS, GCP, DO 등)에 WireGuard를 자동 배포.
   "배포하고 잊기" 방식. 관리 부담 최소.
-- [Tailscale](https://tailscale.com/)
-  ([노트](./tailscale.md)) -
+- [Tailscale](./tailscale.md) -
   WireGuard 기반 SaaS. 설정 거의 불필요. 개인 무료.
   컨트롤 서버가 비공개라 셀프 호스팅 불가(→ Headscale).
-- [Pritunl](https://github.com/pritunl/pritunl)
-  ([노트](./pritunl.md)) -
+- [Pritunl](./pritunl.md) -
   OpenVPN/IPsec/WireGuard 통합 서버.
   웹 UI 제공. 여러 프로토콜을 한곳에서 관리.
