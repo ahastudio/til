@@ -55,6 +55,19 @@ tailscale status
 
 <https://tailscale.com/pricing>
 
+개인 사용은 무료입니다.
+3명 이하, 100대 이하 기기를 지원합니다.
+
+| 플랜            | 가격             | 비고                    |
+|-----------------|------------------|-------------------------|
+| Personal        | 무료             | 3명, 100대              |
+| Personal Plus   | $5/월            | 6명, 100대              |
+| Starter         | $6/사용자/월     | 100대 + 사용자당 10대   |
+| Premium         | $18/사용자/월    | 100대 + 사용자당 20대   |
+| Enterprise      | 별도 문의        |                         |
+
+모든 유료 플랜에서 처음 3명은 무료입니다.
+
 ## 방화벽 설정
 
 [What firewall ports should I open to use Tailscale?](https://tailscale.com/kb/1082/firewall-ports)
