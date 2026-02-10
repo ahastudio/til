@@ -13,61 +13,69 @@ Tailscale 컨트롤 서버의 오픈소스 구현체.
 - ACL 기반 접근 제어
 - 기기 수 제한 없음 (Tailscale 무료는 100대)
 
-## 설치 (Docker)
-
-```bash
-docker run -d \
-  --name headscale \
-  -v ./config:/etc/headscale \
-  -v ./data:/var/lib/headscale \
-  -p 8080:8080 \
-  -p 9090:9090 \
-  --restart unless-stopped \
-  headscale/headscale:latest \
-  serve
-```
-
 ## 설정
 
-`config.yaml`에서 주요 항목을 설정합니다.
+```bash
+mkdir -p ~/data/headscale/{config,lib}
+
+curl https://raw.githubusercontent.com/juanfont/headscale/refs/heads/main/config-example.yaml \
+  -o ~/data/headscale/config/config.yaml
+```
+
+`config.yaml` 파일의 주요 항목을 설정합니다.
 
 ```yaml
-server_url: https://headscale.example.com
+server_url: https://my-domain
+
 listen_addr: 0.0.0.0:8080
-ip_prefixes:
-  - 100.64.0.0/10
+```
+
+## Docker로 실행
+
+```bash
+docker run -d --name headscale \
+  --read-only \
+  --tmpfs /var/run/headscale \
+  -v ~/data/headscale/config:/etc/headscale:ro \
+  -v ~/data/headscale/lib:/var/lib/headscale \
+  -p 8080:8080 \
+  -p 9090:9090 \
+  --health-cmd "CMD headscale health" \
+  headscale/headscale:latest \
+  serve
+
+docker logs -f headscale
+```
+
+잘 실행됐는지 확인합니다.
+
+```bash
+curl https://my-domain/health
 ```
 
 ## 사용자 생성
 
 ```bash
-headscale users create my-user
+docker exec -it headscale \
+  headscale users create my-user
+
+docker exec -it headscale \
+  headscale users list
 ```
 
 ## 노드 등록
 
-### 인증키 방식
+**클라이언트에서 요청**:
 
 ```bash
-# 서버에서 키 생성
-headscale preauthkeys create \
-  --reusable --expiration 24h --user my-user
-
-# 클라이언트에서 연결
-tailscale up \
-  --login-server https://headscale.example.com \
-  --authkey YOUR_AUTH_KEY
+tailscale up --login-server https://my-domain --accept-routes
 ```
 
-### 수동 방식
+**서버에서 승인**:
 
 ```bash
-# 클라이언트에서 요청
-tailscale up --login-server https://headscale.example.com
-
-# 서버에서 승인
-headscale nodes register \
-  --user my-user --key nodekey:XXXX
+docker exec -it headscale \
+  headscale nodes register --user my-user --key <REGISTRATION_KEY>
 ```
 
 ## 웹 UI
@@ -80,6 +88,10 @@ Headscale 자체에는 웹 UI가 없습니다.
 
 ### Headplane
 
+> A full-featured admin interface for Headscale
+
+<https://headplane.net/>
+
 가장 기능이 풍부한 Headscale 웹 UI.
 Tailscale 공식 대시보드에 가까운 경험을 제공합니다.
 
@@ -89,8 +101,7 @@ Tailscale 공식 대시보드에 가까운 경험을 제공합니다.
 - OIDC 로그인 지원
 
 ```bash
-docker run -d \
-  --name headplane \
+docker run -d --name headplane \
   -p 3000:3000 \
   ghcr.io/tale/headplane:latest
 ```
