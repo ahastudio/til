@@ -78,6 +78,23 @@ Headscale 자체에는 웹 UI가 없습니다.
 - [Headscale-UI](https://github.com/gurucomputing/headscale-ui)
 - [Headplane](https://github.com/tale/headplane)
 
+### Headplane
+
+가장 기능이 풍부한 Headscale 웹 UI.
+Tailscale 공식 대시보드에 가까운 경험을 제공합니다.
+
+- 노드 관리 (만료, 라우팅, 이름, 소유자)
+- ACL/태그 설정
+- DNS 설정
+- OIDC 로그인 지원
+
+```bash
+docker run -d \
+  --name headplane \
+  -p 3000:3000 \
+  ghcr.io/tale/headplane:latest
+```
+
 ## 참고
 
 - [Headscale Docs](https://headscale.net/stable/usage/getting-started/)
