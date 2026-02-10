@@ -2,9 +2,9 @@
 
 <https://tailscale.com/>
 
-WireGuard 기반의 VPN 서비스.
-별도의 서버 설정 없이 기기 간 사설 네트워크를 구성한다.
-로그인만 하면 연결되므로 설정이 거의 필요 없다.
+WireGuard 기반의 VPN 서비스입니다.
+별도의 서버 설정 없이 기기 간 사설 네트워크를 구성합니다.
+로그인만 하면 연결되므로 설정이 거의 필요 없습니다.
 
 ## 주요 특징
 
@@ -25,7 +25,7 @@ brew install --cask tailscale
 
 <https://tailscale.com/download/windows>
 
-설치 후 시스템 트레이에서 로그인한다.
+설치 후 시스템 트레이에서 로그인합니다.
 
 ### Linux
 
@@ -43,7 +43,7 @@ curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up
 ```
 
-로그인 URL이 표시되면 브라우저에서 인증한다.
+로그인 URL이 표시되면 브라우저에서 인증합니다.
 
 ## 상태 확인
 
