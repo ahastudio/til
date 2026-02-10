@@ -21,5 +21,5 @@
 [OpenVPN]: https://openvpn.net/
 [AmneziaVPN]: https://github.com/amnezia-vpn/amnezia-client
 [Algo VPN]: https://github.com/trailofbits/algo
-[Tailscale]: ./tailscale.md
-[Pritunl]: ./pritunl.md
+[Tailscale]: https://tailscale.com/
+[Pritunl]: https://github.com/pritunl/pritunl
