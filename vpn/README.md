@@ -30,3 +30,16 @@
 - [Pritunl](./pritunl.md) -
   OpenVPN/IPsec/WireGuard 통합 서버.
   웹 UI 제공. 여러 프로토콜을 한곳에서 관리.
+
+## Headscale vs Pritunl
+
+| 항목           | Headscale              | Pritunl                |
+|----------------|------------------------|------------------------|
+| 방식           | mesh (P2P 직접 연결)   | 허브-스포크 (서버 경유) |
+| 프로토콜       | WireGuard              | OpenVPN/IPsec/WireGuard |
+| 트래픽 경로    | 기기 간 직접           | 중앙 서버 경유         |
+| NAT 통과       | 자동                   | 수동 (포트포워딩)      |
+| 웹 UI          | 없음 (별도 설치 필요)  | 기본 제공              |
+| 클라이언트     | Tailscale 공식 앱      | 전용 클라이언트        |
+| 외부 의존성    | 없음                   | MongoDB                |
+| 적합한 경우    | P2P 성능, Tailscale 전환 | 웹 관리, 멀티 프로토콜 |
