@@ -21,6 +21,12 @@ WireGuard 기반의 VPN 서비스.
 brew install --cask tailscale
 ```
 
+### Windows
+
+<https://tailscale.com/download/windows>
+
+설치 후 시스템 트레이에서 로그인한다.
+
 ### Linux
 
 ```bash
