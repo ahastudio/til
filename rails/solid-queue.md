@@ -12,9 +12,14 @@ Redis 없이 기존 데이터베이스만으로 백그라운드 작업을 처리
 - 트랜잭션 무결성
   (잡과 앱 데이터가 같은 DB라 원자적 커밋 가능)
 
-## 예제: 주문 처리
+## Example: 주문 처리
 
-### 잡
+Stripe 결제 후 확인 메일을 보내는 주문 처리 시스템.
+같은 유저의 주문이 동시에 결제되지 않도록 동시성을 제어하고,
+주문 생성과 잡 등록을 하나의 트랜잭션으로 묶어
+데이터 정합성을 보장한다.
+
+### Job
 
 ```ruby
 # app/jobs/process_order_job.rb
@@ -53,7 +58,7 @@ class OrderConfirmationJob < ApplicationJob
 end
 ```
 
-### 컨트롤러
+### Controller
 
 ```ruby
 class OrdersController < ApplicationController
@@ -70,7 +75,7 @@ class OrdersController < ApplicationController
 end
 ```
 
-### 설정
+### Configuration
 
 ```yaml
 # config/queue.yml
@@ -100,7 +105,7 @@ production:
     schedule: "0 6 * * *"
 ```
 
-### 실행
+### Run
 
 ```bash
 bin/jobs
