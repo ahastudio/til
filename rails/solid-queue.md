@@ -1,7 +1,7 @@
 # Solid Queue
 
 Rails 8부터 기본 Active Job 백엔드로 포함된
-데이터베이스 기반 job queue 시스템이다.
+데이터베이스 기반 Job Queue 시스템이다.
 Redis 없이 기존 데이터베이스만으로 백그라운드 작업을 처리한다.
 
 ## 특징
@@ -10,13 +10,13 @@ Redis 없이 기존 데이터베이스만으로 백그라운드 작업을 처리
 - 동시성 제어 (`limits_concurrency`)
 - 반복 작업 스케줄링 (`recurring.yml`)
 - 트랜잭션 무결성
-  (job과 앱 데이터가 같은 DB라 원자적 커밋 가능)
+  (Job과 앱 데이터가 같은 DB라 원자적 커밋 가능)
 
 ## Example: 주문 처리
 
 Stripe 결제 후 확인 메일을 보내는 주문 처리 시스템.
 같은 유저의 주문이 동시에 결제되지 않도록 동시성을 제어하고,
-주문 생성과 job 등록을 하나의 트랜잭션으로 묶어
+주문 생성과 Job 등록을 하나의 트랜잭션으로 묶어
 데이터 정합성을 보장한다.
 
 ### Job
@@ -63,8 +63,8 @@ end
 ```ruby
 class OrdersController < ApplicationController
   def create
-    # 같은 트랜잭션 안에서 주문 생성 + job 등록.
-    # 롤백되면 job 등록도 함께 롤백된다.
+    # 같은 트랜잭션 안에서 주문 생성 + Job 등록.
+    # 롤백되면 Job 등록도 함께 롤백된다.
     # Redis 기반 큐에서는 불가능한 부분.
     ApplicationRecord.transaction do
       @order = current_user.orders.create!(order_params)
