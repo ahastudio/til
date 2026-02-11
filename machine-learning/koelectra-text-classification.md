@@ -48,7 +48,8 @@ Mecab + Wordpiece로 어휘를 새로 구축했다.
 
 ## 코드 예제
 
-NSMC(영화 리뷰)로 fine-tuning된 모델이지만,
+NSMC(Naver Sentiment Movie Corpus, 영화 리뷰)로
+fine-tuning된 모델이지만,
 감정 표현 패턴은 도메인을 넘어 공유되므로
 식당, 병원, 쇼핑 등 일반적인 리뷰에도
 추가 학습 없이 적용할 수 있다.
@@ -121,7 +122,7 @@ NSMC 학습 데이터는 영화 리뷰지만,
 
 ## NSMC 벤치마크
 
-NSMC(Naver Sentiment Movie Corpus)는
+NSMC는
 15만 개 학습 데이터와 5만 개 테스트 데이터로
 구성된 이진 분류 데이터셋이다.
 레이블이 0이면 부정, 1이면 긍정이다.
