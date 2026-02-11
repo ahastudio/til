@@ -55,10 +55,39 @@ VC 또는 액셀러레이터(Accelerator) 지원을 받는
 > a [SaaS / e-commerce / fintech] platform.
 > Our development team has [N] engineers.
 
+(우리는 [SaaS / 이커머스 / 핀테크] 플랫폼을
+만드는 초기 스타트업입니다.
+개발팀은 [N]명의 엔지니어로 구성되어 있습니다.)
+
 투자 단계(Funding Stage):
+
+VC/액셀러레이터 투자를 받은 경우:
 
 > We raised our [seed / pre-A / Series A] round
 > from [투자사/액셀러레이터 이름].
+
+([seed / pre-A / Series A] 라운드를
+[투자사/액셀러레이터 이름]으로부터 유치했습니다.)
+
+정부 지원 사업에 선정된 경우:
+
+> We are part of [프로그램 이름],
+> a government-backed startup program
+> in South Korea.
+
+([프로그램 이름]에 선정된
+한국 정부 지원 스타트업입니다.)
+
+예시: TIPS, 창업성장기술개발,
+K-Startup 그랜드챌린지, 예비창업패키지 등.
+
+> We were selected for the TIPS program,
+> a government-funded accelerator program
+> run by Korea's Ministry of SMEs
+> and Startups (MSS).
+
+(중소벤처기업부(MSS) 산하 정부 지원
+액셀러레이터 프로그램인 TIPS에 선정되었습니다.)
 
 CodeRabbit 사용 목적:
 
@@ -67,12 +96,22 @@ CodeRabbit 사용 목적:
 > AI-powered reviews would help us ship faster
 > while catching bugs early.
 
+(소규모 팀으로 코드 리뷰 프로세스를 개선하고
+코드 품질을 유지하고 싶습니다.
+AI 기반 리뷰를 통해 버그를 조기에 발견하면서
+더 빠르게 배포하고 싶습니다.)
+
 추가 메시지(선택):
 
 > We currently use GitHub for version control
 > and have [N] active repositories.
 > We'd love to try CodeRabbit Pro
 > to streamline our development workflow.
+
+(현재 GitHub으로 버전 관리를 하고 있으며
+[N]개의 활성 저장소가 있습니다.
+CodeRabbit Pro를 사용해 개발 워크플로를
+효율화하고 싶습니다.)
 
 ### 참고
 
