@@ -24,3 +24,14 @@ Visual Studio Marketplace:
 [Use agent mode in VS Code](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode)
 
 `chat.agent.enabled`
+
+## Squad
+
+<https://github.com/bradygaster/squad>
+
+프로젝트에 AI 에이전트 팀을 구성하는 실험적
+프레임워크.
+GitHub Copilot을 통해 프론트엔드, 백엔드, 테스터,
+리드 등 전문화된 에이전트가 병렬로 작업을 수행한다.
+각 에이전트는 `history.md`에 학습 내용을 기록하고,
+`decisions.md`로 팀 전체의 일관성을 유지한다.
