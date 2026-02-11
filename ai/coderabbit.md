@@ -20,6 +20,38 @@ language: ko-KR
 
 <https://www.coderabbit.ai/cli>
 
+## Startup Program
+
+<https://www.coderabbit.ai/startup-program>
+
+초기 스타트업을 위한 AI 코드 리뷰 지원 프로그램.
+
+### 지원 내용
+
+14일 무료 체험 이후
+CodeRabbit Pro 구독을 3개월간 50% 할인 제공.
+
+### 자격 요건
+
+VC 또는 액셀러레이터(Accelerator) 지원을 받는
+스타트업이 대상.
+
+### 신청 방법
+
+1. 신청 페이지에서 양식 작성.
+2. CodeRabbit 팀이 영업일 기준 2일 이내에 검토.
+3. 승인 여부를 이메일로 안내.
+
+신청: <https://resources.coderabbit.ai/startup-program>
+
+### 참고
+
+- 오픈소스 프로젝트(Public Repository)는
+  별도 신청 없이 무료로 리뷰 이용 가능.
+- PR을 생성하는 개발자 수 기준으로
+  과금(Seat 기반).
+- 리뷰 가능한 PR 수나 저장소 수 제한 없음.
+
 ## 아샬의 트윗
 
 ### 2024년 7월 24일
