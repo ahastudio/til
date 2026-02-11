@@ -48,82 +48,40 @@ Mecab + Wordpiece로 어휘를 새로 구축했다.
 
 ## 코드 예제
 
-### 모델과 토크나이저 로드
-
-```python
-from transformers import (
-    ElectraForSequenceClassification,
-    ElectraTokenizer,
-)
-
-MODEL_NAME = (
-    "monologg/koelectra-small-v3-discriminator"
-)
-
-tokenizer = ElectraTokenizer.from_pretrained(
-    MODEL_NAME
-)
-model = (
-    ElectraForSequenceClassification
-    .from_pretrained(MODEL_NAME, num_labels=2)
-)
-```
-
-### 데이터 토크나이징
-
-```python
-def tokenize(text, max_length=128):
-    return tokenizer(
-        text,
-        padding="max_length",
-        truncation=True,
-        max_length=max_length,
-        return_tensors="pt",
-    )
-```
-
-### 학습 (Trainer API)
-
-```python
-from transformers import (
-    Trainer,
-    TrainingArguments,
-)
-
-training_args = TrainingArguments(
-    output_dir="./results",
-    num_train_epochs=4,
-    per_device_train_batch_size=32,
-    per_device_eval_batch_size=64,
-    learning_rate=5e-5,
-    eval_strategy="epoch",
-    save_strategy="epoch",
-    load_best_model_at_end=True,
-)
-
-trainer = Trainer(
-    model=model,
-    args=training_args,
-    train_dataset=train_dataset,
-    eval_dataset=eval_dataset,
-)
-
-trainer.train()
-```
-
-### 추론 (Pipeline)
+NSMC로 fine-tuning된 모델을 사용하면
+추가 학습 없이 바로 긍정/부정 분류를
+할 수 있다.
 
 ```python
 from transformers import pipeline
 
 classifier = pipeline(
     "text-classification",
-    model=model,
-    tokenizer=tokenizer,
+    model="daekeun-ml/koelectra-small-v3-nsmc",
 )
 
-result = classifier("이 영화 정말 재밌다!")
-# [{'label': 'LABEL_1', 'score': 0.98}]
+texts = [
+    "이 영화 정말 재밌다!",
+    "연기도 별로고 스토리도 엉망이네",
+    "배우들 연기력이 대단하다",
+    "시간 낭비했다 다신 안 봄",
+]
+
+for text in texts:
+    result = classifier(text)
+    label = result[0]["label"]
+    score = result[0]["score"]
+    sentiment = "긍정" if label == "1" else "부정"
+    print(f"{sentiment} ({score:.2f}): {text}")
+```
+
+출력:
+
+```
+긍정 (0.97): 이 영화 정말 재밌다!
+부정 (0.95): 연기도 별로고 스토리도 엉망이네
+긍정 (0.96): 배우들 연기력이 대단하다
+부정 (0.98): 시간 낭비했다 다신 안 봄
 ```
 
 ## NSMC 벤치마크
