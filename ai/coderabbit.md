@@ -44,6 +44,36 @@ VC 또는 액셀러레이터(Accelerator) 지원을 받는
 
 신청: <https://resources.coderabbit.ai/startup-program>
 
+### 신청 예시 문구
+
+양식에서 자주 묻는 항목과 영어 예시.
+`[...]` 부분을 자신의 상황에 맞게 수정.
+
+회사 소개(Company Description):
+
+> We are an early-stage startup building
+> a [SaaS / e-commerce / fintech] platform.
+> Our development team has [N] engineers.
+
+투자 단계(Funding Stage):
+
+> We raised our [seed / pre-A / Series A] round
+> from [투자사/액셀러레이터 이름].
+
+CodeRabbit 사용 목적:
+
+> We want to improve our code review process
+> and maintain code quality with a small team.
+> AI-powered reviews would help us ship faster
+> while catching bugs early.
+
+추가 메시지(선택):
+
+> We currently use GitHub for version control
+> and have [N] active repositories.
+> We'd love to try CodeRabbit Pro
+> to streamline our development workflow.
+
 ### 참고
 
 - 오픈소스 프로젝트(Public Repository)는
