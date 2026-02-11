@@ -20,15 +20,15 @@ Fine-tuning 시에는 Discriminator를 사용한다.
 
 ## KoELECTRA-Small-v3 모델 구조
 
-| 항목                  | 값    |
-|-----------------------|-------|
-| Hidden Size           | 256   |
-| Embedding Size        | 128   |
-| Hidden Layers         | 12    |
-| Attention Heads       | 4     |
-| Intermediate Size     | 1,024 |
-| Max Sequence Length    | 512   |
-| 파라미터 수           | ~14M  |
+| 항목                | 값    |
+| ------------------- | ----- |
+| Hidden Size         | 256   |
+| Embedding Size      | 128   |
+| Hidden Layers       | 12    |
+| Attention Heads     | 4     |
+| Intermediate Size   | 1,024 |
+| Max Sequence Length | 512   |
+| 파라미터 수         | ~14M  |
 
 v3은 모두의 말뭉치(신문, 구어, 문어, 메신저,
 웹 등)를 추가로 활용했고,
