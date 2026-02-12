@@ -1,9 +1,6 @@
 # Direct Design
 
-> Alex Kehr (@alexkehr)
-> <https://twitter.com/alexkehr/status/2021667248608584183>
-
-AI 코딩 도구(Cursor, Claude Code 등)로
+AI 코딩 도구(Cursor, Claude Code 등)를 사용해
 동작하는 제품 위에서 직접 디자인하는 방법.
 디자인-개발 핸드오프 없이,
 제품을 아는 사람이 코드에서 바로 만든다.
@@ -37,3 +34,7 @@ AI 코딩 도구(Cursor, Claude Code 등)로
   깊은 제품 이해가 전제된다.
 
 > "Taste now has a compiler."
+
+## 참고
+
+- [Alex Kehr (@alexkehr)](https://twitter.com/alexkehr/status/2021667248608584183)
