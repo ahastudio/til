@@ -1,6 +1,6 @@
 # Karpathy's DeepWiki Notes
 
-Andrej Karpathy의 트윗 (2026년 2월 10일):
+Andrej Karpathy의 트윗 (2026년 2월 12일):
 <https://twitter.com/karpathy/status/2021633574089416993>
 
 DeepWiki와 소프트웨어의 유동성(malleability)에 대한 글.
