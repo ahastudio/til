@@ -1,7 +1,7 @@
 # 거대 코딩 AI 시대의 소프트웨어 제품
 
 원문: Ramin (@ramin_m_h) -
-Software Products in The Age of Big Coding AIs
+[Software Products in The Age of Big Coding AIs](https://twitter.com/ramin_m_h/status/2021843654709506072)
 
 ## 핵심 주장
 
