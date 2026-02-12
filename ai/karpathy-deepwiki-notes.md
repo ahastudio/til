@@ -5,6 +5,15 @@ Andrej Karpathy의 트윗 (2026년 2월 12일):
 
 DeepWiki와 소프트웨어의 유동성(malleability)에 대한 글.
 
+## DeepWiki
+
+<https://deepwiki.com>
+
+GitHub 저장소를 자동으로 위키 페이지로 변환하고,
+코드에 대해 Q&A할 수 있는 서비스.
+URL에서 `github`을 `deepwiki`로 바꾸면 바로 사용 가능하다.
+MCP 서버도 제공해서 에이전트에 통합할 수 있다.
+
 ## 인사이트
 
 ### 코드가 진실의 원천이다
@@ -13,9 +22,6 @@ DeepWiki와 소프트웨어의 유동성(malleability)에 대한 글.
 **코드 자체가 진실의 원천(source of truth)**이며,
 LLM이 코드를 점점 더 잘 이해하게 되면서
 문서 대신 코드에 직접 질문하는 것이 더 정확하다.
-
-[DeepWiki](https://deepwiki.com)는 GitHub URL의
-`github`을 `deepwiki`로 바꾸면 바로 코드에 Q&A 가능.
 
 ### 에이전트가 정보를 소비하게 하라
 
