@@ -34,7 +34,10 @@ Andrej Karpathy의 트윗:
 
 ## Articles
 
-[Agentic Coding: How I 10x’d My Development Workflow | by nicolas | Medium](https://medium.com/@dataenthusiast.io/e6f4fd65b7f0)
+[Most People Can't Vibe Code. Here's How We Fix That. - a16z](https://a16z.com/most-people-cant-vibe-code-heres-how-we-fix-that/) ·
+[요약](./vibe-coding-for-consumers.md)
+
+[Agentic Coding: How I 10x'd My Development Workflow | by nicolas | Medium](https://medium.com/@dataenthusiast.io/e6f4fd65b7f0)
 
 [What I learned trying seven coding agents](https://www.understandingai.org/p/what-i-learned-trying-seven-coding)
 
