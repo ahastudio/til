@@ -7,7 +7,7 @@ Anthony Morris가 [트윗][tweet-amorriscode]으로 발표했다.
 > Connect to your remote machines and let Claude cook,
 > TMUX optional.
 
-[tweet-amorriscode]: https://x.com/amorriscode/status/2022442179789300064
+[tweet-amorriscode]: https://twitter.com/amorriscode/status/2022442179789300064
 
 ## 기능 설명
 
@@ -60,7 +60,7 @@ Desktop 앱은 CLI와 별도의 릴리스 사이클을 가지며,
 - **2026-02-14**: Windows에서 SSH 경로 하드코딩 버그
   리포트 ([#25659]) — 기능이 방금 출시됐음을 시사
 
-[tweet-desktop-updates]: https://x.com/amorriscode/status/2010808647459488020
+[tweet-desktop-updates]: https://twitter.com/amorriscode/status/2010808647459488020
 [#15208]: https://github.com/anthropics/claude-code/issues/15208
 [#14666]: https://github.com/anthropics/claude-code/issues/14666
 [#25659]: https://github.com/anthropics/claude-code/issues/25659
@@ -74,7 +74,7 @@ Kenneth Auchenberg는 이 발표를 보고
 
 > RIP startups
 
-[tweet-auchenberg]: https://x.com/auchenberg/status/2022553904421179864
+[tweet-auchenberg]: https://twitter.com/auchenberg/status/2022553904421179864
 
 Auchenberg는 VS Code Remote Development를
 세상에 내놓은 팀에 있던 사람이다.
