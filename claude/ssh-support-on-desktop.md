@@ -7,15 +7,7 @@ Anthony Morris가 [트윗][tweet-amorriscode]으로 발표했다.
 > Connect to your remote machines and let Claude cook,
 > TMUX optional.
 
-이에 대해 전 Stripe 개발자 경험(DevX) 리드이자
-전 Microsoft VS Code 팀 출신인
-Kenneth Auchenberg는
-[한마디로 반응했다][tweet-auchenberg].
-
-> RIP startups
-
 [tweet-amorriscode]: https://x.com/amorriscode/status/2022442179789300064
-[tweet-auchenberg]: https://x.com/auchenberg/status/2022553904421179864
 
 ## 기능 설명
 
@@ -70,11 +62,26 @@ Desktop 앱은 CLI와 별도의 릴리스 사이클을 가지며,
 [#14666]: https://github.com/anthropics/claude-code/issues/14666
 [#25659]: https://github.com/anthropics/claude-code/issues/25659
 
-## "RIP startups" — 무엇이 죽는가
+## 보너스: Kenneth Auchenberg의 반응
 
-Auchenberg의 반응이 의미하는 바는 명확하다.
-원격 개발 환경을 제공하던 스타트업들의 존재 이유가
-흔들린다는 것이다.
+전 Stripe 개발자 경험(DevX) 리드이자
+전 Microsoft VS Code 팀 출신인
+Kenneth Auchenberg는 이 발표를 보고
+[두 단어로 반응했다][tweet-auchenberg].
+
+> RIP startups
+
+[tweet-auchenberg]: https://x.com/auchenberg/status/2022553904421179864
+
+Auchenberg는 VS Code Remote Development를
+세상에 내놓은 팀에 있던 사람이다.
+그가 "RIP startups"라고 말할 때,
+이것은 단순한 감탄이 아니라
+**같은 패턴을 두 번째로 목격한 사람의 진단**이다.
+
+VS Code가 Remote SSH Extension을 출시했을 때
+원격 개발 환경 스타트업들이 큰 타격을 받았다.
+이제 Claude Code Desktop이 같은 일을 반복한다.
 
 기존에 원격으로 Claude Code를 쓰려면:
 
@@ -86,20 +93,19 @@ Auchenberg의 반응이 의미하는 바는 명확하다.
 GUI에서 원격 머신의 코드베이스를 직접 조작하면서
 diff 리뷰, 커넥터, 플러그인까지 모두 쓸 수 있다.
 
-이는 다음 영역의 스타트업에 직접적 위협이다:
+직접적 위협을 받는 영역:
 
 - **원격 개발 환경** (Cloud IDE, Remote Dev)
 - **AI 코딩 에이전트 래퍼** (Claude Code 위에 SSH를
   얹어 파는 서비스)
 - **개발자 인프라 자동화** (원격 세션 관리 도구)
 
-## 인사이트
-
-**플랫폼이 기능을 흡수하는 패턴.**
 써드파티가 만들어낸 워크플로가 검증되면
-플랫폼이 네이티브로 통합하는 것은 반복되는 역사다.
-VS Code의 Remote SSH Extension이
-원격 개발 시장을 재편한 것과 같은 맥락이다.
+플랫폼이 네이티브로 흡수하는 것은 반복되는 역사다.
+Auchenberg는 그 역사를 만든 쪽에 있던 사람이기에
+두 단어면 충분했다.
+
+## 인사이트
 
 **"TMUX optional"의 의미.**
 기존에는 SSH로 Claude Code를 쓰려면
