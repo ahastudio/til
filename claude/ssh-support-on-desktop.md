@@ -52,7 +52,7 @@ Desktop 앱은 CLI와 별도의 릴리스 사이클을 가지며,
   ([#15208])
 - **2025-12-24**: 웹 버전 SSH Connector 기능 요청
   ([#14666])
-- **2026-01경**: amorriscode가 Desktop 대규모 업데이트
+- **2026-01-13**: amorriscode가 Desktop 대규모 업데이트
   [발표][tweet-desktop-updates]
   (Plan mode, 권한 알림, 성능 개선 등)
 - **2026-02-13**: SSH support
