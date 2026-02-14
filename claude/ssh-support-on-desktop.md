@@ -1,7 +1,7 @@
 # Claude Code Desktop — SSH Support
 
 2026년 2월 13일, Anthropic의 Claude Code 팀 엔지니어
-Anthony Morris가 트윗으로 발표했다.
+Anthony Morris가 [트윗][tweet-amorriscode]으로 발표했다.
 
 > SSH support is now available for Claude Code on desktop.
 > Connect to your remote machines and let Claude cook,
@@ -9,9 +9,13 @@ Anthony Morris가 트윗으로 발표했다.
 
 이에 대해 전 Stripe 개발자 경험(DevX) 리드이자
 전 Microsoft VS Code 팀 출신인
-Kenneth Auchenberg는 한마디로 반응했다.
+Kenneth Auchenberg는
+[한마디로 반응했다][tweet-auchenberg].
 
 > RIP startups
+
+[tweet-amorriscode]: https://x.com/amorriscode/status/2022442179789300064
+[tweet-auchenberg]: https://x.com/auchenberg/status/2022553904421179864
 
 ## 기능 설명
 
