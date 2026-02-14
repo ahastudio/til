@@ -53,11 +53,14 @@ Desktop 앱은 CLI와 별도의 릴리스 사이클을 가지며,
 - **2025-12-24**: 웹 버전 SSH Connector 기능 요청
   ([#14666])
 - **2026-01경**: amorriscode가 Desktop 대규모 업데이트
-  발표 (Plan mode, 권한 알림, 성능 개선 등)
-- **2026-02-13**: SSH support 공식 발표 (트윗)
+  [발표][tweet-desktop-updates]
+  (Plan mode, 권한 알림, 성능 개선 등)
+- **2026-02-13**: SSH support
+  [공식 발표][tweet-amorriscode] (트윗)
 - **2026-02-14**: Windows에서 SSH 경로 하드코딩 버그
   리포트 ([#25659]) — 기능이 방금 출시됐음을 시사
 
+[tweet-desktop-updates]: https://x.com/amorriscode/status/2010808647459488020
 [#15208]: https://github.com/anthropics/claude-code/issues/15208
 [#14666]: https://github.com/anthropics/claude-code/issues/14666
 [#25659]: https://github.com/anthropics/claude-code/issues/25659
