@@ -1,9 +1,9 @@
 # gmoney의 Claude Code 실전 25가지 팁
 
-- 2026년 2월 14일 트윗
-  <https://twitter.com/gmoneynft/status/2022454519741767800>
+2026년 2월 14일 트윗:
+<https://twitter.com/gmoneynft/status/2022454519741767800>
 
-gmoney.eth(@gmoneyNFT)가 수개월간 Claude Code를
+`gmoney.eth(@gmoneyNFT)`가 수개월간 Claude Code를
 일상 도구로 사용하며 배운 25가지 실전 팁입니다.
 Discord에서 여러 AI 에이전트를 24시간 운영하며
 리서치, 건강 추적, 트레이딩 분석, 콘텐츠 작성 등을
