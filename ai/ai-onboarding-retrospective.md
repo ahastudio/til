@@ -1,7 +1,7 @@
 # AI 시대의 개발자 온보딩 회고
 
-dylayed의 블로그 글 (2026년 2월 15일):
-<https://dylayed.com/posts/ai-onboarding/>
+Daniel Lee의 트윗 (2026년 2월 15일):
+<https://twitter.com/dylayed/status/2023279990218043794>
 
 구글 내부 팀 이동 후 AI와 함께한
 첫 온보딩 한 달간의 회고.
