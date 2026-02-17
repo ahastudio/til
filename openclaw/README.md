@@ -53,3 +53,115 @@ Karpathy는 "스카이넷은 아니지만 대규모 보안 악몽"이라고 경�
 
 자율 에이전트의 집단 행동이 이론이 아닌 현실이 되었다.
 준비가 안 된 상태에서 새로운 패러다임이 도래하고 있다.
+
+## 실전 활용 사례
+
+<https://github.com/hesamsheikh/awesome-openclaw-usecases>
+
+커뮤니티가 수집한 29개의 실전 활용 사례 모음이다.
+"기술이 아니라, 삶을 개선하는 방법을 찾는 것"이
+핵심 철학이다.
+
+### 패턴 1: 정보 수집과 요약
+
+여러 소스의 정보를 자동으로 모아 요약하는 패턴이다.
+OpenClaw의 가장 기본적이면서 실용적인 활용법이다.
+
+- **Daily Reddit/YouTube Digest**:
+  관심 서브레딧이나 채널의 새 콘텐츠를 매일 요약
+- **Multi-Source Tech News Digest**:
+  109개 이상의 소스(RSS, X, GitHub, 웹)에서
+  기술 뉴스를 수집하고 품질 점수를 매겨 제공
+- **AI Earnings Tracker**:
+  기술/AI 기업 실적 발표를 모니터링하고 알림 전송
+- **Custom Morning Brief**:
+  뉴스, 할 일, 콘텐츠 초안, AI 추천을
+  SMS로 개인화된 아침 브리핑 제공
+
+핵심은 "매일 반복하지만 직접 하기엔 귀찮은 일"을
+에이전트에게 맡기는 것이다.
+
+### 패턴 2: 멀티채널 통합
+
+흩어진 커뮤니케이션 채널을 하나로 묶는 패턴이다.
+
+- **Multi-Channel Customer Service**:
+  WhatsApp, Instagram, Email, Google Reviews를
+  하나의 AI 인박스로 통합해 24/7 자동 응답
+- **Multi-Channel Personal Assistant**:
+  Telegram, Slack, Email, 캘린더를
+  단일 에이전트 인터페이스로 통합
+- **Family Calendar Assistant**:
+  가족 캘린더를 병합하고, 메시지에서 일정을 감지해
+  자동 추적
+
+채널이 많을수록 에이전트의 가치가 커진다.
+인간은 컨텍스트 스위칭에 비용이 크지만
+에이전트는 그렇지 않다.
+
+### 패턴 3: 자율 실행과 자기 치유
+
+목표만 주면 스스로 실행하고 문제를 해결하는 패턴이다.
+가장 진보된 활용법이다.
+
+- **Goal-Driven Autonomous Tasks**:
+  개인 목표를 입력하면 일일 작업을 생성, 스케줄링,
+  실행까지 자율 수행. 밤새 미니 앱을 만들기도 함
+- **Self-Healing Home Server**:
+  SSH와 cron으로 홈서버를 항시 모니터링하고
+  문제 발생 시 자동 복구
+- **n8n Workflow Orchestration**:
+  n8n 워크플로우를 통해 API를 호출하되
+  자격 증명을 노출하지 않는 보안 패턴
+
+"에이전트가 잠든 사이에 일한다"는 컨셉이다.
+비동기 자율 실행이 OpenClaw의 차별화 포인트다.
+
+### 패턴 4: 지식 관리와 검색
+
+개인 지식을 체계적으로 축적하고 검색하는 패턴이다.
+
+- **Personal Knowledge Base (RAG)**:
+  URL, 트윗, 아티클을 입력하면
+  검색 가능한 지식 저장소를 구축
+- **Semantic Memory Search**:
+  마크다운 메모리 파일에 벡터 기반 시맨틱 검색을
+  적용해 하이브리드 검색 제공
+- **Second Brain**:
+  텍스트 메시지로 개인 정보를 저장하고
+  Next.js 인터페이스로 검색
+
+"기억은 에이전트에게, 판단은 인간에게"라는
+분업 모델이다.
+
+### 패턴 5: 멀티에이전트 협업
+
+전문화된 여러 에이전트가 팀으로 작동하는 패턴이다.
+
+- **Multi-Agent Content Factory**:
+  Discord에서 리서치, 작성, 썸네일 전문 에이전트가
+  각자의 채널에서 콘텐츠 파이프라인을 운영
+- **Multi-Agent Specialized Team**:
+  전략, 개발, 마케팅, 비즈니스 에이전트를
+  Telegram으로 조율하는 전문 팀 운영
+- **Autonomous Project Management**:
+  STATE.yaml 패턴으로 서브에이전트가 병렬로 작업.
+  오케스트레이션 오버헤드 없이 프로젝트 관리
+
+단일 에이전트의 한계를 넘어서는 방법이다.
+Karpathy가 주목한 "에이전트 네트워크"의
+실용적 구현이기도 하다.
+
+### 보안 주의사항
+
+awesome-openclaw-usecases 저장소에서도 경고한다:
+
+> OpenClaw 스킬과 서드파티 의존성에는
+> 치명적 취약점이 있을 수 있다.
+> 소스 코드를 반드시 검토하고,
+> 자격 증명을 하드코딩하지 마라.
+
+앞서 Karpathy 섹션에서 언급한 보안 우려와
+일맥상통한다.
+에이전트에게 더 많은 권한을 줄수록
+보안 검토도 비례해서 강화해야 한다.
