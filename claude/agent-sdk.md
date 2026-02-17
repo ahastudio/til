@@ -1,8 +1,8 @@
 # Claude Agent SDK
 
 > **Claude Agent SDK**는 Claude Code의 에이전트 하네스를 라이브러리로 제공하여,
-> 프로덕션 수준의 AI 에이전트를 구축할 수 있게 해주는 SDK입니다.
-> 코드베이스 이해, 파일 편집, 명령 실행, 복잡한 워크플로 수행이 가능합니다.
+> 프로덕션 수준의 AI 에이전트를 구축할 수 있게 해주는 SDK입니다. 코드베이스
+> 이해, 파일 편집, 명령 실행, 복잡한 워크플로 수행이 가능합니다.
 
 <https://platform.claude.com/docs/ko/agent-sdk/overview>
 
@@ -341,5 +341,5 @@ runPipeline("사용자 프로필에 아바타 이미지 업로드 기능 추가"
 
 - [Demo Repository](https://github.com/anthropics/claude-agent-sdk-demos)에서
   Research Agent (멀티에이전트) 예제 확인
-- [Python SDK](https://github.com/anthropics/claude-agent-sdk-python)의
-  Hooks로 위험한 명령 차단하기
+- [Python SDK](https://github.com/anthropics/claude-agent-sdk-python)의 Hooks로
+  위험한 명령 차단하기
