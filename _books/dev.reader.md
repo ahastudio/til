@@ -1,7 +1,8 @@
 # 개발자, 한 달에 책 한 권 읽기
 
 - Facebook 페이지: [https://fb.me/dev.reader](http://j.mp/2LE6xxI)
-- YouTube 플레이리스트: [https://www.youtube.com/playlist?list=PLbdtsbZUwdeQuiDRERhACtWt8LEfKBXgP](http://j.mp/2qfN0N6)
+- YouTube 플레이리스트:
+  [https://www.youtube.com/playlist?list=PLbdtsbZUwdeQuiDRERhACtWt8LEfKBXgP](http://j.mp/2qfN0N6)
 
 ## 모임에 대한 영상
 
@@ -46,36 +47,36 @@
 ## 2019년
 
 1. 1월 - 함께 자라기
-    - [“함께 자라기 - 애자일로 가는 길” 책 소개](https://youtu.be/eP4Hu2glU8s)
+   - [“함께 자라기 - 애자일로 가는 길” 책 소개](https://youtu.be/eP4Hu2glU8s)
 1. 2월 - 프로그래밍 수련법
-    - [“프로그래밍 수련법” 책 소개 및 저자 덕질](https://youtu.be/7nRUXFGcn7A)
+   - [“프로그래밍 수련법” 책 소개 및 저자 덕질](https://youtu.be/7nRUXFGcn7A)
 1. 3월 - 피플웨어
-    - [“피플웨어” 책 소개 및 개발 문화에 대해서...](https://youtu.be/PzRACD0I9Ew)
-    - [“피플웨어”가 말하는 생산성의 비밀](https://youtu.be/oAqvYrlHbRE)
-    - [“피플웨어” 요약 발표](https://youtu.be/9TKWsPnSSIM)
+   - [“피플웨어” 책 소개 및 개발 문화에 대해서...](https://youtu.be/PzRACD0I9Ew)
+   - [“피플웨어”가 말하는 생산성의 비밀](https://youtu.be/oAqvYrlHbRE)
+   - [“피플웨어” 요약 발표](https://youtu.be/9TKWsPnSSIM)
 1. 4월 - 어떻게 문제를 풀 것인가
 1. 5월 - 그들은 알고리즘을 알았을까
 1. 6월 - 데브옵스 핸드북
 1. 7월 - 오브젝트
-    - [“오브젝트” 책 소개 및 7월 모임 안내](https://youtu.be/2UpjEPFxWjw)
-    - [오브젝트 #1](https://youtu.be/PX_Ot_irSG8)
-    - [오브젝트 #2](https://youtu.be/moSl4WS3O0Q)
+   - [“오브젝트” 책 소개 및 7월 모임 안내](https://youtu.be/2UpjEPFxWjw)
+   - [오브젝트 #1](https://youtu.be/PX_Ot_irSG8)
+   - [오브젝트 #2](https://youtu.be/moSl4WS3O0Q)
 1. 8월 - 읽기 좋은 코드가 좋은 코드다
-    - [“읽기 좋은 코드가 좋은 코드다” 책 소개](https://youtu.be/YY-6B8zEbu0)
-    - [한윤석님의 모임 후기](http://j.mp/2lUn607)
+   - [“읽기 좋은 코드가 좋은 코드다” 책 소개](https://youtu.be/YY-6B8zEbu0)
+   - [한윤석님의 모임 후기](http://j.mp/2lUn607)
 1. 9월 - 클린 아키텍처
-    - [개발자, 한 달에 책 한 권 읽기 DEMO](https://youtu.be/9u8x_ON903U)
-    - [라이브 스트리밍 #43 - 클린 아키텍처 읽기](https://youtu.be/WPvJ9jO5Ne4)
-    - [라이브 스트리밍 #44 - 클린 아키텍처 읽기 Part 2](https://youtu.be/GHf4JnFSOis)
-    - [개발자의 앞길에 맵핵 시전 - 공통 폐쇄 원칙](http://j.mp/2lQpRiQ)
-    - [한윤석님의 모임 후기](http://j.mp/2nusKGq)
-    - [정기욱님의 모임 후기](http://j.mp/2mBL54j)
+   - [개발자, 한 달에 책 한 권 읽기 DEMO](https://youtu.be/9u8x_ON903U)
+   - [라이브 스트리밍 #43 - 클린 아키텍처 읽기](https://youtu.be/WPvJ9jO5Ne4)
+   - [라이브 스트리밍 #44 - 클린 아키텍처 읽기 Part 2](https://youtu.be/GHf4JnFSOis)
+   - [개발자의 앞길에 맵핵 시전 - 공통 폐쇄 원칙](http://j.mp/2lQpRiQ)
+   - [한윤석님의 모임 후기](http://j.mp/2nusKGq)
+   - [정기욱님의 모임 후기](http://j.mp/2mBL54j)
 1. 10월 - 클린 코더
-    - [한윤석님의 모임 후기](http://j.mp/2SOPXRg)
+   - [한윤석님의 모임 후기](http://j.mp/2SOPXRg)
 1. 11월 - 자바와 JUnit을 활용한 실용주의 단위 테스트
-    - [한윤석님의 모임 후기](http://j.mp/2ZHV9YA)
+   - [한윤석님의 모임 후기](http://j.mp/2ZHV9YA)
 1. 12월 - 심플 소프트웨어
-    - [한윤석님의 모임 후기](http://j.mp/3590rxy)
+   - [한윤석님의 모임 후기](http://j.mp/3590rxy)
 
 ## 2020년
 

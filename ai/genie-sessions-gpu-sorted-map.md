@@ -6,9 +6,9 @@ Kent Beck의 Genie Sessions 라이브 코딩에서 배운 AI 협업 인사이트
 
 ## Genie Sessions
 
-Kent Beck은 Genie Sessions을 통해 Augmented Coding(증강 코딩)을 시연한다.
-**대본 없이, 연습 없이** 진행되는 라이브 코딩으로,
-높은 불안감 속에서 학습 기회를 극대화한다.
+Kent Beck은 Genie Sessions을 통해 Augmented Coding(증강 코딩)을 시연한다. **대본
+없이, 연습 없이** 진행되는 라이브 코딩으로, 높은 불안감 속에서 학습 기회를
+극대화한다.
 
 이번 에피소드에서는 GPU를 활용한 Sorted Map을 Rust와 WGPU로 구현한다.
 
@@ -18,8 +18,8 @@ Kent Beck은 Genie Sessions을 통해 Augmented Coding(증강 코딩)을 시연�
 
 AI를 단순한 코드 생성기가 아닌, "리소스" 또는 "친구"로 활용한다.
 
-> AI는 프로그래머에게 많은 노력을 요구하지만,
-> 동시에 엄청난 가치를 제공하는 도구다.
+> AI는 프로그래머에게 많은 노력을 요구하지만, 동시에 엄청난 가치를 제공하는
+> 도구다.
 
 ### 열린 자세
 

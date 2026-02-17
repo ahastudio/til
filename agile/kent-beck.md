@@ -10,23 +10,15 @@
 
 <https://www.facebook.com/notes/1054470145004848/>
 
-> My mission: help geeks feels safe in the world.
-> Everything I’ve done fits somehow:
+> My mission: help geeks feels safe in the world. Everything I’ve done fits
+> somehow:
 >
-> - **Patterns**.
-> Isolate the repeating parts of problems and solutions
-> so the unique aspects come into clearer focus.
->
-> - **xUnit**.
-> Transmute worry into tests that replicate confidence.
->
-> - **TDD**.
-> Break overwhelming problems into a stream of
-> test-code-design-test-code-design.
-> Extreme Programming. Create a rhythm and structure
-> for safe social interaction that results in solved problems
-> (often involving code).
->
-> - **3X Explore/Expand/Extract**.
-> Fit the punishment to the crime.
-> Neither over- nor under-do rigor, creativity, safety, planning, and reaction.
+> - **Patterns**. Isolate the repeating parts of problems and solutions so the
+>   unique aspects come into clearer focus.
+> - **xUnit**. Transmute worry into tests that replicate confidence.
+> - **TDD**. Break overwhelming problems into a stream of
+>   test-code-design-test-code-design. Extreme Programming. Create a rhythm and
+>   structure for safe social interaction that results in solved problems (often
+>   involving code).
+> - **3X Explore/Expand/Extract**. Fit the punishment to the crime. Neither
+>   over- nor under-do rigor, creativity, safety, planning, and reaction.

@@ -12,9 +12,9 @@ AI 에이전트는 다음과 같은 한계가 있습니다:
 
 ## 해법: 3-File Pattern
 
-세 개의 전용 파일(`tasks.md`, `findings.md`, `progress.md`)로 분리하여
-계획, 발견사항, 진행상황을 각각 관리합니다.
-AI가 작업 전후로 이 파일들을 읽고 업데이트하여 영구 메모리로 활용합니다.
+세 개의 전용 파일(`tasks.md`, `findings.md`, `progress.md`)로 분리하여 계획,
+발견사항, 진행상황을 각각 관리합니다. AI가 작업 전후로 이 파일들을 읽고
+업데이트하여 영구 메모리로 활용합니다.
 
 ### 파일 구조
 
@@ -278,11 +278,10 @@ Figma에서 확인한 로그인 화면:
 
 ## 비교: Spec-Driven Development
 
-**Spec-Driven Development**: "무엇을" 만들지 사전에 명확히 정의
-(Top-down, 계획 중심)
+**Spec-Driven Development**: "무엇을" 만들지 사전에 명확히 정의 (Top-down, 계획
+중심)
 
-**File-based Planning**: "어떻게" 진행되는지 과정을 추적
-(Bottom-up, 탐색 중심)
+**File-based Planning**: "어떻게" 진행되는지 과정을 추적 (Bottom-up, 탐색 중심)
 
 함께 사용하면: Spec으로 방향을 정하고, Planning으로 과정을 추적
 

@@ -12,7 +12,8 @@
 
 <https://tuple.app/pair-programming-guide/>
 
-[Pair Programming Antipatterns](https://tuple.app/pair-programming-guide/antipatterns) \
+[Pair Programming Antipatterns](https://tuple.app/pair-programming-guide/antipatterns)
+\
 → 한국어 요약:
 [페어 프로그래밍 안티 패턴들 | GeekNews](https://news.hada.io/topic?id=6142)
 

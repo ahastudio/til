@@ -17,11 +17,11 @@ exports.config = {
   // ...(중략)...
   helpers: {
     Puppeteer: {
-      url: 'http://localhost',
+      url: "http://localhost",
       show: true,
-      windowSize: '1024x768',
+      windowSize: "1024x768",
       chrome: {
-        args: ['--window-size=1024,768'],
+        args: ["--window-size=1024,768"],
       },
     },
   },
@@ -31,8 +31,7 @@ exports.config = {
 
 ## CircleCI
 
-Browser Testing
-<https://circleci.com/docs/2.0/browser-testing/>
+Browser Testing <https://circleci.com/docs/2.0/browser-testing/>
 
 ```yaml
 version: 2

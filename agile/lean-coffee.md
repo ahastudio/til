@@ -10,5 +10,4 @@
 
 ## 온라인 서비스
 
-Lean Coffee Table
-<https://www.leancoffeetable.com/>
+Lean Coffee Table <https://www.leancoffeetable.com/>
