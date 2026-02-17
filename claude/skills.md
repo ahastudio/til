@@ -223,9 +223,3 @@ Claude의 자동 로드 기능이다.
 Agent Skills 오픈 표준을 따른다.
 
 <https://agentskills.io>
-
-## 관련 문서
-
-- [Claude Code](./claude-code.md)
-- [Claude Code를 활용한 코드 리뷰 자동화](./code-review-skill.md)
-- [Agent SDK](./agent-sdk.md)
