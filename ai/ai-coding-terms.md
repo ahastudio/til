@@ -6,18 +6,18 @@
 
 ## 비교표
 
-| 용어                    | 제안자          | 핵심 한 줄                           |
-|-------------------------|-----------------|--------------------------------------|
-| Vibe Coding             | Karpathy        | 코드를 잊어라. 동작만 봐라.          |
-| Agentic Engineering     | Karpathy        | 에이전트를 감독하라. 테스트가 핵심.  |
-| Augmented Coding        | Kent Beck       | AI를 쓰되 깔끔한 코드를 포기 마라.   |
-| AI-Assisted Eng.        | Addy Osmani     | 70% AI, 30% 사람의 판단.             |
-| Agentic Coding          | Anthropic/업계  | 에이전트가 쓰고 테스트하고 고친다.   |
-| CHOP                    | Steve Yegge     | 대화로 코드를 이끌어낸다.            |
-| Prompt-Driven Dev.      | 커뮤니티        | 구조화된 프롬프트가 코드를 낳는다.   |
-| Spec-Driven Dev.        | Thoughtworks    | 명세가 원천, 코드는 파생물.          |
-| AI Pair Programming     | GitHub/업계     | AI가 짝. 가장 넓은 우산 용어.        |
-| Centaur Coding          | 체스 메타포     | 기수(rider)가 돼라. 승객이 되지 마라. |
+| 용어                      | 제안자         | 핵심 한 줄                            |
+| ------------------------- | -------------- | ------------------------------------- |
+| Vibe Coding               | Karpathy       | 코드를 잊어라. 동작만 봐라.           |
+| Agentic Engineering       | Karpathy       | 에이전트를 감독하라. 테스트가 핵심.   |
+| Augmented Coding          | Kent Beck      | AI를 쓰되 깔끔한 코드를 포기 마라.    |
+| AI-Assisted Engineering   | Addy Osmani    | 70% AI, 30% 사람의 판단.              |
+| Agentic Coding            | Anthropic/업계 | 에이전트가 쓰고 테스트하고 고친다.    |
+| CHOP                      | Steve Yegge    | 대화로 코드를 이끌어낸다.             |
+| Prompt-Driven Development | 커뮤니티       | 구조화된 프롬프트가 코드를 낳는다.    |
+| Spec-Driven Development   | Thoughtworks   | 명세가 원천, 코드는 파생물.           |
+| AI Pair Programming       | GitHub/업계    | AI가 짝. 가장 넓은 우산 용어.         |
+| Centaur Coding            | 체스 메타포    | 기수(rider)가 돼라. 승객이 되지 마라. |
 
 ## 용어별 핵심 통찰
 
@@ -107,5 +107,5 @@ Vibe Coding ── (1년) ──▶ Agentic Engineering
 - [Kent Beck — Augmented Coding](https://tidyfirst.substack.com/p/augmented-coding-beyond-the-vibes)
 - [Addy Osmani — Beyond Vibe Coding](https://beyond.addy.ie/)
 - [Anthropic — Agentic Coding Trends 2026](https://resources.anthropic.com/hubfs/2026%20Agentic%20Coding%20Trends%20Report.pdf)
-- [Thoughtworks — Spec-Driven Dev.](https://www.thoughtworks.com/en-us/insights/blog/agile-engineering-practices/spec-driven-development-unpacking-2025-new-engineering-practices)
+- [Thoughtworks — Spec-Driven Development](https://www.thoughtworks.com/en-us/insights/blog/agile-engineering-practices/spec-driven-development-unpacking-2025-new-engineering-practices)
 - [Gradient Flow — CHOP](https://gradientflow.com/vibe-coding-and-chop-what-you-need-to-know/)
