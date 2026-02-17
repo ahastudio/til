@@ -7,7 +7,7 @@ Andrej Karpathy의 MicroGPT 분석.
 - 소스코드:
   <https://gist.github.com/karpathy/8627fe009c40f57531cb18360106ce95>
 - 트윗:
-  <https://x.com/karpathy/status/2021694437152157847>
+  <https://twitter.com/karpathy/status/2021694437152157847>
 
 ## 개요
 
