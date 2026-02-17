@@ -7,3 +7,7 @@
 [Make plugins for the Figma Community](https://help.figma.com/hc/en-us/articles/360039958874-Make-plugins-for-the-Figma-Community)
 
 [Board Gaming in Figma](https://mastery.games/post/board-gaming-in-figma/)
+
+## Claude Code 연동
+
+[Claude Code to Figma Design](claude-code-to-figma.md)
