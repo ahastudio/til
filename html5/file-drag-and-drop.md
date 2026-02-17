@@ -8,7 +8,7 @@
   function dropFile(e) {
     e.preventDefault();
     var dt = e.dataTransfer;
-    Array.from(dt.files).forEach(file => {
+    Array.from(dt.files).forEach((file) => {
       // TODO: ...
       console.log(file);
     });

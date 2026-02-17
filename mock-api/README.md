@@ -11,8 +11,8 @@
 
 ## MockServer
 
-> MockServer enables easy mocking of any system you integrate
-> with via HTTP or HTTPS with clients written in Java, JavaScript and Ruby.
+> MockServer enables easy mocking of any system you integrate with via HTTP or
+> HTTPS with clients written in Java, JavaScript and Ruby.
 
 [https://mock-server.com/](https://bit.ly/3FSIbe4)
 

@@ -16,10 +16,8 @@
 
 <https://github.com/lucasgelfond/zerobrew>
 
-Content-addressable 스토리지, APFS clonefile,
-동시 다운로드 등을 활용해 Homebrew보다
-훨씬 빠른 패키지 설치를 제공한다.
-Brewfile 호환도 지원한다.
+Content-addressable 스토리지, APFS clonefile, 동시 다운로드 등을 활용해
+Homebrew보다 훨씬 빠른 패키지 설치를 제공한다. Brewfile 호환도 지원한다.
 
 ```bash
 curl -sSL https://zerobrew.rs/install | bash

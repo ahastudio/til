@@ -1,7 +1,6 @@
 # graphql-request
 
-> Minimal GraphQL client supporting Node and browsers for scripts
-> or simple apps
+> Minimal GraphQL client supporting Node and browsers for scripts or simple apps
 
 <https://github.com/prisma-labs/graphql-request>
 

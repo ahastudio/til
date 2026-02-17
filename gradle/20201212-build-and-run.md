@@ -35,8 +35,8 @@ Gradle로 빠르게 확인해 보겠습니다.
 ./gradlew clean
 ```
 
-준비가 잘 됐는지 확인하기 위해
-Java 11부터 지원하는 방식으로 기본 코드를 실행해 보겠습니다.
+준비가 잘 됐는지 확인하기 위해 Java 11부터 지원하는 방식으로 기본 코드를 실행해
+보겠습니다.
 
 ```bash
 cat app/src/main/java/com/example/App.java
@@ -141,8 +141,8 @@ import org.springframework.context.ApplicationContext;
                                   ^
 ```
 
-의존성을 `build/dependencies`로 모으기 위해
-`app/build.gradle.kts` 파일을 변경합니다.
+의존성을 `build/dependencies`로 모으기 위해 `app/build.gradle.kts` 파일을
+변경합니다.
 
 ```gradle.kts
 tasks.register<Copy>("copyDependencies") {
@@ -248,8 +248,7 @@ Gradle엔 JAR 파일을 모아서 `tar` 파일을 만드는 기능이 있습니�
 ls -al app/build/distributions/
 ```
 
-압축을 풀어서 확인해 봅시다.
-우리가 귀찮게 모았던 게 한꺼번에 해결된 상태죠?
+압축을 풀어서 확인해 봅시다. 우리가 귀찮게 모았던 게 한꺼번에 해결된 상태죠?
 
 ```bash
 tar -xf app/build/distributions/app.tar -C app/build/distributions/
@@ -267,8 +266,7 @@ java -classpath "app/build/distributions/app/lib/*" com.example.App
 
 ## JAR 파일 살펴보기
 
-자, 다시 JAR 파일로 돌아오죠.
-깔끔하게 다시 기본 상태로 만듭시다.
+자, 다시 JAR 파일로 돌아오죠. 깔끔하게 다시 기본 상태로 만듭시다.
 
 ```bash
 ./gradlew clean jar
@@ -402,9 +400,9 @@ java -jar app/build/libs/app.jar
 
 ## Fat JAR 만드는 작업 분리
 
-평범한 JAR 파일과 Fat JAR 파일을 만드는 작업을 분리해 봅시다.
-Fat JAR 파일을 만드는 작업을 `fatJar`라고 합시다.
-`app/build.gradle.kts` 파일의 관련 코드를 다음과 같이 변경합니다.
+평범한 JAR 파일과 Fat JAR 파일을 만드는 작업을 분리해 봅시다. Fat JAR 파일을
+만드는 작업을 `fatJar`라고 합시다. `app/build.gradle.kts` 파일의 관련 코드를
+다음과 같이 변경합니다.
 
 ```gradle.kts
 # tasks.jar는 삭제하고 tasks.withType<Jar>로 공통 요소를 추출합니다.
@@ -430,8 +428,8 @@ tasks.register<Jar>("fatJar") {
 }
 ```
 
-`from(sourceSets.main.get().output)` 대신
-`with(tasks.jar.get())`를 써서 더 간단히 정리할 수도 있습니다.
+`from(sourceSets.main.get().output)` 대신 `with(tasks.jar.get())`를 써서 더
+간단히 정리할 수도 있습니다.
 
 ```gradle.kts
 tasks.register<Jar>("fatJar") {

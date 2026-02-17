@@ -1,7 +1,6 @@
 # Pyccuracy - BDD-style Web Acceptance Testing framework
 
-아샬이 예전에 썼던 BDD E2E 테스트 도구.
-현재는 개발 중단됨.
+아샬이 예전에 썼던 BDD E2E 테스트 도구. 현재는 개발 중단됨.
 
 <https://github.com/heynemann/pyccuracy>
 

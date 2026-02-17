@@ -12,11 +12,10 @@
 
 <https://www.oreilly.com/library/view/the-ruby-programming/9780596516178/ch03s08.html>
 
-> Ruby is a very pure object-oriented language:
-> all values are objects, and there is no distinction between primitive types
-> and object types as there are in many other languages.
-> In Ruby, all objects inherit from a class named Object and share the methods
-> defined by that class.
+> Ruby is a very pure object-oriented language: all values are objects, and
+> there is no distinction between primitive types and object types as there are
+> in many other languages. In Ruby, all objects inherit from a class named
+> Object and share the methods defined by that class.
 
 ### Primitive Type과 Object Type의 구분이 없음
 

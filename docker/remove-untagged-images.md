@@ -1,7 +1,6 @@
 # Remove untagged images
 
-Prune unused Docker objects
-<https://docs.docker.com/config/pruning/>
+Prune unused Docker objects <https://docs.docker.com/config/pruning/>
 
 ```bash
 docker image prune

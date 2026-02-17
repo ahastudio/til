@@ -1,6 +1,7 @@
 # Immutable Array
 
-흔히 하는 실수와 해결책은 Redux 문서의 [Immutable Update Patterns](https://j.mp/2RJD8Gp) 문서를 참고하세요.
+흔히 하는 실수와 해결책은 Redux 문서의
+[Immutable Update Patterns](https://j.mp/2RJD8Gp) 문서를 참고하세요.
 
 ## Push
 
@@ -50,12 +51,12 @@ function pop(xs) {
 
 ```javascript
 const a = [1, 2, 3];
-const b = a.filter(i => i !== 2);
+const b = a.filter((i) => i !== 2);
 ```
 
 ```javascript
 function remove(xs, value) {
-  return xs.filter(x => x !== value);
+  return xs.filter((x) => x !== value);
 }
 ```
 

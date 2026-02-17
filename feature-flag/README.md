@@ -24,8 +24,8 @@
 
 → Cloud는 5명까지 무료.
 
-> With feature flags, releasing new features isn't tangled up with deploying
-> new code. And rollbacks are virtually instant.
+> With feature flags, releasing new features isn't tangled up with deploying new
+> code. And rollbacks are virtually instant.
 
 → 이게 굉장히 중요하다.
 
@@ -51,7 +51,8 @@
 
 ## FeatBit
 
-> Open Source Feature Flags Management Service, Friendly for Self Hosted, Azure, AWS, GCP
+> Open Source Feature Flags Management Service, Friendly for Self Hosted, Azure,
+> AWS, GCP
 
 <https://www.featbit.co/>
 

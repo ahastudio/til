@@ -1,7 +1,7 @@
 # Datomic
 
-> A transactional database with a flexible data model, elastic scaling,
-> and rich queries.
+> A transactional database with a flexible data model, elastic scaling, and rich
+> queries.
 
 <https://www.datomic.com/>
 

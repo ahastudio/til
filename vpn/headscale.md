@@ -2,8 +2,8 @@
 
 <https://github.com/juanfont/headscale>
 
-Tailscale 컨트롤 서버의 오픈소스 구현체.
-공식 Tailscale 클라이언트를 그대로 사용할 수 있습니다.
+Tailscale 컨트롤 서버의 오픈소스 구현체. 공식 Tailscale 클라이언트를 그대로
+사용할 수 있습니다.
 
 ## 주요 특징
 
@@ -80,8 +80,7 @@ docker exec -it headscale \
 
 ## 웹 UI
 
-Headscale 자체에는 웹 UI가 없습니다.
-별도 프로젝트를 사용합니다.
+Headscale 자체에는 웹 UI가 없습니다. 별도 프로젝트를 사용합니다.
 
 - [Headscale-UI](https://github.com/gurucomputing/headscale-ui)
 - [Headplane](https://github.com/tale/headplane)
@@ -92,8 +91,8 @@ Headscale 자체에는 웹 UI가 없습니다.
 
 <https://headplane.net/>
 
-가장 기능이 풍부한 Headscale 웹 UI.
-Tailscale 공식 대시보드에 가까운 경험을 제공합니다.
+가장 기능이 풍부한 Headscale 웹 UI. Tailscale 공식 대시보드에 가까운 경험을
+제공합니다.
 
 - 노드 관리 (만료, 라우팅, 이름, 소유자)
 - ACL/태그 설정

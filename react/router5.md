@@ -4,5 +4,4 @@
 
 <https://github.com/router5/router5>
 
-React 예제:
-<https://github.com/router5/router5/tree/master/examples/react>
+React 예제: <https://github.com/router5/router5/tree/master/examples/react>

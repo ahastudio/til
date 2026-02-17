@@ -1,13 +1,13 @@
 # WebView에서 JavaScript 실행하기
 
-React Native(Expo)로 웹 페이지를 띄우고,
-JavaScript를 실행하는 방법에 대해 간단히 알아보겠습니다.
+React Native(Expo)로 웹 페이지를 띄우고, JavaScript를 실행하는 방법에 대해
+간단히 알아보겠습니다.
 
 ## Instagram 간단 분석
 
-Instagram에 있는 사진을 메뉴 등 없이 간단히 보고 싶습니다.
-대단히 좋은 방법이 많이 있지만,
-여기서는 JavaScript를 이용해 불필요한(?) 요소를 제거하는 방법을 취하겠습니다.
+Instagram에 있는 사진을 메뉴 등 없이 간단히 보고 싶습니다. 대단히 좋은 방법이
+많이 있지만, 여기서는 JavaScript를 이용해 불필요한(?) 요소를 제거하는 방법을
+취하겠습니다.
 
 우리가 볼 사진은 이겁니다.
 
@@ -15,7 +15,8 @@ Instagram에 있는 사진을 메뉴 등 없이 간단히 보고 싶습니다.
 
 Instagram의 해당 페이지를 보면 사진 외의 요소가 많습니다.
 
-Google Chrome의 개발자 도구를 열여서 우리가 제거할 요소를 찾아보면 다음과 같습니다:
+Google Chrome의 개발자 도구를 열여서 우리가 제거할 요소를 찾아보면 다음과
+같습니다:
 
 1. 상단 메뉴: `nav`
 1. 하단 메뉴: `footer`
@@ -26,11 +27,11 @@ Google Chrome의 개발자 도구를 열여서 우리가 제거할 요소를 찾
 이들을 지워주는 코드를 JavaScript로 간단히 써봅시다.
 
 ```javascript
-document.querySelector('nav').remove();
-document.querySelector('footer').remove();
-document.querySelector('article > header').remove();
-document.querySelector('article > div:nth-of-type(3)').remove();
-document.querySelector('article > div:nth-of-type(2)').remove();
+document.querySelector("nav").remove();
+document.querySelector("footer").remove();
+document.querySelector("article > header").remove();
+document.querySelector("article > div:nth-of-type(3)").remove();
+document.querySelector("article > div:nth-of-type(2)").remove();
 ```
 
 완벽하진 않지만 일단 이 정도만 실행하도록 하죠.
@@ -70,14 +71,12 @@ npm start
 `App.js` 파일을 다음과 같이 단순화합니다.
 
 ```javascript
-import React from 'react';
-import { WebView } from 'react-native-webview';
+import React from "react";
+import { WebView } from "react-native-webview";
 
 export default function App() {
   return (
-    <WebView
-      source={{ uri: 'https://www.instagram.com/p/B9PB--QjTDg/' }}
-    />
+    <WebView source={{ uri: "https://www.instagram.com/p/B9PB--QjTDg/" }} />
   );
 }
 ```
@@ -86,14 +85,14 @@ export default function App() {
 
 ## JavaScript 코드 주입하기
 
-[`WebView`](https://j.mp/2Wjeujs)엔
-`injectJavaScript`와 `injectedJavaScript`가 있습니다.
-JavaScript를 언제 실행하는지 차이가 있는데,
-여기선 `injectedJavaScript`를 이용해 로딩된 후에 JavaScript 코드를 실행하도록 하겠습니다.
+[`WebView`](https://j.mp/2Wjeujs)엔 `injectJavaScript`와 `injectedJavaScript`가
+있습니다. JavaScript를 언제 실행하는지 차이가 있는데, 여기선
+`injectedJavaScript`를 이용해 로딩된 후에 JavaScript 코드를 실행하도록
+하겠습니다.
 
 ```javascript
-import React from 'react';
-import { WebView } from 'react-native-webview';
+import React from "react";
+import { WebView } from "react-native-webview";
 
 const script = `
   document.querySelector('nav').remove();
@@ -106,7 +105,7 @@ const script = `
 export default function App() {
   return (
     <WebView
-      source={{ uri: 'https://www.instagram.com/p/B9PB--QjTDg/' }}
+      source={{ uri: "https://www.instagram.com/p/B9PB--QjTDg/" }}
       injectedJavaScript={script}
     />
   );

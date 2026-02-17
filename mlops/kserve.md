@@ -4,5 +4,4 @@
 
 <https://github.com/kserve/kserve>
 
-Documentation:
-<https://kserve.github.io/website/>
+Documentation: <https://kserve.github.io/website/>

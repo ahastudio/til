@@ -21,5 +21,6 @@ https://clickhouse.com/
 ![SQL query](https://pbs.twimg.com/media/GIB-2CAawAAH9LM?format=jpg&name=medium)
 
 챌린지
+
 - [One Billion Row Challenge](https://github.com/gunnarmorling/1brc)
 - [One Trillion Row Challenge](https://github.com/coiled/1trc)

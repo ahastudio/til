@@ -6,7 +6,8 @@
 
 [Litestream - SQLite 스트리밍 복제 도구 | GeekNews](https://news.hada.io/topic?id=6438)
 
-[I'm All-In on Server-Side SQLite · The Fly Blog](https://fly.io/blog/all-in-on-sqlite-litestream/) \
+[I'm All-In on Server-Side SQLite · The Fly Blog](https://fly.io/blog/all-in-on-sqlite-litestream/)
+\
 → 한국어 요약:
 [저는 서버사이드 SQLite에 올인합니다 | GeekNews](https://news.hada.io/topic?id=6557)
 

@@ -80,8 +80,8 @@ godoc -http=:6060 -goroot=$HOME/tmp/godoc
 
 ## Blog Page
 
-블로그 페이지를 접근했을 때 외부로 이동하는 걸 막으려면
-`golang.org/x/blog` 패키지를 설치하면 된다.
+블로그 페이지를 접근했을 때 외부로 이동하는 걸 막으려면 `golang.org/x/blog`
+패키지를 설치하면 된다.
 
 패키지 소스 코드: <https://github.com/golang/blog>
 
@@ -105,8 +105,8 @@ GOROOT=$HOME/tmp/godoc godoc -http=:6060
 
 ## Go Walker
 
-> Go Walker is a server that generates Go projects API documentation
-> on the fly for the projects on GitHub.
+> Go Walker is a server that generates Go projects API documentation on the fly
+> for the projects on GitHub.
 
 <https://gowalker.org/>
 

@@ -14,8 +14,8 @@
 
 [New Versioning Scheme – React Blog](https://reactjs.org/blog/2016/02/19/new-versioning-scheme.html)
 
-> Today we’re announcing that we’re switching to major revisions for React.
-> The current version is 0.14.7. The next release will be: 15.0.0
+> Today we’re announcing that we’re switching to major revisions for React. The
+> current version is 0.14.7. The next release will be: 15.0.0
 
 ## React 버전 17
 
@@ -31,12 +31,12 @@
 
 [React v19 – React](https://react.dev/blog/2024/12/05/react-19)
 
-한국어 요약:
-[React 19 | GeekNews](https://news.hada.io/topic?id=18129)
+한국어 요약: [React 19 | GeekNews](https://news.hada.io/topic?id=18129)
 
 ## React Compiler
 
-[I tried React Compiler today, and guess what... 😉](https://www.developerway.com/posts/i-tried-react-compiler) \
+[I tried React Compiler today, and guess what... 😉](https://www.developerway.com/posts/i-tried-react-compiler)
+\
 → 한국어 번역:
 [오늘 리액트 컴파일러를 사용해 봤는데, 어땠을 것 같나요? 😉 | by Jung Han | Jun, 2024 | Medium](https://junghan92.medium.com/%EC%98%A4%EB%8A%98-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4-%EB%B4%A4%EB%8A%94%EB%8D%B0-%EC%96%B4%EB%95%A0%EC%9D%84-%EA%B2%83-%EA%B0%99%EB%82%98%EC%9A%94-ece57f076b02)
 
@@ -72,15 +72,16 @@ EP4: How ReactDOM.render works
 → 한국어 번역:
 [렌더링하고 커밋하기 – React](https://react-ko.dev/learn/render-and-commit)
 
-[State as a Snapshot – React](https://react.dev/learn/state-as-a-snapshot)
-→ 한국어 번역:
+[State as a Snapshot – React](https://react.dev/learn/state-as-a-snapshot) →
+한국어 번역:
 [스냅샷으로서의 state – React](https://react-ko.dev/learn/state-as-a-snapshot)
 
 [재조정 (Reconciliation) – React](https://ko.legacy.reactjs.org/docs/reconciliation.html)
 
 [React 렌더링 과정으로 알아보는 선언적이라는 의미](https://pozafly.github.io/react/declarative-meaning-of-react-rendering-process/)
 
-[Why React Re-Renders](https://www.joshwcomeau.com/react/why-react-re-renders/) \
+[Why React Re-Renders](https://www.joshwcomeau.com/react/why-react-re-renders/)
+\
 → 한국어 번역:
 [왜 리액트에서 리렌더링이 발생하는가](https://medium.com/@yujso66/%EB%B2%88%EC%97%AD-%EC%99%9C-%EB%A6%AC%EC%95%A1%ED%8A%B8%EC%97%90%EC%84%9C-%EB%A6%AC%EB%A0%8C%EB%8D%94%EB%A7%81%EC%9D%B4-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94%EA%B0%80-74dd239b0063)
 
@@ -132,8 +133,8 @@ EP4: How ReactDOM.render works
 
 ## 온라인 상점 예제
 
-> A demo online clothing store built with TailwindCSS, React Hooks,
-> Redux Toolkit, React Router 6
+> A demo online clothing store built with TailwindCSS, React Hooks, Redux
+> Toolkit, React Router 6
 
 <https://github.com/oojr/demo-store>
 
@@ -154,6 +155,8 @@ EP4: How ReactDOM.render works
 <https://github.com/juliencrn/usehooks-ts>
 
 [Migrate to v3](https://usehooks-ts.com/migrate-to-v3)
-- `useFetch` 없어짐.
-  [SWR](https://swr.vercel.app/ko)을 쓰면 그나마 제일 비슷하다.
-- `useEffectOnce` 없어짐. `useEffectOnce(effect)` 대신 `useEffect(effect, [])`를 쓰면 된다.
+
+- `useFetch` 없어짐. [SWR](https://swr.vercel.app/ko)을 쓰면 그나마 제일
+  비슷하다.
+- `useEffectOnce` 없어짐. `useEffectOnce(effect)` 대신 `useEffect(effect, [])`를
+  쓰면 된다.

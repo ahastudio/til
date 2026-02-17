@@ -17,7 +17,8 @@
 <%= f.collection_radio_buttons :tag_id, Tag.all, :id, :name %>
 ```
 
-각 아이템을 `div` 태그 등으로 감싸는 것 같은 변화를 주고 싶다면 block을 사용하면 된다.
+각 아이템을 `div` 태그 등으로 감싸는 것 같은 변화를 주고 싶다면 block을 사용하면
+된다.
 
 ```ruby
 <%= f.collection_radio_buttons :tag_id, Tag.all, :id, :name do |item_form| %>

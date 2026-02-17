@@ -6,22 +6,20 @@
 
 ---
 
-Spring Web MVC로 웹 애플리케이션을 만들다 보면
-여러 핸들러에서 반복되는 코드를 발견할 때가 있습니다.
-Extract Method를 하는 방법도 있지만,
-여러 파라미터가 필요한 경우 이것마저 반복되는 걸 막긴 어렵습니다.
+Spring Web MVC로 웹 애플리케이션을 만들다 보면 여러 핸들러에서 반복되는 코드를
+발견할 때가 있습니다. Extract Method를 하는 방법도 있지만, 여러 파라미터가
+필요한 경우 이것마저 반복되는 걸 막긴 어렵습니다.
 
-흔히 Filter와 Interceptor 중 하나를 사용해서
-이 문제를 해결할 수 있는데,
-Filter는 `DispatcherServlet` 앞에 있고
-Interceptor는 `DispatcherServlet` 뒤 `Handler` 앞에 있습니다.
+흔히 Filter와 Interceptor 중 하나를 사용해서 이 문제를 해결할 수 있는데,
+Filter는 `DispatcherServlet` 앞에 있고 Interceptor는 `DispatcherServlet` 뒤
+`Handler` 앞에 있습니다.
 
 여기서는 Spring의 도움을 크게 얻기 위해 Interceptor를 써보겠습니다.
 
 ## Spring Web MVC 프로젝트 생성
 
-[Spring Initializr](https://start.spring.io/)
-사이트에 가서 다음과 같이 입력/선택해 새 프로젝트를 만들어 봅시다.
+[Spring Initializr](https://start.spring.io/) 사이트에 가서 다음과 같이
+입력/선택해 새 프로젝트를 만들어 봅시다.
 
 - Project: `Gradle Project`
 - Language: `Java`
@@ -74,8 +72,8 @@ curl http://localhost:8080/hello
 
 ## WebConfig 추가하기
 
-Interceptor는 환경 설정에서 추가합니다.
-여기서는 Java Config 방식을 사용하도록 하겠습니다.
+Interceptor는 환경 설정에서 추가합니다. 여기서는 Java Config 방식을 사용하도록
+하겠습니다.
 
 `src/main/java/com/example/demo/WebConfig.java`
 
@@ -96,8 +94,8 @@ public class WebConfig implements WebMvcConfigurer {
 }
 ```
 
-스프링 웹 서버를 중단하고 다시 실행하면
-`addInterceptors` 메서드가 실행되는 걸 확인할 수 있습니다.
+스프링 웹 서버를 중단하고 다시 실행하면 `addInterceptors` 메서드가 실행되는 걸
+확인할 수 있습니다.
 
 ## 나만의 Interceptor 만들기
 

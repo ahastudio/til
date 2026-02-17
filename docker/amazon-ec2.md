@@ -11,4 +11,5 @@ sudo usermod -a -G docker ec2-user
 # → 이후 SSH 재접속
 ```
 
-참고: [Docker basics for Amazon ECS - Amazon Elastic Container Service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html)
+참고:
+[Docker basics for Amazon ECS - Amazon Elastic Container Service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html)

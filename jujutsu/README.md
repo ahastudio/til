@@ -18,6 +18,7 @@ Jujutsu docs: <https://jj-vcs.github.io/jj/>
 
 ## Articles
 
-[Jujutsu For Busy Devs | maddie, wtf?!](https://maddie.wtf/posts/2025-07-21-jujutsu-for-busy-devs) \
+[Jujutsu For Busy Devs | maddie, wtf?!](https://maddie.wtf/posts/2025-07-21-jujutsu-for-busy-devs)
+\
 → 한국어 요약:
 [바쁜 개발자를 위한 Jujutsu | GeekNews](https://news.hada.io/topic?id=22122)

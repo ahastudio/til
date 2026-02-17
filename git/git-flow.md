@@ -4,8 +4,8 @@
 
 문서 초반에 “Note of reflection (March 5, 2020)”이 추가됨.
 
-> If your team is doing continuous delivery of software,
-> I would suggest to adopt a much simpler workflow (like
+> If your team is doing continuous delivery of software, I would suggest to
+> adopt a much simpler workflow (like
 > [GitHub flow](https://github.com/ahastudio/til/blob/main/git/github-flow.md))
 > instead of trying to shoehorn git-flow into your team.
 

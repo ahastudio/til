@@ -10,17 +10,13 @@
 
 ## 클레이튼 NFT 프로젝트 몇 가지
 
-Doge Sound Club - NFT 수집가들의 사교 모임
-<https://dogesound.club/>
+Doge Sound Club - NFT 수집가들의 사교 모임 <https://dogesound.club/>
 
-META CATS – 멀티메타버스를 정복할 고양이
-<https://meta-cat.io/>
-→ [CryptoKitties](https://www.cryptokitties.co/)와 유사
+META CATS – 멀티메타버스를 정복할 고양이 <https://meta-cat.io/> →
+[CryptoKitties](https://www.cryptokitties.co/)와 유사
 
-Klay ape club - Klay ape club
-<https://klayape.club/>
-→ [Bored Ape Yacht Club(BAYC)](https://boredapeyachtclub.com/)과 유사
+Klay ape club - Klay ape club <https://klayape.club/> →
+[Bored Ape Yacht Club(BAYC)](https://boredapeyachtclub.com/)과 유사
 
-MetaKongz
-<https://themetakongz.com/kr.html>
-→ [CyberKongz](https://www.cyberkongz.com/)와 유사
+MetaKongz <https://themetakongz.com/kr.html> →
+[CyberKongz](https://www.cyberkongz.com/)와 유사

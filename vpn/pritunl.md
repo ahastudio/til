@@ -4,8 +4,7 @@
 
 <https://github.com/pritunl/pritunl>
 
-OpenVPN/IPsec/WireGuard를 하나의 웹 UI에서 관리하는
-오픈소스 VPN 서버.
+OpenVPN/IPsec/WireGuard를 하나의 웹 UI에서 관리하는 오픈소스 VPN 서버.
 
 ## 주요 특징
 
@@ -29,14 +28,12 @@ docker run -d \
   ghcr.io/jippi/docker-pritunl
 ```
 
-MongoDB가 내장되어 바로 시작할 수 있습니다.
-외부 MongoDB를 쓰려면 `PRITUNL_MONGODB_URI`를
-설정합니다.
+MongoDB가 내장되어 바로 시작할 수 있습니다. 외부 MongoDB를 쓰려면
+`PRITUNL_MONGODB_URI`를 설정합니다.
 
 ## 초기 설정
 
-웹 콘솔(`https://<서버IP>`)에 접속합니다.
-기본 계정은 `pritunl`/`pritunl`입니다.
+웹 콘솔(`https://<서버IP>`)에 접속합니다. 기본 계정은 `pritunl`/`pritunl`입니다.
 
 1. Organization 생성 (VPN 클라이언트 그룹)
 2. User 추가 (기기당 1개)

@@ -18,5 +18,5 @@
 
 <https://day.js.org/docs/en/plugin/duration>
 
-Duration 플러그인을 사용하면 두 시점 사이의 차이를
-유의미하게 표현할 수 있습니다.
+Duration 플러그인을 사용하면 두 시점 사이의 차이를 유의미하게 표현할 수
+있습니다.

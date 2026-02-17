@@ -31,7 +31,8 @@ Staging repo for development of native port of TypeScript:
 
 ## Articles
 
-[Fully Typed Web Apps | Epic Web Dev](https://www.epicweb.dev/fully-typed-web-apps) \
+[Fully Typed Web Apps | Epic Web Dev](https://www.epicweb.dev/fully-typed-web-apps)
+\
 → 한국어 번역:
 [완전한 타입 안정성을 가진 웹 애플리케이션 | bohyeon.dev](https://ktseo41.github.io/blog/log/fully-typed-web-apps.html)
 

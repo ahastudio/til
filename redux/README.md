@@ -14,8 +14,8 @@
 
 ## Redux Toolkit
 
-> The official, opinionated, batteries-included toolset
-> for efficient Redux development
+> The official, opinionated, batteries-included toolset for efficient Redux
+> development
 
 <https://redux-toolkit.js.org/>
 

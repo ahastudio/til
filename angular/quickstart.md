@@ -33,7 +33,9 @@ $ ng new PROJECT_NAME
 $ cd PROJECT_NAME
 ```
 
-프로젝트 이름으로 `AppComponent` 파일과 클래스 등을 만들기 때문에, 저는 `application` 같은 이름으로 만들고 나중에 프로젝트 폴더 이름과 `package.json` 둘만 고칩니다.
+프로젝트 이름으로 `AppComponent` 파일과 클래스 등을 만들기 때문에, 저는
+`application` 같은 이름으로 만들고 나중에 프로젝트 폴더 이름과 `package.json`
+둘만 고칩니다.
 
 ## 서버 실행
 
@@ -61,4 +63,3 @@ $ php -S localhost:8000
 ```
 
 [http://localhost:8000/](http://localhost:8000/)
-

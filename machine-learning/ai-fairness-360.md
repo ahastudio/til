@@ -1,7 +1,7 @@
 # AI Fairness 360
 
-> The AI Fairness 360 toolkit (AIF360) is an open source software toolkit
-> that can help detect and remove bias in machine learning models
+> The AI Fairness 360 toolkit (AIF360) is an open source software toolkit that
+> can help detect and remove bias in machine learning models
 
 <https://developer.ibm.com/open/projects/ai-fairness-360/>
 

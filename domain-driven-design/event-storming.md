@@ -1,6 +1,7 @@
 # Event Storming
 
-> **EventStorming** is a flexible workshop format for collaborative exploration of complex business domains.
+> **EventStorming** is a flexible workshop format for collaborative exploration
+> of complex business domains.
 
 <https://www.eventstorming.com/>
 

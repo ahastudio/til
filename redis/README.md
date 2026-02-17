@@ -27,7 +27,8 @@ Redis Fork.
 
 <https://codeberg.org/redict/redict.io>
 
-[Redict is an independent, copyleft fork of Redis® | Redict](https://redict.io/posts/2024-03-22-redict-is-an-independent-fork/) \
+[Redict is an independent, copyleft fork of Redis® | Redict](https://redict.io/posts/2024-03-22-redict-is-an-independent-fork/)
+\
 → 한국어 요약:
 [Redict은 redis의 독립, 카피레프트 포크입니다 | GeekNews](https://news.hada.io/topic?id=13969)
 

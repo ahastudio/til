@@ -22,10 +22,10 @@ http://www.sicpdistilled.com/section/1.1.4/
 
 http://clojure.org/functional_programming
 
-> Clojure supports arity overloading in a single function object, self-reference, and variable-arity functions using `&`
+> Clojure supports arity overloading in a single function object,
+> self-reference, and variable-arity functions using `&`
 
 http://github.com/ahastudio/CodingLife/blob/master/20151009/test.clj
-
 
 ```clojure
 (defn product

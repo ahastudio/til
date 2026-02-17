@@ -2,11 +2,9 @@
 
 ## Adobe Fonts
 
-Explore unlimited fonts
-<https://fonts.adobe.com/>
+Explore unlimited fonts <https://fonts.adobe.com/>
 
-Explore Typekit webfonts
-<https://fonts.adobe.com/typekit>
+Explore Typekit webfonts <https://fonts.adobe.com/typekit>
 
 ## Google Fonts
 

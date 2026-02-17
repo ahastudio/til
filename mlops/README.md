@@ -46,8 +46,7 @@
 
 <https://vessl.ai/>
 
-VESSL Docs
-<https://docs.vessl.ai/>
+VESSL Docs <https://docs.vessl.ai/>
 
 ## CLOW
 
@@ -59,8 +58,7 @@ VESSL Docs
 
 ## Awesome BlahBlah
 
-Awesome MLOps
-<https://github.com/kelvins/awesome-mlops>
+Awesome MLOps <https://github.com/kelvins/awesome-mlops>
 
 Awesome production machine learning
 <https://github.com/EthicalML/awesome-production-machine-learning>

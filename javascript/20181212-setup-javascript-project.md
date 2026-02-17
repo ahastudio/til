@@ -6,22 +6,19 @@
 
 ## 목표
 
-Node.js를 설치하고, 프로젝트를 진행할 수 있는 Node.js 패키지를 만들고,
-코드 퀄리티를 일정 수준 이상으로 유지할 수 있도록 `lint`와 `test`를
-실행할 수 있는 상태를 만든다.
+Node.js를 설치하고, 프로젝트를 진행할 수 있는 Node.js 패키지를 만들고, 코드
+퀄리티를 일정 수준 이상으로 유지할 수 있도록 `lint`와 `test`를 실행할 수 있는
+상태를 만든다.
 
 ## fnm (Fast Node Manager) 설치
 
-계속 업그레이드되는 Node.js로 프로젝트를 진행하다 보면
-프로젝트마다 서로 다른 버전을 사용하는 경우가 있다.
-그래서 여러 버전의 Node.js를 설치해서 사용하고 싶을 때가 있는데,
-[`fnm`](https://github.com/Schniz/fnm)을
-사용하면 이게 가능하다.
+계속 업그레이드되는 Node.js로 프로젝트를 진행하다 보면 프로젝트마다 서로 다른
+버전을 사용하는 경우가 있다. 그래서 여러 버전의 Node.js를 설치해서 사용하고 싶을
+때가 있는데, [`fnm`](https://github.com/Schniz/fnm)을 사용하면 이게 가능하다.
 
 ### Mac, Linux 사용자
 
-[Homebrew](https://brew.sh/)를 이용해
-`fnm`을 설치할 수 있다.
+[Homebrew](https://brew.sh/)를 이용해 `fnm`을 설치할 수 있다.
 
 ```bash
 brew install fnm
@@ -37,10 +34,8 @@ eval "$(fnm env)"
 
 ### Windows 사용자
 
-Windows 사용자는
-[Scoop](https://scoop.sh/) 또는
-[Chocolatey](https://chocolatey.org/)를 사용해
-`fnm`을 설치할 수 있다.
+Windows 사용자는 [Scoop](https://scoop.sh/) 또는
+[Chocolatey](https://chocolatey.org/)를 사용해 `fnm`을 설치할 수 있다.
 
 ```bash
 scoop install fnm
@@ -82,8 +77,8 @@ npm install -g npm
 
 ## 프로젝트 폴더 생성
 
-프로젝트 이름을 `my-project`라고 했을 때 다음과 같이 폴더를 만들고
-사용할 Node.js 버전을 잡아준다.
+프로젝트 이름을 `my-project`라고 했을 때 다음과 같이 폴더를 만들고 사용할
+Node.js 버전을 잡아준다.
 
 ```bash
 mkdir my-project
@@ -92,9 +87,9 @@ fnm use default
 echo "$(fnm current)" > .nvmrc
 ```
 
-나중에 시스템에 설치된 Node.js 버전과 프로젝트에서 사용하는 Node.js 버전이
-다른 상황이 오더라도 `fnm use` 명령을 통해 프로젝트에서 사용하고 있는 버전을
-쉽게 사용할 수 있다.
+나중에 시스템에 설치된 Node.js 버전과 프로젝트에서 사용하는 Node.js 버전이 다른
+상황이 오더라도 `fnm use` 명령을 통해 프로젝트에서 사용하고 있는 버전을 쉽게
+사용할 수 있다.
 
 또는 `.nvmrc` 파일을 확인함으로써 어떤 버전으로 개발했는지 알 수 있다.
 
@@ -110,8 +105,8 @@ cat .nvmrc
 npm init
 ```
 
-귀찮으면 질문에 대해 그냥 엔터만 계속 눌러도 되는데,
-`-y` 플래그를 사용하면 질문 자체를 안 하게 할 수도 있다.
+귀찮으면 질문에 대해 그냥 엔터만 계속 눌러도 되는데, `-y` 플래그를 사용하면 질문
+자체를 안 하게 할 수도 있다.
 
 ```bash
 npm init -y
@@ -131,8 +126,8 @@ npm install --save-dev eslint
 npx eslint --init
 ```
 
-몇 가지 질문이 나오는데 프로젝트에 따라 다르게 선택한다.
-내가 사용하는 건 주로 다음과 같다.
+몇 가지 질문이 나오는데 프로젝트에 따라 다르게 선택한다. 내가 사용하는 건 주로
+다음과 같다.
 
 ```text
 ? How would you like to configure ESLint?  (Use arrow keys)
@@ -168,8 +163,8 @@ Y
 ```
 
 `.eslintrc.js` 파일을 열어 `rules`를 수정, 추가한다.
-[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) 같은
-널리 알려진 스타일 가이드를 사용하고 싶다면 간단히
+[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) 같은 널리
+알려진 스타일 가이드를 사용하고 싶다면 간단히
 [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
 확장을 설치해서 사용하면 된다.
 
@@ -267,12 +262,9 @@ npx eslint --fix --no-ignore .eslintrc.js
 간단하게 테스트를 하기 위해 `index.js` 파일을 작성한다.
 
 ```javascript
-var a=1
-b  =  [
- 1
-  ,2
-]
-console . log( b.map(i=>i+a) )
+var a = 1;
+b = [1, 2];
+console.log(b.map((i) => i + a));
 ```
 
 고쳐야 할 부분을 찾는다.
@@ -304,19 +296,15 @@ npm run lint
 ```
 
 아까 테스트하기 위해 만든 `index.js` 파일의 문제가 모두 해결되지 않아서
-`npm ERR! code ELIFECYCLE` 에러 메시지가 나오는 걸 볼 수 있다.
-간단히 고쳐보자.
+`npm ERR! code ELIFECYCLE` 에러 메시지가 나오는 걸 볼 수 있다. 간단히 고쳐보자.
 
 ```javascript
 const { log: print } = console;
 
 var a = 1;
-const b = [
-  1,
-  2,
-];
+const b = [1, 2];
 
-print(b.map(i => i + a));
+print(b.map((i) => i + a));
 ```
 
 ## Jest 설치
@@ -330,7 +318,7 @@ npm install --save-dev jest
 `sum.test.js` 파일을 만들어서 확인해 보자.
 
 ```javascript
-test('sum', () => {
+test("sum", () => {
   expect(sum(1, 2)).toBe(3);
 });
 ```
@@ -346,15 +334,14 @@ npx jest
 ```javascript
 const sum = (a, b) => a + b;
 
-test('sum', () => {
+test("sum", () => {
   expect(sum(1, 2)).toBe(3);
 });
 ```
 
-만약 파일을 계속 감시하고 있다가 수정될 때마다 자동으로 테스트가 실행되게
-하려면 `watchAll` 플래그를 사용하면 된다.
-그 상태에서 테스트 전체를 다시 실행하려면 `a`나 `Enter` 키를 누르면 되고,
-중단하려면 `q`를 누르면 된다.
+만약 파일을 계속 감시하고 있다가 수정될 때마다 자동으로 테스트가 실행되게 하려면
+`watchAll` 플래그를 사용하면 된다. 그 상태에서 테스트 전체를 다시 실행하려면
+`a`나 `Enter` 키를 누르면 되고, 중단하려면 `q`를 누르면 된다.
 
 ```bash
 npx jest --watchAll

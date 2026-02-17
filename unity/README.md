@@ -6,6 +6,6 @@
 brew install --cask unity-hub
 ```
 
-> The project is on case sensitive file system.
-> Case sensitive file systems are not supported at the moment.
-> Please move the project folder to a case insensitive file system.
+> The project is on case sensitive file system. Case sensitive file systems are
+> not supported at the moment. Please move the project folder to a case
+> insensitive file system.

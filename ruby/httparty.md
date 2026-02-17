@@ -19,4 +19,5 @@ posts.each do |post|
 end
 ```
 
-API Sample: [JSONPlaceholder - Fake online REST API for developers](http://jsonplaceholder.typicode.com/)
+API Sample:
+[JSONPlaceholder - Fake online REST API for developers](http://jsonplaceholder.typicode.com/)

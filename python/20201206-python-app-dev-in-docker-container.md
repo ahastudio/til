@@ -9,8 +9,7 @@
 ## 문제
 
 Mac OS X에서 [`pytest-watch`](https://j.mp/2WtCd2e)가 사용하는
-[`watchdog`](https://j.mp/3jm0Jvn)이
-올바르게 작동하지 않는 상황을 발견했습니다.
+[`watchdog`](https://j.mp/3jm0Jvn)이 올바르게 작동하지 않는 상황을 발견했습니다.
 
 ```bash
 # watchdog의 watchmedo 유틸리티 사용 준비
@@ -24,8 +23,8 @@ watchmedo shell-command \
     .
 ```
 
-Continuous Testing을 위해 이 문제를 반드시 해결해야 합니다.
-근본적인 원인을 찾아내서 해결하거나 Docker 등의 Container 기술을 활용해 문제를 회피할 수 있고,
+Continuous Testing을 위해 이 문제를 반드시 해결해야 합니다. 근본적인 원인을
+찾아내서 해결하거나 Docker 등의 Container 기술을 활용해 문제를 회피할 수 있고,
 여기서는 Docker Container를 이용해 이 문제를 회피하기로 했습니다.
 
 ## Docker로 Python 실행하기
@@ -38,9 +37,9 @@ docker run --rm -it python:3.9 bash
 
 잘 되는 걸 확인했으니 본격적인 환경 설정에 들어갑시다.
 
-현재 폴더를 개발하는데 쓸 수 있도록
-[volume](https://j.mp/3zibCUu)을 추가해 봅니다.
-컨테이너 안에서는 `/work` 폴더를 사용하도록 하고, working directory로 지정합니다.
+현재 폴더를 개발하는데 쓸 수 있도록 [volume](https://j.mp/3zibCUu)을 추가해
+봅니다. 컨테이너 안에서는 `/work` 폴더를 사용하도록 하고, working directory로
+지정합니다.
 
 ```bash
 docker run --rm -it \
@@ -51,9 +50,9 @@ docker run --rm -it \
 
 ## Virtual Environments
 
-컨테이너가 실행될 때마다 기존에 설치한 패키지 등이 모두 사라지므로
-현재 폴더에 패키지 등을 고스란히 남기기 위해
-[`venv`](https://j.mp/2Y1Hijj)를 사용하겠습니다.
+컨테이너가 실행될 때마다 기존에 설치한 패키지 등이 모두 사라지므로 현재 폴더에
+패키지 등을 고스란히 남기기 위해 [`venv`](https://j.mp/2Y1Hijj)를
+사용하겠습니다.
 
 컨테이너 안에서 다음과 같이 가상 환경을 위한 `.venv` 폴더를 만듭니다.
 
@@ -104,9 +103,9 @@ ptw
 
 ## 결론
 
-`Dockerfile` 등으로 제대로 된 개발 환경을 구축하는 게 좋지만
-가볍게 실험할 때는 너무 과하다는 생각을 지우기 어렵습니다.
-그래서 다음과 같이 빠르게 개발 환경을 구축하고, 단계별로 다듬어 가면 좋을 것 같습니다.
+`Dockerfile` 등으로 제대로 된 개발 환경을 구축하는 게 좋지만 가볍게 실험할 때는
+너무 과하다는 생각을 지우기 어렵습니다. 그래서 다음과 같이 빠르게 개발 환경을
+구축하고, 단계별로 다듬어 가면 좋을 것 같습니다.
 
 ```bash
 # 계속 사용할 스크립트 파일을 만들어 줍니다.

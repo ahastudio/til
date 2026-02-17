@@ -46,7 +46,7 @@ npm i -D nodemon
 ## `src/index.ts` 파일
 
 ```typescript
-import app from './app';
+import app from "./app";
 
 const { log: print } = console;
 
@@ -60,18 +60,18 @@ app.listen(port, () => {
 ## `src/app.ts` 파일
 
 ```typescript
-import express from 'express';
-import cors from 'cors';
-import bodyParser from 'body-parser';
+import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
 
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.json({ limit: '1mb' }));
+app.use(bodyParser.json({ limit: "1mb" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.get("/", (req, res) => {
+  res.send("Hello World!");
 });
 
 export default app;

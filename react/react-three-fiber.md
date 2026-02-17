@@ -4,5 +4,4 @@
 
 <https://github.com/pmndrs/react-three-fiber>
 
-Documentation:
-<https://docs.pmnd.rs/react-three-fiber>
+Documentation: <https://docs.pmnd.rs/react-three-fiber>

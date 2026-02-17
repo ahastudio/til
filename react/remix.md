@@ -1,8 +1,8 @@
 # Remix - Build Better Websites
 
-> Remix is a full stack web framework that lets you focus on
-> the user interface and work back through web fundamentals
-> to deliver a fast, slick, and resilient user experience.
+> Remix is a full stack web framework that lets you focus on the user interface
+> and work back through web fundamentals to deliver a fast, slick, and resilient
+> user experience.
 
 <https://remix.run/>
 
@@ -33,6 +33,7 @@
 → 한국어 번역:
 [(번역) Remix vs Next.js. Remix와 Next.js의 객관적인 비교 | by Jung Han | Feb, 2022 | Medium](https://junghan92.medium.com/remix-vs-next-js-d6428606d66e)
 
-[A Look At Remix And The Differences With Next.js — Smashing Magazine](https://www.smashingmagazine.com/2022/07/look-remix-differences-next/) \
+[A Look At Remix And The Differences With Next.js — Smashing Magazine](https://www.smashingmagazine.com/2022/07/look-remix-differences-next/)
+\
 → 한국어 번역:
 [(번역) Remix는 무엇이고 Next.js와 어떻게 다른가요?](https://velog.io/@eunbinn/look-remix-differences-next)

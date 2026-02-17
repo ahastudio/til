@@ -6,14 +6,11 @@
 
 저장소: <https://github.com/actions>
 
-Quickstart for GitHub Actions:
-<https://docs.github.com/en/actions/quickstart>
+Quickstart for GitHub Actions: <https://docs.github.com/en/actions/quickstart>
 
-Github Actions 오픈소스 목록:
-<https://github-actions.netlify.app/>
+Github Actions 오픈소스 목록: <https://github-actions.netlify.app/>
 
-Awesome Actions:
-<https://github.com/sdras/awesome-actions>
+Awesome Actions: <https://github.com/sdras/awesome-actions>
 
 ## Articles
 
@@ -96,7 +93,8 @@ jobs:
           context: .
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          cache-from:
+            type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           cache-to: type=inline
 ```
 
@@ -105,7 +103,8 @@ jobs:
 GitHub Marketplace:
 
 - [GitHub Pages action](https://github.com/marketplace/actions/github-pages-action)
-- [Deploy to GitHub Pages](https://github.com/marketplace/actions/deploy-to-github-pages) (아래 예제에서 사용)
+- [Deploy to GitHub Pages](https://github.com/marketplace/actions/deploy-to-github-pages)
+  (아래 예제에서 사용)
 - [GH Pages deploy](https://github.com/marketplace/actions/gh-pages-deploy)
 
 ```yaml
@@ -122,7 +121,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
       - name: Install dependencies
         run: npm ci
       - name: Lint

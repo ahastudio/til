@@ -13,10 +13,12 @@
 
 [4 Frameworks for Reflecting on Your Work and Running Better Projects | Service Design Blog by Neuromagic](https://sdg.neuromagic.com/en/retrospective-framework/)
 
-1. KPT(A) → [OKR 실천편 - 구글, 페이스북, 유튜브 최고의 기업 최강의 프레임워크](https://j.mp/3eX5Qze)
+1. KPT(A) →
+   [OKR 실천편 - 구글, 페이스북, 유튜브 최고의 기업 최강의 프레임워크](https://j.mp/3eX5Qze)
 1. Starfish
 1. World Cafe → [월드 카페 - 7가지 미래형 카페식 대화법](https://j.mp/3F1kLTk)
-1. Timeline → [애자일 회고 - 최고의 팀을 만드는 애자일 기법](https://j.mp/3zu72n9)
+1. Timeline →
+   [애자일 회고 - 최고의 팀을 만드는 애자일 기법](https://j.mp/3zu72n9)
 
 ## 기년회
 
@@ -30,8 +32,6 @@
 
 ## TIL
 
-오늘 나는 무엇을 배웠나?
-<https://dal-lab.com/2019/09/18/today-i-learned/>
+오늘 나는 무엇을 배웠나? <https://dal-lab.com/2019/09/18/today-i-learned/>
 
-Three Fs
-<https://github.com/ahastudio/til/tree/main/retrospective/three-fs.md>
+Three Fs <https://github.com/ahastudio/til/tree/main/retrospective/three-fs.md>

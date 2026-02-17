@@ -33,4 +33,3 @@ http://www.php-fig.org/psr/psr-3/
 ## PSR-4: Autoloaders
 
 http://www.php-fig.org/psr/psr-4/
-

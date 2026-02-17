@@ -1,6 +1,7 @@
 # Reason
 
-> Simple, fast & type safe code that leverages the JavaScript & OCaml ecosystems.
+> Simple, fast & type safe code that leverages the JavaScript & OCaml
+> ecosystems.
 
 - <https://reasonml.github.io/>
 - <https://github.com/facebook/reason>

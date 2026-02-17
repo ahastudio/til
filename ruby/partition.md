@@ -5,12 +5,14 @@
 1~10 숫자를 짝수와 홀수로 분류한다면...
 
 select 활용:
+
 ```ruby
 a = (1..10).select(&:even?)
 b = (1..10).select(&:odd?)
 ```
 
 partition 활용:
+
 ```ruby
 a, b = (1..10).partition(&:even?)
 ```

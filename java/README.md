@@ -6,8 +6,7 @@
 
 ## 공식 튜토리얼
 
-The Java™ Tutorials
-<https://docs.oracle.com/javase/tutorial/>
+The Java™ Tutorials <https://docs.oracle.com/javase/tutorial/>
 
 ## The Java® Language Specification
 

@@ -25,5 +25,6 @@ docker logs -f grafana
 ```
 
 다음 두 컨테이너 이미지는 같다:
+
 - https://hub.docker.com/r/grafana/grafana
 - https://hub.docker.com/r/grafana/grafana-oss

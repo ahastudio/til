@@ -181,8 +181,8 @@ class HelloController {
 }
 ```
 
-웹 서버를 다시 실행하고,
-브라우저에서 <http://localhost:8080/hello> 주소를 열어 잘 되고 있는지 확인합니다.
+웹 서버를 다시 실행하고, 브라우저에서 <http://localhost:8080/hello> 주소를 열어
+잘 되고 있는지 확인합니다.
 
 ## `HelloController`에 대한 테스트 코드 작성
 

@@ -4,8 +4,8 @@
 
 ## Cylon.js
 
-> JavaScript framework for robotics, physical computing,
-> and the Internet of Things using Node.js
+> JavaScript framework for robotics, physical computing, and the Internet of
+> Things using Node.js
 
 <https://cylonjs.com/>
 

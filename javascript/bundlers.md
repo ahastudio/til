@@ -2,9 +2,9 @@
 
 ## SWC - Rust-based platform for the Web
 
- <https://swc.rs/>
+<https://swc.rs/>
 
- <https://github.com/swc-project/swc>
+<https://github.com/swc-project/swc>
 
 ### `@swc/jest`
 
@@ -32,8 +32,8 @@
 
 <https://github.com/aelbore/esbuild-jest>
 
-`inject`를 지원하지 않아서 React를 쓸 때 애로사항이 꽃필 것이다.
-→ 결론: `@swc/jest` 쓰세요.
+`inject`를 지원하지 않아서 React를 쓸 때 애로사항이 꽃필 것이다. → 결론:
+`@swc/jest` 쓰세요.
 
 ## Snowpack - lightning-fast frontend build tool
 

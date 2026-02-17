@@ -1,7 +1,7 @@
 # ScyllaDB
 
-> Scylla is the real-time big data database that is
-> API-compatible with Apache Cassandra and Amazon DynamoDB.
+> Scylla is the real-time big data database that is API-compatible with Apache
+> Cassandra and Amazon DynamoDB.
 
 <https://www.scylladb.com/>
 

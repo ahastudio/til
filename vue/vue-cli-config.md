@@ -4,7 +4,7 @@
 
 ```js
 module.exports = {
-  baseUrl: '/app',
+  baseUrl: "/app",
 };
 ```
 
@@ -15,10 +15,11 @@ module.exports = {
 ```js
 module.exports = {
   devServer: {
-    public: 'my-host.test',
+    public: "my-host.test",
   },
 };
 ```
 
 See also:
+
 - <https://github.com/ahastudio/til/blob/master/webpack/dev-server.md>

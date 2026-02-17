@@ -1,10 +1,8 @@
 # Annotation
 
-Awesome data annotation
-<https://github.com/taivop/awesome-data-annotation>
+Awesome data annotation <https://github.com/taivop/awesome-data-annotation>
 
-Computer Vision Annotation Formats
-<https://roboflow.com/formats>
+Computer Vision Annotation Formats <https://roboflow.com/formats>
 
 ## LabelMe
 
@@ -18,5 +16,4 @@ Computer Vision Annotation Formats
 
 ## Superb AI Suite
 
-Superb AI Suite - Docs
-<https://docs.superb-ai.com/v/kr/>
+Superb AI Suite - Docs <https://docs.superb-ai.com/v/kr/>

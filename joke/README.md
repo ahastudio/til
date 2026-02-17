@@ -8,14 +8,14 @@
 
 ## Volkswagen
 
-> Volkswagen detects when your tests are being run in a CI server,
-> and makes them pass.
+> Volkswagen detects when your tests are being run in a CI server, and makes
+> them pass.
 
 <https://github.com/auchenberg/volkswagen>
 
 ## Thanos JS
 
-> Reduce the file size of your project down to 50%,
-> by randomly deleting half of the files.
+> Reduce the file size of your project down to 50%, by randomly deleting half of
+> the files.
 
 <https://thanosjs.org/>

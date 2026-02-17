@@ -11,14 +11,14 @@
 
 ## 목표
 
-Python을 설치하고, 프로젝트를 진행할 수 있는 가상 환경을 만들고,
-코드 퀄리티를 일정 수준 이상으로 유지할 수 있도록 테스트와 검사기를 붙인다.
+Python을 설치하고, 프로젝트를 진행할 수 있는 가상 환경을 만들고, 코드 퀄리티를
+일정 수준 이상으로 유지할 수 있도록 테스트와 검사기를 붙인다.
 
 ## pyenv 설치
 
-파이썬 프로젝트는 버전에 민감하기 때문에 여러 프로젝트를 진행할 경우
-여러 버전의 파이썬을 설치하고 싶을 때가 있다.
-이때 `pyenv`를 사용하면 프로젝트마다 다른 버전의 파이썬을 사용할 수 있다.
+파이썬 프로젝트는 버전에 민감하기 때문에 여러 프로젝트를 진행할 경우 여러 버전의
+파이썬을 설치하고 싶을 때가 있다. 이때 `pyenv`를 사용하면 프로젝트마다 다른
+버전의 파이썬을 사용할 수 있다.
 
 ### Mac 사용자
 
@@ -44,7 +44,8 @@ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer 
 
 ### Mac 사용자, Linux 사용자 공통
 
-Mac, Linux 사용자 모두 홈 디렉터리의 `.bash_profile`(또는 `.zprofile`)에 다음을 포함시킨다.
+Mac, Linux 사용자 모두 홈 디렉터리의 `.bash_profile`(또는 `.zprofile`)에 다음을
+포함시킨다.
 
 ```bash
 export PYENV_ROOT="$HOME/.pyenv"
@@ -84,8 +85,8 @@ Python 3.7 버전만 확인한다.
 pyenv install --list | grep "^\s*3\.7"
 ```
 
-`-`이 들어가지 않은 버전만 확인한다.
-이렇게 하면 개발 중이 아닌 CPython만 확인할 수 있다.
+`-`이 들어가지 않은 버전만 확인한다. 이렇게 하면 개발 중이 아닌 CPython만 확인할
+수 있다.
 
 ```bash
 pyenv install --list | grep -v -
@@ -143,8 +144,8 @@ pip install --upgrade pip
 
 ## 가상 환경 만들기
 
-프로젝트 폴더를 만들고, 파이썬 버전을 명시한다.
-프로젝트 이름은 `my-project`라고 가정하고, 파이썬 3.7.2 버전을 사용하겠다.
+프로젝트 폴더를 만들고, 파이썬 버전을 명시한다. 프로젝트 이름은 `my-project`라고
+가정하고, 파이썬 3.7.2 버전을 사용하겠다.
 
 ```bash
 mkdir my-project
@@ -164,8 +165,8 @@ python -m venv venv
 source venv/bin/activate
 ```
 
-앞에 `(venv)`가 붙는 걸 확인할 수 있다.
-가상 환경에서 나오고 싶다면 `deactivate`를 입력하면 된다.
+앞에 `(venv)`가 붙는 걸 확인할 수 있다. 가상 환경에서 나오고 싶다면
+`deactivate`를 입력하면 된다.
 
 이제 가상 환경 안에서 독립적인 의존성 관리가 가능하다.
 
@@ -188,8 +189,8 @@ pip install -r requirements.txt
 
 ## pytest 설치
 
-테스트 코드를 작성하고 실행할 수 있도록
-[`pytest`](https://pytest.org/)를 설치한다.
+테스트 코드를 작성하고 실행할 수 있도록 [`pytest`](https://pytest.org/)를
+설치한다.
 
 ```bash
 pip install -U pytest
@@ -202,8 +203,8 @@ def test_hello():
     assert hello('JOKER') == 'Hello, JOKER!'
 ```
 
-`pytest`를 실행하면 해당 프로젝트의 `*_test.py` 파일 안에 있는
-모든 `test_*` 테스트 함수를 확인하게 된다.
+`pytest`를 실행하면 해당 프로젝트의 `*_test.py` 파일 안에 있는 모든 `test_*`
+테스트 함수를 확인하게 된다.
 
 ```bash
 pytest
@@ -235,8 +236,8 @@ ptw
 
 ## pylama 설치
 
-올바르게 코딩하는 걸 도울 수 있도록 정적 분석기를 사용하자.
-여기서는 [Pylava](https://github.com/pylava/pylava)를 이용해 검사한다.
+올바르게 코딩하는 걸 도울 수 있도록 정적 분석기를 사용하자. 여기서는
+[Pylava](https://github.com/pylava/pylava)를 이용해 검사한다.
 
 ```bash
 pip install -U pylava
@@ -255,10 +256,10 @@ pylava
 pylava --skip "venv/*"
 ```
 
-[Pylint](https://github.com/pylava/pylava_pylint)도 함께 사용해 보자.
-Pylava의 기본 Linter 목록은
-[여기](https://github.com/pylava/pylava/blob/master/pylava/config.py)에서
-확인할 수 있다.
+[Pylint](https://github.com/pylava/pylava_pylint)도 함께 사용해 보자. Pylava의
+기본 Linter 목록은
+[여기](https://github.com/pylava/pylava/blob/master/pylava/config.py)에서 확인할
+수 있다.
 
 ```bash
 # Pylint 설치
@@ -268,8 +269,8 @@ pip install -U pylava-pylint
 pylava --skip "venv/*" --linters "pycodestyle,pyflakes,mccabe,pylint"
 ```
 
-매번 `linters` 플래그를 적어주는 게 불편하다면
-`pylava.ini` 또는 `pytest.ini` 파일을 만들어서 다음 내용을 넣어준다.
+매번 `linters` 플래그를 적어주는 게 불편하다면 `pylava.ini` 또는 `pytest.ini`
+파일을 만들어서 다음 내용을 넣어준다.
 
 ```ini
 [pylava]
@@ -299,8 +300,8 @@ def test_hello():
 pytest --pylava
 ```
 
-매번 `--pylava` 플래그를 입력하는 게 불편하면
-`pytest.ini` 파일에 다음을 추가한다.
+매번 `--pylava` 플래그를 입력하는 게 불편하면 `pytest.ini` 파일에 다음을
+추가한다.
 
 ```ini
 [pytest]

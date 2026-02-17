@@ -70,67 +70,73 @@ module.exports = {
     jest: true,
   },
   extends: [
-    'airbnb',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
   ],
-  parser: '@typescript-eslint/parser',
+  parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
+    ecmaVersion: "latest",
+    sourceType: "module",
   },
-  plugins: [
-    'react',
-    'react-hooks',
-    '@typescript-eslint',
-  ],
+  plugins: ["react", "react-hooks", "@typescript-eslint"],
   settings: {
-    'import/resolver': {
+    "import/resolver": {
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
       },
     },
   },
   rules: {
-    indent: ['error', 2],
-    'no-trailing-spaces': 'error',
-    curly: 'error',
-    'brace-style': 'error',
-    'no-multi-spaces': 'error',
-    'space-infix-ops': 'error',
-    'space-unary-ops': 'error',
-    'no-whitespace-before-property': 'error',
-    'func-call-spacing': 'error',
-    'space-before-blocks': 'error',
-    'keyword-spacing': ['error', { before: true, after: true }],
-    'comma-spacing': ['error', { before: false, after: true }],
-    'comma-style': ['error', 'last'],
-    'comma-dangle': ['error', 'always-multiline'],
-    'space-in-parens': ['error', 'never'],
-    'block-spacing': 'error',
-    'array-bracket-spacing': ['error', 'never'],
-    'object-curly-spacing': ['error', 'always'],
-    'key-spacing': ['error', { mode: 'strict' }],
-    'arrow-spacing': ['error', { before: true, after: true }],
-    'import/no-extraneous-dependencies': ['error', {
-      devDependencies: [
-        '**/*.test.js',
-        '**/*.test.jsx',
-        '**/*.test.ts',
-        '**/*.test.tsx',
-      ],
-    }],
-    'import/extensions': ['error', 'ignorePackages', {
-      js: 'never',
-      jsx: 'never',
-      ts: 'never',
-      tsx: 'never',
-    }],
-    'react/jsx-filename-extension': [2, {
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    }],
-    'jsx-a11y/label-has-associated-control': ['error', { assert: 'either' }],
+    indent: ["error", 2],
+    "no-trailing-spaces": "error",
+    curly: "error",
+    "brace-style": "error",
+    "no-multi-spaces": "error",
+    "space-infix-ops": "error",
+    "space-unary-ops": "error",
+    "no-whitespace-before-property": "error",
+    "func-call-spacing": "error",
+    "space-before-blocks": "error",
+    "keyword-spacing": ["error", { before: true, after: true }],
+    "comma-spacing": ["error", { before: false, after: true }],
+    "comma-style": ["error", "last"],
+    "comma-dangle": ["error", "always-multiline"],
+    "space-in-parens": ["error", "never"],
+    "block-spacing": "error",
+    "array-bracket-spacing": ["error", "never"],
+    "object-curly-spacing": ["error", "always"],
+    "key-spacing": ["error", { mode: "strict" }],
+    "arrow-spacing": ["error", { before: true, after: true }],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        devDependencies: [
+          "**/*.test.js",
+          "**/*.test.jsx",
+          "**/*.test.ts",
+          "**/*.test.tsx",
+        ],
+      },
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        js: "never",
+        jsx: "never",
+        ts: "never",
+        tsx: "never",
+      },
+    ],
+    "react/jsx-filename-extension": [
+      2,
+      {
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
+    ],
+    "jsx-a11y/label-has-associated-control": ["error", { assert: "either" }],
   },
 };
 ```
@@ -149,13 +155,11 @@ touch .vscode/settings.json
 
 ```json
 {
-    "editor.rulers": [
-        80
-    ],
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
-    "trailing-spaces.trimOnSave": true
+  "editor.rulers": [80],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "trailing-spaces.trimOnSave": true
 }
 ```
 
@@ -176,22 +180,25 @@ module.exports = {
   //   '<rootDir>/src/setupTests.ts',
   // ],
   transform: {
-    '^.+\\.(t|j)sx?$': ['@swc/jest', {
-      jsc: {
-        parser: {
-          syntax: 'typescript',
-          // jsx: true,
-          // decorators: true,
-        },
-        transform: {
-          // react: {
-          //   runtime: 'automatic',
-          // },
-          // legacyDecorator: true,
-          // decoratorMetadata: true,
+    "^.+\\.(t|j)sx?$": [
+      "@swc/jest",
+      {
+        jsc: {
+          parser: {
+            syntax: "typescript",
+            // jsx: true,
+            // decorators: true,
+          },
+          transform: {
+            // react: {
+            //   runtime: 'automatic',
+            // },
+            // legacyDecorator: true,
+            // decoratorMetadata: true,
+          },
         },
       },
-    }],
+    ],
   },
 };
 ```
@@ -224,7 +231,7 @@ npm i -D parcel
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>React Demo App</title>
   </head>
   <body>
@@ -237,12 +244,12 @@ npm i -D parcel
 `src/main.tsx` 파일 작성.
 
 ```tsx
-import ReactDOM from 'react-dom/client';
+import ReactDOM from "react-dom/client";
 
-import App from './App';
+import App from "./App";
 
 function main() {
-  const container = document.getElementById('root');
+  const container = document.getElementById("root");
   if (!container) {
     return;
   }
@@ -258,9 +265,7 @@ main();
 
 ```tsx
 export default function App() {
-  return (
-    <p>Hello, world!</p>
-  );
+  return <p>Hello, world!</p>;
 }
 ```
 
@@ -276,27 +281,30 @@ npm i -D @testing-library/react jest-environment-jsdom
 
 ```javascript
 module.exports = {
-  testEnvironment: 'jsdom',
+  testEnvironment: "jsdom",
   // setupFilesAfterEnv: [
   //   '<rootDir>/src/setupTests.ts',
   // ],
   transform: {
-    '^.+\\.(t|j)sx?$': ['@swc/jest', {
-      jsc: {
-        parser: {
-          syntax: 'typescript',
-          jsx: true,
-          // decorators: true,
-        },
-        transform: {
-          react: {
-            runtime: 'automatic',
+    "^.+\\.(t|j)sx?$": [
+      "@swc/jest",
+      {
+        jsc: {
+          parser: {
+            syntax: "typescript",
+            jsx: true,
+            // decorators: true,
           },
-          // legacyDecorator: true,
-          // decoratorMetadata: true,
+          transform: {
+            react: {
+              runtime: "automatic",
+            },
+            // legacyDecorator: true,
+            // decoratorMetadata: true,
+          },
         },
       },
-    }],
+    ],
   },
 };
 ```
@@ -304,11 +312,11 @@ module.exports = {
 `src/App.test.tsx` 파일 작성.
 
 ```tsx
-import { render, screen } from '@testing-library/react';
+import { render, screen } from "@testing-library/react";
 
-import App from './App';
+import App from "./App";
 
-test('App', () => {
+test("App", () => {
   render(<App />);
 
   screen.getByText(/Hello, world/);

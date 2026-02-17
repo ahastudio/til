@@ -8,8 +8,8 @@
 
 <https://webpack.js.org/configuration/>
 
-Zero-configuration
-→ [Poi](https://github.com/ahastudio/til/blob/main/webpack/poi.md)
+Zero-configuration →
+[Poi](https://github.com/ahastudio/til/blob/main/webpack/poi.md)
 
 ## Optimization
 

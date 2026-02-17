@@ -2,8 +2,8 @@
 
 ## Sinon.JS
 
-> Standalone test fakes, spies, stubs and mocks for JavaScript.
-> Works with any unit testing framework.
+> Standalone test fakes, spies, stubs and mocks for JavaScript. Works with any
+> unit testing framework.
 
 <https://sinonjs.org/>
 
@@ -17,8 +17,7 @@
 
 ## JavaScript Mocking Fundamentals on TestingJavaScript.com
 
-> Learn how mocking in JavaScript tests works
-> by implementing them from scratch!
+> Learn how mocking in JavaScript tests works by implementing them from scratch!
 
 <https://github.com/kentcdodds/js-mocking-fundamentals>
 

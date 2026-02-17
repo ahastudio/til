@@ -6,8 +6,8 @@
 
 ---
 
-프로그래머스의 “[두 개 뽑아서 더하기](https://j.mp/3mKbFlI)” 문제를
-TDD로 풀어봅니다.
+프로그래머스의 “[두 개 뽑아서 더하기](https://j.mp/3mKbFlI)” 문제를 TDD로
+풀어봅니다.
 
 ## 프로젝트 세팅
 
@@ -22,8 +22,8 @@ npx eslint --init
 # -> airbnb 스타일 사용.
 ```
 
-`.eslintrc.js` 파일을 열어 `jest`를 사용한다고 표시하고
-`rules` 항목을 채워줍니다.
+`.eslintrc.js` 파일을 열어 `jest`를 사용한다고 표시하고 `rules` 항목을
+채워줍니다.
 
 ```javascript
   env: {
@@ -67,7 +67,7 @@ npx eslint --init
 
 - 입력: 숫자 목록
 - 출력: 입력된 숫자 목록에서 두 개를 뽑아서 더한 값을 모아 중복을 제거하고
-정렬한 숫자 목록
+  정렬한 숫자 목록
 
 예시:
 
@@ -98,7 +98,7 @@ npx jest --watchAll
 `numbers.test.js` 파일을 만들어서 실패하는 테스트 코드를 간단히 작성합니다.
 
 ```javascript
-test('simple', () => {
+test("simple", () => {
   expect(1 + 1).toBe(1);
 });
 ```
@@ -106,7 +106,7 @@ test('simple', () => {
 실패하는 걸 확인했으면 고쳐서 통과시킵니다.
 
 ```javascript
-test('simple', () => {
+test("simple", () => {
   expect(1 + 1).toBe(2);
 });
 ```
@@ -114,7 +114,7 @@ test('simple', () => {
 예제를 입력하면서 인터페이스(또는 시그니처)를 결정합니다.
 
 ```javascript
-test('sample', () => {
+test("sample", () => {
   expect(solve([2, 1, 3, 4, 1])).toEqual([2, 3, 4, 5, 6, 7]);
 });
 ```
@@ -126,7 +126,7 @@ function solve() {
   // TODO: ...
 }
 
-test('sample', () => {
+test("sample", () => {
   expect(solve([2, 1, 3, 4, 1])).toEqual([2, 3, 4, 5, 6, 7]);
 });
 ```
@@ -145,42 +145,41 @@ function solve() {
   return [2, 3, 4, 5, 6, 7];
 }
 
-test('sample', () => {
+test("sample", () => {
   expect(solve([2, 1, 3, 4, 1])).toEqual([2, 3, 4, 5, 6, 7]);
 });
 ```
 
 ## 중복 발견
 
-코드에서 중복을 발견해 봅시다.
-중복을 찾기 어려우니 의미가 드러나도록 조금만 고쳐봅니다.
+코드에서 중복을 발견해 봅시다. 중복을 찾기 어려우니 의미가 드러나도록 조금만
+고쳐봅니다.
 
 ```javascript
 function solve() {
   return [1 + 1, 3, 4, 5, 6, 7];
 }
 
-test('sample', () => {
+test("sample", () => {
   expect(solve([2, 1, 3, 4, 1])).toEqual([2, 3, 4, 5, 6, 7]);
 });
 ```
 
-맨 앞의 `2`는 사실 `1 + 1`이었고,
-입력 값 `numbers`와 중복이란 걸 확인할 수 있습니다.
+맨 앞의 `2`는 사실 `1 + 1`이었고, 입력 값 `numbers`와 중복이란 걸 확인할 수
+있습니다.
 
 ```javascript
 function solve(numbers) {
   return [numbers[1] + numbers[4], 3, 4, 5, 6, 7];
 }
 
-test('sample', () => {
+test("sample", () => {
   expect(solve([2, 1, 3, 4, 1])).toEqual([2, 3, 4, 5, 6, 7]);
 });
 ```
 
-나머지 숫자들도 이런 식으로 찾을 수 있겠지만,
-너무 많은 것 같아서 자신이 없습니다.
-그래서 훨씬 간단한 경우를 만들어서 확인하겠습니다.
+나머지 숫자들도 이런 식으로 찾을 수 있겠지만, 너무 많은 것 같아서 자신이
+없습니다. 그래서 훨씬 간단한 경우를 만들어서 확인하겠습니다.
 
 ## 간단한 테스트 케이스
 
@@ -191,17 +190,17 @@ function solve(numbers) {
   return [numbers[1] + numbers[4], 3, 4, 5, 6, 7];
 }
 
-test('simple', () => {
+test("simple", () => {
   expect(solve([1, 2])).toEqual([3]);
 });
 
-test('sample', () => {
+test("sample", () => {
   expect(solve([2, 1, 3, 4, 1])).toEqual([2, 3, 4, 5, 6, 7]);
 });
 ```
 
-테스트가 실패합니다.
-저는 입력 값의 크기(`length`)를 이용해 빠르게 통과시키겠습니다.
+테스트가 실패합니다. 저는 입력 값의 크기(`length`)를 이용해 빠르게
+통과시키겠습니다.
 
 ```javascript
 function solve(numbers) {
@@ -211,11 +210,11 @@ function solve(numbers) {
   return [numbers[1] + numbers[4], 3, 4, 5, 6, 7];
 }
 
-test('simple', () => {
+test("simple", () => {
   expect(solve([1, 2])).toEqual([3]);
 });
 
-test('sample', () => {
+test("sample", () => {
   expect(solve([2, 1, 3, 4, 1])).toEqual([2, 3, 4, 5, 6, 7]);
 });
 ```
@@ -244,8 +243,8 @@ function solve(numbers) {
 
 ## 조금 더 나아가기
 
-자신감이 붙었으니 조금 더 어려운 걸 해봅시다.
-`[1, 2, 3]`을 넣어 `[3, 4, 5]`가 나오게 합시다.
+자신감이 붙었으니 조금 더 어려운 걸 해봅시다. `[1, 2, 3]`을 넣어 `[3, 4, 5]`가
+나오게 합시다.
 
 ```javascript
 function solve(numbers) {
@@ -255,12 +254,12 @@ function solve(numbers) {
   return [numbers[1] + numbers[4], 3, 4, 5, 6, 7];
 }
 
-test('simple', () => {
+test("simple", () => {
   expect(solve([1, 2])).toEqual([3]);
   expect(solve([1, 2, 3])).toEqual([3, 4, 5]);
 });
 
-test('sample', () => {
+test("sample", () => {
   expect(solve([2, 1, 3, 4, 1])).toEqual([2, 3, 4, 5, 6, 7]);
 });
 ```
@@ -315,13 +314,11 @@ function solve(numbers) {
 
 여기서 중복을 찾아봅시다.
 
-저는 `numbers[0] + numbers[1]`이
-`solve([numbers[0], [numbers[1]])`과 똑같아 보입니다.
-따라서 이 부분을 재귀로 바꿔보겠습니다.
+저는 `numbers[0] + numbers[1]`이 `solve([numbers[0], [numbers[1]])`과 똑같아
+보입니다. 따라서 이 부분을 재귀로 바꿔보겠습니다.
 
-(**주의!** 이 코드는 계속 새로운 배열을 만들기 때문에 매우 비효율적입니다.
-이런 발상이 가능하다는 걸 보여드리는 게 목적이니,
-안목을 넓히는 용도로만 활용하세요.)
+(**주의!** 이 코드는 계속 새로운 배열을 만들기 때문에 매우 비효율적입니다. 이런
+발상이 가능하다는 걸 보여드리는 게 목적이니, 안목을 넓히는 용도로만 활용하세요.)
 
 ```javascript
 function solve(numbers) {
@@ -411,8 +408,7 @@ function solve(numbers) {
 }
 ```
 
-결과의 순서가 틀렸다고 합니다.
-간단히 정렬합시다.
+결과의 순서가 틀렸다고 합니다. 간단히 정렬합시다.
 
 ```javascript
 function solve(numbers) {
@@ -440,9 +436,12 @@ function solve(numbers) {
     return [numbers[0] + numbers[1]];
   }
   if (numbers.length === 3) {
-    return [...Array(3)].map((_, i) => {
-      return solve([...numbers.slice(0, i), ...numbers.slice(i + 1)]);
-    }).reduce((a, e) => [...a, ...e]).sort((a, b) => a - b);
+    return [...Array(3)]
+      .map((_, i) => {
+        return solve([...numbers.slice(0, i), ...numbers.slice(i + 1)]);
+      })
+      .reduce((a, e) => [...a, ...e])
+      .sort((a, b) => a - b);
   }
   return [numbers[1] + numbers[4], 3, 4, 5, 6, 7];
 }
@@ -456,16 +455,19 @@ function solve(numbers) {
     return [numbers[0] + numbers[1]];
   }
   if (numbers.length === 3) {
-    return numbers.map((_, i) => {
-      return solve([...numbers.slice(0, i), ...numbers.slice(i + 1)]);
-    }).reduce((a, e) => [...a, ...e]).sort((a, b) => a - b);
+    return numbers
+      .map((_, i) => {
+        return solve([...numbers.slice(0, i), ...numbers.slice(i + 1)]);
+      })
+      .reduce((a, e) => [...a, ...e])
+      .sort((a, b) => a - b);
   }
   return [numbers[1] + numbers[4], 3, 4, 5, 6, 7];
 }
 ```
 
-왠지 범용으로도 쓸 수 있을 것 같습니다.
-그래서 과감히 모든 경우에 적용해 보겠습니다.
+왠지 범용으로도 쓸 수 있을 것 같습니다. 그래서 과감히 모든 경우에 적용해
+보겠습니다.
 
 ```javascript
 function solve(numbers) {
@@ -474,16 +476,19 @@ function solve(numbers) {
   }
   // 쉽게 되돌릴 수 있도록 주석으로 처리했습니다.
   // if (numbers.length === 3) {
-    return numbers.map((_, i) => {
+  return numbers
+    .map((_, i) => {
       return solve([...numbers.slice(0, i), ...numbers.slice(i + 1)]);
-    }).reduce((a, e) => [...a, ...e]).sort((a, b) => a - b);
+    })
+    .reduce((a, e) => [...a, ...e])
+    .sort((a, b) => a - b);
   // }
   // return [numbers[1] + numbers[4], 3, 4, 5, 6, 7];
 }
 ```
 
-실패합니다. 원인은 결과 값에 중복이 있기 때문입니다.
-`filter`를 이용해 간단히 처리해 봅시다.
+실패합니다. 원인은 결과 값에 중복이 있기 때문입니다. `filter`를 이용해 간단히
+처리해 봅시다.
 
 ```javascript
 function solve(numbers) {
@@ -492,10 +497,13 @@ function solve(numbers) {
   }
   // 쉽게 되돌릴 수 있도록 주석으로 처리했습니다.
   // if (numbers.length === 3) {
-    const values = numbers.map((_, i) => {
+  const values = numbers
+    .map((_, i) => {
       return solve([...numbers.slice(0, i), ...numbers.slice(i + 1)]);
-    }).reduce((a, e) => [...a, ...e]).sort((a, b) => a - b);
-    return values.filter((x, i) => x !== values[i - 1]);
+    })
+    .reduce((a, e) => [...a, ...e])
+    .sort((a, b) => a - b);
+  return values.filter((x, i) => x !== values[i - 1]);
   // }
   // return [numbers[1] + numbers[4], 3, 4, 5, 6, 7];
 }
@@ -508,18 +516,21 @@ function solve(numbers) {
   if (numbers.length === 2) {
     return [numbers[0] + numbers[1]];
   }
-  const values = numbers.map((_, i) => {
-    return solve([...numbers.slice(0, i), ...numbers.slice(i + 1)]);
-  }).reduce((a, e) => [...a, ...e]).sort((a, b) => a - b);
+  const values = numbers
+    .map((_, i) => {
+      return solve([...numbers.slice(0, i), ...numbers.slice(i + 1)]);
+    })
+    .reduce((a, e) => [...a, ...e])
+    .sort((a, b) => a - b);
   return values.filter((x, i) => x !== values[i - 1]);
 }
 
-test('simple', () => {
+test("simple", () => {
   expect(solve([1, 2])).toEqual([3]);
   expect(solve([1, 2, 3])).toEqual([3, 4, 5]);
 });
 
-test('sample', () => {
+test("sample", () => {
   expect(solve([2, 1, 3, 4, 1])).toEqual([2, 3, 4, 5, 6, 7]);
 });
 ```
@@ -528,8 +539,8 @@ test('sample', () => {
 
 지금 코드는 어떤가요? 마음에 드나요?
 
-정렬과 중복 제거는 서로에게 의존하고 있기 때문에
-하나의 함수로 분리하면 좋을 것 같습니다.
+정렬과 중복 제거는 서로에게 의존하고 있기 때문에 하나의 함수로 분리하면 좋을 것
+같습니다.
 
 ```javascript
 function sortedUniq(xs) {
@@ -537,7 +548,7 @@ function sortedUniq(xs) {
   return values.filter((x, i) => x !== values[i - 1]);
 }
 
-test('sortedUniq', () => {
+test("sortedUniq", () => {
   expect(sortedUniq([1, 2])).toEqual([1, 2]);
   expect(sortedUniq([1, 1, 2])).toEqual([1, 2]);
   expect(sortedUniq([1, 2, 1])).toEqual([1, 2]);
@@ -551,21 +562,25 @@ function solve(numbers) {
   if (numbers.length === 2) {
     return [numbers[0] + numbers[1]];
   }
-  return sortedUniq(numbers.map((_, i) => {
-    return solve([...numbers.slice(0, i), ...numbers.slice(i + 1)]);
-  }).reduce((a, e) => [...a, ...e]));
+  return sortedUniq(
+    numbers
+      .map((_, i) => {
+        return solve([...numbers.slice(0, i), ...numbers.slice(i + 1)]);
+      })
+      .reduce((a, e) => [...a, ...e]),
+  );
 }
 ```
 
-`slice`를 두번 쓰는 이유는 중간에 있는 값을 제거하기 위해서입니다.
-`removeAt` 함수를 만들어 보죠.
+`slice`를 두번 쓰는 이유는 중간에 있는 값을 제거하기 위해서입니다. `removeAt`
+함수를 만들어 보죠.
 
 ```javascript
 function removeAt(xs, index) {
   return [...xs.slice(0, index), ...xs.slice(index + 1)];
 }
 
-test('removeAt', () => {
+test("removeAt", () => {
   expect(removeAt([1, 2, 3], 0)).toEqual([2, 3]);
   expect(removeAt([1, 2, 3], 1)).toEqual([1, 3]);
   expect(removeAt([1, 2, 3], 2)).toEqual([1, 2]);
@@ -579,31 +594,30 @@ function solve(numbers) {
   if (numbers.length === 2) {
     return [numbers[0] + numbers[1]];
   }
-  return sortedUniq((
-    numbers.map((_, i) => solve(removeAt(numbers, i)))
-      .reduce((a, e) => [...a, ...e])
-  ));
+  return sortedUniq(
+    numbers
+      .map((_, i) => solve(removeAt(numbers, i)))
+      .reduce((a, e) => [...a, ...e]),
+  );
 }
 ```
 
-배열을 연결하는 부분은 의미가 좀 더 잘 드러나도록
-`flatMap`을 이용해 처리해 봅시다.
+배열을 연결하는 부분은 의미가 좀 더 잘 드러나도록 `flatMap`을 이용해 처리해
+봅시다.
 
 ```javascript
 function solve(numbers) {
   if (numbers.length === 2) {
     return [numbers[0] + numbers[1]];
   }
-  return sortedUniq((
-    numbers.flatMap((_, i) => solve(removeAt(numbers, i)))
-  ));
+  return sortedUniq(numbers.flatMap((_, i) => solve(removeAt(numbers, i))));
 }
 ```
 
 ## 최종 코드
 
-리팩터링의 재미에 빠지면 끝이 나지 않을 수 있습니다.
-적당히 마무리하고 훨씬 효율적인 다른 풀이법을 생각해 보면 좋을 것 같습니다.
+리팩터링의 재미에 빠지면 끝이 나지 않을 수 있습니다. 적당히 마무리하고 훨씬
+효율적인 다른 풀이법을 생각해 보면 좋을 것 같습니다.
 
 아래는 `sum` 함수 등을 도입해 약간 수정한 최종 코드입니다.
 
@@ -622,34 +636,35 @@ function removeAt(xs, index) {
 }
 
 function solve(numbers) {
-  return numbers.length === 2 ? [sum(numbers)]
+  return numbers.length === 2
+    ? [sum(numbers)]
     : sortedUniq(numbers.flatMap((_, i) => solve(removeAt(numbers, i))));
 }
 
 // TEST -----------------------------------------------------------------------
 
-test('sum', () => {
+test("sum", () => {
   expect(sum([1, 2, 3, 4])).toBe(10);
 });
 
-test('sortedUniq', () => {
+test("sortedUniq", () => {
   expect(sortedUniq([1, 2])).toEqual([1, 2]);
   expect(sortedUniq([1, 1, 2])).toEqual([1, 2]);
   expect(sortedUniq([1, 2, 1])).toEqual([1, 2]);
 });
 
-test('removeAt', () => {
+test("removeAt", () => {
   expect(removeAt([1, 2, 3], 0)).toEqual([2, 3]);
   expect(removeAt([1, 2, 3], 1)).toEqual([1, 3]);
   expect(removeAt([1, 2, 3], 2)).toEqual([1, 2]);
 });
 
-test('simple', () => {
+test("simple", () => {
   expect(solve([1, 2])).toEqual([3]);
   expect(solve([1, 2, 3])).toEqual([3, 4, 5]);
 });
 
-test('sample', () => {
+test("sample", () => {
   expect(solve([2, 1, 3, 4, 1])).toEqual([2, 3, 4, 5, 6, 7]);
   expect(solve([5, 0, 2, 7])).toEqual([2, 5, 7, 9, 12]);
 });
@@ -658,10 +673,9 @@ test('sample', () => {
 ## BONUS
 
 좀더 일반적인 풀이가 궁금하시면
-[pytest 맛보기](https://www.youtube.com/watch?v=88qxXM3oI0w)
-영상을 참고하세요.
-TDD 등을 배울 때는 관련 자료를 글로 보는 것보다
-코딩 과정을 눈으로 확인하는 게 훨씬 효과적입니다.
+[pytest 맛보기](https://www.youtube.com/watch?v=88qxXM3oI0w) 영상을 참고하세요.
+TDD 등을 배울 때는 관련 자료를 글로 보는 것보다 코딩 과정을 눈으로 확인하는 게
+훨씬 효과적입니다.
 
 ---
 

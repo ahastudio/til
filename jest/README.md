@@ -29,9 +29,7 @@ npm install --save-dev jest-plugin-context
 ```javascript
 module.exports = {
   // ...(중략...)
-  setupFiles: [
-    'jest-plugin-context/setup',
-  ],
+  setupFiles: ["jest-plugin-context/setup"],
   // ...(중략...)
 };
 ```
@@ -66,22 +64,25 @@ module.exports = {
   //   '<rootDir>/src/setupTests.ts',
   // ],
   transform: {
-    '^.+\\.(t|j)sx?$': ['@swc/jest', {
-      jsc: {
-        parser: {
-          syntax: 'typescript',
-          // jsx: true,
-          // decorators: true,
-        },
-        transform: {
-          // react: {
-          //   runtime: 'automatic',
-          // },
-          // legacyDecorator: true,
-          // decoratorMetadata: true,
+    "^.+\\.(t|j)sx?$": [
+      "@swc/jest",
+      {
+        jsc: {
+          parser: {
+            syntax: "typescript",
+            // jsx: true,
+            // decorators: true,
+          },
+          transform: {
+            // react: {
+            //   runtime: 'automatic',
+            // },
+            // legacyDecorator: true,
+            // decoratorMetadata: true,
+          },
         },
       },
-    }],
+    ],
   },
 };
 ```

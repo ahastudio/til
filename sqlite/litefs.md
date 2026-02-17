@@ -1,7 +1,7 @@
 # LiteFS - Distributed SQLite
 
-> FUSE-based file system for replicating SQLite databases
-> across a cluster of machines
+> FUSE-based file system for replicating SQLite databases across a cluster of
+> machines
 
 ​​https://github.com/superfly/litefs
 
@@ -17,6 +17,7 @@ https://fly.io/docs/litefs/
 
 [I Migrated from a Postgres Cluster to Distributed SQLite with LiteFS](https://kentcdodds.com/blog/i-migrated-from-a-postgres-cluster-to-distributed-sqlite-with-litefs)
 
-[Distributed SQLite: Paradigm shift or hype?](https://kerkour.com/distributed-sqlite) \
+[Distributed SQLite: Paradigm shift or hype?](https://kerkour.com/distributed-sqlite)
+\
 → 한국어 요약:
 [분산형 SQLite: 패러다임의 전환인가 과장된 선전인가? | GeekNews](https://news.hada.io/topic?id=14445)

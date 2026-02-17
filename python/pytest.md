@@ -15,7 +15,5 @@
 <https://github.com/olzhasar/pytest-watcher>
 
 > `pytest-watch` has been around for a long time and used to address exactly
-> this problem.
-> Unfortunately, `pytest-watch` is no longer maintained and doesn't work for
-> many users.
-> This project provides an alternative for it.
+> this problem. Unfortunately, `pytest-watch` is no longer maintained and
+> doesn't work for many users. This project provides an alternative for it.

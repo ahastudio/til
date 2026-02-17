@@ -2,14 +2,10 @@
 
 ## Develop Environment
 
-Using an iPad for Coding
-<https://github.com/jimoconnell/iPad-Coding>
+Using an iPad for Coding <https://github.com/jimoconnell/iPad-Coding>
 
-Mosh
-<https://mosh.org/>
+Mosh <https://mosh.org/>
 
-Termius
-<https://termius.com/>
+Termius <https://termius.com/>
 
-Code App
-<https://thebaselab.com/code/>
+Code App <https://thebaselab.com/code/>

@@ -1,8 +1,7 @@
 # Ethereum
 
-> Ethereum is the community-run technology powering
-> the cryptocurrency ether (ETH)
-> and thousands of decentralized applications.
+> Ethereum is the community-run technology powering the cryptocurrency ether
+> (ETH) and thousands of decentralized applications.
 
 <https://ethereum.org/>
 

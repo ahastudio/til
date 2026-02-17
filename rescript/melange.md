@@ -1,7 +1,7 @@
 # Melange
 
-> This project is a fork of the ReScript compiler
-> with a focus on compatibility with the wider OCaml ecosystem.
+> This project is a fork of the ReScript compiler with a focus on compatibility
+> with the wider OCaml ecosystem.
 
 <https://github.com/melange-re/melange>
 

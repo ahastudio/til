@@ -11,7 +11,8 @@ Visual Studio Marketplace:
 
 [AI로 더 똑똑해진 VS Code | GitHub Copilot | Microsoft Developer Korea - YouTube](https://www.youtube.com/watch?v=YW7mlEBI_3o)
 
-[Introducing GitHub Copilot agent mode (preview)](https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode) \
+[Introducing GitHub Copilot agent mode (preview)](https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode)
+\
 → 한국어 번역:
 [GitHub Copilot 에이전트 모드(프리뷰) 소개](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/github-copilot-%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8-%EB%AA%A8%EB%93%9C%ED%94%84%EB%A6%AC%EB%B7%B0-%EC%86%8C%EA%B0%9C/4385444)
 
@@ -29,9 +30,7 @@ Visual Studio Marketplace:
 
 <https://github.com/bradygaster/squad>
 
-프로젝트에 AI 에이전트 팀을 구성하는 실험적
-프레임워크.
-GitHub Copilot을 통해 프론트엔드, 백엔드, 테스터,
-리드 등 전문화된 에이전트가 병렬로 작업을 수행한다.
-각 에이전트는 `history.md`에 학습 내용을 기록하고,
-`decisions.md`로 팀 전체의 일관성을 유지한다.
+프로젝트에 AI 에이전트 팀을 구성하는 실험적 프레임워크. GitHub Copilot을 통해
+프론트엔드, 백엔드, 테스터, 리드 등 전문화된 에이전트가 병렬로 작업을 수행한다.
+각 에이전트는 `history.md`에 학습 내용을 기록하고, `decisions.md`로 팀 전체의
+일관성을 유지한다.

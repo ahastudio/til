@@ -2,9 +2,8 @@
 
 <https://github.com/pgmq/pgmq>
 
-AWS SQS와 RSMQ처럼 PostgreSQL 위에서 작동하는 경량 메시지 큐.
-별도의 백그라운드 워커나 외부 의존성 없이 PostgreSQL 확장(extension)으로
-구현되었다.
+AWS SQS와 RSMQ처럼 PostgreSQL 위에서 작동하는 경량 메시지 큐. 별도의 백그라운드
+워커나 외부 의존성 없이 PostgreSQL 확장(extension)으로 구현되었다.
 
 ## 핵심 특징
 
@@ -33,14 +32,14 @@ AWS SQS와 RSMQ처럼 PostgreSQL 위에서 작동하는 경량 메시지 큐.
 
 ## 주요 API
 
-| 작업             | 함수                                  |
-|------------------|---------------------------------------|
-| 큐 생성          | `pgmq.create('큐이름')`               |
-| 메시지 전송      | `pgmq.send(queue_name, msg, delay)`   |
-| 메시지 읽기      | `pgmq.read(queue_name, vt, qty)`      |
-| 메시지 팝(삭제)  | `pgmq.pop(queue_name)`                |
-| 메시지 아카이빙  | `pgmq.archive(queue_name, msg_id)`    |
-| 메시지 삭제      | `pgmq.delete(queue_name, msg_id)`     |
+| 작업            | 함수                                |
+| --------------- | ----------------------------------- |
+| 큐 생성         | `pgmq.create('큐이름')`             |
+| 메시지 전송     | `pgmq.send(queue_name, msg, delay)` |
+| 메시지 읽기     | `pgmq.read(queue_name, vt, qty)`    |
+| 메시지 팝(삭제) | `pgmq.pop(queue_name)`              |
+| 메시지 아카이빙 | `pgmq.archive(queue_name, msg_id)`  |
+| 메시지 삭제     | `pgmq.delete(queue_name, msg_id)`   |
 
 ## 빠른 시작
 
@@ -74,8 +73,8 @@ SELECT pgmq.delete('my_queue', 1);
 
 ## PubSub 패턴 구현
 
-PGMQ는 Point-to-Point 메시징만 지원한다. PubSub이 필요하면 컨슈머별 큐를
-만들고 Fan-out하는 방식을 사용한다.
+PGMQ는 Point-to-Point 메시징만 지원한다. PubSub이 필요하면 컨슈머별 큐를 만들고
+Fan-out하는 방식을 사용한다.
 
 ```sql
 -- 컨슈머별 큐 생성
@@ -87,15 +86,15 @@ SELECT pgmq.send('topic_consumer_a', '{"event": "created"}');
 SELECT pgmq.send('topic_consumer_b', '{"event": "created"}');
 ```
 
-메시지 본문이 크면 별도 테이블에 저장하고 ID만 참조하면 write
-amplification을 줄일 수 있다.
+메시지 본문이 크면 별도 테이블에 저장하고 ID만 참조하면 write amplification을
+줄일 수 있다.
 
 참고: <https://github.com/tembo-io/pgmq/issues/255>
 
 ## Transactional Outbox 패턴
 
-PGMQ는 PostgreSQL 확장이므로 일반 트랜잭션 내에서 동작한다.
-비즈니스 로직과 메시지 발행을 원자적으로 처리할 수 있다.
+PGMQ는 PostgreSQL 확장이므로 일반 트랜잭션 내에서 동작한다. 비즈니스 로직과
+메시지 발행을 원자적으로 처리할 수 있다.
 
 ```sql
 BEGIN;
@@ -107,8 +106,8 @@ SELECT pgmq.send('order_events', '{"order_id": 123, "event": "created"}');
 COMMIT;
 ```
 
-실패 시 둘 다 롤백된다. 별도 outbox 테이블 없이 PGMQ 큐 자체가 outbox
-역할을 한다.
+실패 시 둘 다 롤백된다. 별도 outbox 테이블 없이 PGMQ 큐 자체가 outbox 역할을
+한다.
 
 ## Spring Boot 예제
 
@@ -213,8 +212,8 @@ msgs = pgmq.read_batch('order_events', 10)
 
 ### Tembo
 
-PGMQ 개발사. PostgreSQL 클라우드 플랫폼으로, 확장 생태계(Trunk)를 통해
-다양한 PostgreSQL 확장을 쉽게 배포하고 사용할 수 있게 한다.
+PGMQ 개발사. PostgreSQL 클라우드 플랫폼으로, 확장 생태계(Trunk)를 통해 다양한
+PostgreSQL 확장을 쉽게 배포하고 사용할 수 있게 한다.
 
 <https://tembo.io/>
 
@@ -227,8 +226,8 @@ Supabase 프로젝트 내에서 메시지 큐를 사용할 수 있다.
 
 ### pgflow
 
-Supabase용 워크플로우 엔진. PGMQ, pg_cron, Edge Functions를 조합하여
-선언적 워크플로우를 구현한다. 외부 서비스(Bull, Redis, Temporal) 없이
-Postgres만으로 워크플로우 상태를 관리한다.
+Supabase용 워크플로우 엔진. PGMQ, pg_cron, Edge Functions를 조합하여 선언적
+워크플로우를 구현한다. 외부 서비스(Bull, Redis, Temporal) 없이 Postgres만으로
+워크플로우 상태를 관리한다.
 
 <https://www.pgflow.dev/>

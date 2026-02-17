@@ -1,6 +1,7 @@
 # Password Length vs Complexity
 
-대소문자, 숫자, 특수문자 등을 조합해 복잡도(Complexity)를 높이는 것보다 길이(Length)를 늘리는 게 더 중요합니다.
+대소문자, 숫자, 특수문자 등을 조합해 복잡도(Complexity)를 높이는 것보다
+길이(Length)를 늘리는 게 더 중요합니다.
 
 [<img src="https://imgs.xkcd.com/comics/password_strength.png" alt="xkcd: Password Strength">](https://xkcd.com/936/)
 

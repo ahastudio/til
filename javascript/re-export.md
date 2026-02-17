@@ -9,5 +9,5 @@ export ㅇㅇㅇ;
 ```
 
 ```javascript
-export ㅇㅇㅇ from 'ㅇㅇㅇ';
+export ㅇㅇㅇ from "ㅇㅇㅇ";
 ```

@@ -11,8 +11,8 @@
 
 ## Credo
 
-> Credo is a static code analysis tool for the Elixir language
-> with a focus on teaching and code consistency.
+> Credo is a static code analysis tool for the Elixir language with a focus on
+> teaching and code consistency.
 
 <https://credo-ci.org/>
 

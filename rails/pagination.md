@@ -16,7 +16,7 @@
 
 ## Kaminari
 
-> ⚡ A Scope & Engine based, clean, powerful, customizable and
-> sophisticated paginator for Ruby webapps
+> ⚡ A Scope & Engine based, clean, powerful, customizable and sophisticated
+> paginator for Ruby webapps
 
 <https://github.com/kaminari/kaminari>

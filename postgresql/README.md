@@ -35,6 +35,7 @@ Mirror of the official PostgreSQL Git repository:
 
 ## Index
 
-[PostgreSQL: Documentation: 16: Chapter 11. Indexes](https://www.postgresql.org/docs/current/indexes.html) \
+[PostgreSQL: Documentation: 16: Chapter 11. Indexes](https://www.postgresql.org/docs/current/indexes.html)
+\
 → 한국어 번역:
 [인덱스 개요](https://datarian.io/blog/postgresql-introduction-to-indexes)

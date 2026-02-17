@@ -16,8 +16,8 @@
 
 ## Korean Communication
 
-Respond in Korean unless instructed otherwise.
-Technical terms may use both languages (e.g. 웹소켓(WebSocket)).
+Respond in Korean unless instructed otherwise. Technical terms may use both
+languages (e.g. 웹소켓(WebSocket)).
 
 ## Guides
 

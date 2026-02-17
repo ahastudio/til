@@ -1,7 +1,6 @@
 # PureScript
 
-> A strongly-typed functional programming language
-> that compiles to JavaScript
+> A strongly-typed functional programming language that compiles to JavaScript
 
 <https://www.purescript.org/>
 

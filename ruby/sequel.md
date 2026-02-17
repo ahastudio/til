@@ -6,14 +6,17 @@
 ## Association
 
 Association Basics
+
 - http://sequel.jeremyevans.net/rdoc/files/doc/association_basics_rdoc.html
 
 ## MS-SQL
 
 TinyTDS - Simple and fast FreeTDS bindings for Ruby using DB-Library
+
 - https://github.com/rails-sqlserver/tiny_tds
 
 Ruby Sequel TinyTDS MS SQL Example
+
 - https://gist.github.com/albertico/af9691562415c415e49b
 
 ## Example

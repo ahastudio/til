@@ -1,7 +1,7 @@
 # OCaml
 
-OCaml is an industrial-strength programming language
-supporting functional, imperative and object-oriented styles.
+OCaml is an industrial-strength programming language supporting functional,
+imperative and object-oriented styles.
 
 <https://ocaml.org/>
 
@@ -12,8 +12,8 @@ OCaml Workshop 2021 Keynote - Xavier Leroy: 25 years of OCaml
 
 ## `OCaml.org` v3
 
-The next implementation of ocaml.org, built on
-OCaml, ReScript, NextJS, and Tailwind.
+The next implementation of ocaml.org, built on OCaml, ReScript, NextJS, and
+Tailwind.
 
 <https://github.com/ocaml/v3.ocaml.org>
 

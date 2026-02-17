@@ -20,13 +20,9 @@
 
 <https://slite.com/>
 
-Slite - Pricing
-<https://slite.com/pricing>
-→ Standard plan이 1인당 월
+Slite - Pricing <https://slite.com/pricing> → Standard plan이 1인당 월
 8달러([9,500원 정도](https://www.google.com/search?q=8+USD+to+KRW)).
 
-Slite - How it works
-<https://slite.com/features>
+Slite - How it works <https://slite.com/features>
 
-Guides by Slite
-<https://slite.com/guides>
+Guides by Slite <https://slite.com/guides>

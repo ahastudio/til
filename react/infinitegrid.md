@@ -1,7 +1,7 @@
 # InfiniteGrid
 
-> A module used to arrange card elements including content infinitely
-> on a grid layout.
+> A module used to arrange card elements including content infinitely on a grid
+> layout.
 
 <https://naver.github.io/egjs-infinitegrid/>
 
