@@ -39,7 +39,7 @@ LLM을 본질까지 단순화하려는 10년간의 집착이 담겨 있다.
 
 ## 아키텍처 상세
 
-```
+```python
 n_layer    = 1      # Transformer 레이어 수
 n_embd     = 16     # 임베딩 차원
 block_size = 16     # 최대 시퀀스 길이
@@ -53,7 +53,7 @@ GPT-4급 모델이 수천억 개인 것과 비교하면
 
 ### 모델 구조
 
-```
+```txt
 입력 토큰
   → 토큰 임베딩 + 위치 임베딩
   → RMSNorm
@@ -182,4 +182,3 @@ Common Lisp, C#, JavaScript(브라우저), Rust 등
 ## 관련 문서
 
 - [GPT](./gpt.md)
-- [Karpathy's Claude Coding Notes](../ai/karpathy-claude-coding-notes.md)
