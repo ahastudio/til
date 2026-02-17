@@ -35,6 +35,8 @@ codex exec '
 
 git commit -F /tmp/til-update-sandbox-commit-message.txt
 
+git fetch origin --prune
+
 git pull --rebase
 
 git push
