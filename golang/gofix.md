@@ -1,71 +1,22 @@
 # go fix
 
-Go 코드를 최신 관용구(idiom)와 API로 자동 변환해 주는
-도구. Go 1.26에서 `go vet`과 같은 분석 프레임워크 기반으로
-완전히 재작성되었다.
+<https://go.dev/blog/gofix>
 
-- <https://go.dev/blog/gofix>
-- <https://go.dev/blog/introducing-gofix>
+Go 1.26에서 `go fix`가 완전히 재작성되었다.
+핵심은 **코드 현대화 자동화**와
+**라이브러리 마이그레이션 셀프 서비스**.
 
-## 배경: 원래의 gofix (2011)
+## 왜 지금 다시 만들었나
 
-Russ Cox가 만든 원래의 `gofix`는 Go 릴리스마다
-변경되는 API를 자동으로 마이그레이션해 주는 도구였다.
-Go의 AST 파싱/출력 라이브러리 덕분에 `gofmt` 포맷을
-유지하면서 기계적 변환이 가능했다.
+LLM이 오래된 Go 관용구로 코드를 생성하고,
+"최신 스타일 써라"고 해도 안 고친다.
+Go 팀의 해법: **코드 자체를 고쳐서 학습 데이터를
+바꾸자.** `go fix`는 그 도구다.
 
-```bash
-# 원래 사용법
-gofix .
-```
+## //go:fix inline이 게임 체인저인 이유
 
-## Go 1.26의 새로운 go fix
-
-Go 1.26에서 `go fix`가 `go vet`과 동일한
-분석(analysis) 프레임워크 위에 재구축되었다.
-목적은 다르지만 인프라를 공유한다.
-
-- `go vet`: 버그 가능성이 있는 코드 탐지
-- `go fix`: 최신 언어/라이브러리 기능으로 현대화
-
-```bash
-# 모든 분석기 적용
-go fix ./...
-
-# 변경 사항을 diff로 미리 확인
-go fix -diff ./...
-
-# 특정 분석기만 실행
-go fix -minmax -rangeint ./...
-
-# 특정 분석기 제외
-go fix -minmax=false ./...
-```
-
-## 주요 분석기 목록
-
-| 분석기           | 설명                             |
-|------------------|----------------------------------|
-| minmax           | min/max 빌트인 함수 활용         |
-| rangeint         | range over int 활용 (Go 1.22)    |
-| slicescontains   | slices.Contains 활용             |
-| slicessort       | slices.Sort 활용                 |
-| stringscut       | strings.Cut 활용                 |
-| stringsbuilder   | strings.Builder 활용             |
-| fmtappendf       | fmt.Appendf 활용                 |
-| forvar           | for 변수 캡처 수정 (Go 1.22)     |
-| any              | interface{} → any 변환           |
-| waitgroup        | sync.WaitGroup 패턴 개선         |
-| inline           | //go:fix inline 지시어 처리      |
-
-## //go:fix inline - 핵심 기능
-
-라이브러리 관리자가 **자신의 API 마이그레이션을
-자동화**할 수 있는 메커니즘. 함수나 상수에
-`//go:fix inline` 주석을 달면 `go fix` 실행 시
-호출부가 자동으로 인라인된다.
-
-### 함수 마이그레이션 예시
+라이브러리 관리자가 Breaking change 없이
+API를 마이그레이션할 수 있다.
 
 ```go
 // Deprecated: Use Pow(x, 2) instead.
@@ -74,99 +25,48 @@ go fix -minmax=false ./...
 func Square(x int) int { return Pow(x, 2) }
 ```
 
-사용자가 `go fix`를 실행하면:
+사용자는 `go fix ./...`만 실행하면
+`Square(n)` → `Pow(n, 2)`로 자동 변환된다.
+인자 평가 순서 같은 동작 변화가 생기는 경우는
+안전하게 건너뛴다. 패키지 이동, 상수 교체도
+같은 패턴으로 처리한다.
 
-```go
-// Before
-result := Square(n)
+**이것이 중요한 이유:**
+v1 → v2 마이그레이션 시 v1 함수를 v2 래퍼로
+만들고 `//go:fix inline`만 붙이면 된다.
+Breaking change의 고통을 구조적으로 제거한다.
 
-// After
-result := Pow(n, 2)
-```
+## gopls와 결합하면 실시간 가드레일
 
-### 패키지 이동 예시
+`go fix` 분석기들이 gopls에서도 동작한다.
+에디터에서 코드 작성 중 현대화 제안이 뜨고,
+gopls MCP 서버를 통해 LLM 에이전트에도
+진단 정보가 흘러간다.
 
-```go
-// Deprecated: Use pkg2.F instead.
-//
-//go:fix inline
-func F() { pkg2.F(nil) }
-```
+`go fix` + gopls + LLM 에이전트.
+이 조합이 Go 코드 품질의 바닥을 끌어올린다.
 
-```go
-// Before
-pkg.F()
-
-// After
-pkg2.F(nil)
-```
-
-### 상수 마이그레이션
-
-```go
-// Deprecated: Use MaxSize instead.
-//
-//go:fix inline
-const OldMaxSize = MaxSize
-```
-
-인라이너는 인자 평가 순서 변경 등 동작 변화가
-생길 수 있는 경우 안전하게 변환을 건너뛴다.
-
-## LLM과의 관계
-
-Go 팀이 `go fix`를 현대화한 동기 중 하나가
-LLM 코딩 어시스턴트다.
-
-> LLM은 학습 데이터에 있는 오래된 스타일의
-> Go 코드를 생성하는 경향이 있고, "최신 관용구를
-> 사용하라"고 지시해도 잘 따르지 않는다.
-
-오픈소스 Go 코드 전체를 현대화하면 미래의 LLM
-학습 데이터 품질이 개선되는 효과를 기대한다.
-
-## gopls 연동
-
-`go fix`의 분석기들은 gopls(언어 서버)에서도
-실시간으로 동작한다.
-
-- 에디터에서 타이핑할 때마다 현대화 제안 표시
-- gopls의 MCP 서버를 통해 LLM 코딩 에이전트에도
-  진단 정보 제공 ("가드레일" 역할)
-
-## 활용 인사이트
-
-### 1. CI에 go fix -diff 통합
+## CI에 넣어라
 
 ```bash
-# CI에서 현대화되지 않은 코드 감지
 diff=$(go fix -diff ./...)
 if [ -n "$diff" ]; then
-  echo "Run 'go fix ./...' to modernize code"
+  echo "Run 'go fix ./...' to modernize"
   exit 1
 fi
 ```
 
-### 2. 라이브러리 메이저 버전 업그레이드 자동화
+이것 하나로 팀 전체의 코드가 최신 관용구를
+유지하게 된다. `go vet`처럼 CI 필수 단계로
+넣어야 한다.
 
-v1 → v2 마이그레이션 시 v1의 함수를 v2 래퍼로
-만들고 `//go:fix inline`을 붙이면, 사용자가
-`go fix`만 실행하면 된다. Breaking change의
-부담을 크게 줄일 수 있다.
+## 정리
 
-### 3. 조직 내 코딩 컨벤션 강제
-
-Go 1.27부터는 staticcheck 분석기도 `go fix`에
-포함될 예정이다. 향후에는 소스 트리에서 커스텀
-분석기를 동적으로 로드하는 "셀프 서비스" 모델도
-계획되어 있다.
-
-### 4. 외부 분석기 사용
-
-```bash
-# 외부 분석기 설치 후 go fix에서 사용
-go install golang.org/x/tools/go/analysis/passes/\
-stringintconv/cmd/stringintconv@latest
-
-go fix -fixtool=$(which stringintconv) ./...
-```
+| 관점               | 핵심                           |
+|--------------------|--------------------------------|
+| 코드 작성자        | `go fix ./...`로 최신화        |
+| 라이브러리 관리자  | `//go:fix inline`으로          |
+|                    | 마이그레이션 자동화            |
+| 팀 리더            | CI에 `go fix -diff` 통합       |
+| LLM 시대           | 학습 데이터 품질을             |
+|                    | 도구로 강제 개선               |
