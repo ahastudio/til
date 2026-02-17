@@ -12,6 +12,66 @@
 language: ko-KR
 ```
 
+## Issue Planner
+
+<https://www.coderabbit.ai/issue-planner>
+
+<https://docs.coderabbit.ai/issues/planner>
+
+이슈, 스펙, 코드베이스를 분석해
+코딩 에이전트에게 넘길 수 있는
+Coding Plan을 생성하는 기능.
+현재 오픈 베타.
+
+CodeRabbit의 지속적 코드 분석을 통해
+코드베이스를 깊이 이해하고 있기 때문에,
+각 플랜은 프로젝트의 아키텍처와 컨벤션에
+맞춰 작성됨.
+
+### 지원 플랫폼
+
+GitHub Issues, GitLab, Jira, Linear.
+
+### 사용 방법
+
+이슈에 `@coderabbitai plan`이라고
+코멘트하면 Coding Plan이 생성됨.
+이슈와 코드베이스의 복잡도에 따라
+보통 5~10분 소요.
+
+자동 플래닝(Auto-planning)을 활성화하면
+설정한 조건에 맞는 이슈가 생성될 때마다
+자동으로 Coding Plan이 생성됨.
+
+### Coding Plan 확인 및 개선
+
+GitHub/GitLab에서는 이슈 코멘트로
+Coding Plan이 직접 게시됨.
+플랜 코멘트에 답글을 달아
+세부 사항을 수정하거나
+설계 결정에 대해 논의할 수 있음.
+
+Jira/Linear에서는 CodeRabbit 웹 앱에서
+Coding Plan을 확인할 수 있음.
+오른쪽 채팅 패널을 사용해
+플랜을 다듬은 뒤 코딩 에이전트에게
+최종 프롬프트를 전달.
+
+### 특징
+
+코딩 에이전트가 생성하는 플랜은
+보통 소수의 파일만 참조하지만,
+CodeRabbit의 Coding Plan은
+지속적 코드 분석과 광범위한 지식 베이스를
+기반으로 작성됨.
+따라서 올바른 파일을 참조하고,
+기존 패턴을 따르며,
+기존 코드와 자연스럽게 통합됨.
+
+조직 내 누구나 플랜을 확인하고,
+CodeRabbit과 논의하고,
+재플래닝을 요청할 수 있음.
+
 ## Articles
 
 [코드 리뷰 요정, CodeRabbit이 나타났다 🐰](https://tech.inflab.com/20250303-introduce-coderabbit/)
