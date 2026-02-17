@@ -4,7 +4,7 @@
 > 요약 및 인사이트.
 
 출처:
-<https://x.com/Meer_AIIT/status/2023763364502008002>
+<https://twitter.com/Meer_AIIT/status/2023763364502008002>
 
 ## Chapter 1: 기본 구조
 
