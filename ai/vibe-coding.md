@@ -49,7 +49,7 @@ Andrej Karpathy의 트윗:
 
 [Vibe Coding Is The WORST IDEA Of 2025 - SecondB Summary](https://secondb.ai/summary/4541/)
 
-[Dave Farley on X: "Vibe coding might sound trendy, but I think vibe coding might be one of the worst ideas in software engineering and software development in 2025... Listen to my thoughts on #VibeCoding in my latest video on the @ModernSoftwareX channel. (Link in my bio 📽️) https://t.co/Kxa2OI4NR3" / X](https://x.com/davefarley77/status/1955690818028683415)
+[Dave Farley on X: "Vibe coding might sound trendy, but I think vibe coding might be one of the worst ideas in software engineering and software development in 2025... Listen to my thoughts on #VibeCoding in my latest video on the @ModernSoftwareX channel. (Link in my bio 📽️) https://t.co/Kxa2OI4NR3" / X](https://twitter.com/davefarley77/status/1955690818028683415)
 
 [Toby Lee - 모든 개발자의 필독서인 "모던 소프트웨어 엔지니어링"의 저자인 데이비드 팔리의 바이브 코딩에 대한 비판적인 영상을 봤다. | Facebook](https://www.facebook.com/tobyilee/posts/pfbid032q2pLke5Hxf9bb7nxPFxtMy5dSecSrbNsyvfDU8sYuAQMcV1aX5KUQhzhWCxJiYol)
 
