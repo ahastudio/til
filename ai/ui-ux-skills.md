@@ -9,6 +9,8 @@ AI 바이브코딩을 하면 보라색 그라데이션 중심의
 
 ## ui-ux-pro-max-skill
 
+→ [상세 문서](./ui-ux-pro-max.md)
+
 <https://github.com/nextlevelbuilder/ui-ux-pro-max-skill>
 
 프로페셔널 수준의 UI/UX 디자인을 이해하고
