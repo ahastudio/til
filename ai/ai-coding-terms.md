@@ -102,7 +102,7 @@ Vibe Coding ── (1년) ──▶ Agentic Engineering
 
 ## 참고 자료
 
-- [Karpathy — Vibe Coding](https://x.com/karpathy/status/1886192184808149383)
+- [Karpathy — Vibe Coding](https://twitter.com/karpathy/status/1886192184808149383)
 - [Karpathy — Agentic Engineering](https://thenewstack.io/vibe-coding-is-passe/)
 - [Kent Beck — Augmented Coding](https://tidyfirst.substack.com/p/augmented-coding-beyond-the-vibes)
 - [Addy Osmani — Beyond Vibe Coding](https://beyond.addy.ie/)
