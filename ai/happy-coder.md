@@ -40,6 +40,12 @@ Claude Code와 Codex를 모바일·웹에서 원격 제어하는
 npm install -g happy-coder
 ```
 
+Homebrew Formulae: <https://formulae.brew.sh/formula/happy-coder>
+
+```bash
+brew install happy-coder
+```
+
 ```bash
 # Claude Code 래핑
 happy
