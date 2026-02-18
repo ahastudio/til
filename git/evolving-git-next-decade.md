@@ -1,6 +1,6 @@
-원문: <https://lwn.net/SubscriberLink/1057561/bddc1e61152fadf6/>
-
 # Git의 다음 10년: 전환 포인트와 체크리스트
+
+원문: <https://lwn.net/SubscriberLink/1057561/bddc1e61152fadf6/>
 
 ## 요약
 
