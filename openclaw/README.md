@@ -6,6 +6,10 @@ Personal AI Assistant.
 
 <https://github.com/openclaw/openclaw>
 
+## Related
+
+- [ClawWork](./clawwork.md): 경제적 생존 관점의 AI 동료 벤치마크 정리
+
 ## Karpathy's Take
 
 Karpathy의 2026년 1월 31일 트윗:
