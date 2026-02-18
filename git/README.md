@@ -41,3 +41,5 @@ Git 작업 흐름도 <https://www.instagram.com/p/B3UIipADaJL/>
 ## Articles
 
 [더 나은 Git 워크플로우를 향해서 :: BlaCk_Log](https://black7375.tistory.com/92)
+
+[Git의 다음 10년: 전환 포인트와 체크리스트](./evolving-git-next-decade.md)
