@@ -94,113 +94,38 @@ YouTube의 Music AI Incubator에서 아티스트, 작곡가,
 발전시켰다. 처음부터 새 음악 생성, 스타일 변환,
 반주 생성 등의 도구를 개발했다.
 
-## AI 음악 생성 시장
+## 다른 AI 음악 생성 서비스와 비교
 
-Lyria 3의 출시는 AI 음악 생성 시장이 본격적으로
-확대되는 시점에 이루어졌다. Gemini 앱의 월간 활성
-사용자 7억 5천만 명이라는 규모는 기존 AI 음악
-스타트업과 차원이 다른 배포 채널이다.
+| 항목       | Lyria 3              | Suno             | Udio             |
+| ---------- | -------------------- | ---------------- | ---------------- |
+| 출시       | 2026.02              | 2023 말          | 2024.04          |
+| 강점       | 플랫폼 규모          | 속도, 편의성     | 음질, 제어력     |
+| 최신 모델  | Lyria 3              | V5               | Allegro v1.5     |
+| 무료 제공  | Gemini 내장          | 50크레딧/일      | 10크레딧/일      |
+| 플랫폼     | Gemini 앱            | 독립 웹앱        | 독립 웹앱        |
+| 저작권     | 자체 학습, SynthID   | WMG 합의         | UMG 합의         |
 
-### Suno
-
-<https://suno.com/>
-
-2023년 말 출시된 AI 음악 생성 플랫폼.
-Cambridge, MA 기반으로 Mikey Shulman과
-Keenan Freyberg가 공동 창업했다.
-텍스트 프롬프트로 가사와 보컬을 포함한 완성곡을
-생성한다.
-
-#### 모델 버전
-
-- **V4.5** (2025년 5월): 1,200개 이상 장르 지원,
-  자연스러운 보컬 표현, 44.1kHz 스튜디오급 오디오,
-  최대 8분 트랙 생성. 보컬 교체(vocal replacement)와
-  반주 자동 생성 기능 추가.
-- **V5** (최신): ELO 벤치마크 1,293으로 역대 최고.
-  오디오 충실도, 음악 구조, 보컬 사실감에서
-  이전 버전을 상회한다.
-
-#### 가격
-
-| 플랜       | 가격      | 크레딧           |
-| ---------- | --------- | ---------------- |
-| Basic      | 무료      | 50/일            |
-| Pro        | $10/월    | 2,500/월         |
-| Premier    | $30/월    | 10,000/월        |
-
-무료 크레딧으로 하루 약 10곡 생성 가능.
-Pro 이상에서 상업적 사용 허가.
-
-#### 저작권 소송과 라이선스
-
-2024년 6월, RIAA를 대표해 Sony Music, UMG,
-Warner Records가 Suno를 저작권 침해로 제소했다.
-허가 없이 저작권 보호 음원으로 AI 모델을
-학습시켰다는 혐의다.
-
-2025년 11월, Warner Music Group이 Suno와 합의하고
-라이선스 파트너십을 체결했다. 2026년 라이선스
-기반의 새 모델 출시 예정이며, 아티스트가 자신의
-이름, 이미지, 목소리 사용 여부를 직접 통제한다.
-합의의 일환으로 Suno는 WMG의 콘서트 플랫폼
-Songkick을 인수했다. Suno는 2025년 11월
-$24.5억 기업가치로 $2.5억을 조달했다.
-
-Sony Music과 UMG의 소송은 2026년 현재 계속
-진행 중이며, 공정 이용(fair use)이 핵심 쟁점이다.
-
-### Udio
-
-<https://www.udio.com/>
-
-전 Google DeepMind 엔지니어들이 2023년 12월
-창업하고 2024년 4월에 출시한 AI 음악 생성 플랫폼.
-Suno보다 세밀한 제어를 제공한다.
-
-- **스템(Stem) 다운로드**: 베이스, 드럼, 보컬 등
-  개별 요소 추출
-- **인페인팅(Inpainting)**: 특정 구간만 재생성
-- **리믹스**: 멜로디를 유지하면서 장르 변경
-- **현재 모델**: Allegro v1.5
-
-Udio는 UMG와 2025년 10월 라이선스 계약을
-체결했다. 라이선스 플랫폼 전환 중 다운로드/내보내기
-기능을 일시 중단한 상태다.
-
-### 비교
-
-| 항목         | Suno           | Udio           | Lyria 3       |
-| ------------ | -------------- | -------------- | ------------- |
-| 강점         | 속도, 편의성   | 음질, 제어력   | 플랫폼 규모   |
-| 생성 시간    | 60초 이내      | 90초 이상      | -             |
-| 무료 제공    | 50크레딧/일    | 10크레딧/일    | Gemini 내장   |
-| 보컬 품질    | 좋음           | 매우 좋음      | 좋음          |
-| 플랫폼       | 독립 웹앱      | 독립 웹앱      | Gemini 앱     |
-| 라이선스     | WMG 합의       | UMG 합의       | 자체 학습     |
+- [Suno](https://suno.com/): 텍스트 프롬프트로
+  가사와 보컬 포함 완성곡을 생성한다.
+  무료 ~$30/월. 2024년 RIAA 소송 후 WMG와 합의.
+- [Udio](https://www.udio.com/): 전 DeepMind
+  엔지니어 창업. 스템 추출, 인페인팅, 리믹스 등
+  세밀한 제어 제공. UMG와 라이선스 계약 체결.
 
 ## 인사이트
 
 **플랫폼 통합의 위력**.
-Suno와 Udio가 독립 웹앱으로 수천만 사용자를
-확보한 반면, Google은 7.5억 MAU의 Gemini 앱과
+독립 AI 음악 서비스들이 수천만 사용자를 확보한
+반면, Google은 7.5억 MAU의 Gemini 앱과
 YouTube Dream Track이라는 배포 채널을 보유한다.
 AI 음악 생성이 별도 앱이 아닌 범용 AI 어시스턴트의
 기능으로 자리잡는 전환점이 될 수 있다.
 
-**저작권 문제의 분기**.
-Suno와 Udio는 기존 음원으로 학습하여 소송에
-직면했고 레이블과 라이선스 합의를 진행 중이다.
-Google은 자체 학습 데이터로 이 문제를 회피하면서
-SynthID 워터마크와 아티스트 모방 방지 정책으로
-선제적 대응을 하고 있다.
-
-**생성 음악의 품질 도약**.
-2024년 합성 느낌이 강했던 AI 음악이 2026년에는
-전문 프로덕션과 구분하기 어려운 수준에 도달했다.
-Suno V5, Udio Allegro v1.5, Lyria 3 모두
-스튜디오급 품질을 주장하고 있으며, 음악 산업의
-구조적 변화가 가속화될 전망이다.
+**저작권 선제 대응**.
+경쟁 서비스들이 기존 음원 학습으로 소송에 직면한
+반면, Google은 자체 학습 데이터, SynthID 워터마크,
+아티스트 모방 방지 정책으로 저작권 리스크를
+구조적으로 회피하고 있다.
 
 ## 참고 자료
 
@@ -209,7 +134,3 @@ Suno V5, Udio Allegro v1.5, Lyria 3 모두
 - [Lyria 3 - Google DeepMind](https://deepmind.google/models/lyria/)
 - [Google adds Lyria 3 AI-music model to its Gemini app - Music Ally](https://musically.com/2026/02/18/google-adds-lyria-3-ai-music-model-to-its-gemini-app/)
 - [Transforming the future of music creation - Google DeepMind](https://deepmind.google/blog/transforming-the-future-of-music-creation/)
-- [Suno](https://suno.com/)
-- [Udio](https://www.udio.com/)
-- [AI-Music Heavyweight Suno Partners With Warner Music Group After Lawsuit Settlement - Rolling Stone](https://www.rollingstone.com/music/music-features/suno-warner-music-group-ai-music-settlement-lawsuit-1235472868/)
-- [Record Companies Bring Landmark Cases for Responsible AI Against Suno and Udio - RIAA](https://www.riaa.com/record-companies-bring-landmark-cases-for-responsible-ai-againstsuno-and-udio-in-boston-and-new-york-federal-courts-respectively/)
