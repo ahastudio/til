@@ -1,7 +1,6 @@
 codex exec "
   다음 소스에서 최근 48시간 이내에 올라온 개발자 트렌드 주제 10개를 찾아줘:
   - Hacker News (top/new)
-  - GitHub Trending (오늘 기준)
   - dev.to 트렌딩
 
   선정 기준:
