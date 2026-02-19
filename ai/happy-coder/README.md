@@ -113,50 +113,10 @@ happy connect status
 MIT 라이선스. 텔레메트리나 추적 코드가 없다.
 코드를 직접 감사(audit)할 수 있다.
 
-### Start New Session (v1.5.0)
+### [Start New Session (v1.5.0)](./start-new-session.md)
 
-v1.5.0(2025-09-18)에서 추가. 모바일 기기에서
-원격으로 새로운 Claude Code 또는 Codex 세션을
-직접 생성하고 시작할 수 있다.
-
-| 항목   | 이전            | 이후                |
-| ------ | --------------- | ------------------- |
-| 시작   | 데스크톱에서만  | 모바일에서도 가능   |
-| 모바일 | 모니터링만      | 생성 + 모니터링     |
-| 지원   | Claude Code     | Claude Code + Codex |
-| 흐름   | 단방향 핸드오프 | 양방향 전환         |
-
-작동 방식:
-
-1. 모바일 앱에서 "Start New Session" 버튼을
-   탭한다.
-2. Claude Code 또는 Codex 중 에이전트를
-   선택한다.
-3. 작업 디렉토리와 초기 프롬프트를 입력한다.
-4. Happy Server가 데스크톱 데몬의 WebSocket
-   연결로 `spawn-happy-session` RPC를
-   호출한다.
-5. 데몬의 `spawnSession()`이 토큰을 환경
-   변수로 주입한 뒤 에이전트 프로세스를
-   기동한다. Claude의 경우
-   `CLAUDE_CODE_OAUTH_TOKEN`, Codex의 경우
-   `auth.json`에 토큰을 기록한다.
-6. 세션 프로세스가 데몬의
-   `/session-started` 웹훅을 호출하여
-   등록을 완료한다.
-7. 데몬이 Expo 푸시 알림으로 모바일에 세션
-   시작을 통지한다.
-
-이때 사용되는 인증 토큰은 RPC 페이로드에
-포함된 것으로, 머신의 로컬 계정이 아니라
-`happy connect`로 등록한 클라우드 키다.
-
-핵심은 샌드박스나 별도 서비스에 접속하는 것이
-아니라, 실제 머신에서 실행되는 실제 Claude Code
-세션에 직접 연결된다는 점이다. 세션이 시작되면
-양쪽 디바이스에서 동일한 세션에 접근할 수 있으며,
-"주(primary)" 디바이스와 "보조(secondary)"
-디바이스의 구분이 없다.
+모바일에서 원격으로 새 세션을 직접 생성하고
+시작할 수 있다.
 
 ### 병렬 세션 실행
 
@@ -179,6 +139,7 @@ happy
 
 ## 관련 문서
 
+- [Start New Session](./start-new-session.md)
 - [아키텍처](./architecture.md)
 - [베스트 프랙티스와 주의점](./best-practices.md)
 - [인사이트](./insights.md)
