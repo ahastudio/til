@@ -42,7 +42,7 @@ Stable Diffusion과 유사하지만 오디오에 최적화했다.
 - **장르 지원**: 일렉트로닉, 오케스트라, 재즈,
   앰비언트, 팝, 록, 영화 음악 등.
 
-### 이용 및 제한
+### 이용 조건
 
 | 항목         | 내용                                    |
 | ------------ | --------------------------------------- |
@@ -54,19 +54,7 @@ Stable Diffusion과 유사하지만 오디오에 최적화했다.
 
 <https://gemini.google/overview/music-generation/>
 
-### SynthID 워터마크
-
-생성된 모든 트랙에 SynthID가 삽입된다.
-사람이 인지할 수 없는 워터마크로 AI 생성 콘텐츠를
-식별한다. Gemini 앱에서 파일을 업로드하면 Google AI로
-생성된 것인지 확인할 수 있다.
-
-### 아티스트 모방 방지
-
-특정 아티스트 이름을 프롬프트에 넣으면 직접 모방이
-아닌 넓은 의미의 스타일 영감으로 해석한다.
-원본 표현(original expression)을 위한 도구로
-설계했다는 것이 Google의 입장이다.
+## 저작권과 안전장치
 
 ### 생성 음악의 저작권
 
@@ -111,7 +99,21 @@ YouTube 자체의 AI 음악 정책도 고려해야 한다.
 - Content ID 등록은 사실상 어렵다. AI 패턴
   유사성, 독점성 증명 불가 등이 원인이다.
 
-## Lyria의 역사
+### SynthID 워터마크
+
+생성된 모든 트랙에 SynthID가 삽입된다.
+사람이 인지할 수 없는 워터마크로 AI 생성 콘텐츠를
+식별한다. Gemini 앱에서 파일을 업로드하면 Google AI로
+생성된 것인지 확인할 수 있다.
+
+### 아티스트 모방 방지
+
+특정 아티스트 이름을 프롬프트에 넣으면 직접 모방이
+아닌 넓은 의미의 스타일 영감으로 해석한다.
+원본 표현(original expression)을 위한 도구로
+설계했다는 것이 Google의 입장이다.
+
+## 역사
 
 ### Lyria (v1) - 2023년 11월
 
@@ -177,3 +179,4 @@ AI 음악 생성이 별도 앱이 아닌 범용 AI 어시스턴트의
 - [Lyria 3 - Google DeepMind](https://deepmind.google/models/lyria/)
 - [Google adds Lyria 3 AI-music model to its Gemini app - Music Ally](https://musically.com/2026/02/18/google-adds-lyria-3-ai-music-model-to-its-gemini-app/)
 - [Transforming the future of music creation - Google DeepMind](https://deepmind.google/blog/transforming-the-future-of-music-creation/)
+- [Generative AI Additional Terms of Service - Google](https://policies.google.com/terms/generative-ai)
