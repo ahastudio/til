@@ -88,6 +88,83 @@ OpenRouter API 키가 필요하다.
 worktree 생성, 병합 전/후 등 주요 시점에 커스텀
 스크립트를 실행할 수 있다.
 
+## Fork workflow (upstream/origin)
+
+dmux는 remote 작업을 하지 않는다.
+worktree 생성과 local merge만 담당하므로
+fork 기반 워크플로우에서도 문제없이 쓸 수 있다.
+
+### 구조
+
+```txt
+upstream = 메인 저장소 (read-only)
+origin   = 내 fork (push 대상)
+
+[메인 디렉토리]          ← upstream main 추적
+├── git pull --rebase upstream main
+│
+[worktree A]             ← feature branch
+├── 작업 후 git push origin feature-a
+│   └── upstream에 PR 생성
+│
+[worktree B]             ← fix branch
+├── 작업 후 git push origin fix-b
+│   └── upstream에 PR 생성
+```
+
+### 워크플로우
+
+메인 디렉토리에서 upstream을 최신 상태로 유지한다.
+
+```bash
+git pull --rebase upstream main
+```
+
+dmux로 worktree를 만들면 현재 main 기준으로
+새 branch가 생성된다. worktree에서 작업이 끝나면
+origin으로 push하고 PR을 보낸다.
+
+```bash
+# worktree 안에서
+git push origin feature-branch
+gh pr create --repo upstream-owner/repo
+```
+
+### `m` key 대신 수동 push
+
+dmux의 `m`(merge)은 local main에 병합하는 기능이다.
+fork workflow에서는 local main에 merge할 필요가 없다.
+branch를 origin에 push하고 PR로 merge하는 게 맞다.
+
+따라서 워크플로우는 이렇게 달라진다:
+
+| 일반 워크플로우       | fork 워크플로우              |
+| --------------------- | ---------------------------- |
+| `n`으로 worktree 생성 | `n`으로 worktree 생성        |
+| 에이전트가 작업       | 에이전트가 작업              |
+| `m`으로 main에 merge  | `git push origin branch`     |
+|                       | PR 생성 후 upstream에서 merge |
+| `x`로 pane 닫기       | `x`로 pane 닫기              |
+
+### 주의사항
+
+**`getMainBranch()` 감지.**
+dmux는 `refs/remotes/origin/HEAD`로 main branch를
+판별한다. fork의 origin에도 main branch가 있으므로
+보통 문제없이 동작한다.
+
+**upstream 동기화 타이밍.**
+worktree를 만들기 전에
+`git pull --rebase upstream main`을 실행해야
+최신 코드 기준으로 branch가 생성된다.
+dmux가 자동으로 upstream을 fetch하지 않으므로
+이 단계를 잊으면 오래된 코드에서 분기하게 된다.
+
+**lifecycle hook 활용.**
+worktree 생성 시점에 hook으로
+`git pull --rebase upstream main`을 자동 실행하면
+동기화를 빠뜨릴 일이 없다.
+
 ## 인사이트
 
 **에이전트 시대의 tmux.**
