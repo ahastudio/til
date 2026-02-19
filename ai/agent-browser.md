@@ -1,7 +1,7 @@
 # agent-browser
 
-원문: <https://github.com/vercel-labs/agent-browser>
-사이트: <https://agent-browser.dev/>
+- 원문: <https://github.com/vercel-labs/agent-browser>
+- 사이트: <https://agent-browser.dev/>
 
 ## 요약
 
