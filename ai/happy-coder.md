@@ -40,7 +40,8 @@ Claude Code와 Codex를 모바일·웹에서 원격 제어하는
 npm install -g happy-coder
 ```
 
-Homebrew Formulae: <https://formulae.brew.sh/formula/happy-coder>
+Homebrew Formulae:
+<https://formulae.brew.sh/formula/happy-coder>
 
 ```bash
 brew install happy-coder
@@ -53,6 +54,44 @@ happy
 # Codex 래핑
 happy codex
 ```
+
+### 벤더 인증 (`happy connect`)
+
+AI 벤더의 API 키를 Happy 클라우드에 암호화하여
+저장하는 명령어다. 원격 디바이스에서 에이전트 세션을
+시작하려면 벤더 인증이 필요하다.
+
+사전에 `happy auth login`으로 Happy 계정에 로그인해야
+한다.
+
+```bash
+# Anthropic 인증
+happy connect claude
+
+# OpenAI 인증
+happy connect codex
+
+# Google Gemini 인증
+happy connect gemini
+
+# 전체 연결 상태 확인
+happy connect status
+```
+
+인증 흐름:
+
+1. 저장된 Happy 자격증명을 로드한다.
+2. 각 벤더의 인증 절차를 진행한다
+   (`authenticateClaude()`, `authenticateCodex()`,
+   `authenticateGemini()`).
+3. 획득한 토큰을 `api.registerVendorToken()`으로
+   Happy 클라우드에 등록한다.
+4. Gemini의 경우 로컬(`~/.gemini/oauth_creds.json`)에도
+   자격증명을 동기화한다.
+
+`happy connect status`로 각 벤더의 연결 상태를 확인할
+수 있다. JWT 토큰에서 이메일을 추출하고 만료 여부를
+표시한다.
 
 ### 오픈소스
 
@@ -131,8 +170,10 @@ CI/CD 도구들이 Git 위에 쌓여온 과정과 닮아 있다.
 
 ## 앱 다운로드
 
-- iOS: App Store
-- Android: Google Play Store
+- iOS:
+  <https://apps.apple.com/us/app/happy-claude-code-client/id6748571505>
+- Android:
+  <https://play.google.com/store/apps/details?id=com.ex3ndr.happy>
 - 웹: <https://app.happy.engineering/>
 
 ## 문서
