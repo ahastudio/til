@@ -143,6 +143,8 @@ happy
 - [아키텍처](./architecture.md)
 - [베스트 프랙티스와 주의점](./best-practices.md)
 - [인사이트](./insights.md)
+- [Happy Hive](./happy-hive.md) — 분산 에이전트
+  오케스트레이션 아이디어
 
 ## 앱 다운로드
 
