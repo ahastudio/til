@@ -113,14 +113,19 @@ Claude Code 또는 Codex 세션을 직접 생성하고 시작할 수 있다.
 1. 모바일 앱에서 "Start New Session" 버튼을 탭한다.
 2. Claude Code 또는 Codex 중 에이전트를 선택한다.
 3. 작업 디렉토리와 초기 프롬프트를 입력한다.
-4. 릴레이 서버가 데스크톱의 `happy daemon`에
-   요청을 전달한다.
-5. 데몬이 `happy connect`에 등록된 클라우드 키로
-   에이전트 프로세스를 기동한다.
-6. WebSocket을 통해 모바일과 실시간 양방향 통신이
-   시작된다.
+4. Happy Server가 데스크톱 데몬의 WebSocket
+   연결로 `spawn-happy-session` RPC를 호출한다.
+5. 데몬의 `spawnSession()`이 토큰을 환경 변수로
+   주입한 뒤 에이전트 프로세스를 기동한다.
+   Claude의 경우 `CLAUDE_CODE_OAUTH_TOKEN`,
+   Codex의 경우 `auth.json`에 토큰을 기록한다.
+6. 세션 프로세스가 데몬의 `/session-started`
+   웹훅을 호출하여 등록을 완료한다.
+7. 데몬이 Expo 푸시 알림으로 모바일에 세션 시작을
+   통지한다.
 
-이때 사용되는 인증은 머신의 로컬 계정이 아니라
+이때 사용되는 인증 토큰은 RPC 페이로드에 포함된
+것으로, 머신의 로컬 계정이 아니라
 `happy connect`로 등록한 클라우드 키다.
 
 핵심은 샌드박스나 별도 서비스에 접속하는 것이 아니라,
@@ -145,6 +150,7 @@ happy
 
 # 같은 머신에서 병렬 실행도 가능
 # 별도 터미널에서 각각 happy 실행
+# 원격 세션은 tmux 세션으로 생성됨
 ```
 
 ## 아키텍처
@@ -162,16 +168,57 @@ Docker를 지원한다.
 
 ### `happy daemon`
 
-`happy` 실행 시 백그라운드로 자동 시작되는 것으로
-추정된다. 사용자가 `happy daemon`을 명시적으로
-실행할 필요는 없다. 데몬이 상주하면서 릴레이 서버를
-통해 모바일의 원격 요청(Start New Session 등)을
-수신하고, 로컬에서 에이전트 프로세스를 기동한다.
+`happy` 실행 시 자동으로 백그라운드에서 시작된다.
+CLI 진입점(`index.ts`)에서
+`isDaemonRunningCurrentlyInstalledHappyVersion()`
+으로 데몬 상태를 확인하고, 실행 중이 아니면
+`spawnHappyCLI(['daemon', 'start-sync'])`로
+detached 프로세스를 기동한다. 사용자가
+`happy daemon`을 직접 실행할 필요는 없다.
+
+데몬 시작 시퀀스:
+
+1. 락 파일 획득 (atomic `O_CREAT | O_EXCL`,
+   5회 지수 백오프 재시도).
+2. `~/.happy/access.key`에서 자격증명 로드.
+3. Happy Server에 머신 등록.
+4. 로컬 Fastify HTTP 서버 시작
+   (`127.0.0.1`, localhost 전용).
+5. Happy Server와 WebSocket 연결 수립
+   (`ApiMachineClient`, `clientType:
+   'machine-scoped'`). 20초 간격 keep-alive.
+6. `daemon.state.json`에 PID, 포트, 버전 기록.
+7. 60초 간격 하트비트로 세션 정리 및 버전
+   불일치 감지.
+
+로컬 HTTP 서버가 제공하는 엔드포인트:
+
+| 엔드포인트        | 역할                        |
+| ----------------- | --------------------------- |
+| `/spawn-session`  | 새 세션 생성                |
+| `/stop-session`   | 세션 종료                   |
+| `/list`           | 추적 중인 세션 목록         |
+| `/session-started`| 생성된 세션의 등록 웹훅     |
+| `/stop`           | 데몬 종료                   |
+
+WebSocket RPC 핸들러:
+
+| RPC                    | 역할                   |
+| ---------------------- | ---------------------- |
+| `spawn-happy-session`  | 원격 세션 시작 (핵심)  |
+| `stop-session`         | 원격 세션 종료         |
+| `stop-daemon`          | 원격 데몬 종료         |
 
 `happy` 세션이 모두 종료되어도 데몬은 백그라운드에
-잔류하므로 원격 세션 시작이 가능하다. 다만 재부팅
-후 자동 시작 여부는 확인이 필요하다. 재부팅 후에는
-`happy`를 한 번 실행해야 데몬이 다시 뜰 수 있다.
+잔류하므로 원격 세션 시작이 가능하다. 버전 불일치
+시(예: `npm update` 후) 하트비트에서 감지하여
+새 데몬을 자동 기동하고 기존 데몬을 교체한다.
+
+macOS LaunchDaemon 설치 기능(`happy daemon
+install`)이 코드에 존재하지만 현재 사용되지
+않는다. `sudo` 권한이 필요하기 때문이다. 따라서
+재부팅 후에는 `happy`를 한 번 실행해야 데몬이
+다시 뜬다.
 
 ### 종단간 암호화
 
@@ -361,11 +408,17 @@ Coder는 에이전트의 자율성을 높이는 것이 아니라, 사람이
 ### 원격 세션의 계정 한계와 우회 아이디어
 
 Start New Session은 `happy connect`로 등록한
-클라우드 키를 사용한다. 디바이스마다 서로 다른
-Anthropic 계정이 로그인되어 있어도 원격 세션은
-항상 클라우드 키 하나로 실행된다. 로컬 계정의
-플랜이나 과금 체계를 그대로 쓰고 싶다면 이
-구조가 제약이 된다.
+클라우드 키를 사용한다. 코드상 `spawn-happy-session`
+RPC 페이로드의 `token` 필드가
+`CLAUDE_CODE_OAUTH_TOKEN` 환경 변수로 주입되며,
+3단계 우선순위 시스템에서 인증 토큰은 프로필
+환경 변수로 덮어쓸 수 없도록 보호된다.
+
+디바이스마다 서로 다른 Anthropic 계정이
+로그인되어 있어도 원격 세션은 항상 클라우드 키
+하나로 실행된다. 로컬 계정의 플랜이나 과금
+체계를 그대로 쓰고 싶다면 이 구조가 제약이
+된다.
 
 우회 아이디어로 "headquarters `happy`" 패턴이
 있다. 데스크톱에서 `happy` 세션을 하나 띄워두고,
