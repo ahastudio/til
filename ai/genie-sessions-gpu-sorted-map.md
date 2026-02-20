@@ -72,4 +72,4 @@ AI가 "이상해지기" 시작하면 **작업을 분할**한다.
 ## 관련 문서
 
 - [Vibe Coding](./vibe-coding.md) - Kent Beck의 Augmented Coding
-- [Codex](./codex.md) - OpenAI Codex
+- [Codex](../codex) - OpenAI Codex
