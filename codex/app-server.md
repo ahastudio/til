@@ -259,7 +259,3 @@ App Server 아키텍처는 앞으로 AI 에이전트 제품을 구축하는
 작업을 수행하면서 인간의 감독이 필요한** 모든 에이전트 시스템에
 적용 가능한 아키텍처다.
 
-## 관련 문서
-
-- [Codex](./README.md) - OpenAI Codex
-- [Genie Session: Codex App](../ai/genie-session-codex-app.md)
