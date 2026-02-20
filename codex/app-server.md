@@ -261,5 +261,5 @@ App Server 아키텍처는 앞으로 AI 에이전트 제품을 구축하는
 
 ## 관련 문서
 
-- [Codex](./codex.md) - OpenAI Codex
-- [Genie Session: Codex App](./genie-session-codex-app.md)
+- [Codex](../ai/codex.md) - OpenAI Codex
+- [Genie Session: Codex App](../ai/genie-session-codex-app.md)
