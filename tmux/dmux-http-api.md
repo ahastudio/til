@@ -30,6 +30,11 @@ h3 프레임워크 기반의 로컬 서버가
 `POST /api/panes`가 핵심이다.
 prompt, agent 종류, projectPath를 받아
 worktree를 만들고 에이전트를 실행한다.
+agent를 지정하지 않으면 시스템 PATH에서
+claude, opencode, codex를 자동 탐색한다.
+여러 에이전트가 발견되면
+`needsAgentChoice: true`와 함께
+사용 가능한 에이전트 목록을 반환한다.
 
 ```bash
 curl -X POST http://localhost:42000/api/panes \
@@ -67,8 +72,12 @@ curl -X POST http://localhost:42000/api/keys/pane-1 \
 | GET    | `/api/stream-stats`        | 스트리밍 통계         |
 
 SSE(Server-Sent Events) 방식이다.
-30초마다 heartbeat을 보내서
-프록시/방화벽 타임아웃을 방지한다.
+메시지 형식은 `TYPE:JSON\n`이며,
+타입은 `init`(전체 상태), `patch`(변경분),
+`resize`, `heartbeat`(30초), `error`가 있다.
+`tmux pipe-pane`으로 출력을 캡처하고
+16ms 버퍼링(60fps)으로 전달한다.
+2초마다 전체 리프레시로 drift를 보정한다.
 
 ### Actions — 액션 실행
 
@@ -83,7 +92,27 @@ SSE(Server-Sent Events) 방식이다.
 
 에이전트가 확인, 선택, 입력을 요청하면
 callback API로 원격에서 응답할 수 있다.
-이것이 모바일 제어의 핵심이다.
+콜백은 인메모리 Map에 저장되며 5분 후
+자동 정리된다.
+
+사용 가능한 액션 ID:
+
+| 액션 ID            | 설명                   | 키  |
+| ------------------ | ---------------------- | --- |
+| `view`             | pane으로 이동          | `j` |
+| `close`            | pane 닫기              | `x` |
+| `merge`            | main에 병합            | `m` |
+| `rename`           | 이름 변경              |     |
+| `toggle_autopilot` | 자동 수락 모드 전환    | `a` |
+| `run_test`         | 테스트 실행            | `t` |
+| `run_dev`          | 개발 서버 시작         | `d` |
+| `open_output`      | 출력 보기              | `o` |
+
+`toggle_autopilot`은 에이전트가 위험하지 않은
+옵션을 자동 수락하는 모드다.
+LLM이 터미널 출력을 분석하여
+`potentialHarm.hasRisk`가 false일 때만
+자동 수락한다.
 
 ### Settings — 세션/설정/훅/로그
 
@@ -105,9 +134,10 @@ callback API로 원격에서 응답할 수 있다.
 | ------ | --------------- | ------------------ |
 | POST   | `/api/tunnel`   | 터널 생성          |
 
-dmux에 터널 기능이 내장되어 있다.
-이 API를 호출하면 외부에서 접근 가능한
-URL이 생성된다.
+`untun` 라이브러리 기반으로
+터널 기능이 내장되어 있다.
+이 API를 호출하면 45초 타임아웃 내에
+외부에서 접근 가능한 URL이 생성된다.
 별도의 ngrok 설정 없이도 원격 접근이 가능하다.
 
 ### Health — 헬스 체크
@@ -116,18 +146,23 @@ URL이 생성된다.
 | ------ | -------------- | -------------- |
 | GET    | `/api/health`  | 서버 상태 확인 |
 
-## 내장 웹 프론트엔드
+## 이중 인터페이스
 
-dmux는 API만 제공하는 것이 아니다.
-`frontend/src/`에 대시보드와 터미널 UI가 있다.
+dmux에는 두 가지 UI가 있다.
 
-- `dashboard.html` / `dashboard.ts` —
-  pane 상태를 시각적으로 관리하는 대시보드
-- `terminal.html` / `terminal.ts` —
-  브라우저에서 pane 터미널 출력을 보는 뷰
-- `components/` — UI 컴포넌트
+**TUI** — React + Ink 기반 터미널 UI.
+`src/DmuxApp.tsx`가 진입점이다.
+tmux 안에서 직접 조작할 때 쓴다.
 
-즉, `http://localhost:42000`에 접속하면
+**웹 대시보드** — Vue 3 + Vite 기반.
+`frontend/src/`에 있으며
+빌드 결과가 TypeScript 문자열로 임베딩된다.
+
+- `/` — 대시보드 (pane 상태 관리)
+- `/panes/:id` — 개별 pane 터미널 뷰
+
+두 인터페이스 모두 동일한 HTTP API를 사용한다.
+`http://localhost:42000`에 접속하면
 웹 브라우저에서 dmux를 조작할 수 있다.
 모바일 브라우저에서도 된다.
 
@@ -166,7 +201,11 @@ dmux는 API만 제공하는 것이 아니다.
 - `DMUX_PANE_ID` — pane 식별자
 - `DMUX_SLUG` — pane 슬러그
 - `DMUX_BRANCH` — 브랜치 이름
+- `DMUX_TARGET_BRANCH` — 병합 대상 브랜치
 - `DMUX_WORKTREE_PATH` — worktree 경로
+- `DMUX_AGENT` — 에이전트 종류
+- `DMUX_PROMPT` — pane 프롬프트
+- `DMUX_SERVER_PORT` — HTTP 서버 포트
 
 ### 실행 모드
 
@@ -175,32 +214,62 @@ dmux는 API만 제공하는 것이 아니다.
 - **동기** (`triggerHookSync`) — 30초 타임아웃,
   성공 여부와 출력을 반환
 
-## 아키텍처
+## 내부 구조
+
+### Pane 변경 감지
+
+dmux는 두 가지 방식으로
+pane 상태 변화를 감지한다.
+
+**tmux 훅 (이벤트 기반).**
+tmux 세션에 `after-split-window`,
+`pane-exited`, `client-resized`,
+`after-select-pane` 훅을 등록한다.
+이벤트 발생 시 SIGUSR2 시그널로
+dmux 프로세스에 알린다.
+100ms 디바운싱으로 이벤트 폭주를 방지한다.
+
+**Worker Thread 폴링 (폴백).**
+tmux 훅을 사용할 수 없으면
+pane마다 전용 Worker Thread가 돌면서
+주기적으로 상태를 확인한다.
+최대 3회 자동 재시작(지수 백오프).
+
+### 에이전트 상태 감지
+
+**패턴 매칭** — `"(esc to interrupt)"`
+같은 문자열로 working/idle/waiting을 판단.
+
+**LLM 분석** — OpenRouter API를 통해
+터미널 출력을 분석한다.
+`gemini-2.5-flash`, `grok-4-fast`,
+`gpt-4o-mini` 3개 모델을 `Promise.any()`로
+병렬 실행하여 첫 성공 응답을 사용한다.
+MD5 해시 기반 캐싱(5초 TTL, 최대 100개).
+
+### 아키텍처 다이어그램
 
 ```txt
-[브라우저/모바일/Slack Bot/CI]
-    │
-    ▼ HTTP (포트 42000~42004)
-[h3 서버 (src/server/)]
-    ├── routes/panesRoutes.ts
-    ├── routes/keysRoutes.ts
-    ├── routes/streamRoutes.ts (SSE)
-    ├── routes/actionsRoutes.ts
-    ├── routes/settingsRoutes.ts
-    ├── routes/tunnelRoutes.ts
-    └── routes/healthRoutes.ts
-         │
-         ▼
-[StateManager] ←→ [TmuxService]
-    │                    │
-    ▼                    ▼
-[설정 파일 (JSON)]   [tmux 세션/pane]
-    │                    │
-    ▼                    ▼
-[Lifecycle Hooks]    [Git worktree]
-    │                    │
-    ▼                    ▼
-[외부 알림]          [AI 에이전트]
+[TUI (Ink/React)]   [웹 (Vue 3)]
+        \               /
+         \             /
+          ▼           ▼
+    [h3 HTTP 서버 (42000~42004)]
+        │           │
+        ▼           ▼
+[StateManager] [TmuxService]
+    │       │         │
+    ▼       ▼         ▼
+[JSON]  [Hooks]   [tmux pane]
+                      │
+                      ▼
+                 [worktree]
+                      │
+                      ▼
+   [Worker Thread ←→ AI 에이전트]
+        │
+        ▼ (OpenRouter)
+   [LLM 상태 분석]
 ```
 
 ## 활용 사례
@@ -272,6 +341,14 @@ dmux 자체가 원격 접근을 1급 기능으로
 원격에서 응답할 수 있다.
 터미널 앞에 앉아 있지 않아도
 에이전트와의 대화가 끊기지 않는다.
+
+**어댑터 패턴으로 UI 분리.**
+`apiActionHandler.ts`(웹)와
+`tuiActionHandler.ts`(터미널)가
+동일한 ActionResult를 각 인터페이스에 맞게
+변환한다.
+새 인터페이스(Slack Bot, CLI 등)를 추가할 때
+어댑터만 하나 더 만들면 된다.
 
 ## 참고
 
