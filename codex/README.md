@@ -4,6 +4,13 @@
 
 <https://openai.com/ko-KR/index/introducing-codex/>
 
+## Codex App Server
+
+[Codex App Server](./app-server.md) - Codex 하니스를
+클라이언트에 노출하는 양방향 JSON-RPC API.
+
+<https://developers.openai.com/codex/app-server/>
+
 ## Codex app
 
 > The **Codex app** is a focused desktop experience for working on Codex threads
