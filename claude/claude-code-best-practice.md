@@ -1,10 +1,6 @@
-# Claude Code Best Practice (shanraisshan)
+# Claude Code Best Practice
 
-원문 저장소:
-<https://github.com/shanraisshan/claude-code-best-practice>
-
-이 문서는 위 저장소의 문제의식(에이전트 품질, 반복 가능한 워크플로,
-안전한 실행)을 팀 실무 관점으로 재구성한 노트다.
+이 문서는 Claude Code 운영 원칙을 팀 실무 관점에서 정리한 노트다.
 
 ## 한 줄 요약
 
