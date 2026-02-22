@@ -1,6 +1,6 @@
-# Stop Using JIRA 요약과 인사이트
+# Stop Using JIRA: How We Scaled to 50 Engineers Using Only a Markdown File
 
-원문: [Stop Using JIRA: How We Scaled to 50 Engineers Using Only a Markdown File](https://medium.com/@kp9810113/799797f7fb4b)
+원문: <https://medium.com/@kp9810113/799797f7fb4b>
 
 한국어 번역: [우리 팀이 JIRA 없애고 마크다운 파일 하나로 전환한 이유](https://yozm.wishket.com/magazine/detail/3617/)
 
