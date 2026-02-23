@@ -1,4 +1,4 @@
-# AI Agent Workflow Orchestration Guidelines
+# AI Coding Agent Guidelines
 
 [AI Agent Workflow Orchestration Guidelines](
 https://gist.github.com/OmerFarukOruc/a02a5883e27b5b52ce740cadae0e4d60
