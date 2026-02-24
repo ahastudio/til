@@ -20,15 +20,21 @@ npm install @xterm/xterm
 <div id="terminal"></div>
 ```
 
-```javascript
-import { Terminal } from '@xterm/xterm';
+```typescript
+import { Terminal, ITerminalOptions } from '@xterm/xterm';
 
-const terminal = new Terminal();
-terminal.open(document.getElementById('terminal'));
+const options: ITerminalOptions = {
+  cursorBlink: true,
+  fontSize: 14,
+};
+
+const terminal = new Terminal(options);
+const el = document.getElementById('terminal') as HTMLElement;
+terminal.open(el);
 terminal.write('Hello, xterm.js!\r\n');
 
 // 사용자 입력 처리
-terminal.onData((data) => {
+terminal.onData((data: string) => {
   terminal.write(data);
 });
 ```
@@ -46,12 +52,12 @@ terminal.onData((data) => {
 npm install @xterm/addon-fit
 ```
 
-```javascript
+```typescript
 import { FitAddon } from '@xterm/addon-fit';
 
 const fitAddon = new FitAddon();
 terminal.loadAddon(fitAddon);
-terminal.open(document.getElementById('terminal'));
+terminal.open(document.getElementById('terminal') as HTMLElement);
 fitAddon.fit();
 
 // 창 크기 변경 시 재조정
@@ -73,16 +79,31 @@ xterm.js (브라우저) ↔ WebSocket ↔ 백엔드 ↔ node-pty ↔ tmux
 
 ```bash
 npm install node-pty ws
+npm install -D typescript @types/node @types/ws
 ```
 
-```javascript
-// server.js
-const pty = require('node-pty');
-const { WebSocketServer } = require('ws');
+```typescript
+// server.ts
+import * as pty from 'node-pty';
+import { WebSocketServer, WebSocket } from 'ws';
+
+interface ResizeMessage {
+  type: 'resize';
+  cols: number;
+  rows: number;
+}
+
+function isResizeMessage(msg: unknown): msg is ResizeMessage {
+  return (
+    typeof msg === 'object' &&
+    msg !== null &&
+    (msg as ResizeMessage).type === 'resize'
+  );
+}
 
 const wss = new WebSocketServer({ port: 8080 });
 
-wss.on('connection', (ws) => {
+wss.on('connection', (ws: WebSocket) => {
   // tmux 세션 연결 (없으면 새로 생성)
   const shell = pty.spawn('tmux', [
     'new-session', '-A', '-s', 'main',
@@ -90,24 +111,24 @@ wss.on('connection', (ws) => {
     name: 'xterm-256color',
     cols: 80,
     rows: 24,
-    env: process.env,
+    env: process.env as Record<string, string>,
   });
 
   // PTY → 브라우저
-  shell.onData((data) => ws.send(data));
+  shell.onData((data: string) => ws.send(data));
 
   // 브라우저 → PTY
-  ws.on('message', (data) => {
+  ws.on('message', (raw: Buffer | string) => {
     try {
-      // 크기 변경 메시지 처리
-      const msg = JSON.parse(data);
-      if (msg.type === 'resize') {
+      const msg: unknown = JSON.parse(raw.toString());
+      if (isResizeMessage(msg)) {
         shell.resize(msg.cols, msg.rows);
+        return;
       }
     } catch {
-      // 일반 입력 처리
-      shell.write(data);
+      // JSON이 아닌 경우 일반 입력으로 처리
     }
+    shell.write(raw.toString());
   });
 
   ws.on('close', () => shell.kill());
@@ -116,26 +137,31 @@ wss.on('connection', (ws) => {
 
 ### 프론트엔드 설정
 
-```javascript
-import { Terminal } from '@xterm/xterm';
+```typescript
+import { Terminal, ITerminalOptions } from '@xterm/xterm';
 import { FitAddon } from '@xterm/addon-fit';
 
-const terminal = new Terminal();
+const options: ITerminalOptions = {
+  cursorBlink: true,
+  fontSize: 14,
+};
+
+const terminal = new Terminal(options);
 const fitAddon = new FitAddon();
 terminal.loadAddon(fitAddon);
-terminal.open(document.getElementById('terminal'));
+terminal.open(document.getElementById('terminal') as HTMLElement);
 fitAddon.fit();
 
 const ws = new WebSocket('ws://localhost:8080');
 
 // 터미널 입력 → 서버
-terminal.onData((data) => ws.send(data));
+terminal.onData((data: string) => ws.send(data));
 
 // 서버 출력 → 터미널
-ws.onmessage = (e) => terminal.write(e.data);
+ws.onmessage = (e: MessageEvent<string>) => terminal.write(e.data);
 
 // 크기 변경 → 서버에 알림
-terminal.onResize(({ cols, rows }) => {
+terminal.onResize(({ cols, rows }: { cols: number; rows: number }) => {
   ws.send(JSON.stringify({ type: 'resize', cols, rows }));
 });
 
@@ -147,12 +173,19 @@ window.addEventListener('resize', () => fitAddon.fit());
 
 tmux 세션 이름과 실행 방식을 조절할 수 있다.
 
-```javascript
-// 기존 세션 연결만 (없으면 실패)
-pty.spawn('tmux', ['attach-session', '-t', 'main'], { ... });
+```typescript
+const ptyOptions: pty.IPtyForkOptions = {
+  name: 'xterm-256color',
+  cols: 80,
+  rows: 24,
+  env: process.env as Record<string, string>,
+};
 
-// 특정 명령 실행 후 tmux 안에서 유지
+// 기존 세션 연결만 (없으면 실패)
+pty.spawn('tmux', ['attach-session', '-t', 'main'], ptyOptions);
+
+// 터미널 크기를 지정하여 세션 생성
 pty.spawn('tmux', [
   'new-session', '-A', '-s', 'main', '-x', '220', '-y', '50',
-], { ... });
+], { ...ptyOptions, cols: 220, rows: 50 });
 ```
