@@ -189,3 +189,87 @@ pty.spawn('tmux', [
   'new-session', '-A', '-s', 'main', '-x', '220', '-y', '50',
 ], { ...ptyOptions, cols: 220, rows: 50 });
 ```
+
+## React + Tailwind
+
+xterm.js CSS는 Tailwind와 별도로 반드시 임포트해야 한다.
+
+```typescript
+// src/components/TmuxTerminal.tsx
+import { useEffect, useRef } from 'react';
+import { Terminal as XTerm, ITerminalOptions } from '@xterm/xterm';
+import { FitAddon } from '@xterm/addon-fit';
+import '@xterm/xterm/css/xterm.css';
+
+interface Props {
+  wsUrl: string;
+  sessionName?: string;
+}
+
+const TERMINAL_OPTIONS: ITerminalOptions = {
+  cursorBlink: true,
+  fontSize: 14,
+  fontFamily: 'Menlo, Monaco, "Courier New", monospace',
+};
+
+export default function TmuxTerminal({
+  wsUrl,
+  sessionName = 'main',
+}: Props) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const terminal = new XTerm(TERMINAL_OPTIONS);
+    const fitAddon = new FitAddon();
+    terminal.loadAddon(fitAddon);
+    terminal.open(container);
+    fitAddon.fit();
+
+    const ws = new WebSocket(wsUrl);
+
+    terminal.onData((data: string) => ws.send(data));
+    ws.onmessage = (e: MessageEvent<string>) => terminal.write(e.data);
+    terminal.onResize(({ cols, rows }: { cols: number; rows: number }) => {
+      ws.send(JSON.stringify({ type: 'resize', cols, rows }));
+    });
+
+    const handleResize = () => fitAddon.fit();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      ws.close();
+      terminal.dispose();
+    };
+  }, [wsUrl]);
+
+  return (
+    <div className="flex h-screen flex-col bg-gray-950 p-4">
+      {/* 타이틀바 */}
+      <div className="mb-2 flex items-center gap-2 px-1">
+        <span className="h-3 w-3 rounded-full bg-red-500" />
+        <span className="h-3 w-3 rounded-full bg-yellow-400" />
+        <span className="h-3 w-3 rounded-full bg-green-500" />
+        <span className="ml-2 text-xs text-gray-400">{sessionName}</span>
+      </div>
+      {/* 터미널 영역 — overflow-hidden 필수 */}
+      <div
+        ref={containerRef}
+        className="flex-1 overflow-hidden rounded-lg bg-gray-900 p-2"
+      />
+    </div>
+  );
+}
+```
+
+사용:
+
+```typescript
+// App.tsx
+<TmuxTerminal wsUrl="ws://localhost:8080" sessionName="main" />
+```
+
+백엔드는 [백엔드 설정](#백엔드-설정)과 동일하다.
