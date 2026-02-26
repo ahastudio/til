@@ -19,3 +19,7 @@
 ## Cloudflare Agents
 
 [Cloudflare Agents](./cloudflare-agents.md)
+
+## Vinext
+
+[Vinext](./vinext.md)
