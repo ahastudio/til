@@ -1,6 +1,6 @@
 # 코드 작성 비용은 이제 거의 공짜다
 
-Simon Willison의 Agentic Engineering Patterns 시리즈 #1:
+Simon Willison의 Agentic Engineering Patterns 시리즈 #1-1:
 <https://simonwillison.net/guides/agentic-engineering-patterns/code-is-cheap/>
 
 Simon Willison이 코딩 에이전트 시대의 엔지니어링 패턴을 정리하는
