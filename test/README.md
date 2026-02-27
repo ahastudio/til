@@ -27,6 +27,10 @@
 - <https://github.com/ahastudio/til/blob/main/ruby/20161206-rspec-let.md>
 - <https://marocchino.net/2016/12/04/about-rspec/>
 
+## 테스트와 오픈소스
+
+- <https://github.com/ahastudio/til/blob/main/test/tests-are-the-new-moat.md>
+
 ## Google, Facebook 등
 
 [다른 회사는 어떻게 QA, 테스팅을 하고 있을까? (Google, Facebook, Atlassian)](https://j.mp/3BhWh7r)
