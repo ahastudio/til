@@ -34,3 +34,12 @@ Example:
 - "작성자" (3 Korean chars = 6 columns) is longest in left column
 - "Explanation" (11 English chars = 11 columns) is longest in right
 - All cells padded to match their column's maximum width
+
+## Twitter Links
+
+Always use `twitter.com` instead of `x.com` for tweet URLs.
+
+## Tweet Terminology
+
+Call it a "트윗" unless the user explicitly says "스레드".
+Long tweets are still tweets.
