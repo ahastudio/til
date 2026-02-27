@@ -120,7 +120,7 @@ development)"을 선호했다. 하지만 코딩 에이전트 시대에
 
 ### 시리즈 1편과의 연결
 
-[첫 번째 패턴](./agentic-engineering-patterns-01-code-is-cheap.md)
+[첫 번째 패턴](./agentic-engineering-patterns-1-1-code-is-cheap.md)
 에서 "코드 작성은 거의 공짜"라고 했다. 공짜인 코드가
 검증 없이 양산되면 기술 부채가 된다. Red/Green TDD는
 "공짜 코드"의 품질을 보장하는 안전장치다. 두 패턴은
@@ -138,8 +138,8 @@ Build using red/green TDD.
 
 ## 관련 문서
 
-- [Agentic Engineering Patterns #1: 코드 작성 비용은
-  이제 거의 공짜다](./agentic-engineering-patterns-01-code-is-cheap.md)
+- [Agentic Engineering Patterns #1-1: 코드 작성 비용은
+  이제 거의 공짜다](./agentic-engineering-patterns-1-1-code-is-cheap.md)
 - [TDD in AI Era](./tdd-in-ai-era.md)
 - [Spec-Driven Development](./spec-driven-development.md)
 - [AI Coding Agent Guidelines](./ai-coding-agent-guidelines.md)
