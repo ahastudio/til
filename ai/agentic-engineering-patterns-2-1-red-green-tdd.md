@@ -1,6 +1,6 @@
 # Red/Green TDD
 
-Simon Willison의 Agentic Engineering Patterns 시리즈 #2:
+Simon Willison의 Agentic Engineering Patterns 시리즈 #2-1:
 <https://simonwillison.net/guides/agentic-engineering-patterns/red-green-tdd/>
 
 "Use red/green TDD." 이 네 단어짜리 프롬프트가 코딩
