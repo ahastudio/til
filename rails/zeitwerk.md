@@ -1,5 +1,8 @@
 # Zeitwerk
 
+- <https://github.com/fxn/zeitwerk>
+- <https://guides.rubyonrails.org/autoloading_and_reloading_constants.html>
+
 파일 경로와 상수 이름의 대응 규칙을 강제하는 Ruby 코드 로더다.
 Rails 6부터 기본으로 채택되어 `require` 없이 클래스와 모듈을
 자동으로 불러온다. `app/models/user_profile.rb`는 반드시
@@ -50,8 +53,3 @@ Admin::Dashboard
 - CI 파이프라인에서 배포 전 자동화 검사
 - 파일/클래스 이름 변경 후 확인
 - 대규모 리팩토링 후 코드 구조 검증
-
----
-
-- <https://github.com/fxn/zeitwerk>
-- <https://guides.rubyonrails.org/autoloading_and_reloading_constants.html>
