@@ -249,3 +249,9 @@ MCP 지시는 서버와 도구의 올바른 사용법을 다룬다. Skill 지시
 오픈 표준을 따른다.
 
 <https://agentskills.io>
+
+## 관련 문서
+
+- [Claude Skills 제작 완전 가이드](./claude-skills-guide.md)
+- [코드 리뷰 스킬 분석](./code-review-skill.md)
+- [Anthropic 공식 스킬 저장소](./skills-library.md)
