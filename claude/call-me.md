@@ -52,6 +52,30 @@ MCP Server (Bun + TypeScript)
 Claude는 이 4가지 도구만으로
 **멀티턴 음성 대화**를 수행한다.
 
+## 설정
+
+```bash
+# 필요한 서비스
+# 1. 전화 사업자: Telnyx (권장) 또는 Twilio
+# 2. OpenAI API 키: TTS + STT 용
+# 3. ngrok: Webhook 터널링
+
+# 주요 환경변수
+CALLME_PHONE_PROVIDER=telnyx
+CALLME_PHONE_ACCOUNT_SID=...
+CALLME_PHONE_AUTH_TOKEN=...
+CALLME_PHONE_NUMBER=+1234567890
+CALLME_USER_PHONE_NUMBER=+1234567890
+CALLME_OPENAI_API_KEY=sk-...
+CALLME_NGROK_AUTHTOKEN=...
+```
+
+## 참고
+
+- 2.5k+ GitHub 스타
+- TypeScript 100%, Bun 런타임
+- MIT 라이선스
+
 ## 코드 분석 — 핵심 포인트
 
 ### 오디오 파이프라인이 날것 그대로
@@ -198,27 +222,3 @@ Timeless Finance 등으로 알려진 개발자.
 블록체인/스마트컨트랙트 전문가가 만든
 전화 플러그인이라는 점이 의외다.
 **도메인을 넘나드는 빌더 정신**이 프로젝트에 녹아 있다.
-
-## 설정
-
-```bash
-# 필요한 서비스
-# 1. 전화 사업자: Telnyx (권장) 또는 Twilio
-# 2. OpenAI API 키: TTS + STT 용
-# 3. ngrok: Webhook 터널링
-
-# 주요 환경변수
-CALLME_PHONE_PROVIDER=telnyx
-CALLME_PHONE_ACCOUNT_SID=...
-CALLME_PHONE_AUTH_TOKEN=...
-CALLME_PHONE_NUMBER=+1234567890
-CALLME_USER_PHONE_NUMBER=+1234567890
-CALLME_OPENAI_API_KEY=sk-...
-CALLME_NGROK_AUTHTOKEN=...
-```
-
-## 참고
-
-- 2.5k+ GitHub 스타
-- TypeScript 100%, Bun 런타임
-- MIT 라이선스
