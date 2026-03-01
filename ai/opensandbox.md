@@ -1,6 +1,8 @@
 # OpenSandbox - AI 애플리케이션용 범용 샌드박스 플랫폼
 
-<https://github.com/alibaba/OpenSandbox>
+## 관련 저장소
+
+- 메인: <https://github.com/alibaba/OpenSandbox>
 
 Alibaba가 만든 오픈소스 샌드박스 플랫폼. AI 애플리케이션이
 격리된 환경에서 코드를 실행하고 파일을 조작하며 네트워크를
@@ -301,10 +303,6 @@ OpenSandbox Enhancement Proposals(OSEP)가 공개되어 있다.
 OSEP-0004(보안 컨테이너 런타임)는 gVisor, Kata Containers 같은
 강화된 격리 레이어를 추가하는 방향으로 추측된다. 현재 Docker
 컨테이너보다 강한 격리가 필요한 시나리오를 목표로 한다.
-
-## 관련 저장소
-
-- 메인: <https://github.com/alibaba/OpenSandbox>
 
 ## 설치 및 시작
 
