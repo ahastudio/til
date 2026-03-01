@@ -302,6 +302,10 @@ OSEP-0004(보안 컨테이너 런타임)는 gVisor, Kata Containers 같은
 강화된 격리 레이어를 추가하는 방향으로 추측된다. 현재 Docker
 컨테이너보다 강한 격리가 필요한 시나리오를 목표로 한다.
 
+## 관련 저장소
+
+- 메인: <https://github.com/alibaba/OpenSandbox>
+
 ## 설치 및 시작
 
 ```bash
@@ -317,7 +321,3 @@ opensandbox-server
 # Python SDK 설치
 uv add opensandbox
 ```
-
-## 관련 저장소
-
-- 메인: <https://github.com/alibaba/OpenSandbox>
