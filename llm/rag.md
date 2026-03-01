@@ -8,3 +8,10 @@
 \
 → 한국어 요약:
 [RAG에서 문서 파싱은 필요 없음: 이미지만 사용하세요 | GeekNews](https://news.hada.io/topic?id=22123)
+
+## 온디바이스 RAG
+
+[온디바이스 RAG: 임베딩, 벡터 검색, 그리고 그 너머](../ai/on-device-rag-flutter-gemma.md)
+\
+→ 원문:
+[On-Device RAG for App Developers | Medium](https://medium.com/google-developer-experts/47127e954c24)
