@@ -1,13 +1,29 @@
 # OpenSandbox - AI 애플리케이션용 범용 샌드박스 플랫폼
 
-## 관련 저장소
-
-- 메인: <https://github.com/alibaba/OpenSandbox>
+<https://github.com/alibaba/OpenSandbox>
 
 Alibaba가 만든 오픈소스 샌드박스 플랫폼. AI 애플리케이션이
 격리된 환경에서 코드를 실행하고 파일을 조작하며 네트워크를
 제어할 수 있도록 멀티 언어 SDK, 통합 API, Docker/Kubernetes
-런타임을 제공한다. Apache 2.0 라이선스.
+런타임을 제공한다.
+
+Apache 2.0 라이선스.
+
+## 설치 및 시작
+
+```bash
+# 서버 설치 (Python 3.10+ 필요)
+uv pip install opensandbox-server
+
+# 설정 초기화 (Docker 모드)
+opensandbox-server init-config ~/.sandbox.toml --example docker
+
+# 서버 실행
+opensandbox-server
+
+# Python SDK 설치
+uv add opensandbox
+```
 
 ## 핵심 아키텍처: 두 API 레이어 분리
 
@@ -303,19 +319,3 @@ OpenSandbox Enhancement Proposals(OSEP)가 공개되어 있다.
 OSEP-0004(보안 컨테이너 런타임)는 gVisor, Kata Containers 같은
 강화된 격리 레이어를 추가하는 방향으로 추측된다. 현재 Docker
 컨테이너보다 강한 격리가 필요한 시나리오를 목표로 한다.
-
-## 설치 및 시작
-
-```bash
-# 서버 설치 (Python 3.10+ 필요)
-uv pip install opensandbox-server
-
-# 설정 초기화 (Docker 모드)
-opensandbox-server init-config ~/.sandbox.toml --example docker
-
-# 서버 실행
-opensandbox-server
-
-# Python SDK 설치
-uv add opensandbox
-```
