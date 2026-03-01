@@ -17,8 +17,6 @@ AI 에이전트가 실제 Chrome 인스턴스를 제어할 수 있게 한다.
 | 메모리                 | ~2.5GB              | ~300MB              |
 | LLM 호출              | ~100회              | ~20회               |
 
-이게 중요함. 실제로 속도가 빠름!
-
 ![Traditional vs OpenChrome](https://github.com/shaun0927/openchrome/blob/main/assets/demo.svg)
 
 데모 영상이 이 차이를 극적으로 보여준다. 좌측 Playwright MCP는
