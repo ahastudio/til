@@ -3,8 +3,8 @@
 원문:
 <https://medium.com/google-developer-experts/47127e954c24>
 
-저자: Sasha Denisov (Google Developer Expert)
-날짜: 2026-02-21
+- 저자: Sasha Denisov (Google Developer Expert)
+- 날짜: 2026-02-21
 
 ## 요약
 
