@@ -15,16 +15,14 @@ AI 코딩 어시스턴트들이 내부적으로 사용하는 시스템 프롬프
 
 ## 수록된 도구
 
-| 분류               | 도구                                     |
-| ------------------ | ---------------------------------------- |
-| IDE/에디터 기반    | Cursor, Windsurf, Trae, Xcode, VSCode   |
-|                    | Agent, Augment Code, Kiro                |
-| 자율형 에이전트    | Devin AI, Manus, Junie, Comet           |
-| 웹 기반 빌더      | Replit, Lovable, v0, Same.dev, Leap.new  |
-| 대화형 AI         | Perplexity, Dia, NotionAI               |
-| 플랫폼 내장       | Google, Anthropic(Claude Code)           |
-| 기타              | Cluely, Warp.dev, Traycer AI, Qoder,    |
-|                    | z.ai Code, Poke, Orchids.app, CodeBuddy |
+| 분류            | 도구                                                                             |
+| --------------- | -------------------------------------------------------------------------------- |
+| IDE/에디터 기반 | Cursor, Windsurf, Trae, Xcode, VSCode Agent, Augment Code, Kiro                 |
+| 자율형 에이전트 | Devin AI, Manus, Junie, Comet                                                    |
+| 웹 기반 빌더    | Replit, Lovable, v0, Same.dev, Leap.new                                         |
+| 대화형 AI       | Perplexity, Dia, NotionAI                                                        |
+| 플랫폼 내장     | Google, Anthropic(Claude Code)                                                   |
+| 기타            | Cluely, Warp.dev, Traycer AI, Qoder, z.ai Code, Poke, Orchids.app, CodeBuddy    |
 
 ## 분석
 
