@@ -8,7 +8,7 @@ Personal AI Assistant.
 
 ## Related
 
-- [SOUL.md](./soul-md.md): AI에게 "영혼"을 부여하는 설계 철학 분석
+- [SOUL.md](./soul-document.md): AI에게 "영혼"을 부여하는 설계 철학 분석
 - [ClawWork](./clawwork.md): 경제적 생존 관점의 AI 동료 벤치마크 정리
 
 ## Karpathy's Take

@@ -312,3 +312,4 @@ SOUL.md는 AI Agent에게 **헌법적 수준의 원칙**을
 - [OpenClaw README](./README.md)
 - [ClawWork](./clawwork.md)
 - [One Human + One Agent](../ai/one-human-one-agent.md)
+- [soul.md 에세이](../ai/soul-md.md)
