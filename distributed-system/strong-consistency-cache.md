@@ -94,7 +94,7 @@ func write(userID, newValue string) string {
 Write의 `redis.unlink` 이후에 도착하면
 **이전 값으로 캐시가 채워진다.**
 
-```
+```txt
 Read  : DB.get(v1) ---------> Redis.set(v1)
 Write :     DB.commit(v2) -> Redis.unlink -> 응답
 ```
@@ -253,7 +253,7 @@ func read(userID string) string {
 
 ### 확률 추정 (원문의 산술)
 
-```
+```txt
 읽기: 10,000건/초, 쓰기: 10건/초(피크)
 동시 접속: 5,000명, 쓰기 duration: 200ms
 
