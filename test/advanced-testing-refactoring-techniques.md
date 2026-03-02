@@ -1,22 +1,42 @@
 # Advanced Testing and Refactoring Techniques
 
-Emily Bache & Llewellyn Falco (Eficode):
+Emily Bache (2018-11-20, Eficode):
 <https://www.eficode.com/blog/advanced-testing-refactoring-techniques>
 
-레거시 코드를 테스트 없이, 읽지 않고도 안전하게
-리팩터링하는 고급 기법들을 체계적으로 정리한 글.
-Emily Bache와 Llewellyn Falco가 Gilded Rose Kata를
-통해 시연한 세 가지 핵심 기법을 다룬다.
+어려운 레거시 코드를 상속받으면 생산적이 되기까지
+수 주가 걸린다. 올바른 도구와 사용법을 알면
+상황이 크게 달라진다. Emily Bache가 Gilded Rose
+Kata를 소재로 제작한 3부작 스크린캐스트 시리즈.
+Llewellyn Falco에게 배운 접근법을 크레딧한다.
+
+3부작 구성:
+
+1. Approval Testing, Coverage, Mutation Testing
+2. Lift-Up Conditional
+3. Replace Conditional with Polymorphism
 
 ## 요약
 
 ### 배경: Gilded Rose Kata
 
-Gilded Rose는 Terry Hughes가 만들고
-Emily Bache가 다듬은 리팩터링 카타(kata)다.
+Terry Hughes가 원래 설계하고
+Emily Bache가 코드를 다듬어 더 좋은 연습 문제로
+만든 리팩터링 카타(kata)다.
+여러 프로그래밍 언어로 시작 코드를 번역하여
+GitHub에 공개했다. 5년 만에 50명 이상의
+기여자와 800개 이상의 포크를 기록했다.
+
+Gilded Rose 여관이 취급하는 마법 아이템의
+품질(quality)을 관리하는 코드를 다룬다.
+새 기능은 "Conjured" 아이템 지원이다.
 복잡하게 얽힌 조건문으로 이루어진 레거시 코드에
 테스트를 추가하고, 정리한 뒤, 새 기능을 구현하는
 현실적 시나리오를 연습한다.
+
+> 이 연습의 매력은 엉뚱한 시나리오와
+> 처음 코드의 극도로 끔찍한 상태에서 온다.
+> 리팩터링을 잘 해내면 실제로 깔끔해지는데,
+> 그게 아주 만족스럽다.
 
 핵심 제약: 코드가 무엇을 하는지 모르는 상태에서
 시작한다. 이것이 현실의 레거시 코드와 동일하다.
