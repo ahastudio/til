@@ -1,9 +1,7 @@
 # WebMCP: 브라우저가 AI 에이전트의 도구가 되다
 
-- 출처: [WebMCP is available for early preview][blog]
+- 출처: [WebMCP is available for early preview](https://developer.chrome.com/blog/webmcp-epp)
 - 게시일: 2026년 2월 10일 · Chrome for Developers Blog
-
-[blog]: https://developer.chrome.com/blog/webmcp-epp
 
 ---
 
@@ -270,8 +268,7 @@ if ('modelContext' in navigator) {
 크로스 브라우저 지원이 필요하면 MCP-B 폴리필 사용:
 
 ```html
-<script src="https://unpkg.com/@mcp-b/global@latest/dist/index.iife.js">
-</script>
+<script src="https://unpkg.com/@mcp-b/global@latest/dist/index.iife.js"></script>
 ```
 
 ---
