@@ -1,6 +1,6 @@
 # Advanced Testing and Refactoring Techniques
 
-Emily Bache (2018-11-20, Eficode):
+Emily Bache (2018-11-20, updated 2025-05-26, Eficode):
 <https://www.eficode.com/blog/advanced-testing-refactoring-techniques>
 
 어려운 레거시 코드를 상속받으면 생산적이 되기까지
