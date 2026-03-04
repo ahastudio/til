@@ -177,9 +177,9 @@ git)를 분리하라.**
 사람은 답을 알고, 에이전트는 질문할 줄 안다.
 **역할 분담의 최적점이 여기다.**
 
-## 출처
+## Resources
 
-- [Ralph Loop GitHub](https://github.com/anthropics/ralph-loop)
-  → 실제 저장소는 `@pageai/ralph-loop`
-- [Anthropic 장시간 에이전트 연구](https://www.anthropic.com)
-  → 작업 포맷의 연구적 근거
+- <https://github.com/PageAI-Pro/ralph-loop>
+- [video with step by step instructions and examples](https://www.youtube.com/watch?v=3TL8Ez66I3o)
+- [Long running AI Coding Agents with the Ralph Loop](https://pageai.pro/blog/long-running-ai-coding-agents-ralph-loop)
+- [Effective harnesses for long-running agents \ Anthropic](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)
