@@ -250,6 +250,26 @@ MCP 지시는 서버와 도구의 올바른 사용법을 다룬다. Skill 지시
 
 <https://agentskills.io>
 
+## The Agent Skills Directory
+
+Vercel이 만든 오픈 에이전트 스킬 생태계. GitHub 저장소의
+SKILL.md를 검색·설치·관리하는 패키지 매니저다.
+
+<https://skills.sh/>
+
+```bash
+# 스킬 설치
+npx skills add owner/repo@skill-name
+```
+
+npm이 JavaScript 라이브러리의 패키지 매니저라면, skills는
+에이전트 워크플로의 패키지 매니저다. 별도의 퍼블리시 과정 없이
+공개 GitHub 저장소에 SKILL.md를 넣고 설치 명령을 공유하면
+자동으로 디렉터리에 등록되고 리더보드에 반영된다.
+
+Claude Code뿐 아니라 Cursor, Codex, Copilot, Windsurf, Gemini
+CLI 등 17개 이상의 에이전트 도구에서 사용할 수 있다.
+
 ## 관련 문서
 
 - [Claude Skills 제작 완전 가이드](./claude-skills-guide.md)
