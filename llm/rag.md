@@ -9,6 +9,10 @@
 → 한국어 요약:
 [RAG에서 문서 파싱은 필요 없음: 이미지만 사용하세요 | GeekNews](https://news.hada.io/topic?id=22123)
 
+## Modular RAG
+
+[Modular RAG: 파이프라인에서 의사결정 시스템으로](../ai/modular-rag.md)
+
 ## 온디바이스 RAG
 
 [온디바이스 RAG: 임베딩, 벡터 검색, 그리고 그 너머](../ai/on-device-rag-for-app-developers.md)
