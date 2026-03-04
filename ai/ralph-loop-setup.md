@@ -1,5 +1,6 @@
 # Ralph Loop Setup
 
+Dan ⚡️(`@d4m1n`)의 2026년 2월 24일 트윗:
 <https://twitter.com/d4m1n/status/2026032801322356903>
 
 AI 에이전트를 장시간 자율 실행시키는 워크플로우.
