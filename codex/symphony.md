@@ -15,8 +15,8 @@
 
 ## 핵심 개념: 하니스 엔지니어링의 확장
 
-[Codex를 이해하는 방법](./how-to-think-about-codex.md)
-에서 다룬 Model + Harness + Surfaces 프레임워크를 떠올려보자.
+[Codex를 이해하는 방법](./how-to-think-about-codex.md)에서
+다룬 Model + Harness + Surfaces 프레임워크를 떠올려보자.
 
 Symphony는 이 구조의 위에 놓인 **오케스트레이션 레이어**다.
 
