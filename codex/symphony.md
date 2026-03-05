@@ -49,19 +49,17 @@ Symphony (오케스트레이션)
 
 ### 핵심 모듈 (Elixir 참조 구현)
 
-| 모듈             | 역할                              |
-|------------------|-----------------------------------|
-| Orchestrator     | GenServer. 폴링 루프 + 에이전트   |
-|                  | 라이프사이클 관리                 |
-| AgentRunner      | 이슈 하나의 멀티턴 실행 루프      |
-| Codex.AppServer  | Codex와 JSON-RPC 2.0 통신         |
-| Workflow         | YAML 프론트매터 + Solid 템플릿    |
-|                  | 파싱                              |
-| PromptBuilder    | 이슈 데이터로 프롬프트 렌더링     |
-| Workspace        | 이슈별 격리된 디렉토리 생성       |
-| Tracker          | 어댑터 패턴의 이슈 트래커 추상화  |
-| Linear.Client    | GraphQL API로 Linear 연동         |
-| StatusDashboard  | Phoenix LiveView 관측성 대시보드  |
+| 모듈 | 역할 |
+|---|---|
+| Orchestrator | GenServer. 폴링 루프 + 에이전트 라이프사이클 관리 |
+| AgentRunner | 이슈 하나의 멀티턴 실행 루프 |
+| Codex.AppServer | Codex와 JSON-RPC 2.0 통신 |
+| Workflow | YAML 프론트매터 + Solid 템플릿 파싱 |
+| PromptBuilder | 이슈 데이터로 프롬프트 렌더링 |
+| Workspace | 이슈별 격리된 디렉토리 생성 |
+| Tracker | 어댑터 패턴의 이슈 트래커 추상화 |
+| Linear.Client | GraphQL API로 Linear 연동 |
+| StatusDashboard | Phoenix LiveView 관측성 대시보드 |
 
 ---
 
