@@ -18,6 +18,14 @@
 - <https://platform.openai.com/docs/models/gpt-5-mini>
 - <https://platform.openai.com/docs/models/gpt-5-nano>
 
+## GPT-5.4
+
+[Introducing GPT-5.4 | OpenAI](https://openai.com/ko-KR/index/introducing-gpt-5-4/)
+
+[GPT-5.4 Thinking System Card | OpenAI](https://openai.com/index/gpt-5-4-thinking-system-card/)
+
+[“GPT-5.4 Thinking and GPT-5.4 Pro are rolling out now in ChatGPT.” 트윗](https://twitter.com/OpenAI/status/2029620619743219811)
+
 ## gpt-oss
 
 <https://github.com/openai/gpt-oss>
