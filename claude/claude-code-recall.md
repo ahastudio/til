@@ -154,6 +154,102 @@ Obsidian 볼트를 단순한 노트 앱이 아니라 **AI 에이전트의 장기
 앞으로 PKM 도구와 AI 에이전트의 경계는 점점 희미해질 것이다.
 이 통합을 먼저 설계하는 사람이 생산성에서 비대칭적인 우위를 가진다.
 
+## 스킬 내부 분석
+
+`personal-os-skills` 저장소의 `skills/recall/` 구조:
+
+```
+recall/
+├── SKILL.md              # 스킬 정의 (frontmatter + 설명)
+├── scripts/
+│   ├── extract-sessions.py   # JSONL → 마크다운 변환
+│   ├── recall-day.py         # 날짜별 세션 조회
+│   └── session-graph.py      # 인터랙티브 그래프 생성
+└── workflows/
+    └── recall.md         # 쿼리 라우팅 로직
+```
+
+### SKILL.md — 스킬 진입점
+
+```yaml
+allowed-tools: Bash(qmd:*), Bash(python3:*)
+```
+
+Claude가 이 스킬 안에서 실행할 수 있는 도구를 `qmd`와 `python3`로
+제한한다. 허용 범위를 명시해야 Claude Code가 스킬을 실행할 수 있다.
+
+트리거 문구 목록이 description에 직접 포함돼 있다.
+
+```
+"recall", "what did we work on", "load context about",
+"remember when we", "prime context", "yesterday", ...
+```
+
+Claude가 사용자 입력을 보고 이 스킬을 언제 실행할지 판단하는 기준이다.
+
+### workflows/recall.md — 쿼리 라우팅
+
+입력을 4가지로 분류한다.
+
+- **Graph**: 세션-파일 관계 시각화
+- **Temporal**: 날짜 범위로 세션 조회
+- **Topic**: BM25 키워드 검색
+- **Hybrid**: Temporal + Topic 조합
+
+Topic 검색 시 **쿼리 확장**을 적용한다. 사용자가 입력한 표현과 실제
+세션 내용의 어휘가 다를 수 있기 때문에 LLM이 동의어·관련어 3~4개를
+생성해 병렬 검색한다. BM25가 Hybrid보다 53배 빠르기 때문에 Topic
+쿼리에는 BM25를 우선 사용한다.
+
+모든 recall은 **"One Thing"** 으로 끝난다. 검색 결과를 바탕으로
+"지금 당장 가장 높은 레버리지를 가진 다음 액션 하나"를 구체적으로
+제시한다. 일반적인 요약이 아니라 실행 가능한 다음 단계다.
+
+### scripts/extract-sessions.py — JSONL 파이프라인
+
+Claude Code는 모든 대화를 `~/.claude/projects/{encoded-cwd}/*.jsonl`
+에 저장한다. 이 스크립트가 그 파일을 파싱한다.
+
+**처리 흐름:**
+
+```
+JSONL 파일
+  → role == "user" 메시지만 추출
+  → 시스템 태그 제거 (<system-reminder>, <command-name> 등)
+  → 슬래시 커맨드 단독 입력 제거
+  → 세션 제목 자동 추출 (첫 의미있는 메시지에서)
+  → YYYY-MM-DD-HHMM-{session_id[:8]}.md 로 저장
+```
+
+어시스턴트 응답은 저장하지 않는다. 사용자가 입력한 내용만 인덱싱해
+노이즈를 줄이고 인덱스 크기를 최소화한다.
+
+출력 파일은 QMD 컬렉션으로 바로 추가할 수 있도록 frontmatter를
+포함한다.
+
+```yaml
+---
+date: 2026-02-25
+session_id: abc12345-...
+title: "Docker 컨테이너 네트워크 설정"
+type: session-log
+messages: 12
+---
+```
+
+### scripts/session-graph.py — 그래프 시각화
+
+Claude의 도구 호출 로그(Read, Edit, Write, Glob, Grep, Bash)에서
+파일 경로를 추출해 **세션 ↔ 파일** 관계 그래프를 만든다.
+
+- 노드: 세션(날짜별 색상) + 파일(폴더별 색상)
+- 엣지: 세션이 해당 파일을 수정·참조한 관계
+- 노이즈 제거: 세션의 60% 이상에서 등장하는 공통 파일 제외
+- 출력: `/tmp/session-graph.html` (브라우저에서 바로 열림)
+
+시각화에 NetworkX + Pyvis를 사용하며, Obsidian 스타일의 다크 테마를
+적용한다.
+
 ## 관련 항목
 
 - [QMD](../llm/qmd.md)
