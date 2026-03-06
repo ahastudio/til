@@ -70,7 +70,12 @@ npx paperclipai onboard --yes
 
 ```bash
 git clone https://github.com/paperclipai/paperclip.git
-cd paperclip && pnpm install && pnpm dev
+
+cd paperclip
+
+pnpm install
+
+pnpm dev
 ```
 
 `http://localhost:3100`에서 바로 실행된다.
