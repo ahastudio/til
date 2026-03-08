@@ -1,6 +1,6 @@
 # MCP is dead. Long live the CLI
 
-- 원문:
+원문:
   <https://ejholmes.github.io/2026/02/28/mcp-is-dead-long-live-the-cli.html>
 
 ## 요약
