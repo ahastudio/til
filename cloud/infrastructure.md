@@ -1,5 +1,7 @@
 # Infrastructure
 
+[클라우드 VM 벤치마크 2026: 성능 / 가격 | GeekNews](https://news.hada.io/topic?id=27306)
+
 ## Heroku
 
 > Cloud Application Platform
