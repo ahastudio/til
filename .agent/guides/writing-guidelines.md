@@ -6,6 +6,11 @@ Keep all markdown documents within 80 columns.
 Count Korean characters as 2 columns each (CJK width).
 Break lines at natural boundaries (sentence ends, clause breaks).
 
+Exceptions:
+
+- Tables can exceed 80 columns
+- Code blocks can exceed 80 columns
+
 ## Heading Spacing
 
 Always add blank lines before and after headings.
@@ -24,7 +29,7 @@ Example:
 
 ```markdown
 | 항목   | Description |
-|--------|-------------|
+| ------ | ----------- |
 | 이름   | Name        |
 | 설명   | Explanation |
 | 작성자 | Author      |
