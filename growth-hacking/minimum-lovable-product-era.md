@@ -1,8 +1,9 @@
 # The Minimum Lovable Product Era
 
-<https://www.elenaverna.com/p/the-minimum-lovable-product-era>
+원문: <https://www.elenaverna.com/p/the-minimum-lovable-product-era>
 
 Elena Verna(Lovable Head of Growth)가 쓴 글.
+
 MVP(Minimum Viable Product) 시대는 끝났고,
 이제는 MLP(Minimum Lovable Product) 시대라고 주장한다.
 
