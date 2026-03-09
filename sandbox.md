@@ -156,7 +156,7 @@
 
 ### 2. Tailscale Peer Relays is now generally available
 
-- **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=47063178>
+- **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=47063005>
 - **한 줄 요약**: Tailscale이 Peer Relays를 GA로 발표하며 직접 연결 실패 시 경로
   품질을 개선하는 릴레이 전략을 제품화했다.
 - **왜 주목받나**: HN에서 약 305점·165댓글을 기록했고, 사내망/모바일 환경의 P2P
@@ -174,7 +174,7 @@
 ### 3. DNS-PERSIST-01: A New Model for DNS-based Challenge Validation
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47053362>
+  <https://news.ycombinator.com/item?id=47064047>
 - **한 줄 요약**: Let’s Encrypt가 반복 DNS 갱신 부담을 줄이는 새 ACME 검증 모델
   DNS-PERSIST-01을 제시했다.
 - **왜 주목받나**: HN에서 약 174점·87댓글을 얻었고, 인증서 자동화의 운영 비용을
@@ -1506,7 +1506,7 @@
 ### 1. When does MCP make sense vs CLI?
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47212576>
+  <https://news.ycombinator.com/item?id=47208398>
 - **한 줄 요약**: MCP를 언제 도입하고 언제 단순 CLI 통합으로 끝내야 하는지를
   아키텍처 관점에서 비교한 글이다.
 - **왜 주목받나**: 최근 10시간 기준 HN에서 약 378 points, 244 comments를
@@ -1527,7 +1527,7 @@
 ### 2. WebMCP is available for early preview
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47211830>
+  <https://news.ycombinator.com/item?id=47211249>
 - **한 줄 요약**: 브라우저 자동화와 웹 상호작용을 MCP 도구 체계로 연결하는
   WebMCP 프리뷰가 공개됐다.
 - **왜 주목받나**: 최근 12시간 기준 HN에서 약 290 points, 160 comments를 얻었고,
@@ -1549,7 +1549,7 @@
 ### 3. If AI writes code, should the session be part of the commit?
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47211249>
+  <https://news.ycombinator.com/item?id=47212355>
 - **한 줄 요약**: AI가 생성한 코드의 대화/추론 세션을 커밋 메타데이터로 남겨야
   하는지에 대한 협업·감사 관점 논의다.
 - **왜 주목받나**: 최근 13시간 기준 HN에서 약 249 points, 239 comments를
@@ -1571,7 +1571,7 @@
 ### 4. Why XML tags are so fundamental to Claude
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47212355>
+  <https://news.ycombinator.com/item?id=47207236>
 - **한 줄 요약**: 구조화된 XML 태그가 LLM의 지시 분리와 컨텍스트 안정성에 왜
   유효한지 프롬프트 설계 관점에서 설명한다.
 - **왜 주목받나**: 최근 11시간 기준 HN에서 약 205 points, 140 comments를 받으며
@@ -1593,7 +1593,7 @@
 ### 5. Show HN: Timber – Ollama for classical ML models, 336x faster than Python
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47208398>
+  <https://news.ycombinator.com/item?id=47212576>
 - **한 줄 요약**: 고전 ML 모델 추론을 고성능 런타임으로 제공해 Python 중심 서빙
   대비 큰 성능 향상을 노리는 오픈소스 프로젝트다.
 - **왜 주목받나**: 최근 20시간 기준 HN에서 약 129 points, 26 comments를
@@ -1613,7 +1613,7 @@
 ### 6. Right-sizes LLM models to your system's RAM, CPU, and GPU
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47207236>
+  <https://news.ycombinator.com/item?id=47211830>
 - **한 줄 요약**: 로컬/온프레미스 환경에서 하드웨어 자원에 맞춰 LLM 크기와 실행
   구성을 산정하는 실무 가이드를 제공한다.
 - **왜 주목받나**: 최근 22시간 기준 HN에서 약 115 points, 27 comments를 얻으며
@@ -1924,7 +1924,7 @@
 ### 1. Claude's Cycles [pdf]
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47237744>
+  <https://news.ycombinator.com/item?id=47230710>
 - **한 줄 요약**: Claude의 반복 추론 패턴을 분석한 논문이 공개되며 에이전트형
   LLM 설계 논의가 다시 가열됐다.
 - **왜 주목받나**: HN에서 약 546 points, 227 comments를 기록해 모델 내부 동작
@@ -1945,7 +1945,7 @@
 ### 2. GPT‑5.3 Instant
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47230986>
+  <https://news.ycombinator.com/item?id=47236169>
 - **한 줄 요약**: GPT‑5.3 Instant 공개가 저지연 응답과 실무 자동화 워크로드에
   맞춘 모델 선택 전략을 다시 촉발했다.
 - **왜 주목받나**: HN에서 약 322 points, 245 comments를 모으며 성능·비용·지연 간
@@ -1965,7 +1965,7 @@
 ### 3. Motorola GrapheneOS devices will be bootloader unlockable/relockable
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47235232>
+  <https://news.ycombinator.com/item?id=47241551>
 - **한 줄 요약**: Motorola 단말에서 GrapheneOS 부트로더 unlock/relock 지원이
   발표되며 보안 중심 안드로이드 개발 환경 선택지가 넓어졌다.
 - **왜 주목받나**: HN에서 약 258 points, 67 comments를 기록해 모바일 보안,
@@ -1986,7 +1986,7 @@
 ### 4. Arm Cortex X925, tested: Oryon and Apple stay in front
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47230298>
+  <https://news.ycombinator.com/item?id=47229344>
 - **한 줄 요약**: 최신 Arm 코어 성능 분석이 공개되며 Oryon·Apple 대비 CPU 경쟁
   구도가 수치로 다시 비교됐다.
 - **왜 주목받나**: HN에서 약 414 points, 385 comments를 기록해
@@ -2006,7 +2006,7 @@
 ### 5. Process-Based Concurrency in Elixir and Erlang
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47224837>
+  <https://news.ycombinator.com/item?id=47214063>
 - **한 줄 요약**: Elixir/Erlang의 프로세스 기반 동시성 모델을 실무 사례 중심으로
   정리한 글이 주목받았다.
 - **왜 주목받나**: HN에서 약 247 points, 99 comments를 얻으며 에이전트·실시간
@@ -2026,7 +2026,7 @@
 ### 6. When AI writes the software, who verifies it?
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47237503>
+  <https://news.ycombinator.com/item?id=47234917>
 - **한 줄 요약**: AI가 작성한 코드의 검증 책임과 품질 보증 체계를 다룬 글이 실무
   개발 프로세스 재설계를 촉발했다.
 - **왜 주목받나**: HN에서 약 190 points, 175 comments를 기록하며 코드 생성 이후
@@ -2043,10 +2043,10 @@
   - 놓치면 안 되는 핵심 포인트나 주의사항: 생성 코드의 출처·근거·검증 로그를
     남기지 않으면 장애나 보안 사고 시 책임 추적이 어려워진다.
 
-### 7. How to use Codex safely and effectively
+### 7. Introducing the Codex app
 
-- **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47228173>
+- **출처**: OpenAI —
+  <https://openai.com/index/introducing-the-codex-app/>
 - **한 줄 요약**: Codex를 안전하고 효율적으로 쓰기 위한 운영 가이드가 공유되며
   에이전트 도입 실무가 구체화됐다.
 - **왜 주목받나**: HN에서 약 149 points, 82 comments를 받으며 "도입 자체"보다
@@ -2335,7 +2335,7 @@
 ### 1. Hardening Firefox with Anthropic's Red Team
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47256583>
+  <https://news.ycombinator.com/item?id=47273854>
 - **한 줄 요약**: Firefox가 Anthropic 레드팀과 협업해 프롬프트 인젝션, 데이터
   유출, 도구 오용 같은 에이전트형 위협에 대응하는 보안 하드닝 전략을 공개했다.
 - **왜 주목받나**: HN에서 약 524점·148댓글(게시 후 약 1시간)로 빠르게 확산됐고,
@@ -2357,7 +2357,7 @@
 ### 2. Nobody ever got fired for using a struct
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47257031>
+  <https://news.ycombinator.com/item?id=47225655>
 - **한 줄 요약**: 복잡한 추상화보다 구조체(struct) 중심의 단순한 데이터 모델이
   유지보수성과 성능 측면에서 더 안전한 기본값이라는 실전 관점을 제시한다.
 - **왜 주목받나**: HN에서 약 141점·114댓글(게시 후 1일)로 논쟁이 컸고,
@@ -2379,7 +2379,7 @@
 ### 3. C# strings silently kill your SQL Server indexes in Dapper
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47256164>
+  <https://news.ycombinator.com/item?id=47282230>
 - **한 줄 요약**: Dapper에서 문자열 파라미터 타입이 컬럼 정의와 어긋나면 암묵적
   변환 때문에 인덱스가 무력화될 수 있다는 성능 함정을 사례로 설명한다.
 - **왜 주목받나**: HN에서 약 75점·44댓글(게시 후 약 2시간)을 기록했고,
@@ -2401,7 +2401,7 @@
 ### 4. TypeScript 6.0 RC
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47257698>
+  <https://news.ycombinator.com/item?id=47280567>
 - **한 줄 요약**: TypeScript 6.0 RC가 타입 시스템·컴파일러 동작·도구 호환성
   측면의 변경점을 공개하며 업그레이드 준비 가이드를 제시했다.
 - **왜 주목받나**: HN에서 약 75점·30댓글(게시 후 약 42분)로 빠르게 주목받았고,
@@ -2423,7 +2423,7 @@
 ### 5. UUID package coming to Go standard library
 
 - **출처**: Hacker News (top/new) —
-  <https://news.ycombinator.com/item?id=47254666>
+  <https://news.ycombinator.com/item?id=47283665>
 - **한 줄 요약**: Go 표준 라이브러리에 UUID 패키지를 포함하려는 논의가
   구체화되면서, 외부 의존성 없이 식별자 생성/파싱을 표준 방식으로 다루려는
   방향이 제시됐다.
@@ -2547,7 +2547,7 @@
 
 ### 1. Ki: The Next Vim
 
-- **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=47114610>
+- **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=47286311>
 - **한 줄 요약**: AST 기반 코드 편집기를 직접 구현한 Ki 프로젝트가 Vim 계열
   개발자 도구의 새로운 설계 방향을 보여줬다.
 - **왜 주목받나**: HN에서 389 points, 137 comments(약 1일 내)로 반응이 컸고,
@@ -2568,7 +2568,7 @@
 
 ### 2. A decade of Docker containers
 
-- **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=47117836>
+- **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=47289311>
 - **한 줄 요약**: Docker 컨테이너 10년의 운영 경험을 통해 배포 표준화의 성과와
   남은 운영 과제를 정리한 회고다.
 - **왜 주목받나**: HN에서 269 points, 189 comments(약 14시간 내)를 기록했고,
@@ -2588,7 +2588,7 @@
 
 ### 3. Cloud VM benchmarks 2026
 
-- **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=47120587>
+- **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=47293119>
 - **한 줄 요약**: 주요 클라우드 VM 성능을 비교한 2026 벤치마크가 워크로드별
   인스턴스 선택 기준을 구체적으로 제시했다.
 - **왜 주목받나**: HN에서 139 points, 64 comments(약 5시간 내)를 얻었고, 비용
@@ -2608,7 +2608,7 @@
 
 ### 4. AutoResearch by Andrej Karpathy
 
-- **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=47125874>
+- **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=47291123>
 - **한 줄 요약**: 단일 GPU 환경에서 연구 보조 에이전트를 학습시키는 AutoResearch
   실험이 공개되며 경량 에이전트 학습 접근을 제시했다.
 - **왜 주목받나**: HN에서 83 points, 23 comments(약 10시간 내)를 기록했고,
@@ -2626,7 +2626,7 @@
 
 ### 5. Verification debt: The hidden cost of AI-generated code
 
-- **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=47130235>
+- **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=47289406>
 - **한 줄 요약**: AI가 생성한 코드가 늘수록 검증 부담이 누적되는 "검증 부채"
   문제를 정량적으로 다룬 글이다.
 - **왜 주목받나**: HN에서 80 points, 82 comments(약 18시간 내)로 토론이
