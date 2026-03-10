@@ -334,7 +334,7 @@
   - 놓치면 안 되는 핵심 포인트나 주의사항: 벤치마크 수치만 보고 채택하지 말고
     실제 업무 데이터로 품질·안전성 평가를 병행해야 한다.
 
-### 2. Don't Trust the Salt: AI Summarization, Multilingual Safety, and LLM Guardrails
+### 2. Don't Trust the Salt: AI Summarization and Multilingual Guardrails
 
 - **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=47038032>
 - **한 줄 요약**: 다국어 요약에서 시스템 프롬프트/정책이 결과를 쉽게 편향시키며,
@@ -386,7 +386,7 @@
   - 놓치면 안 되는 핵심 포인트나 주의사항: 백업·동기화 전략이 없으면 데이터 유실
     위험이 크므로 운영 정책을 먼저 설계해야 한다.
 
-### 5. A terminal weather app with ASCII animations driven by real-time weather data
+### 5. A terminal weather app with ASCII animations
 
 - **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=47076659>
 - **한 줄 요약**: Open-Meteo 기반 실시간 데이터를 ASCII 애니메이션으로 보여주는
@@ -534,7 +534,7 @@
   - 놓치면 안 되는 핵심 포인트나 주의사항: 홍보 수치만으로 채택하지 말고 실제
     컨텍스트 길이·배치 조건에서 재현 가능한 벤치마크를 확인해야 한다.
 
-### 3. California's new bill requires DOJ-approved 3D printers that report themselves
+### 3. California bill for self-reporting DOJ-approved 3D printers
 
 - **출처**: Hacker News (top/new) —
   <https://news.ycombinator.com/item?id=47077844>
@@ -1106,7 +1106,7 @@
 
 ## 2026-02-27 개발자 트렌드
 
-### 1. AirSnitch: Demystifying and breaking client isolation in Wi-Fi networks [pdf]
+### 1. AirSnitch: Breaking client isolation in Wi-Fi networks [pdf]
 
 - **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=47167763>
 - **한 줄 요약**: Wi-Fi 클라이언트 격리 기능이 실제 환경에서 어떻게 우회될 수
@@ -2950,12 +2950,11 @@
 
 ## 2026-03-10 개발자 트렌드
 
-### 1. Agent Safehouse: macOS-native sandboxing for local agents
+### 1. Agent Safehouse
 
-- **출처**: Felix Rante —
-  <https://felixrante.com/agent-safehouse-macos-native-sandboxing-for-local-agents/>
-- **한 줄 요약**: macOS의 App Sandbox, Seatbelt, Powerbox를 조합해 로컬 AI
-  에이전트를 OS 네이티브 권한 모델 안에서 격리하는 설계를 정리했다.
+- **출처**: Agent Safehouse — <https://www.agent-safehouse.dev/>
+- **한 줄 요약**: macOS에서 `sandbox-exec` 기반으로 LLM 코딩 에이전트를
+  최소권한으로 격리하는 오픈소스 샌드박스 프로젝트다.
 - **왜 주목받나**: Hacker News(top)에서 약 789점·175댓글을 기록했고, 에이전트
   보안이 프롬프트 수준이 아니라 운영체제 경계까지 내려와야 한다는 문제의식을
   정확히 건드렸다.
@@ -2975,7 +2974,8 @@
 
 ### 2. Building a Procedural Hex Map with Wave Function Collapse
 
-- **출처**: Christer Kaitila — <https://www.procjam.com/tutorials/wfc/>
+- **출처**: Felix Turner —
+  <https://felixturner.github.io/hex-map-wfc/article/>
 - **한 줄 요약**: 웨이브 펑션 콜랩스(Wave Function Collapse)를 육각 타일 맵
   생성에 적용해 제약 기반 절차 생성이 실제로 어떻게 동작하는지 단계별로
   보여준다.
@@ -3018,10 +3018,10 @@
     커널 기능을 모두 대체하지 못하므로, 성능 측정과 디바이스 의존 기능 검증
     용도로 일반화하면 안 된다.
 
-### 4. FFmpeg at Meta: Encoding and processing media at scale
+### 4. FFmpeg at Meta: Media Processing at Scale
 
 - **출처**: Meta Engineering —
-  <https://engineering.fb.com/2026/03/10/video-engineering/ffmpeg-at-meta-encoding-and-processing-media-at-scale/>
+  <https://engineering.fb.com/2026/03/02/video-engineering/ffmpeg-at-meta-media-processing-at-scale/>
 - **한 줄 요약**: Meta가 대규모 미디어 파이프라인에서 FFmpeg를 어떻게 패치하고
   운영하는지, 그리고 upstream 협업 구조를 어떻게 가져가는지 공개했다.
 - **왜 주목받나**: Hacker News(page 2 top)에서 약 239점·94댓글을 얻었고,
@@ -3043,7 +3043,7 @@
 
 ### 5. Unlocking Python's Cores: Energy Implications of Removing the GIL
 
-- **출처**: arXiv — <https://arxiv.org/abs/2603.08419>
+- **출처**: arXiv — <https://arxiv.org/abs/2603.04782>
 - **한 줄 요약**: GIL 제거가 단순 성능 향상만이 아니라 에너지 효율과 코어
   활용도에 어떤 영향을 주는지 실험적으로 분석한 연구다.
 - **왜 주목받나**: Hacker News(page 2 top)에서 약 123점·95댓글을 기록했고,
@@ -3065,9 +3065,10 @@
 
 ### 6. FreeBSD Capsicum vs. Linux Seccomp for Process Sandboxing
 
-- **출처**: Chris Wellons — <https://nullprogram.com/blog/2026/03/08/>
-- **한 줄 요약**: 프로세스 샌드박싱을 구현할 때 FreeBSD의 Capsicum과 Linux의
-  seccomp가 어떤 철학과 한계를 가지는지 코드 관점에서 비교했다.
+- **출처**: Hacker News (page 2 top) —
+  <https://news.ycombinator.com/item?id=47308394>
+- **한 줄 요약**: FreeBSD의 Capsicum과 Linux의 seccomp를 비교한 샌드박싱 글이
+  토론을 모으며, 운영체제별 격리 모델 차이를 다시 부각시켰다.
 - **왜 주목받나**: Hacker News(page 2 top)에서 약 117점·47댓글을 받았고,
   브라우저·에이전트·CLI 보안이 화두인 시점에 OS별 샌드박싱 모델 비교가 실무형
   참고자료로 읽혔다.
@@ -3085,11 +3086,12 @@
     권한 축소 전체를 대체하지 못하므로, UID 분리·네임스페이스·파일 권한과 결합해
     써야 한다.
 
-### 7. Optimizing Top K in Postgres
+### 7. How We Optimized Top K in Postgres
 
-- **출처**: ParadeDB Blog — <https://www.paradedb.com/blog/top-k>
-- **한 줄 요약**: Postgres에서 `ORDER BY ... LIMIT` 형태의 Top-K 쿼리를 더
-  효율적으로 처리하는 전략과 실행 계획 관점을 설명한다.
+- **출처**: ParadeDB Blog —
+  <https://www.paradedb.com/blog/optimizing-top-k>
+- **한 줄 요약**: ParadeDB가 Postgres의 `ORDER BY ... LIMIT` 형태 Top-K 쿼리를
+  검색엔진 관점으로 어떻게 최적화했는지 설명한다.
 - **왜 주목받나**: Hacker News(page 2 top)에서 약 84점·11댓글을 기록했고, 점수는
   앞선 글보다 낮아도 바로 서비스 성능에 연결되는 튜닝 팁이라 실무 가치가 높게
   평가됐다.
