@@ -148,9 +148,7 @@ Capsicum은 이 종류의 공격에 구조적으로 면역이다.
 | FD 수준 제한       | `cap_rights_limit` | 없음                  |
 | 샌드박스 진입      | 시스템 콜 1개      | BPF 프로그램          |
 | 런타임 오버헤드    | 무시할 수준(1 플래그) | 매 콜마다 필터 평가 |
-| 실사용             | tcpdump, dhclient, | Docker, Firefox,      |
-|                    | hastd, gzip,       | OpenSSH, systemd,     |
-|                    | OpenSSH            | Android               |
+| 실사용             | tcpdump, dhclient, hastd, gzip, OpenSSH | Docker, Firefox, OpenSSH, systemd, Android |
 
 ## 숫자로 보기
 
