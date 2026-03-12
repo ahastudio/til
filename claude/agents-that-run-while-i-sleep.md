@@ -116,17 +116,10 @@ Playwright가 잡는 것은 통합 실패, 렌더링 버그,
 
 | 단계             | 모델    | 역할                       |
 | ---------------- | ------- | -------------------------- |
-| Pre-flight       | 없음    | 순수 bash 점검.            |
-|                  |         | 서버·세션·스펙 존재 확인.  |
-|                  |         | 토큰 소비 전 빠른 실패.    |
-| Planner          | Opus    | 스펙 + 변경 파일 읽기.     |
-|                  |         | 검증 방법·셀렉터 결정.     |
-| Browser Agents   | Sonnet  | AC당 1 에이전트, 병렬 실행.|
-|                  |         | Sonnet은 Opus 대비         |
-|                  |         | 3~4배 저렴.                |
-| Judge            | Opus    | 전체 증거를 읽고           |
-|                  |         | AC별 판정: pass / fail /   |
-|                  |         | needs-human-review.        |
+| Pre-flight       | 없음    | 순수 bash 점검. 서버·세션·스펙 존재 확인. 토큰 소비 전 빠른 실패.    |
+| Planner          | Opus    | 스펙 + 변경 파일 읽기. 검증 방법·셀렉터 결정.     |
+| Browser Agents   | Sonnet  | AC당 1 에이전트, 병렬 실행. Sonnet은 Opus 대비 3~4배 저렴.                |
+| Judge            | Opus    | 전체 증거를 읽고 AC별 판정: pass / fail / needs-human-review.        |
 
 **워크플로우 요약:**
 인수 조건 작성 → 에이전트 구현 → 검증 실행 →
