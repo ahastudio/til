@@ -1,7 +1,7 @@
 # Developer Without Portfolio
 
 David Thomas는
-[Software Design X-Rays](https://pragprog.com/titles/dtcode/)에서
+[Simplicity: Sustainable, Humane, and Effective Software Development](https://pragprog.com/titles/dtcode/simplicity/)에서
 회의를 줄이면서도 팀이 효과적으로 돌아가게 만드는 역할로
 **Developer Without Portfolio**(DWP)를 제안합니다.
 
