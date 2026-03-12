@@ -1,7 +1,6 @@
 # 잠자는 동안 돌아가는 에이전트를 만들고 있다
 
-출처: [I'm Building Agents That Run While I Sleep]
-(https://www.claudecodecamp.com/p/i-m-building-agents-that-run-while-i-sleep)
+출처: [I'm Building Agents That Run While I Sleep](https://www.claudecodecamp.com/p/i-m-building-agents-that-run-while-i-sleep)
 — Abhishek Ray, 2026-03-11
 
 ## 한 줄 요약
