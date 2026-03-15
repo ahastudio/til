@@ -53,17 +53,46 @@ claude-hud가 파싱하여 포맷된 문자열을 stdout으로 출력한다.
 
 ### 주요 모듈
 
-| 모듈              | 역할                                                 |
-| ----------------- | ---------------------------------------------------- |
-| `src/index.ts`    | 진입점. stdin 읽기, 데이터 수집, 렌더링 호출         |
-| `src/config.ts`   | 설정 로드, 검증, 기본값 병합, 레거시 마이그레이션     |
-| `src/transcript.ts` | JSONL 트랜스크립트 파싱. 도구·에이전트·Todo 추출    |
-| `src/git.ts`      | Git 브랜치, dirty 상태, ahead/behind 카운트 조회     |
-| `src/render/`     | ANSI 이스케이프 처리, 와이드 문자 감지, 줄바꿈 렌더링 |
+| 모듈                | 역할                                                   |
+| ------------------- | ------------------------------------------------------ |
+| `src/index.ts`      | 진입점. stdin 읽기, 데이터 수집, 렌더링 호출           |
+| `src/stdin.ts`      | stdin JSON 파싱, 모델명 정규화, 컨텍스트 퍼센트 계산   |
+| `src/config.ts`     | 설정 로드, 검증, 기본값 병합, 레거시 마이그레이션       |
+| `src/transcript.ts` | JSONL 트랜스크립트 파싱. 도구·에이전트·Todo 추출       |
+| `src/git.ts`        | Git 브랜치, dirty 상태, ahead/behind 카운트 조회       |
+| `src/usage-api.ts`  | Anthropic OAuth로 토큰 사용량 API 조회 (5분 캐싱)      |
+| `src/speed-tracker.ts` | 슬라이딩 윈도우(2초)로 출력 토큰 속도(tok/s) 추적   |
+| `src/config-reader.ts` | CLAUDE.md, MCP, hooks 등 설정 파일 카운트           |
+| `src/render/`       | ANSI 이스케이프 처리, 와이드 문자 감지, 줄바꿈 렌더링 |
+
+### stdin 데이터
+
+Claude Code가 전달하는 JSON 구조:
+
+```json
+{
+  "model": {"display_name": "Opus", "id": "claude-opus-4-..."},
+  "context_window": {
+    "current_usage": {"input_tokens": 45000},
+    "context_window_size": 200000,
+    "used_percentage": 23
+  },
+  "transcript_path": "/path/to/session.jsonl",
+  "cwd": "/project/path"
+}
+```
+
+`used_percentage`는 Claude Code v2.1.6+에서 제공한다.
+없으면 수동 계산으로 폴백한다.
+autocompact 동작을 시뮬레이션하기 위해 16.5% 버퍼를 적용하여
+"버퍼드 퍼센트"를 별도로 계산한다.
+
+Bedrock 모델 ID(`anthropic.claude-3-5-sonnet-...`)를
+"Claude Sonnet 3.5" 형식으로 정규화하는 로직도 있다.
 
 ### 트랜스크립트 파싱
 
-트랜스크립트 파일을 한 줄씩 읽으며 JSON 엔트리를 파싱한다.
+트랜스크립트 파일을 `readline`으로 스트리밍하며 JSON 엔트리를 파싱한다.
 content 블록에서 세 가지를 식별한다.
 
 1. **Tool Use 블록** — 도구 ID, 이름, 시작 시각 추출
@@ -99,6 +128,9 @@ Claude Code의 statusline API와 자연스럽게 맞물린다.
 레거시 포맷 마이그레이션도 지원한다. 잘못된 설정이 들어와도 기본값으로
 폴백한다.
 
+**보안을 의식한 구현.** Git 명령 실행에 `execFileSync`를 사용하고
+절대 경로로 호출하여 셸 인젝션과 PATH 하이재킹을 방지한다.
+
 ### 아쉬운 점
 
 **TypeScript 비율이 41.8%에 불과하다.** `dist/` 디렉터리를 저장소에
@@ -113,6 +145,14 @@ Claude Code의 statusline API와 자연스럽게 맞물린다.
 **트랜스크립트 파싱의 매직 넘버.** 도구 20개, 에이전트 10개 상한이
 하드코딩되어 있다. 복잡한 세션에서 이 한계에 도달하면 최신 정보가
 누락될 수 있다.
+
+**빈 catch 블록이 많다.** 대부분의 에러 핸들링이 `catch {}`로
+조용히 삼킨다. 의도적인 graceful degradation이지만,
+디버깅 시 문제 추적이 어렵다.
+
+**사용량 API가 macOS Keychain에 의존한다.** OAuth 토큰을
+macOS Keychain에서 읽기 때문에 Linux/Windows에서는
+토큰 사용량 표시가 제한된다.
 
 ## 인사이트
 
@@ -129,3 +169,9 @@ claude-hud의 핵심 로직은 "stdin에서 JSON 읽기 → 포맷팅 → stdout
 Claude Code 사용 중 컨텍스트가 얼마나 남았는지 모르면
 갑자기 컴팩션이 발생해 대화 흐름이 끊길 수 있다.
 실시간 프로그레스 바는 사용자가 세션을 전략적으로 관리하게 해준다.
+
+**autocompact 버퍼 시뮬레이션이 흥미롭다.**
+Claude Code는 컨텍스트가 일정 수준에 도달하면 자동으로 압축한다.
+claude-hud는 이 임계값(16.5%)을 경험적으로 추정하여
+"실제 사용량"과 "압축 후 예상 사용량"을 구분해 보여준다.
+공식 API가 아닌 관찰에 기반한 값이라 버전에 따라 달라질 수 있다.
