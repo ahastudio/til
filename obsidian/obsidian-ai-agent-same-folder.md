@@ -195,13 +195,3 @@ AI 에이전트가 이 맥락 안에서 작동한다.
 방향 설정 같은 사고 작업은 직접 해야 한다.
 효율과 이해는 트레이드오프가 아니라
 올바른 분업으로 양립할 수 있다.
-
-## 참고 자료
-
-- [@Atenov_D의 트윗](https://twitter.com/atenov_d/status/2032528386745315553)
-
-## 관련 문서
-
-- [Obsidian CEO의 Obsidian 사용법](./steph-ango-vault.md)
-- [Obsidian - Sharpen your thinking](./README.md)
-- [에이전트 스킬: 컨텍스트 엔지니어링](../ai/agent-skills-for-context-engineering.md)
