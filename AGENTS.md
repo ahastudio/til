@@ -21,19 +21,20 @@ languages (e.g. 웹소켓(WebSocket)).
 
 ## Action Boundaries (ABSOLUTE PRIORITY)
 
-**요청한 것만 한다. 요청하지 않은 행동은 절대 하지 않는다.**
+**Do only what is requested. Never take actions that were not asked for.**
 
-- "커밋 메시지 써줘" → 텍스트를 출력한다. git 조작이 아니다.
-- "diff 보고" → diff를 읽고 응답한다. 커밋을 수정하지 않는다.
-- squash, rebase, amend 등 커밋 조작은 **명시적 요청 없이 절대 금지**.
-- 확신이 없으면 멋대로 행동하지 말고 묻는다.
+- "Write a commit message" → Output text. Do NOT run git commands.
+- "Review the diff" → Read the diff and respond. Do NOT modify commits.
+- Commit manipulation (squash, rebase, amend) is **strictly forbidden without
+  explicit request**.
+- When uncertain, ask instead of acting on your own.
 
 ## Writing Guidelines
 
 ### Heading Spacing
 
-Always add blank lines before and after headings.
-This is required for markdown linters and improves readability.
+Always add blank lines before and after headings. This is required for markdown
+linters and improves readability.
 
 ### Table Alignment
 
@@ -65,8 +66,8 @@ Always use `twitter.com` instead of `x.com` for tweet URLs.
 
 ### Tweet Terminology
 
-Call it a "트윗" unless the user explicitly says "스레드".
-Long tweets are still tweets.
+Call it a "트윗" unless the user explicitly says "스레드". Long tweets are still
+tweets.
 
 ## Git Commit Message Guide
 
@@ -125,8 +126,8 @@ New paragraphs should be used to group different aspects of the change.
 Each paragraph focuses on a distinct part of the commit.
 ```
 
-**After committing**: Provide a Korean translation of the commit message
-to help the user understand what was committed.
+**After committing**: Provide a Korean translation of the commit message to help
+the user understand what was committed.
 
 ### Example
 
