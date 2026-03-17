@@ -1,4 +1,4 @@
-# chrome-cdp-skill
+# `chrome-cdp` skill
 
 AI 에이전트가 실행 중인 Chrome 브라우저와 직접 상호작용할 수 있게 하는
 경량 CDP(Chrome DevTools Protocol) CLI 도구.
