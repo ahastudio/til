@@ -1,17 +1,17 @@
 # `chrome-cdp` skill
 
-AI 에이전트가 실행 중인 Chrome 브라우저와 직접 상호작용할 수 있게 하는
-경량 CDP(Chrome DevTools Protocol) CLI 도구.
+AI 에이전트가 실행 중인 Chrome 브라우저와 직접 상호작용할 수 있게 해주는
+경량 CDP(Chrome DevTools Protocol) CLI 도구입니다.
 
 <https://github.com/pasky/chrome-cdp-skill>
 
 ## 핵심 가치
 
-**"이미 열려 있는 브라우저를 그대로 쓴다."**
+**"이미 열려 있는 브라우저를 그대로 씁니다."**
 
-Puppeteer 같은 도구는 격리된 새 브라우저를 띄운다. chrome-cdp-skill은
-사용자가 실제로 사용 중인 Chrome 탭에 연결한다. 로그인 상태, 페이지
-상태, 열린 탭 전부를 AI 에이전트가 그대로 활용할 수 있다.
+Puppeteer 같은 도구는 격리된 새 브라우저를 띄웁니다. chrome-cdp-skill은
+사용자가 실제로 사용 중인 Chrome 탭에 연결합니다. 로그인 상태, 페이지
+상태, 열린 탭 전부를 AI 에이전트가 그대로 활용할 수 있습니다.
 
 ## 설치
 
@@ -23,8 +23,8 @@ pi install git:github.com/pasky/chrome-cdp-skill@v1.0.2
 # skills/chrome-cdp/ 디렉토리를 복사. Node.js 22+ 필요, npm install 불필요.
 ```
 
-Chrome에서 `chrome://inspect/#remote-debugging` 토글을 켜야 한다.
-Chrome, Chromium, Brave, Edge, Vivaldi를 자동 감지한다.
+Chrome에서 `chrome://inspect/#remote-debugging` 토글을 켜야 합니다.
+Chrome, Chromium, Brave, Edge, Vivaldi를 자동 감지합니다.
 
 ## 명령어
 
@@ -45,7 +45,7 @@ Chrome, Chromium, Brave, Edge, Vivaldi를 자동 감지한다.
 | `open [url]`                     | 새 탭 열기                                 |
 | `stop [target]`                  | 데몬 종료                                  |
 
-`<target>`은 `list` 출력의 targetId 고유 접두사다.
+`<target>`은 `list` 출력의 targetId 고유 접두사입니다.
 
 ## 아키텍처
 
@@ -60,19 +60,19 @@ CLI (cdp.mjs)
                                                        (Target.attachToTarget)
 ```
 
-핵심 설계 결정: **탭별 상주 데몬**. 첫 접근 시 Chrome의 "디버깅
-허용" 모달이 한 번 뜨고, 이후 같은 탭 명령은 데몬을 재사용한다.
-20분 유휴 시 자동 종료.
+핵심 설계 결정은 **탭별 상주 데몬**입니다. 첫 접근 시 Chrome의
+"디버깅 허용" 모달이 한 번 뜨고, 이후 같은 탭 명령은 데몬을
+재사용합니다. 20분 유휴 시 자동 종료됩니다.
 
 ## 코드 분석
 
-단일 파일(cdp.mjs) 870줄. 외부 의존성 제로. Node.js 22의 내장
-WebSocket만 사용한다.
+단일 파일(cdp.mjs) 870줄입니다. 외부 의존성 제로. Node.js 22의
+내장 WebSocket만 사용합니다.
 
 ### CDP 클래스
 
-WebSocket 기반 CDP 클라이언트. private 필드(`#ws`, `#id`,
-`#pending`, `#eventHandlers`)로 캡슐화했다.
+WebSocket 기반 CDP 클라이언트입니다. private 필드(`#ws`, `#id`,
+`#pending`, `#eventHandlers`)로 캡슐화했습니다.
 
 ```javascript
 class CDP {
@@ -89,47 +89,67 @@ class CDP {
 ```
 
 요청-응답 매칭을 `#pending` Map으로 관리하고, CDP 이벤트는
-`#eventHandlers` Map에 Set으로 누적한다. `waitForEvent`가
-`cancel()` 핸들을 반환해 타임아웃 누수를 방지하는 점이 깔끔하다.
+`#eventHandlers` Map에 Set으로 누적합니다. `waitForEvent`가
+`cancel()` 핸들을 반환해 타임아웃 누수를 방지하는 점이 깔끔합니다.
 
 ### 데몬 IPC
 
 CLI와 데몬 사이 통신은 Unix 소켓 위의 NDJSON(Newline-Delimited
-JSON) 프로토콜이다.
+JSON) 프로토콜입니다.
 
 ```
 요청: {"id": 1, "cmd": "snap", "args": []}
 응답: {"id": 1, "ok": true, "result": "..."}
 ```
 
-`net.createServer`로 스트림을 받아 줄 단위로 파싱한다. 불완전한
-마지막 줄은 버퍼에 보관하고 다음 청크와 합친다.
+`net.createServer`로 스트림을 받아 줄 단위로 파싱합니다. 불완전한
+마지막 줄은 버퍼에 보관하고 다음 청크와 합칩니다.
 
 ### 브라우저 자동 탐지
 
 `getWsUrl()`이 macOS, Linux, Windows의 알려진 경로에서
-`DevToolsActivePort` 파일을 순회 탐색한다. Chrome, Chromium,
-Brave, Edge, Vivaldi까지 커버한다. `CDP_PORT_FILE` 환경 변수로
-커스텀 경로도 지원한다.
+`DevToolsActivePort` 파일을 순회 탐색합니다. Chrome, Chromium,
+Brave, Edge, Vivaldi까지 커버합니다. `CDP_PORT_FILE` 환경 변수로
+커스텀 경로도 지원합니다.
+
+### 멀티 프로필 연결
+
+`DevToolsActivePort`는 프로필 단위가 아니라 **Chrome 프로세스
+단위** 파일입니다. 코드가 탐색하는 경로는 다음과 같습니다:
+
+```
+~/.config/google-chrome/DevToolsActivePort          # 브라우저 루트
+~/.config/google-chrome/Default/DevToolsActivePort  # Default 프로필
+```
+
+`candidates.find()`로 **첫 번째 발견된 파일**에 연결하므로,
+멀티 프로필(Default, Profile 1, Profile 2…)이어도 같은 Chrome
+프로세스 안이면 **모든 프로필의 탭이 `list`에 전부** 나옵니다.
+프로필 구분 없이 섞여서 표시됩니다.
+
+`Profile 1`, `Profile 2` 같은 커스텀 프로필 경로는 탐색하지
+않습니다. 별도 `--user-data-dir`로 완전히 분리된 Chrome
+인스턴스를 띄우는 경우, `CDP_PORT_FILE` 환경 변수로 해당
+인스턴스의 `DevToolsActivePort` 경로를 직접 지정해야 합니다.
 
 ### 좌표 시스템 처리
 
-`shotStr()`이 DPR(Device Pixel Ratio)을 3단계로 감지한다:
+`shotStr()`이 DPR(Device Pixel Ratio)을 3단계로 감지합니다:
 Page.getLayoutMetrics → Emulation.getDeviceMetricsOverride →
 `window.devicePixelRatio`. 스크린샷 이미지 픽셀과 CSS 픽셀 간
-변환 가이드를 출력에 포함한다.
+변환 가이드를 출력에 포함합니다.
 
 ### 네비게이션
 
 `navStr()`은 `Page.navigate` 후 `Page.loadEventFired` 이벤트를
-대기한다. `loaderId`가 없으면(같은 페이지 내 이동 등) 이벤트
-대기를 건너뛴다. 이후 `document.readyState === 'complete'`를
-200ms 폴링으로 확인한다.
+대기합니다. `loaderId`가 없으면(같은 페이지 내 이동 등) 이벤트
+대기를 건너뜁니다. 이후 `document.readyState === 'complete'`를
+200ms 폴링으로 확인합니다.
 
 ### 크로스오리진 대응
 
 `typeStr()`은 `Runtime.evaluate` 대신 `Input.insertText` CDP
-명령을 사용한다. 크로스오리진 iframe에서도 동작하는 선택이다.
+명령을 사용합니다. 크로스오리진 iframe에서도 동작하는 선택입니다.
 
 ## vs chrome-devtools-mcp
 
