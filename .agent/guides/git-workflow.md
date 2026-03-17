@@ -21,6 +21,26 @@ Based on:
 - Assuming or guessing what is staged
 - Proceeding when verification returns empty results
 
+## "커밋 메시지 써줘" 요청 처리 (MANDATORY)
+
+**"커밋 메시지 써줘"는 텍스트를 출력하라는 뜻이다. git 조작이 아니다.**
+
+1. diff를 읽는다.
+2. 커밋 메시지 텍스트를 출력한다.
+3. 끝이다.
+
+**절대 하지 말 것:**
+
+- squash, rebase, amend 등 커밋 조작 시도
+- 커밋 개수를 줄이거나 합치는 행위
+- 사용자가 명시적으로 요청하지 않은 모든 git 조작
+
+## 브랜치 diff 범위 판단 (MANDATORY)
+
+"이 브랜치의 diff"라고 하면 **이 세션에서 만든 커밋만** 본다.
+브랜치 이름과 무관한 기존 커밋을 포함하지 않는다.
+확신이 없으면 사용자에게 묻는다.
+
 ## Rules
 
 1. Use imperative mood (e.g., "Add feature", "Fix bug")
