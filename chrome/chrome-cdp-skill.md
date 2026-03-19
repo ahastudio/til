@@ -15,15 +15,13 @@ Puppeteer 같은 도구는 격리된 새 브라우저를 띄웁니다. chrome-cd
 
 ## 설치
 
-```bash
-# pi skill 사용자
-pi install git:github.com/pasky/chrome-cdp-skill@v1.0.2
+`skills/chrome-cdp/` 디렉토리를 복사.
 
-# 다른 에이전트 (Claude Code, Cursor 등)
-# skills/chrome-cdp/ 디렉토리를 복사. Node.js 22+ 필요, npm install 불필요.
-```
+- Node.js 22+ 필요.
+- npm install 불필요.
 
 Chrome에서 `chrome://inspect/#remote-debugging` 토글을 켜야 합니다.
+
 Chrome, Chromium, Brave, Edge, Vivaldi를 자동 감지합니다.
 
 ## 명령어
