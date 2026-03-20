@@ -38,6 +38,11 @@ brew install --cask codex-app
 
 <https://developers.openai.com/codex/ide>
 
+## Subagents
+
+[`Codex Subagents`](./subagents.md) -
+서브에이전트 기능 개요와 실전 프롬프트 예시.
+
 ## Codex Cloud
 
 <https://chatgpt.com/codex>
