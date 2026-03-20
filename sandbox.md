@@ -5125,7 +5125,7 @@
 ### 1. Push events into a running session with channels
 
 - **출처**: Claude Code Changelog —
-  <https://code.claude.com/changelog/push-events-into-a-running-session-with-channels>
+  <https://code.claude.com/docs/en/channels>
 - **한 줄 요약**: 실행 중인 Claude Code 세션에 `channels`로 외부 이벤트를 밀어
   넣어, 장기 작업 중에도 비동기 신호와 사용자 입력을 끼워 넣을 수 있게 됐다.
 - **왜 주목받나**: Hacker News top에서 약 351점·206댓글을 기록했고, 에이전트
@@ -5168,7 +5168,7 @@
 
 ### 3. Noq: n0's new QUIC implementation in Rust
 
-- **출처**: iroh — <https://www.iroh.computer/blog/noq>
+- **출처**: iroh — <https://www.iroh.computer/blog/noq-announcement>
 - **한 줄 요약**: `iroh` 팀이 Rust로 새 QUIC 스택 `noq`를 공개하며, 더 단순한
   구조와 유지보수성을 목표로 구현 방향을 설명했다.
 - **왜 주목받나**: Hacker News top에서 약 214점·33댓글을 받았고, 네트워크 성능뿐
@@ -5213,7 +5213,7 @@
 ### 5. Scaling Karpathy's Autoresearch: What Happens When the Agent Gets a GPU Cluster
 
 - **출처**: SkyPilot Blog —
-  <https://blog.skypilot.co/scaling-karpathy-autoresearch-agent-gpu-cluster/>
+  <https://blog.skypilot.co/scaling-autoresearch/>
 - **한 줄 요약**: Karpathy의 AutoResearch 에이전트를 GPU 클러스터로 확장했을 때
   생기는 병목과 운영 포인트를 실제 실험으로 정리했다.
 - **왜 주목받나**: Hacker News top에서 약 193점·83댓글을 받았고, 단일 머신
