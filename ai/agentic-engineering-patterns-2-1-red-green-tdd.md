@@ -3,7 +3,7 @@
 Simon Willison의 Agentic Engineering Patterns 시리즈 #2-1:
 <https://simonwillison.net/guides/agentic-engineering-patterns/red-green-tdd/>
 
-"Use red/green TDD." 이 네 단어짜리 프롬프트가 코딩
+“Use red/green TDD.” 이 네 단어짜리 프롬프트가 코딩
 에이전트의 결과물을 극적으로 개선한다. 두 번째 패턴은
 **테스트 우선 개발(test-first development)이 코딩 에이전트와
 만났을 때 왜 완벽한 조합이 되는지**를 다룬다.
@@ -34,13 +34,13 @@ TDD(Test Driven Development)는 작성하는 모든 코드에
 확률도 함께 높아진다. 포괄적인 테스트 스위트는 이를
 방지하는 가장 효과적인 수단이다.
 
-## 왜 "Red"가 중요한가
+## 왜 “Red”가 중요한가
 
 테스트를 작성한 뒤 **실패를 확인하는 단계를 건너뛰면**
 이미 통과하는 테스트를 만들 위험이 있다. 그런 테스트는
 새 구현을 실제로 검증하지 못한다.
 
-"Red/Green"의 의미:
+“Red/Green”의 의미:
 
 - **Red:** 테스트가 실패하는 것을 지켜본다.
 - **Green:** 구현 후 테스트가 통과함을 확인한다.
@@ -50,7 +50,7 @@ Red 단계가 없으면 테스트의 존재 자체가 거짓 안전감을
 
 ## 네 단어 프롬프트의 힘
 
-모든 좋은 모델은 "red/green TDD"를 다음의 축약으로
+모든 좋은 모델은 “red/green TDD”를 다음의 축약으로
 이해한다:
 
 > TDD를 사용하라. 테스트를 먼저 작성하고, 테스트가
@@ -62,20 +62,20 @@ Red 단계가 없으면 테스트의 존재 자체가 거짓 안전감을
 
 ## 예시 프롬프트
 
-```
+```text
 Build a Python function to extract headers
 from a markdown string. Use red/green TDD.
 ```
 
 Willison의 전형적인 Python 세션 프롬프트:
 
-```
+```text
 Run the existing tests with "uv run pytest".
 Build using red/green TDD.
 ```
 
-테스트 실행 방법을 알려주는 것 자체가 "이 프로젝트에서
-테스트는 중요하다"는 신호로 작동한다. 에이전트는 기존
+테스트 실행 방법을 알려주는 것 자체가 “이 프로젝트에서
+테스트는 중요하다”는 신호로 작동한다. 에이전트는 기존
 테스트를 읽은 뒤 자체 테스트를 작성하므로, 좋은 패턴의
 기존 테스트가 있으면 에이전트도 좋은 테스트를 작성할
 가능성이 높아진다.
@@ -95,8 +95,8 @@ Build using red/green TDD.
 ### TDD 회의론자의 전향
 
 Willison 본인이 커리어 전체에 걸쳐 테스트 우선 개발에
-회의적이었다고 고백한다. "테스트 포함 개발(tests included
-development)"을 선호했다. 하지만 코딩 에이전트 시대에
+회의적이었다고 고백한다. “테스트 포함 개발(tests included
+development)”을 선호했다. 하지만 코딩 에이전트 시대에
 접어들며 테스트 우선으로 전향했다. 에이전트가 **필요한
 코드만 작성하도록 강제**하는 가장 효과적인 수단이기
 때문이다. 도구의 변화가 방법론에 대한 판단까지 바꾼
@@ -104,7 +104,7 @@ development)"을 선호했다. 하지만 코딩 에이전트 시대에
 
 ### 프롬프트 엔지니어링으로서의 개발 방법론
 
-"Red/green TDD"의 진짜 혁신은 개발 방법론을 **프롬프트
+“Red/green TDD”의 진짜 혁신은 개발 방법론을 **프롬프트
 엔지니어링 기법**으로 재정의한 것이다. 모델에 이미
 내장된 지식을 짧은 키워드로 활성화하는 접근법은,
 앞으로 다른 개발 방법론(페어 프로그래밍, 코드 리뷰 등)
@@ -121,9 +121,9 @@ development)"을 선호했다. 하지만 코딩 에이전트 시대에
 ### 시리즈 1편과의 연결
 
 [첫 번째 패턴](./agentic-engineering-patterns-1-1-code-is-cheap.md)
-에서 "코드 작성은 거의 공짜"라고 했다. 공짜인 코드가
+에서 “코드 작성은 거의 공짜”라고 했다. 공짜인 코드가
 검증 없이 양산되면 기술 부채가 된다. Red/Green TDD는
-"공짜 코드"의 품질을 보장하는 안전장치다. 두 패턴은
+“공짜 코드”의 품질을 보장하는 안전장치다. 두 패턴은
 **문제 제기와 해결책**의 쌍으로 읽어야 한다.
 
 ### CLAUDE.md에 바로 적용하기
@@ -132,7 +132,7 @@ development)"을 선호했다. 하지만 코딩 에이전트 시대에
 프로젝트의 CLAUDE.md(또는 시스템 프롬프트)에 다음
 한 줄을 추가하는 것만으로 효과를 볼 수 있다:
 
-```
+```text
 Build using red/green TDD.
 ```
 

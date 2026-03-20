@@ -49,7 +49,7 @@ GitHub Repository: <https://github.com/forrestchang/andrej-karpathy-skills>
 - 요청받지 않은 유연성을 넣지 않는다
 - 발생할 수 없는 시나리오에 대한 에러 처리를 하지 않는다
 
-**리트머스 테스트:** 시니어 엔지니어가 이 코드를 보고 "과잉 복잡화"라고 할까?
+**리트머스 테스트:** 시니어 엔지니어가 이 코드를 보고 “과잉 복잡화”라고 할까?
 
 ### 원칙 3: Surgical Changes (외과적 변경)
 
@@ -64,8 +64,8 @@ GitHub Repository: <https://github.com/forrestchang/andrej-karpathy-skills>
 
 Karpathy의 핵심 통찰:
 
-> "LLM은 특정 목표를 충족할 때까지 루프를 도는 데 뛰어나다... 무엇을 하라고
-> 지시하지 말고, 성공 기준을 주고 지켜봐라."
+> “LLM은 특정 목표를 충족할 때까지 루프를 도는 데 뛰어나다... 무엇을 하라고
+> 지시하지 말고, 성공 기준을 주고 지켜봐라.”
 
 - 명령형 지시를 선언형 목표로 변환한다
 - 구현 전에 검증 가능한 성공 기준을 정의한다

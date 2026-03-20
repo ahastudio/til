@@ -6,15 +6,23 @@ with open(filepath) as f:
 
 result = []
 open_quote = True
-for ch in content:
-    if ch == '"':
-        if open_quote:
-            result.append('\u201c')
+in_fenced_code_block = False
+
+for line in content.splitlines(keepends=True):
+    if line.lstrip().startswith('```'):
+        in_fenced_code_block = not in_fenced_code_block
+        result.append(line)
+        continue
+
+    for ch in line:
+        if ch == '"' and not in_fenced_code_block:
+            if open_quote:
+                result.append('\u201c')
+            else:
+                result.append('\u201d')
+            open_quote = not open_quote
         else:
-            result.append('\u201d')
-        open_quote = not open_quote
-    else:
-        result.append(ch)
+            result.append(ch)
 
 new_content = ''.join(result)
 

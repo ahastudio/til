@@ -91,7 +91,7 @@ Raschka는 모델 간 차이를 세 가지 축으로 정리한다.
 
 ### 1. 어텐션 메커니즘의 분화
 
-```
+```text
 MHA → GQA → MLA
          ↘ NoPE / Sliding Window / Gated DeltaNet / Lightning Attention
 ```

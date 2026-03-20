@@ -31,8 +31,8 @@ AI 코딩 어시스턴트들이 내부적으로 사용하는 시스템 프롬프
 각 도구의 시스템 프롬프트를 비교하면 반복되는 설계 패턴이
 보인다.
 
-1. **역할 정의**: "You are an AI assistant that helps with
-   software engineering tasks" 같은 페르소나 설정이 가장 먼저
+1. **역할 정의**: “You are an AI assistant that helps with
+   software engineering tasks” 같은 페르소나 설정이 가장 먼저
    온다.
 2. **도구 명세**: 파일 읽기, 편집, 검색, 터미널 실행 등 사용
    가능한 도구를 구조화된 형식으로 나열한다. JSON Schema로

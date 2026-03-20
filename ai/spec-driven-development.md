@@ -3,7 +3,7 @@
 ## 개요
 
 Spec-Driven Development(SDD)는 AI와 함께 소프트웨어를 개발하는 새로운 접근
-방식이다. 기존의 "vibe-coding" 문제(AI가 겉보기엔 괜찮아 보이지만 실제로는
+방식이다. 기존의 “vibe-coding” 문제(AI가 겉보기엔 괜찮아 보이지만 실제로는
 제대로 작동하지 않는 코드를 생성하는 현상)를 해결하기 위해 등장했다.
 
 ### 핵심 개념
@@ -11,7 +11,7 @@ Spec-Driven Development(SDD)는 AI와 함께 소프트웨어를 개발하는 새
 Spec-Driven Development에서는 **명세(specification)가 코드의 동작 방식에 대한
 계약(contract)이자 도구와 AI 에이전트의 신뢰할 수 있는 단일 정보원(source of
 truth)** 이 된다. 기존 방식과 달리 명세를 임시 문서로 취급하지 않고, 실제 구현을
-직접 생성하는 "실행 가능한" 문서로 다룬다.
+직접 생성하는 “실행 가능한” 문서로 다룬다.
 
 ### 작동 방식
 

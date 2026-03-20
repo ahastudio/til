@@ -3,3 +3,6 @@
 
 # OpenChrome
 .openchrome/
+
+# Python
+__pycache__/

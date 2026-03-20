@@ -143,7 +143,7 @@ AI 에이전트는 다음과 같은 한계가 있습니다:
 ```bash
 npm install -g node-gyp
 node-gyp rebuild
-```
+```bash
 
 **결과**: 성공
 
@@ -278,10 +278,10 @@ Figma에서 확인한 로그인 화면:
 
 ## 비교: Spec-Driven Development
 
-**Spec-Driven Development**: "무엇을" 만들지 사전에 명확히 정의 (Top-down, 계획
+**Spec-Driven Development**: “무엇을” 만들지 사전에 명확히 정의 (Top-down, 계획
 중심)
 
-**File-based Planning**: "어떻게" 진행되는지 과정을 추적 (Bottom-up, 탐색 중심)
+**File-based Planning**: “어떻게” 진행되는지 과정을 추적 (Bottom-up, 탐색 중심)
 
 함께 사용하면: Spec으로 방향을 정하고, Planning으로 과정을 추적
 
