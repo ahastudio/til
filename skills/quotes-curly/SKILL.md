@@ -1,5 +1,5 @@
 ---
-name: quotes
+name: quotes-curly
 description:
   마크다운 파일의 ASCII 큰따옴표(")를 유니코드 큰따옴표("\u201c", "\u201d")로
   변환합니다. 큰따옴표 변환, 유니코드 따옴표, 전각 따옴표 요청 시 사용하세요.
@@ -14,7 +14,7 @@ allowed-tools: Bash
 ## 사용법
 
 ```
-/quotes path/to/file.md
+/quotes-curly path/to/file.md
 ```
 
 ## 실행 방법
