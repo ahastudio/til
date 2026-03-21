@@ -365,3 +365,10 @@ standup-post가 어제와의 차이를 인식하는 것은
 등록하는 스킬은 **공급망 공격(supply chain attack)**의 벡터가 될 수 있다.
 마켓플레이스에서 누군가의 스킬을 설치할 때의 보안 검증 절차에 대한 언급이
 전혀 없다.
+
+## 관련 문서
+
+- [Claude Code Skills](./skills.md)
+- [Claude Skills 제작 완전 가이드](./claude-skills-guide.md)
+- [코드 리뷰 스킬 분석](./code-review-skill.md)
+- [Anthropic 공식 스킬 저장소](./skills-library.md)
