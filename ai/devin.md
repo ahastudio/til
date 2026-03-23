@@ -60,7 +60,7 @@ PR 코멘트에서 `@devin`을 멘션하면 피드백을 읽고 코드를 수정
 
 ### CodeRabbit과 조합
 
-[CodeRabbit](./coderabbit.md)과 함께 사용하면 Devin이 PR을 만들고 CodeRabbit이
+[CodeRabbit](../coderabbit/README.md)과 함께 사용하면 Devin이 PR을 만들고 CodeRabbit이
 자동 리뷰하는 파이프라인을 구성할 수 있다.
 
 ```text
