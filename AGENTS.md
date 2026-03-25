@@ -28,6 +28,8 @@ languages (e.g. 웹소켓(WebSocket)).
 - Commit manipulation (squash, rebase, amend) is **strictly forbidden without
   explicit request**.
 - When uncertain, ask instead of acting on your own.
+- "git commit" → Commit **only staged changes**. Do NOT add untracked files.
+  Never ask "should I include untracked files?" — if it's not staged, skip it.
 
 ## Writing Guidelines
 
