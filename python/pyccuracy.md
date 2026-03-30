@@ -1,6 +1,6 @@
 # Pyccuracy - BDD-style Web Acceptance Testing framework
 
-아샬이 예전에 썼던 BDD E2E 테스트 도구. 현재는 개발 중단됨.
+아샬이 2012년에 썼던 BDD E2E 테스트 도구. 현재는 개발 중단됨.
 
 <https://github.com/heynemann/pyccuracy>
 
@@ -8,7 +8,7 @@
 
 ### Log In
 
-```txt
+```text
 As a registered user
 I want to log in
 So that I can use this service fully
@@ -40,7 +40,7 @@ Then
 
 ### Log out
 
-```txt
+```text
 As a registered user
 I want to log out
 So that I can use this service as a guest
@@ -59,7 +59,7 @@ Then
 
 ### Search
 
-```txt
+```text
 As a guest
 I want to search with query text
 So that I can find contents that have my insteresting issue
