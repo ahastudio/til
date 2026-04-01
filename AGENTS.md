@@ -121,8 +121,15 @@ Based on:
 - Writing commit messages without verification
 - Assuming or guessing what is staged
 - Proceeding when verification returns empty results
+- Writing a summary-only commit message without a body
+- Skipping Message Structure rules for "speed" or "simplicity"
 
-### Rules
+### Rules (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**Every commit message MUST have both a summary AND a body. A summary-only
+commit is a violation of this guide. There are ZERO cases where omitting the
+body is acceptable. "It's a small change" is not an excuse. "It's obvious
+from the diff" is not an excuse. Write the body. Always.**
 
 1. Use imperative mood (e.g., "Add feature", "Fix bug")
 2. Communicate intent and purpose, not every detail
@@ -130,6 +137,8 @@ Based on:
 4. Body: wrap at 72 characters, one sentence per line
 5. No bullet points in body - use full sentences
 6. Write in English (Korean translation optional)
+7. Body is MANDATORY — never omit it
+8. Body must explain "why", not just restate "what"
 
 ### Character Count Reference
 
