@@ -3,7 +3,7 @@ name: analyze-article
 description:
   웹 글을 읽고 요약, 분석, 비평, 인사이트를 포함하는 TIL 문서를 작성합니다.
   URL을 인수로 받습니다. 글 분석, 문서화, 기술 글 정리 요청 시 사용하세요.
-argument-hint: <url> [output-path]
+argument-hint: '<url> [output-path]'
 disable-model-invocation: true
 ---
 
@@ -11,7 +11,7 @@ disable-model-invocation: true
 
 ## 사용법
 
-```
+```text
 /analyze-article https://example.com/article [security/article-name.md]
 ```
 

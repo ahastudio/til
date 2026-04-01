@@ -3,7 +3,7 @@ name: geeknews-hot
 description:
   GeekNews(news.hada.io) 핫한 글을 뽑아 각각 TIL 문서를 작성합니다.
   포인트 기준 상위 글을 선정하고, 기존 문서와 중복되지 않는 글만 처리합니다.
-argument-hint: [개수 (기본 5)]
+argument-hint: '[개수 (기본 5)]'
 disable-model-invocation: true
 ---
 
@@ -12,7 +12,7 @@ TIL 문서를 작성합니다.
 
 ## 사용법
 
-```
+```text
 /geeknews-hot
 /geeknews-hot 3
 ```
