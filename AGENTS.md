@@ -88,6 +88,17 @@ Always use `twitter.com` instead of `x.com` for tweet URLs.
 Call it a "트윗" unless the user explicitly says "스레드". Long tweets are still
 tweets.
 
+## Skills
+
+### Skill Location (ABSOLUTE PRIORITY)
+
+**Always create skills in the project-local directory, never globally.**
+
+- Local (correct): `.claude/skills/<skill-name>/SKILL.md`
+- Global (forbidden): `~/.claude/skills/`
+
+Skills are project-specific artifacts and must live with the project.
+
 ## Git Commit Message Guide
 
 Based on:
