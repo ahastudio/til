@@ -1,6 +1,6 @@
 # Claude, 서드파티 도구에서 구독 플랜 사용 차단
 
-<https://twitter.com/bcherny/status/2040206440556826908>
+트윗 스레드: <https://twitter.com/bcherny/status/2040206440556826908>
 
 ## 원문 번역
 
