@@ -1,4 +1,4 @@
-# skill.md
+# Agent Skills
 
 <https://skill.md/>
 
