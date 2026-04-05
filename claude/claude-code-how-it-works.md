@@ -1,6 +1,6 @@
 # Claude Code 작동 원리: 에이전틱 루프와 컨텍스트 시스템
 
-> 원문: <https://www.mintlify.com/VineeTagarwaL-code/claude-code/concepts/how-it-works>
+원문: <https://www.mintlify.com/VineeTagarwaL-code/claude-code/concepts/how-it-works>
 
 ## 요약
 
