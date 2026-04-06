@@ -12,11 +12,12 @@ GitHub 15.2k 스타, v1.1.1(2026년 2월). Objective-C(51%), Lua(25%), C(16%)로
 
 ## 설치
 
+<https://formulae.brew.sh/cask/hammerspoon>
+
 ```bash
-brew install hammerspoon --cask
+brew install --cask hammerspoon
 ```
 
-또는 공식 사이트에서 `.app`을 내려받아 `/Applications`에 넣는다.
 실행 후 접근성 권한을 부여하고, 메뉴바 아이콘 → Open Config로 `~/.hammerspoon/init.lua`를
 편집하면 된다.
 
