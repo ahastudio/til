@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "defaultMode": "auto",
+    "allow": [
+      "Read"
+    ],
+    "deny": [
+      "Read(.env)"
+    ]
+  }
+}
