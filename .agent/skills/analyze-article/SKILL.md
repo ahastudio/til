@@ -36,7 +36,7 @@ Glob과 Grep으로 기존 TIL 문서에 동일한 주제의 문서가 있는지 
 ```markdown
 # 제목
 
-> 원문: <URL>
+원문: <URL>
 
 ## 요약
 
