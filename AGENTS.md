@@ -48,6 +48,16 @@ Rules:
   request. The user decides what is valuable, not you.
 - If the request is ambiguous, STOP and ask. Do not guess.
 
+## Rule Writing Guidelines
+
+When adding or editing rules in this file:
+
+- Write behavioral principles, not scripts. NEVER hardcode specific phrases,
+  sentences, or dialogue for the agent to say verbatim.
+- Keep rules agent-agnostic. NEVER hardcode a specific product name, model
+  name, or vendor. Write rules that apply regardless of which AI agent
+  executes them.
+
 ## Writing Guidelines
 
 ### Heading Spacing
@@ -88,11 +98,38 @@ Always use `twitter.com` instead of `x.com` for tweet URLs.
 Call it a "트윗" unless the user explicitly says "스레드". Long tweets are still
 tweets.
 
+## Forbidden Actions (ABSOLUTE PRIORITY)
+
+### Memory System
+
+**NEVER use the memory system.** NEVER write, create, or update memory files.
+NEVER update MEMORY.md. All persistent guidance belongs in this file
+(CLAUDE.md / AGENTS.md) — not in memory.
+
+### Global Paths
+
+**NEVER read, write, search, or reference global paths like `~/.claude/`.**
+This project uses project-local paths exclusively. If you catch yourself
+typing a path starting with `~/`, STOP.
+
+### Premature "Not Found" Conclusions
+
+**NEVER declare that a file, resource, or skill "does not exist" based on a
+failed search.** A failed search means you failed to find it, not that it
+does not exist.
+
+- Try at least 3 different approaches (different glob patterns, Read with
+  the expected path, `ls`).
+- Always search project-local paths first.
+- If still not found, ask the user for the correct path.
+- NEVER conclude that something does not exist. If you cannot find it,
+  that is your failure — not proof of absence.
+
 ## Skills
 
 ### Skill Location (ABSOLUTE PRIORITY)
 
-**Always create skills in the project-local directory, never globally.**
+**Always create and search for skills in the project-local directory.**
 
 - Local (correct): `.claude/skills/<skill-name>/SKILL.md`
 - Global (forbidden): `~/.claude/skills/`
@@ -139,6 +176,19 @@ from the diff" is not an excuse. Write the body. Always.**
 6. Write in English (Korean translation optional)
 7. Body is MANDATORY — never omit it
 8. Body must explain "why", not just restate "what"
+9. Every commit MUST include a Co-Authored-By trailer at the end
+
+### Co-Authored-By Trailer (MANDATORY)
+
+Every commit message MUST end with a Co-Authored-By trailer that identifies
+the AI agent and model used. Format:
+
+```txt
+Co-Authored-By: <agent> <model> <email>
+```
+
+Use the actual agent name, model name, and associated email for the AI
+currently in use.
 
 ### Character Count Reference
 
