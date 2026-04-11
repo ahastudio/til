@@ -1,6 +1,8 @@
 # Open Images Dataset
 
-원문: <https://storage.googleapis.com/openimages/web/index.html>
+ <https://storage.googleapis.com/openimages/web/index.html>
+
+<https://github.com/openimages/dataset>
 
 ## 요약
 
