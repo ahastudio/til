@@ -23,7 +23,7 @@ allowed-tools: Bash
 1. 인수로 받은 파일 경로에 대해 아래 파이썬 스크립트를 실행합니다:
 
 ```bash
-python3 ${CLAUDE_SKILL_DIR}/convert_quotes.py $ARGUMENTS
+python3 ${CLAUDE_SKILL_DIR}/scripts/convert_quotes.py $ARGUMENTS
 ```
 
 2. 실행 결과를 사용자에게 보여줍니다.
