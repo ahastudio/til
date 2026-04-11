@@ -1,7 +1,6 @@
 # Dataset
 
-## Open Images Dataset V6 + Extensions
+## Open Images Dataset
 
-<https://storage.googleapis.com/openimages/web/index.html>
-
-<https://github.com/openimages/dataset>
+- [Open Images Dataset](open-images-dataset.md)
+- <https://github.com/openimages/dataset>
