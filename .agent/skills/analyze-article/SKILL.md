@@ -43,21 +43,21 @@ Write a markdown document with the following structure:
 ```markdown
 # Title
 
-Source: <URL>
+원문: <URL>
 
-## Summary
+## 요약
 
 Summarize the core content in 3-5 paragraphs.
 Convey technical details accurately.
 
-## Analysis
+## 분석
 
 Analyze the logical structure, strength of evidence, and context of the
 article.
 Point out connections to related technologies or trends.
 If there are multiple sub-items, separate each with a sub-heading (###).
 
-## Critique
+## 비평
 
 Evaluate the strengths and weaknesses of the article in a balanced way.
 Examine whether the claims are sufficiently supported and whether any
@@ -65,7 +65,7 @@ perspectives are missing.
 Offer concrete counter-arguments or complementary points.
 If there are multiple sub-items, separate each with a sub-heading (###).
 
-## Insights
+## 인사이트
 
 Write sharply and richly.
 Each insight MUST be separated with a sub-heading (###) and developed over
