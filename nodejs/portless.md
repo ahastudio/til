@@ -5,50 +5,119 @@
 
 - 원문: <https://github.com/vercel-labs/portless>
 - 사이트: <https://port1355.dev/>
+- 최신 버전: v0.10.1 (2026년 4월)
 
 ## 요약
 
 Vercel Labs가 만든 로컬 개발 프록시 도구다.
-`localhost:3000` 대신 `myapp.localhost:1355` 같은
+`localhost:3000` 대신 `https://myapp.localhost` 같은
 안정적이고 사람이 읽을 수 있는 URL을 제공한다.
 
-포트 1355에서 동작하는 리버스 프록시가 핵심이다.
+v0.10부터 HTTPS와 HTTP/2가 기본값이다.
+포트 443에서 동작하는 리버스 프록시가 핵심이며,
+첫 실행 시 로컬 CA를 자동 생성하고 시스템 트러스트 스토어에 등록한다.
 각 앱에 4000~4999 범위의 랜덤 포트를 할당하고,
 이름 기반 `.localhost` 서브도메인으로 라우팅한다.
 
 RFC 6761에 따라 `.localhost` 도메인은 항상
 루프백 주소(127.0.0.1)로 해석되므로 `/etc/hosts`
 수정이 필요 없다.
+단, Safari에서는 `.localhost` 서브도메인이 일관되게
+해석되지 않을 수 있으므로 `portless hosts sync`로
+`/etc/hosts`에 항목을 추가하는 것이 권장된다.
 
 ## 해결하는 문제
 
-| 문제                     | 설명                           |
-|--------------------------|--------------------------------|
-| 포트 충돌                | `EADDRINUSE` — 두 앱이 같은 포트를 사용                    |
-| 포트 암기                | 3000, 3001, 8080... 어떤 앱이 어디인지 기억 불가             |
-| 쿠키 충돌                | `localhost`에 설정된 쿠키가 포트와 무관하게 모든 앱에 유출 |
-| AI 에이전트 혼란         | 에이전트가 포트 번호를 추측 하거나 하드코딩                |
-| 새로고침 시 잘못된 앱    | 브라우저 탭에서 다른 앱이 표시 |
+| 문제           | 설명                                       |
+|----------------|--------------------------------------------|
+| 포트 충돌      | 같은 포트에 두 앱 바인딩 (`EADDRINUSE`)    |
+| 포트 암기      | 어떤 앱이 몇 번 포트인지 기억 불가         |
+| 쿠키 충돌      | `localhost` 쿠키가 모든 앱에 유출          |
+| 에이전트 혼란  | AI가 포트를 추측하거나 하드코딩            |
+| 잘못된 새로고침| 탭에서 다른 앱이 열림                      |
+
+## v0.10의 주요 변경사항
+
+초기 버전(포트 1355, HTTP 기본)에서 크게 발전했다.
+
+### HTTPS + HTTP/2 기본 활성화
+
+프록시가 포트 443에서 HTTPS와 HTTP/2를 기본으로 제공한다.
+첫 실행 시 로컬 CA를 자동 생성하고 시스템 트러스트 스토어에 등록하므로
+브라우저 보안 경고 없이 사용할 수 있다.
+`--no-tls` 플래그로 HTTP 모드를 선택할 수도 있다.
+
+### Windows 지원 추가
+
+macOS와 Linux만 지원하던 것에서 Windows도 공식 지원한다.
+
+### LAN 모드
+
+`--lan` 플래그로 같은 네트워크의 다른 기기에서
+개발 서버에 접근할 수 있다.
+mDNS를 통해 자동으로 로컬 네트워크에 서비스를 공개하며,
+`--ip` 플래그로 특정 LAN IP를 고정할 수 있다.
+
+### 서브도메인 및 Git Worktree 지원
+
+`portless api.myapp pnpm start`처럼
+서브도메인을 활용한 서비스 구성이 가능하다.
+Git worktree를 자동 감지하여 브랜치명 접두사로
+브랜치별 고유 URL을 생성한다.
+
+### 커스텀 TLD 및 와일드카드
+
+`--tld` 플래그로 `.localhost` 대신 `.test`, `.dev` 등
+커스텀 TLD를 사용할 수 있다.
+`--wildcard` 플래그로 미등록 서브도메인도 라우팅할 수 있다.
+
+### 새로운 CLI 명령
+
+| 명령어                    | 설명                              |
+|---------------------------|-----------------------------------|
+| `portless alias <n> <p>`  | 정적 라우트 등록 (Docker 등)      |
+| `portless clean`          | portless 데이터 제거 및 CA 해제   |
+| `portless hosts sync`     | `/etc/hosts` 항목 추가            |
+| `portless hosts clean`    | `/etc/hosts` portless 항목 제거   |
+| `portless run`            | package.json scripts에서 사용     |
+
+### 환경변수 확장
+
+| 환경변수              | 설명                         |
+|-----------------------|------------------------------|
+| `PORTLESS_URL`        | 자식 프로세스에 공개 URL 주입|
+| `PORTLESS_HTTPS=0`    | HTTPS 비활성화               |
+| `PORTLESS_LAN=1`      | LAN 모드 기본 활성화         |
+| `PORTLESS_TLD`        | 커스텀 TLD 설정              |
+| `PORTLESS_SYNC_HOSTS` | `/etc/hosts` 동기화 제어     |
+| `NODE_EXTRA_CA_CERTS` | CA 인증서 경로               |
+
+### Expo/React Native 지원
+
+`--port` 플래그를 자동 주입하며,
+React Native에는 `--host 127.0.0.1`도 추가한다.
 
 ## 아키텍처
 
-```
+```text
 portless myapp next dev
         │
         ├─ 1) 프록시 실행 여부 확인
-        │     (없으면 자동 기동)
+        │     (없으면 자동 기동 + CA 생성/신뢰 등록)
         │
         ├─ 2) 랜덤 포트 할당 (4000~4999)
-        │     PORT, HOST 환경변수 주입
+        │     PORT, HOST, PORTLESS_URL 환경변수 주입
         │
         ├─ 3) routes.json에 라우트 등록
         │     { hostname, port, pid }
         │
         └─ 4) 앱 프로세스 spawn
 
-브라우저 → myapp.localhost:1355
+브라우저 → https://myapp.localhost
               │
-        프록시 (포트 1355)
+        프록시 (포트 443, HTTPS + HTTP/2)
+              │
+        SNI 콜백 → 호스트별 인증서 선택
               │
         Host 헤더 파싱 → routes.json 조회
               │
@@ -63,7 +132,7 @@ portless myapp next dev
 
 ## 프로젝트 구조
 
-```
+```text
 portless/
 ├── packages/portless/src/
 │   ├── cli.ts          # CLI 진입점 (31KB)
@@ -210,12 +279,14 @@ SNI(Server Name Indication) 콜백으로
 `PORT` 환경변수를 무시하는 프레임워크를 감지하고
 적절한 CLI 플래그를 자동 주입한다.
 
-| 프레임워크     | 주입 플래그                   |
-|----------------|-------------------------------|
-| Vite           | `--port PORT --host 127.0.0.1`|
-| React Router   | `--port PORT --host 127.0.0.1`|
-| Astro          | `--port PORT --host 127.0.0.1`|
-| Angular (ng)   | `--port PORT --host 127.0.0.1`|
+| 프레임워크       | 주입 플래그                   |
+|------------------|-------------------------------|
+| Vite             | `--port PORT --host 127.0.0.1`|
+| React Router     | `--port PORT --host 127.0.0.1`|
+| Astro            | `--port PORT --host 127.0.0.1`|
+| Angular (ng)     | `--port PORT --host 127.0.0.1`|
+| Expo             | `--port PORT`                 |
+| React Native CLI | `--port PORT --host 127.0.0.1`|
 
 IPv6 바인딩을 방지하기 위해 `--host 127.0.0.1`을
 명시적으로 주입하는 점이 세심하다.
@@ -224,10 +295,10 @@ IPv6 바인딩을 방지하기 위해 `--host 127.0.0.1`을
 
 포트 번호에 따라 상태 디렉토리를 분리한다.
 
-| 조건                  | 디렉토리         |
-|-----------------------|------------------|
-| 특권 포트 (< 1024)   | `/tmp/portless`  |
-| 비특권 포트 (>= 1024) | `~/.portless`    |
+| 조건               | 디렉토리        |
+|--------------------|-----------------|
+| 특권 포트 (< 1024) | `/tmp/portless` |
+| 비특권 (>= 1024)   | `~/.portless`   |
 
 `PORTLESS_STATE_DIR` 환경변수로 재정의 가능하다.
 
@@ -238,19 +309,19 @@ IPv6 바인딩을 방지하기 위해 `--host 127.0.0.1`을
 
 ## 기술 스택
 
-| 항목           | 도구                     |
-|----------------|--------------------------|
-| 언어           | TypeScript               |
-| 런타임         | Node.js 20+              |
-| 빌드           | tsup                     |
-| 테스트         | Vitest                   |
-| 모노레포       | pnpm workspace + Turbo   |
-| 린트           | ESLint + Prettier        |
-| Git 훅         | Husky + lint-staged      |
-| 프로덕션 의존성| chalk (단 하나)          |
-| 문서 사이트    | Next.js + MDX            |
-| 라이선스       | Apache-2.0               |
-| OS 지원        | macOS, Linux             |
+| 항목             | 도구                   |
+|------------------|------------------------|
+| 언어             | TypeScript             |
+| 런타임           | Node.js 20+            |
+| 빌드             | tsup                   |
+| 테스트           | Vitest                 |
+| 모노레포         | pnpm workspace + Turbo |
+| 린트             | ESLint + Prettier      |
+| Git 훅           | Husky + lint-staged    |
+| 프로덕션 의존성  | chalk (단 하나)        |
+| 문서 사이트      | Next.js + MDX          |
+| 라이선스         | Apache-2.0             |
+| OS 지원          | macOS, Linux, Windows  |
 
 프로덕션 의존성이 `chalk` 하나뿐이라는 점이
 인상적이다. 프록시, TLS, 프로세스 관리를
@@ -262,14 +333,23 @@ IPv6 바인딩을 방지하기 위해 `--host 127.0.0.1`을
 # 전역 설치 (npx로 실행하지 않는다)
 npm install -g portless
 
-# 앱 실행
+# 앱 실행 (HTTPS + HTTP/2가 기본)
 portless myapp next dev
-# → http://myapp.localhost:1355
+# → https://myapp.localhost
 
-# HTTPS 모드
-portless proxy start --https
-portless myapp next dev
-# → https://myapp.localhost:1355
+# 서브도메인으로 API 서버 실행
+portless api.myapp pnpm start
+# → https://api.myapp.localhost
+
+# HTTP 모드 (TLS 비활성화)
+portless myapp next dev --no-tls
+# → http://myapp.localhost
+
+# LAN 모드 (같은 네트워크 기기에서 접근)
+portless myapp next dev --lan
+
+# Docker 컨테이너 정적 라우트 등록
+portless alias db 5432
 
 # 활성 라우트 확인
 portless list
@@ -277,21 +357,27 @@ portless list
 # CA 신뢰 등록
 portless trust
 
+# package.json에서 사용
+# "scripts": { "dev": "portless run next dev" }
+
 # 비활성화
 PORTLESS=0 next dev
 ```
 
 ## 주요 CLI 명령
 
-| 명령어                           | 설명                    |
-|----------------------------------|-------------------------|
+| 명령어                          | 설명                    |
+|---------------------------------|-------------------------|
 | `portless <name> <cmd>`         | 앱 실행 및 등록         |
+| `portless run <cmd>`            | package.json scripts용  |
+| `portless alias <name> <port>`  | 정적 라우트 등록        |
 | `portless proxy start`          | 프록시 시작             |
-| `portless proxy start --https`  | HTTPS 모드로 시작       |
 | `portless proxy stop`           | 프록시 중지             |
 | `portless list`                 | 활성 라우트 목록        |
 | `portless trust`                | CA 트러스트 등록        |
 | `portless unregister <name>`    | 라우트 제거             |
+| `portless hosts sync`           | `/etc/hosts` 동기화     |
+| `portless clean`                | 데이터 제거 및 CA 해제  |
 
 ### CLI 구현 (`cli.ts`)
 
@@ -363,7 +449,7 @@ RFC 6761 보장이 없었다면, 이 도구는 사용자에게
 
 ### 4) sudo 문제를 우아하게 해결한다
 
-HTTPS를 위해 포트 443이나 80을 쓰면
+v0.10부터 포트 443이 기본이므로 macOS/Linux에서
 sudo가 필요하다. 이때 두 가지 문제가 생긴다:
 파일 소유권이 root로 바뀌는 것과,
 사용자에게 암묵적 권한 상승을 강제하는 것.
@@ -372,10 +458,9 @@ sudo가 필요하다. 이때 두 가지 문제가 생긴다:
 환경변수로 원래 사용자를 추적하고,
 파일 생성 후 소유권을 복원한다.
 
-비특권 포트(1355)에서는 sudo 없이 작동하므로
-대부분의 사용자가 권한 문제를 겪지 않는다.
-특권 포트가 필요한 경우에만 TTY에서 대화형으로
-sudo를 요청한다.
+`-p` 플래그로 비특권 포트를 지정하면 sudo 없이
+작동한다. 특권 포트가 필요한 경우에만 TTY에서
+대화형으로 sudo를 요청한다.
 
 ### 5) 프록시 루프 감지가 실전적이다
 
@@ -391,16 +476,17 @@ Vite의 `server.proxy`에서 `changeOrigin: true`를
 
 문서에서도 이 패턴을 명시적으로 경고한다.
 
-### 6) 포트 1355는 의도된 선택이다
+### 6) 포트 443 기본 전환의 의미
 
-1355는 IANA에 등록되지 않은 비특권 포트다.
-sudo 없이 바인딩할 수 있으면서도
-일반적인 개발 서버 포트(3000, 8080)와 충돌하지
-않는다.
+초기에는 비특권 포트 1355를 기본값으로 사용했지만
+v0.10부터 443(HTTPS 표준 포트)으로 전환했다.
+이로써 URL에서 포트 번호가 완전히 사라진다.
+`https://myapp.localhost:1355` 대신
+`https://myapp.localhost`만으로 접근 가능하다.
 
-도메인 `port1355.dev`를 확보한 것은 이 숫자에
-대한 의도를 보여준다. "portless"를 숫자로
-읽으면 port-1-3-5-5가 된다.
+"portless"라는 이름의 약속을 비로소 완성한 것이다.
+도메인 `port1355.dev`는 이 프로젝트의 출발점을
+기억하는 이름으로 남아 있다.
 
 ### 7) 바이트 피킹은 우아한 절충안이다
 
@@ -435,7 +521,7 @@ sudo 없이 바인딩할 수 있으면서도
 `localhost:3000`을 추측하거나 하드코딩하는
 문제를 구조적으로 해결한다.
 
-안정적인 `myapp.localhost:1355` URL은
+안정적인 `https://myapp.localhost` URL은
 `.env` 파일이나 프롬프트에 한 번만 명시하면
 세션과 관계없이 동작한다.
 
@@ -458,10 +544,12 @@ Portless가 Node.js 전용 도구가 아님을 증명한다.
 
 ## 제한 사항
 
-- Windows 미지원 (macOS, Linux만 지원)
-- Vercel Labs 실험 프로젝트 (공식 제품 아님)
-- `os` 필드로 npm 설치 단계에서 차단
-- WSL2에서 동작 가능하나 공식 테스트 없음
+- Vercel Labs 실험 프로젝트 (공식 제품 아님, pre-1.0)
+- 상태 디렉토리 포맷이 릴리스 간에 변경될 수 있음
+- Safari에서 `.localhost` 서브도메인 해석이 불안정할 수 있음
+  (`portless hosts sync`로 해결)
+- LAN 모드에 `dns-sd`(macOS) 또는 `avahi-utils`(Linux) 필요
+- `run`, `get`, `alias`, `hosts` 등 예약어를 앱 이름으로 직접 사용 불가
 
 ## 관련 문서
 
