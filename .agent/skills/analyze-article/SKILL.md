@@ -1,78 +1,93 @@
 ---
 name: analyze-article
 description:
-  웹 글을 읽고 요약, 분석, 비평, 인사이트를 포함하는 TIL 문서를 작성합니다.
-  URL을 인수로 받습니다. 글 분석, 문서화, 기술 글 정리 요청 시 사용하세요.
+  Read a web article and write a TIL document (in Korean) that includes a
+  summary, analysis, critique, and insights. Takes a URL as an argument. Use
+  when the user asks to analyze an article, document it, or organize a
+  technical post.
 argument-hint: '<url> [output-path]'
 disable-model-invocation: true
 ---
 
-웹 글을 읽고 요약/분석/비평/인사이트 구조의 TIL 문서를 작성합니다.
+Read a web article and write a TIL document with a summary / analysis /
+critique / insights structure.
 
-## 사용법
+**The output document MUST be written in Korean.** All section content
+(summary, analysis, critique, insights) is written in Korean. Technical terms
+may be written alongside their original English form.
+
+## Usage
 
 ```text
 /analyze-article https://example.com/article [security/article-name.md]
 ```
 
-- 첫 번째 인수: 원문 URL (필수)
-- 두 번째 인수: 출력 파일 경로 (선택, 없으면 사용자에게 질문)
+- First argument: source URL (required)
+- Second argument: output file path (optional; if omitted, ask the user)
 
-## 실행 절차
+## Procedure
 
-### 1. 원문 수집
+### 1. Fetch the source
 
-WebFetch로 $0 URL의 콘텐츠를 가져온다.
+Fetch the content of the $0 URL with WebFetch.
 
-### 2. 중복 확인
+### 2. Check for duplicates
 
-Glob과 Grep으로 기존 TIL 문서에 동일한 주제의 문서가 있는지 확인한다.
-이미 있으면 사용자에게 알리고 중단한다.
+Use Glob and Grep to check whether a document on the same topic already exists
+in the TIL. If one exists, notify the user and stop.
 
-### 3. 문서 작성
+### 3. Write the document
 
-다음 구조로 마크다운 문서를 작성한다:
+Write a markdown document with the following structure:
 
 ```markdown
-# 제목
+# Title
 
-원문: <URL>
+Source: <URL>
 
-## 요약
+## Summary
 
-핵심 내용을 3-5문단으로 요약한다.
-기술적 세부사항을 정확하게 전달한다.
+Summarize the core content in 3-5 paragraphs.
+Convey technical details accurately.
 
-## 분석
+## Analysis
 
-글의 논리 구조, 근거의 강도, 맥락을 분석한다.
-관련 기술이나 트렌드와의 연결점을 제시한다.
-하위 항목이 여러 개면 각각 소제목(###)으로 구분한다.
+Analyze the logical structure, strength of evidence, and context of the
+article.
+Point out connections to related technologies or trends.
+If there are multiple sub-items, separate each with a sub-heading (###).
 
-## 비평
+## Critique
 
-글의 강점과 약점을 균형 있게 평가한다.
-주장의 근거가 충분한지, 빠진 관점은 없는지 검토한다.
-구체적인 반론이나 보완점을 제시한다.
-하위 항목이 여러 개면 각각 소제목(###)으로 구분한다.
+Evaluate the strengths and weaknesses of the article in a balanced way.
+Examine whether the claims are sufficiently supported and whether any
+perspectives are missing.
+Offer concrete counter-arguments or complementary points.
+If there are multiple sub-items, separate each with a sub-heading (###).
 
-## 인사이트
+## Insights
 
-날카롭고 풍부하게 작성한다.
-각 인사이트는 반드시 소제목(###)으로 구분하고 3-5문단으로 전개한다.
-표면적 관찰이 아니라 깊은 함의, 2차 효과, 역사적 유비, 구조적 패턴을 다룬다.
-최소 3개 이상의 인사이트를 작성한다.
+Write sharply and richly.
+Each insight MUST be separated with a sub-heading (###) and developed over
+3-5 paragraphs.
+Cover deep implications, second-order effects, historical analogies, and
+structural patterns — not surface-level observations.
+Write at least 3 insights.
 ```
 
-### 4. 작성 규칙
+### 4. Writing rules
 
-- AGENTS.md의 작성 지침(제목 간격, 테이블 정렬, 줄바꿈 등)을 준수한다.
-- 한국어로 작성한다. 기술 용어는 원어를 병기할 수 있다.
-- 인사이트는 글의 가장 중요한 부분이다. 날카롭고 풍부하게, 독자가 원문에서
-  얻지 못할 통찰을 제공해야 한다.
-- 기존 TIL 문서와 동일한 톤과 깊이를 유지한다.
+- Follow the writing guidelines in AGENTS.md (heading spacing, table
+  alignment, line breaks, etc.).
+- Write in Korean. Technical terms may be written alongside their original
+  English form.
+- Insights are the most important part of the document. Write them sharply
+  and richly so the reader gains an insight they could not have obtained
+  from the source alone.
+- Maintain the same tone and depth as existing TIL documents.
 
-### 5. 출력
+### 5. Output
 
-$1이 지정되었으면 해당 경로에 파일을 생성한다.
-지정되지 않았으면 적절한 디렉토리와 파일명을 제안하고 사용자에게 확인받는다.
+If $1 is provided, create the file at that path.
+If it is not provided, propose an appropriate directory and filename and
+confirm with the user.

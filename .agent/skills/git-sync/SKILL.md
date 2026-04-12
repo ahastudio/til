@@ -1,21 +1,23 @@
 ---
 name: git-sync
-description: 변경사항을 커밋하고 원격 저장소에 푸시
+description: Commit changes and push to the remote repository
 ---
 
-로컬 변경사항을 원격 저장소에 동기화:
+Sync local changes to the remote repository:
 
-1. `git status`와 `git diff`로 변경사항 확인
-2. 변경된 파일과 새 파일을 스테이징
-3. 변경 내용을 요약한 간결한 커밋 메시지를 작성하여 커밋
-4. 원격에서 rebase로 pull하여 최신 상태로 갱신 (변경사항이 없어도 항상 실행)
-5. 원격 브랜치에 push (커밋이 있는 경우)
+1. Check changes with `git status` and `git diff`
+2. Stage modified and new files
+3. Write a concise commit message summarizing the changes and commit
+4. Pull from remote with rebase to update to the latest state (always run,
+   even if there are no changes)
+5. Push to the remote branch (if there are commits)
 
-## 커밋 메시지 규칙
+## Commit message rules
 
-- prefix 금지 (`sync:`, `feat:`, `fix:` 등 사용하지 않는다)
-- 제목과 본문을 반드시 모두 작성한다
-- 본문에는 왜 이 변경을 했는지, 무엇이 바뀌었는지 구체적으로 설명한다
-- 마지막에 반드시 Co-Authored-By를 포함한다 (사용 중인 모델명 기준)
+- No prefix (do not use `sync:`, `feat:`, `fix:`, etc.)
+- Always write both a subject and a body
+- In the body, explain specifically why the change was made and what changed
+- Always include a Co-Authored-By trailer at the end (based on the model in
+  use)
 
-충돌이나 push 실패 시 원인을 설명한다.
+On conflicts or push failures, explain the cause.

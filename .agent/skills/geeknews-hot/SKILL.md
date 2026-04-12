@@ -1,83 +1,91 @@
 ---
 name: geeknews-hot
 description:
-  GeekNews(news.hada.io) 핫한 글을 뽑아 각각 TIL 문서를 작성합니다.
-  포인트 기준 상위 글을 선정하고, 기존 문서와 중복되지 않는 글만 처리합니다.
-argument-hint: '[개수 (기본 5)]'
+  Pick hot articles from GeekNews (news.hada.io) and write a TIL document for
+  each. Select top articles by points and only process articles that do not
+  duplicate existing documents.
+argument-hint: '[count (default 5)]'
 disable-model-invocation: true
 ---
 
-GeekNews 인기 글을 선정하고 각각에 대해 analyze-article 스킬과 동일한 형식의
-TIL 문서를 작성합니다.
+Pick popular GeekNews articles and, for each one, write a TIL document in the
+same format as the analyze-article skill.
 
-## 사용법
+## Usage
 
 ```text
 /geeknews-hot
 /geeknews-hot 3
 ```
 
-- 인수: 작성할 문서 개수 (기본값: 5)
+- Argument: number of documents to write (default: 5)
 
-## 실행 절차
+## Procedure
 
-### 1. 인기 글 수집
+### 1. Collect popular articles
 
-WebFetch로 https://news.hada.io/ 페이지를 가져온다.
-포인트가 높은 순서대로 글 목록을 추출한다.
-각 글의 제목, 원문 URL, 포인트 수, GeekNews 토픽 URL을 수집한다.
+Fetch https://news.hada.io/ with WebFetch.
+Extract the list of articles ordered by points, highest first.
+Collect each article's title, source URL, point count, and GeekNews topic URL.
 
-### 2. 중복 제거
+### 2. Remove duplicates
 
-Glob과 Grep으로 기존 TIL 문서를 검색하여 이미 같은 주제의 문서가 있는 글을
-제외한다. 제목, 원문 URL, 프로젝트명 등으로 중복을 판별한다.
+Use Glob and Grep to search existing TIL documents and exclude any article
+that already has a document on the same topic. Judge duplicates by title,
+source URL, project name, etc.
 
-중복을 제외한 후 포인트 순으로 요청된 개수만큼 선정한다.
+After excluding duplicates, pick the requested number of articles by point
+order.
 
-### 3. 선정 결과 보고
+### 3. Report the selection
 
-선정된 글 목록을 사용자에게 보여준다. 형식:
+Show the selected list of articles to the user. Format:
 
 ```text
-1. 제목 (포인트) — 예상 경로
-2. 제목 (포인트) — 예상 경로
+1. Title (points) — expected path
+2. Title (points) — expected path
 ...
 ```
 
-제외된 글이 있으면 이유와 함께 표시한다.
+If any articles were excluded, show them along with the reason.
 
-### 4. 자료 수집
+### 4. Gather materials
 
-선정된 각 글에 대해 병렬로:
-- 원문 URL의 콘텐츠를 WebFetch로 가져온다.
-- GeekNews 토픽 페이지의 본문 요약과 댓글을 WebFetch로 가져온다.
+For each selected article, in parallel:
+- Fetch the source URL content with WebFetch.
+- Fetch the body summary and comments of the GeekNews topic page with
+  WebFetch.
 
-### 5. 문서 작성
+### 5. Write the documents
 
-각 글에 대해 analyze-article과 동일한 구조로 문서를 작성한다:
+Write each document with the same structure as analyze-article:
 
 ```markdown
-# 제목
+# Title
 
-> 원문: <URL>
+> Source: <URL>
 
-## 요약
-## 분석
-## 비평
-## 인사이트
+## Summary
+## Analysis
+## Critique
+## Insights
 ```
 
-글의 주제에 맞는 디렉토리에 파일을 생성한다. 디렉토리 선택 기준:
-- 기존 TIL 디렉토리 구조를 참고한다.
-- 가장 적합한 기존 디렉토리에 배치한다.
-- 적합한 디렉토리가 없으면 새로 만들지 말고 사용자에게 질문한다.
+Create the file in a directory that matches the topic. Criteria for choosing
+the directory:
+- Refer to the existing TIL directory structure.
+- Place it in the most appropriate existing directory.
+- If there is no suitable existing directory, do NOT create a new one — ask
+  the user.
 
-### 6. 작성 규칙
+### 6. Writing rules
 
-- AGENTS.md의 작성 지침을 준수한다.
-- 한국어로 작성한다.
-- 인사이트는 날카롭고 풍부하게 작성한다.
-  표면적 관찰이 아니라 깊은 함의, 2차 효과, 역사적 유비, 구조적 패턴을 다룬다.
-  최소 3개 이상의 인사이트를 작성한다.
-- GeekNews 댓글의 유의미한 관점이 있으면 분석이나 비평에 반영한다.
-- 이미 있는 문서는 절대 다시 만들지 않는다.
+- Follow the writing guidelines in AGENTS.md.
+- Write in Korean.
+- Write insights sharply and richly.
+  Cover deep implications, second-order effects, historical analogies, and
+  structural patterns — not surface-level observations.
+  Write at least 3 insights.
+- If GeekNews comments contain meaningful perspectives, reflect them in the
+  analysis or critique.
+- Never recreate a document that already exists.
