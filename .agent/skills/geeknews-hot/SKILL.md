@@ -63,7 +63,7 @@ Write each document with the same structure as analyze-article:
 ```markdown
 # Title
 
-> Source: <URL>
+Source: <URL>
 
 ## Summary
 ## Analysis
