@@ -58,18 +58,13 @@ For each selected article, in parallel:
 
 ### 5. Write the documents
 
-Write each document with the same structure as analyze-article:
+For each selected article, invoke the `/analyze-article` skill with the
+source URL and the chosen file path as arguments.
 
-```markdown
-# Title
-
-Source: <URL>
-
-## Summary
-## Analysis
-## Critique
-## Insights
-```
+Additional context to pass when invoking:
+- Include the fetched GeekNews comments so they can be reflected in the
+  analysis or critique.
+- Never recreate a document that already exists.
 
 Create the file in a directory that matches the topic. Criteria for choosing
 the directory:
@@ -77,15 +72,3 @@ the directory:
 - Place it in the most appropriate existing directory.
 - If there is no suitable existing directory, do NOT create a new one — ask
   the user.
-
-### 6. Writing rules
-
-- Follow the writing guidelines in AGENTS.md.
-- Write in Korean.
-- Write insights sharply and richly.
-  Cover deep implications, second-order effects, historical analogies, and
-  structural patterns — not surface-level observations.
-  Write at least 3 insights.
-- If GeekNews comments contain meaningful perspectives, reflect them in the
-  analysis or critique.
-- Never recreate a document that already exists.
