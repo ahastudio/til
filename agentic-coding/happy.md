@@ -1,19 +1,103 @@
 # Happy — AI 코딩 세션을 위한 크로스 플랫폼 모바일/웹 클라이언트
 
+<https://happy.engineering/>
+
 <https://github.com/slopus/happy>
 
-## 요약
+Claude Code와 Codex를 모바일·웹에서 원격 제어하는
+오픈소스 클라이언트. 종단간 암호화(E2EE)로 코드를
+보호하면서 어디서든 AI 코딩 에이전트의 작업을
+모니터링하고 개입할 수 있다.
 
-Happy는 Claude Code와 Codex의 크로스 플랫폼 모바일/웹 클라이언트다. 책상을
-떠나 있을 때도 AI가 무엇을 만들고 있는지 확인할 수 있게 해준다. iOS, Android,
-웹(app.happy.engineering) 모두 지원한다.
+## 설치
 
-`npm install -g happy`로 설치한 뒤 `happy claude` 또는 `happy codex`를 래퍼로
-실행한다. 아키텍처는 4개의 TypeScript 패키지(Happy App, Happy CLI, Happy Agent,
-Happy Server)로 구성된다. 모바일에서 키를 누르면 즉시 데스크톱으로 제어권이
-돌아오는 디바이스 전환, 권한 요청과 에러에 대한 푸시 알림, 종단간 암호화(E2EE),
-텔레메트리 없음, MIT 라이선스 오픈 소스를 표방한다. GitHub 스타 18.2K, 커밋
-1,857개.
+```bash
+npm install -g happy-coder
+```
+
+Homebrew Formulae:
+<https://formulae.brew.sh/formula/happy-coder>
+
+```bash
+brew install happy-coder
+```
+
+## 사용법
+
+`claude` 대신 `happy`, `codex` 대신 `happy codex`를
+사용한다. 기존 워크플로우를 거의 바꾸지 않아도 된다.
+
+```bash
+# Claude Code 래핑
+happy
+
+# Codex 래핑
+happy codex
+```
+
+### 벤더 인증 (`happy connect`)
+
+원격 디바이스에서 에이전트 세션을 제어하려면 AI
+벤더의 API 키가 필요하다. `happy connect`는 이
+키를 Happy 클라우드에 암호화하여 저장한다.
+
+사전에 `happy auth login`으로 Happy 계정에
+로그인해야 한다.
+
+```bash
+# Anthropic 인증
+happy connect claude
+
+# OpenAI 인증
+happy connect codex
+
+# Google Gemini 인증
+happy connect gemini
+
+# 전체 연결 상태 확인
+happy connect status
+```
+
+로컬 세션과 원격 세션의 인증 경로가 다르다:
+
+| 시작 방식                       | 사용 인증                   |
+| ------------------------------- | --------------------------- |
+| 로컬 (`claude`, `happy`)        | 머신의 로컬 Anthropic 계정  |
+| 원격 (모바일 Start New Session) | `happy connect` 클라우드 키 |
+
+## 특장점
+
+### 원격 모니터링과 제어
+
+데스크톱에서 `happy` 명령으로 세션을 시작하면
+모바일이나 웹에서 진행 상황을 실시간으로 확인할
+수 있다. 에이전트가 권한을 요청하거나 오류가
+발생하면 푸시 알림을 보내준다.
+
+### 디바이스 전환
+
+모바일에서 제어하다가 데스크톱 키보드의 아무
+키나 누르면 즉시 데스크톱으로 제어권이 돌아온다.
+
+### 병렬 세션 실행
+
+여러 AI 에이전트를 동시에 실행할 수 있다.
+병렬 세션마다 별도 Git Worktree를 할당하면
+서로 간섭 없이 독립적으로 작업할 수 있다.
+
+### 오픈소스
+
+MIT 라이선스. 텔레메트리나 추적 코드가 없다.
+코드를 직접 감사(audit)할 수 있다.
+
+## 아키텍처
+
+4개의 TypeScript 패키지로 구성된다.
+
+- **Happy App**: 웹 UI + 모바일 클라이언트 (Expo 기반)
+- **Happy CLI**: 커맨드라인 래퍼
+- **Happy Agent**: 원격 세션 관리/모니터링
+- **Happy Server**: 암호화된 동기화 백엔드
 
 ## 분석
 
