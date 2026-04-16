@@ -1,8 +1,8 @@
 # 시스템 루비를 쓰지 말라 — 운영체제 소유물과 개발 환경의 경계
 
-원문: <https://dontusesystemruby.com/>
+<https://dontusesystemruby.com/>
 
-참고: <https://github.com/anothermh/dontusesystemruby.com>
+<https://github.com/anothermh/dontusesystemruby.com>
 
 ## 요약
 
