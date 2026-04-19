@@ -89,6 +89,22 @@ Example:
 - "Explanation" (11 English chars = 11 columns) is longest in right
 - All cells padded to match their column's maximum width
 
+### Inline Code Formatting
+
+Wrap code-like tokens in backticks for readability. This applies to
+both notes and commit messages. Examples of what to wrap:
+
+- File and directory names: `README.md`, `openai/`, `src/main.py`
+- Commands and CLI flags: `git rebase`, `--no-verify`
+- Identifiers: function names, variable names, class names
+- Technical keywords that refer to code: `return await`, `null`,
+  `useState`
+- URLs that would otherwise be autolinked when you do not want them
+  linked (e.g. `http://127.0.0.1:8080`)
+
+Do not wrap plain prose, product names, or concepts (OpenAI, ESLint,
+RLHF) in backticks.
+
 ### Twitter Links
 
 Always use `twitter.com` instead of `x.com` for tweet URLs.
