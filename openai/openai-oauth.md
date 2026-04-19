@@ -1,6 +1,6 @@
 # openai-oauth - ChatGPT 계정으로 OpenAI API를 무료 사용하는 비공식 도구
 
-원문: <https://github.com/EvanZhouDev/openai-oauth>
+<https://github.com/EvanZhouDev/openai-oauth>
 
 ## 요약
 
@@ -10,7 +10,7 @@ OpenAI API에 무료로 접근할 수 있게 해주는 비공식 도구다.
 OpenAI 내부 Codex 엔드포인트(chatgpt.com/backend-api/codex/responses)에
 인증 요청을 중계하는 방식으로 동작한다.
 
-`npx openai-oauth` 명령으로 localhost(http://127.0.0.1:10531/v1) 서버를 시작하면
+`npx openai-oauth` 명령으로 localhost(`http://127.0.0.1:10531/v1`) 서버를 시작하면
 OpenAI API 포맷과 호환되는 엔드포인트를 별도 API 키 없이 사용할 수 있다.
 Vercel AI SDK 프로바이더 패키지로도 제공된다.
 
