@@ -229,11 +229,10 @@ Every commit message MUST end with a Co-Authored-By trailer that identifies
 the AI agent and model used. Format:
 
 ```txt
-Co-Authored-By: <agent> <model> <email>
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
 ```
 
-Use the actual agent name, model name, and associated email for the AI
-currently in use.
+Use the actual model name and associated email for the AI currently in use.
 
 ### Character Count Reference
 
