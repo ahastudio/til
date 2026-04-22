@@ -105,6 +105,23 @@ both notes and commit messages. Examples of what to wrap:
 Do not wrap plain prose, product names, or concepts (OpenAI, ESLint,
 RLHF) in backticks.
 
+### Note Document Structure
+
+TIL notes vary by the nature of their subject. Match the section structure to
+what the subject actually is, not to a fixed template.
+
+- **Article or blog post** (the subject is a piece of writing):
+  Use `## 요약` as the first section.
+- **Project, tool, framework, or collection** (the subject is something you
+  use or explore):
+  Do NOT use `## 요약`. Choose a heading that fits what the section actually
+  covers — e.g., `## 소개`, `## 명세`, `## 사용법`, `## 주요 법칙`, `## CLI`.
+  A single subject may warrant multiple top-level sections if its content
+  naturally splits (e.g., spec + CLI for a tool with both).
+
+Regardless of subject type, always include `## 비평` immediately after
+`## 분석`, and end with `## 인사이트`.
+
 ### Twitter Links
 
 Always use `twitter.com` instead of `x.com` for tweet URLs.
