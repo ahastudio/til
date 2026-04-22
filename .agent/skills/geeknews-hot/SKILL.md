@@ -59,11 +59,13 @@ For each selected article, in parallel:
 ### 5. Write the documents
 
 For each selected article, invoke the `/analyze-article` skill with the
-source URL and the chosen file path as arguments.
+source URL, the chosen file path, and the GeekNews topic URL as arguments.
 
 Additional context to pass when invoking:
 - Include the fetched GeekNews comments so they can be reflected in the
   analysis or critique.
+- Pass the GeekNews topic URL as the third argument so that references to
+  GeekNews comments in the body are rendered as `[GeekNews 댓글](URL)`.
 - Never recreate a document that already exists.
 
 Create the file in a directory that matches the topic. Criteria for choosing
