@@ -1,7 +1,6 @@
 # axios npm 공급망 공격 분석 (2026-03-30)
 
-> 원문:
-> <https://www.stepsecurity.io/blog/axios-compromised-on-npm-malicious-versions-drop-remote-access-trojan>
+원문: <https://www.stepsecurity.io/blog/axios-compromised-on-npm-malicious-versions-drop-remote-access-trojan>
 
 관련 문서: [OpenAI의 axios 공급망 공격 대응: macOS 서명 파이프라인 침해](../openai/axios-developer-tool-compromise.md)
 
