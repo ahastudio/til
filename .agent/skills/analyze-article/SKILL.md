@@ -91,3 +91,9 @@ Write at least 3 insights.
 If $1 is provided, create the file at that path.
 If it is not provided, propose an appropriate directory and filename and
 confirm with the user.
+
+### 6. Post-processing
+
+After creating the file, invoke the `quotes-curly` skill via the Skill tool
+with the output file path as the argument. Show the conversion result to the
+user.
