@@ -3,6 +3,8 @@
 > 원문:
 > <https://www.stepsecurity.io/blog/axios-compromised-on-npm-malicious-versions-drop-remote-access-trojan>
 
+관련 문서: [OpenAI의 axios 공급망 공격 대응: macOS 서명 파이프라인 침해](../openai/axios-developer-tool-compromise.md)
+
 ## 요약
 
 2026년 3월 30일, npm에서 가장 널리 사용되는 HTTP 클라이언트 라이브러리 중 하나인
