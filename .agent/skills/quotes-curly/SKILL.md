@@ -5,7 +5,6 @@ description:
   ("\u201c", "\u201d"). Use when the user asks to convert double quotes, apply
   Unicode quotes, or use typographic/curly quotes.
 argument-hint: <file-path>
-disable-model-invocation: true
 allowed-tools: Bash
 ---
 
