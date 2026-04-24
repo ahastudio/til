@@ -2,8 +2,6 @@
 
 원문: <https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform>
 
-[GeekNews 댓글](https://news.hada.io/topic?id=28810)
-
 ## 요약
 
 Google Cloud가 Cloud Next '26(2026년 4월 23일)에서

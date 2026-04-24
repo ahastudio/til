@@ -2,8 +2,6 @@
 
 원문: <https://codeberg.org/hails/wsl9x>
 
-[GeekNews 댓글](https://news.hada.io/topic?id=28796)
-
 ## 요약
 
 WSL9x는 Linux 커널 6.19을 Windows 9x 커널 내부에서
@@ -72,7 +70,7 @@ make build-linux
 
 ### Windows 9x 미니멀 커널의 역설적 장점
 
-GeekNews 댓글은 흥미로운 역설을 지적한다.
+[GeekNews 댓글](https://news.hada.io/topic?id=28796)은 흥미로운 역설을 지적한다.
 Windows 9x의 단순하고 빈약한 커널 설계가
 오히려 현대 OS 기능을 그 위에 올리는 것을 가능하게 했다는 것이다.
 NT 커널처럼 강건하게 설계된 시스템은 외부 커널이 침투하기 어려운 반면,

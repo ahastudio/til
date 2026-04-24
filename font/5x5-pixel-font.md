@@ -2,8 +2,6 @@
 
 원문: <https://maurycyz.com/projects/mcufont/>
 
-[GeekNews 댓글](https://news.hada.io/topic?id=28813)
-
 ## 요약
 
 Maurycy가 설계한 5×5 픽셀 폰트는 극도로 제한된 환경을 위한
@@ -77,7 +75,7 @@ E와 F도 하단 획 유무로만 구분해야 한다.
 
 ### 약점
 
-GeekNews 댓글의 한국 사용자가 지적한 것처럼,
+[GeekNews 댓글](https://news.hada.io/topic?id=28813)의 한국 사용자가 지적한 것처럼,
 한글(CJK 문자)을 5×5에 담는 것은 사실상 불가능하다.
 한글은 초성·중성·종성을 하나의 셀에 결합해야 하므로
 최소 8×8 또는 16×16 픽셀이 필요하다.

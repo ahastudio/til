@@ -2,8 +2,6 @@
 
 원문: <https://github.com/sivchari/kumo>
 
-[GeekNews 댓글](https://news.hada.io/topic?id=28793)
-
 ## 소개
 
 kumo는 Go로 작성된 경량 AWS 서비스 에뮬레이터다.
