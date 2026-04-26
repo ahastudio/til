@@ -72,6 +72,25 @@ Additional context to pass when invoking:
 - Only add the `[GeekNews 댓글](URL)` link when the body text actually
   mentions the comments. If no comment is referenced, omit the link entirely.
 
+#### Document structure by source type
+
+The structure of each document depends on the nature of the source:
+
+- **Article or blog post** (the subject is a piece of writing):
+  Follow the standard `analyze-article` structure. Use `원문: <URL>` for
+  the source link and `## 요약` as the first section.
+
+- **GitHub repository or other project/tool** (source URL is
+  `github.com/…` or the subject is a software project, framework, or
+  library):
+  Use a bare URL with no label for the source link.
+  Do NOT use `## 요약`. Instead, open with sections that fit what the
+  project actually is — for example `## 소개`, `## 아키텍처`, `## 사용법`,
+  `## CLI`, `## 주요 기능`, `## 라이선스 및 상태`. Choose headings that
+  reflect the content; a single project may warrant multiple top-level
+  sections. Then continue with `## 분석`, `## 비평`, and `## 인사이트` as
+  usual.
+
 Create the file in a directory that matches the topic. Criteria for choosing
 the directory:
 - Refer to the existing TIL directory structure.
