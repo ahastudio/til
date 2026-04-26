@@ -105,6 +105,15 @@ both notes and commit messages. Examples of what to wrap:
 Do not wrap plain prose, product names, or concepts (OpenAI, ESLint,
 RLHF) in backticks.
 
+### Fenced Code Block Language
+
+Every fenced code block MUST have a language identifier. No exceptions.
+
+- Use the actual language when known: `bash`, `yaml`, `go`, `python`, etc.
+- Use `text` for diagrams, ASCII art, plain output, or anything that has
+  no specific language.
+- A bare ` ``` ` with no identifier is always wrong.
+
 ### Note Document Structure
 
 TIL notes vary by the nature of their subject. Match the section structure to
