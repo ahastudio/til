@@ -62,11 +62,15 @@ For each selected article, invoke the `/analyze-article` skill with the
 source URL, the chosen file path, and the GeekNews topic URL as arguments.
 
 Additional context to pass when invoking:
-- Include the fetched GeekNews comments so they can be reflected in the
-  analysis or critique.
-- Pass the GeekNews topic URL as the third argument so that references to
-  GeekNews comments in the body are rendered as `[GeekNews 댓글](URL)`.
 - Never recreate a document that already exists.
+- Weave GeekNews comments into the document body as substantive content —
+  do NOT add a standalone `[GeekNews 댓글]` link anywhere in the file.
+- Use the fetched GeekNews comments to enrich the `## 분석` or `## 비평`
+  sections. When the text explicitly references those comments (e.g.,
+  "댓글에서 제기된 우려"), render the reference as an inline hyperlink:
+  `[GeekNews 댓글](URL)에서 제기된 우려`.
+- Only add the `[GeekNews 댓글](URL)` link when the body text actually
+  mentions the comments. If no comment is referenced, omit the link entirely.
 
 Create the file in a directory that matches the topic. Criteria for choosing
 the directory:
