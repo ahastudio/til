@@ -1,6 +1,6 @@
 # AI 에이전트가 우리 프로덕션 데이터베이스를 삭제했다
 
-원문: <https://twitter.com/lifeof_jer/status/1915133210278707671>
+원문: <https://twitter.com/lifeof_jer/status/2048103471019434248>
 
 ## 요약
 
