@@ -15,12 +15,13 @@ ADR이 해결하려는 핵심 문제는 신규 팀원이 기존 결정을 마주
 두 경우 모두 프로젝트를 정체시키거나 예상치 못한 손상을 야기한다.
 
 각 ADR은 `doc/arch/adr-NNN.md` 형식으로 버전 관리 시스템에 저장하며,
-다섯 개의 섹션으로 구성된다. 제목(Title)은 번호와 명사구로 작성하고,
-맥락(Context)은 가치중립적 언어로 당시의 압력과 긴장을 서술한다.
-결정(Decision)은 “We will...”로 시작하는 능동태 문장으로 표현한다.
-상태(Status)는 proposed, accepted, deprecated, superseded 중 하나를
-기록하고, 결과(Consequences)는 긍정·부정·중립을 포함한 모든 파생
-효과를 나열한다.
+다섯 개의 섹션으로 구성된다.
+
+1. 제목(Title)은 번호와 명사구로 작성하고,
+2. 맥락(Context)은 가치중립적 언어로 당시의 압력과 긴장을 서술한다.
+3. 결정(Decision)은 “We will...”로 시작하는 능동태 문장으로 표현한다.
+4. 상태(Status)는 proposed, accepted, deprecated, superseded 중 하나를 기록하고,
+5. 결과(Consequences)는 긍정·부정·중립을 포함한 모든 파생 효과를 나열한다.
 
 ADR은 순차 번호를 사용하며 번호를 재사용하지 않는다. 결정이 뒤집히더라도
 기존 기록은 삭제하지 않고 superseded 상태로 남긴다. 이력 맥락을 보존해
