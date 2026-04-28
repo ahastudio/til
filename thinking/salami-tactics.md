@@ -1,6 +1,6 @@
 # 살라미 전술 - 단계적 분할로 실리를 챙기는 협상 기술
 
-> 원문: <https://www.jejunews.com/news/articleView.html?idxno=2191959>
+원문: <https://www.jejunews.com/news/articleView.html?idxno=2191959>
 
 ## 요약
 
