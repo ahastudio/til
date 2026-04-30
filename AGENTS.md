@@ -31,6 +31,18 @@ languages (e.g. 웹소켓(WebSocket)).
 - "git commit" → Commit **only staged changes**. Do NOT add untracked files.
   Never ask "should I include untracked files?" — if it's not staged, skip it.
 
+### Git Commit (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**NEVER run `git commit` unless the user explicitly says to commit.**
+
+"Task complete", "done", "finished" are NOT commit instructions.
+Completing a task is NOT permission to commit.
+Showing a summary of changes is NOT permission to commit.
+"Let me commit this" as self-narration is FORBIDDEN — only commit when told to.
+
+If you find yourself about to run `git commit` without a direct user instruction:
+STOP. You are about to violate this rule. Do not proceed.
+
 ### Editing Scope (ABSOLUTE PRIORITY)
 
 **You are a tool that executes requests, not a co-author with editorial
