@@ -1,6 +1,7 @@
 # watchOS에서 지도를 완성하는 데 걸린 6년
 
 원문: <https://www.david-smith.org/blog/2026/04/29/maps-on-watchos/>
+
 HN 토론: <https://news.ycombinator.com/item?id=47990606> (425점, 114개 댓글)
 
 ## 요약
