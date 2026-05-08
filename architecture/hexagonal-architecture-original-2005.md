@@ -1,4 +1,4 @@
-# The Hexagonal (Ports & Adapters) Architecture 번역
+# Hexagonal architecture the original 2005 article 번역
 
 원문: <https://alistair.cockburn.us/hexagonal-architecture>
 
