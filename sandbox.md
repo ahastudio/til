@@ -17519,3 +17519,221 @@
   - 놓치면 안 되는 핵심 포인트나 주의사항: agent를 많이 붙일수록 cardinality,
     샘플링, 민감 데이터 수집 문제가 커지므로 태그 설계와 필터링 정책을 먼저
     정해야 한다.
+
+## 2026-05-16 개발자 트렌드
+
+### 1. A 0-click exploit chain for the Pixel 10
+
+- **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=48148460>
+- **한 줄 요약**: Pixel 10에서 메시지 미디어 처리와 VPU 드라이버 취약점을 연결한
+  0-click root exploit chain 분석이 공개됐다.
+- **왜 주목받나**: HN에서 약 341점·157댓글을 기록했고, AI 기능과 풍부한 미디어
+  프리뷰가 모바일 공격면을 넓힐 수 있다는 점이 큰 보안 논쟁을 만들었다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 모바일 앱과 OS 기능은 사용자 입력
+    전에 자동 처리되는 콘텐츠 경로까지 위협 모델에 넣어야 하며, 미디어 파서와
+    드라이버 경계가 제품 보안의 핵심 리스크가 된다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 앱에서 링크·이미지·문서
+    미리보기를 자동 생성한다면 파서 샌드박스, 포맷 제한, 원격 콘텐츠 지연 로딩,
+    crash telemetry를 즉시 점검할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 온디바이스 AI가 메시지,
+    이미지, 문서를 선처리하는 기능이 늘수록 0-click 공격면 검증과 안전한 파서
+    구현 요구가 더 강해질 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: UX 편의를 위해 untrusted content를
+    조용히 처리하는 경로가 생기면 보안 검토에서 빠지기 쉬우므로, 자동 처리
+    기능은 명시적인 보안 리뷰 대상으로 분류해야 한다.
+
+### 2. Erlang/OTP 29.0
+
+- **출처**: Hacker News (top) / Erlang — <https://www.erlang.org/news/188>
+- **한 줄 요약**: Erlang/OTP 29.0이 unsafe 함수 경고, SSH secure-by-default,
+  post-quantum hybrid key exchange, native records 등 대규모 변경을 포함해
+  공개됐다.
+- **왜 주목받나**: HN에서 약 117점·6댓글로 상위권에 올랐고, 오래된 런타임이 보안
+  기본값과 언어 기능을 동시에 현대화한다는 점이 실무자 관심을 끌었다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: BEAM 기반 서비스는 보안 기본값,
+    컴파일러 경고, SSH/SFTP 동작 변경을 반영해야 하므로 런타임 업그레이드가 단순
+    버전 교체보다 운영 정책 변경에 가깝다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: staging에서 OTP 29로
+    빌드해 unsafe 경고, obsolete guard, SSH daemon 설정 차이를 확인하고 Rebar3와
+    release pipeline의 호환성을 먼저 검증할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 오래된 안정성 중심
+    플랫폼도 secure-by-default와 post-quantum 기본값을 채택하면서 보안 정책을
+    런타임 레벨에서 더 강하게 밀어붙일 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: native records 같은 실험 기능은
+    매력적이지만 OTP 30까지 변화 가능성이 있으므로 장기 유지 코드에 적용할 때는
+    마이그레이션 비용을 별도로 잡아야 한다.
+
+### 3. O(x)Caml in Space
+
+- **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=48147058>
+- **한 줄 요약**: OCaml 기반 CCSDS 프로토콜 스택을 저궤도 위성에 배포한 사례가
+  공개되며 안전한 시스템 언어 선택 논의가 확산됐다.
+- **왜 주목받나**: HN에서 약 212점·50댓글을 기록했고, 우주 시스템 같은 고신뢰
+  환경에서 C/C++ 대신 OCaml을 쓴 실제 배포 사례라 기술적 깊이가 컸다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 안전성과 검증 가능성이 중요한
+    임베디드·통신 시스템에서도 함수형 언어와 강한 타입 시스템을 현실적인
+    선택지로 검토할 근거가 늘어난다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 프로토콜 파서, 상태
+    머신, 암호화 키 교환처럼 오류 비용이 큰 모듈을 OCaml 같은 강타입 언어로 분리
+    구현하는 PoC를 시도할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 안전 중심 시스템은
+    Rust만이 아니라 OCaml, Ada/SPARK, Haskell 계열까지 포함해 “검증 가능한 언어”
+    선택지가 더 넓게 비교될 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 언어 자체의 안전성이 운영 안전을
+    보장하지는 않으므로 툴체인 인증, 배포 재현성, 하드웨어 인터페이스 테스트를
+    함께 설계해야 한다.
+
+### 4. Image-blaster: Creates 3D environments, SFX, and meshes from a single image
+
+- **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=48150069>
+- **한 줄 요약**: 단일 이미지에서 3D 환경, 효과음, mesh를 생성하는 AI asset
+  pipeline 프로젝트가 공개됐다.
+- **왜 주목받나**: HN에서 약 126점·25댓글을 기록했고, World Labs, Hunyuan3D,
+  segmentation, Claude orchestration을 묶은 실제 제작 파이프라인이라는 점이
+  개발자 토론을 끌어냈다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 게임, AR/VR, 프로토타이핑 팀은 3D
+    asset 제작의 초기 비용을 낮출 수 있지만, 생성물 품질 검수와 후처리
+    pipeline이 더 중요해진다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 제품 데모나 게임 jam에서
+    reference image를 입력으로 환경 초안을 만들고, mesh 정리·retopology·라이선스
+    검토를 별도 단계로 붙여 실험할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 3D 제작은 단일 모델
+    호출보다 segmentation, scene generation, object mesh, texture, audio를 묶는
+    workflow orchestration 경쟁으로 이동할 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 단일 이미지 기반 3D 생성은 보이지
+    않는 영역을 추정하므로 정확도가 필요한 CAD, 시뮬레이션, 제조 워크플로에는
+    별도 검증 없이 쓰면 안 된다.
+
+### 5. Show HN: Watch a neural net learn to play Snake
+
+- **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=48136981>
+- **한 줄 요약**: tinygrad와 WebGPU를 이용해 브라우저에서 PPO 학습 과정을 실시간
+  시각화하는 Snake 강화학습 데모다.
+- **왜 주목받나**: HN에서 약 90점·17댓글을 기록했고, 브라우저만으로 학습 속도와
+  모델 붕괴까지 관찰할 수 있어 교육용·디버깅용 가치가 높게 평가됐다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: ML 학습 과정의 내부 상태를
+    브라우저에서 직접 보여주는 방식은 교육, 데모, 모델 디버깅 도구의 접근성을
+    크게 높인다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 사내 ML 온보딩에서 보상
+    설계, policy collapse, 가중치 발산을 작은 게임 환경으로 재현해 모델 학습
+    실패를 직관적으로 설명할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): WebGPU가 안정화될수록
+    로컬 브라우저 기반 ML 실험과 interactive notebook 사이의 경계가 더 흐려질
+    가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 데모가 빠르게 보인다고 운영 학습
+    pipeline의 안정성을 보장하는 것은 아니므로 seed, 수렴 기준, 재현성 로그를
+    함께 확인해야 한다.
+
+### 6. I designed a nibble-oriented CPU in Verilog to build a scientific calculator
+
+- **출처**: Hacker News (top) — <https://news.ycombinator.com/item?id=48151237>
+- **한 줄 요약**: 과학 계산기를 만들기 위해 4-bit nibble 중심 CPU와 microcode를
+  Verilog로 설계한 하드웨어 프로젝트다.
+- **왜 주목받나**: HN에서 약 84점·27댓글을 기록했고, FPGA, microcode, ISA 설계,
+  Verilator 기반 검증을 실제 완성품 목표와 연결한 점이 기술적 흥미를 만들었다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 작은 CPU를 직접 설계하는 과정은
+    임베디드 성능, instruction encoding, verification, hardware/software
+    co-design 감각을 키우는 실전 학습 재료가 된다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: FPGA 교육이나 내부
+    저수준 시스템 스터디에서 Verilator 테스트벤치와 microcode 변경 실험을 과제로
+    삼아 디지털 설계 흐름을 익힐 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): RISC-V와 FPGA 접근성이
+    좋아지면서 개발자가 직접 작은 accelerator나 특수 목적 CPU를 설계해 보는
+    학습형 프로젝트가 더 늘어날 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 재미있는 설계와 제품 수준의 검증은
+    다르므로 timing closure, formal verification, 전력·면적 제약을 구분해 봐야
+    한다.
+
+### 7. How to Write to SSDs [pdf]
+
+- **출처**: Hacker News (top/new) / arXiv — <https://arxiv.org/abs/2603.09927>
+- **한 줄 요약**: DBMS와 SSD 계층을 함께 고려해 write amplification을 줄이는
+  out-of-place write 최적화 접근을 제안한 논문이다.
+- **왜 주목받나**: HN 요약 기준 최근 48시간 내 약 42점·5댓글로 공유됐고, 데이터
+  시스템 성능 병목을 애플리케이션과 저장장치 경계에서 같이 다룬다는 점이
+  실무적이다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 고쓰기 부하 DB에서는 쿼리 튜닝만이
+    아니라 page packing, GC alignment, ZNS/FDP 같은 저장장치 특성 이해가
+    처리량과 SSD 수명에 직접 영향을 준다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: LSM/OLTP 워크로드에서
+    write amplification, compaction write, device-level write를 계측하고 SSD
+    placement hint나 ZNS 지원 여부를 벤치마크 항목에 넣을 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 스토리지 최적화는 DBMS
+    내부 알고리즘만이 아니라 device hint와 host-managed storage를 활용하는
+    cross-layer 설계로 이동할 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 논문 수치를 그대로 서비스에 적용하기
+    전에 실제 SSD 펌웨어, 파일시스템, DB 엔진 버전, 장애 복구 경로에서
+    재현되는지 확인해야 한다.
+
+### 8. NVIDIA-AI-Blueprints / video-search-and-summarization
+
+- **출처**: GitHub Trending (오늘) —
+  <https://github.com/NVIDIA-AI-Blueprints/video-search-and-summarization>
+- **한 줄 요약**: GPU 가속 vision agent와 AI video analytics 앱을 만들기 위한
+  reference architecture 모음이다.
+- **왜 주목받나**: GitHub Trending 오늘 기준 1,129 stars와 오늘 305 stars를
+  기록했고, 비디오 검색·요약을 실제 아키텍처로 구현하려는 수요가 커졌다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: CCTV, 미디어 아카이브, 교육 영상,
+    회의 녹화처럼 비디오 데이터가 많은 조직은 검색과 요약을 GPU pipeline으로
+    제품화할 수 있는 기준 설계를 얻는다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 기존 영상 저장소에서
+    frame sampling, embedding, captioning, retrieval, summarization 단계를
+    분리해 작은 검색 PoC를 만들고 GPU 비용을 측정할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 비디오 AI는 단일 모델
+    데모보다 ingest, indexing, retrieval, summarization, human review를 묶은
+    reference architecture 중심으로 확산될 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 영상 데이터는 개인정보와 저작권
+    리스크가 크므로 얼굴·음성 처리 정책, 보존 기간, 접근 권한을 먼저 설계해야
+    한다.
+
+### 9. anthropics / skills
+
+- **출처**: GitHub Trending (오늘) — <https://github.com/anthropics/skills>
+- **한 줄 요약**: 에이전트가 재사용할 수 있는 Agent Skills 공개 저장소가 GitHub
+  Trending 상위권에 올랐다.
+- **왜 주목받나**: GitHub Trending 오늘 기준 135,077 stars와 오늘 625 stars를
+  기록했고, 프롬프트보다 작업 단위 스킬을 공유·버전관리하려는 흐름이 강해졌다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: AI 자동화가 개인별 프롬프트
+    노하우에서 팀이 관리하는 skill artifact로 이동하면서 리뷰, 테스트, 배포
+    대상이 되는 자동화 자산이 늘어난다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 반복되는 리포트 생성,
+    코드리뷰 체크, 데이터 정리 업무를 skill 단위로 정의하고 저장소에서 변경
+    이력과 품질 평가를 같이 관리할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 에이전트 생태계는 모델
+    성능 경쟁과 별개로 검증된 skill registry, 권한 정책, 평가셋을 제공하는
+    쪽으로 빠르게 표준화될 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 스킬을 많이 추가하는 것보다 실패 시
+    중단 조건, 외부 도구 권한, 출력 검증 기준을 명확히 하는 것이 운영 안정성에
+    더 중요하다.
+
+### 10. joeseesun / qiaomu-anything-to-notebooklm
+
+- **출처**: GitHub Trending (오늘) —
+  <https://github.com/joeseesun/qiaomu-anything-to-notebooklm>
+- **한 줄 요약**: 웹페이지, YouTube, PDF, Markdown, 검색 쿼리 등을 NotebookLM용
+  podcast, PPT, mind map, quiz 자료로 변환하는 Claude Skill 프로젝트다.
+- **왜 주목받나**: GitHub Trending 오늘 기준 2,656 stars와 오늘 465 stars를
+  기록했고, 다양한 입력을 학습·발표 자료로 바꾸는 지식 작업 자동화 수요가
+  드러났다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 문서 소비와 재가공 업무가 수동
+    요약에서 multi-format content pipeline으로 이동하며, 개발자도 내부 교육
+    자료와 리서치 산출물을 자동 생성할 수 있게 된다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 기술 문서나 회의 자료를
+    입력으로 넣어 팀 스터디용 요약, 발표 초안, 퀴즈를 생성하고 사람이 최종
+    검수하는 워크플로를 만들 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): NotebookLM 같은 지식
+    도구는 단순 업로드 기반 Q&A를 넘어 외부 콘텐츠 수집, 변환, 배포까지
+    자동화하는 skill ecosystem과 결합할 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 자동 변환 결과에는 저작권, 출처 누락,
+    요약 왜곡 문제가 생길 수 있으므로 원문 링크와 검수 책임자를 산출물에 함께
+    남겨야 한다.
