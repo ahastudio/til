@@ -1,8 +1,8 @@
 # ttsc — TypeScript-Go 기반 컴파일러 도구 모음
 
-<https://ttsc.dev/>
+원문: <https://ttsc.dev/>
 
-<https://github.com/samchon/ttsc>
+GitHub: <https://github.com/samchon/ttsc>
 
 HN 토론: <https://news.ycombinator.com/item?id=48004293> (2점, 8개 댓글)
 
