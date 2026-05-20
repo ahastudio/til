@@ -816,28 +816,7 @@
     재작성 명령을 남발하면 협업 브랜치가 깨질 수 있으므로, 복구 절차와 백업
     정책을 반드시 마련해야 한다.
 
-### 7. stan-smith / FossFLOW
-
-- **출처**: GitHub Trending (오늘) — <https://github.com/stan-smith/FossFLOW>
-- **한 줄 요약**: 오픈소스 인프라 스택을 Terraform 기반 아키텍처 다이어그램으로
-  시각화해 학습·설계에 바로 활용할 수 있는 저장소다.
-- **왜 주목받나**: GitHub Trending(today)에서 342 stars today(총 18,107)를
-  기록하며, “코드로 인프라를 이해하는 문서”에 대한 실무 수요를 강하게 보여줬다.
-- **개발자 관점 인사이트**:
-  - 이 기술/이슈가 실무에 어떤 영향을 주는지: IaC 코드를 읽기 어려워하는
-    팀에서도 시각화된 구조를 기반으로 설계 리뷰와 장애 분석 커뮤니케이션이
-    쉬워진다.
-  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 현재 Terraform 모듈을
-    아키텍처 다이어그램으로 매핑해 온보딩 자료와 변경 영향도 리뷰 템플릿으로
-    재사용할 수 있다.
-  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): IaC 문서는 단순
-    README를 넘어 자동 생성 시각화와 정책 검증이 결합된 “실행 가능한 설계
-    문서”로 발전할 가능성이 크다.
-  - 놓치면 안 되는 핵심 포인트나 주의사항: 시각화 산출물이 코드와 자동
-    동기화되지 않으면 빠르게 신뢰를 잃으므로, 생성 파이프라인을 CI에 포함해야
-    한다.
-
-### 8. google-research / timesfm
+### 7. google-research / timesfm
 
 - **출처**: GitHub Trending (오늘) —
   <https://github.com/google-research/timesfm>
@@ -857,7 +836,7 @@
     착시를 만들기 쉬우므로, 시간 순서 보존 검증과 운영 데이터 분포 차이 점검이
     필수다.
 
-### 9. OpenBB-finance / OpenBB
+### 8. OpenBB-finance / OpenBB
 
 - **출처**: GitHub Trending (오늘) — <https://github.com/OpenBB-finance/OpenBB>
 - **한 줄 요약**: 금융 데이터 분석을 위한 오픈소스 플랫폼으로, 리서치·백테스트
@@ -877,7 +856,7 @@
     시간·정합성 이슈가 크므로, 소스별 사용 제한과 품질 검증 기준을 명확히
     운영해야 한다.
 
-### 10. google-gemini / gemini-cli
+### 9. google-gemini / gemini-cli
 
 - **출처**: GitHub Trending (오늘) —
   <https://github.com/google-gemini/gemini-cli>
@@ -7964,29 +7943,7 @@
     호환성과 운영 관성이라서, 기술적으로 더 나아 보여도 마이그레이션 비용과
     플러그인 호환성 공백을 과소평가하면 안 된다.
 
-### 2. Show HN: Git bayesect – Bayesian Git bisection for non-deterministic bugs
-
-- **출처**: GitHub (HN top) — <https://github.com/hauntsaninja/git-bayesect>
-- **한 줄 요약**: `git_bayesect`는 flaky test처럼 재현이 들쑥날쑥한 문제에서
-  어느 커밋부터 실패 확률이 바뀌었는지 베이지안 방식으로 좁혀주는 도구다.
-- **왜 주목받나**: HN에서 약 272점·40댓글을 받았고, 기존 `git bisect`가 약한
-  “비결정적 버그”라는 실전 문제를 정면으로 푼다는 점에서 바로 써먹기 좋다는
-  반응이 나왔다.
-- **개발자 관점 인사이트**:
-  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 테스트가 항상 100% 재현되지 않는
-    환경에서도 원인 커밋을 추적할 수 있어, flaky test와 성능 회귀 대응 비용을
-    줄이는 데 도움이 된다.
-  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: CI에서 간헐적으로만
-    터지는 테스트를 별도 스크립트로 반복 실행한 뒤 `git bayesect run`에 연결해
-    문제 도입 구간을 빠르게 좁힐 수 있다.
-  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 디버깅 도구는 결정론적
-    전제를 버리고 확률적 추론, 반복 샘플링, 통계 기반 리포트를 함께 제공하는
-    방향으로 발전할 가능성이 높다.
-  - 놓치면 안 되는 핵심 포인트나 주의사항: 샘플 수가 너무 적거나 테스트 환경
-    노이즈가 과도하면 추정이 흔들릴 수 있으므로, 실행 횟수와 격리 수준을 함께
-    설계해야 한다.
-
-### 3. Subscription bombing and how to mitigate it
+### 2. Subscription bombing and how to mitigate it
 
 - **출처**: bytemash (HN top) —
   <https://bytemash.net/posts/subscription-bombing/>
@@ -8008,7 +7965,7 @@
     분산되기 때문에, QPS만 보는 대시보드로는 잘 안 보인다는 점을 반드시 염두에
     둬야 한다.
 
-### 4. Signing data structures the wrong way
+### 4. Signing data structures the right way
 
 - **출처**: The FOKS Blog (HN top) —
   <https://blog.foks.pub/posts/domain-separation-in-idl/>
@@ -12368,7 +12325,7 @@
 ### 3. How to make a fast dynamic language interpreter
 
 - **출처**: Hacker News (top) —
-  <https://zef-lang.dev/how-to-make-a-fast-dynamic-language-interpreter/>
+  <https://zef-lang.dev/implementation>
 - **한 줄 요약**: 바이트코드나 `JIT` 없이도 동적 언어 인터프리터를 단계별
   최적화로 크게 가속하는 과정을 상세히 보여 주는 성능 엔지니어링 글이다.
 - **왜 주목받나**: `Hacker News`에서 약 `244 points`, `55 comments`를 얻었고,
@@ -17958,7 +17915,7 @@
 ### 1. I don't think AI will make your processes go faster
 
 - **출처**: Hacker News —
-  <https://martinfowler.com/articles/exploring-gen-ai/i-dont-think-AI-will-make-your-processes-go-faster.html>
+  <https://frederickvanbrabant.com/blog/2026-05-15-i-dont-think-ai-will-make-your-processes-go-faster/>
 - **한 줄 요약**: 생성형 AI가 개별 작업 속도를 높여도 조직의 전체 개발
   프로세스가 자동으로 빨라지지는 않는다는 분석입니다.
 - **왜 주목받나**: Hacker News에서 수백 개의 댓글이 달리며, AI 코딩 도구 도입 뒤
