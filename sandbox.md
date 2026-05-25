@@ -19439,3 +19439,231 @@
   - 놓치면 안 되는 핵심 포인트나 주의사항: tracing 도구는 권한과 플랫폼 제약이
     크므로 production에 바로 붙이기 전에 kernel, perf_event 설정, symbol 정보를
     검증해야 합니다.
+
+## 2026-05-25 개발자 트렌드
+
+### 1. Jira Is Turing Complete
+
+- **출처**: Hacker News (top) —
+  <https://beza1e1.tuxen.de/lore/jira_turing_complete.html>
+- **한 줄 요약**: Jira의 워크플로, 상태 전이, 자동화 규칙만으로 계산 가능한
+  시스템을 구성할 수 있음을 보인 기술 실험입니다.
+- **왜 주목받나**: Hacker News에서 약 6시간 만에 273 points와 219 comments를
+  기록했고, 익숙한 업무 도구가 예상 밖의 계산 모델로 해석된다는 점이 많은
+  개발자의 토론을 만들었습니다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 업무 도구의 자동화 기능이
+    복잡해질수록 운영 로직이 애플리케이션 코드 밖에 숨어 들어가 장애 분석과 변경
+    관리를 어렵게 만들 수 있습니다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: Jira 자동화 규칙을
+    점검해 상태 전이, 승인 조건, 알림, 외부 webhook이 과도하게 얽힌 부분을
+    문서화하고 간단한 정책 엔진이나 코드 기반 workflow로 분리할 후보를 찾을 수
+    있습니다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): low-code 업무 도구는 더
+    강력해지겠지만, 기업 내부에서는 자동화 규칙을 코드처럼 versioning, review,
+    test하려는 요구도 같이 커질 가능성이 큽니다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 가능하다는 사실과 운영에 적합하다는
+    사실은 다르므로, 핵심 비즈니스 로직을 SaaS 설정에 숨길 때는 감사 가능성,
+    rollback, 권한 경계를 먼저 확인해야 합니다.
+
+### 2. Show HN: Audiomass - Open-Source Audio Editor
+
+- **출처**: Hacker News (top) — <https://audiomass.co>
+- **한 줄 요약**: 브라우저에서 바로 오디오 파일을 편집할 수 있는 오픈소스
+  waveform editor입니다.
+- **왜 주목받나**: Hacker News에서 약 5시간 만에 321 points와 84 comments를
+  얻었고, 설치 없이 실행되는 실용적인 웹 오디오 도구라는 점이 높은 반응을
+  이끌었습니다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: Web Audio API와 클라이언트 측 파일
+    처리가 충분히 성숙해져 간단한 미디어 편집 기능을 서버 렌더링이나 전용 앱
+    없이 제품 안에 넣을 수 있습니다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 녹취, 팟캐스트, 고객지원
+    음성 첨부 기능이 있는 서비스에서 trimming, normalize, fade 같은 기본 편집을
+    브라우저 내부 기능으로 제공하는 참고 구현으로 볼 수 있습니다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 미디어 SaaS는 무거운
+    데스크톱 앱을 대체하는 방향으로 계속 이동하고, WASM codec과 browser
+    storage를 결합한 로컬 우선 편집 도구가 늘어날 가능성이 큽니다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 큰 파일과 긴 waveform은 메모리
+    사용량, mobile browser 성능, export codec 지원 차이가 크므로 실제 사용자
+    파일 크기로 부하 테스트를 해야 합니다.
+
+### 3. Constraint Decay: AI-assisted Programming in Long-Term Projects
+
+- **출처**: Hacker News (top) —
+  <https://www.dzombak.com/blog/2026/05/constraint-decay-ai-assisted-programming-in-long-term-large-scale-projects.html>
+- **한 줄 요약**: AI 보조 코딩이 장기 프로젝트에서 암묵적 제약과 설계 의도를
+  서서히 약화시킬 수 있다는 문제를 분석한 글입니다.
+- **왜 주목받나**: Hacker News에서 약 14시간 만에 297 points와 206 comments를
+  기록했고, AI 코딩 도구의 생산성보다 장기 유지보수 위험을 다룬 점이 실무
+  개발자들의 공감을 얻었습니다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: AI가 빠르게 코드를 생성할수록 기존
+    architecture constraint, domain invariant, team convention이 코드에 반영되지
+    않는 변경이 누적될 수 있습니다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 중요한 설계 제약을
+    `AGENTS.md`, ADR, lint rule, test fixture, code review checklist로 명시하고
+    AI에게 전달되는 context에 포함되도록 정리할 수 있습니다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): AI 코딩 품질 경쟁은
+    단일 prompt 성능보다 repository memory, policy enforcement, architectural
+    guardrail을 얼마나 잘 유지하느냐로 이동할 가능성이 큽니다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: AI가 통과시킨 테스트가 곧 설계 의도
+    준수를 뜻하지 않으므로, 장기 프로젝트에서는 변경 이유와 제약을 코드 근처에
+    남기는 습관이 더 중요해집니다.
+
+### 4. Memory Has Grown Cheaper, but Memory Has Become Expensive
+
+- **출처**: Hacker News (top) — <https://danluu.com/memory-cost/>
+- **한 줄 요약**: 메모리 단가는 낮아졌지만 성능, latency, bandwidth, locality
+  관점에서는 여전히 비싼 자원이라는 점을 정리한 글입니다.
+- **왜 주목받나**: Hacker News에서 약 11시간 만에 283 points와 187 comments를
+  기록했고, 데이터 구조와 시스템 성능을 다루는 개발자들이 현실적인 비용 모델을
+  두고 활발히 토론했습니다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 대용량 메모리를 전제로 한 설계도
+    cache miss, NUMA, serialization, allocator overhead 때문에 실제 서비스
+    latency를 크게 악화시킬 수 있습니다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: hot path의 allocation,
+    pointer chasing, object layout, batch size를 profiling하고 compact data
+    structure나 columnar representation을 적용할 후보를 찾을 수 있습니다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): AI와 analytics
+    workload가 커질수록 CPU보다 memory hierarchy를 이해하는 능력이 backend와
+    data engineering의 핵심 역량으로 더 부각될 가능성이 큽니다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 메모리를 아끼는 최적화가 항상 좋은
+    것은 아니므로, 처리량과 latency 목표를 기준으로 측정한 뒤 구조 변경을
+    결정해야 합니다.
+
+### 5. DeepSeek reasonix
+
+- **출처**: Hacker News (top) — <https://deepseek-reasonix.github.io/>
+- **한 줄 요약**: DeepSeek 계열 reasoning 모델의 동작과 평가를 탐색하는 공개
+  데모성 프로젝트입니다.
+- **왜 주목받나**: Hacker News에서 약 5시간 만에 196 points와 58 comments를
+  기록했고, reasoning model의 실제 추론 품질과 사용 경험을 확인하려는 관심이
+  이어졌습니다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: reasoning 모델은 단순 채팅보다
+    코드 분석, 계획 수립, 복잡한 QA에서 강점을 보일 수 있어 agent workflow의
+    모델 선택 기준을 바꿀 수 있습니다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 내부 benchmark prompt를
+    준비해 기존 모델과 reasoning 모델을 같은 입력, 같은 채점 기준으로 비교하고
+    비용 대비 개선 폭이 큰 작업만 선별 적용할 수 있습니다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): reasoning 모델 경쟁은
+    raw benchmark 점수에서 tool use, latency, cost control, trace visibility를
+    포함한 운영 품질 경쟁으로 확장될 가능성이 큽니다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: reasoning 출력이 길수록 정답처럼
+    보이는 설명도 늘어나므로, 중요한 업무에는 검증 가능한 intermediate
+    artifact와 deterministic test를 함께 붙여야 합니다.
+
+### 6. Migrating from Go to Rust
+
+- **출처**: Hacker News (top) — <https://agiletoolkit.org/blog/rust-go>
+- **한 줄 요약**: Go로 만든 시스템을 Rust로 옮기며 얻은 장단점과 개발 경험을
+  정리한 migration 사례입니다.
+- **왜 주목받나**: Hacker News에서 약 5시간 만에 139 points와 94 comments를
+  기록했고, Go와 Rust의 생산성, 안정성, runtime 특성을 비교하는 실무 논쟁으로
+  이어졌습니다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 성능과 메모리 안정성이 중요한
+    컴포넌트에서는 Rust 전환이 매력적이지만, 팀 학습 비용과 delivery 속도에 직접
+    영향을 줄 수 있습니다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 전체 재작성보다 parser,
+    proxy, storage engine, CLI 같은 경계가 분명한 모듈을 골라 Rust로 분리하고
+    FFI 또는 process boundary로 점진 도입할 수 있습니다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): Go는 운영 단순성과 빠른
+    개발에서 강점을 유지하고, Rust는 infrastructure와 performance-critical
+    component에서 선택되는 분업 구조가 더 뚜렷해질 가능성이 큽니다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 언어 전환은 기술적 우월성만으로
+    결정하면 실패하기 쉬우므로 hiring, onboarding, build time, dependency
+    maturity를 함께 평가해야 합니다.
+
+### 7. microsoft / knowledge-work-plugins
+
+- **출처**: GitHub Trending (오늘) —
+  <https://github.com/microsoft/knowledge-work-plugins>
+- **한 줄 요약**: 업무와 데이터 작업을 AI agent가 처리하도록 돕는 Microsoft의
+  공식 plugin 모음입니다.
+- **왜 주목받나**: GitHub Trending에서 전체 1,272 stars, 오늘 +254 stars를
+  기록했고, 생산성 도구와 AI agent를 실제 업무 흐름에 연결하려는 수요가
+  반영되었습니다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: AI agent가 문서, 데이터, 업무
+    시스템을 직접 다루는 패턴이 표준화되면 사내 자동화의 단위가 script에서
+    reusable plugin으로 이동할 수 있습니다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 저장소의 plugin 구조와
+    manifest를 참고해 반복적인 보고서 작성, 데이터 조회, 문서 요약 작업을 작은
+    기능 단위로 분리해 볼 수 있습니다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 기업용 AI agent
+    생태계는 범용 챗봇보다 권한, 감사, connector, workflow template을 갖춘
+    plugin marketplace 중심으로 커질 가능성이 큽니다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 업무 데이터에 접근하는 plugin은
+    편의성 못지않게 permission scope, audit log, data retention 정책을 먼저
+    검토해야 합니다.
+
+### 8. awslabs / agent-squad
+
+- **출처**: GitHub Trending (오늘) — <https://github.com/awslabs/agent-squad>
+- **한 줄 요약**: 여러 AI agent를 조합하고 routing하는 multi-agent orchestration
+  framework입니다.
+- **왜 주목받나**: GitHub Trending에서 전체 13,081 stars, 오늘 +243 stars를
+  기록했고, 단일 agent보다 역할별 agent를 조합하려는 실험이 빠르게 늘고 있음을
+  보여 줍니다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 고객지원, 운영 자동화, 데이터 분석
+    같은 복합 업무에서 intent routing, specialist agent, fallback handling을
+    application architecture의 일부로 설계해야 할 가능성이 커집니다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: FAQ agent, ticket triage
+    agent, database query agent처럼 책임이 분명한 agent를 나누고 router가 입력을
+    분배하는 prototype을 만들어볼 수 있습니다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): multi-agent framework는
+    단순 chaining을 넘어 observability, evaluation, budget control, human
+    handoff를 포함한 운영 플랫폼으로 발전할 가능성이 큽니다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: agent 수를 늘리면 추론 비용과 실패
+    경로도 함께 늘어나므로, 각 agent의 책임 범위와 종료 조건을 작게 정의해야
+    합니다.
+
+### 9. prisma / prisma
+
+- **출처**: GitHub Trending (오늘) — <https://github.com/prisma/prisma>
+- **한 줄 요약**: TypeScript와 Node.js 생태계에서 널리 쓰이는 ORM과 database
+  toolkit입니다.
+- **왜 주목받나**: GitHub Trending에서 전체 46,530 stars, 오늘 +214 stars를
+  기록했고, application 개발에서 type-safe database access에 대한 관심이 계속
+  높다는 점을 보여 줍니다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: schema 기반 client generation과
+    type-safe query는 API 개발 속도를 높이고 runtime query 오류를 줄이는 데
+    직접적인 효과가 있습니다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 새 TypeScript backend나
+    internal tool에서 migration, generated client, seed script를 한 흐름으로
+    묶어 database 변경을 review 가능한 코드로 관리할 수 있습니다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): ORM은 단순 query
+    builder를 넘어 edge runtime, serverless connection pooling, typed analytics,
+    AI-assisted schema migration까지 포함하는 database developer platform으로
+    확장될 가능성이 큽니다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 추상화가 모든 query 성능 문제를
+    해결하지는 않으므로, 복잡한 join과 bulk 작업은 generated SQL과 index 사용을
+    반드시 확인해야 합니다.
+
+### 10. pathwaycom / pathway
+
+- **출처**: GitHub Trending (오늘) — <https://github.com/pathwaycom/pathway>
+- **한 줄 요약**: 실시간 데이터 처리와 AI pipeline을 위한 Python 기반 stream
+  processing framework입니다.
+- **왜 주목받나**: GitHub Trending에서 전체 50,164 stars, 오늘 +150 stars를
+  기록했고, RAG와 agent 시스템이 batch indexing에서 실시간 데이터 갱신으로
+  이동하면서 관심을 받았습니다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 문서, 이벤트, 로그, 외부 API
+    데이터가 계속 변하는 서비스에서는 vector index와 feature pipeline을
+    실시간으로 갱신하는 구조가 중요해집니다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: RAG 검색 인덱스, 알림
+    시스템, streaming analytics prototype에서 파일 변경이나 메시지 큐 입력을
+    받아 즉시 변환하고 downstream store에 반영하는 pipeline을 구성할 수
+    있습니다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): AI application stack은
+    offline ETL과 online serving을 분리하기보다 streaming ingestion, incremental
+    embedding, continuous evaluation을 결합하는 방향으로 진화할 가능성이 큽니다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 실시간 pipeline은 재처리, 중복
+    이벤트, backpressure, 장애 복구가 핵심이므로 demo 성능보다 operational
+    semantics를 먼저 검증해야 합니다.
