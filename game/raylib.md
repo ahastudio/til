@@ -1,8 +1,10 @@
 # raylib: 즐겁게 게임을 만들기 위한 C 라이브러리
 
-<https://www.raylib.com/>
+원문: <https://github.com/raysan5/raylib>
 
-<https://github.com/raysan5/raylib>
+웹사이트: <https://www.raylib.com/>
+
+HN 토론: <https://news.ycombinator.com/item?id=36583743> (287점, 76개 댓글)
 
 ## 소개
 
@@ -88,6 +90,12 @@ BGI의 단순성(“한 줄이면 선 하나 그리기”)과
 XNA의 포괄적 게임 개발 지원(“입력, 오디오, 3D 모두 한 라이브러리에서”)을 결합한다.
 이 계보는 raylib이 왜 “배우기 쉬운 게임 라이브러리”로 포지셔닝하는지를 설명한다.
 
+kalekold는 이 계보를 BlitzBASIC과도 연결한다.[^kalekold]
+“옛날 BlitzBASIC으로 화면에 뭔가를 그리던 시절이 떠오른다 — 복잡한 것 없이 그냥 쉽고 재미있었다.
+프로그래밍이 이랬었는데.”
+BGI, BlitzBASIC, XNA, 그리고 raylib로 이어지는 계보는
+“즐거운 게임 개발”이라는 가치가 매 세대마다 새로운 형태로 재발명되어 왔음을 보여준다.
+
 ### 70개 언어 바인딩의 의미
 
 raylib이 C로 작성되었음에도 70개 이상의 언어 바인딩이 존재하는 것은
@@ -99,6 +107,13 @@ Rust의 `bindgen`, Python의 `ctypes/cffi`, Zig의 `@cImport`처럼
 많은 언어가 C API를 직접 소비하는 메커니즘을 갖고 있다.
 raylib이 C로 작성된 것은 단순한 성능 선택이 아니라
 “모든 언어의 공통 인터페이스”로서의 C를 의도적으로 선택한 것이다.
+
+HN 댓글들이 이를 생생하게 증명한다.
+kalekold는 Go 바인딩으로 Linux 스크린세이버를 만들고 있고,[^kalekold]
+sarchertech는 Odin 바인딩으로 사이드 프로젝트를 진행한다.[^sarchertech]
+AlbertoGP는 Fortran 바인딩으로 Tic-Tac-Toe를 만든 영상을 공유했다.[^AlbertoGP]
+“Fortran is the Next Rust”라는 제목의 라이브 스트림이 실제로 존재한다는 사실이
+raylib의 바인딩 생태계의 범위를 단적으로 보여준다.
 
 ## 비평
 
@@ -126,6 +141,13 @@ raylib은 의도적으로 이 방향을 거부하지만,
 숙련 개발자에게는 소스 코드가 답이 되지만,
 초보자에게는 함수가 정확히 무엇을 하는지 알기 위해
 예제를 역추적해야 하는 부담이 있다.
+
+전역 네임스페이스 오염도 실사용에서 지적된 문제다.
+pests는 “함수에 접두사가 없고 `RED`, `BLUE` 같은 흔한 상수까지 전역으로 정의된다”고 지적한다.[^pests]
+규모가 커지는 프로젝트나 다른 라이브러리와 함께 쓸 때 이름 충돌 위험이 있다.
+xashor는 `SUPPORT_BUSY_WAIT_LOOP`가 기본값으로 활성화되어
+프로토타이핑 중에도 CPU 점유율이 100%에 달한다는 문제를 지적한다.[^xashor]
+배포판 패키지를 쓰지 못하고 직접 빌드해야 해결할 수 있는 점이 불편하다.
 
 ## 인사이트
 
@@ -189,3 +211,20 @@ raylib도 Unity를 대체하지 않는다.
 라이브러리의 장기 생존은 종종 “무엇을 하는가”보다
 “누구를 위해 존재하는가”를 명확히 하는 것에 달려 있다.
 raylib은 “즐겁게 게임을 배우고 싶은 사람”이라는 답을 처음부터 갖고 있었다.
+
+TeaDude는 raylib을 “C 프로그래머를 위한 Godot 동급품”이라 표현한다.[^TeaDude]
+SDL이 저수준 창 관리와 입력만 다루는 데 비해, raylib은 파일시스템 유틸리티까지 포함하는
+더 완결된 게임 개발 환경을 제공한다는 평이다.
+streamer45는 Raspberry Pi 같은 임베디드 시스템에서 수년간 생성적 디지털 페인팅을
+raylib으로 구동하고 있다고 전한다.[^streamer45]
+데스크톱 게임을 넘어 임베디드·IoT 영역에서도 검증된 선택지임을 보여주는 사례다.
+
+---
+
+[^kalekold]: <https://news.ycombinator.com/item?id=36612926>
+[^sarchertech]: <https://news.ycombinator.com/item?id=36614162>
+[^AlbertoGP]: <https://news.ycombinator.com/item?id=36614435>
+[^pests]: <https://news.ycombinator.com/item?id=36620153>
+[^xashor]: <https://news.ycombinator.com/item?id=18935101>
+[^TeaDude]: <https://news.ycombinator.com/item?id=36615542>
+[^streamer45]: <https://news.ycombinator.com/item?id=36611249>
