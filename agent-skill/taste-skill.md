@@ -1,5 +1,7 @@
 # Taste Skill: AI 에이전트용 안티-슬롭 프론트엔드 스킬
 
+<https://www.tasteskill.dev/>
+
 <https://github.com/Leonxlnx/taste-skill>
 
 ## 소개
