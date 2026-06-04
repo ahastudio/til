@@ -22,12 +22,11 @@ echo 'eval "$(mise activate zsh)"' >> ~/.zprofile
 
 <https://mise.jdx.dev/configuration.html>
 
-`~/.config/mise/config.toml` 파일에 다음 내용을 추가해 `.nvmrc` 파일을 인식할 수
-있다.
+`~/.config/mise/config.toml` 파일에 다음 내용을 추가해 `.nvmrc`, `.python-version`, `.ruby-version` 파일을 인식할 수 있다.
 
 ```toml
 [settings]
-idiomatic_version_file_enable_tools = ['node']
+idiomatic_version_file_enable_tools = ['node', 'python', 'ruby']
 ```
 
 ## Node.js 설치
