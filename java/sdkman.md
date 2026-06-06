@@ -27,18 +27,18 @@ sdk selfupdate
 
 <https://en.wikipedia.org/wiki/Java_version_history>
 
-LTS인 21 버전 설치.
+LTS인 25 버전 설치.
 
 ```bash
 sdk list java | grep tem
 
-sdk install java 21.0.9-tem
+sdk install java 25.0.3-tem
 ```
 
 ```bash
 sdk list java | grep amzn
 
-sdk install java 21.0.9-amzn
+sdk install java 25.0.3-amzn
 ```
 
 ```bash
@@ -49,16 +49,16 @@ sdk current
 java -version
 ```
 
-Java 21 버전을 기본으로 설정.
+Java 25 버전을 기본으로 설정.
 
 ```bash
-sdk default java 21.0.4-tem
+sdk default java 25.0.3-tem
 
 sdk current
 
 sdk list java | grep installed
 
-sdk list java | grep "21\."
+sdk list java | grep "25\."
 ```
 
 ## Gradle 설치
