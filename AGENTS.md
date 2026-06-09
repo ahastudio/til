@@ -41,9 +41,22 @@ Always use formal polite speech in Korean chat messages. No exceptions.
 Completing a task is NOT permission to commit.
 Showing a summary of changes is NOT permission to commit.
 "Let me commit this" as self-narration is FORBIDDEN — only commit when told to.
+Finishing a skill (e.g. `/hackernews-reactions`, `/analyze-article`) is NOT
+permission to commit. Skills never imply commit permission.
+
+**Checklist before running `git commit`:**
+
+1. Did the user send a message containing "commit" or "커밋"?
+2. Is that message the most recent user instruction?
+3. If either answer is NO — do NOT commit.
 
 If you find yourself about to run `git commit` without a direct user instruction:
 STOP. You are about to violate this rule. Do not proceed.
+
+Past violation (recorded to prevent recurrence): after completing
+`/hackernews-reactions`, committed without being asked. The skill completion
+was mistaken as implicit commit permission. There is no implicit commit
+permission. Ever.
 
 ### Editing Scope (ABSOLUTE PRIORITY)
 
