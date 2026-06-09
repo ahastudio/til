@@ -48,31 +48,74 @@ Write a markdown document with the following structure:
 ## 요약
 
 Summarize the core content in 3-5 paragraphs.
-Convey technical details accurately.
+Convey technical details accurately — preserve numbers, names, and
+technical terms. Do not editorialize; save judgment for later sections.
 
 ## 분석
 
-Analyze the logical structure, strength of evidence, and context of the
-article.
-Point out connections to related technologies or trends.
-If there are multiple sub-items, separate each with a sub-heading (###).
+Analyze the logical structure and context. Go beyond restating what the
+article says — ask WHY the argument is structured this way, WHAT it
+assumes, and WHERE it connects to broader trends.
+
+Each sub-section (###) should make a distinct analytical point:
+- What is the article's core claim, and what does it rest on?
+- What historical or technical context explains why this matters now?
+- What structural pattern does this represent — and where else does it
+  appear?
+- What does the author take for granted that deserves scrutiny?
+
+Aim for 3–4 sub-sections. Each sub-section is 2–4 paragraphs.
+Do NOT list observations — build an argument within each sub-section.
 
 ## 비평
 
-Evaluate the strengths and weaknesses of the article in a balanced way.
-Examine whether the claims are sufficiently supported and whether any
-perspectives are missing.
-Offer concrete counter-arguments or complementary points.
-If there are multiple sub-items, separate each with a sub-heading (###).
+Do NOT use "강점 / 약점" sub-headings. A list of pros and cons is not
+critique — it is a summary with opinions attached.
+
+Real critique means: identify a specific flaw in the article's logic,
+generalizability, omissions, or framing — and develop that flaw into a
+substantive argument with evidence or counter-examples. Each sub-section
+targets one such flaw.
+
+Frame sub-headings as focused critical claims, not generic categories:
+
+Good examples:
+- "글의 논리는 성공 조건을 숨긴다"
+- "저자가 인식하고도 답하지 않은 문제"
+- "이 워크플로는 특정 맥락에서만 성립한다"
+- "결론의 일반화는 근거 없이 확장된다"
+
+Bad examples (forbidden):
+- "강점"
+- "약점"
+- "한계"
+- "긍정적 측면 / 부정적 측면"
+
+Aim for 3–4 sub-sections of 3–5 paragraphs each. The critique must be
+harder and sharper than the analysis — find the places where the article
+fails to hold up under scrutiny.
 
 ## 인사이트
 
-Write sharply and richly.
-Each insight MUST be separated with a sub-heading (###) and developed over
-3-5 paragraphs.
-Cover deep implications, second-order effects, historical analogies, and
-structural patterns — not surface-level observations.
-Write at least 3 insights.
+Insights are the most important section. They must offer something the
+reader could NOT have obtained by reading the source alone.
+
+Each insight (###) must be developed over 3–5 paragraphs. The sub-heading
+names the insight as a declarative claim — not a question or topic label.
+
+Mandatory coverage across the insights:
+- A second-order effect or consequence the article does not anticipate
+- A historical analogy or structural pattern that reframes the issue
+- A tension or trade-off the article glosses over but that will matter
+  at scale or over time
+
+What to avoid:
+- Restating the article's own conclusions as insights
+- Surface-level observations ("this is an important trend")
+- Insights that follow directly from the article without adding a new
+  frame
+
+Write at least 3 insights. 4 is better if the subject warrants it.
 ```
 
 ### 4. Writing rules
@@ -81,9 +124,10 @@ Write at least 3 insights.
   alignment, line breaks, etc.).
 - Write in Korean. Technical terms may be written alongside their original
   English form.
-- Insights are the most important part of the document. Write them sharply
-  and richly so the reader gains an insight they could not have obtained
-  from the source alone.
+- Each section must do different work: 요약 reports, 분석 explains,
+  비평 challenges, 인사이트 extends. Do not let sections overlap.
+- The document should read as if written by someone who disagrees with
+  parts of the article and has thought carefully about why.
 - Maintain the same tone and depth as existing TIL documents.
 
 ### 5. Output
