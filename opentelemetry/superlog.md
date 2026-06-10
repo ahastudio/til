@@ -6,6 +6,8 @@
 
 Show HN: [We're open sourcing Superlog (YC P26), an autonomous monitoring tool](https://news.ycombinator.com/item?id=48447904)
 
+HN 토론: <https://news.ycombinator.com/item?id=48195021> (74점, 49개 댓글)
+
 ## 소개
 
 Superlog는 OpenTelemetry 데이터를 수집해 AI 에이전트가 인시던트를 자동으로
