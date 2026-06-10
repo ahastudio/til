@@ -2,6 +2,8 @@
 
 원문: <https://gavinray97.github.io/blog/building-from-zero-after-addiction-prison-felony>
 
+HN 토론: <https://news.ycombinator.com/item?id=48437406> (893점, 408개 댓글)
+
 GeekNews: <https://news.hada.io/topic?id=30271>
 
 ## 요약
