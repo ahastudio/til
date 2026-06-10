@@ -2,6 +2,8 @@
 
 원문: <https://human-in-the-loop.bearblog.dev/llms-are-eating-my-software-engineering-career-and-i-dont-know-what-to-do/>
 
+HN 토론: <https://news.ycombinator.com/item?id=48434312> (1124점, 1059개 댓글)
+
 GeekNews: <https://news.hada.io/topic?id=30267>
 
 ## 요약
