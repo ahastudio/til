@@ -2,6 +2,8 @@
 
 원문: <https://mimo.xiaomi.com/blog/mimo-tilert-1000tps>
 
+HN 토론: <https://news.ycombinator.com/item?id=48446639> (605점, 454개 댓글)
+
 GeekNews: <https://news.hada.io/topic?id=30307>
 
 ## 요약
