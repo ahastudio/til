@@ -76,6 +76,36 @@ what the subject actually is, not to a fixed template.
 Regardless of subject type, always include `## 비평` immediately after
 `## 분석`, and end with `## 인사이트`.
 
+## Line Breaks in Body Text
+
+Break body text at sentence boundaries, not at a fixed column width. Each
+sentence ends on its own line. Within a single sentence, break at a natural
+semantic unit (e.g. before a conjunction or after a clause) only when the
+sentence is long enough to warrant it.
+
+**Rules:**
+
+- Every sentence starts on a new line.
+- A period (`.`), question mark (`?`), or exclamation mark (`!`) ends the
+  line — do not continue the next sentence on the same line.
+- For long sentences, break once at the most natural semantic boundary
+  (before 이며/하지만/그러나/그리고/하면/때문에 etc.) and continue on the
+  next line with NO indentation — indented continuation lines become
+  code blocks in most markdown renderers.
+- Do NOT break at 80 columns or any other fixed character count.
+- This rule applies to all `.md` body text. Code blocks, tables, and list
+  items are excluded.
+
+**Example:**
+
+```markdown
+Revo는 Zig로 작성된 동적 타입 언어다.
+README는 기술 사양보다 사용 경험을 먼저 보여주는 구성이다.
+파이프, 패턴 매칭, 채널 루프, 테스트 블록은
+Revo를 짧은 시간에 이해시키는 데 효과적이지만,
+운영 의사결정자 관점에서 필요한 릴리스 정책은 상대적으로 얇다.
+```
+
 ## Twitter Links
 
 Always use `twitter.com` instead of `x.com` for tweet URLs.
