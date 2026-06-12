@@ -53,10 +53,17 @@ permission to commit. Skills never imply commit permission.
 If you find yourself about to run `git commit` without a direct user instruction:
 STOP. You are about to violate this rule. Do not proceed.
 
-Past violation (recorded to prevent recurrence): after completing
-`/hackernews-reactions`, committed without being asked. The skill completion
-was mistaken as implicit commit permission. There is no implicit commit
-permission. Ever.
+Past violations (recorded to prevent recurrence):
+
+- After completing `/hackernews-reactions`, committed without being asked.
+  Skill completion was mistaken as implicit commit permission.
+- After completing multiple `/analyze-article` runs, committed 6 files
+  without being asked. Task completion was again mistaken as implicit
+  commit permission — even after the first violation was already recorded.
+
+There is no implicit commit permission. Ever. Repetition of a recorded
+violation is a double failure: the rule was broken AND the record was
+ignored.
 
 ### Editing Scope (ABSOLUTE PRIORITY)
 
