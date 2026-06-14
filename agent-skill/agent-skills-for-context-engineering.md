@@ -1,6 +1,7 @@
 # Agent Skills for Context Engineering
 
-Muratcan Koylan의 에이전트 스킬 컬렉션:
+Muratcan Koylan의 에이전트 스킬 컬렉션
+
 <https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering>
 
 프롬프트 엔지니어링이 “지시를 잘 작성하는 기술”이라면,
@@ -166,11 +167,7 @@ Digital Brain, X-to-Book 같은 예제는 단순 데모가 아니라
 
 ## 관련 문서
 
-- [Agentic Engineering Patterns #1-1:
-  코드 작성 비용은 이제 거의 공짜다
-  ](./agentic-engineering-patterns-1-1-code-is-cheap.md)
-- [File-Based Planning Workflow
-  ](./file-based-planning-workflow.md)
-- [AI Coding Agent Guidelines
-  ](./ai-coding-agent-guidelines.md)
+- [Agentic Engineering Patterns](../agentic-coding/agentic-engineering-patterns.md)
+- [File-Based Planning Workflow](../ai/file-based-planning-workflow.md)
+- [AI Coding Agent Guidelines](../agentic-coding/ai-coding-agent-guidelines.md)
 - [HuggingFace Skills](./huggingface-skills.md)
