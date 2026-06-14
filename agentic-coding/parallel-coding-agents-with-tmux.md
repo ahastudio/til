@@ -244,7 +244,7 @@ Schipper가 `/fd-verify`에서 “현재 상태를 커밋”하는 첫 단계를
 
 ### “코드는 거의 공짜다”와의 접점
 
-[에이전틱 엔지니어링 패턴 #1](./agentic-engineering-patterns-1-1-code-is-cheap.md)
+[에이전틱 엔지니어링 패턴 #1](./agentic-engineering-patterns.md)
 은 코딩 에이전트로 인해 코드 작성 비용이 거의 0에 수렴한다고 주장한다. FD
 시스템은 이 전제 위에서 작동한다. 코드 생성이 공짜라면, **가치의 원천은 “무엇을
 만들지”를 정의하는 스펙**으로 이동한다. 300개 이상의 FD를 작성한 Schipper의
@@ -258,7 +258,7 @@ Schipper가 `/fd-verify`에서 “현재 상태를 커밋”하는 첫 단계를
 
 ### Red/Green TDD와 `/fd-verify`의 구조적 유사성
 
-[에이전틱 엔지니어링 패턴 #2](./agentic-engineering-patterns-2-1-red-green-tdd.md)
+[에이전틱 엔지니어링 패턴 #2](./agentic-engineering-patterns.md)
 의 Red/Green TDD는 “테스트 실패 확인 → 구현 → 테스트 통과 확인”의 3단계다.
 `/fd-verify`의 “커밋 → 교정 → 검증”과 구조가 동형이다:
 
@@ -369,8 +369,8 @@ Schipper가 `/fd-verify`에서 “현재 상태를 커밋”하는 첫 단계를
 
 - [File-based Planning Workflow](./file-based-planning-workflow.md)
 - [Spec-Driven Development](./spec-driven-development.md)
-- [에이전틱 엔지니어링 패턴 #1: 코드는 거의 공짜다](./agentic-engineering-patterns-1-1-code-is-cheap.md)
-- [에이전틱 엔지니어링 패턴 #2: Red/Green TDD](./agentic-engineering-patterns-2-1-red-green-tdd.md)
+- [에이전틱 엔지니어링 패턴 #1: 코드는 거의 공짜다](./agentic-engineering-patterns.md)
+- [에이전틱 엔지니어링 패턴 #2: Red/Green TDD](./agentic-engineering-patterns.md)
 - [에이전틱 소프트웨어의 5단계](./agentic-software-levels.md)
 - [골빈해커의 코딩 에이전트 프롬프팅 플로우](./golbin-agent-prompting-flow.md)
 - [에이전트 스킬: 컨텍스트 엔지니어링](./agent-skills-for-context-engineering.md)

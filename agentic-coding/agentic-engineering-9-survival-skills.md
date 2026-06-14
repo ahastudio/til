@@ -281,8 +281,7 @@ CTO/매니저 경험이 에이전트 시대에 직접적 경쟁력이
 
 ## 관련 문서
 
-- [Agentic Engineering Patterns #1-1: Code Is Cheap](./agentic-engineering-patterns-1-1-code-is-cheap.md)
-- [Agentic Engineering Patterns #2-1: Red/Green TDD](./agentic-engineering-patterns-2-1-red-green-tdd.md)
+- [Agentic Engineering Patterns](./agentic-engineering-patterns.md)
 - [Agentic Software Levels](./agentic-software-levels.md)
 - [Karpathy's Claude Coding Notes](./karpathy-claude-coding-notes.md)
 - [Spec-Driven Development](./spec-driven-development.md)

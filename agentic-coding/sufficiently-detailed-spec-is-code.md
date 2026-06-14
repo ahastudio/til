@@ -238,6 +238,6 @@ Dijkstra-보르헤스 프레임이 LLM 시대에 시사하는 바가 있다. LLM
 - [코드 리뷰는 어떻게 죽는가](./reviews-dead.md)
 - [검증 부채](./verification-debt.md)
 - [LLM은 그럴듯한 코드를 쓴다](./llm-writes-plausible-code-not-correct-code.md)
-- [에이전틱 엔지니어링 패턴 1.1: 코드는 싸다](./agentic-engineering-patterns-1-1-code-is-cheap.md)
+- [에이전틱 엔지니어링 패턴 1.1: 코드는 싸다](./agentic-engineering-patterns.md)
 - [AI 시대의 TDD](./tdd-in-ai-era.md)
 - [Tests Are The New Moat](../test/tests-are-the-new-moat.md)
