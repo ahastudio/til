@@ -1,10 +1,10 @@
 # LLM은 올바른 코드가 아니라 그럴듯한 코드를 쓴다
 
-원문:
-  <https://blog.katanaquant.com/p/your-llm-doesnt-write-correct-code>
-
+- 원문: [Your LLM Doesn't Write Correct Code. It Writes Plausible Code.](https://blog.katanaquant.com/p/your-llm-doesnt-write-correct-code)
 - 저자: Hōrōshi バガボンド (Vagabond Research)
 - 날짜: 2026-03-06
+
+Lobste.rs 토론: <https://lobste.rs/s/dnqcvh/your_llm_doesn_t_write_correct_code_it>
 
 ## 한 줄 요약
 
@@ -242,6 +242,26 @@ scc의 COCOMO 모델이 LLM 코드에 부적절하다는
 더 생산적인 질문은:
 “검증 역량이 없는 사람도 LLM을 안전하게 쓸 수 있는
 시스템을 어떻게 만들 것인가?”다.
+
+### Lobste.rs: “이것은 인간에게도 마찬가지다”
+
+Lobste.rs에서 amw-zero는 가장 간결한 반론을 남겼다.[^amw-zero-lobsters]
+“This is also true of humans(이것은 인간에게도 마찬가지다).”
+LLM이 그럴듯한 코드를 쓴다는 비판이 LLM만의 문제인지 질문한다.
+
+Internet_Janitor는 현재를 프로그래밍 언어 역사의 여러 시대에 동시에 비유했다.[^internetjanitor-lobsters]
+“C 시대 — 끊임없는 지뢰밭, Rust 시대 — 종교적 신봉, Smalltalk 시대 — 아무것도 출시하지 않으면서 새 도구에 황홀해하는 컨설턴트들, INTERCAL 시대 — 도구가 작동하도록 협박하고 懇請하기, Malbolge 시대 — 가능하다면 절대 사용하지 않겠다는 진심어린 욕망.”
+이 병렬 묘사는 기술 낙관론과 현장 좌절감 사이의 간극을 압축한다.
+
+marginalia는 LLM이 더 큰 맥락을 파악하는 능력이 결여되어 있어 비자명한 문제에서는 추가 코드를 덧붙이는 경향이 있다고 지적했다.[^marginalia-lobsters]
+실수를 반복 지적해서 고치게 할 수 있지만 실제 구현보다 훨씬 오래 걸린다는 실무 관찰이다.
+
+sunshowers는 수정에 생성 시간의 약 5배가 걸리지만, 아키텍처 전체를 바꾸는 대규모 변경에서는 LLM이 탁월하다는 균형 잡힌 시각을 제시했다.[^sunshowers-lobsters]
+도메인 모델 오류 수정 등 이전에는 막대한 리팩터링이 필요했던 작업을 자연어로 설명하는 것만으로 처리할 수 있다는 것이다.
+
+reezer는 근본적인 구분을 제시했다.[^reezer-lobsters]
+LLM은 통계적 패턴으로 텍스트를 생성하며, 인간이 올바른 것을 의도적으로 목표로 삼는 것과 달리 그럴듯함을 향해 표류한다.
+패턴 매칭이 근본 개념 이해를 대체하지 못하는 한계를 훈련 방식 자체에서 찾는다.
 
 ## 대안과 실천
 
@@ -578,6 +598,14 @@ LLM은 후자를 쉽게 만들었다.
 - [AI 시대에 TDD가 더 강력해진 이유](tdd-in-ai-era.md)
 - [Vibe Coding](vibe-coding.md)
 - [코드는 싸다 — 에이전틱 엔지니어링 패턴](
-    agentic-engineering-patterns-1-1-code-is-cheap.md)
+    agentic-engineering-patterns.md)
 - [Red-Green TDD — 에이전틱 엔지니어링 패턴](
-    agentic-engineering-patterns-2-1-red-green-tdd.md)
+    agentic-engineering-patterns.md)
+
+---
+
+[^amw-zero-lobsters]: <https://lobste.rs/s/dnqcvh/your_llm_doesn_t_write_correct_code_it#r3rtdu>
+[^internetjanitor-lobsters]: <https://lobste.rs/s/dnqcvh/your_llm_doesn_t_write_correct_code_it#ytfvay>
+[^marginalia-lobsters]: <https://lobste.rs/s/dnqcvh/your_llm_doesn_t_write_correct_code_it#snfkt4>
+[^sunshowers-lobsters]: <https://lobste.rs/s/dnqcvh/your_llm_doesn_t_write_correct_code_it#xj6vou>
+[^reezer-lobsters]: <https://lobste.rs/s/dnqcvh/your_llm_doesn_t_write_correct_code_it#ag5swg>
