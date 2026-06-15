@@ -53,24 +53,69 @@ If any articles were excluded, show them along with the reason.
 
 For each selected article, in parallel:
 - Fetch the source URL content with WebFetch.
-- Fetch the body summary and comments of the GeekNews topic page with
-  WebFetch.
+- Fetch the GeekNews topic page with WebFetch to read the body summary and
+  check for external discussion links.
+
+**Comment source determination:** Inspect the GeekNews topic page to see
+whether it links to an upstream discussion on Hacker News
+(`news.ycombinator.com`) or Lobsters (`lobste.rs`). These links appear as
+"HN에서 보기", "Lobsters에서 보기", or similar labels.
+
+- If an upstream HN or Lobsters discussion link is present, fetch that
+  upstream discussion page instead of the GeekNews comments. The upstream
+  page is the primary reaction source for this article.
+- If no upstream link is present, fetch the GeekNews comments as the
+  reaction source.
 
 ### 5. Write the documents
 
 For each selected article, invoke the `/analyze-article` skill with the
-source URL, the chosen file path, and the GeekNews topic URL as arguments.
+source URL, the chosen file path, and the reaction source URL as arguments.
 
 Additional context to pass when invoking:
 - Never recreate a document that already exists.
-- Weave GeekNews comments into the document body as substantive content —
-  do NOT add a standalone `[GeekNews 댓글]` link anywhere in the file.
-- Use the fetched GeekNews comments to enrich the `## 분석` or `## 비평`
-  sections. When the text explicitly references those comments (e.g.,
-  "댓글에서 제기된 우려"), render the reference as an inline hyperlink:
-  `[GeekNews 댓글](URL)에서 제기된 우려`.
-- Only add the `[GeekNews 댓글](URL)` link when the body text actually
-  mentions the comments. If no comment is referenced, omit the link entirely.
+- Weave comments from the reaction source into the document body as
+  substantive content.
+  Do NOT add a standalone inline link to any discussion page anywhere in
+  the file.
+- Use the fetched comments to enrich the `## 분석`, `## 비평`,
+  or `## 인사이트` sections. For each referenced comment, mark the
+  reference with a footnote (`[^handle]`) in the body text, using the
+  commenter's handle as the footnote key. Write the reaction content in
+  Korean; the handle stays in its original form.
+
+**Footnote URL rules by reaction source:**
+
+- **GeekNews** — point to the specific comment using its row id:
+  `https://news.hada.io/topic?id=<TOPIC_ID>#cid<COMMENT_ID>`
+
+  Each GeekNews comment row has `id=cid<number>` (e.g. `cid59313`).
+  Use that number as the fragment.
+
+- **Hacker News** — point to the specific comment item:
+  `https://news.ycombinator.com/item?id=<COMMENT_ID>`
+
+  Each HN comment has its own numeric item id in the DOM.
+
+- **Lobsters** — point to the specific comment anchor:
+  `https://lobste.rs/s/<STORY_ID>/<SLUG>#c_<COMMENT_ID>`
+
+  Each Lobsters comment has a unique short id used as the fragment.
+
+- If a footnote key conflicts with one from a prior `/hackernews-reactions`
+  or `/lobsters-reactions` run, append `-geeknews` to the key:
+  `[^handle-geeknews]`.
+
+Footnote block format (at the very end of the file, after `---`):
+
+```markdown
+---
+
+[^handle]: <https://news.hada.io/topic?id=TOPIC_ID#cidCOMMENT_ID>
+```
+
+If footnotes already exist, append new ones to the existing block. If no
+comment is referenced in the body, omit the footnote block entirely.
 
 #### Document structure by source type
 
