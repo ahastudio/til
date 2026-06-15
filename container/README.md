@@ -14,9 +14,7 @@
 
 ## Colima
 
-> Container runtimes on macOS (and Linux) with minimal setup.
-
-<https://github.com/abiosoft/colima>
+[Colima](./colima.md)
 
 ## Container Registry
 
