@@ -59,10 +59,14 @@ SKILL.md 파일로 구성되며 반복적인 컨텍스트 설명을 없앤다.
 
 이 원칙들은 분산 시스템 설계에서 익숙한 것들이다.
 루프 엔지니어링은 사실상 에이전트들로 이루어진 분산 시스템을 설계하는 일이다.
+[장기 실행 에이전트](./long-running-agents.md)에서 정리한 Anthropic의
+Brain·Hands·Session 구조와 Cursor의 Planner·Worker·Judge 분리가 이 원칙의
+구체적 산업 사례다 — 다섯 구성 요소가 독립된 발명이 아니라 공통 설계 패턴의
+다른 표현임이 드러난다.
 
 ### 이해 부채: 가속이 만드는 새로운 기술 부채
 
-[GeekNews 댓글](https://news.hada.io/topic?id=30336)에서 shakespeares는 “이해는 방치하면 썩음”이라는 표현을 사용했다.
+shakespeares는 “이해는 방치하면 썩음”이라는 표현을 사용했다.[^shakespeares]
 이 표현은 저자가 “이해 부채”라고 부르는 개념의 핵심을 포착한다.
 기존의 기술 부채(technical debt)가 코드 품질의 저하라면, 이해 부채는 코드에 대한 엔지니어의 이해 수준의 저하다.
 
@@ -94,7 +98,7 @@ saidnooneever는 더 냉소적인 관찰을 남긴다.[^saidnooneever]
 그러나 두 에이전트 모두 같은 베이스 모델에서 나온다면, 같은 종류의 맹점을 공유할 가능성이 있다.
 구현 에이전트가 생각하지 못한 케이스를 검증 에이전트도 생각하지 못할 수 있다.
 
-ultimategamer의 [GeekNews 댓글](https://news.hada.io/topic?id=30336)은 “AI 방법론이 프롬프트에서 컨텍스트로, 하네스로, 이제 루프로 확장돼간다”고 관찰했다.
+ultimategamer는 “AI 방법론이 프롬프트에서 컨텍스트로, 하네스로, 이제 루프로 확장돼간다”고 관찰했다.[^ultimategamer]
 각 새로운 패턴은 이전 패턴의 한계를 해결하지만 새로운 한계를 도입한다.
 루프 엔지니어링이 해결하지 못한 한계가 다음 패턴의 출발점이 될 것이다.
 
@@ -102,6 +106,10 @@ aocallaghan17은 비결정성의 문제를 구체적으로 제기한다.[^aocall
 팀원 둘이 같은 질문을 에이전트에게 던졌을 때 서로 다른 방법론으로 서로 다른 결과가 나온다면, 그 결과를 기반으로 한 결정은 일관성을 잃는다.
 이 질문은 검증 에이전트를 추가한다고 해소되지 않는다.
 비결정성은 구현 에이전트와 검증 에이전트 모두에게 동일하게 적용되기 때문이다.
+[Anthropic의 장기 실행 하네스 글](./harness-design-long-running-apps.md)이
+지적한 “평가자도 같은 모델이라 무한 후퇴가 발생한다”는 문제와 정확히 같으며,
+그 글이 few-shot 보정과 인간이 작성한 채점 기준을 “앵커”로 두는 해법을
+제시했지만 이 책의 우려가 사라지지는 않는다.
 
 ## 비평
 
@@ -111,7 +119,7 @@ aocallaghan17은 비결정성의 문제를 구체적으로 제기한다.[^aocall
 Git 워크트리, MCP 커넥터, 스킬 파일 구조를 모두 올바르게 설계하고 조율하는 것은 상당한 선행 투자가 필요하다.
 글은 이 복잡성을 간략히 언급하지만, 루프를 처음 구축하는 사람이 마주할 실제 장벽을 과소평가한다.
 
-특히 ide127의 [GeekNews 댓글](https://news.hada.io/topic?id=30336)이 지적하듯 “하루에 하나씩 새로운 에이전트 시스템이 나온다.”
+특히 ide127이 지적하듯 “하루에 하나씩 새로운 에이전트 시스템이 나온다.”[^ide127]
 이 속도는 루프 설계에 투자하는 사람이 다음 주에는 다시 배워야 할 수도 있음을 의미한다.
 저자는 이 도구 불안정성(tooling instability)이 루프 투자의 매몰 비용을 어떻게 높이는지 다루지 않는다.
 
@@ -170,6 +178,7 @@ pixel_popping은 이 전환의 방향을 더 급진적으로 해석한다.[^pixe
 이것은 루프 엔지니어링이 반드시 주기적인 이해 복원(comprehension restoration) 사이클을 포함해야 함을 의미한다.
 루프를 돌리는 시간과 루프가 만든 것을 이해하는 시간이 균형을 이루지 않으면, 시스템은 점점 더 아무도 이해하지 못하는 코드베이스를 향해 수렴한다.
 이 균형을 어떻게 측정하고 유지할 것인가는 루프 엔지니어링이 아직 답을 제시하지 못한 질문이다.
+[Harness Engineering](./harness-engineering.md)이 말하는 “엔트로피 관리 에이전트”와 [하네스 엔지니어링 백과사전](./harness-engineering-encyclopedia.md)의 “Garbage Collection” 패턴이 이 문제에 대한 부분적 응답이다 — 코드 생성과 코드 정리를 별개 에이전트로 분리하는 단일 책임 원칙의 에이전트 수준 적용이지만, “이해”의 외재화는 여전히 미결 영역이다.
 
 ### 루프는 개인 도구가 아니라 팀 인프라다
 
@@ -190,3 +199,6 @@ pixel_popping은 이 전환의 방향을 더 급진적으로 해석한다.[^pixe
 [^pixel_popping]: <https://news.ycombinator.com/item?id=48520414>
 [^aocallaghan17c]: <https://news.ycombinator.com/item?id=48520841>
 [^saidnooneever]: <https://news.ycombinator.com/item?id=48516389>
+[^shakespeares]: <https://news.hada.io/topic?id=30336#cid59313>
+[^ultimategamer]: <https://news.hada.io/topic?id=30336#cid59336>
+[^ide127]: <https://news.hada.io/topic?id=30336#cid59359>
