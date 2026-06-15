@@ -54,6 +54,10 @@ Andrej Karpathy의 트윗:
 
 [박성철 - 코드를 작성과 관련해 컴퓨터 업계는 늘 둘로 나뉘어 있었다. | Facebook](https://www.facebook.com/fupfin.geek/posts/pfbid02cxgfujcuHJjumpGBM1BHopGKfe491D6DsMr33M1KMZimKmxo6vRLMWZCmJhJ4bJ6l)
 
+비판의 결을 정리한 글로 [Agentic Coding is a Trap](agentic-coding-is-a-trap.md)이 있다.
+이 글은 “감독의 역설(paradox of supervision)” — AI를 감독하려면 AI 사용으로 퇴화되는 바로 그 기술이 필요하다는 모순 — 을 통해 바이브 코딩의 구조적 함정을 짚는다.
+[AI 코딩은 도박이다](ai-coding-is-gambling.md)는 슬롯머신 비유로 “바이브에 몸을 맡기는” 체험이 왜 중독적인지를 인지적 관점에서 보완한다.
+
 ## Groundhog AI Coding Assistant
 
 <https://github.com/ghuntley/groundhog>
@@ -67,6 +71,11 @@ Andrej Karpathy의 트윗:
 <https://beyond.addy.ie/>
 
 <https://www.oreilly.com/library/view/beyond-vibe-coding/9798341634749/>
+
+## Kent Coding의 용어 지도
+
+용어들이 어떻게 분기했는지는 [AI 시대 코딩 용어 비교](ai-coding-terms.md)가 정리한다.
+바이브 코딩은 그 스펙트럼의 한쪽 극단일 뿐이며, Augmented Coding, Agentic Engineering 등이 동일한 문제 공간을 다른 각도에서 다룬다.
 
 ## Kent Beck의 Augmented Coding
 

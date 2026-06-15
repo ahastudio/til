@@ -1,6 +1,7 @@
 # 잠자는 동안 돌아가는 에이전트를 만들고 있다
 
-출처: [I'm Building Agents That Run While I Sleep](https://www.claudecodecamp.com/p/i-m-building-agents-that-run-while-i-sleep)
+출처:
+[I'm Building Agents That Run While I Sleep](https://www.claudecodecamp.com/p/i-m-building-agents-that-run-while-i-sleep)
 — Abhishek Ray, 2026-03-11
 
 ## 한 줄 요약
@@ -136,6 +137,11 @@ Playwright가 잡는 것은 통합 실패, 렌더링 버그,
 인수 조건 없이는 출력을 읽고
 맞기를 바라는 것밖에 할 수 없다.
 
+[Ralph Loop Setup](ralph-loop-setup.md)이 “통과 기준을 정확히 정의하는
+능력”을 새 시대의 핵심 역량으로 꼽는 것과 같은 결론이다.
+37시간 자율 실행이든 밤새 돌아가는 에이전트든, 신뢰의 전제는 동일하게
+“완료의 정의”를 미리 못박는 것에 있다.
+
 ### 2. 인수 조건 작성 > 프롬프트 작성
 
 프롬프트는 “뭘 만들어라”다.
@@ -147,6 +153,11 @@ Playwright가 잡는 것은 통합 실패, 렌더링 버그,
 **시작이 느리게 느껴진다.**
 
 ### 3. AI 자체 검증은 구조적으로 실패한다
+
+[장기 실행 애플리케이션 개발을 위한 하네스 설계](harness-design-long-running-apps.md)도
+생성자-평가자(GAN 영감) 분리를 같은 이유로 제안한다.
+자기 채점이 실패한다는 진단은 Anthropic 내부 실험과 100명 이상 워크숍 경험이
+독립적으로 도달한 같은 결론이다.
 
 작성자와 검증자가 같은 모델이면
 같은 오해를 공유한다.
@@ -167,6 +178,12 @@ Playwright가 잡는 것은 통합 실패, 렌더링 버그,
 확장되지 않는다.
 **실패한 인수 조건만 리뷰**하는 것이
 유일하게 확장 가능한 검증 방식이다.
+
+[loops! — 미리 만들어 둔 에이전트 루프 모음](loops-prebuilt-agent-loops.md)이
+지적한 “외부 오라클 vs 자기 채점”의 신뢰도 스펙트럼에서, 인수 조건 기반
+검증은 외부 오라클 쪽 끝에 자리한다.
+실패한 AC만 리뷰한다는 발상이 카탈로그의 De-Sloppify 류 루프가 닫히지
+않는 이유에 대한 처방이다.
 
 ### 6. 스펙이 틀리면 모든 게 무너진다
 

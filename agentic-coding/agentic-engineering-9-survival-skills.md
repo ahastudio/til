@@ -33,6 +33,9 @@ IndyDevDan 등의 실전 사례를 엮어 9가지 핵심 스킬로
 
 실천법: 파일 3-5개 수정, 15-30분 내 완료 가능한 범위로
 작업 단위를 쪼개는 감각을 키운다.
+이 분해 작업은 사실상 명세 작업의 마이크로 단위이며,
+[Spec-Driven Development](spec-driven-development.md)가 거시 워크플로 차원에서
+specify→plan→tasks로 강제하는 것과 같은 원리를 개인 작업 단위로 가져온 것이다.
 
 ### 2. 컨텍스트 설계 (Context Architecture)
 
@@ -61,6 +64,10 @@ Elvis의 7단계 DoD 체계가 극단을 보여준다: PR 생성 →
 main 동기화 → CI 통과 → Codex/Claude/Gemini 3중
 코드 리뷰 → UI 스크린샷. 모든 조건 충족 후에야
 텔레그램 알림.
+[AI Coding Agent Guidelines](ai-coding-agent-guidelines.md)가 “Verification
+Before Done”과 “검증 스토리(verification story)”를 완료 조건으로 못 박는 것도
+같은 처방이다 — 증거 없이는 완료가 아니라는 원칙은 에이전트의 자기 보고를
+신뢰할 수 없다는 인식의 산물이다.
 
 실천법: “테스트 통과 + 기존 테스트 미수정 + 리포트 제출”
 3줄을 기본 DoD로 설정한다.
@@ -146,6 +153,11 @@ Chris Lattner의 결론: **“구현의 자동화가 일어날수록,
 
 80%가 범람하는 시대에 차별화는 나머지 20%에서 나온다.
 그 20%는 기술이 아니라 감각의 영역이다.
+[2026년 시니어 개발자는 고급 코드 편집자인가](senior-developers-as-code-editors.md)에서
+Addy Osmani가 “70% 문제”로 부르는 것 — AI가 처리하는 70%와 인간이 마무리해야 할
+30% — 도 같은 구조다.
+AI 시대의 시니어는 코드 작성자가 아니라 평가자·편집자로 이동하며, 그 평가의
+가장 어려운 부분이 바로 이 감각의 영역이다.
 
 ## 분석
 
