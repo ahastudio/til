@@ -1,6 +1,6 @@
 # HERMES.md 커밋 메시지 과금 라우팅 버그
 
-원문: <https://github.com/anthropics/claude-code/issues/53262>
+<https://github.com/anthropics/claude-code/issues/53262>
 
 HN 토론: <https://news.ycombinator.com/item?id=47952722> (989점, 422개 댓글)
 

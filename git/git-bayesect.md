@@ -1,6 +1,6 @@
 # git-bayesect - 비결정적 버그를 베이지안으로 bisect하기
 
-> 원문: <https://github.com/hauntsaninja/git_bayesect>
+<https://github.com/hauntsaninja/git_bayesect>
 
 ## 요약
 

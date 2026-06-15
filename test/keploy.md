@@ -1,6 +1,6 @@
 # Keploy — 트래픽 기반 자동 API 테스트 생성기
 
-- 원문: <https://github.com/keploy/keploy>
+<https://github.com/keploy/keploy>
 
 ## 요약
 

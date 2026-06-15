@@ -1,6 +1,6 @@
 # Open Agents
 
-원문: <https://github.com/vercel-labs/open-agents>
+<https://github.com/vercel-labs/open-agents>
 
 ## 요약
 

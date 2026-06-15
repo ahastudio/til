@@ -1,6 +1,6 @@
 # OpenClaude: Claude Code 소스 유출로 탄생한 멀티 모델 포크
 
-원문: <https://github.com/Gitlawb/openclaude>
+<https://github.com/Gitlawb/openclaude>
 
 ## 요약
 

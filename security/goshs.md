@@ -1,6 +1,6 @@
 # goshs: 레드팀과 개발자를 위한 단일 바이너리 파일 서버
 
-원문: <https://github.com/patrickhener/goshs>
+<https://github.com/patrickhener/goshs>
 
 ## 소개
 

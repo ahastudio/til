@@ -1,6 +1,6 @@
 # Free Claude Code
 
-원문: <https://github.com/Alishahryar1/free-claude-code>
+<https://github.com/Alishahryar1/free-claude-code>
 
 ## 소개
 

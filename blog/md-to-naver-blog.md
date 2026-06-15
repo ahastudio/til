@@ -1,6 +1,6 @@
 # md-to-naver-blog - 마크다운을 네이버 블로그 호환 HTML로 변환
 
-원문: <https://github.com/jjlabsio/md-to-naver-blog>
+<https://github.com/jjlabsio/md-to-naver-blog>
 
 ## 요약
 

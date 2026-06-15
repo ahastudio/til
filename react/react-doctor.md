@@ -1,8 +1,8 @@
 # React Doctor
 
-원문: <https://github.com/millionco/react-doctor>
+<https://www.react.doctor/>
 
-웹사이트: <https://www.react.doctor/>
+<https://github.com/millionco/react-doctor>
 
 ## 소개
 

@@ -1,6 +1,6 @@
 # pi-autoresearch
 
-원문: <https://github.com/davebcn87/pi-autoresearch>
+<https://github.com/davebcn87/pi-autoresearch>
 
 ## 요약
 

@@ -1,6 +1,6 @@
 # ir - Rust 기반 로컬 마크다운 하이브리드 검색 엔진
 
-> 원문: <https://github.com/vlwkaos/ir>
+<https://github.com/vlwkaos/ir>
 
 ## 요약
 

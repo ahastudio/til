@@ -1,6 +1,6 @@
 # VoxCPM2: 토크나이저 없는 다국어 음성 합성 시스템
 
-원문: <https://github.com/OpenBMB/VoxCPM>
+<https://github.com/OpenBMB/VoxCPM>
 
 ## 요약
 

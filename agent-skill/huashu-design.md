@@ -1,6 +1,6 @@
 # Huashu Design — HTML-native 디자인 스킬
 
-원문: <https://github.com/alchaincyf/huashu-design>
+<https://github.com/alchaincyf/huashu-design>
 
 ## 소개
 

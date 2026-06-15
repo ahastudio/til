@@ -1,6 +1,6 @@
 # Pretext — DOM 없이 텍스트 높이를 측정하는 순수 JS 레이아웃 라이브러리
 
-> 원문: <https://github.com/chenglou/pretext>
+<https://github.com/chenglou/pretext>
 
 ## 요약
 

@@ -1,6 +1,6 @@
 # rtk - LLM 토큰 소비를 60~90% 줄여주는 CLI 프록시
 
-> 원문: <https://github.com/rtk-ai/rtk>
+<https://github.com/rtk-ai/rtk>
 
 ## 요약
 

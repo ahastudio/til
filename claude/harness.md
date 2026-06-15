@@ -1,6 +1,6 @@
 # Harness — Claude Code 에이전트 팀 & 스킬 아키텍트
 
-- 원문: <https://github.com/revfactory/harness>
+<https://github.com/revfactory/harness>
 
 ## 요약
 

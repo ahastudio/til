@@ -1,6 +1,6 @@
 # winclipshot - Windows 터미널에서 Ctrl+V로 스크린샷 붙여넣기
 
-원문: <https://github.com/Higangssh>
+<https://github.com/Higangssh/winclipshot>
 
 ## 요약
 

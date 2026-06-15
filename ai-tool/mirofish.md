@@ -1,6 +1,6 @@
 # MiroFish: 다중 에이전트 기반 예측 시뮬레이션 엔진
 
-원문: <https://github.com/666ghj/MiroFish>
+<https://github.com/666ghj/MiroFish>
 
 ## 요약
 

@@ -1,6 +1,6 @@
 # OpenHarness - Claude Code 아키텍처를 재현한 오픈소스 AI 에이전트 프레임워크
 
-원문: <https://github.com/HKUDS/OpenHarness>
+<https://github.com/HKUDS/OpenHarness>
 
 ## 요약
 

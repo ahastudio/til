@@ -1,6 +1,6 @@
 # rzweb - 브라우저 기반 리버스 엔지니어링 플랫폼
 
-원문: <https://github.com/indalok/rzweb>
+<https://github.com/indalok/rzweb>
 
 ## 요약
 

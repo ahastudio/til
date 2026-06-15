@@ -1,6 +1,6 @@
 # OpenAI의 Claude Code용 Codex 플러그인
 
-> 원문: <https://github.com/openai/codex-plugin-cc>
+<https://github.com/openai/codex-plugin-cc>
 
 ## 요약
 

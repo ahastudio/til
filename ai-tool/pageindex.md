@@ -1,7 +1,8 @@
 # PageIndex
 
-- 원문: <https://github.com/VectifyAI/PageIndex>
-- 사이트: <https://pageindex.ai/>
+<https://pageindex.ai/>
+
+<https://github.com/VectifyAI/PageIndex>
 
 ## 요약
 

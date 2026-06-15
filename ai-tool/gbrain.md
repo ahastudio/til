@@ -1,6 +1,6 @@
 # GBrain - Postgres + pgvector 기반 개인 지식 브레인
 
-> 원문: <https://github.com/garrytan/gbrain>
+<https://github.com/garrytan/gbrain>
 
 ## 목차
 

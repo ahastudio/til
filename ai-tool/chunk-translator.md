@@ -1,7 +1,9 @@
 # Chunk Translator 분석
 
-원문: <https://github.com/winterjung/chunk-translator>
-사이트: <https://translate.winterjung.dev/>
+<https://translate.winterjung.dev/>
+
+<https://github.com/winterjung/chunk-translator>
+
 GeekNews: <https://news.hada.io/topic?id=26628>
 
 ## 요약

@@ -1,6 +1,6 @@
 # iroh - 공개키 기반 P2P 네트워크 라이브러리
 
-원문: <https://github.com/n0-computer/iroh>
+<https://github.com/n0-computer/iroh>
 
 ## 요약
 

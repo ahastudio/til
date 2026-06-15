@@ -1,6 +1,6 @@
 # damn-my-slow-kt - KT 인터넷 SLA 보상 자동화 도구
 
-원문: <https://github.com/kargnas/damn-my-slow-kt>
+<https://github.com/kargnas/damn-my-slow-kt>
 
 ## 요약
 

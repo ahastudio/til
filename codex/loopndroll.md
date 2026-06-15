@@ -1,6 +1,6 @@
 # loopndroll - Codex 세션을 무한 연장하는 macOS 메뉴바 앱
 
-> 원문: <https://github.com/lnikell/loopndroll>
+<https://github.com/lnikell/loopndroll>
 
 ## 요약
 

@@ -1,6 +1,6 @@
 # kumo: Go로 작성된 경량 AWS 서비스 에뮬레이터
 
-원문: <https://github.com/sivchari/kumo>
+<https://github.com/sivchari/kumo>
 
 ## 소개
 

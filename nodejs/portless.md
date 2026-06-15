@@ -3,9 +3,11 @@
 > Replace port numbers with stable, named .localhost URLs.
 > For humans and agents.
 
-- 원문: <https://github.com/vercel-labs/portless>
-- 사이트: <https://port1355.dev/>
-- 최신 버전: v0.10.1 (2026년 4월)
+<https://port1355.dev/>
+
+<https://github.com/vercel-labs/portless>
+
+최신 버전: v0.10.1 (2026년 4월)
 
 ## 요약
 

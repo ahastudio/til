@@ -1,8 +1,8 @@
 # raylib: 즐겁게 게임을 만들기 위한 C 라이브러리
 
-원문: <https://github.com/raysan5/raylib>
+<https://www.raylib.com/>
 
-웹사이트: <https://www.raylib.com/>
+<https://github.com/raysan5/raylib>
 
 HN 토론: <https://news.ycombinator.com/item?id=36583743> (287점, 76개 댓글)
 

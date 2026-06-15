@@ -1,6 +1,6 @@
 # Awesome DESIGN.md
 
-원문: <https://github.com/VoltAgent/awesome-design-md>
+<https://github.com/VoltAgent/awesome-design-md>
 
 ## 요약
 

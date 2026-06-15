@@ -1,6 +1,6 @@
 # Modern Geek News - 긱뉴스를 모던하게 바꾸는 커스텀 CSS
 
-원문: <https://github.com/Su-Yong/modern-geek-news>
+<https://github.com/Su-Yong/modern-geek-news>
 
 ## 요약
 

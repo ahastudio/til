@@ -1,6 +1,6 @@
 # OpenMythos: Claude Mythos를 역설계한 오픈소스 구현
 
-원문: <https://github.com/kyegomez/OpenMythos>
+<https://github.com/kyegomez/OpenMythos>
 
 ## 요약
 

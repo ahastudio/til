@@ -1,6 +1,6 @@
 # Honker: SQLite 기반 Pub/Sub 및 작업 큐
 
-원문: <https://github.com/russellromney/honker>
+<https://github.com/russellromney/honker>
 
 ## 소개
 

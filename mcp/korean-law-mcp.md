@@ -1,6 +1,6 @@
 # Korean Law MCP
 
-- 원문: <https://github.com/chrisryugj/korean-law-mcp>
+<https://github.com/chrisryugj/korean-law-mcp>
 
 ## 요약
 

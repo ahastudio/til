@@ -1,6 +1,6 @@
 # pgmicro - SQLite 기반 인-프로세스 PostgreSQL
 
-원문: <https://github.com/glommer/pgmicro>
+<https://github.com/glommer/pgmicro>
 
 ## 요약
 

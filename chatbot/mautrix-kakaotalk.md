@@ -1,6 +1,8 @@
 # mautrix-kakaotalk — Matrix 클라이언트로 카카오톡 사용하기
 
-원문: <https://github.com/bf-dev>
+Show GN: [mautrix-kakaotalk - Matrix 클라이언트로 카카오톡을 쓰기 위한 브리지](https://news.hada.io/topic?id=28436)
+
+<https://github.com/bf-dev/mautrix-kakaotalk>
 
 ## 요약
 

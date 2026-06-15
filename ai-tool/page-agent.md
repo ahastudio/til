@@ -1,7 +1,8 @@
 # Page Agent
 
-- 원문: <https://github.com/alibaba/page-agent>
-- 사이트: <https://alibaba.github.io/page-agent/>
+<https://alibaba.github.io/page-agent/>
+
+<https://github.com/alibaba/page-agent>
 
 ## 요약
 

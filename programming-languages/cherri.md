@@ -1,6 +1,6 @@
 # Cherri - 애플 단축어를 코드로 작성하는 프로그래밍 언어
 
-원문: <https://github.com/electrikmilk/cherri>
+<https://github.com/electrikmilk/cherri>
 
 ## 요약
 
