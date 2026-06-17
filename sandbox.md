@@ -24497,3 +24497,226 @@
   - 놓치면 안 되는 핵심 포인트나 주의사항: 최적화 도구는 보안 기능이나 업데이트
     정책까지 바꿀 수 있으므로, 변경 전 백업과 diff 검토, 되돌리기 절차 없이는
     업무 장비에 적용하지 않아야 한다.
+
+## 2026-06-17 개발자 트렌드
+
+### 1. Humiliating IIS servers for fun and jail time
+
+- **출처**: Hacker News (top) / mll.sh —
+  <https://mll.sh/humiliating-iis-servers-for-fun-and-jail-time/>
+- **한 줄 요약**: IIS 서버에서 흔히 남는 설정 실수, shortname enumeration,
+  `web.config` 노출, reverse proxy path confusion을 실제 버그바운티 관점에서
+  정리했다.
+- **왜 주목받나**: HN에서 약 131점·27댓글을 기록했고, 오래된 IIS/.NET 배포
+  표면이 여전히 실전 공격면으로 남아 있다는 점이 보안 실무자에게 직접적이다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: Windows/IIS 기반 레거시 서비스는
+    단순히 패치 버전만 맞추는 것으로 충분하지 않고, 기본 파일, 백업 파일,
+    handler, reverse proxy 정규화 차이를 함께 점검해야 한다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 사내 자산 목록에서 IIS
+    응답 헤더, `_vti_bin`, `trace.axd`, `web.config` 백업 파일, ASP.NET
+    cookieless session 경로를 점검 항목으로 추가할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 공격자는 최신 CVE뿐
+    아니라 오래된 플랫폼의 “알려졌지만 방치된” 설정 취약점을 자동화해 더 넓게
+    스캔할 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 글의 기법은 방어 검증이나 허가된
+    테스트 범위에서만 사용해야 하며, 운영 서버에서는 WAF보다 원본 서버 설정과
+    배포 산출물 정리가 우선이다.
+
+### 2. TIL: You can make HTTP requests without curl using Bash /dev/TCP
+
+- **출처**: Hacker News (top) / Marek Šuppa —
+  <https://mareksuppa.com/til/bash-dev-tcp-http-without-curl/>
+- **한 줄 요약**: `curl`이 없는 컨테이너나 제한된 쉘에서도 Bash의 `/dev/tcp`로
+  HTTP 요청을 직접 만들 수 있음을 보여준다.
+- **왜 주목받나**: HN에서 약 306점·153댓글을 기록했고, 디버깅 도구가 빠진 최소
+  컨테이너 환경에서 바로 써먹을 수 있는 운영 팁이라 반응이 컸다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: distroless 이미지나 최소 베이스
+    이미지가 늘수록 네트워크 디버깅은 별도 도구 설치가 아니라 런타임 기본 기능을
+    이해하는 역량에 더 의존하게 된다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 장애 대응 runbook에
+    `exec 3<>/dev/tcp/host/port` 방식의 헬스체크와 간단한 HTTP 요청 예제를 넣어
+    임시 패키지 설치 없이 연결성을 확인할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 컨테이너 이미지는 계속
+    작아지고 보수적으로 잠길 가능성이 높아, `curl`, `dig`, `nc` 없이 확인하는
+    저수준 진단 패턴이 더 자주 필요해질 것이다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: `/dev/tcp`는 Bash 기능이므로 모든
+    쉘에서 동작하지 않고, TLS나 복잡한 HTTP 기능이 필요한 경우에는 전용 도구를
+    쓰는 것이 안전하다.
+
+### 3. Stop Using JWTs
+
+- **출처**: Hacker News (top) / GitHub Gist —
+  <https://gist.github.com/samsch/0d1f3d3b4745d778f78b230cf6061452>
+- **한 줄 요약**: 브라우저 로그인 세션을 JWT로 유지하는 관행을 비판하고,
+  일반적인 cookie session이 더 단순하고 안전한 기본 선택이라고 주장한다.
+- **왜 주목받나**: HN에서 약 288점·163댓글을 기록했고, 해당 Gist도 322 stars를
+  보이며 인증 설계의 오래된 논쟁이 다시 실무 토론으로 올라왔다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 인증 아키텍처를 설계할 때
+    “stateless”라는 표현만으로 JWT를 고르면 revoke, rotation, 탈취 대응,
+    localStorage 보관 문제가 운영 리스크로 돌아온다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 신규 웹 서비스에서는
+    HTTP-only, Secure, SameSite cookie 기반 세션을 기본값으로 두고, JWT는 짧은
+    수명의 서비스 간 전달이나 일회성 권한 증명에 한정해 검토할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 프론트엔드 중심 인증
+    템플릿도 JWT 만능 패턴에서 벗어나 서버 세션, BFF, OAuth token exchange처럼
+    역할을 분리하는 방향으로 정리될 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: cookie session도 CSRF, session
+    fixation, store availability를 설계해야 하므로 JWT를 버리는 것만으로 보안이
+    자동 완성되는 것은 아니다.
+
+### 4. GPT-NL: a sovereign language model for the Netherlands
+
+- **출처**: Hacker News (top) / TNO —
+  <https://www.tno.nl/en/digital/artificial-intelligence/gpt-nl/>
+- **한 줄 요약**: 네덜란드가 공공 가치, 언어 주권, 데이터 통제를 앞세운 국가
+  단위 LLM 프로젝트 GPT-NL을 추진하고 있다.
+- **왜 주목받나**: HN에서 약 154점·142댓글을 기록했고, 모델 성능보다 데이터
+  거버넌스와 국가별 AI 인프라 주권이 핵심 의제로 떠올랐기 때문이다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 공공기관·금융·의료처럼 데이터 국외
+    이전이 민감한 조직은 단순 API 품질보다 지역 규제, 학습 데이터 출처, 배포
+    위치를 모델 선택 기준에 포함해야 한다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: AI 도입 평가표에 데이터
+    보관 지역, 학습 사용 여부, 감사 가능성, 언어별 품질을 항목으로 추가해 상용
+    모델과 주권형 모델을 비교할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 범용 글로벌 모델과
+    별개로 국가·산업별 규제 요건을 만족하는 지역 특화 모델 및 호스팅 사업자가
+    늘어날 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 주권형 모델이라는 이름만으로 품질과
+    안전성이 보장되는 것은 아니므로, 실제 벤치마크와 운영 SLA, 업데이트 주기를
+    별도로 검증해야 한다.
+
+### 5. 10Gb/s Ethernet: switching to a Broadcom SFP+ module
+
+- **출처**: Hacker News (top) / Giles' blog —
+  <https://www.gilesthomas.com/2026/06/10g-ethernet-switching-to-broadcom-sfp-plus>
+- **한 줄 요약**: 10GbE 환경에서 Broadcom SFP+ 모듈로 전환하며 호환성, 발열,
+  링크 안정성을 실측 중심으로 다룬 홈랩 네트워크 글이다.
+- **왜 주목받나**: HN에서 약 114점·104댓글을 기록했고, 10GbE가 홈랩과 소규모
+  개발 인프라에서 현실적인 선택지가 되면서 하드웨어 호환성 경험담에 반응이
+  모였다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 로컬 빌드 캐시, NAS, 백업, 가상화
+    노드 간 데이터 이동이 많아질수록 네트워크 모듈 선택이 개발 생산성과 장애율에
+    직접 영향을 준다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 홈랩이나 소규모 사무실
+    10GbE 도입 전 NIC, SFP+ 모듈, 스위치 조합별 온도와 링크 negotiation을 테스트
+    목록으로 만들 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 로컬 AI, 대용량 미디어,
+    self-hosted CI가 늘면서 소비자·소규모 팀 영역에서도 2.5GbE를 넘어 10GbE 튜닝
+    지식이 더 보편화될 것이다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 저가 모듈은 호환성뿐 아니라 발열과
+    장기 안정성이 변수이므로, 단순 속도 측정 외에 장시간 부하 테스트와 냉각
+    여유를 확인해야 한다.
+
+### 6. Show HN: cuTile Rust: Safe, data-race-free GPU kernels in Rust
+
+- **출처**: Hacker News (top) / GitHub — <https://github.com/nvlabs/cutile-rs>
+- **한 줄 요약**: NVIDIA의 `cuTile Rust`는 Rust에서 안전한 tile 기반 GPU kernel
+  DSL과 host-side API를 제공하려는 실험적 프로젝트다.
+- **왜 주목받나**: HN에서 약 46점·12댓글을 기록했고, GitHub 저장소도 348 stars를
+  보이며 GPU 프로그래밍에 Rust의 안전성 모델을 적용하려는 흐름이 주목받았다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: GPU kernel 작성은 성능뿐 아니라
+    메모리 안전성과 데이터 경합 관리가 어려운데, Rust 기반 DSL은 이 영역의
+    오류를 타입과 API 설계로 줄이는 방향을 제시한다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: CUDA 코드가 많은 팀은
+    프로덕션 대체보다 작은 kernel PoC나 benchmark를 만들어 Rust DSL이 표현력과
+    성능을 어디까지 맞출 수 있는지 확인할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): GPU 개발은 CUDA C++
+    중심에서 Rust, Python DSL, MLIR 기반 컴파일러 등 더 안전하고 고수준인
+    프런트엔드로 분화될 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 초기 프로젝트는 컴파일러·런타임
+    제약과 CUDA 생태계 호환성이 변수이므로, 기존 CUDA 대비 성능과 디버깅 경험을
+    반드시 측정해야 한다.
+
+### 7. Qwen-Robot Suite: A Foundation Model Suite for Physical World Intelligence
+
+- **출처**: Hacker News (top) / Qwen — <https://qwen.ai/blog?id=qwen-robotsuite>
+- **한 줄 요약**: Qwen이 로봇과 물리 세계 지능을 겨냥한 foundation model suite를
+  공개하며 멀티모달·행동 모델 경쟁에 합류했다.
+- **왜 주목받나**: HN에서 약 131점·22댓글을 기록했고, LLM 경쟁이 텍스트·코딩을
+  넘어 실제 센서와 제어 영역으로 확장되는 신호로 받아들여졌다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 로봇, 제조, 물류, 실험 자동화
+    영역에서는 모델 API만 붙이는 수준이 아니라 시뮬레이션, 센서 데이터, 제어
+    안전성을 함께 다루는 소프트웨어 역량이 필요해진다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 실제 로봇 투입 전에
+    시뮬레이터와 공개 벤치마크에서 perception-action 파이프라인을 검증하고, 실패
+    사례를 로깅하는 evaluation harness를 만들 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 모델 제공자는 텍스트
+    추론 성능뿐 아니라 로봇용 데이터셋, policy 학습, 시뮬레이터 통합, 안전
+    평가까지 묶은 플랫폼 경쟁으로 이동할 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 물리 세계 모델은 오류 비용이 크므로
+    demo 성능을 곧바로 운영 신뢰도로 해석하지 말고, 안전 정지와 인간 감독 경계를
+    먼저 설계해야 한다.
+
+### 8. Making ast.walk 220x Faster
+
+- **출처**: Hacker News (top) / Reflex —
+  <https://reflex.dev/blog/why-ast-walk-when-you-can-ast-sprint/>
+- **한 줄 요약**: AI가 생성한 대량의 Python 코드를 빠르게 검사하기 위해
+  `ast.walk` 기반 linter를 220배 빠르게 개선한 과정을 설명한다.
+- **왜 주목받나**: HN에서 약 97점·16댓글을 기록했고, AI 코드 생성 후 검증
+  latency를 줄이는 구체적인 엔지니어링 사례라 실용성이 높았다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: AI 코드 생성 파이프라인에서는 생성
+    속도보다 검증, lint, compile feedback loop의 병목이 사용자 경험을 좌우하게
+    된다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 사내 코드 생성 도구나
+    migration script에서 AST 전체 순회 비용을 측정하고, 필요한 node만 방문하는
+    visitor나 pre-filter 구조로 바꿔볼 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): AI 개발 도구는 모델
+    호출 최적화뿐 아니라 생성물 검증 엔진, incremental linting, 빠른 실패
+    리포팅을 제품 차별점으로 삼게 될 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 성능 최적화가 rule coverage를 줄이면
+    오히려 위험하므로, benchmark와 함께 누락된 AST node 유형을 잡는 회귀
+    테스트가 필요하다.
+
+### 9. teslamate-org / teslamate
+
+- **출처**: GitHub Trending (오늘) —
+  <https://github.com/teslamate-org/teslamate>
+- **한 줄 요약**: TeslaMate는 Tesla 차량 데이터를 Postgres, Grafana, MQTT로
+  self-hosted 방식으로 기록·시각화하는 Elixir 기반 도구다.
+- **왜 주목받나**: GitHub Trending에서 8.4k stars, 956 forks, 215 stars today를
+  기록했고, 2026년 6월 14일 v4.0.1 릴리스 이후 self-hosted 데이터 로거 관심이
+  다시 커졌다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 개인용 IoT 데이터도 외부 SaaS에
+    전부 맡기지 않고 Postgres, Grafana, MQTT 같은 표준 구성요소로 직접
+    운영하려는 흐름이 강해진다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 차량 데이터가 없더라도
+    Elixir 서비스, time-series 저장, Grafana dashboard, MQTT event publishing을
+    묶은 self-hosted 관측성 아키텍처 사례로 분석할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 소비자 기기 데이터는
+    로컬 보관, 홈 자동화 연동, 장기 분석 요구와 결합하면서 범용 self-hosted
+    telemetry 패턴으로 확장될 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 차량 계정과 위치 데이터는 민감
+    정보이므로 공식 저장소 사용, 네트워크 격리, 백업 암호화, AGPL 라이선스
+    조건을 반드시 확인해야 한다.
+
+### 10. Universal-Debloater-Alliance / universal-android-debloater-next-generation
+
+- **출처**: GitHub Trending (오늘) —
+  <https://github.com/Universal-Debloater-Alliance/universal-android-debloater-next-generation>
+- **한 줄 요약**: Rust 기반 크로스플랫폼 GUI로 ADB를 사용해 non-rooted Android
+  기기의 불필요한 앱을 정리하고 프라이버시와 배터리 사용을 개선하는 도구다.
+- **왜 주목받나**: GitHub Trending에서 7.3k stars, 315 forks, 146 stars today를
+  기록했고, Android 배포 통제와 OEM 앱 프라이버시 이슈가 맞물리며 관심이 커졌다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 모바일 테스트 장비와 업무용
+    Android 단말도 기본 탑재 앱, telemetry, background service를 통제해야 재현
+    가능한 성능·보안 테스트 환경이 된다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 테스트 랩 단말의
+    baseline을 만들 때 제거 대상 패키지 목록과 ADB 절차를 문서화하고, 변경 전후
+    배터리·네트워크·로그 차이를 측정할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 모바일 프라이버시와
+    공급망 통제가 강화되면서, 단말 초기화 후 표준 상태를 만드는 오픈소스
+    provisioning 도구 수요가 더 커질 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 패키지 제거는 OTA 업데이트, 푸시
+    알림, 제조사 기능, MDM 정책에 영향을 줄 수 있으므로 업무 장비에는 승인된
+    목록과 되돌리기 절차를 먼저 마련해야 한다.
