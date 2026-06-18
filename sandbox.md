@@ -24720,3 +24720,230 @@
   - 놓치면 안 되는 핵심 포인트나 주의사항: 패키지 제거는 OTA 업데이트, 푸시
     알림, 제조사 기능, MDM 정책에 영향을 줄 수 있으므로 업무 장비에는 승인된
     목록과 되돌리기 절차를 먼저 마련해야 한다.
+
+## 2026-06-18 개발자 트렌드
+
+### 1. Lore - Open source version control system designed for scalability
+
+- **출처**: Hacker News (top) / Lore — <https://lore.org/>
+- **한 줄 요약**: Epic Games가 대형 바이너리 자산과 대규모 팀을 겨냥한
+  content-addressed 중앙집중형 버전관리 시스템 Lore를 공개했다.
+- **왜 주목받나**: HN에서 약 1,093점·585댓글을 기록했고, Git이 약한 대형
+  게임·미디어 저장소 문제를 오픈소스로 정면 대응한다는 점이 큰 토론을 만들었다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 코드와 대형 바이너리 자산을 같은
+    변경 이력 안에서 관리해야 하는 팀은 Git LFS나 Perforce 의존도를 다시
+    평가하게 될 수 있다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 대형 monorepo, 게임
+    에셋, 디자인 산출물 저장소에서 sparse workspace와 on-demand hydration이 빌드
+    시간과 클론 비용을 얼마나 줄이는지 PoC로 측정할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 버전관리는 단순 분산
+    저장소보다 content-addressed storage, Merkle tree, 대형 파일 deduplication,
+    언어별 SDK를 갖춘 플랫폼형 도구로 분화될 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 기존 Git 워크플로와 CI, 코드리뷰,
+    권한관리, 백업 체계를 한 번에 바꿔야 하므로 도구 성능보다 마이그레이션
+    비용과 팀 습관 변경 리스크를 먼저 계산해야 한다.
+
+### 2. RFC 10008: The HTTP QUERY Method
+
+- **출처**: Hacker News (top) / RFC Editor —
+  <https://www.rfc-editor.org/rfc/rfc10008.html>
+- **한 줄 요약**: IETF가 요청 본문을 가진 safe·idempotent HTTP 질의를 표현하는
+  `QUERY` 메서드를 표준 RFC로 발표했다.
+- **왜 주목받나**: HN에서 약 354점·151댓글을 기록했고, 긴 검색 조건을 `GET`
+  URL에 억지로 넣거나 `POST`로 의미를 흐리는 오래된 API 설계 문제가 다시
+  부각됐다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 검색 API, GraphQL 유사 질의, 분석
+    쿼리, 필터가 긴 REST 엔드포인트에서 메서드 의미와 캐싱 전략을 더 명확히
+    설계할 수 있게 된다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 신규 API에서는 `GET` URL
+    길이 한계와 `POST` 재시도 semantics가 충돌하는 지점을 찾아 `QUERY` 지원
+    여부를 실험하고, 프록시·캐시·SDK가 미지원일 때의 fallback을 함께 설계할 수
+    있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 표준화 직후에는 인프라
+    지원이 느리겠지만, API gateway와 HTTP client가 따라오면 검색형 API의 기본
+    선택지로 자리 잡을 가능성이 있다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 표준이 나왔다고 즉시 배포 가능한 것은
+    아니며, 중간 프록시, WAF, observability 도구가 낯선 HTTP 메서드를 차단하거나
+    잘못 로깅할 수 있다.
+
+### 3. AI demands more engineering discipline. Not less
+
+- **출처**: Hacker News (top) / Charity Majors —
+  <https://charitydotwtf.substack.com/p/ai-demands-more-engineering-discipline>
+- **한 줄 요약**: AI 코딩 도구를 쓸수록 테스트, 관측성, 배포 안전장치 같은 기본
+  엔지니어링 discipline이 더 중요해진다는 주장이다.
+- **왜 주목받나**: HN에서 약 375점·185댓글을 기록했고, AI 생산성 논의가 코드
+  생성량 중심에서 검증·운영 책임 중심으로 이동하고 있음을 보여줬다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: AI가 만든 변경이 늘수록 리뷰어는
+    구현 의도보다 테스트 증거, blast radius, rollback 가능성, 로그와 metric을 더
+    강하게 요구하게 된다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: AI 생성 PR 템플릿에
+    테스트 결과, 관측성 변경, 실패 시 되돌리기 절차, 사람이 검토한 경계를 필수
+    항목으로 넣을 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): AI 개발 도구의 경쟁력은
+    코드 작성 능력만이 아니라 verification harness, CI 통합, 자동 회귀 분석,
+    운영 피드백 루프를 얼마나 잘 묶는지로 이동할 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: AI를 속도 도구로만 도입하면 미검증
+    변경이 누적되므로, 생성량을 KPI로 삼기보다 결함률과 복구 시간을 함께 봐야
+    한다.
+
+### 4. Image Compression
+
+- **출처**: Hacker News (top) / Making Software —
+  <https://www.makingsoftware.com/chapters/image-compression>
+- **한 줄 요약**: 이미지 압축의 기본 원리와 포맷별 trade-off를 소프트웨어
+  엔지니어가 이해하기 쉽게 정리한 기술 글이다.
+- **왜 주목받나**: HN에서 약 195점·28댓글을 기록했고, 프론트엔드 성능과 미디어
+  파이프라인에서 매일 마주치는 주제를 원리 중심으로 설명해 실용성이 높았다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 이미지 최적화는 단순히 파일 크기를
+    줄이는 작업이 아니라 품질, 디코딩 비용, 캐시 효율, 네트워크 지연을 함께
+    조정하는 성능 설계 문제가 된다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 서비스의 이미지 업로드와
+    배포 파이프라인에서 JPEG, PNG, WebP, AVIF 변환 기준과 quality preset을 실제
+    시각 품질·용량·디코딩 시간 기준으로 다시 잡을 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 브라우저와 CDN이 더
+    많은 포맷 협상을 자동화하더라도, 제품별 품질 기준과 fallback 정책은
+    애플리케이션 팀이 직접 관리해야 할 가능성이 크다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 압축률만 보고 포맷을 바꾸면 저사양
+    기기의 디코딩 지연이나 색상·투명도 손실이 생길 수 있으므로 RUM 지표와 실제
+    샘플 비교가 필요하다.
+
+### 5. Launch HN: Adam - Open-Source AI CAD
+
+- **출처**: Hacker News (top) / GitHub — <https://github.com/adam-cad/adam>
+- **한 줄 요약**: Adam은 AI 기반 CAD 워크플로를 오픈소스로 구현하려는
+  프로젝트로, 설계 자동화와 엔지니어링 도구의 AI 접목을 보여준다.
+- **왜 주목받나**: HN에서 약 177점·84댓글을 기록했고, 코드 생성 중심 AI가 CAD와
+  제조 설계 도메인으로 확장되는 흐름이라 관심을 모았다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: CAD 자동화가 API와 스크립팅
+    중심에서 자연어·제약 기반 설계 보조로 확장되면 기계·하드웨어 팀의
+    프로토타이핑 속도가 달라질 수 있다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 내부 부품 설계나 3D
+    프린팅 워크플로에서 반복 치수 변경, 파라메트릭 모델 생성, 설계 후보 비교를
+    자동화하는 실험 대상으로 삼을 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 개발자 도구에서 검증된
+    agentic workflow가 CAD, EDA, 시뮬레이션처럼 구조화된 전문가 도구로 계속
+    이동할 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 물리 설계는 오류 비용이 크므로 AI가
+    생성한 모델을 제조 가능성, 공차, 재료, 안전 기준으로 별도 검증해야 한다.
+
+### 6. Clojure Hosted on Go
+
+- **출처**: Hacker News (top) / GitHub —
+  <https://github.com/glojurelang/glojure>
+- **한 줄 요약**: Glojure는 Go 런타임 위에서 동작하는 Clojure 인터프리터와 확장
+  가능한 interop 모델을 제공한다.
+- **왜 주목받나**: HN에서 약 108점·13댓글을 기록했고, Go 생태계에서 Lisp 계열의
+  표현력과 데이터 중심 프로그래밍을 접목하려는 시도라 언어 구현 관심층의 반응을
+  얻었다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: Go 서비스 안에서 DSL, 설정 언어,
+    동적 확장 포인트가 필요할 때 별도 JVM 없이 Clojure식 데이터·매크로 모델을
+    고려할 수 있는 선택지가 생긴다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 정책 엔진, 빌드 규칙,
+    데이터 변환 DSL처럼 Go 바이너리 안에서 동적 표현식이 필요한 영역에 작은
+    플러그인 실험으로 붙여볼 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 정적 컴파일 언어 위에
+    embeddable language를 얹어 운영 안정성과 확장성을 동시에 얻으려는 패턴이
+    계속 늘어날 가능성이 있다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 동적 언어를 내장하면 sandboxing, 성능
+    예측, 디버깅, API 호환성 문제가 생기므로 실행 권한과 리소스 한계를 먼저
+    정해야 한다.
+
+### 7. x86 AI Compute Extensions (ACE) Specification
+
+- **출처**: Hacker News (top) / x86 Ecosystem —
+  <https://x86ecosystem.org/specifications/ace/AI-Compute-Extensions/>
+- **한 줄 요약**: x86 진영이 AI 연산 확장을 위한 ACE 명세를 공개하며 CPU 기반 AI
+  실행 경로를 표준화하려는 움직임을 보였다.
+- **왜 주목받나**: HN에서 약 28점·13댓글을 기록했고, GPU·NPU 중심 AI 가속 경쟁
+  속에서 CPU ISA가 어떤 역할을 되찾을지에 대한 기술적 관심이 붙었다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 로컬 추론, edge inference,
+    fallback execution에서는 GPU가 없거나 바쁜 상황에도 CPU 벡터·행렬 명령을
+    적극 활용하는 코드 경로가 중요해진다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: inference runtime이나
+    수치 라이브러리를 운영한다면 CPU feature detection과 dispatch 계층을
+    정리하고, AVX 계열·AMX 계열·신규 확장별 벤치마크 매트릭스를 준비할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): AI 가속은 전용 GPU만의
+    문제가 아니라 CPU, NPU, GPU를 workload별로 고르는 heterogeneous runtime
+    경쟁으로 더 세분화될 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 명세 발표와 실제 배포
+    하드웨어·컴파일러 지원 사이에는 시차가 있으므로, feature flag와 fallback
+    경로 없이 전제하면 배포 호환성 문제가 생길 수 있다.
+
+### 8. DeusData / codebase-memory-mcp
+
+- **출처**: GitHub Trending (오늘) —
+  <https://github.com/DeusData/codebase-memory-mcp>
+- **한 줄 요약**: `codebase-memory-mcp`는 코드베이스를 persistent knowledge
+  graph로 인덱싱해 AI 코딩 에이전트가 구조적 질의를 빠르게 수행하도록 돕는 MCP
+  서버다.
+- **왜 주목받나**: GitHub Trending에서 약 5.9k stars, 508 forks, 371 stars
+  today를 기록했고, 에이전트의 파일별 탐색 토큰 비용을 줄이려는 실무 수요와
+  맞물렸다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 대형 코드베이스에서 AI 에이전트의
+    병목은 모델 성능뿐 아니라 코드 검색, call graph 이해, 영향 범위 추적을
+    얼마나 싸게 제공하느냐로 이동한다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: monorepo나 서비스 여러
+    개가 얽힌 저장소에 붙여 architecture query, dead code 탐지, cross-service
+    route 추적이 기존 `rg`·LSP 조합보다 나은지 비교할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): AI 코딩 도구는 단순
+    context window 확장보다 로컬 인덱스, 그래프 DB, LSP, MCP를 조합한 검색
+    계층을 기본 구성요소로 삼을 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 코드 전체를 읽고 에이전트 설정을
+    바꾸는 도구이므로 바이너리 신뢰성, 로컬 처리 여부, 권한 범위, 생성된 설정
+    diff를 반드시 검토해야 한다.
+
+### 9. nautechsystems / nautilus_trader
+
+- **출처**: GitHub Trending (오늘) —
+  <https://github.com/nautechsystems/nautilus_trader>
+- **한 줄 요약**: NautilusTrader는 Rust 기반 deterministic event-driven
+  architecture로 research, simulation, live execution을 연결하는 오픈소스
+  trading engine이다.
+- **왜 주목받나**: GitHub Trending에서 약 23.9k stars, 3k forks, 98 stars
+  today를 기록했고, Python 전략 로직과 Rust 실행 엔진을 분리한 설계가
+  성능·안정성 관점에서 눈에 띄었다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 금융·거래 시스템뿐 아니라 이벤트
+    기반 시뮬레이션과 실시간 실행이 함께 필요한 도메인에서
+    research-to-production parity를 구현하는 구조적 사례가 된다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 백테스트와 실거래 코드가
+    갈라지는 문제를 겪는 팀은 deterministic time model, adapter 경계,
+    Rust/Python 역할 분리를 아키텍처 참고자료로 삼을 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 성능 민감 도메인은
+    Python 생산성과 Rust 실행 안전성을 결합하는 하이브리드 구조를 더 많이 채택할
+    가능성이 있다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 거래 엔진은 기술적으로 좋아 보여도
+    venue adapter, 데이터 품질, 지연 측정, 장애 복구, 규제·리스크 통제 없이는
+    운영에 바로 넣기 어렵다.
+
+### 10. calesthio / OpenMontage
+
+- **출처**: GitHub Trending (오늘) — <https://github.com/calesthio/OpenMontage>
+- **한 줄 요약**: OpenMontage는 12개 pipeline, 52개 도구, 500개 이상의 agent
+  skill을 묶어 AI 코딩 어시스턴트로 영상 제작 워크플로를 오케스트레이션하려는
+  프로젝트다.
+- **왜 주목받나**: GitHub Trending에서 약 5.4k stars, 1k forks, 98 stars today를
+  기록했고, AI 에이전트가 코드 작성 밖의 멀티미디어 제작 pipeline으로 확장되는
+  사례라 관심을 받았다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 영상 생성은 단일 모델 호출보다
+    스크립트, 이미지, 음성, 편집, 품질 검사를 연결하는 orchestration 문제가 되며
+    일반적인 에이전트 워크플로 설계와 닮아간다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 마케팅 영상, 튜토리얼,
+    제품 데모 제작을 자동화하려는 팀은 전체 도입보다 asset 생성, FFmpeg 후처리,
+    QA 단계 같은 개별 pipeline부터 분리해 실험할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): AI 콘텐츠 도구는 모델
+    품질 경쟁에서 벗어나 재현 가능한 pipeline, human review, 품질 gate, 라이선스
+    추적을 제공하는 제작 시스템으로 발전할 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: AGPL 라이선스, 외부 모델·음성 API
+    비용, 생성물 저작권, 브랜드 가이드라인 위반 여부를 검토하지 않으면 업무
+    자동화로 쓰기 어렵다.
