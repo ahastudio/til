@@ -1,6 +1,6 @@
 # 모두의 창업 개인정보 유출 사건
 
-원문: <https://www.modoo.or.kr/notice/30>
+원문: [\[공지\] 「모두의 창업」 이용자 개인정보 유출에 대한 깊은 사과의 글](https://www.modoo.or.kr/notice/30)
 
 ## 요약
 
