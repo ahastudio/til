@@ -1,6 +1,6 @@
 # Self-Hosting-Guide: 자가 호스팅 큐레이션 저장소
 
-원문: <https://github.com/mikeroyal/Self-Hosting-Guide>
+<https://github.com/mikeroyal/Self-Hosting-Guide>
 
 HN 토론: <https://news.ycombinator.com/item?id=33312336> (143점, 72개 댓글)
 
