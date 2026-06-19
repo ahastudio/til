@@ -5,22 +5,22 @@
 
 Chatbots Magazine
 
-- https://chatbotsmagazine.com/
+- <https://chatbotsmagazine.com/>
 
 ## 관련 서비스
 
 API.AI - Conversational UX Platform for products and services
 
-- https://api.ai/
+- <https://api.ai/>
 
 chatbots.io
 
-- http://chatbots.io/
+- <http://chatbots.io/>
 
 Flow XO: Bot platform for cross-platform business messaging apps
 
-- https://flowxo.com/
+- <https://flowxo.com/>
 
 Chatfuel - Create a Facebook AI Chatbot Without Coding
 
-- https://chatfuel.com/
+- <https://chatfuel.com/>
