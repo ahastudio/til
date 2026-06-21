@@ -1,10 +1,13 @@
 ---
 name: analyze-article
 description:
-  Read a web article and write a TIL document (in Korean) that includes a
-  summary, analysis, critique, and insights. Takes a URL as an argument. Use
-  when the user asks to analyze an article, document it, or organize a
-  technical post.
+  Read a web source — an article OR a non-article (GitHub repo, project
+  homepage, service site) — and write a TIL document (in Korean) with
+  analysis, critique, and insights. Articles get a `원문:` source line and a
+  `## 요약` section; non-articles get bare URL line(s) with NO `원문:` label
+  and a fitting first heading like `## 소개`. Takes a URL as an argument. Use
+  when the user asks to analyze an article/repo/site, document it, or organize
+  a technical post.
 argument-hint: '<url> [output-path]'
 disable-model-invocation: true
 ---
@@ -36,9 +39,73 @@ Fetch the content of the $0 URL with WebFetch.
 Use Glob and Grep to check whether a document on the same topic already exists
 in the TIL. If one exists, notify the user and stop.
 
-### 3. Write the document
+### 3. Classify the subject — article vs. non-article (CRITICAL)
 
-Write a markdown document with the following structure:
+**Before writing anything, decide what the source actually IS. This decision
+controls the source-link line AND the first section heading. Getting it wrong
+is a defect, not a style choice.**
+
+There are two kinds of subjects:
+
+- **Article / blog post / news / paper** — the source is a *piece of writing*
+  by an author making an argument. Examples: a blog post, a newsletter issue,
+  a news story, an academic paper, an essay, a documentation *article* that
+  reads as prose.
+
+- **Non-article** — the source is a *thing you use or explore*, not a piece of
+  writing. Examples: a GitHub repository, a project/product homepage, a
+  library or framework landing page, a service marketing site, an API
+  reference index, a tool's docs root.
+
+When in doubt, ask: "Is there an author advancing a thesis I can summarize, or
+am I describing a tool/project/site?" A README that pitches a product is a
+**non-article** (it describes the project), even though it contains prose.
+
+### 4. Source-link line — STRICT RULE (NO EXCEPTIONS)
+
+**This is the rule most often gotten wrong. Follow it exactly.**
+
+- **Article** → put a labeled source line directly under the title:
+
+  ```markdown
+  원문: <URL>
+  ```
+
+- **Non-article (GitHub repo, homepage, service site, etc.)** → **NEVER write
+  `원문:`.** An `원문:` label means "original *writing*," which a repo or
+  homepage is not. Instead, place the bare URL(s) under the title with no
+  label:
+
+  ```markdown
+  <https://github.com/org/project>
+  ```
+
+  If the subject has both a homepage and a repo, list both as separate bare
+  URL lines (homepage first, then repo), each on its own line separated by a
+  blank line.
+
+There is ZERO case where a GitHub repository or a product/service homepage
+gets an `원문:` label. If you catch yourself typing `원문:` for a repo or a
+homepage, STOP — you misclassified the subject in step 3.
+
+### 5. Choose the first section heading
+
+The first top-level section depends on the same classification:
+
+- **Article** → `## 요약` (summary).
+- **Non-article** → do NOT use `## 요약`. Choose a heading that fits what the
+  section actually covers — e.g. `## 소개`, `## 명세`, `## 사용법`,
+  `## 주요 기능`, `## CLI`. A single subject may warrant multiple top-level
+  sections if its content naturally splits.
+
+Regardless of subject type, always include `## 분석`, then `## 비평`
+immediately after, and end with `## 인사이트`.
+
+### 6. Write the document
+
+Write a markdown document with the following structure. **The `원문:` line and
+`## 요약` heading shown below apply to ARTICLES ONLY — for non-articles,
+substitute per steps 4 and 5.**
 
 ```markdown
 # Title
@@ -118,25 +185,25 @@ What to avoid:
 Write at least 3 insights. 4 is better if the subject warrants it.
 ```
 
-### 4. Writing rules
+### 7. Writing rules
 
 - Follow the writing guidelines in AGENTS.md (heading spacing, table
   alignment, line breaks, etc.).
 - Write in Korean. Technical terms may be written alongside their original
   English form.
-- Each section must do different work: 요약 reports, 분석 explains,
+- Each section must do different work: 요약/소개 reports, 분석 explains,
   비평 challenges, 인사이트 extends. Do not let sections overlap.
 - The document should read as if written by someone who disagrees with
-  parts of the article and has thought carefully about why.
+  parts of the source and has thought carefully about why.
 - Maintain the same tone and depth as existing TIL documents.
 
-### 5. Output
+### 8. Output
 
 If $1 is provided, create the file at that path.
 If it is not provided, propose an appropriate directory and filename and
 confirm with the user.
 
-### 6. Post-processing
+### 9. Post-processing
 
 After creating the file, invoke the `quotes-curly` skill via the Skill tool
 with the output file path as the argument. Show the conversion result to the
