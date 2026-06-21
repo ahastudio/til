@@ -49,7 +49,7 @@ Claude in Chrome·Claude in Excel·Claude in PowerPoint가 명시된다. Claude 
 
 이 규칙이 별도 섹션으로 독립된 이유는 AI 저작권 소송의 흐름과 무관하지 않아
 보인다. 모델 추론 시점에 저작권 준수를 강제하는 것은 학습 데이터 수준의
-처리와 별개 레이어다. 법적 책임 관리의 일환으로 시스템 프롬프트에 박아 넣은
+처리와 별개 레이어다. 법적 책임 관리의 일환으로 시스템 프롬프트에 넣은
 것으로 읽힌다.
 
 ### "Claudeception" — 아티팩트 안에서 Claude API 호출

@@ -74,7 +74,7 @@ andrewflnr는 “첫 문단은 도대체 어떤 종류의 키인지부터 밝혀
 가장 많이 추천받은 정신 모델은 “네트워크 계층이 아니라 애플리케이션 계층의
 Tailscale”이다.[^apitman]
 apitman은 앱 개발자 관점에서 이 비유를 풀어낸다 — Tailscale 기능을 앱에 직접
-박아 넣으면 사용자가 Tailscale 계정을 만들 필요도, 앱이 Tailscale에 종속될
+넣으면 사용자가 Tailscale 계정을 만들 필요도, 앱이 Tailscale에 종속될
 필요도 없으며, 공개 릴레이로 시작했다가 앱이 커지면 자체 릴레이로 “스위치 한
 번” 전환하면 된다는 것이다.
 프로덕션에서 iroh를 쓰는 colinmarc도 “Rust 크레이트로 제공되는 Tailscale식 홀

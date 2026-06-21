@@ -63,7 +63,7 @@ well matters more than connecting everything)”다.
 표면적으로 MCP와 Skills는 둘 다 “에이전트에 도구를 제공한다”는 같은 일을
 하는 듯 보인다.
 그러나 본질적 차이는 로드 시점이다.
-MCP는 연결 시점에 모든 도구 정의를 컨텍스트에 박는 “eager loading”이고,
+MCP는 연결 시점에 모든 도구 정의를 컨텍스트에 넣는 “eager loading”이고,
 Skills는 필요한 시점에만 지시문을 가져오는 “lazy loading”이다.
 이는 운영체제의 paging 개념과 같다 — 메모리가 크면 eager가 빠르지만, 메모리
 가 압박을 받으면 lazy가 유일한 답이다.

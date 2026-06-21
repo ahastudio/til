@@ -15,7 +15,7 @@ advisor는 전체 대화(모든 도구 호출과 결과 포함)를 받고 가이
 모델은 advisor 역할만이 아니라 메인 역할도 지원 목록이 정해져 있고(Opus 4.6+, Sonnet 4.6, Haiku 4.5, 그리고 v2.1.170+에서 Fable 5), advisor는 항상 메인보다 같거나 더 유능해야 한다.
 
 설정 경로는 세 가지다 — 세션 내 `/advisor` 명령(선택을 사용자 설정에 영구 저장), 설정 파일의 `advisorModel` 키, 그리고 단발 세션용 `--advisor` 플래그.
-세션 안에서 `/advisor opus`처럼 직접 지정하거나, settings에 `{“advisorModel”: “opus”}`로 박아 두거나, `claude --advisor opus`로 일회성으로 켤 수 있다.
+세션 안에서 `/advisor opus`처럼 직접 지정하거나, settings에 `{“advisorModel”: “opus”}`로 저장하거나, `claude --advisor opus`로 일회성으로 켤 수 있다.
 플래그가 설정 파일보다 우선하며, 메인 모델이 advisor를 지원하지 않으면 `/advisor`는 선택만 저장하고 비활성 상태로 두지만 `--advisor`는 오류로 종료한다.
 서브에이전트는 부모와 동일한 advisor 설정을 상속하되, 자기 모델 기준으로 페어링 적합성을 다시 검사한다.
 

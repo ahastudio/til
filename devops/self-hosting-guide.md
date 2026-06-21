@@ -59,7 +59,7 @@ README의 각 항목이 한두 문장 수준의 정의로만 채워져 있어도
 이는 awesome-list 형식이 가진 구조적 인플레이션 압력이다.
 빠지면 안 되는 도구를 추가하는 것은 쉽고, 빼는 것은 어렵다.
 
-### 추천 도구 셋은 “현재 시점의 합의”를 그대로 박제한다
+### 추천 도구 셋은 “현재 시점의 합의”를 그대로 고정한다
 
 이 저장소가 권하는 도구 셋(Docker, Kubernetes, WireGuard, Tailscale, Grafana, Nextcloud, Home Assistant)은
 현재 자가 호스팅 커뮤니티의 사실상 합의에 매우 가깝다.

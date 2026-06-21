@@ -81,7 +81,7 @@ Rollup이 좋을 겁니다.
 
 여러분과 라이브러리 개발자가 하나의 모듈 시스템에 효과적으로 동의해야 하기
 때문에, JavaScript 라이브러리를 쓰는 건 오랫동안 문제였습니다. Browserify를
-쓰는데 AMD를 선호하는 사람이 있다면 빌드하기 전에 삽질(duct tape thing)을 해야
+쓰는데 AMD를 선호하는 사람이 있다면 빌드하기 전에 임시 조정(duct tape thing)을 해야
 했습니다. 이 문제를 해결하려고 [UMD](https://github.com/umdjs/umd)가 있지만,
 쓰는 곳이 없어서 전혀 알 수 없었습니다.
 
