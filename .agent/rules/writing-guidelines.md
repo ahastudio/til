@@ -5,6 +5,39 @@ paths:
 
 # Writing Guidelines
 
+## Forbidden Vocabulary — 박다 계열 (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**NEVER use the verb `박다` or any of its conjugated or compound forms in TIL
+prose.** This verb carries a coarse, crude, and unpleasant connotation in
+Korean that does not fit the tone of these documents. Its use is a defect, not
+a style choice.
+
+Forbidden forms include, but are NOT limited to:
+
+- `박다`, `박는다`, `박지`, `박았다`, `박은`, `박힌`, `박혀`, `박혀 있다`
+- `박아 넣다` / `박아넣다`, `박아 두다` / `박아두다`
+- `박제`, `박제하다`, `박제되다`
+
+This list is illustrative, not exhaustive. Any word built on the `박-` stem
+with this "drive in / nail in / embed" meaning is forbidden, even forms not
+spelled out above.
+
+Use a plainer verb that states the actual meaning instead:
+
+- embedding / inserting → `넣다`, `삽입하다`, `포함하다`
+- persisting / remaining → `남다`, `남기다`, `유지되다`
+- imprinting on memory → `각인시키다`, `각인되다`
+- repeating for emphasis → `반복하다`, `강조하다`
+- hardcoding → `하드코딩하다`, `고정하다`
+
+**Mandatory check:** Before finishing ANY `.md` write or edit, scan the text
+you produced for the `박` character used as this verb. If you find even one
+instance, replace it before completing. "It reads fine" is not an excuse —
+the verb is banned regardless of how natural it sounds in context.
+
+If you catch yourself typing `박아`, `박힌`, `박제`, or any sibling form:
+STOP and rewrite with a neutral verb.
+
 ## Heading Spacing
 
 Always add blank lines before and after headings. This is required for markdown
