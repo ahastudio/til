@@ -5,6 +5,34 @@ paths:
 
 # Writing Guidelines
 
+## Natural Korean — No Literal Translation (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**Never translate English words or expressions literally into Korean prose.**
+Literal translation is the most common cause of unnatural-sounding Korean.
+
+**Forbidden pattern — mechanically mapping an English verb to a Korean verb:**
+
+| English concept | Literal (forbidden) | Natural Korean       |
+| --------------- | ------------------- | -------------------- |
+| twist (mockery) | 비틀다              | 꼬집다, 비꼬다       |
+| cut (dismiss)   | 자르다              | 단정하다, 정리하다   |
+| capture         | 포착하다            | 담다, 잡아내다       |
+| highlight       | 하이라이트하다      | 강조하다, 부각하다   |
+| navigate        | 내비게이트하다      | 탐색하다, 다루다     |
+
+This table is illustrative, not exhaustive.
+Whenever you thought of the English word first and then translated it,
+stop and rethink.
+
+**Test:** Before writing a verb, ask "Would a native Korean speaker say this
+naturally?" If you reached for the English word first, that is a warning sign.
+In that case, express the intended meaning in Korean from scratch.
+
+**Verb selection:** Prefer pure Korean verbs that express the meaning directly.
+Sino-Korean verbs are acceptable when they are more natural and precise.
+Foreign-origin `-하다` verbs are only allowed when they are established
+industry-standard terms.
+
 ## Forbidden Vocabulary — 박다 계열 (ABSOLUTE PRIORITY — NO EXCEPTIONS)
 
 **NEVER use the verb `박다` or any of its conjugated or compound forms in TIL
