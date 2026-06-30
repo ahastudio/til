@@ -30,17 +30,51 @@ Read the target TIL file. Extract the source URL from the `원문:` line.
 
 ### 2. Find the Lobste.rs discussion
 
-Search for the Lobste.rs thread using the search endpoint:
+If the document already has a `Lobste.rs 토론:` line, extract the story ID
+from that URL directly and skip to step 3.
+
+Otherwise, try the following search strategies **in order**, stopping as soon
+as a matching thread is found:
+
+**Strategy A — search by source URL:**
 
 ```text
-https://lobste.rs/search?q=<encoded-title-or-url>&what=stories&order=relevance
+https://lobste.rs/search?q=<percent-encoded-source-url>&what=stories&order=relevance
 ```
 
-If the document already has a `Lobste.rs 토론:` line, extract the story ID
-from that URL directly instead of searching.
+Example: for `https://example.com/my-article`, search
+`https://lobste.rs/search?q=https%3A%2F%2Fexample.com%2Fmy-article&what=stories&order=relevance`
 
-Pick the thread with the highest score. If no thread is found, report that
-to the user and stop.
+**Strategy B — search by article title keywords:**
+
+Extract 2–4 significant words from the article title and search:
+
+```text
+https://lobste.rs/search?q=<title-keywords>&what=stories&order=relevance
+```
+
+Use underscores as well as hyphens and spaces, because Lobste.rs story slugs
+use underscores (e.g. `towards_understandable_software`).
+
+**Strategy C — search by domain name:**
+
+```text
+https://lobste.rs/search?q=<domain-without-tld>&what=stories&order=relevance
+```
+
+Example: for `gracefulliberty.com`, search `q=gracefulliberty`.
+
+**Strategy D — search by full domain:**
+
+```text
+https://lobste.rs/search?q=<full-domain>&what=stories&order=relevance
+```
+
+Example: `q=gracefulliberty.com`.
+
+After each strategy, look for a story whose URL matches the source article.
+Pick the thread with the highest score among matches. If all four strategies
+return no matching thread, report that to the user and stop.
 
 ### 3. Fetch comments
 
