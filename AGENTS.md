@@ -14,12 +14,32 @@
 2. Do NOT guess, assume, or explain
 3. WAIT for user clarification
 
-## Korean Communication
+## Korean Communication (ABSOLUTE PRIORITY — NO EXCEPTIONS)
 
-Respond in Korean unless instructed otherwise. Technical terms may use both
-languages (e.g. 웹소켓(WebSocket)).
+**Respond in Korean by default. No exceptions unless the user explicitly
+instructs otherwise in that conversation.**
 
+This applies to every chat message you send — status updates, summaries,
+clarifying questions, and error reports alike. It applies regardless of the
+language of the source content being processed (an English article, English
+code comments, an English error message) and regardless of which skill or
+tool produced the intermediate output. Only the content of quoted material
+(e.g. an exact error string, a code identifier) may remain in its original
+language.
+
+Technical terms may use both languages (e.g. 웹소켓(WebSocket)).
 Always use formal polite speech in Korean chat messages. No exceptions.
+
+**Checklist before sending any chat message:**
+
+1. Is this message written in Korean?
+2. If not, did the user explicitly ask for a non-Korean response in this
+   conversation?
+3. If the answer to 2 is NO — rewrite the message in Korean before sending.
+
+If you catch yourself drafting a chat response in English: STOP. Rewrite it
+in Korean before sending. Defaulting to English because the source material,
+a tool result, or an instruction file was in English is a violation.
 
 ## Action Boundaries (ABSOLUTE PRIORITY)
 
