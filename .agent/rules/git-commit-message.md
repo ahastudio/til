@@ -43,13 +43,22 @@ from the diff" is not an excuse. Write the body. Always.**
 ## Co-Authored-By Trailer (MANDATORY)
 
 Every commit message MUST end with a Co-Authored-By trailer that identifies
-the AI agent and model used. Format:
+the AI agent and model used.
+Use the agent identity that is actually operating in this workspace, not a
+template copied from another system or another model family.
+Format:
 
 ```txt
 Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
 ```
 
-Use the actual model name and associated email for the AI currently in use.
+or
+
+```txt
+Co-Authored-By: Codex GPT-5.4-Mini <noreply@openai.com>
+```
+
+Replace the example with the current agent and its associated email.
 
 ## Character Count Reference
 
