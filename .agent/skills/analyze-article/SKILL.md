@@ -208,3 +208,18 @@ confirm with the user.
 After creating the file, invoke the `quotes-curly` skill via the Skill tool
 with the output file path as the argument. Show the conversion result to the
 user.
+
+### 10. Community reactions
+
+After post-processing, automatically invoke the following two skills in
+sequence via the Skill tool, passing the output file path as the argument to
+each:
+
+1. `hackernews-reactions` — finds the Hacker News thread and weaves key
+   comments into the document.
+2. `lobsters-reactions` — finds the Lobste.rs thread and weaves key comments
+   into the document.
+
+Run them regardless of whether the user asked. If a skill reports that no
+thread was found, that is a normal result — note it briefly and continue to
+the next skill.

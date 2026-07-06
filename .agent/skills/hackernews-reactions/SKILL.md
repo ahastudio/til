@@ -6,7 +6,6 @@ description:
   Use when the user wants to reflect community reactions from Hacker News into
   an existing TIL file.
 argument-hint: '[file-path]'
-disable-model-invocation: true
 ---
 
 Find the Hacker News discussion for a TIL document's source article and enrich
