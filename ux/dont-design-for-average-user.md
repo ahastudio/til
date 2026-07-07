@@ -1,6 +1,6 @@
 # 평균 사용자를 위해 디자인하지 마라
 
-- 원문: <https://www.uxtigers.com/post/p50-vs-p95>
+원문: <https://www.uxtigers.com/post/p50-vs-p95>
 
 ## 요약
 
