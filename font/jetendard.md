@@ -2,11 +2,13 @@
 
 <https://github.com/kuskhan/jetendard>
 
+Show GN: [Jetendard 폰트 (JetBrains Mono Nerd Font + Pretendard) | GeekNews](https://news.hada.io/topic?id=31174)
+
 ## 소개
 
 Jetendard는 JetBrainsMono Nerd Font Mono의 라틴 글리프와
 Pretendard의 한글 글리프를 하나의 폰트로 재구성한 빌드 프로젝트다.
-목표는 "균형 잡힌 한글 고정폭 렌더링"이다.
+목표는 “균형 잡힌 한글 고정폭 렌더링”이다.
 터미널이나 코드 에디터에서 영문과 한글이 섞일 때 자주 발생하는
 자간 불균형과 정렬 문제를 해결하려는 시도다.
 이를 위해 Pretendard 글리프를 1.15배 확대해
@@ -76,7 +78,7 @@ Jetendard가 해결하려는 문제는 오래된 것이다.
 Jetendard는 대체 설정에 의존하지 않고, 애초에 하나의 폰트 파일
 안에 두 언어의 글리프를 결합해 이 문제를 원천적으로 없앤다.
 
-기술적으로 흥미로운 지점은 "1.15배 확대"라는 구체적인 수치다.
+기술적으로 흥미로운 지점은 “1.15배 확대”라는 구체적인 수치다.
 한글은 원래 라틴 문자보다 획이 복잡하고 문자 자체가 크게 디자인되는
 경향이 있어, 단순히 폭만 맞추면 시각적으로 작아 보이거나
 자간이 어색해지는 문제가 생긴다.
