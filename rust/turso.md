@@ -1,6 +1,6 @@
 # Turso — Rust로 다시 쓴 SQLite
 
-<https://turso.tech>
+<https://turso.tech/>
 
 <https://github.com/tursodatabase/turso>
 
