@@ -2,6 +2,8 @@
 
 원문: [The Rise of the Taste Economy in the AI Era](https://www.thevccorner.com/p/why-taste-is-the-new-moat)
 
+한국어: [(번역) 취향은 새로운 해자(Moat)이며, 어떤 스타트업이 살아남을지는 디자인이 결정합니다](https://velog.io/@sehyunny/why-taste-is-the-new-moast)
+
 ## 요약
 
 AI가 소프트웨어 창작을 상품화하면서 기술 능력, 자본, 유통이라는 전통적 경쟁 우위가 균형화됐다.
