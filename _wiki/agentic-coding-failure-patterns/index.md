@@ -1,10 +1,10 @@
 # 에이전트형 코딩의 실패/함정 패턴
 
 주제: 에이전트에게 코드 작성과 의사결정을 맡기는 작업에서 실제로 어떤 종류의
-실패가 반복적으로 보고되는지, 그리고 그 실패가 "에이전트를 잘못 써서"인지
-"구조적으로 피하기 어려운 함정"인지를 구별한다. 자율성을 높일수록 검증이
+실패가 반복적으로 보고되는지, 그리고 그 실패가 “에이전트를 잘못 써서”인지
+“구조적으로 피하기 어려운 함정”인지를 구별한다. 자율성을 높일수록 검증이
 느슨해져서 생기는 사고와, 스펙/TDD가 에이전트 시대에 어떤 역할을 하는지를
-같이 다룬다. 목표는 "어디까지 자율을 주고 어디서 사람이 개입해야 하는가"에
+같이 다룬다. 목표는 “어디까지 자율을 주고 어디서 사람이 개입해야 하는가”에
 대한 이 저장소 노트들의 공통된 판단 기준을 찾는 것이다.
 
 ## 개요
@@ -21,7 +21,7 @@
 [멀티 에이전트 오케스트레이션 특유의 실패](multi-agent-orchestration-failures.md)가
 추가로 발생한다. 마지막으로 이 저장소의 여러 노트가 수렴하는 지점은
 [어디까지 자율을 주고 어디서 사람이 개입해야 하는가](where-to-draw-the-line.md)에
-대한 공통 판단 기준이다 — "이 장애를 소유할 수 있는가"라는 하나의 질문으로
+대한 공통 판단 기준이다 — “이 장애를 소유할 수 있는가”라는 하나의 질문으로
 수렴하는 경향이 있다.
 
 ## 하위 주제
@@ -31,7 +31,7 @@
   패턴
 - [자율성이 검증을 잠식하는 구조](autonomy-erodes-verification.md) — 왜
   에이전트를 더 많이 쓸수록 그것을 감독할 능력 자체가 줄어드는가 (검증
-  부채, 감독의 역설)
+  부채, 감독의 역설, 검증 에이전트가 검증 대상과 공유하는 편향)
 - [스펙/TDD가 하는 일과 못 하는 일](spec-and-tdd-as-guardrails.md) — SDD와
   TDD가 실제로 해결하는 문제와, 해결하지 못하거나 새로 만들어내는 문제
 - [멀티 에이전트 오케스트레이션 특유의 실패](multi-agent-orchestration-failures.md) —
@@ -62,3 +62,5 @@
 - [agentic-coding/vibe-coding-cult.md](../../agentic-coding/vibe-coding-cult.md)
 - [devops/google-sre-ai.md](../../devops/google-sre-ai.md)
 - [agentic-coding/reviews-dead.md](../../agentic-coding/reviews-dead.md)
+- [agentic-coding/swe-bench-pro-signal-noise.md](../../agentic-coding/swe-bench-pro-signal-noise.md)
+- [rust/rewriting-bun-in-rust.md](../../rust/rewriting-bun-in-rust.md)
