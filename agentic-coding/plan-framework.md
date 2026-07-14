@@ -34,6 +34,7 @@ Codapress Publishing이 공개한 이 글은 AI 코딩 데모와 프로덕션
 PLAN은 Prepare(준비), Launch(실행), Audit(감사), Nurture(양성)의
 앞글자를 딴 것이며, 군사 전략에서 쓰이는 OODA 루프(관찰-방향성-
 결정-행동)에서 영감을 받았다고 밝힌다.
+
 이 프레임워크는 Codapress가 2025년 11월 출간한 『Agentic Coding
 Pro: The Structured Path to Autonomous Software』라는 책에서 제시한
 방법론이며, 이 글 자체가 그 책의 랜딩 페이지에 딸린 홍보성
