@@ -11,10 +11,10 @@ disable-model-invocation: true
 Pick popular GeekNews articles and, for each one, write a TIL document in the
 same format as the analyze-article skill.
 
-**Every document this skill produces MUST subsequently be run through both
-`/hackernews-reactions` and `/lobsters-reactions` (step 6). This is a hard
-requirement of the skill, not an optional enrichment — see step 6 for why
-it is not redundant with step 4.**
+**Every document this skill produces MUST subsequently be run through
+`/hackernews-reactions`, `/lobsters-reactions`, AND `/geeknews-reactions`
+(step 6). This is a hard requirement of the skill, not an optional
+enrichment — see step 6 for why it is not redundant with step 4.**
 
 ## Usage
 
@@ -130,16 +130,17 @@ Footnote block format (at the very end of the file, after `---`):
 If footnotes already exist, append new ones to the existing block. If no
 comment is referenced in the body, omit the footnote block entirely.
 
-### 6. Mandatory post-processing: run `/hackernews-reactions` and `/lobsters-reactions`
+### 6. Mandatory post-processing: run `/hackernews-reactions`, `/lobsters-reactions`, and `/geeknews-reactions`
 
 **This step is NOT optional. Skipping it is a failure to complete this
 skill, no matter how good the document from step 5 looks.**
 
 For EVERY document written in step 5 — with ZERO exceptions — after it is
-written, you MUST invoke both:
+written, you MUST invoke all three:
 
 1. the `/hackernews-reactions` skill, then
-2. the `/lobsters-reactions` skill,
+2. the `/lobsters-reactions` skill, then
+3. the `/geeknews-reactions` skill,
 
 passing that document's file path as the argument to each, one after the
 other, for that document specifically. This applies regardless of:
@@ -154,25 +155,32 @@ other, for that document specifically. This applies regardless of:
 
 Do NOT treat "the GeekNews page already linked to HN" as a substitute for
 running `/hackernews-reactions`. Do NOT treat "I already used Lobsters
-comments in step 5" as a substitute for running `/lobsters-reactions`.
+comments in step 5" as a substitute for running `/lobsters-reactions`. Do
+NOT treat "I already used GeekNews comments in step 5" as a substitute for
+running `/geeknews-reactions`.
 Step 4's upstream-link check and this step serve different purposes: step 4
 picks the reaction source to write the first draft with, this step
-independently re-searches HN and Lobsters from scratch for that same
-document and enriches it further. They are not redundant with each other
-even when they end up finding the same thread.
+independently re-searches HN, Lobsters, and GeekNews from scratch for that
+same document and enriches it further. They are not redundant with each
+other even when they end up finding the same thread — in particular,
+`/geeknews-reactions` looks specifically for native GN-user reactions
+(hands-on trial reports, Korean-specific context) that are distinct from
+whatever HN or Lobsters comments were already woven in, and it filters out
+the re-aggregated "Hacker News 의견들" / "Lobste.rs 의견들" blocks that a
+GeekNews topic page may already display.
 
 If a document is skipped by mistake, that is a defect — go back and run
-both skills against it before reporting the overall task as done.
+all three skills against it before reporting the overall task as done.
 
-Both skills are expected to sometimes find nothing (no matching HN thread,
-no matching Lobsters thread, or a thread with no comments worth weaving
+All three skills are expected to sometimes find nothing (no matching HN
+thread, no matching Lobsters thread, no native GN comments worth weaving
 in) — that is a valid outcome and is NOT the same as skipping the step.
 Running the skill and it finding nothing is compliant; not running the
 skill at all is not.
 
-Only after both skills have been invoked for every document — successfully
-or with a "nothing found" result — is step 5's work for that document
-considered complete.
+Only after all three skills have been invoked for every document —
+successfully or with a "nothing found" result — is step 5's work for that
+document considered complete.
 
 #### Document structure by source type
 
