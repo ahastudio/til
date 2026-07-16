@@ -1,6 +1,6 @@
 # TS-2026-009: Tailscale SSH의 잘못된 인자 처리로 인한 root 권한 획득
 
-원문: https://tailscale.com/security-bulletins
+원문: [Security Bulletins · Tailscale](https://tailscale.com/security-bulletins)
 
 HN 토론: <https://news.ycombinator.com/item?id=48915004> (212점, 145개 댓글)
 
