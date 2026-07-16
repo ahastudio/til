@@ -1,7 +1,9 @@
-# rtk - LLM 토큰 소비를 60~90% 줄여주는 CLI 프록시
+# RTK — Rust Token Killer
 
 > CLI proxy that reduces LLM token consumption by 60-90% on common dev commands.
 > Single Rust binary, zero dependencies
+
+<https://www.rtk-ai.app/>
 
 <https://github.com/rtk-ai/rtk>
 
