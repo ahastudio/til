@@ -7,7 +7,7 @@
 Martin Fowler가 “Further Enterprise Application Architecture” 초안
 시리즈의 일부로 쓴 글로, Event Sourcing 위에 구축되는 심화 패턴인
 Retroactive Event를 다룬다.
-이 글은 [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)이
+이 글은 [Event Sourcing](event-sourcing-original-2005.md)이
 전제하는 “모든 이벤트를 로그에 기록하고 현재 상태는 그로부터
 파생된다”는 토대를 그대로 물려받되, 그 위에서 발생하는 훨씬
 구체적인 문제, 즉 이미 처리된 이벤트가 잘못된 것으로 뒤늦게
