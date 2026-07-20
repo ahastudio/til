@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=48921461> (235점, 155개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=31484>
+
 ## 요약
 
 OpenAI가 유럽연합 일반법원(General Court of the European Union)에서
