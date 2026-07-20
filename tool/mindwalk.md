@@ -4,7 +4,7 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=48878682> (162점, 63개 댓글)
 
-GeekNews: <https://news.hada.io/topic?id=31569>
+GN 토론: <https://news.hada.io/topic?id=31569>
 
 ## 소개
 
