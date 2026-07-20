@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=48916975> (633점, 284개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=31478>
+
 ## 요약
 
 저자 Ayush Paul은 Claude AI의 메모리 시스템과 웹 브라우징 기능을 조합해
