@@ -1,8 +1,10 @@
 # Cursor IDE의 git.exe 자동 실행 0day와 Full Disclosure
 
-원문: https://mindgard.ai/blog/cursor-0day-when-full-disclosure-becomes-the-only-protection-left
+원문: <https://mindgard.ai/blog/cursor-0day-when-full-disclosure-becomes-the-only-protection-left>
 
 HN 토론: <https://news.ycombinator.com/item?id=48910676> (443점, 200개 댓글)
+
+GN 토론: <https://news.hada.io/topic?id=31461>
 
 ## 요약
 
