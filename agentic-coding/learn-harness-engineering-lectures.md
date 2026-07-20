@@ -1,6 +1,8 @@
 # Learn Harness Engineering 강의 전편
 
-<https://walkinglabs.github.io/learn-harness-engineering/ko/>
+<https://walkinglabs.github.io/learn-harness-engineering/>
+
+한국어: <https://walkinglabs.github.io/learn-harness-engineering/ko/>
 
 하네스 엔지니어링을 체계적으로 가르치는 12강 학습 사이트.
 “모델은 똑똑하다. 하네스가 모델을 신뢰할 수 있게 만든다”는 핵심 명제를 각 강의가 하나씩 풀어나간다.
