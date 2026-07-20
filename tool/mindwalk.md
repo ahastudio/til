@@ -156,3 +156,13 @@ cududa는 더 넓은 방향을 제시했다.[^cududa]
 코드가 파일 트리라는 공간에 존재하는 이상, 그것을 탐색하는 에이전트의 행동도
 공간적으로 표현하는 것이 자연스럽다는 시각이다.
 Mindwalk는 그 가능성의 초기 탐색이다.
+
+---
+
+[^thunfischtoast]: <https://news.ycombinator.com/item?id=48879663>
+[^cosmtrek]: <https://news.ycombinator.com/item?id=48880396>
+[^alansaber]: <https://news.ycombinator.com/item?id=48880207>
+[^almog]: <https://news.ycombinator.com/item?id=48879982>
+[^altmanaltman]: <https://news.ycombinator.com/item?id=48879699>
+[^esafak]: <https://news.ycombinator.com/item?id=48881570>
+[^cududa]: <https://news.ycombinator.com/item?id=48879392>
