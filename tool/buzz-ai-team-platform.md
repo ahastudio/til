@@ -8,6 +8,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=48995213> (359점, 317개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=31701>
+
 관련 블로그 글: [AI가 '도구'가 아니라 '팀원'이 되는 회사 (Buzz)](https://javaexpert.tistory.com/1792)
 
 ## 요약
