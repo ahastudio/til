@@ -1,6 +1,6 @@
 # 안목은 위임할 수 없다
 
-원문: [Taste cannot be delegated. The death of design by committee in the… | by Aurélie Radom | Jul, 2026 | UX Collective](https://uxdesign.cc/taste-cannot-be-delegated-1706847a0b4b)
+원문: [Taste cannot be delegated. The death of design by committee in the… | by Aurélie Radom | Jul, 2026 | UX Collective](https://uxdesign.cc/1706847a0b4b)
 
 GN 토론: <https://news.hada.io/topic?id=31678>
 
