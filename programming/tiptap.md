@@ -8,6 +8,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=36957204> (246점, 103개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=13585>
+
 ## 소개
 
 Tiptap은 “웹 장인들을 위한 헤드리스 리치 텍스트 에디터 프레임워크”를
@@ -120,6 +122,16 @@ ProseMirror 위의 얇은 추상화 계층으로 활용해온 개발자는 React
 맡기고 어떤 기능을 직접 제어할지 개발자가 선택적으로 결정해야
 하는 계층이라는 것을 보여준다.
 
+GeekNews에서도 비슷한 결의 실사용담이 나왔다. 실제로 Slate로
+에디터를 만들다가 Tiptap으로 옮긴 사용자는 문서가 더 거칠고,
+모바일 한글 입력 문제나 선택 영역 속성 처리, 플러그인 개발 난도가
+더 높게 느껴졌다고 회고했다[^gn-bbulbum-slate]. 다른 사용자는
+React처럼 자체 DOM 추상화가 있는 환경에서 외부 컴포넌트를
+붙이거나 모듈화하는 작업이 Tiptap 쪽이 더 편했다고 덧붙였다[^gn-firea32-react].
+이는 “헤드리스 추상화”가 단순한 취향 문제가 아니라, 프레임워크의
+렌더링 모델과 편집기 확장 모델이 만나는 지점에서 실질적인 개발 비용
+차이로 이어질 수 있음을 보여준다.
+
 ### 확장 생태계의 규모가 진입장벽이자 동시에 해자로 작동한다
 
 100개 이상의 공식 확장과 그보다 많은 커뮤니티 확장이 존재한다는
@@ -157,6 +169,14 @@ Launch 스레드에서 여러 참여자가 이 경계의 불투명성과 급격�
 사용량 기반 과금으로 비용을 세밀하게 제어할 수 있게 해달라고
 요청했다[^egonschiele].
 
+GeekNews에서도 가격표 자체보다 먼저 문서 읽기 경험에서 유료 기능의
+존재감이 강하게 드러난다는 지적이 나왔다. 한 사용자는 설치 문서의
+완성도는 괜찮게 봤지만, 문서 중간중간에 유료 구독이 필요한 요소가
+섞여 있어 필요하지도 않은 기능에 계속 눈길이 가는 점이 미묘하게
+거슬린다고 평가했다[^gn-nemorize-premium]. 이는 가격 페이지를 보기
+전에도 이미 제품 경험 차원에서 “무료 코어와 유료 확장”의 경계가
+사용자에게 지속적으로 의식된다는 뜻이다.
+
 ### “100개 이상의 확장”이라는 수치가 품질이나 유지보수 상태를 보장하지 않는다
 
 확장 생태계의 규모를 강조하는 것은 매력적인 마케팅 포인트지만,
@@ -182,6 +202,18 @@ Tiptap을 모두 React와 함께 써본 한 참여자는 커스텀 편집 동작
 사례에서는 확실히 진입 장벽을 낮추지만, 표준을 벗어나는 순간
 그 추상화가 오히려 우회해야 할 장애물로 바뀔 수 있다는 것을
 보여준다.
+
+이 문제는 GeekNews에서도 더 구체적인 형태로 반복된다. 한 React 팀은
+시작하기 문서와 API 문서 사이의 간극이 커서 실제 POC를 만들면서
+`StarterKit`에 무엇이 포함되는지, 왜 `editor.chain().focus()` 같은
+호출이 필요한지, 표 관련 확장을 어디까지 추가해야 하는지 같은 기본
+판단조차 문서만으로는 매끄럽게 연결되지 않았다고 적었다[^gn-savvykang-docs].
+이에 대해 다른 사용자는 `StarterKit`은 말 그대로 출발점일 뿐이고,
+`chain().run()` 패턴은 모바일에서 포커스를 유지한 채 액션을 이어갈 때
+유용하며, 표 포커스 여부는 `editor.isActive('table')`처럼 판단할 수
+있다고 반박했다[^gn-nemorize-rebuttal]. 이 왕복은 Tiptap의 학습 곡선이
+절대적으로 높다기보다, 문서가 상정하는 사용자 모델과 실제 도입 팀의
+기대치가 어긋날 때 체감 난도가 급격히 올라간다는 점을 잘 보여준다.
 
 ## 인사이트
 
@@ -243,3 +275,8 @@ UI 트렌드의 변화 속도가 로직의 변화 속도를 크게 앞지르는
 [^egonschiele]: <https://news.ycombinator.com/item?id=36958534>
 [^raarts]: <https://news.ycombinator.com/item?id=36970343>
 [^YousefED]: <https://news.ycombinator.com/item?id=36959463>
+[^gn-bbulbum-slate]: <https://news.hada.io/topic?id=13585#cid23462>
+[^gn-firea32-react]: <https://news.hada.io/topic?id=13585#cid23479>
+[^gn-nemorize-premium]: <https://news.hada.io/topic?id=13585#cid23396>
+[^gn-savvykang-docs]: <https://news.hada.io/topic?id=13585#cid23429>
+[^gn-nemorize-rebuttal]: <https://news.hada.io/topic?id=13585#cid23431>
