@@ -1,5 +1,7 @@
 # QM, 업무를 위한 멀티플레이어 에이전트 하네스
 
+<https://qm.ycombinator.com/>
+
 <https://github.com/yc-software/qm>
 
 ## 소개
