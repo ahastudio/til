@@ -3,8 +3,10 @@ name: analyze-article
 description:
   Read a web source — an article OR a non-article (GitHub repo, project
   homepage, service site) — and write a TIL document (in Korean) with
-  analysis, critique, and insights. Articles get a `원문:` source line and a
-  `## 요약` section; non-articles get bare URL line(s) with NO `원문:` label
+  analysis, critique, and insights. The H1 title is written in Korean.
+  Published pieces (articles, posts, papers, tweets, videos) get a
+  `원문: [원문 제목](URL)` titled-link source line and a `## 요약` section;
+  non-articles get bare `<URL>` line(s) with NO `원문:` label, no titled link,
   and a fitting first heading like `## 소개`. Takes a URL as an argument. Use
   when the user asks to analyze an article/repo/site, document it, or organize
   a technical post.
@@ -28,16 +30,53 @@ may be written alongside their original English form.
 - First argument: source URL (required)
 - Second argument: output file path (optional; if omitted, ask the user)
 
+### Multiple URLs in one invocation
+
+The user often pastes several URLs at once, sometimes each on its own
+`/analyze-article` line. Treat that as a queue, not as an error.
+
+- Run the full procedure below once per URL, in the order given.
+- Finish one document completely — write, quote-convert, weave community
+  reactions — before starting the next. Do NOT write all summaries first and
+  circle back.
+- If a URL turns out to be a duplicate or cannot be fetched, report that one
+  and continue to the next. A single failure never aborts the queue.
+- Report at the end as a table: one row per URL, with the resulting path or
+  the reason it was skipped.
+- If the queue is long enough that finishing it in one run is implausible,
+  say so up front with a count, then start working through it in order
+  rather than waiting for permission.
+
 ## Procedure
 
 ### 1. Fetch the source
 
 Fetch the content of the $0 URL with WebFetch.
 
+If WebFetch returns a summary rather than the text, or returns too little to
+summarize accurately, fetch again asking for the body verbatim, or retrieve
+the page directly and strip the markup. Never write the 요약 section from a
+thin summary — numbers, names, and quoted phrasing must come from the actual
+text. For sources WebFetch cannot handle, see step 4a and
+`_agent/rules/web-fetching.md`.
+
 ### 2. Check for duplicates
 
-Use Glob and Grep to check whether a document on the same topic already exists
-in the TIL. If one exists, notify the user and stop.
+Check in this order, and do all three before concluding anything:
+
+1. Grep the TIL for the **source URL itself** (and its slug). An existing
+   document that already cites the URL is a duplicate, full stop.
+2. Grep for distinctive proper nouns from the title and body.
+3. List the likely directory to see whether a differently-named document
+   covers the same subject.
+
+If a duplicate exists, name the existing file, state that it already covers
+this URL, and skip that URL. Do not silently overwrite and do not write a
+second document on the same source.
+
+A near-miss is not a duplicate: a document that merely *mentions* the subject
+(e.g. cites the project in passing) does not block a document *about* the
+source. Say which case it is when reporting.
 
 ### 3. Classify the subject — article vs. non-article (CRITICAL)
 
@@ -61,20 +100,72 @@ When in doubt, ask: "Is there an author advancing a thesis I can summarize, or
 am I describing a tool/project/site?" A README that pitches a product is a
 **non-article** (it describes the project), even though it contains prose.
 
+### 3a. Document title (H1) — write it in Korean
+
+**The `#` heading is written in Korean, not copied from the source.**
+The document is a Korean note; its title is the first thing the reader sees
+and must read as Korean prose.
+
+- Convey what the source is about. Do not transliterate the English title into
+  Hangul, and do not paste the original title as the H1.
+- Keep product names, project names, and established technical terms in their
+  original form: `SwiftUI`, `ClickHouse`, `Soppo`, `PostgreSQL`, `MCP`.
+  Translate the surrounding words, not these.
+- A `<제품명>: <한국어 설명>` shape works well when the subject is a named
+  thing. A plain Korean sentence or noun phrase works well when the subject is
+  an argument.
+- If the source title carries a claim, the Korean H1 should carry that claim
+  too — do not flatten it into a neutral topic label.
+
+Examples:
+
+| 원문 제목                                        | H1                                            |
+| ------------------------------------------------ | --------------------------------------------- |
+| SwiftUI After 7 Years: A Story of Mediocrity      | SwiftUI 7년, 평범함의 기록                    |
+| Devtools must be open source                      | 개발 도구는 오픈소스여야 한다                 |
+| GitHub has alternatives, but no replacement       | GitHub에는 대안이 있지만 대체재는 없다        |
+| Soppo (project homepage)                          | Soppo: Go에 빠진 기능을 더한 언어             |
+| The next chapter of our AI momentum               | Google AI 모멘텀의 다음 장                    |
+
+This rule governs the H1 only. Two things stay in their original language:
+
+- The `원문:` link text keeps the source's own title, untranslated (step 4).
+- The file name stays lowercase English kebab-case.
+
+If the H1 is in English, the document is wrong regardless of how good the body
+is. Fix it before writing the first section.
+
+**This rule applies to documents written from now on only.** Many existing TIL
+documents have English H1 titles. That is a settled decision, not a backlog:
+do NOT retitle them, and do NOT propose a sweep. Touch an existing H1 only
+when the user asks for that specific file.
+
 ### 4. Source-link line — STRICT RULE (NO EXCEPTIONS)
 
 **This is the rule most often gotten wrong. Follow it exactly.**
 
-- **Article** → put a labeled source line directly under the title:
+The link form depends on whether the subject is a **published piece** (an
+article, post, paper, tweet, or video) or a **thing** (a site address, a
+GitHub repository, a project homepage).
+
+- **Published piece** → labeled source line directly under the title, written
+  as a **titled markdown link** with the source's own title as the link text:
 
   ```markdown
-  원문: <URL>
+  원문: [<원문 제목>](<URL>)
   ```
 
+  Use the title exactly as the source presents it, including its site suffix
+  when the page title carries one (e.g. `... | Google Search Central Blog`).
+  Do not translate it, do not shorten it, do not invent one. If the page has
+  no usable title, use the most specific heading on the page.
+  A bare `<URL>` here is a defect: the reader cannot tell what they are about
+  to open.
+
 - **Non-article (GitHub repo, homepage, service site, etc.)** → **NEVER write
-  `원문:`.** An `원문:` label means "original *writing*," which a repo or
-  homepage is not. Instead, place the bare URL(s) under the title with no
-  label:
+  `원문:`, and NEVER use a titled link.** An `원문:` label means "original
+  *writing*," which a repo or homepage is not. Place the **bare URL(s)** under
+  the title with no label and no link text:
 
   ```markdown
   <https://github.com/org/project>
@@ -85,8 +176,45 @@ am I describing a tool/project/site?" A README that pitches a product is a
   blank line.
 
 There is ZERO case where a GitHub repository or a product/service homepage
-gets an `원문:` label. If you catch yourself typing `원문:` for a repo or a
-homepage, STOP — you misclassified the subject in step 3.
+gets an `원문:` label or a `[text](url)` link. If you catch yourself typing
+either one for a repo or a homepage, STOP — you misclassified the subject in
+step 3.
+
+**Checklist before writing the source line:**
+
+1. Is the subject a published piece or a thing?
+2. Published piece → `원문: [실제 제목](URL)`, never a bare `<URL>`.
+3. Thing → bare `<URL>`, never `원문:` and never `[text](url)`.
+
+If any answer is wrong, fix it before writing the first section.
+
+Discussion links added later (`HN 토론:`, `Lobste.rs 토론:`, `GN 토론:`) also
+keep the bare `<URL>` form, because their score/comment count already
+identifies them.
+
+### 4a. Special source types
+
+Some sources need a fetch strategy or a link form of their own. Handle these
+explicitly rather than improvising.
+
+| Source type       | Fetch method                              | Source line                                  |
+| ----------------- | ----------------------------------------- | -------------------------------------------- |
+| Twitter / X       | `agent-browser` (see `web-fetching.md`)   | `트윗: [<제목 또는 첫 문장>](URL)`           |
+| YouTube           | Transcript or description via WebFetch     | `영상: [<영상 제목>](URL)`                   |
+| Paper (PDF/arXiv) | WebFetch, or Read the PDF                  | `논문: [<논문 제목>](URL)`                   |
+| Press release     | WebFetch                                   | `원문: [<제목>](URL)`                        |
+
+For Twitter / X, `twitter.com` is used instead of `x.com` per
+`writing-guidelines.md`. For a long tweet, call it a `트윗`, not a `스레드`,
+unless the user says otherwise.
+
+For YouTube, the first section is `## 요약` only if the video advances an
+argument (a talk, an essay video). For a demo or a walkthrough, choose a
+heading that fits — e.g. `## 내용`, `## 데모`.
+
+If the source cannot be fetched at all, STOP and tell the user which URL
+failed and what was tried. Never write a document from the title alone or
+from prior knowledge of the subject.
 
 ### 5. Choose the first section heading
 
@@ -108,9 +236,9 @@ Write a markdown document with the following structure. **The `원문:` line and
 substitute per steps 4 and 5.**
 
 ```markdown
-# Title
+# <한국어 제목>
 
-원문: <URL>
+원문: [<원문 제목>](<URL>)
 
 ## 요약
 
@@ -191,6 +319,7 @@ Write at least 3 insights. 4 is better if the subject warrants it.
   alignment, line breaks, etc.).
 - Write in Korean. Technical terms may be written alongside their original
   English form.
+- The H1 is Korean (step 3a). Every `##` and `###` heading is Korean too.
 - Each section must do different work: 요약/소개 reports, 분석 explains,
   비평 challenges, 인사이트 extends. Do not let sections overlap.
 - The document should read as if written by someone who disagrees with
