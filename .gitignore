@@ -9,3 +9,6 @@ __pycache__/
 
 # Obsidian
 .obsidian/
+
+# Mutagen
+mutagen.yml*
