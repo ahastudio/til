@@ -207,3 +207,7 @@ the directory:
 - Place it in the most appropriate existing directory.
 - If there is no suitable existing directory, do NOT create a new one — ask
   the user.
+
+**File name:** follow `analyze-article` step 8a exactly. The name is the
+subject and nothing else — never append a category, medium, or
+artifact-type word.
