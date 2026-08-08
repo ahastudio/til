@@ -70,9 +70,18 @@ Check in this order, and do all three before concluding anything:
 3. List the likely directory to see whether a differently-named document
    covers the same subject.
 
-If a duplicate exists, name the existing file, state that it already covers
-this URL, and skip that URL. Do not silently overwrite and do not write a
-second document on the same source.
+If a duplicate exists, do NOT skip it and do NOT write a second document on
+the same source. Enhance the existing file instead.
+
+Enhancing means: fetch the source again in full, then compare it against the
+existing document and add what is missing. Look for content the source
+carries that the document never captured, community reactions not yet woven
+in, sections the current structure requires but the document lacks, and
+passages where the existing text misreads the source — a document written
+from a thin fetch often critiques the source for an omission the source does
+not actually have. Correct those. Preserve everything already there that is
+still accurate, and keep the existing H1 unless the user asks otherwise.
+Report which file was enhanced and what was added or corrected.
 
 A near-miss is not a duplicate: a document that merely *mentions* the subject
 (e.g. cites the project in passing) does not block a document *about* the
