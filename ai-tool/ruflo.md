@@ -52,14 +52,14 @@ mTLS + ed25519 인증 기반 제로 트러스트(zero-trust) 아키텍처로 다
 
 ## 설치
 
-**플러그인 방식 (슬래시 커맨드만 사용):**
+### 플러그인 방식 (슬래시 커맨드만 사용)
 
 ```bash
 /plugin install ruflo-core@ruflo
 /plugin install ruflo-swarm@ruflo
 ```
 
-**전체 CLI 방식:**
+### 전체 CLI 방식
 
 ```bash
 npx ruflo@latest init wizard
@@ -67,7 +67,7 @@ npx ruflo@latest init wizard
 npm install -g ruflo@latest
 ```
 
-**MCP 서버 등록:**
+### MCP 서버 등록
 
 ```bash
 claude mcp add ruflo -- npx ruflo@latest mcp start

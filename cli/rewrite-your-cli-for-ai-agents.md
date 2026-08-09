@@ -43,7 +43,7 @@ Agent DX  → 예측 가능성(predictability)과 심층 방어(defense-in-depth
 
 인간은 터미널에서 중첩 JSON 쓰기를 싫어한다. 에이전트는 선호한다.
 
-**사람 중심 — 플래그 10개, 중첩 불가:**
+#### 사람 중심 — 플래그 10개, 중첩 불가
 
 ```sh
 my-cli spreadsheet create \
@@ -59,7 +59,7 @@ my-cli spreadsheet create \
   --hidden false
 ```
 
-**에이전트 중심 — 플래그 1개, API 페이로드 그대로:**
+#### 에이전트 중심 — 플래그 1개, API 페이로드 그대로
 
 ```sh
 gws sheets spreadsheets create --json '{

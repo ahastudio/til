@@ -210,7 +210,7 @@ Topic 검색 시 **쿼리 확장**을 적용한다. 사용자가 입력한 표�
 Claude Code는 모든 대화를 `~/.claude/projects/{encoded-cwd}/*.jsonl`
 에 저장한다. 이 스크립트가 그 파일을 파싱한다.
 
-**처리 흐름:**
+#### 처리 흐름
 
 ```
 JSONL 파일

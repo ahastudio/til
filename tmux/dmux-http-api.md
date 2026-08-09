@@ -221,7 +221,8 @@ tmux 안에서 직접 조작할 때 쓴다.
 dmux는 두 가지 방식으로
 pane 상태 변화를 감지한다.
 
-**tmux 훅 (이벤트 기반).**
+#### tmux 훅 (이벤트 기반)
+
 tmux 세션에 `after-split-window`,
 `pane-exited`, `client-resized`,
 `after-select-pane` 훅을 등록한다.
@@ -229,7 +230,8 @@ tmux 세션에 `after-split-window`,
 dmux 프로세스에 알린다.
 100ms 디바운싱으로 이벤트 폭주를 방지한다.
 
-**Worker Thread 폴링 (폴백).**
+#### Worker Thread 폴링 (폴백)
+
 tmux 훅을 사용할 수 없으면
 pane마다 전용 Worker Thread가 돌면서
 주기적으로 상태를 확인한다.
@@ -317,7 +319,8 @@ curl http://localhost:42000/api/panes/pane-id
 
 ## 인사이트
 
-**터미널 도구에서 플랫폼으로.**
+### 터미널 도구에서 플랫폼으로
+
 dmux는 단순한 터미널 도구가 아니라
 HTTP API + 웹 프론트엔드 + 터널을 갖춘
 에이전트 관리 플랫폼이다.
@@ -326,7 +329,8 @@ SSE로 출력을 보고,
 callback API로 상호작용하는
 완전한 원격 제어가 가능하다.
 
-**내장 터널이 게임 체인저.**
+### 내장 터널이 게임 체인저
+
 `POST /api/tunnel` 한 번이면
 외부에서 접근 가능한 URL이 생긴다.
 ngrok이나 Cloudflare Tunnel 같은
@@ -334,7 +338,8 @@ ngrok이나 Cloudflare Tunnel 같은
 dmux 자체가 원격 접근을 1급 기능으로
 지원한다는 뜻이다.
 
-**Callback API로 완전한 원격 상호작용.**
+### Callback API로 완전한 원격 상호작용
+
 에이전트가 "이 파일을 삭제해도 될까요?"
 같은 확인을 요청할 때,
 `/api/callbacks/confirm/:id`로
@@ -342,7 +347,8 @@ dmux 자체가 원격 접근을 1급 기능으로
 터미널 앞에 앉아 있지 않아도
 에이전트와의 대화가 끊기지 않는다.
 
-**어댑터 패턴으로 UI 분리.**
+### 어댑터 패턴으로 UI 분리
+
 `apiActionHandler.ts`(웹)와
 `tuiActionHandler.ts`(터미널)가
 동일한 ActionResult를 각 인터페이스에 맞게

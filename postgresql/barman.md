@@ -18,22 +18,27 @@ pgBackRest의 유지보수가 중단된 이후, [GeekNews 댓글](https://news.h
 
 ## 주요 기능
 
-**온라인 핫 백업(Online Hot Backup)**
+### 온라인 핫 백업(Online Hot Backup)
+
 PostgreSQL 서버가 실행 중인 상태에서 백업을 수행한다. 서비스 중단 없이 정기 백업이 가능하다.
 
-**특정 시점 복구(Point-In-Time Recovery, PITR)**
+### 특정 시점 복구(Point-In-Time Recovery, PITR)
+
 PostgreSQL 기본 PITR 기술을 활용해 특정 시점의 상태로 데이터베이스를 복원한다.
 전체 백업 시점뿐 아니라 WAL(Write-Ahead Log) 아카이브를 활용해 임의의 시점으로 복구할 수 있다.
 
-**동기 WAL 스트리밍(Synchronous WAL Streaming)**
+### 동기 WAL 스트리밍(Synchronous WAL Streaming)
+
 실시간으로 WAL을 스트리밍 받아 데이터 손실 가능성을 최소화한다.
 Zero Data Loss(ZDL) 구성을 지원한다.
 
-**중앙집중식 다중 서버 관리**
+### 중앙집중식 다중 서버 관리
+
 단일 Barman 서버에서 여러 PostgreSQL 인스턴스의 백업과 복구를 관리할 수 있다.
 엔터프라이즈 환경에서 수십 개의 데이터베이스 서버를 일관된 방식으로 운영하는 데 적합하다.
 
-**백업 카탈로그와 보존 정책**
+### 백업 카탈로그와 보존 정책
+
 백업 목록 조회, 보존 기간 설정, 오래된 백업 자동 삭제, 아카이브 관리를 통합 인터페이스에서 처리한다.
 
 ## CLI

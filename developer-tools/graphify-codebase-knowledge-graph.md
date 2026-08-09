@@ -20,7 +20,7 @@ AI 코딩 어시스턴트에서 `/graphify` 슬래시 커맨드(skill)로 사용
 
 ## 주요 기능
 
-**설치와 실행**
+### 설치와 실행
 
 ```bash
 uv tool install graphifyy
@@ -33,7 +33,7 @@ AI 어시스턴트에서 `/graphify .` 명령을 실행하면 세 가지 아웃�
 - `GRAPH_REPORT.md` — 핵심 개념 및 추천 쿼리
 - `graph.json` — 쿼리 가능한 전체 그래프
 
-**쿼리 인터페이스**
+### 쿼리 인터페이스
 
 파일을 다시 읽지 않고 그래프를 쿼리할 수 있다.
 
@@ -42,14 +42,14 @@ graphify query "what connects auth to database?"
 graphify path "ServiceA" "ServiceB"
 ```
 
-**그래프 분석 기능**
+### 그래프 분석 기능
 
 - “갓 노드(god nodes)” 탐지: 가장 많이 연결된 개념 식별
 - Leiden 클러스터링을 통한 커뮤니티 감지
 - 함수 호출, 임포트 등 파일 간 관계 해석
 - 주석과 문서의 설계 의도를 일급 그래프 노드로 추출
 
-**지원 범위**
+### 지원 범위
 
 36개 이상 프로그래밍 언어, 문서, PDF, 이미지, 영상/오디오 트랜스크립트를 처리한다.
 Claude Code, Codex, GitHub Copilot CLI, Cursor, Gemini CLI, Aider를 포함한
@@ -63,7 +63,7 @@ graphify claude install
 
 이 명령을 실행하면 AI 어시스턴트가 파일 그레핑 대신 그래프 쿼리를 기본으로 선호하게 된다.
 
-**프라이버시**
+### 프라이버시
 
 코드 추출은 API 호출 없이 로컬에서 처리된다. 문서와 미디어 처리는 사용자가 설정한 AI
 모델을 사용한다. 텔레메트리나 추적이 없으며, 선택적으로 `~/.cache/graphify-queries.log`에

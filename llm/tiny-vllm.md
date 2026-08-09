@@ -66,8 +66,7 @@ FlashAttention → PagedAttention.
 
 ## 분석
 
-### “이해를 위한 재구현(reimplementation for understanding)” 장르의
-한 사례
+### “이해를 위한 재구현(reimplementation for understanding)” 장르의 한 사례
 
 tiny-vllm은 Karpathy의 nanoGPT, llm.c, micrograd, George Hotz의 tinygrad가
 대표하는 “이해를 위한 재구현” 장르에 속한다. 핵심은 “라이브러리 사용자에서

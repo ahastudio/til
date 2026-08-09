@@ -65,26 +65,32 @@ npm install -g dmux
 
 ## 주요 기능
 
-**Worktree 격리.**
+### Worktree 격리
+
 각 pane이 독립된 Git worktree에서 동작한다.
 에이전트끼리 파일 충돌 없이 동시 작업이 가능하다.
 
-**A/B 테스트.**
+### A/B 테스트
+
 동일한 프롬프트를 서로 다른 에이전트에게 동시에
 줄 수 있다. 결과물을 나란히 비교할 수 있다.
 
-**AI 자동화.**
+### AI 자동화
+
 브랜치 이름과 커밋 메시지를 AI가 자동 생성한다.
 OpenRouter API 키가 필요하다.
 
-**스마트 병합.**
+### 스마트 병합
+
 `m` 키 하나로 자동 커밋, 메인 병합, worktree 정리가
 한번에 이루어진다.
 
-**멀티 프로젝트.**
+### 멀티 프로젝트
+
 하나의 dmux 세션에서 여러 저장소를 관리할 수 있다.
 
-**라이프사이클 훅(Lifecycle Hooks).**
+### 라이프사이클 훅(Lifecycle Hooks)
+
 worktree 생성, 병합 전/후 등 주요 시점에 커스텀
 스크립트를 실행할 수 있다.
 
@@ -148,46 +154,53 @@ branch를 origin에 push하고 PR로 merge하는 게 맞다.
 
 ### 주의사항
 
-**`getMainBranch()` 감지.**
+#### `getMainBranch()` 감지
+
 dmux는 `refs/remotes/origin/HEAD`로 main branch를
 판별한다. fork의 origin에도 main branch가 있으므로
 보통 문제없이 동작한다.
 
-**upstream 동기화 타이밍.**
+#### upstream 동기화 타이밍
+
 worktree를 만들기 전에
 `git pull --rebase upstream main`을 실행해야
 최신 코드 기준으로 branch가 생성된다.
 dmux가 자동으로 upstream을 fetch하지 않으므로
 이 단계를 잊으면 오래된 코드에서 분기하게 된다.
 
-**lifecycle hook 활용.**
+#### lifecycle hook 활용
+
 worktree 생성 시점에 hook으로
 `git pull --rebase upstream main`을 자동 실행하면
 동기화를 빠뜨릴 일이 없다.
 
 ## 인사이트
 
-**에이전트 시대의 tmux.**
+### 에이전트 시대의 tmux
+
 tmux는 원래 사람이 여러 터미널을 관리하기 위한
 도구였다. dmux는 이 개념을 AI 에이전트 관리로
 확장한다. 사람 대신 에이전트가 각 pane에서 작업하고,
 사람은 오케스트레이터가 된다.
 
-**Git worktree의 재발견.**
+### Git worktree의 재발견
+
 Git worktree는 오랫동안 잘 알려지지 않은 기능이었다.
 AI 에이전트가 동시에 여러 작업을 수행하려면
 격리된 작업 디렉토리가 필수인데,
 worktree가 이 문제를 정확히 해결한다.
 dmux 덕분에 worktree가 주목받게 되었다.
 
-**병렬 개발의 병목은 코딩이 아니라 병합이다.**
+### 병렬 개발의 병목은 코딩이 아니라 병합이다
+
 여러 에이전트가 동시에 코드를 작성하는 것은
 기술적으로 어렵지 않다.
 진짜 어려운 부분은 결과물을 하나로 합치는 것이다.
 dmux의 스마트 병합은 이 문제를 단순화하지만,
 복잡한 충돌은 여전히 사람의 판단이 필요하다.
 
-**A/B 테스트가 가능한 코딩.**
+### A/B 테스트가 가능한 코딩
+
 같은 작업을 여러 에이전트에게 맡기고
 결과를 비교할 수 있다는 것은
 코드 리뷰의 새로운 패러다임이다.

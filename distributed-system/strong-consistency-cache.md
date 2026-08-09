@@ -193,7 +193,7 @@ else
 end
 ```
 
-**단, VCS만으로는 부족하다.**
+#### 단, VCS만으로는 부족하다
 
 - Read에서만 VCS 사용: Unlink와 순서 꼬임 발생
 - Write에서 VCS + Read에서 SET NX:

@@ -86,7 +86,7 @@ clone 후 원하는 프로젝트만 골라 `pip install`로
 역할 분담과 협업을 통해 단일 에이전트의 한계를
 넘어선다.
 
-**도메인별 에이전트 팀:**
+#### 도메인별 에이전트 팀
 
 | 도메인       | 팀 구성                             |
 |--------------|-------------------------------------|
@@ -103,13 +103,13 @@ clone 후 원하는 프로젝트만 골라 `pip install`로
 | 여행         | Travel Planner Team                 |
 | 서비스 대행  | Services Agency (CrewAI)            |
 
-**멀티모달 팀:**
+#### 멀티모달 팀
 
 - Coding Agent Team: 코드 생성 + 리뷰 협업
 - Design Agent Team: 디자인 생성 + 피드백
 - UI/UX Feedback Team: 시각 분석 + UX 개선
 
-**고급 멀티 에이전트:**
+#### 고급 멀티 에이전트
 
 - 자기 진화(Self-Evolving) 에이전트
 - 에이전트 신뢰 계층(Trust Layer)
@@ -121,12 +121,12 @@ clone 후 원하는 프로젝트만 골라 `pip install`로
 
 가장 많은 변형을 가진 카테고리다.
 
-**기본 RAG:**
+#### 기본 RAG
 
 - RAG Chain: 가장 기본적인 검색→생성 파이프라인
 - RAG with Database Routing: DB 기반 라우팅
 
-**고급 RAG:**
+#### 고급 RAG
 
 - Corrective RAG (CRAG): 검색 결과를 검증·보정
 - Agentic RAG: 에이전트가 검색 전략을 자율 결정
@@ -134,21 +134,21 @@ clone 후 원하는 프로젝트만 골라 `pip install`로
 - Autonomous RAG: 완전 자율 RAG
 - Gemini Agentic RAG: Gemini 모델 활용
 
-**검색 전략:**
+#### 검색 전략
 
 - Hybrid Search RAG (클라우드 & 로컬)
 - Knowledge Graph RAG with Citations: 지식 그래프
   + 인용 추적
 - Vision RAG: 이미지 기반 검색·생성
 
-**로컬 실행:**
+#### 로컬 실행
 
 - Llama 3.1 Local RAG
 - Deepseek Local RAG Agent
 - Qwen Local RAG
 - Local RAG Agent
 
-**특수 목적:**
+#### 특수 목적
 
 - RAG-as-a-Service: 서비스형 RAG
 - RAG Failure Diagnostics Clinic: RAG 실패 진단
@@ -185,7 +185,7 @@ clone 후 원하는 프로젝트만 골라 `pip install`로
 
 ### 최적화 도구
 
-**TOON(Token-Oriented Object Notation):**
+#### TOON(Token-Oriented Object Notation)
 
 JSON을 TOON 포맷으로 변환하여 토큰 사용량을 줄인다.
 평균 63.9% 토큰 절감, 테이블 데이터는 최대 73.4%.
@@ -193,7 +193,7 @@ JSON 247바이트 → TOON 98바이트로 60% 압축하면서
 가독성은 유지한다. GPT-4 기준 100만 API 호출 시
 약 $2,147 절감.
 
-**Headroom 컨텍스트 압축:**
+#### Headroom 컨텍스트 압축
 
 컨텍스트 윈도우를 50~90% 압축하여 더 많은
 정보를 담거나 비용을 절감한다.

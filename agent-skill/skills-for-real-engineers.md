@@ -23,19 +23,23 @@ npx skills@latest add mattpocock/skills
 
 ## 해결하는 네 가지 실패 모드
 
-**1. 에이전트-개발자 간 정렬 실패 (Misalignment)**
+### 1. 에이전트-개발자 간 정렬 실패 (Misalignment)
+
 `/grill-me`와 `/grill-with-docs`가 구현 시작 전 상세한 질의응답 세션을 진행해
 공유 이해를 구축한다.
 
-**2. 장황한 출력 (Verbosity)**
+### 2. 장황한 출력 (Verbosity)
+
 `CONTEXT.md`로 도메인 특화 용어 사전을 만들어 토큰 낭비를 줄이면서
 코드 일관성과 탐색성을 높인다.
 
-**3. 동작하지 않는 코드 (Non-functional code)**
+### 3. 동작하지 않는 코드 (Non-functional code)
+
 `/tdd`가 red-green-refactor 사이클을 구현하고,
 `/diagnose`가 구조화된 디버깅 방법론을 제공한다.
 
-**4. 아키텍처 퇴화 (Code entropy)**
+### 4. 아키텍처 퇴화 (Code entropy)
+
 `/to-prd`와 `/zoom-out`이 모듈 경계와 시스템 비전을 복원한다.
 `/improve-codebase-architecture`가 도메인 언어와 아키텍처 결정 기록에 기반해
 복잡한 코드베이스 리팩토링을 안내한다.

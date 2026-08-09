@@ -15,17 +15,17 @@ Microsoft, Tencent, Accenture, SAP, Salesforce 등의 개발자들이 사용하�
 
 ## 핵심 개념
 
-**에이전트(Agent)**
+### 에이전트(Agent)
 
 특정 역할(role), 목표(goal), 배경(background)을 가진 AI 전문가 단위다.
 각 에이전트에 다른 LLM(OpenAI, Anthropic Claude, Google Gemini 등)을 독립적으로 할당할 수 있다.
 
-**태스크(Task)**
+### 태스크(Task)
 
 에이전트가 수행할 구체적인 작업 단위다.
 기대 출력(expected output)을 명시해 에이전트가 결과를 형식에 맞게 생성하도록 유도한다.
 
-**팀(Team)**
+### 팀(Team)
 
 에이전트와 태스크의 조직화된 집합이다.
 팀 내에서 에이전트들이 협력하거나 순차적으로 작업을 수행한다.
@@ -72,21 +72,21 @@ const result = await team.start();
 
 ## 주요 기능
 
-**칸반 보드 시각화**
+### 칸반 보드 시각화
 
 에이전트의 태스크 진행 상태를 Trello·Jira 스타일로 실시간 표시한다.
 `npm run kaiban` 명령으로 로컬 대시보드를 열어 작업 흐름을 모니터링한다.
 
-**Redux 기반 상태 관리**
+### Redux 기반 상태 관리
 
 Redux에서 영감을 받은 아키텍처로 에이전트, 태스크, 워크플로우 상태를 일관되게 관리한다.
 상태 변화를 구독하거나 미들웨어를 통해 확장할 수 있다.
 
-**관찰성**
+### 관찰성
 
 토큰 사용량 추적, 운영 비용 분석, 상태 변화 로깅을 내장한다.
 
-**LangchainJS 도구 호환**
+### LangchainJS 도구 호환
 
 검색, 계산, 외부 API 호출 등 LangchainJS 생태계의 도구를 그대로 사용할 수 있다.
 

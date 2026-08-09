@@ -23,7 +23,7 @@ NestedRuntimeException
 
 Spring MVC에서 HTTP 에러 응답을 만드는 전통적인 방법은 두 가지였다.
 
-**방법 1: 커스텀 예외 클래스에 `@ResponseStatus` 애노테이션 붙이기**
+### 방법 1: 커스텀 예외 클래스에 `@ResponseStatus` 애노테이션 붙이기
 
 ```java
 @ResponseStatus(HttpStatus.NOT_FOUND)
@@ -34,7 +34,7 @@ public class UserNotFoundException extends RuntimeException {
 }
 ```
 
-**방법 2: `@ExceptionHandler`로 전역 처리**
+### 방법 2: `@ExceptionHandler`로 전역 처리
 
 ```java
 @ControllerAdvice

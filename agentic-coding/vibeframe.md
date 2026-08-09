@@ -23,13 +23,13 @@ MIT 라이선스를 적용한다.
 
 ## CLI
 
-**프로젝트 초기화:**
+### 프로젝트 초기화
 
 ```bash
 vibe init my-video --from "brief description" --json
 ```
 
-**검증과 계획:**
+### 검증과 계획
 
 ```bash
 vibe storyboard validate my-video --json
@@ -37,7 +37,7 @@ vibe plan my-video --json
 vibe build my-video --dry-run --max-cost 5 --json
 ```
 
-**미디어 생성:**
+### 미디어 생성
 
 ```bash
 vibe generate image "prompt" -p openai -o frame.png
@@ -45,7 +45,7 @@ vibe generate video "prompt" -p seedance -i frame.png -o motion.mp4
 vibe generate narration "text" -o narration.mp3
 ```
 
-**편집:**
+### 편집
 
 ```bash
 vibe edit silence-cut video.mp4 -o clean.mp4
@@ -53,7 +53,7 @@ vibe edit caption video.mp4 -o captioned.mp4
 vibe detect scenes video.mp4
 ```
 
-**빌드와 렌더:**
+### 빌드와 렌더
 
 ```bash
 vibe build my-video --max-cost 5 --json

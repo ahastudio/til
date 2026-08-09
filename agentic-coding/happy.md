@@ -16,7 +16,8 @@ Claude Code와 Codex를 모바일·웹에서 원격 제어하는 오픈소스 �
 
 ## 설치
 
-**패키지 이름이 `happy-coder`에서 `happy`로 바뀌었다.**
+### 패키지 이름이 `happy-coder`에서 `happy`로 바뀌었다
+
 `happy` 이름을 기부받아 이전했고, 현재 배포되는 최신 버전은 `happy`
 쪽에만 올라온다.
 

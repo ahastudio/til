@@ -34,17 +34,21 @@ openwiki -p "명령어"           # 비대화형 단일 실행
 
 ## 주요 기능
 
-**로컬 커넥터.**
+### 로컬 커넥터
+
 Git 저장소, Notion, Gmail, X/Twitter, 웹 검색(Tavily), Hacker News에서 지식을 수집한다.
 
-**표준 출력 형식.**
+### 표준 출력 형식
+
 Google Open Knowledge Format(OKF) v0.1 번들을 생성한다.
 모든 비예약 마크다운 개념에는 타입 정의가 담긴 YAML 프론트매터가 포함된다.
 
-**CI/CD 통합.**
+### CI/CD 통합
+
 GitHub Actions, GitLab CI, Bitbucket Pipelines에서 자동 문서 업데이트를 실행할 수 있다.
 
-**다양한 추론 프로바이더 지원.**
+### 다양한 추론 프로바이더 지원
+
 OpenAI, Anthropic, Gemini, AWS Bedrock, OpenRouter 등 주요 LLM 프로바이더를 모두 지원한다.
 
 ## 아키텍처

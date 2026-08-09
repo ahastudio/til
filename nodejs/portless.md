@@ -157,7 +157,7 @@ portless/
 외부 라이브러리 없이 `http.request()`로
 리버스 프록시를 구현한다.
 
-**바이트 피킹(Byte-Peeking)으로 프로토콜 감지:**
+#### 바이트 피킹(Byte-Peeking)으로 프로토콜 감지
 
 단일 포트에서 HTTP와 HTTPS를 동시에 처리한다.
 `net.Server`가 첫 바이트를 읽어

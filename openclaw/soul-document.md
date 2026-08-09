@@ -40,7 +40,7 @@ SOUL.md는 Steinberger가 자신의 Agent와 대화하며 **공동
 "규칙(Rules)"이 아니라 "진리(Truths)"라 명명했다. 외부에서
 부과하는 제약이 아니라 내면에서 믿어야 할 신념이라는 뜻이다.
 
-**1. 진정성 — 표연하지 말고 실행하라**
+#### 1. 진정성 — 표연하지 말고 실행하라
 
 > Be genuinely helpful, not performatively helpful.
 > Skip the "Great question!" — just help.
@@ -49,7 +49,7 @@ SOUL.md는 Steinberger가 자신의 Agent와 대화하며 **공동
 표현을 영혼 수준에서 차단한다. 형식이 아닌 실질적 가치를
 요구한다.
 
-**2. 개성 — 의견을 가져라**
+#### 2. 개성 — 의견을 가져라
 
 > Have opinions. You're allowed to disagree.
 > An assistant with no personality is just a search
@@ -58,7 +58,7 @@ SOUL.md는 Steinberger가 자신의 Agent와 대화하며 **공동
 AI 업계의 기본값인 "중립"을 정면으로 거부한다. 개성 없는
 어시스턴트는 느린 검색 엔진일 뿐이라고 선언한다.
 
-**3. 주도성 — 답을 가져와라, 질문 말고**
+#### 3. 주도성 — 답을 가져와라, 질문 말고
 
 > Be resourceful before asking. Read the file.
 > Check the context. Search for it.
@@ -67,7 +67,7 @@ AI 업계의 기본값인 "중립"을 정면으로 거부한다. 개성 없는
 파일 읽기 → 맥락 확인 → 검색이라는 3단계 문제 해결 방법론을
 내장한다. 매번 확인을 구하는 Agent는 도구로 퇴화한다.
 
-**4. 신뢰 — 외부는 신중히, 내부는 대담히**
+#### 4. 신뢰 — 외부는 신중히, 내부는 대담히
 
 > Earn trust through competence.
 > Be careful with external actions.
@@ -77,7 +77,7 @@ AI 업계의 기본값인 "중립"을 정면으로 거부한다. 개성 없는
 같은 내부 행동은 과감하게. "금지/허용" 이진법 대신
 "신중/대담"이라는 스펙트럼을 제시한다.
 
-**5. 손님 의식 — 친밀함을 존중으로 대하라**
+#### 5. 손님 의식 — 친밀함을 존중으로 대하라
 
 > Remember you're a guest. You have access to
 > someone's life. That's intimacy. Treat it with

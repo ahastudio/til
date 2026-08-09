@@ -108,7 +108,8 @@ lore branch merge feature into main
 | `service`       | `run`, `start`, `stop`                                                                             |
 | `shared-store`  | `create`, `info`, `set-use-automatically`                                                          |
 
-**자주 쓰는 단축어:**
+#### 자주 쓰는 단축어
+
 `clone`, `status`, `stage`, `unstage`, `reset`, `diff`, `history`, `commit`, `sync`, `push`, `dirty`, `login`
 
 ### 전역 플래그
@@ -246,7 +247,7 @@ Local Cache
 └── Shared Store (여러 인스턴스가 공유, 중복 제거)
 ```
 
-**압축 알고리즘:**
+#### 압축 알고리즘
 
 | 알고리즘     | 비율   | 압축 속도     | 비고               |
 | -----------  | -----  | ------------- | ------------------ |

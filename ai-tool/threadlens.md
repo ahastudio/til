@@ -43,7 +43,7 @@ ThreadLens의 로컬 퍼스트 설계는 단순히 “서버가 없다”는 의
 
 TUI는 별도의 `pnpm dev:tui` 명령으로 실행되며, 서버 없이 파일시스템에 직접 접근하는 방식으로 더 빠른 응답성을 제공한다. Electron 데스크톱 앱은 세 가지 중 가장 완성된 배포 형태로, macOS(.dmg), Windows(.exe), Linux(.AppImage)로 패키징되어 있다.
 
-**사용 가능한 플랫폼:**
+#### 사용 가능한 플랫폼
 
 - macOS (.dmg), Windows (.exe), Linux (.AppImage)
 - 소스 코드 직접 실행: Node.js 22.12+, pnpm 10.33.2+

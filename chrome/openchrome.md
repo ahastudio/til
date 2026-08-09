@@ -7,7 +7,7 @@ AI 에이전트가 실제 Chrome 인스턴스를 제어할 수 있게 한다.
 
 ## 핵심 가치
 
-**"Smart. Fast. Parallel."**
+### "Smart. Fast. Parallel."
 
 기존 브라우저 자동화의 세 가지 병목을 정면으로 해결한다:
 

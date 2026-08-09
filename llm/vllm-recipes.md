@@ -14,12 +14,12 @@ HuggingFace 미러 URL 리다이렉트를 지원해 `huggingface.co`를
 
 ## 지원 범위
 
-**하드웨어:**
+### 하드웨어
 
 - NVIDIA: H100, H200, B200, B300, Grace-Blackwell 아키텍처
 - AMD: MI300X, MI325X, MI355X
 
-**모델 제공사 (28개+):**
+### 모델 제공사 (28개+)
 
 - Qwen (18개 레시피), GLM/Z-AI (11개), DeepSeek (7개)
 - Meta, Google, Mistral AI, Moonshot AI 등

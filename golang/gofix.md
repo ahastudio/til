@@ -31,7 +31,8 @@ func Square(x int) int { return Pow(x, 2) }
 안전하게 건너뛴다. 패키지 이동, 상수 교체도
 같은 패턴으로 처리한다.
 
-**이것이 중요한 이유:**
+### 이것이 중요한 이유
+
 v1 → v2 마이그레이션 시 v1 함수를 v2 래퍼로
 만들고 `//go:fix inline`만 붙이면 된다.
 Breaking change의 고통을 구조적으로 제거한다.

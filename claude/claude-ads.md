@@ -20,13 +20,15 @@ Claude-Ads는 Claude Code 스킬(Skill)로 구현된 광고 감사(Audit) 자동
 
 ## 핵심 분석 기능
 
-**Ads Health Score:**
+### Ads Health Score
+
 계정 전체에 0-100점을 부여하는 채점 시스템으로, 심각도 가중치(Severity-Weighted) 알고리즘을 적용한다. 점수 구간은 A(90-100, “사소한 최적화만 필요”)부터 F(40점 미만, “즉각 개입 필요”)까지 6단계로 나뉜다.
 
-**품질 게이트(Quality Gates):**
+### 품질 게이트(Quality Gates)
+
 규칙 기반 가드레일을 통해 위험한 설정 조합을 자동으로 플래깅(Flagging)한다. Smart Bidding 없이 Broad Match를 권장하지 않도록 방지하고, CPA가 목표의 3배를 초과하면 경고하며, 최소 예산 충족 여부를 강제 검사하고, 학습 단계(Learning Phase) 캠페인의 조기 편집을 차단한다.
 
-**추가 분석 기능:**
+### 추가 분석 기능
 
 - 산업별 벤치마크 비교 및 캠페인 템플릿 (SaaS, 이커머스, 지역 서비스, B2B)
 - PPC 재무 모델링 및 계산기 (CPA, ROAS, LTV:CAC)
@@ -37,20 +39,20 @@ Claude-Ads는 Claude Code 스킬(Skill)로 구현된 광고 감사(Audit) 자동
 
 ## 설치 및 사용법
 
-**플러그인 마켓플레이스:**
+### 플러그인 마켓플레이스
 
 ```bash
 /plugin marketplace add AgriciDaniel/claude-ads
 /plugin install claude-ads@agricidaniel-claude-ads
 ```
 
-**Unix/macOS/Linux 원커맨드 설치:**
+### Unix/macOS/Linux 원커맨드 설치
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/AgriciDaniel/claude-ads/main/install.sh | bash
 ```
 
-**주요 명령어:**
+### 주요 명령어
 
 | 명령어              | 기능                                             |
 | ------------------- | ------------------------------------------------ |

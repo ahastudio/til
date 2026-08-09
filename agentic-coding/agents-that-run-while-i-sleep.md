@@ -122,7 +122,8 @@ Playwright가 잡는 것은 통합 실패, 렌더링 버그,
 | Browser Agents   | Sonnet  | AC당 1 에이전트, 병렬 실행. Sonnet은 Opus 대비 3~4배 저렴.                |
 | Judge            | Opus    | 전체 증거를 읽고 AC별 판정: pass / fail / needs-human-review.        |
 
-**워크플로우 요약:**
+#### 워크플로우 요약
+
 인수 조건 작성 → 에이전트 구현 → 검증 실행 →
 **실패만 리뷰**. diff가 아니라 실패를 본다.
 

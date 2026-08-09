@@ -13,19 +13,23 @@ Anthropic의 MCP(Model Context Protocol)를 공식 지원하여 Claude, Cursor, 
 
 ## 네 가지 도구
 
-**measure-mirror**
+### measure-mirror
+
 사전 등록(preregistration)과 통계 검증을 통해 AI 평가 주장을 감사한다.
 에이전트가 평가 지표를 사전에 봉인 등록하면, 실행 후 결과가 조작되지 않았음을 검증할 수 있다.
 
-**action-mirror**
+### action-mirror
+
 상호 증인 검증(mutual witness verification)을 통해 체인 연결된 행동 이력을 생성한다.
 에이전트의 행동이 순서대로 봉인되어 소급 편집이 불가능하다.
 
-**provenance-mirror**
+### provenance-mirror
+
 콘텐츠 출처와 진위를 검증한다.
 에이전트가 사용하는 데이터나 생성하는 콘텐츠의 원천을 추적한다.
 
-**mirror-witness**
+### mirror-witness
+
 GitHub 인프라를 활용하는 크로스 오퍼레이터 증인 보드다.
 중앙 서버 없이 분산된 증인 노드가 검증에 참여한다.
 

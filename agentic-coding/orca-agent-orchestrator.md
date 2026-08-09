@@ -12,14 +12,19 @@ Orca는 Stably AI가 만든 에이전트 개발 환경(ADE, Agent Development En
 “100x 빌더를 위한 AI 오케스트레이터”를 표방하며,
 여러 AI 코딩 에이전트를 격리된 git worktree에서 병렬로 실행하고
 결과를 나란히 비교·병합하는 데스크톱 앱이다.
-MIT 라이선스 오픈소스이고, GitHub 스타는 32.3k에 달한다.
+MIT 라이선스 오픈소스이고, 2026년 8월 기준 GitHub 스타 39.8k, 포크 2.8k, 커밋 8,169개다.
+README가 중국어·일본어·한국어·스페인어·프랑스어·포르투갈어로 번역되어 있다.
 
 핵심 워크플로는 단순하다.
 프롬프트를 한 번 입력하면 Orca가 이를 여러 에이전트에 동시에 배포하고,
 각 에이전트는 자기만의 worktree에서 독립적으로 작업한다.
 사용자는 통합 인터페이스에서 각 결과를 비교한 뒤 마음에 드는 쪽을 병합한다.
-Claude Code, Codex, OpenCode, Pi, GitHub Copilot, Cursor, Devin 등
-30개 이상의 CLI 기반 에이전트를 지원한다.
+지원 에이전트 목록은 Claude Code, Codex, Grok, Cursor, GitHub Copilot, OpenCode,
+MiMo Code, Amp, OpenClaude, Antigravity, Pi, oh-my-pi, Hermes Agent, Devin, Goose,
+Auggie, Autohand Code, Charm, Cline, Codebuff, Command Code, Continue, Droid,
+Kilocode, Kimi, Kiro, Mistral Vibe, Qwen Code, Rovo Dev로 이어지고,
+마지막 항목이 “그 외 모든 CLI 에이전트”다 — 문서의 표현은
+“터미널에서 돌면 Orca에서 돈다”이다.
 
 ## 주요 기능
 
@@ -30,13 +35,21 @@ Claude Code, Codex, OpenCode, Pi, GitHub Copilot, Cursor, Devin 등
 - GitHub·Linear 태스크 연동, SSH 원격 worktree
 - iOS·Android 컴패니언 앱으로 원격 모니터링과 조종(steering)
 - worktree·파일 통합 검색(quick open), 계정 전환과 사용량 추적
-- 워크플로 스크립팅용 CLI, 데스크톱 앱 제어용 Computer Use
+- 워크플로 스크립팅용 CLI(`orca worktree create`, `snapshot`, `click`, `fill`)
+- 에이전트에 파일·이미지를 끌어다 놓는 VS Code 기반 에디터와 전역 자동 저장
+- Markdown·이미지·PDF·저장소 문서 미리보기, 데스크톱 앱 제어용 Computer Use
+- 에이전트 완료·주의 필요 알림과 스레드 읽지 않음 표시
 
 설치는 macOS·Windows·Linux 데스크톱은 onorca.dev/download 직접 다운로드,
 Homebrew는 `brew install --cask stablyai/orca/orca`,
 Arch Linux는 `yay -S stably-orca-bin`으로 한다.
 기술 스택은 Electron 기반 데스크톱에 TypeScript/Node.js(pnpm 워크스페이스)이며,
 익명 사용량 텔레메트리는 옵트아웃할 수 있다.
+헤드리스 리눅스 서버에서는 `orca serve`로 띄우는 별도 가이드가 있고,
+모바일 컴패니언은 iOS App Store와 TestFlight, Android는 APK 직접 배포다.
+Windows 코드 서명은 SignPath.io가 후원하고 SignPath Foundation이 인증서를 제공한다.
+저장소 최상단에는 `orca.yaml`과 `AGENTS.md`, `CLAUDE.md`가 함께 놓여 있고,
+`skills/`, `skill-guides/`, `skill-stubs/`, `examples/plugins/` 디렉터리가 따로 있다.
 
 ## 분석
 
@@ -90,6 +103,30 @@ Orca는 이 감독 노동을 모바일 알림 수준으로 가볍게 만들려 �
 이는 개발이 동기적 작업에서 비동기적 관리로 바뀐다는 신호다.
 코드 리뷰 대기열을 관리하듯 에이전트 대기열을 관리하고,
 출퇴근길에 진행 상황을 확인하는 그림이다.
+
+### 같은 문제에 대한 반대 방향의 해법이 나란히 존재한다
+
+이 범주에서 Orca와 가장 직접 비교되는 것이 [Paseo](paseo.md)다.
+둘 다 여러 코딩 에이전트를 관리하는 데스크톱 앱이고, 모바일 컴패니언이 있고, CLI를 제공한다.
+그런데 강조점이 반대다.
+
+Orca는 팬아웃을 중심에 둔다 — 하나의 프롬프트를 여러 에이전트에 뿌리고
+각자 격리된 worktree에서 돌린 뒤 비교해 승자를 병합한다.
+Paseo는 역할 분담을 중심에 둔다 — 제공하는 스킬 네 개가
+인계(handoff), 반복 루프(loop), 조언자(advisor), 위원회(committee)이고
+같은 작업을 여러 에이전트에 동시에 시키는 패턴은 목록에 없다.
+
+나머지 축도 대체로 반대다.
+라이선스는 MIT 대 AGPL-3.0이고, 텔레메트리는 옵트아웃 가능한 익명 수집 대 아예 없음이며,
+지원 에이전트는 30개 가까이 나열 대 다섯 개 명시다.
+스타 수는 39.8k 대 12.7k로 세 배 차이가 난다.
+
+이 대비가 알려주는 것은 이 시장이 아직 하나의 축으로 정렬되지 않았다는 사실이다.
+넓게 지원하고 빠르게 출시하며 사용 데이터를 모으는 쪽과,
+좁게 지원하고 통제권과 프라이버시를 파는 쪽이 동시에 성장하고 있다.
+그리고 어느 쪽이 우세해질지는 이 도구들이 개인의 취미 환경으로 남는지
+팀의 표준 도구가 되는지에 달려 있다 — 후자로 가면 라이선스와 텔레메트리 정책이
+기능보다 먼저 심사 대상이 되기 때문이다.
 
 ## 비평
 
