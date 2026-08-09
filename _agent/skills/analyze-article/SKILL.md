@@ -14,12 +14,13 @@ argument-hint: '<url> [output-path]'
 disable-model-invocation: true
 ---
 
-Read a web article and write a TIL document with a summary / analysis /
-critique / insights structure.
+Read a web article and write a TIL document
+with a summary / analysis / critique / insights structure.
 
-**The output document MUST be written in Korean.** All section content
-(summary, analysis, critique, insights) is written in Korean. Technical terms
-may be written alongside their original English form.
+**The output document MUST be written in Korean.**
+All section content (summary, analysis, critique, insights) is
+written in Korean.
+Technical terms may be written alongside their original English form.
 
 ## Usage
 
@@ -329,6 +330,10 @@ Write at least 3 insights. 4 is better if the subject warrants it.
 - Write in Korean. Technical terms may be written alongside their original
   English form.
 - The H1 is Korean (step 3a). Every `##` and `###` heading is Korean too.
+- Sections are marked with headings, never with bold text. When the first
+  section runs long enough to need internal divisions, give those divisions
+  real sub-headings at the right level. A bold line standing alone above body
+  text is a structural defect, not a formatting choice.
 - Each section must do different work: 요약/소개 reports, 분석 explains,
   비평 challenges, 인사이트 extends. Do not let sections overlap.
 - The document should read as if written by someone who disagrees with

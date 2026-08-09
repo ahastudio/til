@@ -66,6 +66,43 @@ the verb is banned regardless of how natural it sounds in context.
 If you catch yourself typing `박아`, `박힌`, `박제`, or any sibling form:
 STOP and rewrite with a neutral verb.
 
+## Structure Belongs to Headings (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**Never use bold text where a heading belongs.** If a run of text opens a
+distinct part of the document, that part gets a real heading. Emphasis markup
+is for a word or a clause inside a sentence, never for the thing that announces
+what the next several paragraphs are about.
+
+Why this is a defect and not a style choice: a heading is structure and
+emphasis is decoration. Headings enter the document outline, can be linked to,
+can be counted, and tell a reader scanning the page where they are. Bold text
+does none of that. A document whose sections are marked with emphasis has no
+structure at all — it only looks like it does.
+
+Rules:
+
+- If it introduces a section, it is a heading. Use the heading level that
+  matches its depth in the document.
+- If a section is too small to deserve a heading, it is not a section. Fold it
+  into the surrounding prose, or merge it with a neighbour, or give the group a
+  single heading that covers all of it.
+- Never let a bold line stand alone on its own line followed by body text. That
+  shape is a heading wearing a disguise.
+- Emphasis stays inside a sentence and marks a word or phrase, not a topic.
+- Do not restructure to avoid the rule. Choosing bold because you did not want
+  to think about the outline is the exact failure this rule exists to prevent.
+
+**Mandatory check before finishing ANY `.md` write or edit:**
+
+1. Find every line that consists mostly or entirely of bold text.
+2. For each one, ask: does body text follow it that this line introduces?
+3. If yes, it is a heading. Convert it, or dissolve the section.
+4. Only emphasis that sits inside a running sentence may remain.
+
+This check runs on every document, including ones where the sections are short
+and the bold form looks tidy. Tidiness is not a reason. If you catch yourself
+writing a bold line as a section opener: STOP and decide the outline instead.
+
 ## Heading Spacing
 
 Always add blank lines before and after headings. This is required for markdown
