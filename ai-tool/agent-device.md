@@ -1,5 +1,7 @@
 # agent-device: 코딩 에이전트가 실제 기기에서 앱을 검증하게 하는 CLI
 
+<https://agent-device.dev/>
+
 <https://github.com/callstack/agent-device>
 
 ## 소개
@@ -7,8 +9,11 @@
 Callstack이 만든 MIT 라이선스 CLI 도구다.
 한 줄 소개는 “코딩 에이전트가 자기가 바꾼 것을 실행 중인 앱에서 직접 검증하게
 하라”이다.
-iOS, Android, tvOS, Android TV, Vega Virtual Device(VVD)를 통한 Amazon Vega OS TV,
-웹, macOS, Linux에서 에이전트가 앱을 조사하고 조작하고 검증할 수 있게 한다.
+iOS, Android, HarmonyOS, tvOS, Android TV, Vega Virtual Device(VVD)를 통한
+Amazon Vega OS TV, 웹, macOS, Linux에서 에이전트가 앱을 조사하고 조작하고 검증할 수
+있게 한다.
+지원되는 곳에서는 토큰 효율적인 접근성 스냅샷을 읽고, ref나 셀렉터로 요소를 찾고,
+기기 동작을 실행하고, 리뷰용 증거를 저장한다.
 
 핵심 발상은 Vercel의 agent-browser에서 가져온 inspect-act-verify 절차를 모바일과
 TV와 데스크톱 앱으로 옮긴 것이다.
@@ -17,10 +22,16 @@ TV와 데스크톱 앱으로 옮긴 것이다.
 `--platform web`을 쓰면 같은 세션과 리플레이 체계 안에서 agent-browser를 그대로
 돌린다.
 
-2026년 1월 30일에 만들어진 저장소로, 8월 초 기준 3,855개의 스타와 230개의 포크를
-갖고 있다.
-Callstack 외에 JPMorgan Chase, Expensify, Shopify, Kindred, Total Wine & More 등이
-사용 중인 것으로 소개돼 있다.
+2026년 1월 30일에 만들어진 저장소로, 2026년 8월 10일 기준 4,036개의 스타와 247개의
+포크를 갖고 있다.
+Callstack 외에 JPMorgan Chase, Expensify, Shopify, Kindred, Total Wine & More,
+LegendList, HerLyfe, App & Flow 등이 사용 중인 것으로 소개돼 있다.
+
+문서는 사람용 문서 사이트와 별도로 에이전트가 읽는 `llms-full.txt`를 함께 제공한다.
+README가 참조하는 외부 자료로는 EAS Workflows로 Expo 앱용 AI QA 에이전트를 만드는
+Expo 블로그 글, Callstack이 쓴 소개와 Vercel Eve 기반 모바일 QA 에이전트 구축기,
+그리고 모바일 앱 자동화를 위해 agent-device를 최적화한 과정을 다룬 글이 있고,
+영상 세 편이 함께 걸려 있다.
 
 ## 사용법
 
@@ -68,6 +79,10 @@ agent-device close
 둘째, 스냅샷은 앱의 접근성 트리를 쓴다. 레이블과 role과 test ID가 명확할수록
 에이전트 실행이 안정적이다.
 
+`--settle`은 `scroll`과 `back`에서도 똑같이 동작하므로,
+스크롤한 뒤 관찰하는 것과 뒤로 간 뒤 관찰하는 것도 호출 한 번으로 끝난다.
+왕복 횟수를 줄이는 이 설계가 뒤에서 다룰 토큰 효율성과 직결된다.
+
 ## 주요 기능
 
 에이전트가 할 수 있는 일은 네 갈래로 정리돼 있다.
@@ -92,10 +107,15 @@ Vega OS 지원은 초기 단계로 VVD 전용이며 탐색, 앱 생명주기, TV
 | ------------- | ----------------------------- |
 | iOS, tvOS     | XCTest                        |
 | Android       | ADB + 스냅샷 헬퍼             |
+| HarmonyOS     | HDC + ArkUI `uitest`          |
 | Vega VVD      | Vega CLI / VDA                |
 | macOS         | 로컬 헬퍼                     |
 | Linux         | AT-SPI                        |
 | Web           | agent-browser                 |
+
+HarmonyOS는 연결된 실기기와 DevEco 에뮬레이터에서 HDC와 ArkUI `uitest`를 쓴다.
+어디까지 되는지는 `capabilities --platform harmonyos`로 확인하도록 안내하는데,
+이 명령이 증거로 뒷받침되는 명령 부분집합을 돌려준다.
 
 Node.js 앱에서는 타입이 붙은 클라이언트나 공개 서브패스를 쓸 수 있다.
 `agent-device/android-adb`는 Android ADB 프로바이더 인터페이스와 logcat, 클립보드,
@@ -221,7 +241,8 @@ README는 “대상별로 명령과 증거가 다르다”는 문장으로 이 �
 
 ### 지원 플랫폼의 폭은 성숙도를 가린다
 
-지원 목록은 인상적이다. iOS, Android, tvOS, Android TV, Vega OS, 웹, macOS, Linux.
+지원 목록은 인상적이다. iOS, Android, HarmonyOS, tvOS, Android TV, Vega OS, 웹,
+macOS, Linux.
 그런데 이 목록의 항목들은 완성도가 전혀 같지 않다.
 
 Vega OS는 README 스스로 밝히듯 VVD 전용이고 탐색과 앱 생명주기와 리모컨 제어까지만
@@ -239,6 +260,21 @@ macOS는 “로컬 헬퍼”, Linux는 AT-SPI인데 이 둘이 iOS의 XCTest 백
 어느 플랫폼에서 무엇이 되는지가 명확하지 않을수록 이 낭비가 커진다.
 README가 “설치된 CLI의 help가 현재 동작을 정의한다”고 명시한 것은 정직하지만,
 동시에 문서가 실제 동작을 보증하지 않는다는 뜻이기도 하다.
+
+HarmonyOS 항목에 붙은 `capabilities --platform harmonyos`가 이 문제에 대한 부분적인
+답이다.
+플랫폼별로 증거가 뒷받침되는 명령 부분집합을 런타임에 물어볼 수 있게 한 것이고,
+에이전트가 되는 것과 안 되는 것을 시행착오 대신 조회로 알 수 있다는 뜻이다.
+지원 목록의 폭이 아니라 런타임 조회를 진실의 출처로 삼는 이 방향은 옳다.
+
+다만 이 장치가 HarmonyOS 설명에만 등장한다는 점이 걸린다.
+가장 최근에 추가된 플랫폼에서 문제를 겪고 대책을 만든 것으로 읽히는데,
+같은 불확실성은 Vega OS와 macOS와 Linux에도 그대로 있다.
+그리고 `capabilities`가 돌려주는 것이 명령 목록이라면 여전히 절반이다 —
+에이전트에게 필요한 것은 이 명령이 있는가가 아니라
+이 앱의 이 화면에서 이 명령이 쓸 만한 결과를 주는가이기 때문이다.
+접근성 데이터가 부실한 앱에서 `snapshot`은 존재하지만 쓸모없고,
+그 구분은 어떤 조회로도 나오지 않는다.
 
 ### 사용 기업 목록은 도입 깊이를 말하지 않는다
 
