@@ -287,12 +287,6 @@ FinOps가 클라우드 지출을 가시화하는 데 10년이 걸렸듯이, AI �
 [사용자별 지출을 실시간으로 보여 주고 게이트웨이에서 정책을 강제하는 구조](../ai-tool/coding-costs.md)가 그 전제이며, 그것을 갖춘 조직은 가격이 올라도 어디를 조일지 알고 갖추지 못한 조직은 청구서를 받고 나서야 안다.
 진정한 리스크는 AI 기업의 가격 정책이 아니라 기업 내부의 지출 가시성 부재다.
 
-## 참고
-
-- 이 글은 2026년 5월 28일 State of AI에 실렸으며, 매체 페이지에 Outlever가 구축한 브랜드 뉴스룸이라는 표시가 함께 붙어 있다.
-- Lobste.rs와 GeekNews에서는 이 글에 대한 스레드를 찾지 못했다.
-- 관련 문서: [정액 요금 AI 제품에서는 고객별 연산 원가를 뺀 LTV를 따로 계산해야 한다](../business/compute-adjusted-ltv.md), [AI 기능은 유료 부가 기능에서 기본 사양이 되었다](../business/gen-ai-feature-pricing.md), [AI 코딩 비용은 지능 프런티어가 아니라 효율 프런티어를 쫓아야 잡힌다](../ai-tool/coding-costs.md), [Muse Glimmer](../llm/muse-glimmer.md)
-
 ---
 
 [^leemoore]: HN 사용자 `leemoore`: “Enterprise customers aren't running 20 bucks a month for claude pro subscriptions. My company provides developers about 1k worth of usage limits a month and best I can tell they get maybe a 30% savings off of API cost tops. That's not an insane subsidy.” <https://news.ycombinator.com/item?id=48169896>
