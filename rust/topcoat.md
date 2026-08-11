@@ -2,6 +2,16 @@
 
 <https://github.com/tokio-rs/topcoat>
 
+발표 글: <https://tokio.rs/blog/2026-07-22-announcing-topcoat>
+
+Toasty ORM: <https://github.com/tokio-rs/toasty>
+
+HN 토론: <https://news.ycombinator.com/item?id=48952067> (134점, 48개 댓글)
+
+Lobste.rs 토론 (저장소): <https://lobste.rs/s/zmg7ot/topcoat_batteries_included_framework> (18점)
+
+Lobste.rs 토론 (발표 글): <https://lobste.rs/s/l8hiip/announcing_topcoat_framework_for> (16점)
+
 ## 소개
 
 Topcoat은 tokio-rs 조직에서 공개한 Rust 풀스택 웹 프레임워크다.
@@ -352,13 +362,3 @@ Toasty의 모델 타입이 `view!`와 폼 매크로에서 일급으로 다뤄지
 [^lightandlight]: Lobste.rs `lightandlight`, <https://lobste.rs/s/l8hiip/announcing_topcoat_framework_for#c_n8ssoq>
 
 [^arch]: Lobste.rs `Arch`, <https://lobste.rs/s/l8hiip/announcing_topcoat_framework_for#c_z29kaa>
-
-발표 글: <https://tokio.rs/blog/2026-07-22-announcing-topcoat>
-
-Toasty ORM: <https://github.com/tokio-rs/toasty>
-
-HN 토론 (134점, 48 댓글): <https://news.ycombinator.com/item?id=48952067>
-
-Lobste.rs 토론 (저장소, 18점): <https://lobste.rs/s/zmg7ot/topcoat_batteries_included_framework>
-
-Lobste.rs 토론 (발표 글, 16점): <https://lobste.rs/s/l8hiip/announcing_topcoat_framework_for>
