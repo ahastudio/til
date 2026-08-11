@@ -4,6 +4,12 @@
 
 <https://github.com/CoreBunch/Instatic>
 
+HN 제출: <https://news.ycombinator.com/item?id=48727951> (2점, 댓글 없음)
+
+플러그인 시스템 문서: <https://github.com/CoreBunch/Instatic/blob/main/docs/features/plugin-system.md>
+
+퍼블리셔 설계 문서: <https://github.com/CoreBunch/Instatic/blob/main/docs/features/publisher.md>
+
 ## 소개
 
 Instatic은 Bun 위에서 동작하는 셀프호스팅형 비주얼 CMS다.
@@ -289,11 +295,3 @@ Instatic을 채택할 때 잃을 수 있는 최대치는 편집 도구이지 사
 개인이 쉽게 시작할 수 있게 하되 팀으로 커졌을 때 갈아타지 않아도 되게 만드는 것이며, 그래서 아키텍처는 조직 규모를 상정하고 온보딩은 개인을 상정한다.
 Ghost나 Strapi 같은 이전 세대가 가벼운 도구로 시작해 점진적으로 조직용 기능을 붙인 것과 달리, 이 프로젝트는 조직용 구조를 먼저 세우고 개인용 진입로를 낸 순서다.
 그 순서의 대가가 0.0.x 단계에서 이미 감당해야 하는 복잡도이며, 열린 이슈 87개와 1.0 전 API 변경 예고가 그 비용의 현재 표시값이다.
-
----
-
-HN 제출 (2점, 댓글 없음): <https://news.ycombinator.com/item?id=48727951>
-
-플러그인 시스템 문서: <https://github.com/CoreBunch/Instatic/blob/main/docs/features/plugin-system.md>
-
-퍼블리셔 설계 문서: <https://github.com/CoreBunch/Instatic/blob/main/docs/features/publisher.md>
