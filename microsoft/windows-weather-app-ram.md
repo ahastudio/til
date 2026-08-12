@@ -2,7 +2,7 @@
 
 원문: [Windows 11's built-in Weather app wastes more than 1 GB of RAM](https://www.notebookcheck.net/Windows-11-s-built-in-Weather-app-wastes-more-than-1-GB-of-RAM.1364205.0.html)
 
-HN 토론: <https://news.ycombinator.com/item?id=49232138> (382점, 318개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=49232138> (634점, 570개 댓글)
 
 ## 요약
 
@@ -37,6 +37,9 @@ Windows Latest의 테스트가 1차 출처이고, Wccftech의 관찰이 교차 �
 Notebookcheck가 더한 것은 8GB 시스템에서 20%라는 환산과, Microsoft의 효율 개선 발표와 대비시키는 서사다.
 
 이 구조가 기사의 강점이자 약점이다.
+davidgerard는 여기서 한 걸음 더 나간다 — 이것은 windowslatest.com 글의 재게시이며 그쪽이 링크되어야 한다는 것이다.[^davidgerard]
+1차 출처가 따로 있는데 집계본이 634점을 받았다는 사실 자체가 이 장르의 유통 구조를 보여준다.
+
 강점은 서로 다른 두 매체가 비슷한 범위의 숫자를 내놓았다는 점이다 — 1GB 시작, 유휴 500~600MB, 조작 중 1.5~1.6GB라는 Wccftech의 관찰은 Windows Latest의 1.2GB와 모순되지 않고 오히려 변동 폭을 보여준다.
 약점은 어느 쪽도 측정 방법을 밝히지 않는다는 점이며, 뒤에서 다룰 문제의 출발점이다.
 
@@ -45,6 +48,18 @@ hyperhello는 저자가 실제 메모리와 페이징 공간 확보의 차이를
 그리고 stock 상태의 최신 Windows 11 x64 25H2 데스크톱에서 직접 재본 smileybarry는 날씨 앱이 실행 직후 약 670MB를 쓰고 댓글을 쓰는 사이 450MB로 떨어졌다고, 1GB보다 훨씬 낮다고 보고했다.[^smileybarry]
 디블로트 스크립트나 커스터마이저를 돌리지 않은 기본 상태라는 단서까지 붙였다.
 같은 앱을 두고 1.2GB와 670MB가 나온다는 사실은 이 기사의 숫자가 조건에 크게 좌우된다는 뜻이고, 그 조건이 무엇인지는 어느 기사에도 없다.
+
+스레드가 커지면서 독립적인 실측이 더 쌓였고, 방향은 한쪽이다.
+daemin은 자기 컴퓨터 두 대에서 재봤다 — Windows 10에서는 비활성 시 2~4MB였다가 활성 시 490~550MB로 올라가고,
+Windows 11에서는 비활성 시 아예 돌지 않는 것으로 보이며 활성 시 약 540MB까지 간다는 것이다.[^daemin]
+기사가 제시한 수치 근처에도 가지 않는다고 적으면서, 다만 지역과 날씨 데이터 제공자에 따라 사용량이 달라질 수 있어
+자기 지역에서는 0.5GB인 것이 미국에서는 훨씬 클 수도 있다는 가설을 덧붙인다.
+dominicrose도 앱을 닫았을 때 램 사용량이 0.7GB 정도만 줄어드는 것을 보고 총 700MB 정도로 추정한다.[^dominicrose]
+
+세 사람의 실측이 모두 500~700MB대에 모이고 기사의 1.2GB나 1.5~1.6GB에는 아무도 도달하지 못했다는 사실은 두 가지 중 하나를 뜻한다.
+원 측정에 특별한 조건이 있었거나, 측정 지표가 달랐거나다.
+daemin의 지역·제공자 가설이 맞다면 광고 밀도가 높은 시장에서 더 무거워진다는 뜻이 되는데, 이는 앞서 광고와 메모리를 연결한 서술과 정확히 맞물린다.
+어느 쪽이든 이 기사는 자기 숫자가 어떤 조건에서 나온 것인지 밝히지 않았고, 그래서 반증도 확증도 되지 않는 상태로 남았다.
 
 이런 집계 기사가 성립하는 이유는 검증 비용이 낮기 때문이다.
 독자가 작업 관리자를 열어 직접 확인할 수 있는 주장이고, 그래서 틀리면 즉시 반박당한다.
@@ -145,10 +160,26 @@ eviks는 250MB도 이미 비대하며 이 정도 낭비를 보여주려면 더 �
 cherryteastain가 제시한 GNOME Weather의 80MB가 그 기준에 가깝고,[^cherryteastain] iamcoder18은 잘 설계된 네이티브 날씨 앱이라면 100MB를 넘지 않을 것이라고 본다.[^iamcoder18]
 i-e-b는 셰익스피어 전집이 약 6MiB인데 나중에 비가 올지 알려주는 데 100MiB가 효율적이라고 여겨지는 것이 싫다고 적었다.[^i-e-b]
 이 기준들을 적용하면 기사의 비판은 방향은 맞되 강도가 부족했던 셈이 된다.
+virtualritz는 이를 아이러니로 정리한다 — 기사가 macOS는 다섯 배 적다는 사실로 시작하는데 그 아이러니를 저자가 놓친 것 같으며,
+제목이 macOS 기본 날씨 앱이 200MB를 넘게 낭비한다였어도 조롱을 부르는 정도는 다르지 않았을 것이라는 지적이다.[^virtualritz]
+Hobadee도 같은 자리에서 묻는다 — 아이콘 몇 개와 배경, 약간의 텍스트를 올리는 데 왜 10~20MB 이상이 필요하냐는 것이다.[^Hobadee]
+
+제목의 단어 선택을 직접 문제 삼은 사람도 있다.
+chrisjj는 기사 제목의 낭비한다(wastes)가 본문의 내용으로 뒷받침되지 않으며 본문은 소비한다(consumes)라고만 말한다고 지적한다.[^chrisjj]
+사소해 보이지만 이 차이가 기사 전체의 성격을 규정한다 —
+소비는 측정된 사실이고 낭비는 그 소비가 불필요하다는 판단인데, 기사는 후자를 제목에 놓고 본문에서는 논증하지 않는다.
+1.2GB 중 얼마가 캐시이고 얼마가 필수인지, 같은 기능을 몇 MB로 만들 수 있는지에 대한 근거가 없으므로 낭비라는 단어는 결론이 아니라 전제로 쓰인 셈이다.
 
 가장 아픈 반례는 이 앱 자신의 과거다.
 hadrien01은 같은 날씨 앱의 이전 버전이 Windows 10에서는 완전한 네이티브였다고 지적하며, 멀쩡히 동작하던 앱을 왜 이렇게 퇴보시켰느냐고 묻는다.[^hadrien01]
 이 사실이 맞다면 문제는 웹 기술의 한계도 프레임워크의 특성도 아니라 순수한 선택이며, 기사가 든 Microsoft의 효율 개선 노력과의 모순은 훨씬 무거워진다.
+
+기사가 아예 재보지 않은 차원을 지적한 사람도 있다.
+ModernMech은 메모리가 최악의 부분도 아니라며, 자기 노트북에서 이 앱이 8코어 4GHz CPU의 최대 30%를 잡아먹는다고 전한다 —
+브라우징 중에 팬이 잔디깎이처럼 돌기 시작하면 날씨 앱을 닫는 걸 잊은 것이라는 서술이다.[^ModernMech]
+메모리는 정적인 값이라 스크린샷 한 장으로 기사가 되지만 CPU 점유는 시간에 걸친 관찰이 필요하고, 그래서 이 장르의 기사에서 대체로 빠진다.
+그런데 배터리와 발열에 직결되는 것은 후자이고, 저사양 시스템에서 체감을 망치는 것도 후자다.
+기사가 페이지 파일 압박이라는 검증되지 않은 경로를 추측하는 대신 CPU를 재봤다면 훨씬 단단한 근거를 얻었을 것이다.
 
 ## 인사이트
 
@@ -169,6 +200,18 @@ hadrien01은 같은 날씨 앱의 이전 버전이 Windows 10에서는 완전한
 두 번째 함의는 플랫폼 사업자의 이중 지위다.
 Microsoft는 저사양 PC에서 Windows가 잘 돌아야 한다고 말하는 주체이면서 동시에 그 PC에 무거운 앱을 기본 설치하는 주체다.
 플랫폼과 앱을 같은 회사가 만들 때 앱 쪽 결정이 플랫폼 목표를 갉아먹어도 시정 기제가 없고, 이는 규제 논의에서 다뤄지는 자사 우대와는 다른 종류의 문제다 — 남을 밀어내는 것이 아니라 스스로를 망가뜨리는 형태다.
+
+rgmerk가 이 구조를 유인 정렬의 문제로 정리한다.
+운영체제와 번들 앱에서는 Apple의 수직 통합이 유리한데, OS 설계자가 하드웨어 회사에 속해 있어 유인이 내부적으로 정렬되어 있다는 것이다 —
+그것이 고객의 이익과 반드시 일치한다는 뜻은 아니고 내부적으로 일치한다는 뜻일 뿐이라는 단서까지 붙인다.
+그러면서 Microsoft가 지금도 Windows 데스크톱의 경쾌함에 신경을 쓰기는 하느냐고 묻는다.[^rgmerk]
+
+이 비교가 정확한 이유는 하드웨어를 파는 회사에는 메모리 사용량이 원가이기 때문이다.
+기본 앱이 무거우면 더 많은 램을 넣어야 하고 그것은 마진에서 나간다.
+반대로 소프트웨어와 광고를 파는 회사에는 기본 앱의 메모리가 남의 원가이고, 그 앱이 실어 나르는 광고는 자기 매출이다.
+같은 결정이 한쪽에서는 비용으로 계상되고 다른 쪽에서는 수익으로 계상된다면, 두 조직이 다른 결론에 도달하는 것은 문화의 차이가 아니라 회계의 차이다.
+rk06이 지적한 대로 Windows에서 기본 앱을 손쉽게 비활성화하고 더 나은 소프트웨어로 대체할 수 없다는 점이 이 계산을 완성한다 —
+사용자가 떠날 수 없으면 원가를 사용자에게 넘기는 것이 언제나 합리적이다.[^rk06]
 
 ### 웹뷰로 감싼 데스크톱 앱의 비용은 메모리가 아니라 통제권 이전이다
 
@@ -198,6 +241,18 @@ cogman10은 이 문제를 언어 런타임 쪽으로 확장한다 — 운영체�
 JVM 세 개를 돌리면서 각각 실제로는 200MB면 되는데 1GB씩 주는 상황을, 하나로 합칠 수 있다면 할당 오버헤드와 전체 메모리를 크게 아낄 수 있다는 논리다.
 이 관점은 낭비의 책임을 앱에서 런타임 설계로 옮기며, 웹뷰든 JVM이든 여유 메모리를 성능으로 바꾸는 모든 런타임에 같은 진단이 적용된다는 점에서 이 사건을 더 넓은 문제의 사례로 만든다.
 
+이 비용이 Microsoft나 Windows에 국한되지 않는다는 증거도 스레드에 있다.
+strong-self는 iOS 앱에서 문법 강조를 위해 highlight.js를 감싼 WKWebView를 썼는데 그 웹뷰가 앱에서 메모리를 가장 많이 쓰는 항목이었다고 전한다.[^strong-self]
+Y-bar는 JetBrains Toolbox App이 macOS에서 680MiB를 쓰고 있으며 이는 같은 시스템의 Microsoft Teams보다 많다고 지적한다 —
+IDE를 최신으로 유지하고 실행할 자리를 제공하는 트레이 유틸리티가 그렇다는 것이고,
+좋은 도구를 쓰는 유능한 프로그래머 집단이 어떻게 이렇게까지 부풀릴 수 있느냐고 묻는다.[^Y-bar]
+
+두 사례가 말해주는 것은 이 기사의 프레임이 좁다는 점이다.
+Windows 날씨 앱이 특별히 나쁜 것이 아니라, 웹 런타임을 껍데기 안에 넣는 선택이 어느 플랫폼에서든 같은 값을 요구한다.
+그리고 Apple이 자기 날씨 앱은 네이티브로 만들면서 서드파티에게는 같은 WKWebView를 제공한다는 사실은,
+플랫폼 사업자가 자기 앱에만 적용하는 규율과 생태계에 허용하는 관행이 다르다는 것을 보여준다.
+비교 대상을 macOS 날씨 앱이 아니라 macOS의 웹뷰 기반 앱들로 잡았다면 기사의 결론은 Microsoft가 못한다가 아니라 이 방식이 비싸다가 되었을 것이다.
+
 ### 이 사건은 데스크톱 앱 크기 인플레이션의 최신 사례이고, 그 곡선은 하드웨어 곡선을 따른다
 
 날씨를 보여주는 프로그램이 1GB를 쓴다는 사실이 충격적으로 들리는 이유는 그 작업의 본질적 복잡도가 낮기 때문이다.
@@ -207,6 +262,15 @@ JVM 세 개를 돌리면서 각각 실제로는 200MB면 되는데 1GB씩 주는
 그리고 매 세대마다 같은 형태의 기사가 나왔다.
 텍스트 편집기가 메가바이트를 넘겼을 때, 채팅 앱이 수백 메가바이트를 쓰기 시작했을 때, 그리고 지금 날씨 앱이 기가바이트를 넘겼을 때다.
 공통점은 증가가 기능 때문이 아니라 배포와 개발 편의를 위한 추상 계층 때문이라는 점이다.
+1970-01-01은 이 거리를 한 문장으로 만든다 — 예전에는 텔넷으로 날씨 정보를 받았고 그 보고서는 바이트 단위로 쟀는데,
+지금 날씨 데이터가 10억 배 늘어난 것이 아니라면 이것은 기록적인 비대화라는 것이다.[^1970-01-01]
+
+이 계보에서 특히 눈에 띄는 증언이 스레드에 있다.
+d5lt5는 예전 Windows 조직에 자기 모듈을 메인 브랜치에 병합할 때 기준선을 100KiB 올린 이유를 심사 보드에 설명해야 하는 리뷰가 있었다고 전한다.[^d5lt5]
+100KiB를 정당화해야 했던 조직과 1GB가 기사가 되는 조직이 같은 회사라는 사실은,
+비대화가 기술의 필연이 아니라 제도의 소멸이라는 점을 보여준다.
+그 리뷰는 기술적으로 어렵지 않았다 — 어려운 것은 그 기준선을 계속 재고 그 수치에 책임을 묻는 조직의 의지였다.
+그리고 예산은 대체로 예산이 사라져서가 아니라 측정이 멈춰서 무너진다.
 
 여기서 나오는 예측은 비관적이다.
 8GB 시스템이 문제라는 서술은 8GB가 여전히 흔하다는 뜻인데, 표준 메모리 용량이 16GB로 올라가면 이 기사의 논거 자체가 약해진다.
@@ -252,30 +316,90 @@ pharos92는 한 걸음 더 나아가 자원 낭비를 코드 보안의 대리 �
 그리고 이 판단은 제품을 떠나 플랫폼으로 옮겨간다.
 drtournier는 PC 게임이 자기가 Windows를 계속 쓴 마지막 이유였는데 Proton이 잘 돌아가는 지금은 다시 돌아갈 일이 없기를 바란다고 적었고,[^drtournier] rahulmax는 2010년경에 읽고 계속 남아 있는 문장이라며 Windows 사용자는 macOS나 Linux 사용자보다 근본적으로 더 많은 헛소리를 견딜 용의가 있다는 말을 인용한다.[^rahulmax]
 날씨 앱 하나의 메모리 사용량이 이런 이야기의 출발점이 된다는 것은, 이 사건이 기술 문제로 소비되지 않고 누적된 인상의 증거로 소비된다는 뜻이다.
-그런 국면에서는 숫자를 정정해도 인상이 바뀌지 않으며, smileybarry의 670MB 측정이 스레드에서 별다른 반향을 얻지 못한 것이 그 증거다.
+그런 국면에서는 숫자를 정정해도 인상이 바뀌지 않으며, smileybarry의 670MB 측정과 daemin의 540MB 측정이 스레드에서 별다른 반향을 얻지 못한 것이 그 증거다.
+
+이 관성에 대한 가장 날카로운 지적은 스레드 안에서 나왔다.
+mrloopex는 HN 독자들을 향해 이 코드와 프레임워크를 쓰는 사람이 바로 당신들이라며, 보고 싶은 변화가 되든지 아니면 불평을 그만두라고 적는다.[^mrloopex]
+불편하지만 정확한 지적이다 — 웹뷰로 데스크톱 앱을 감싸는 결정, 프레임워크를 고르는 결정, 광고 SDK를 넣는 결정은 모두 이 스레드에 있는 것과 같은 종류의 사람들이 내린다.
+비대화를 비판하는 문화와 비대화를 생산하는 노동이 같은 집단에서 나오는 이 구조가, 매 세대 같은 기사가 반복되면서도 아무것도 바뀌지 않는 이유의 일부일 것이다.
+
+그래서 이 사건에서 가져갈 실질은 Microsoft에 대한 판단이 아니라 자기 프로젝트에 대한 질문이다.
+우리 앱의 메모리 기준선을 누가 언제 재는가, 그 수치가 올라갔을 때 누가 설명해야 하는가.
+d5lt5가 전한 100KiB 리뷰는 대단한 기술이 아니라 그 두 질문에 답이 있던 상태의 이름이고,
+그 답이 없는 조직에서는 어떤 프레임워크를 고르든 같은 곡선을 따라가게 된다.
 
 ---
 
 [^hyperhello]: <https://news.ycombinator.com/item?id=49232936>
+
 [^smileybarry]: <https://news.ycombinator.com/item?id=49237263>
+
 [^calini]: <https://news.ycombinator.com/item?id=49233358>
+
 [^SBArbeit]: <https://news.ycombinator.com/item?id=49234149>
+
 [^GuB-42]: <https://news.ycombinator.com/item?id=49235273>
+
 [^alkonaut]: <https://news.ycombinator.com/item?id=49233967>
+
 [^hokkos]: <https://news.ycombinator.com/item?id=49233201>
+
 [^eviks]: <https://news.ycombinator.com/item?id=49233151>
+
 [^cherryteastain]: <https://news.ycombinator.com/item?id=49236827>
+
 [^iamcoder18]: <https://news.ycombinator.com/item?id=49232727>
+
 [^i-e-b]: <https://news.ycombinator.com/item?id=49233356>
+
 [^hadrien01]: <https://news.ycombinator.com/item?id=49236805>
+
 [^feverzsj]: <https://news.ycombinator.com/item?id=49232845>
+
 [^Dwedit]: <https://news.ycombinator.com/item?id=49234722>
+
 [^cogman10]: <https://news.ycombinator.com/item?id=49233992>
+
 [^Wowfunhappy]: <https://news.ycombinator.com/item?id=49232969>
+
 [^ndriscoll]: <https://news.ycombinator.com/item?id=49233230>
+
 [^polyterative]: <https://news.ycombinator.com/item?id=49236626>
+
 [^cromka]: <https://news.ycombinator.com/item?id=49234198>
+
 [^itopaloglu83]: <https://news.ycombinator.com/item?id=49232910>
+
 [^pharos92]: <https://news.ycombinator.com/item?id=49235780>
+
 [^drtournier]: <https://news.ycombinator.com/item?id=49233131>
+
 [^rahulmax]: <https://news.ycombinator.com/item?id=49233670>
+
+[^davidgerard]: <https://news.ycombinator.com/item?id=49241369>
+
+[^daemin]: <https://news.ycombinator.com/item?id=49243891>
+
+[^dominicrose]: <https://news.ycombinator.com/item?id=49240964>
+
+[^virtualritz]: <https://news.ycombinator.com/item?id=49242390>
+
+[^Hobadee]: <https://news.ycombinator.com/item?id=49240497>
+
+[^chrisjj]: <https://news.ycombinator.com/item?id=49241464>
+
+[^ModernMech]: <https://news.ycombinator.com/item?id=49238804>
+
+[^1970-01-01]: <https://news.ycombinator.com/item?id=49242367>
+
+[^d5lt5]: <https://news.ycombinator.com/item?id=49239067>
+
+[^rgmerk]: <https://news.ycombinator.com/item?id=49238588>
+
+[^rk06]: <https://news.ycombinator.com/item?id=49241833>
+
+[^strong-self]: <https://news.ycombinator.com/item?id=49234441>
+
+[^Y-bar]: <https://news.ycombinator.com/item?id=49241902>
+
+[^mrloopex]: <https://news.ycombinator.com/item?id=49238476>
