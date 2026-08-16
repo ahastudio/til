@@ -1,6 +1,6 @@
 # Claude Code 세션의 토큰 경제학: 무엇이 비용을 결정하는가
 
-원문: [Maximizing the value of your Claude Code sessions](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions)
+원문: [Maximizing the value of your Claude Code sessions | Claude by Anthropic](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions)
 
 HN 토론: <https://news.ycombinator.com/item?id=49300800> (302점, 176개 댓글)
 
@@ -104,10 +104,13 @@ Ralph가 매 반복을 깨끗한 컨텍스트로 시작해 오염을 리셋한 �
 이 전제에 대한 반발이 HN에서 즉각 나왔다.
 한 사용자는 “초지능 기계, line go up, AGI, 모든 것을 자동화”라는 서사와 “작업 사이에 `/clear`를
 돌려라, 시작 전에 모델과 effort를 정하라, 파일은 `@`-멘션하라”는 조언의 대비를 나란히 놓아
-조롱했다.
+조롱했다[^NoDodgeQuestion].
 다른 사용자는 “이건 Anthropic 버전의 ‘당신이 잘못 쥐고 있다(You’re holding it wrong)’”라고 했고[^nathanyz],
 또 다른 사용자는 “더 나쁘다, 괜찮은 시스템이라면 이미 최적화했을 초보 수준의 제안들”이라고
 덧붙였다[^agumonkey].
+한 사용자는 제목만 보고도 발끈했다며 “이제 AI 회사들까지 ‘당신이 잘못 쥐고 있다’고 말한다,
+그들은 ‘AI가 너희 고깃덩어리보다 훨씬 똑똑하니 자연스럽게 말만 하면 된다’고 했는데 이제는 ‘최상의
+결과를 위해 컨텍스트 창을 관리하는 법을 배우라’고 한다”고 꼬집었다[^apercu].
 이 반발은 이 글의 근본 긴장을 드러낸다 — 지능을 파는 제품이 그 지능을 효율적으로 쓰기 위해
 사용자에게 수동 관리를 요구한다는 모순이다.
 
@@ -188,6 +191,17 @@ effort를 낮추면 캐시가 깨진다”고 지적했다[^jnwatson].
 경직성을 설명하는 것과 그것을 사용자가 감당 가능하게 만드는 것은 다르며, 이 글은 전자만 하고
 후자 — 왜 이 경직성이 제품 차원에서 완화될 수 없는지, 혹은 어떻게 가시화되는지 — 는 사용자의
 숙제로 남긴다.
+
+더 근본적으로, 저자의 절약 조언 자체가 항상 옳지는 않다.
+한 HN 사용자는 “몇 턴 머무는가” 프레임이 최선의 비교를 주지 못한다며, 같은 코드베이스로 작업하면
+그 캐시가 상당히 관련성 있게 유지되고, `/clear` 후 같은 파일 몇 개를 반복해서 다시 읽는 것이
+이미 캐시된 것에 의존하는 것보다 싸다는 근거를 저자가 대지 않는다고 지적했다[^8note].
+이 반론이 날카로운 이유는 저자의 “긴 세션은 비싸다”는 조언이 암묵적으로 “매 턴이 낭비”라고
+전제하지만, 같은 맥락을 계속 쓰는 작업에서는 그 맥락의 재전송이 캐시 읽기(0.1배)로 싸고 오히려
+관련성이 높기 때문이다.
+`/clear`가 언제 이득인지는 “다음 작업이 이전 맥락을 얼마나 재사용하는가”에 달려 있는데, 저자는
+이 조건을 따지지 않고 “새 작업이면 `/clear`”라는 규칙으로 단순화한다 — 규칙의 정당성이 맥락에
+의존한다는 사실을, 규칙을 제시하는 글이 감춘다.
 
 ## 인사이트
 
@@ -278,29 +292,61 @@ LLM 에이전트도 같은 궤적을 밟는다 — “그냥 대화하면 된다
 ---
 
 [^ref-ralph]: 기억을 파일로 외부화하고 컨텍스트를 리셋하는 접근에 대한 논의는 이 저장소의 [Ralph 문서](../agentic-coding/ralph.md)에 정리해 두었다.
+
 [^ref-graph]: 상태를 채팅에서 명시적 구조로 꺼낸다는 논의는 이 저장소의 [그래프 엔지니어링 문서](../agentic-coding/graph-engineering.md)에 정리해 두었다.
+
 [^ref-bwsn]: 넓게 만들고 좁게 출하하는 탐색적 워크플로에 대한 논의는 이 저장소의 [관련 문서](../agentic-coding/build-wide-ship-narrow.md)에 정리해 두었다.
+
 [^superasn]: <https://news.ycombinator.com/item?id=49304847>
+
 [^3371]: <https://news.ycombinator.com/item?id=49307590>
+
 [^Glyptodon]: <https://news.ycombinator.com/item?id=49302988>
+
 [^chamsom]: <https://news.ycombinator.com/item?id=49303029>
+
 [^jnwatson]: <https://news.ycombinator.com/item?id=49302293>
+
 [^hellohello2]: <https://news.ycombinator.com/item?id=49302570>
+
 [^nathanyz]: <https://news.ycombinator.com/item?id=49302636>
+
 [^agumonkey]: <https://news.ycombinator.com/item?id=49302823>
+
 [^mojuba]: <https://news.ycombinator.com/item?id=49309307>
+
 [^cactusplant7374]: <https://news.ycombinator.com/item?id=49310475>
+
 [^BeetleB]: <https://news.ycombinator.com/item?id=49303086>
+
 [^zmmmmm]: <https://news.ycombinator.com/item?id=49306469>
+
 [^mccoyb]: <https://news.ycombinator.com/item?id=49302107>
+
 [^DangitBobby]: <https://news.ycombinator.com/item?id=49303722>
+
 [^lovasoa]: <https://news.ycombinator.com/item?id=49308333>
+
 [^pzo]: <https://news.ycombinator.com/item?id=49303725>
+
 [^apt]: <https://news.ycombinator.com/item?id=49301990>
+
 [^AlexErrant]: <https://news.ycombinator.com/item?id=49303148>
+
 [^olsondv]: <https://news.ycombinator.com/item?id=49301849>
+
 [^fwlr]: <https://news.ycombinator.com/item?id=49307662>
+
 [^brachkow]: <https://news.ycombinator.com/item?id=49310589>
+
 [^ramraj07]: <https://news.ycombinator.com/item?id=49310764>
+
 [^Petersipoi]: <https://news.ycombinator.com/item?id=49307237>
+
 [^docheinestages]: <https://news.ycombinator.com/item?id=49306084>
+
+[^NoDodgeQuestion]: <https://news.ycombinator.com/item?id=49302251>
+
+[^apercu]: <https://news.ycombinator.com/item?id=49303381>
+
+[^8note]: <https://news.ycombinator.com/item?id=49305993>
