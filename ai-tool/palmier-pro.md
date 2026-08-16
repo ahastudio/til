@@ -1,6 +1,6 @@
 # Palmier Pro — AI를 위해 만들어진 영상 편집기
 
-<https://palmier.io>
+<https://palmier.io/>
 
 <https://github.com/palmier-io/palmier-pro>
 
