@@ -1,10 +1,19 @@
 # RESTful Web Services (Richardson & Ruby) 정리
 
-<https://archive.org/details/RESTfulWebServices>
+<http://restfulwebapis.com/rws.html>
 
 Leonard Richardson과 Sam Ruby가 쓰고 David Heinemeier Hansson(Rails 창시자)이 서문을 붙인
 O'Reilly 책 《RESTful Web Services》(2007)를 장별로 정리한 노트 모음이다.
 이 폴더의 각 파일은 책의 한 장(章) 또는 부록에 대응한다.
+
+이 책은 2013년의 후속작 《RESTful Web APIs》(Richardson & Amundsen)로 대체됐고 O'Reilly가
+절판했다.
+저자는 옛 책을 살 필요가 없으며 온라인에서 무료로 읽을 수 있다고 밝혔다.
+
+- 공식 페이지: <http://restfulwebapis.com/rws.html>
+- 웹에서 읽기: <http://restfulwebapis.com/RESTful_Web_Services/>
+- Archive: <https://archive.org/details/RESTfulWebServices>
+- 후속작 정리: [restful-web-apis](../restful-web-apis)
 
 ## 이 책의 논지
 
@@ -54,6 +63,27 @@ RESTful(리소스 지향, 통일 인터페이스를 그대로 씀), RPC 스타�
 - [11장 REST 클라이언트로서의 Ajax 애플리케이션](11-ajax-as-rest-clients.md) — 브라우저 안에서 도는 웹 서비스 클라이언트
 - [12장 RESTful 서비스를 위한 프레임워크](12-frameworks.md) — Ruby on Rails, Restlet(Java), Django(Python)
 - [부록: REST 자료, HTTP 상태 코드, HTTP 헤더 레퍼런스](appendices.md) — 부록 A/B/C
+
+## 후속작과 함께 읽기
+
+같은 저자가 2013년에 쓴 후속작도 이 저장소에 장별로 정리돼 있다 —
+[restful-web-apis](../restful-web-apis).
+
+두 책은 초점이 다르다.
+이 책은 HTTP의 “리소스” 개념에 초점을 맞춰 사실상 서버 측을 강조하지만, 후속작은 클라이언트와
+서버가 주고받는 문서, 즉 “표현”에 초점을 맞춘다.
+후속작의 4장 이후로는 하이퍼미디어 — 서버가 클라이언트에게 다음에 할 수 있는 요청을 알려 주는
+방법 — 에 대한 관심이 책 전체를 관통한다.
+
+이 책에서 시대의 흔적이 가장 짙은 부분은 후속작에서 다시 읽는 것이 낫다.
+9장의 표현 포맷 논의는 2007년의 XML 중심이라 JSON 시대의 형식들(Collection+JSON, HAL, Siren)을
+다루지 못하므로 후속작 [6장](../restful-web-apis/06-collection-pattern.md)·[7장](../restful-web-apis/07-pure-hypermedia-designs.md)으로,
+10장의 SOAP·WS-\* 비교는 그 논쟁이 끝난 뒤라 후속작에 대응 장이 없다.
+반대로 이 책에만 있는 것도 있다 — 4장의 ROA 네 속성(주소 지정 가능성·무상태성·연결성·통일
+인터페이스)은 후속작이 전제로 깔고 반복하지 않으므로, REST의 형식적 정의를 잡으려면 이 책의
+[4장](04-resource-oriented-architecture.md)이 여전히 출발점이다.
+
+장 대응표는 후속작 폴더의 [README](../restful-web-apis)에 정리해 두었다.
 
 ## 읽기 경로
 
