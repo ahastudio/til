@@ -124,4 +124,4 @@ REST의 인기가 커지면서 아키텍처의 이점을 대부분 담지 못한
 
 - 전작 공식 페이지: <http://restfulwebapis.com/rws.html>
 - 전작 온라인으로 무료로 읽기: <http://restfulwebapis.com/RESTful_Web_Services/>
-- 이 저장소의 전작 정리: [restful-web-services](../restful-web-services/README.md)
+- 이 저장소의 전작 정리: [restful-web-services](../restful-web-services)

@@ -12,8 +12,8 @@ O'Reilly 책 《RESTful Web Services》(2007)를 장별로 정리한 노트 모�
 
 - 공식 페이지: <http://restfulwebapis.com/rws.html>
 - 웹에서 읽기: <http://restfulwebapis.com/RESTful_Web_Services/>
-- Archive: <https://archive.org/details/RESTfulWebServices>
-- 후속작 정리: [restful-web-apis](../restful-web-apis)
+- Internet Archive: [RESTful Web Services : Leonard Richardson : Free Download, Borrow, and Streaming : Internet Archive](https://archive.org/details/RESTfulWebServices)
+- 후속작: [RESTful Web APIs](../restful-web-apis)
 
 ## 이 책의 논지
 
