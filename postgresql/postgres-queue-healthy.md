@@ -1,6 +1,6 @@
 # Keeping a Postgres Queue Healthy
 
-원문: <https://planetscale.com/blog/keeping-a-postgres-queue-healthy>
+원문: [Keeping a Postgres queue healthy — PlanetScale](https://planetscale.com/blog/keeping-a-postgres-queue-healthy)
 
 ## 요약
 
