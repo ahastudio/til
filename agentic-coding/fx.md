@@ -377,23 +377,43 @@ fx의 경우 임베딩 계약과 에디터 프로토콜 지원과 권한 모델�
 ---
 
 [^shintwl]: <https://news.hada.io/topic?id=32686#cid63801>
+
 [^shintwl2]: <https://news.hada.io/topic?id=32686#cid63802>
+
 [^winterjung]: <https://news.hada.io/topic?id=32686#cid63806>
+
 [^hmmhmmhm]: <https://news.hada.io/topic?id=32686#cid63790>
+
 [^kgeist]: <https://news.ycombinator.com/item?id=49354550>
+
 [^alexboehm]: <https://news.ycombinator.com/item?id=49354767>
+
 [^miguel_martin]: <https://news.ycombinator.com/item?id=49367496>
+
 [^impulser]: <https://news.ycombinator.com/item?id=49354637>
+
 [^pdp]: <https://news.ycombinator.com/item?id=49368753>
+
 [^abhikul0]: <https://news.ycombinator.com/item?id=49359282>
+
 [^jonstaab]: <https://news.ycombinator.com/item?id=49367958>
+
 [^lubitelpospat]: <https://news.ycombinator.com/item?id=49367399>
+
 [^konaraddi]: <https://news.ycombinator.com/item?id=49354194>
+
 [^gip]: <https://news.ycombinator.com/item?id=49367910>
+
 [^bodge5000]: <https://news.ycombinator.com/item?id=49354713>
+
 [^parisiansam]: <https://news.ycombinator.com/item?id=49357622>
+
 [^fazxes]: <https://news.ycombinator.com/item?id=49354611>
+
 [^SmashDan]: <https://news.ycombinator.com/item?id=49354006>
+
 [^sixtyj]: <https://news.ycombinator.com/item?id=49354137>
+
 [^ryuuseijin]: <https://news.ycombinator.com/item?id=49369864>
+
 [^smy20011]: <https://news.ycombinator.com/item?id=49354426>
