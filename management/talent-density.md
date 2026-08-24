@@ -1,6 +1,8 @@
 # 파멸의 퍼널: 채용은 최고를 고르는 게 아니라 남은 사람을 뽑고 있다
 
-영상: [The playbook for building high talent density teams | Adam Ward, Head of Talent at Cursor](https://www.youtube.com/watch?v=zegYJ6dhIg4)
+YouTube: [The playbook for building high talent density teams | Adam Ward, Head of Talent at Cursor](https://www.youtube.com/watch?v=zegYJ6dhIg4)
+
+GN 토론: <https://news.hada.io/topic?id=32573>
 
 ## 요약
 
