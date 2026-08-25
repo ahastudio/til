@@ -38833,3 +38833,244 @@
   - 놓치면 안 되는 핵심 포인트나 주의사항: 외부 skill은 프롬프트 주입과 권한
     확장 경로가 될 수 있으므로 내용을 읽고 최소 권한 환경에서 검증한 뒤 도입해야
     한다.
+
+## 2026-08-25 개발자 트렌드
+
+### 1. MS Paint and Photos inivisibly watermark even locally generated output with GUID
+
+- **출처**: Hacker News (top) / xusheng.dev —
+  <https://xusheng.dev/posts/reversing/mspaint_invisible_watermark/main/>
+- **한 줄 요약**: Windows Paint와 Photos가 로컬 생성 AI 이미지에도 서버가 발급한
+  GUID를 보이지 않는 워터마크와 C2PA 메타데이터로 남긴다는 역공학 분석이다.
+- **왜 주목받나**: HN front page에서 약 602점·239댓글을 기록했고, "로컬 실행" AI
+  기능도 원격 검열·식별자 발급·온라인 provenance 서명과 얽힐 수 있다는 점이 큰
+  privacy/security 논쟁을 만들었다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 로컬 AI 기능을 제품에 넣을 때 모델
+    추론 위치만으로 privacy claim을 판단할 수 없고, prompt moderation,
+    watermarking, telemetry, provenance signing까지 데이터 흐름을 문서화해야
+    한다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: AI 이미지 처리 기능을
+    쓰는 내부 도구와 업무용 PC 정책에서 C2PA 메타데이터, 숨은 워터마크, 외부
+    호출 여부를 샘플 파일과 네트워크 로그로 검증할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): AI 생성물 투명성 규제가
+    강화되면서 provenance는 기본 기능이 되겠지만, 사용자 추적과 구분되는 최소
+    식별 설계가 제품 신뢰의 핵심 쟁점이 될 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: "로컬 생성"이라는 제품 문구가
+    "오프라인·비추적"을 뜻하지 않을 수 있으므로, 저장 파일과 API 호출을 함께
+    확인하고 민감 이미지에는 별도 워크플로를 마련해야 한다.
+
+### 2. IPFS Maintainers Winding Down
+
+- **출처**: Hacker News (top) / Shipyard —
+  <https://ipshipyard.com/blog/2026-the-end-of-ipfs-at-shipyard/>
+- **한 줄 요약**: Shipyard가 Protocol Labs funding 종료로 Kubo, Helia, Boxo,
+  gateway 등 IPFS 관련 유지보수와 공용 인프라 운영을 2026년 9월 30일 이후 중단할
+  예정이라고 밝혔다.
+- **왜 주목받나**: HN에서 약 337점·168댓글을 기록했고, 탈중앙 프로토콜도 핵심
+  유지보수와 bootstrap 인프라가 특정 funding 구조에 의존할 수 있다는 현실적
+  문제가 드러났다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: IPFS를 배포, pinning, gateway,
+    content addressing에 의존하는 서비스는 핵심 라이브러리와 공용 엔드포인트의
+    유지보수 리스크를 직접 떠안게 된다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: Kubo/Helia/Boxo 의존
+    서비스를 식별하고, 자체 gateway, 대체 bootstrap node, pinning provider,
+    fallback HTTP 경로를 운영 점검표에 올릴 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): P2P 인프라는 프로토콜
+    아이디어보다 지속 가능한 maintainer funding, hosted compatibility layer,
+    HTTP-native 배포 모델을 중심으로 재편될 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 공용 도메인과 bootstrap node의 향후
+    운영 주체가 불명확한 동안에는 단일 gateway URL에 의존하지 말고 데이터 복제와
+    장애 시나리오를 먼저 검증해야 한다.
+
+### 3. seL4 security proofs now complete on AArch64
+
+- **출처**: Hacker News (top) / seL4 — <https://sel4.org/news/2026.html>
+- **한 줄 요약**: seL4가 AArch64에서 functional correctness와 integrity에 이어
+  confidentiality proof까지 완료하며 64-bit Arm 보안 격리 검증 범위를 넓혔다.
+- **왜 주목받나**: HN에서 약 175점·38댓글을 기록했고, 형식 검증이 연구용 데모가
+  아니라 Arm 기반 embedded, automotive, defense 시스템의 실제 선택지가 되고
+  있다는 점이 주목받았다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 보안·안전 필수 시스템에서는
+    isolation claim을 테스트와 감사 문서만으로 설명하기보다 수학적 proof
+    artifact 와 kernel architecture 선택으로 뒷받침하는 요구가 커질 수 있다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: mixed-criticality
+    시스템이나 Arm edge device 설계에서 seL4/Microkit을 후보로 넣고, threat
+    model 상 검증된 경계와 여전히 검증 밖에 있는 device driver 영역을 구분해
+    평가할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): RISC-V와 AArch64를
+    중심으로 formally verified kernel과 component-level proof를 조합하는
+    high-assurance stack이 더 실용적인 배포 대상으로 이동할 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 커널 proof가 전체 시스템 보안을
+    자동으로 보장하지는 않으므로, boot chain, driver, IPC policy, application
+    compartment 설계까지 함께 검토해야 한다.
+
+### 4. LLMs could control their host machines by exploiting inference engines
+
+- **출처**: Hacker News (top) / boydkane.com —
+  <https://boydkane.com/essays/llms-could-control-their-host-machines-by-exploiting-inference-engines>
+- **한 줄 요약**: 악성 LLM이 vLLM, SGLang 같은 inference engine의 parser나
+  tool-call 처리 취약점을 이용해 GPU host를 장악할 수 있다는 공격면 분석이다.
+- **왜 주목받나**: HN에서 약 111점·56댓글을 기록했고, prompt injection을 agent
+  host 문제가 아니라 model output이 inference host를 공격하는 supply-chain 보안
+  문제로 확장했다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: open-weight 모델 운영자는 모델
+    파일만 신뢰하면 되는 것이 아니라 tokenizer, chat template, reasoning parser,
+    tool-call parser, native kernel까지 untrusted input boundary로 다뤄야 한다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: inference 서버를 최소
+    권한 계정과 network egress 제한으로 격리하고, tool-call parsing에는 `eval`류
+    처리 제거, fuzzing, model-specific template regression test를 적용할 수
+    있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): LLM 보안은 prompt
+    filtering에서 inference runtime hardening, parser formalization, GPU host
+    격리, model provenance 검증으로 이동할 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 모델 출력은 텍스트처럼 보여도 복잡한
+    parser pipeline을 통과하는 공격 입력이므로, "assistant response"라는 이름에
+    속지 말고 모든 변환 계층을 보안 경계로 봐야 한다.
+
+### 5. Show HN: PicoMQ - Durable Streams over HTTP, on object storage
+
+- **출처**: Hacker News (top/show) / PicoMQ — <https://picomq.com/>
+- **한 줄 요약**: PicoMQ는 S3-compatible object storage 위에 HTTP 기반 durable
+  stream을 얹어 granular stream, append/read, long-poll, SSE를 제공하는 Rust
+  서버다.
+- **왜 주목받나**: HN에서 약 104점·20댓글을 기록했고, Kafka급 운영 복잡도 없이
+  object storage와 Postgres command log로 durable stream을 구현하려는 접근이
+  실용적인 대안으로 토론됐다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 이벤트 스트리밍을 모든 서비스에
+    Kafka cluster로 풀지 않고, 방·사용자·세션 단위의 작은 stream을 object
+    storage 기반으로 설계하는 선택지가 생긴다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 채팅, activity log,
+    webhook replay, lightweight event sourcing PoC에서 per-entity stream 모델과
+    S3 비용·ACK latency를 실제 workload로 측정해 볼 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): durable execution과
+    realtime app 수요가 늘면서 object storage 기반 log/stream 시스템은
+    low-latency WAL과 cache layer를 붙여 Kafka와 serverless queue 사이 영역을
+    차지할 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: S3 계열 저장소는 내구성과 비용에
+    강하지만 durability ACK latency와 reader fanout 비용이 병목이 될 수 있으므로
+    지연 요구가 빡빡한 경로에는 별도 WAL 전략이 필요하다.
+
+### 6. Hot Chips 2026: CUDA Targets RISC-V
+
+- **출처**: Hacker News (top) / Chips and Cheese — <https://chipsandcheese.com/>
+- **한 줄 요약**: Nvidia가 CUDA on RISC-V를 검토하면서 RVA23, server
+  SoC/platform spec, ACPI, PCIe coherency, vector extension 등 높은 platform
+  requirement를 요구한다는 분석이다.
+- **왜 주목받나**: HN에서 약 84점·10댓글을 기록했고, RISC-V가 GPU compute 생태계
+  로 들어가려면 ISA만으로는 부족하고 server-grade platform contract가 필요하다는
+  현실을 짚었다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: RISC-V 서버나 accelerator platform
+    을 검토하는 팀은 CPU ISA 지원보다 PCIe coherency, firmware discovery,
+    power/thermal management, security processor 같은 system requirement를 먼저
+    확인해야 한다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: RISC-V compute PoC를
+    준비한다면 CUDA 가능성만 보지 말고 RVA profile, ACPI/UEFI, DMA coherency,
+    NCCL/DOCA 연동 조건을 vendor checklist로 만들어 비교할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): CUDA 생태계는
+    RISC-V까지 확장될 수 있지만 초기 채택은 hobby board가 아니라 datacenter급
+    custom CPU와 NVLink Fusion 파트너십 중심으로 제한될 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: "CUDA가 RISC-V를 지원한다"는 headline
+    만 보고 기존 보드 호환을 기대하면 안 되며, fallback path가 성능을 크게 깎을
+    수 있다는 점을 benchmark로 확인해야 한다.
+
+### 7. Characterizing Agentic Flooding of Government Services
+
+- **출처**: Hacker News (top) / arXiv — <https://arxiv.org/abs/2608.16603>
+- **한 줄 요약**: AI agent가 민원, appeal, filing 같은 정부 서비스 접근 비용을
+  낮추면서 demand surge를 만들 수 있는 "agentic flooding" 현상을 11개 관할권의
+  사례와 risk matrix로 분석한 논문이다.
+- **왜 주목받나**: HN에서 약 63점·75댓글을 기록했고, agent automation이 단순
+  생산성 도구를 넘어 queue, 법정 응답 의무, public-service capacity를 흔드는
+  운영 리스크가 될 수 있다는 점이 논쟁을 불렀다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 정부·금융·보험·법무처럼 submission
+    volume이 비용 구조를 좌우하는 도메인은 agent-generated request를 abuse와
+    legitimate access 사이에서 구분하는 운영 설계를 해야 한다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 외부 포털이나 신고·청구
+    API를 운영한다면 rate limit, identity binding, batch submission policy,
+    human approval gate, queue observability를 agent traffic 기준으로 재점검할
+    수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): public-facing
+    workflow는 bot 차단보다 "AI-assisted but legitimate" 요청을 처리하는
+    capacity planning, triage automation, policy audit 쪽으로 발전할 가능성이
+    높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 마찰을 늘리는 대응은 취약 계층의 접근
+    권리를 침해할 수 있으므로, 기술적 throttling과 법적·윤리적 검토를 같이
+    설계해야 한다.
+
+### 8. anthropics / claude-plugins-community
+
+- **출처**: GitHub Trending (오늘) —
+  <https://github.com/anthropics/claude-plugins-community>
+- **한 줄 요약**: Claude Cowork와 Claude Code용 community plugin marketplace
+  mirror로, agent tool/plugin 생태계를 공개 저장소 형태로 정리한다.
+- **왜 주목받나**: GitHub Trending 오늘 기준 오늘 +489 stars를 기록했고, coding
+  agent가 core product에서 확장 가능한 plugin distribution으로 이동하는 흐름을
+  보여준다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: agent 도입은 단일 CLI 사용을 넘어
+    조직이 검증한 plugin catalog, 설치 정책, 권한 승인, 업데이트 감사를 운영하는
+    문제로 바뀐다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 팀에서 자주 쓰는 외부
+    연동을 plugin 후보로 분류하고, read-only 도구와 write-capable 도구를 나눠
+    리뷰·승인 기준을 만들 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): agent plugin은 IDE
+    extension처럼 marketplace화되겠지만, 보안상으로는 dependency scanning,
+    permission prompt, provenance signing을 요구하는 방향으로 성숙할 가능성이
+    높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: plugin은 prompt와 tool 권한을 동시에
+    확장하므로, 인기만 보고 설치하지 말고 manifest, 네트워크 접근, 파일 쓰기
+    범위, update channel을 검토해야 한다.
+
+### 9. AgriciDaniel / claude-obsidian
+
+- **출처**: GitHub Trending (오늘) —
+  <https://github.com/AgriciDaniel/claude-obsidian>
+- **한 줄 요약**: Obsidian과 Claude Code를 결합해 자료를 Markdown knowledge
+  graph로 읽고 연결하고 정리하는 local-first AI second brain 프로젝트다.
+- **왜 주목받나**: GitHub Trending 오늘 기준 전체 11.8k stars, 오늘 +310 stars를
+  기록했고, 개인 지식 관리와 coding agent workflow를 파일 기반으로 연결하려는
+  수요가 커졌다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 문서, 회의록, 코드 노트, research
+    자료를 agent가 직접 다룰 수 있는 plain Markdown graph로 유지하면 검색과
+    요약보다 한 단계 높은 작업 자동화가 가능해진다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 프로젝트별 Obsidian
+    vault 에 ADR, troubleshooting note, API 조사 기록을 넣고 agent가 링크 생성과
+    중복 정리를 수행하도록 작은 워크플로부터 시험할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): PKM 도구는 사람이 쓰는
+    노트 앱에서 agent-readable memory substrate로 진화하고, closed database보다
+    Git-friendly Markdown이 개발자에게 계속 유리할 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 자동 정리는 잘못된 링크와 요약 왜곡을
+    만들 수 있으므로, 원문 보존, 변경 diff 검토, private vault 접근 권한 제한을
+    기본값으로 둬야 한다.
+
+### 10. tashfeenahmed / freellmapi
+
+- **출처**: GitHub Trending (오늘) —
+  <https://github.com/tashfeenahmed/freellmapi>
+- **한 줄 요약**: 여러 free-tier LLM provider와 custom OpenAI-compatible
+  endpoint를 하나의 `/v1` API 뒤에 묶고, routing, failover, encrypted key
+  storage를 제공하는 aggregator다.
+- **왜 주목받나**: GitHub Trending 오늘 기준 전체 19.7k stars, 오늘 +174 stars를
+  기록했고, 실험용 LLM 비용을 낮추면서 기존 OpenAI-compatible client를 그대로
+  쓰려는 개발자 수요가 반영됐다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 개인·소규모 팀의 prototype에서는
+    provider별 SDK와 quota 관리를 한 계층으로 숨겨 모델 실험 속도를 높일 수
+    있지만, production SLA와 data policy 검토 부담은 여전히 남는다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 비민감 개발용 agent,
+    embedding 실험, 모델 비교 benchmark를 local proxy 뒤에 붙여 failover와 비용
+    추적을 빠르게 시험할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): OpenAI-compatible API는
+    LLM ecosystem의 공통 어댑터가 되고, router는 가격·quota·latency·quality를
+    동시에 최적화하는 policy engine으로 발전할 가능성이 높다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: free-tier aggregation은 provider
+    약관, rate limit, 데이터 보관 정책, 키 저장 방식이 모두 다르므로 민감 데이터
+    나 고객 트래픽에는 별도 승인 없이 적용하지 말아야 한다.
