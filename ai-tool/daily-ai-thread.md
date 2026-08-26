@@ -2,7 +2,7 @@
 
 <https://www.dailyaithread.com/>
 
-GN 토론: <https://news.hada.io/topic?id=32188>
+Show GN: [헤드라인만 쌓이는 AI 뉴스가 답답해서, 매일 원문까지 읽고 ‘왜 중요한가’를 쓰는 파이프라인을 만들었습니다 (15일째 무인 운영)](https://news.hada.io/topic?id=32188)
 
 ## 소개
 
