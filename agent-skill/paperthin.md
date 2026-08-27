@@ -1,6 +1,6 @@
 # Paperthin: 더하지 않고 덜어내는 에이전트 스킬 모음
 
-<https://paperthin.ai>
+<https://paperthin.ai/>
 
 <https://github.com/LilMGenius/paperthin>
 
@@ -280,14 +280,14 @@ README가 Fixes를 “작업의 생애주기 순서”로 배열하고 새 fix�
 Paperthin의 색인이 지금은 자산이지만, 그 색인을 사용자가 읽지 않아도 되는 날이 이 도구가 성공한
 날일 것이다.
 
-## 참고
-
-- 관련 문서: [그래프 엔지니어링은 밈이지만, 그 안에서 딱 하나 진짜 바뀐 것](../agentic-coding/graph-engineering.md), [LLM Eval의 핵심은 도구가 아니라 오류 분석이다](../llm/llm-evals.md), [에이전트 시대에 소프트웨어 공학의 기본기가 더 중요해진다](../software-engineering/fundamentals-matter.md), [AI와 일하는 것은 코딩보다 리더십에 가깝다](../agentic-coding/ai-as-leadership.md)
-
 ---
 
 [^ref-debt]: 생성이 싸지면 복잡도가 임계점으로 밀려간다는 논의는 이 저장소의 [tech-debt-mess 문서](../software-engineering/tech-debt-mess.md)에 정리해 두었다.
+
 [^ref-graph]: 같은 모델의 다수가 상관된 오류를 증폭한다는 점과 개별 루프에서 오케스트레이션으로 이동한다는 논의는 이 저장소의 [그래프 엔지니어링 문서](../agentic-coding/graph-engineering.md)에 정리해 두었다.
+
 [^ref-evals]: 일부 증거는 시스템 바깥에서 와야 한다는 논의는 이 저장소의 [llm-evals 문서](../llm/llm-evals.md)에 정리해 두었다.
+
 [^ref-fund]: 생성이 싸지면 값이 판단으로 옮겨간다는 논의는 이 저장소의 [fundamentals-matter 문서](../software-engineering/fundamentals-matter.md)에 정리해 두었다.
+
 [^ref-leadership]: AI가 책임을 지지 않아 리더십의 핵심을 결여한다는 논의는 이 저장소의 [ai-as-leadership 문서](../agentic-coding/ai-as-leadership.md)에 정리해 두었다.
