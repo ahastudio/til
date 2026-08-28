@@ -4,6 +4,10 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=49415271> (508점, 96개 댓글)
 
+후속: [Actually Queryable Executables | Farid Zakaria's Blog](https://fzakaria.com/2026/08/24/actually-queryable-executables)
+
+후속 HN 토론: <https://news.ycombinator.com/item?id=49442589> (328점, 85개 댓글)
+
 ## 요약
 
 Farid Zakaria가 2026년 8월 23일에 쓴 13분 분량의 글이다.
@@ -652,6 +656,93 @@ b-tree에서 바이트를 꺼내 매핑하려고 시도해 봐야 나오고,
 그 반증이 저자가 아니라 독자에게서 나오려면
 공개가 심사를 대체하는 것이 아니라 심사의 다른 형태여야 한다.
 
+## 후속편: self-httpd와 살아 있는 실행 파일
+
+다음 날 올라온 후속 글 “Actually Queryable Executables”는
+첫 글이 열어 둔 문을 끝까지 밀고 들어간다.
+첫 글이 실행 파일을 질의 가능한 데이터베이스로 만들었다면,
+후속은 그 실행 파일을 실행 중에 쓰기 가능한 상태 저장소로 만든다.
+
+### self-httpd는 프로그램이 자기 실행 파일에 자기 상태를 담게 한다
+
+후속의 프로토타입은 `self-httpd`라는 웹 서버다.
+코드와 콘텐츠와 상태를 전부 자기 실행 파일인 SQLite 데이터베이스 안에 담는다.
+`binfmt_misc`가 `self-exec` 인터프리터를 띄우고
+`argv[0]`으로 실행 파일 경로를 넘기므로,
+프로그램은 `sqlite3_open(argv[0], &db)` 한 줄로 자기 자신을 연다.
+세 테이블이 서버를 이룬다.
+`routes`가 경로와 MIME 타입과 본문으로 웹사이트 내용을 담고,
+`visits`가 모든 요청을 타임스탬프와 유저 에이전트와 경로로 기록하며,
+`presses`가 버튼 상호작용을 남긴다.
+
+가장 급진적인 성질은 실행 중 수정이다.
+`sqlite3 server "UPDATE routes SET body = readfile('new.html') WHERE path = '/index.html'"`
+한 줄이면 재시작도 재배포도 없이 방문자가 즉시 바뀐 내용을 본다.
+트랜잭션이므로 롤백도 된다.
+배포는 새 서버 버전으로 데이터를 옮기는 마이그레이션 문제가 되어,
+`ATTACH '/srv/self/server' AS old`로 이전 방문 기록을 새 빌드로 이어 붙인다.
+저자의 표현으로 “배포가 파일 하나의 scp”가 되면서도 이력이 보존된다.
+FTS5 전문 검색, `sqldiff` 감사, ACID 보장이 전부 공짜로 따라오는데,
+저자가 짚듯 “그중 어느 것도 내가 짠 기계장치가 아니라
+프로그램이 데이터베이스가 됨으로써 공짜로 물려받은 SQLite의 기계장치”다.
+살아 있는 증거가 `selfdb.exe.xyz`에 있으며,
+프로그램과 웹사이트와 실시간 방문자 분석이 하나의 SQLite 파일에 들어 있다.
+
+### 첫 글이 각주로 남긴 보안 우려가 후속에서 헤드라인이 된다
+
+첫 글을 다루며 이 문서는 실행 파일이 쓰기 가능해지는 것의 보안 함의가
+다뤄지지 않는다고 지적했다.
+후속은 그 우려를 해소하기는커녕 정면으로 실현한다.
+HN에서 Retr0id가 한 문장으로 요약했다.
+모든 상태가 프로그램 자신과 같은 SQLite 파일에서 갱신되니
+이제 모든 SQL 인젝션 버그가 원격 코드 실행이 된다는 것이다[^Retr0id].
+stephenlf도 “SQL 인젝션에서 임의 코드 실행으로 가는 파이프라인”이라 불렀고[^stephenlf],
+cbondurant는 디스크 위의 자기 자신을 수정하는 실행 파일이 무섭다며
+“할 수 있다는 건 증명했지만 하지 말아야 한다”는 종류의 감상을 남겼다[^cbondurant].
+
+이 반응들이 중요한 이유는 그것이 후속의 자랑을 뒤집어 읽기 때문이다.
+저자에게 실행 중 수정은 무재시작 배포라는 편의지만,
+같은 성질이 공격자에게는 단일 쓰기로 코드를 주입하는 통로다.
+Tepix가 웹 서버가 웹에서 코드 조각을 받아 자기 자신에 더할 수 있느냐고
+플러그인 업로드처럼 물은 것이[^Tepix]
+바로 그 위험을 순진한 기능 요청의 형태로 드러낸다.
+첫 글에서 이 문서가 예측한 “데이터베이스에 쓰기 권한이 있는 누군가가
+`preload` 테이블에 INSERT 한 번으로 코드를 주입한다”는 시나리오가,
+후속에서는 `routes`와 애플리케이션 상태가 같은 파일에 있다는 설계로
+훨씬 넓은 표면이 되어 돌아온다.
+쓰기 가능성이라는 이득과 코드 주입이라는 위험이 같은 뿌리에서 나온다는 것이,
+두 글을 잇는 가장 선명한 선이다.
+
+### 이것은 Smalltalk 이미지의 SQL 판본이며 오래된 아이디어의 귀환이다
+
+후속이 실행 파일에 코드와 데이터와 상태를 한데 담자,
+HN과 GeekNews의 여러 독자가 같은 계보를 떠올렸다.
+JaumeGreen은 이것이 Lisp나 APL이나 Smalltalk의 프로그램 이미지와 같되
+SQL이 구동력이 된 형태라며,
+제때 이기지 못했지만 다시 힘을 얻어 돌아오는 좋은 옛 아이디어라고 적었다[^JaumeGreen].
+thesz는 더 구체적으로 starkit과 tclkit을 들었다.
+그것들도 직접 질의 가능했지만 ZIP 파일과 ZIP VFS로 공유 라이브러리를 담았고,
+이 글의 기능 대부분을 starkit 기반 애플리케이션에 더할 수 있다는 것이다[^thesz].
+GeekNews에서 @neo도 데이터를 SQL로 환원하는 것,
+Datalog와 Prolog의 등가성, Smalltalk 이미지 시스템과의 비교를 짚었다[^neo].
+
+이 계보 인식이 후속의 위치를 정확히 잡아 준다.
+프로그램과 상태를 하나의 이미지에 담는다는 발상은 새롭지 않다.
+Smalltalk 이미지는 수십 년 전에 실행 중인 세계 전체를 파일로 저장했고,
+Lisp 이미지도 같은 일을 했다.
+후속이 더한 것은 그 이미지의 저장 형식으로 SQLite를 골랐다는 점이며,
+그럼으로써 질의 가능성과 트랜잭션과 FTS5 같은 관계형 도구를 공짜로 얻는다.
+그러나 같은 계보에 속한다는 것은 같은 운명도 물려받는다는 뜻이다.
+이미지 기반 시스템은 강력했지만 주류가 되지 못했고,
+그 이유는 대개 이 문서가 첫 글에서 짚은 것들,
+곧 배포 신뢰와 재현 가능성과 도구 생태계의 문제였다.
+garganzol이 이 접근이 지금 빛날 곳으로 실행 파일이 아니라
+컴파일러와 링커의 `.o`/`.obj` 목적 파일을 꼽은 것도[^garganzol-followup]
+같은 판단이다.
+가장 급진적인 실행 형식 교체보다,
+관계형 컨테이너가 실제로 이득을 주는 좁은 자리가 먼저 채택될 것이라는 예측이며,
+그것은 첫 글을 다루며 이 문서가 내린 결론과 정확히 겹친다.
+
 ---
 
 [^garganzol]: <https://news.ycombinator.com/item?id=49418820>
@@ -660,3 +751,11 @@ b-tree에서 바이트를 꺼내 매핑하려고 시도해 봐야 나오고,
 [^SmasherEpilepti]: <https://news.ycombinator.com/item?id=49424898>
 [^yellowapple]: <https://news.ycombinator.com/item?id=49426974>
 [^setheron]: <https://news.ycombinator.com/item?id=49421766>
+[^Retr0id]: <https://news.ycombinator.com/item?id=49446074>
+[^stephenlf]: <https://news.ycombinator.com/item?id=49443023>
+[^cbondurant]: <https://news.ycombinator.com/item?id=49448818>
+[^Tepix]: <https://news.ycombinator.com/item?id=49444565>
+[^JaumeGreen]: <https://news.ycombinator.com/item?id=49444956>
+[^thesz]: <https://news.ycombinator.com/item?id=49445681>
+[^garganzol-followup]: <https://news.ycombinator.com/item?id=49446568>
+[^neo]: <https://news.hada.io/topic?id=32922#cid64221>
