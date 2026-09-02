@@ -1,6 +1,6 @@
 # 카카오페이손보 CTO: AI 도입이 목표가 되면 열에 일곱은 실패한다
 
-원문: [[인터뷰] 김희준 카카오페이손보 CTO “AI 프로젝트 열에 일곱 실패… 도입이 목표면 안 돼” - 조선비즈](https://biz.chosun.com/it-science/ict/2026/08/27/2C4R6BIWFREKPI32S2LBCM37QQ/)
+원문: [\[인터뷰\] 김희준 카카오페이손보 CTO “AI 프로젝트 열에 일곱 실패… 도입이 목표면 안 돼” - 조선비즈](https://biz.chosun.com/it-science/ict/2026/08/27/2C4R6BIWFREKPI32S2LBCM37QQ/)
 
 ## 요약
 
