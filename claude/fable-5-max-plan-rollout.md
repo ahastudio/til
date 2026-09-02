@@ -142,9 +142,14 @@ Anthropic의 용량 제약 주장이 완전히 근거 없는 것은 아니다.
 jerrycat101은 “Fable 5가 에이전트 5개로 웹 검색을 시켰더니 토큰을 모두 소진했다”고 보고했다.[^jerrycat101]
 멀티에이전트 작업에서 Fable 5의 토큰 소비량은 동급 모델 대비 현저히 높을 수 있다.
 
+Anthropic 자신도 이 점을 제품 UI에서 인정했다.
+zloy88이 인용한 Claude의 안내 문구는 “Fable 5는 Opus 4.8보다 사용량을 더 빠르게 소진한다(draws down usage faster than Opus 4.8)”고 명시한다.[^zloy88]
+즉 높은 토큰 소비는 사용자 개인의 관찰일 뿐 아니라 Anthropic이 공식적으로 전제하는 사실이다.
+
 그러나 이 사실이 Pro 사용자를 구독 범위 밖으로 내보내는 결정을 정당화하지는 않는다.
 토큰 소비가 실제로 많다면, Anthropic은 세션당 또는 일별 토큰 상한을 설정하는 방식으로 수요를 통제할 수 있었다.
 가격 계층별로 접근권 자체를 차별화하는 것은 용량 문제 해결이 아니라 수익 구조 변경이다.
+실제로 “한도의 50%”라는 이번 조치가 바로 그 토큰 상한 방식의 일종이므로, 접근권 박탈과 상한 설정을 동시에 적용한 것은 용량 통제 이상의 목적을 시사한다.
 
 ### 용량 제약이 가격 재편의 명분이 되는 구조는 반복된다
 
@@ -189,7 +194,13 @@ PaiDxng는 이번 장애 사태에 대해 흥미로운 메타 관찰을 남겼�
 ---
 
 [^bescob_ar]: <https://news.ycombinator.com/item?id=48821661>
+
 [^FableBlows]: <https://news.ycombinator.com/item?id=48950649>
+
 [^novacrazy]: <https://news.ycombinator.com/item?id=48950941>
+
 [^jerrycat101]: <https://news.ycombinator.com/item?id=48830009>
+
 [^PaiDxng]: <https://news.ycombinator.com/item?id=48954283>
+
+[^zloy88]: <https://news.ycombinator.com/item?id=48976599>
