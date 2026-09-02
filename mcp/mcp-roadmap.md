@@ -2,7 +2,7 @@
 
 원문: [The New MCP Roadmap](https://blog.modelcontextprotocol.io/posts/mcp-roadmap/)
 
-HN 토론: <https://news.ycombinator.com/item?id=49399591> (209점, 133개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=49399591> (270점, 161개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=32777>
 
