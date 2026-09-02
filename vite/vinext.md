@@ -1,8 +1,10 @@
 # Vinext
 
-<https://github.com/cloudflare/vinext>
+GitHub: <https://github.com/cloudflare/vinext>
 
-<https://blog.cloudflare.com/vinext/>
+블로그 글: [How we rebuilt Next.js with AI in one week | Cloudflare Blog](https://blog.cloudflare.com/vinext/)
+
+HN 토론: <https://news.ycombinator.com/item?id=47142156> (540점, 236개 댓글)
 
 HN 토론: <https://news.ycombinator.com/item?id=47142156> (540점, 236개 댓글)
 
