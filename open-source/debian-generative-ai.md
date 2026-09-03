@@ -2,7 +2,7 @@
 
 원문: [Debian votes to allow “responsible use of generative AI”](https://lwn.net/Articles/1091231/)
 
-HN 토론: <https://news.ycombinator.com/item?id=49489982> (485점, 450개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=49489982> (511점, 476개 댓글)
 
 Lobste.rs 토론: <https://lobste.rs/s/34qdwx/debian_votes_to_allow_responsible_use>
 
@@ -81,6 +81,51 @@ AI는 여기 머물 것이고 전업 AI 혐오자가 되는 것은 비생산적�
 자원봉사에 의존하는 프로젝트가 저항할 이유가 무엇이냐는 것이다[^gentlerain].
 Debian의 “허용”은 승인이 아니라 체념 섞인 실용주의다.
 막을 수 없다면 책임의 틀 안에 두겠다는 것이다.
+
+### LWN 댓글에서는 같은 결과를 두고 정반대의 해석이 부딪힌다
+
+LWN 기사 자체에 달린 댓글은 HN이나 Lobste.rs와 결이 다르다.
+Debian 기여자와 오랜 구독자들이 이 표결의 의미를 두고 직접 다툰다.
+
+첫 댓글부터 체념이다.
+`dskoll`은 그렇게 된 것이 조금 슬프지만 불가피했다고 본다며,
+Debian이 LLM에 대해 더 강한 입장을 의미 있게 집행하기에는 너무 큰
+프로젝트이고, 집행할 수 없는 규칙을 만드는 것이 무의미하다는 것을
+깨달았을 것이라고 적는다[^dskoll].
+`MarcB`는 반대로 매우 기쁘다며, 특히 완전 반AI 제안 둘(1번과 3번)이
+“어느 것도 아님”보다도 아래였다는 사실이 아주 좋은 신호라고 본다 —
+그중 하나라도 이겼다면 그것을 집행하려는 시도가 Debian을 망쳤을
+것이라는 것이다[^MarcB].
+
+여기에 제안자 쪽의 반론이 붙는다.
+`tachi`는 3번이 “완전 반AI”가 아니었으며 AI 기여를 명시적으로 허용하되
+권장하지 않았고 다만 메일링 리스트에서 LLM이 생성한 메일을 주고받는 것을
+금지했을 뿐이라고 정정한다.
+그리고 적어도 자기에게는 요점이 집행이 아니라 더 넓은 세상을 향해
+“우리는 이것이 괜찮지 않다고 생각한다”는 신호를 보내는 데 있었다고
+덧붙인다[^tachi].
+`bluca`는 정면으로 부인한다 — 그것은 매우 집행에 관한 것이었고 그래서
+행동 강령 개정을 제안한 것이며, 지지자 중 한 명이 메일링 리스트에서
+그 점을 꽤 공개적으로 밝혔다고, 이것은 100% 마녀사냥을 시작하려는
+의도였다고 적는다[^bluca].
+
+가장 날카로운 물음은 `jengelh`의 것이다.
+반AI 제안이 이겼다면 그것을 집행하려는 시도가 파괴적이었을 것이라는
+`MarcB`의 말을 인용하며, 그 선택지들이 이겼다는 것은 곧 그것들이 폭넓은
+지지를 받았다는 뜻 아니냐고 되묻는다[^jengelh].
+`MarcB`의 답은 그것을 인정하면서도 물러서지 않는다 — 그렇더라도 집행
+시도는 장기적으로 치명적이었을 것이며 다른 결과를 상상할 수 없다는 것이다.
+그러면서 비교 대상으로 Rust 프로젝트의 LLM 사용 정책을 든다.
+자기가 보기에 그것은 훌륭한 정책이며, 적어도 코드 작성이 병목이 아닌
+상황에서는 그렇다는 단서를 붙인다[^MarcB-rust].
+
+이 교환이 드러내는 것은 이 표결이 답하지 않은 질문이다.
+다수결로 정해진 규칙이라도 집행 비용이 감당 불가능하면 만들지 말아야
+하는가.
+`jengelh`의 물음은 그 규칙이 곧 다수의 뜻이라는 민주적 정당성을 들고,
+`MarcB`의 답은 자원봉사 조직에서 집행이 곧 이탈이라는 운영적 현실을 든다.
+둘 다 타당하며, Debian의 결정은 후자를 택한 것이지 전자를 반박한 것이
+아니다.
 
 ### 공개를 권장하되 의무화하지 않은 신중한 선택
 
@@ -285,3 +330,15 @@ AI가 코드의 저작권성을 침식하면,
 [^symgryph]: <https://lobste.rs/s/34qdwx/debian_votes_to_allow_responsible_use#c_ttumoh>
 [^lproven]: <https://lobste.rs/s/34qdwx/debian_votes_to_allow_responsible_use#c_d2ctko>
 [^nemin]: <https://lobste.rs/s/34qdwx/debian_votes_to_allow_responsible_use#c_gau1yt>
+
+[^dskoll]: <https://lwn.net/Articles/1091236/>
+
+[^MarcB]: <https://lwn.net/Articles/1091240/>
+
+[^tachi]: <https://lwn.net/Articles/1091271/>
+
+[^bluca]: <https://lwn.net/Articles/1091272/>
+
+[^jengelh]: <https://lwn.net/Articles/1091428/>
+
+[^MarcB-rust]: <https://lwn.net/Articles/1091441/>
