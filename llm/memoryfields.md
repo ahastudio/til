@@ -378,13 +378,23 @@ memoryfield의 가장 큰 강점인 단순함이, 동시에 그것의 유효기�
 ---
 
 [^2001zhaozhao]: <https://news.ycombinator.com/item?id=49514697>
+
 [^gimalay]: <https://news.ycombinator.com/item?id=49520634>
+
 [^docheinestages]: <https://news.ycombinator.com/item?id=49509218>
+
 [^Avijit_Thawani]: <https://news.ycombinator.com/item?id=49510885>
+
 [^mofosyne]: <https://news.ycombinator.com/item?id=49517430>
+
 [^JohnMakin]: <https://news.ycombinator.com/item?id=49512238>
+
 [^kelseyfrog]: <https://news.ycombinator.com/item?id=49513288>
+
 [^titzer]: <https://news.ycombinator.com/item?id=49508892>
+
 [^nzach]: <https://news.ycombinator.com/item?id=49510061>
+
 [^linggen]: <https://news.ycombinator.com/item?id=49512811>
+
 [^carlana]: <https://lobste.rs/s/nmhtnw/agent_memory_as_file_format#c_jqxg5c>

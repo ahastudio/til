@@ -250,12 +250,21 @@ vatsachak가 LLM이 어려운 저수준 최적화와 지루한 코드는 하지�
 ---
 
 [^minimaxir]: <https://news.ycombinator.com/item?id=49492750>
+
 [^codethief]: <https://news.ycombinator.com/item?id=49493871>
+
 [^fastball]: <https://news.ycombinator.com/item?id=49493388>
+
 [^XCSme]: <https://news.ycombinator.com/item?id=49493565>
+
 [^bobby_coder_55]: <https://news.ycombinator.com/item?id=49494590>
+
 [^joshheitzman]: <https://news.ycombinator.com/item?id=49494384>
+
 [^DarmokTanagra]: <https://news.ycombinator.com/item?id=49496994>
+
 [^jorl17]: <https://news.ycombinator.com/item?id=49493279>
+
 [^Zigurd]: <https://news.ycombinator.com/item?id=49493314>
+
 [^vatsachak]: <https://news.ycombinator.com/item?id=49493917>

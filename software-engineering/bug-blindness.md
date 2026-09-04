@@ -726,32 +726,61 @@ mystifyingpoi는 같은 경험을 수치로 옮겼다.
 ---
 
 [^moyix]: <https://news.ycombinator.com/item?id=49495110>
+
 [^jakevoytko]: <https://news.ycombinator.com/item?id=49495158>
+
 [^sgentle]: <https://news.ycombinator.com/item?id=49495123>
+
 [^dusted]: <https://news.ycombinator.com/item?id=49496414>
+
 [^XRG]: <https://news.ycombinator.com/item?id=49496217>
+
 [^amadeuspagel]: <https://news.ycombinator.com/item?id=49496972>
+
 [^ksec]: <https://news.ycombinator.com/item?id=49496320>
+
 [^wodenokoto]: <https://news.ycombinator.com/item?id=49496076>
+
 [^bsder]: <https://news.ycombinator.com/item?id=49495020>
+
 [^gmm1990]: <https://news.ycombinator.com/item?id=49496591>
+
 [^ChrisMarshallNY]: <https://news.ycombinator.com/item?id=49494779>
+
 [^CrimsonRain]: <https://news.ycombinator.com/item?id=49496133>
+
 [^generationP]: <https://news.ycombinator.com/item?id=49499195>
+
 [^javascriptmick]: <https://news.ycombinator.com/item?id=49497042>
+
 [^lukan]: <https://news.ycombinator.com/item?id=49497052>
+
 [^coder-pm]: <https://news.ycombinator.com/item?id=49495915>
+
 [^jodrellblank]: <https://news.ycombinator.com/item?id=49504737>
+
 [^hakesson]: <https://news.ycombinator.com/item?id=49497956>
+
 [^mystifyingpoi]: <https://news.ycombinator.com/item?id=49498395>
+
 [^weinzierl]: <https://news.ycombinator.com/item?id=49497415>
+
 [^bambax]: <https://news.ycombinator.com/item?id=49496588>
+
 [^codeflo]: <https://news.ycombinator.com/item?id=49496566>
+
 [^gregates]: <https://news.ycombinator.com/item?id=49496797>
+
 [^sidewndr46]: <https://news.ycombinator.com/item?id=49494703>
+
 [^transcriptase]: <https://news.ycombinator.com/item?id=49494938>
+
 [^hawski]: <https://lobste.rs/s/n1jlxt/bug_blindness#zmagj1>
+
 [^stig]: <https://lobste.rs/s/n1jlxt/bug_blindness#1escg9>
+
 [^amw-zero]: <https://lobste.rs/s/n1jlxt/bug_blindness#ddaafr>
+
 [^vamolessa]: <https://lobste.rs/s/n1jlxt/bug_blindness#i2ajl5>
+
 [^roryokane]: <https://lobste.rs/s/n1jlxt/bug_blindness#asfvvb>

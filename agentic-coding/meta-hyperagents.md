@@ -1,8 +1,8 @@
 # Meta의 HyperAgents — 에이전트가 스스로 자신의 하네스를 설계할 때
 
-원문: <https://cobusgreyling.medium.com/hyperagents-by-meta-892580e14f5b>
+원문: [HyperAgents by Meta. When Agents Engineer Their Own Harness | by Cobus Greyling | Medium](https://cobusgreyling.medium.com/892580e14f5b)
 
-논문: [HyperAgents](https://ai.meta.com/research/publications/hyperagents/)
+논문: [HyperAgents | Research - AI at Meta](https://ai.meta.com/research/publications/hyperagents/)
 
 HN 토론: <https://news.ycombinator.com/item?id=47505670> (234점, 90개 댓글)
 
@@ -232,6 +232,9 @@ HyperAgents가 보여주는 패러다임 전환은 생명의 역사에서
 ---
 
 [^NitpickLawyer]: <https://news.ycombinator.com/item?id=47533773>
+
 [^yurimo]: <https://news.ycombinator.com/item?id=47539504>
+
 [^sva_]: <https://news.ycombinator.com/item?id=47542954>
+
 [^kordlessagain]: <https://news.ycombinator.com/item?id=47536978>

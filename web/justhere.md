@@ -199,4 +199,5 @@ LLM 추천조차 담론 조작에 무너진다.
 ---
 
 [^lifebit]: <https://news.hada.io/topic?id=33060#cid64407>
+
 [^honglu]: <https://news.hada.io/topic?id=33060#cid64408>

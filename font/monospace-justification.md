@@ -313,14 +313,23 @@ Wichary의 글이 이 craft를 기록으로 남긴 것은,
 ---
 
 [^unicorn_platfor]: <https://news.ycombinator.com/item?id=49506771>
+
 [^gyomu]: <https://news.ycombinator.com/item?id=49504254>
+
 [^sho_hn]: <https://news.ycombinator.com/item?id=49503733>
+
 [^AgentOrange1234]: <https://news.ycombinator.com/item?id=49505414>
+
 [^qhwudbebd]: <https://news.ycombinator.com/item?id=49506604>
+
 [^wraptile]: <https://news.ycombinator.com/item?id=49506560>
+
 [^ivw]: <https://news.ycombinator.com/item?id=49503754>
+
 [^_jackdk_]: <https://news.ycombinator.com/item?id=49503966>
+
 [^xguru]: <https://news.hada.io/topic?id=33063#cid64396>
+
 [^lifebit]: <https://news.hada.io/topic?id=33063#cid64413>
 
 [^easydidit]: <https://news.ycombinator.com/item?id=49507653>
