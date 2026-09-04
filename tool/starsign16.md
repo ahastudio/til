@@ -4,7 +4,7 @@
 
 <https://tool.starsign16.com/>
 
-<https://tool.starsign16.com/ko>
+한국어: <https://tool.starsign16.com/ko>
 
 ## 소개
 
