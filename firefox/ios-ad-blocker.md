@@ -276,11 +276,19 @@ Mozilla는 “광고를 막을지 말지 당신이 정하라”고 함으로써,
 ---
 
 [^peri-cl]: <https://news.ycombinator.com/item?id=49523450>
+
 [^OptionOfT]: <https://news.ycombinator.com/item?id=49525275>
+
 [^WD-42]: <https://news.ycombinator.com/item?id=49522945>
+
 [^nonameiguess]: <https://news.ycombinator.com/item?id=49522913>
+
 [^NikxDa]: <https://news.ycombinator.com/item?id=49522996>
+
 [^what]: <https://news.ycombinator.com/item?id=49530486>
+
 [^9999gold]: <https://news.ycombinator.com/item?id=49527538>
+
 [^eikenberry]: <https://news.ycombinator.com/item?id=49527238>
+
 [^c0_0p_]: <https://news.ycombinator.com/item?id=49531631>

@@ -6,8 +6,6 @@ GitHub: <https://github.com/cloudflare/vinext>
 
 HN 토론: <https://news.ycombinator.com/item?id=47142156> (540점, 236개 댓글)
 
-HN 토론: <https://news.ycombinator.com/item?id=47142156> (540점, 236개 댓글)
-
 ## 요약
 
 Vinext는 Next.js API 표면을 Vite 위에서 재구현한
@@ -299,11 +297,19 @@ AI가 쓴 코드 1,700개 테스트와
 ---
 
 [^switz]: <https://news.ycombinator.com/item?id=47142927>
+
 [^wesselbindt]: <https://news.ycombinator.com/item?id=47145509>
+
 [^adithyassekhar]: <https://news.ycombinator.com/item?id=47146198>
+
 [^troupo]: <https://news.ycombinator.com/item?id=47143791>
+
 [^cline6]: <https://news.ycombinator.com/item?id=47144682>
+
 [^wewewedxfgdf]: <https://news.ycombinator.com/item?id=47144959>
+
 [^thawab]: <https://news.ycombinator.com/item?id=47143783>
+
 [^ratorx]: <https://news.ycombinator.com/item?id=47144174>
+
 [^samtheprogram]: <https://news.ycombinator.com/item?id=47144960>

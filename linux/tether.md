@@ -489,31 +489,59 @@ erikwb는 통화가 OBEX로 가능하며
 ---
 
 [^harryposner]: <https://news.ycombinator.com/item?id=49492374>
+
 [^erikwb]: <https://news.ycombinator.com/item?id=49494832>
+
 [^pzmarzly]: <https://news.ycombinator.com/item?id=49491170>
+
 [^voakbasda]: <https://news.ycombinator.com/item?id=49491266>
+
 [^kees99]: <https://news.ycombinator.com/item?id=49491205>
+
 [^huimang]: <https://news.ycombinator.com/item?id=49495147>
+
 [^zackb]: <https://news.ycombinator.com/item?id=49493506>
+
 [^amluto]: <https://news.ycombinator.com/item?id=49493381>
+
 [^dalyons]: <https://news.ycombinator.com/item?id=49493525>
+
 [^forestry]: <https://news.ycombinator.com/item?id=49493516>
+
 [^teach]: <https://news.ycombinator.com/item?id=49493692>
+
 [^randyrand]: <https://news.ycombinator.com/item?id=49494790>
+
 [^dadoum]: <https://news.ycombinator.com/item?id=49492353>
+
 [^ThinkBeat]: <https://news.ycombinator.com/item?id=49492135>
+
 [^djfergus]: <https://news.ycombinator.com/item?id=49495466>
+
 [^nacs]: <https://news.ycombinator.com/item?id=49495482>
+
 [^zackb-reply]: <https://news.ycombinator.com/item?id=49495525>
+
 [^nightsd01]: <https://news.ycombinator.com/item?id=49494978>
+
 [^butokai]: <https://news.ycombinator.com/item?id=49496539>
+
 [^LtWorf]: <https://news.ycombinator.com/item?id=49498160>
+
 [^starik36]: <https://news.ycombinator.com/item?id=49494218>
+
 [^blinkingled]: <https://news.ycombinator.com/item?id=49492273>
+
 [^delis-thumbs-7e]: <https://news.ycombinator.com/item?id=49496664>
+
 [^ErneX]: <https://news.ycombinator.com/item?id=49496983>
+
 [^butokai-owlink]: <https://news.ycombinator.com/item?id=49496522>
+
 [^hollow-moe]: <https://news.ycombinator.com/item?id=49492144>
+
 [^porridgeraisin]: <https://news.ycombinator.com/item?id=49491628>
+
 [^d3Xt3r]: <https://news.ycombinator.com/item?id=49494940>
+
 [^erikwb-calls]: <https://news.ycombinator.com/item?id=49495066>

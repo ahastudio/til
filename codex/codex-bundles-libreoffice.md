@@ -297,13 +297,23 @@ Office는 결과물을 열어 보는 마지막 단계에만 남는다.
 ---
 
 [^jrflo]: <https://news.ycombinator.com/item?id=49527939>
+
 [^pseudosavant]: <https://news.ycombinator.com/item?id=49527732>
+
 [^simonw]: <https://news.ycombinator.com/item?id=49527759>
+
 [^cpursley]: <https://news.ycombinator.com/item?id=49527743>
+
 [^mirzap]: <https://news.ycombinator.com/item?id=49528482>
+
 [^quotemstr]: <https://news.ycombinator.com/item?id=49527920>
+
 [^vb-8448]: <https://news.ycombinator.com/item?id=49528089>
+
 [^paaloeye]: <https://news.ycombinator.com/item?id=49528536>
+
 [^esperent]: <https://news.ycombinator.com/item?id=49527945>
+
 [^xvilka]: <https://news.ycombinator.com/item?id=49531050>
+
 [^petilon]: <https://news.ycombinator.com/item?id=49528560>

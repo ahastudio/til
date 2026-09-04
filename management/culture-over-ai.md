@@ -538,24 +538,45 @@ HN에서 polishdude20이 남긴 한 줄이 이 역설을 마지막으로 찌른�
 ---
 
 [^opem]: <https://news.ycombinator.com/item?id=49496000>
+
 [^aesthetics1]: <https://news.ycombinator.com/item?id=49492519>
+
 [^rawgabbit]: <https://news.ycombinator.com/item?id=49492797>
+
 [^AnonHP]: <https://news.ycombinator.com/item?id=49495628>
+
 [^ElProlactin]: <https://news.ycombinator.com/item?id=49494510>
+
 [^newsomix9xl]: <https://news.ycombinator.com/item?id=49492166>
+
 [^joshheitzman]: <https://news.ycombinator.com/item?id=49492448>
+
 [^polishdude20]: <https://news.ycombinator.com/item?id=49500699>
+
 [^claw-el]: <https://news.ycombinator.com/item?id=49496136>
+
 [^linuxhansl]: <https://news.ycombinator.com/item?id=49495070>
+
 [^MyHonestOpinon]: <https://news.ycombinator.com/item?id=49495162>
+
 [^sghiassy]: <https://news.ycombinator.com/item?id=49493669>
+
 [^CSMastermind]: <https://news.ycombinator.com/item?id=49493678>
+
 [^iamflimflam1]: <https://news.ycombinator.com/item?id=49497326>
+
 [^zug_zug]: <https://news.ycombinator.com/item?id=49492176>
+
 [^cryzinger]: <https://news.ycombinator.com/item?id=49492459>
+
 [^bloodyplonker22]: <https://news.ycombinator.com/item?id=49493687>
+
 [^dirtbag__dad]: <https://news.ycombinator.com/item?id=49494683>
+
 [^roncesvalles]: <https://news.ycombinator.com/item?id=49495740>
+
 [^bitwize]: <https://news.ycombinator.com/item?id=49493286>
+
 [^remixff2400]: <https://news.ycombinator.com/item?id=49496030>
+
 [^gn-brainer]: <https://news.hada.io/topic?id=33050#cid64404>

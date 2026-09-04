@@ -320,15 +320,25 @@ AI가 코드의 저작권성을 침식하면,
 ---
 
 [^chuckadams]: <https://news.ycombinator.com/item?id=49490252>
+
 [^GZGavinZhao]: <https://news.ycombinator.com/item?id=49490709>
+
 [^Tubelord]: <https://news.ycombinator.com/item?id=49491892>
+
 [^dooglius]: <https://news.ycombinator.com/item?id=49491681>
+
 [^gentlerain]: <https://news.ycombinator.com/item?id=49491275>
+
 [^sheepscreek]: <https://news.ycombinator.com/item?id=49490979>
+
 [^kurthr]: <https://news.ycombinator.com/item?id=49492366>
+
 [^edward]: <https://news.ycombinator.com/item?id=49490382>
+
 [^symgryph]: <https://lobste.rs/s/34qdwx/debian_votes_to_allow_responsible_use#c_ttumoh>
+
 [^lproven]: <https://lobste.rs/s/34qdwx/debian_votes_to_allow_responsible_use#c_d2ctko>
+
 [^nemin]: <https://lobste.rs/s/34qdwx/debian_votes_to_allow_responsible_use#c_gau1yt>
 
 [^dskoll]: <https://lwn.net/Articles/1091236/>

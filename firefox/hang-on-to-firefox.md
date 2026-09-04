@@ -274,9 +274,15 @@ Firefox처럼 점유율이 줄어드는 약자일수록 이 제약은 더 강하
 ---
 
 [^autoexec]: <https://news.ycombinator.com/item?id=49529474>
+
 [^999900000999]: <https://news.ycombinator.com/item?id=49530841>
+
 [^nicoburns]: <https://news.ycombinator.com/item?id=49530021>
+
 [^thebiblelover7]: <https://news.ycombinator.com/item?id=49529216>
+
 [^roughly]: <https://news.ycombinator.com/item?id=49529570>
+
 [^throwlifeaway]: <https://news.ycombinator.com/item?id=49529825>
+
 [^al_borland]: <https://news.ycombinator.com/item?id=49530481>
