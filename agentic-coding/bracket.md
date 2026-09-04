@@ -1,6 +1,11 @@
 # Bracket: 에이전트가 “완료”라 말할 때 실제로 했는지 기계적으로 검증한다
 
+> A framework for verifying that AI agents actually did what they claim
+> when they say "done."
+
 <https://github.com/dybala-21/bracket>
+
+한국어: <https://github.com/dybala-21/bracket/blob/main/README-KR.md>
 
 ## 소개
 
