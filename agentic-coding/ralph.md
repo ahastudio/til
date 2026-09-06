@@ -232,19 +232,25 @@ Ryan Carson의 저장소가 2만 스타를 받은 것은 그가 최고의 코드
 패턴을 언제 어떻게 쓸지 가르치는 지식이 진짜 자산이며, 그것이 Ralph 저장소들이 코드가 아니라
 문서로 경쟁하는 이유다.
 
-## 참고
-
-- 관련 문서: [루프 엔지니어링 — 에이전트를 프롬프트하는 시스템을 설계하기](loop-engineering.md), [루프를 손으로 짜던 시대에서 primitive로: 실무 루프 엔지니어링](practical-loop-engineering.md), [AI가 소프트웨어 엔지니어링의 중산층을 없애고 있다](middle-class-engineering.md)
-
 ---
 
+
 [^ref-delta]: 기억을 코드·대화·파일에 외부화하는 접근에 대한 논의는 이 저장소의 [DeltaDB 문서](deltadb-conversation-as-source.md)에 정리해 두었다.
+
 [^ref-loop]: `/goal`이 완료선을 정의하고 능동적 루프가 사람 없이 도는 것에 대한 논의는 이 저장소의 [실무 루프 엔지니어링 문서](practical-loop-engineering.md)에 정리해 두었다.
+
 [^ref-middle]: 생성 속도 극대화가 검증 부담을 밀고 되돌릴 수 없는 결정이 쌓인다는 논의는 이 저장소의 [관련 문서](middle-class-engineering.md)에 정리해 두었다.
+
 [^ref-opus]: 모델이 모호함 앞에서 대담하게 가정한다는 논의는 이 저장소의 [Opus 5 문서](../llm/opus-5-feels-worse.md)에 정리해 두었다.
+
 [^ref-synergy]: AI가 기존 추상을 재사용하지 않고 복잡도를 늘린다는 논의는 이 저장소의 [관련 문서](../code-review/human-ai-synergy-code-review.md)에 정리해 두었다.
+
 [^ref-jolt]: 스타 수가 신뢰의 근거가 아니라는 논의는 이 저장소의 [Jolt 문서](../clojure/jolt.md)에 정리해 두었다.
+
 [^ref-harness]: 되돌릴 수 있는 이펙트와 무상태 실행에 대한 논의는 이 저장소의 [DeepSeek Harness 문서](../ai-tool/deepseek-harness.md)에 정리해 두었다.
+
 [^ref-kiro]: 병렬 에이전트 오케스트레이션에 대한 논의는 이 저장소의 [Kiro Crew 문서](../ai-tool/kiro-crew.md)에 정리해 두었다.
+
 [^ref-sqlite]: 되돌릴 수 없는 결정이 쌓이는 속도가 조직의 수명을 결정한다는 논의는 이 저장소의 [관련 문서](../sqlite/wal-reset-bug.md)에 정리해 두었다.
+
 [^ref-hubble]: 만드는 비용이 떨어져 도구가 포화되고 경쟁이 문서화로 이동한다는 논의는 이 저장소의 [Hubble 문서](../tool/hubble.md)에 정리해 두었다.
