@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=48649011> (714점, 420개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=30790>
+
 ## 요약
 
 Justin Poehnelt(@JPoehnelt)은 2026년 6월 23일, 자신이 Google에서 해고당한 경위를 트윗으로 공개했다.
@@ -119,6 +121,17 @@ Poehnelt이 이것을 “법무팀이 트집 잡은 것”으로 프레임하지
 이는 “브랜드 가이드라인 위반”의 심각성이 팀과 시대에 따라 달랐을 수 있음을 시사한다.
 같은 행동이 어떤 팀에서는 관행이고 다른 팀에서는 해고 사유가 된다면,
 문제는 규정 자체가 아니라 그 적용의 선택성에 있다.
+
+GeekNews의 반응은 오히려 xnx의 반론 쪽에 훨씬 가까웠다.
+savvykang은 Poehnelt이 개인 계정으로 회사 프로젝트를 만든 것이 사실상 맞고,
+법무팀의 추궁을 스스로 언급하면서도 해고 원인을 다른 곳(에이전트 두려움)에서 찾는 서술 자체가
+근로계약과 법을 대수롭지 않게 여기는 태도로 보인다고 지적했다.[^savvykang]
+ndrgrd는 더 나아가, 수년간 일한 사람이 아무 상의 없이 개인 프로젝트를 회사 이름으로
+공개 배포해 놓고도 “이걸 만들어서 해고당했다”는 서술을 당당히 내놓는 것 자체가
+정상적인 의사소통이 가능한 태도로 보이지 않으며, 그것이 주요 해고 원인일 것이라고
+추측했다.[^ndrgrd]
+두 댓글 모두 이 문서의 “에이전트 두려움” 프레임 비판과 같은 방향을 가리킨다.
+Poehnelt의 서술이 자신에게 유리한 해석을 앞세우고 있다는 것이다.
 
 arjie는 또 다른 각도에서 문제를 제기한다.
 로고와 브랜드 색상이 정말 핵심 문제였다면,
@@ -254,3 +267,5 @@ Poehnelt의 사례는 이 질문에 대한 답을 주지 않는다.
 [^arjie]: <https://news.ycombinator.com/item?id=48649834>
 [^zerobees]: <https://news.ycombinator.com/item?id=48652956>
 [^danielodievich]: <https://news.ycombinator.com/item?id=48650529>
+[^savvykang]: <https://news.hada.io/topic?id=30790#cid60277>
+[^ndrgrd]: <https://news.hada.io/topic?id=30790#cid60274>

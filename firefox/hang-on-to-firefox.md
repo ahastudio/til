@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=49527748> (730점, 388개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=33139>
+
 ## 요약
 
 Mark Rogers(필명 the newsonaut)가 2026년 8월 31일에 쓴 짧은 오피니언
@@ -83,6 +85,19 @@ Mozilla의 여러 결정에는 동의하지 않지만 Firefox가 Chrome도 WebKi
 아닌 유일한 브라우저라는 점만으로 충분히 쓸 가치가 있다는 이 태도는,
 저자의 위선 지적이 겨눈 바로 그 지점—이견과 지지를 분리하는 성숙함—을
 훨씬 설득력 있게 담아낸다.
+
+GeekNews 스레드의 반응은 저자의 위선 지적에 힘을 실어 준다.
+한 논평자는 X에 공식 계정이 있다는 이유로 브라우저를 보이콧한다는
+논리 자체가 코미디인지 진짜 멍청한 것인지 모르겠다며, 구글보다
+훨씬 수상한 기업이 운영하고 이미 여러 번 의심스러운 행동을 보인
+브라우저들을 믿으면서 그런 이유로 Firefox를 멀리하는 선택이
+이상하다고 적었다.[^gn-ndrgrd]
+다른 논평자는 이런 반응이 X를 소유한 인물의 최근 논란 많은 발언과
+결정 때문일 것이라 짐작하면서도, 그렇다고 브라우저 자체를 보이콧하는
+것은 너무 나간 소수 의견이기를 바란다고 덧붙였다.[^gn-bashthecat]
+저자가 지적한 논리적 모순을 한국 독자들도 별도로, 곧바로 알아챘다는
+점에서 이 반응은 저자의 tu quoque 논법이 특정 커뮤니티에 국한된
+반응이 아님을 보여준다.
 
 ### Hacker News 봇 음모론은 자기 논증을 약화시키는 곁가지다
 
@@ -286,3 +301,7 @@ Firefox처럼 점유율이 줄어드는 약자일수록 이 제약은 더 강하
 [^throwlifeaway]: <https://news.ycombinator.com/item?id=49529825>
 
 [^al_borland]: <https://news.ycombinator.com/item?id=49530481>
+
+[^gn-ndrgrd]: <https://news.hada.io/topic?id=33139#cid64569>
+
+[^gn-bashthecat]: <https://news.hada.io/topic?id=33139#cid64589>

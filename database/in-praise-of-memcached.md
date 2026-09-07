@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=48638886> (262점, 102개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=30778>
+
 ## 요약
 
 캐시가 필요하다는 이야기가 나오면 대부분은 반사적으로 Redis를 꺼낸다.
@@ -200,6 +202,12 @@ PostgreSQL은 JSONB와 전문 검색을 추가하면서 문서 데이터베이�
 MongoDB는 트랜잭션 지원을 추가하면서 RDBMS 영역에 진입했다.
 Elasticsearch는 로그 저장소로 쓰이기 시작했고, Kafka는 이벤트 소싱 저장소가 됐다.
 각 도구는 원래 역할에서 출발해 인접 역할로 확장했다.
+GeekNews의 roxie도 같은 패턴을 짚었다.
+Memcached가 진짜 대안인지는 확신하지 못하면서도 Redis에 대한 저자의 문제의식에는
+공감하며, “카프카도 다들 메시지 큐처럼 쓰니까”라고 덧붙였다.[^roxie]
+메시지 스트리밍 로그로 설계된 Kafka가 큐로 오용되는 것과,
+휘발성 캐시로 도입된 Redis가 데이터베이스로 오용되는 것은
+같은 “기능이 허용하니 그렇게 써도 된다”는 오해의 다른 얼굴이다.
 
 이 패턴의 문제는 기능 추가 자체가 아니라 사용자가 받는 신호다.
 “이 도구가 X를 지원한다”는 사실은 “이 도구를 X 용도로 써도 된다”는 암묵적 허가로 읽힌다.
@@ -255,3 +263,4 @@ Memcached는 올바른 동작을 기본값으로 만든다.
 [^shermantanktop]: <https://news.ycombinator.com/item?id=48646980>
 [^kijin]: <https://news.ycombinator.com/item?id=48639398>
 [^kylewpppd]: <https://news.ycombinator.com/item?id=48639987>
+[^roxie]: <https://news.hada.io/topic?id=30778#cid60365>
