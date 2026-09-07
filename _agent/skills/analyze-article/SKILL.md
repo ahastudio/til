@@ -1,6 +1,6 @@
 ---
 name: analyze-article
-description:
+description: >-
   Read a web source — an article OR a non-article (GitHub repo, project
   homepage, service site) — and write a TIL document (in Korean) with
   analysis, critique, and insights. The H1 title is written in Korean.
@@ -377,7 +377,7 @@ user.
 
 ### 10. Community reactions
 
-After post-processing, automatically invoke the following two skills in
+After post-processing, automatically invoke the following three skills in
 sequence via the Skill tool, passing the output file path as the argument to
 each:
 
@@ -385,6 +385,8 @@ each:
    comments into the document.
 2. `lobsters-reactions` — finds the Lobste.rs thread and weaves key comments
    into the document.
+3. `geeknews-reactions` — finds the GeekNews (news.hada.io) thread and weaves
+   key native GN comments into the document.
 
 Run them regardless of whether the user asked. If a skill reports that no
 thread was found, that is a normal result — note it briefly and continue to
