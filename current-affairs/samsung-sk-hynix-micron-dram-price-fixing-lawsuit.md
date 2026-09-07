@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=48718102> (381점, 177개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=30952>
+
 ## 요약
 
 2026년 6월 29일, 삼성전자·SK하이닉스·마이크론 세 회사가 미국 캘리포니아 연방법원에서 소송을 당했다.

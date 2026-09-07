@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=48405718> (627점, 308개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=30202>
+
 ## 요약
 
 S&P Dow Jones Indices는 SpaceX 같은 초대형 신규 상장 기업을 위한 지수 편입 규칙 빠른 변경을 거부하고 기존 규정을 유지하기로 결정했다. 상장 후 12개월 대기 기간과 수익성·공개 유통주식(public float) 요건이 기업 규모에 관계없이 그대로 적용된다.

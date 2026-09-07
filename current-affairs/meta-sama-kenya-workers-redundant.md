@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=47961838> (526점, 433개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=29059>
+
 ## 요약
 
 2026년 2월, 스웨덴 신문 SvD와 GP는 케냐 나이로비에서 Meta의 스마트 안경 영상을 검토하는 데이터 어노테이터들의 증언을 보도했다.[^svd]

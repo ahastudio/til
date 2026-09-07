@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=48719485> (390점, 255개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=30941>
+
 ## 요약
 
 Rocket Lab은 위성 통신 회사 Iridium을 약 80억 달러(현금+주식 혼합)에 인수한다고 발표했다.

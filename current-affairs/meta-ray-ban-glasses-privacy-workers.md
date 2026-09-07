@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=47225130> (1448점, 809개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=27157>
+
 ## 요약
 
 Svenska Dagbladet(SvD)와 Göteborgs-Posten이 공동으로 수행한 탐사보도다.

@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=48417490> (236점, 811개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=30241>
+
 ## 요약
 
 Google이 SpaceX 데이터센터에서 xAI의 컴퓨팅 용량을 임차하기 위해 32개월(2026년

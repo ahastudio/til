@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=49170479> (384점, 281개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=32158>
+
 ## 요약
 
 Sarah Perez가 2026년 8월 4일 TechCrunch에 쓴 기사다.

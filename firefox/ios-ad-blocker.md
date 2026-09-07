@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=49521973> (363점, 125개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=33136>
+
 ## 요약
 
 Mozilla가 2026년 9월 1일에 올린 발표 글이다.

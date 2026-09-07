@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=48526661> (242점)
 
+GN 토론: <https://news.hada.io/topic?id=30516>
+
 Gary Bernhardt가 2014년 PyCon에서 한 발표를
 2026년 현 시점에서 해커뉴스 토론(242포인트)을 통해 되돌아본 기록이다.
 발표 자체보다, 11년이 지난 지금 그 예언이 어디까지 맞았고

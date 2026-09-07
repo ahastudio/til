@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=48557381> (19점, 9개 댓글, Bloomberg 동일 사건 보도)
 
+GN 토론: <https://news.hada.io/topic?id=30561>
+
 상장 직후 주가가 급등한 SpaceX가 Amazon을 제치고 시가총액 세계 5위
 기업이 되었다는 BBC 보도를 분석한다.
 같은 IPO를 다룬 [SpaceX IPO는 세기의 도둑질이 될 것](spacex-ipo-theft-of-century.md),

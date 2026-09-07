@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=48490225> (23점, 9개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=30455>
+
 ## 요약
 
 iFixit이 Trump Mobile의 T1 스마트폰을 분해했다.

@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=49343559> (568점, 386개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=32622>
+
 ## 요약
 
 The Register의 APAC 에디터 Simon Sharwood가 2026년 8월 18일에 쓴 기사다.

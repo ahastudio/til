@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=48884322> (245점, 301개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=31405>
+
 ## 요약
 
 The Register의 Dan Robinson이 보도한 바에 따르면, 2025년
