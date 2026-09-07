@@ -1,5 +1,10 @@
 # TrueForge: LLM을 작동하는 에이전트로 바꾸는 오픈소스 하니스 런타임
 
+> The open-source agent harness - the runtime layer that turns an LLM
+> into a working agent
+
+<https://trueforge.dev/>
+
 <https://github.com/truefoundry/trueforge>
 
 HN 토론: <https://news.ycombinator.com/item?id=49378419> (23점, 6개 댓글)
