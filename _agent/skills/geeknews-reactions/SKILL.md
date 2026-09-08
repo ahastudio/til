@@ -12,6 +12,24 @@ Find the GeekNews discussion for a TIL document's source article and enrich
 the document with key GN-native community reactions, each linked to the exact
 comment.
 
+**This skill must actually run to completion every time it is invoked — NO
+EXCEPTIONS.** GeekNews requires a browser (no public search API), which
+makes it the easiest of the three reaction skills to skip under time
+pressure or when a queue is long. Skipping it, or declaring "probably no
+thread" without searching, is a defect. Every invocation must end in one of
+two concrete states, ever:
+
+- A GN thread was found and searched for native comments (woven in, or
+  confirmed none worth weaving), with the `GN 토론:` line added.
+- No matching GN thread exists after an actual search with narrower/broader
+  keyword variants — report this explicitly ("GN 스레드 없음 확인") rather
+  than silently omitting any mention of GN.
+
+Never substitute "I already checked HN/Lobste.rs" for actually searching
+GN — each platform is searched independently, because GN's own userbase and
+discussion patterns differ from HN's and Lobste.rs's, and a thread on one
+platform says nothing about whether one exists on another.
+
 ## Usage
 
 ```text

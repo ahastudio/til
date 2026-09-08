@@ -391,3 +391,30 @@ each:
 Run them regardless of whether the user asked. If a skill reports that no
 thread was found, that is a normal result — note it briefly and continue to
 the next skill.
+
+**Mandatory verification (NO EXCEPTIONS):** A document is not done — and
+must NOT be reported to the user as done — until all three reaction skills
+have been explicitly run against it in this turn, each with a concrete
+outcome (comments woven in, or "no thread found"). This applies with equal
+force whether you are processing one URL or a long queue of many; a long
+queue is not a reason to compress or skip this step for any individual
+file.
+
+Before reporting ANY file as complete (including in a queue's final summary
+table), run this checklist for that file:
+
+1. Was `hackernews-reactions` invoked for this exact file this turn? What
+   was the outcome?
+2. Was `lobsters-reactions` invoked for this exact file this turn? What was
+   the outcome?
+3. Was `geeknews-reactions` invoked for this exact file this turn? What was
+   the outcome?
+
+If the answer to any question is "not yet" or "unsure," STOP and run it
+before moving on — do not proceed to the next file or to the summary table
+with any of the three unresolved. GeekNews is the one most often skipped
+(it requires a browser, not a simple API call) — do not let that extra
+friction be a reason to defer or drop it. "I already checked HN and that
+was thin, so GN is probably thin too" is not a valid basis for skipping the
+GN check — each source must be searched independently regardless of what
+the others returned.

@@ -11,6 +11,22 @@ argument-hint: '[file-path]'
 Find the Hacker News discussion for a TIL document's source article and enrich
 the document with key community reactions, each linked to the exact comment.
 
+**This skill must actually run to completion every time it is invoked — NO
+EXCEPTIONS.** Skipping the search, or assuming "this is niche, there's
+probably no HN thread" without actually calling the Algolia API, is a
+defect. Every invocation must end in one of two concrete states:
+
+- A matching HN story was found and its top-level comments were actually
+  fetched and screened (comments woven in, or confirmed none worth
+  weaving), with the `HN 토론:` line added.
+- No matching HN story exists after an actual Algolia search (title, then
+  URL, then domain) — report this explicitly ("HN 스레드 없음 확인")
+  rather than silently omitting any mention of HN.
+
+Never substitute a check of Lobste.rs or GeekNews for actually searching
+HN — each platform is searched independently, because a thread existing (or
+not) on one platform says nothing about whether one exists on another.
+
 ## Usage
 
 ```text

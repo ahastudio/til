@@ -11,6 +11,25 @@ argument-hint: '[file-path]'
 Find the Lobste.rs discussion for a TIL document's source article and enrich
 the document with key community reactions, each linked to the exact comment.
 
+**This skill must actually run to completion every time it is invoked — NO
+EXCEPTIONS.** Skipping the search, or assuming "this probably isn't a
+Lobste.rs kind of article" without actually running all four search
+strategies, is a defect. Every invocation must end in one of two concrete
+states:
+
+- A matching Lobste.rs story was found and its comments were actually
+  fetched and screened (comments woven in, or confirmed none worth
+  weaving), with the `Lobste.rs 토론:` line added.
+- No matching story exists after all four search strategies (URL, title
+  keywords, domain, full domain) were actually tried — report this
+  explicitly ("Lobste.rs 스레드 없음 확인") rather than silently omitting
+  any mention of Lobste.rs.
+
+Never substitute a check of HN or GeekNews for actually searching
+Lobste.rs — each platform is searched independently, because a thread
+existing (or not) on one platform says nothing about whether one exists on
+another.
+
 ## Usage
 
 ```text
