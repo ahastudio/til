@@ -67,6 +67,21 @@ match exists, reuse that exact directory instead of creating a
 near-duplicate wiki — this keeps `_wiki/` a small set of topics, not one
 directory per invocation.
 
+**Mandatory cross-wiki check (NO EXCEPTIONS):** Even when the topic is
+genuinely new and gets its own directory, read every other existing
+`_wiki/*/index.md` before drafting content. Two failure modes are equally
+bad: creating a near-duplicate directory instead of reusing one, and
+building a new wiki in isolation that silently overlaps an existing one's
+sub-pages without ever linking to them. For each existing wiki whose topic
+sentence shares real subject matter with the new one (not just a keyword in
+passing), add a cross-link — a `[관련: <title>](../<other-slug>/<page>.md)`
+line — from the relevant sub-page(s) on both sides. Do not merge two
+distinct wikis into one directory just because they touch; only reuse a
+directory outright when the topic sentences describe the same subject (per
+the paragraph above). Skipping this check because the topic "feels" new is
+the same defect as skipping a reaction-skill search because another
+platform came back empty — a feeling is not a check.
+
 ### 2. Search the repository for relevant notes
 
 Search broadly and by multiple angles — do not rely on a single grep
@@ -196,8 +211,40 @@ Do not keep content "just in case" — an unused or unsupported claim is worse
 than a shorter wiki. This pruning step is not optional; run it every time,
 even when the wiki is new.
 
+**This pruning step covers the current topic's directory only — do not
+extend it to a full repository-wide sweep of every `_wiki/` directory.**
+Full staleness sweeps of directories unrelated to the current topic sentence
+are out of scope for this skill unless the user explicitly asks for one; do
+not invent that extra work on your own (see "Repository-wide sweeps" below).
+
 ### 8. Report
 
 Tell the user, briefly: the target directory, the sub-pages produced, how
 many source notes were used, and — on a re-run — what changed (added /
 updated / merged / split / pruned), not just that the wiki was refreshed.
+Also mention any cross-links added to or from other `_wiki/` directories per
+step 1's mandatory check.
+
+## Repository-wide sweeps
+
+When the user explicitly asks to clean up or consolidate `_wiki/` as a
+whole (not build/refresh one topic), treat every existing `_wiki/<slug>/`
+directory as in scope, not just the one named in the topic sentence:
+
+1. Read every `_wiki/*/index.md` and every sub-page's `## 출처` list.
+2. Verify each cited source file still exists (a plain existence check, not
+   an assumption) and still supports the claim citing it.
+3. Look for overlap between directories the same way step 1 requires for a
+   single new wiki — read every other index.md's topic sentence and flag
+   any pair whose subject matter has converged enough to warrant merging,
+   or whose sub-pages should cross-link but don't yet.
+4. Apply the same step 6/7 rules (merge, split, rename, delete orphaned
+   pages, prune unsupported claims) across all flagged directories, not
+   just one.
+5. Report the sweep the same way as step 8: which directories were touched
+   and what changed in each.
+
+Do not run this broader sweep implicitly just because a single-topic
+invocation seemed to reveal an unrelated stale page elsewhere — flag it to
+the user in the report instead, and let them decide whether to ask for the
+full sweep.

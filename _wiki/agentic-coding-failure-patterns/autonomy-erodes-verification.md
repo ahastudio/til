@@ -120,6 +120,11 @@ reviewer) 2명, 수정자 1명으로 구성된 태스크 단위를 64개 동시�
 다른 종류의 위험이다 — 에이전트들이 서로 잘 조율되어 있어도, 그
 조율의 결과물 자체가 공유된 맹점을 통과시킬 수 있다는 뜻이다.
 
+관련: [검증 계층의 분리와 그
+한계](../harness-engineering/evaluator-separation.md)는 이 생성자-평가자
+분리 처방을 하네스 설계 쪽에서 더 깊이 다루며, 분리된 구조로도 완전히
+해소되지 않는 무한 후퇴 문제를 짚는다.
+
 ## 출처
 
 - [agentic-coding/verification-debt.md](../../agentic-coding/verification-debt.md)
