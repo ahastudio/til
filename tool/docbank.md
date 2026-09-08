@@ -4,6 +4,8 @@
 
 <https://github.com/kenn-io/docbank>
 
+GN 토론: <https://news.hada.io/topic?id=32598>
+
 ## 소개
 
 한 줄 표어가 범위를 정한다 — “Your documents. Your agents. One system.”이다.

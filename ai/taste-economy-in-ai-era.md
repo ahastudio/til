@@ -4,6 +4,8 @@
 
 한국어: [(번역) 취향은 새로운 해자(Moat)이며, 어떤 스타트업이 살아남을지는 디자인이 결정합니다](https://velog.io/@sehyunny/why-taste-is-the-new-moast)
 
+GN 토론: <https://news.hada.io/topic?id=30408>
+
 ## 요약
 
 AI가 소프트웨어 창작을 상품화하면서 기술 능력, 자본, 유통이라는 전통적 경쟁 우위가 균형화됐다.
