@@ -75,6 +75,102 @@ STOP. You are about to violate this rule. Do not proceed.
 
 There is no implicit commit permission. Ever.
 
+### Git Push (ABSOLUTE PRIORITY — FORBIDDEN FOREVER)
+
+**NEVER run `git push`. Not ever. Not even when the user asks.**
+
+There is no argument, no flag, no situation that makes this allowed.
+`git push --force` and `--force-with-lease` are forbidden without exception.
+If the user asks for a push, say it is forbidden by this file and stop.
+Pushing is the user's action, never yours.
+
+### Never Rewrite Published History (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**NEVER rewrite a commit that exists on a remote.**
+
+Before ANY history operation, check whether the target is on the remote
+with `git branch -r --contains <sha>` or `git ls-remote origin`.
+If it is on the remote — STOP. Do not proceed. Tell the user.
+
+Forbidden on remote-existing commits: `filter-branch`, `rebase`,
+`commit --amend`, `reset --hard`, `cherry-pick` reconstruction.
+
+### Never Alter Commit Dates (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**NEVER change a commit's author date or committer date.**
+
+Do not backdate commits to fill empty days in the history graph.
+Do not reorder commits to make dates look monotonic.
+`--committer-date-is-author-date` and `--reset-author` are FORBIDDEN —
+they silently rewrite dates across every commit in range, far beyond
+the intended target.
+
+A commit's date is a record of when work happened. It is not a
+presentation detail to tidy up.
+
+### Stop Instead of Deciding (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**When a task has a tradeoff the user did not specify, STOP and ask.**
+
+Root cause of past failures: choosing the option that looked tidy over
+the option the user actually cared about, then proceeding without asking.
+
+- Never optimize for a clean-looking `git log`, diff, or file over the
+  meaning the user stated.
+- If you notice mid-task that the goal conflicts with a constraint the
+  user gave — STOP immediately. Do not pick a side.
+- Having identified something as "leave this alone" and then touching it
+  anyway is a severe violation. If you wrote it down, honor it.
+- "It made the output cleaner" is never a justification.
+
+### Never Revert a File That Changed Outside Your Own Edit (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**When a file changed on disk and you did not make that exact change,
+assume the user made it on purpose. Do not revert it. Do not "fix" it
+back to what you expect. Ask, or simply leave it.**
+
+Root cause of a past failure: a file changed after an edit, and the change
+was assumed to be a tool/process race rather than the user's own action.
+It was reverted. It changed again. It was reverted again — three times —
+each time treating "it changed again" as proof of a phantom process
+instead of proof that a person kept fixing it back. The user had to say
+so directly before the reverting stopped.
+
+- A "file changed on disk" notice already tells you to treat the new
+  state as current and not revert it. Follow that instruction literally —
+  it is not a suggestion to weigh against your own judgment.
+- If the same section changes back after you "fix" it once, that is a
+  strong signal a person is doing it deliberately, not a process
+  fighting you. Stop and ask before touching it a second time, and never
+  touch it a third.
+- When genuinely unsure whether a difference is a deliberate user edit or
+  an artifact of your own tool call, ask in one sentence rather than
+  guessing and acting.
+
+### Do Only What Was Asked — Do Not Extend Scope By Your Own Judgment (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**A request to also consult an additional source means adding or
+verifying facts against it. It is not a request to rebase the document
+onto that source, and it says nothing about link order, phrasing
+preferences, or any other formatting choice.**
+
+Root cause of a past failure: a narrower request was expanded in scope
+without checking, and that expanded reading was then treated as license
+to also reorder the source-link list. The user corrected both the
+reordering and how their request had been characterized. Never write a
+user's own words back into a rule or a message using quotation marks —
+describe what was asked or what happened in your own words, without
+quoting.
+
+- Identify the literal scope of the request before starting: which facts,
+  which section, which file. Touch only that.
+- A stylistic or structural choice that predates the current request (link
+  order, heading style, an established convention) is out of scope unless
+  the user names it directly.
+- If part of the source material seems to imply a different structural
+  choice would be "more correct," that impression is not permission —
+  raise it as a question, do not act on it.
+
 ### Do Not Mention Unrequested-Action Status Unprompted (ABSOLUTE PRIORITY — NO EXCEPTIONS)
 
 **Never bring up the status or permission of an action the user did not
