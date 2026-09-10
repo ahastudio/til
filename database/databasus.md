@@ -6,6 +6,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=46410656> (10점, 7개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=33305>
+
 ## 소개
 
 Databasus는 PostgreSQL을 비롯한 여러 데이터베이스를 위한 무료 오픈소스 셀프 호스팅 백업 솔루션이다.
@@ -167,5 +169,7 @@ Databasus 같은 도구의 존재는 클라우드 이식성(portability)에 대�
 ---
 
 [^dmarwicke]: <https://news.ycombinator.com/item?id=46414341>
+
 [^freakynit]: <https://news.ycombinator.com/item?id=46413218>
+
 [^vkhafizov]: <https://news.ycombinator.com/item?id=46411646>
