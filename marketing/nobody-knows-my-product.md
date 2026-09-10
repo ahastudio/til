@@ -304,15 +304,27 @@ Ask 형식의 게시판이 작동하는 조건은 서투른 질문도 올릴 수
 ---
 
 [^toroymin]: <https://news.hada.io/topic?id=33353#cid65041>
+
 [^kimsunwoo-thanks]: <https://news.hada.io/topic?id=33353#cid65051>
+
 [^computerphilosopher]: <https://news.hada.io/topic?id=33353#cid64979>
+
 [^kimsunwoo-trust]: <https://news.hada.io/topic?id=33353#cid64993>
+
 [^guarder]: <https://news.hada.io/topic?id=33353#cid64947>
+
 [^baeba]: <https://news.hada.io/topic?id=33353#cid64943>
+
 [^brainer-1]: <https://news.hada.io/topic?id=33353#cid64939>
+
 [^kimsunwoo-accept]: <https://news.hada.io/topic?id=33353#cid64948>
+
 [^brainer-2]: <https://news.hada.io/topic?id=33353#cid64949>
+
 [^kimsunwoo-search]: <https://news.hada.io/topic?id=33353#cid64944>
+
 [^recast7838-ads]: <https://news.hada.io/topic?id=33353#cid64936>
+
 [^unsure4000]: <https://news.hada.io/topic?id=33353#cid64956>
+
 [^recast7838-llm]: <https://news.hada.io/topic?id=33353#cid64968>
