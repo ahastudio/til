@@ -19,7 +19,7 @@ Monitoring(Grafana), Backups, Home Automation(Home Assistant·Raspberry Pi), Clo
 
 추천 도구 선정은 비교적 보수적이다.
 컨테이너는 Docker와 Podman, 오케스트레이션은 Kubernetes와 Docker Swarm,
-VPN은 WireGuard를 “straight-forward, fast and modern VPN”으로 못 박고 Tailscale/Headscale을 관리 계층으로 권장한다.
+VPN은 WireGuard를 “straight-forward, fast and modern VPN”으로 단정하고 Tailscale/Headscale을 관리 계층으로 권장한다.
 모니터링은 Grafana, 클라우드 대안 호스팅으로는 Nextcloud, 클라우드 사업자로는 Linode와 DigitalOcean이 자주 등장한다.
 
 저장소 구성 자체에는 특이한 점이 있다.
