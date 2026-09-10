@@ -2,6 +2,8 @@
 
 원문: <https://healthvc.substack.com/p/the-fake-traction-problem>
 
+GN 토론: <https://news.hada.io/topic?id=30871>
+
 ## 요약
 
 HealthVC의 Martyn Eeles가 쓴 이 글은 헬스케어 스타트업 창업자들이 흔히 범하는
