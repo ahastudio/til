@@ -53,7 +53,7 @@ CISO가 직접 “automation failed”를 인정했음에도 불구하고, 같�
 저자가 강조하는 숫자는 취약점의 기술적 심각성보다 오히려 “7개월”, “197개 이상의 버전”이라는 시간과 릴리스 수치다.
 이는 벤더가 이 기간 동안 계속 제품을 출시하고 있었음에도 보안 이슈에는 손대지 않았다는 대비를 부각하기 위한 서술 전략이다.
 일반적인 조율된 공개(coordinated disclosure) 관행은 보통 90일 안팎을 표준 유예 기간으로 삼는데, 이 사례는 그 기준을 두 배 이상 넘겼다.
-저자가 “coordinated disclosure only works when there is coordination”이라고 못박는 대목은, 조율된 공개의 전제 조건인 상호 소통이 벤더 쪽에서 먼저 무너졌다는 점을 강조하려는 의도로 읽힌다.
+저자가 “coordinated disclosure only works when there is coordination”이라고 단언하는 대목은, 조율된 공개의 전제 조건인 상호 소통이 벤더 쪽에서 먼저 무너졌다는 점을 강조하려는 의도로 읽힌다.
 
 ### SpaceX 인수설과 우선순위 프레이밍
 

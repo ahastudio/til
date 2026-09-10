@@ -1,4 +1,4 @@
-# 한화 카메라 로그인 페이지에 GitHub 관리자 토큰이 박혀 있었다
+# 한화 카메라 로그인 페이지에 GitHub 관리자 토큰이 들어 있었다
 
 원문: [My security camera shipped a GitHub admin token in its login page - hhh.hn](https://hhh.hn/hanwha-github-token/)
 
@@ -26,7 +26,7 @@ openssl enc -md sha256 -aes-256-cbc -d \
 `53f926801b81454a4f889c9a390db6e6`였다.
 
 이렇게 완전히 풀어낸 루트파일시스템(rootfs)을 자격 증명 스캔한 결과,
-GitHub 관리자 토큰이 약 30개 파일에 중복으로 박혀 있는 것을 발견했다.
+GitHub 관리자 토큰이 약 30개 파일에 중복으로 들어 있는 것을 발견했다.
 이 토큰은 Hanwha의 GitHub 조직 산하 수백 개 저장소에 대한 관리자 권한을 가진 것이었다.
 근본 원인은 빌드 과정에서 Vite를 사용하면서 CI 환경 전체(`process.env`)가
 컴파일된 UI 파일에 그대로 노출된 것이었다.
