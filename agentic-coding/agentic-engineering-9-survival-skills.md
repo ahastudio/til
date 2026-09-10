@@ -65,7 +65,7 @@ main 동기화 → CI 통과 → Codex/Claude/Gemini 3중
 코드 리뷰 → UI 스크린샷. 모든 조건 충족 후에야
 텔레그램 알림.
 [AI Coding Agent Guidelines](ai-coding-agent-guidelines.md)가 “Verification
-Before Done”과 “검증 스토리(verification story)”를 완료 조건으로 못 박는 것도
+Before Done”과 “검증 스토리(verification story)”를 완료 조건으로 명시하는 것도
 같은 처방이다 — 증거 없이는 완료가 아니라는 원칙은 에이전트의 자기 보고를
 신뢰할 수 없다는 인식의 산물이다.
 
