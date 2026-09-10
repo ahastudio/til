@@ -131,7 +131,7 @@ VLM이나 이미지 모델의 래퍼가 되어야 한다”는 의견이 있다.
 답이 나오는데 이는 완전히 다른 시간 스케일의 문제라고 반박한다.[^serf]
 `nicolailolansen`은 “Nano Banana 같은 모델을 OpenCV나 YOLO 호출과
 같은 연산·시간 제약 아래서 돌릴 수 있게 되기 전까지는, YOLO와
-OpenCV를 한물갔다고 부르는 건 그냥 틀린 말”이라고 못 박는다.[^nicolailolansen]
+OpenCV를 한물갔다고 부르는 건 그냥 틀린 말”이라고 단언한다.[^nicolailolansen]
 다만 거대 일반 모델 쪽 흐름도 무시할 수 없다. `fnands`는 NLP에서
 거대 범용 모델이 판을 장악했듯, 임베디드·저지연 영역을 빼면 CV에서도
 SAM3 같은 오픈 보캐뷸러리 검출기에 “Apple”이라고 프롬프트만 넣으면
