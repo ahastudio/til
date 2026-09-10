@@ -23,7 +23,7 @@ Amazon Rufus의 “Senior PM-Tech, GenAI”는 'LLM-as-a-Judge' 거버넌스 설
 핵심 임무로 명시하며, 좋은 답변의 기준·golden set·허용 오류 수준을 PM이
 직접 정의하도록 한다.
 Google의 광고 BI AI 담당 PM 공고는 GenAI·Agentic AI·LLM 관련 경력 1년을
-필수 조건으로 못박는다.
+필수 조건으로 내건다.
 Cursor(Anysphere)는 “우리는 전통적인 PM을 뽑지 않는다”고 선언하며 PM이
 직접 앱을 빌드·배포할 수 있어야 한다고 명시한다.
 Anthropic은 Claude Code 담당 PM에게 에이전트 Eval을 직접 제작한 경험과
