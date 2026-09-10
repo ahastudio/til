@@ -666,17 +666,31 @@ top-1 정확도는 4비트와 8비트를 비교할 때는 아마 충분히 유�
 ---
 
 [^spider-mario]: <https://news.ycombinator.com/item?id=49612046>
+
 [^stared]: <https://news.ycombinator.com/item?id=49613783>
+
 [^sharmajai]: <https://news.ycombinator.com/item?id=49612992>
+
 [^alentred]: <https://news.ycombinator.com/item?id=49613840>
+
 [^kmike84]: <https://news.ycombinator.com/item?id=49617000>
+
 [^seamossfet]: <https://news.ycombinator.com/item?id=49614653>
+
 [^anyfoo]: <https://news.ycombinator.com/item?id=49614060>
+
 [^kouteiheika]: <https://news.ycombinator.com/item?id=49612850>
+
 [^wgd]: <https://news.ycombinator.com/item?id=49613628>
+
 [^KennyBlanken]: <https://news.ycombinator.com/item?id=49615504>
+
 [^purpleflame1257]: <https://news.ycombinator.com/item?id=49611970>
+
 [^dofm]: <https://news.ycombinator.com/item?id=49612755>
+
 [^bellowsgulch]: <https://news.ycombinator.com/item?id=49612053>
+
 [^mrbonner]: <https://news.ycombinator.com/item?id=49614457>
+
 [^Farmadupe]: <https://news.ycombinator.com/item?id=49612561>
