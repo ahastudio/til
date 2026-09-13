@@ -329,6 +329,13 @@ Write at least 3 insights. 4 is better if the subject warrants it.
   alignment, line breaks, etc.).
 - Write in Korean. Technical terms may be written alongside their original
   English form.
+- Keep body lines at 80 columns or less wherever possible. Break at sentence
+  boundaries per `_agent/rules/writing-guidelines.md` (each sentence starts a
+  new line; long sentences break once at a natural clause boundary such as
+  이며/하지만/그러나/그리고/하면/때문에). Never break at a fixed character
+  count, and never indent a continuation line. This applies to prose only —
+  tables, code blocks, headings, and footnote/URL lines are exempt. Check
+  this before invoking `quotes-curly` in step 9, not after.
 - The H1 is Korean (step 3a). Every `##` and `###` heading is Korean too.
 - Sections are marked with headings, never with bold text. When the first
   section runs long enough to need internal divisions, give those divisions
