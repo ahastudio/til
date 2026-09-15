@@ -2,6 +2,8 @@
 
 <https://github.com/rkstgr/papermake>
 
+GN 토론: <https://news.hada.io/topic?id=31432>
+
 ## 소개
 
 Papermake는 Typst 문서 템플릿을 분산 PDF 렌더링 서비스로
@@ -95,8 +97,9 @@ README가 강조하는 기능 중 “각 렌더링의 입력·출력 해시를
 Papermake가 처음부터 금융·회계처럼 문서의 출처와 무결성을
 증명해야 하는 규제 산업을 염두에 두고 설계되었다는 뜻이다.
 
-이 설계 방향은 앞서 살펴본 `aws/rendering-one-million-pdfs.md`
-문서에서 다룬 사례, 즉 Typst와 Papermake를 함께 사용해
+이 설계 방향은 앞서 살펴본
+[100만 PDF 생성 문서](../aws/rendering-one-million-pdfs.md)에서 다룬 사례,
+즉 Typst와 Papermake를 함께 사용해
 금융기관용 거래 확인서를 대량 생성한 사례와 정확히
 맞아떨어진다.
 그 글에서 Papermake는 데이터 보간과 스키마 검증을 제공하는

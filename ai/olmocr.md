@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=43174298> (313점, 40개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=19525>
+
 ## 소개
 
 olmOCR은 Allen Institute for AI(AI2)의 AllenNLP 팀이 개발한 오픈소스
@@ -51,7 +53,7 @@ FP8이며, Cirrascale·DeepInfra·Parasail 같은 외부 추론 제공자를
 Test Rewards for Document OCR”)은 OCR 결과를 “유닛 테스트”처럼
 검증 가능한 형태로 채점하는 방식으로 보상을 설계했음을 시사한다.
 라이선스는 Apache 2.0이며, 이 글을 작성하는 시점 기준 GitHub 스타
-18.5k, 포크 1.5k를 기록하고 있고 최신 버전은 v0.4.27(2026년
+19.6k를 기록하고 있고 최신 버전은 v0.4.27(2026년
 3월)이다. v1 논문(arXiv:2502.18443)과 v2 RL 훈련 논문
 (arXiv:2510.19817)이 함께 공개되어 있다.
 
@@ -198,6 +200,14 @@ Textract 같은 완전관리형 서비스를 종량제로 쓰는 것 사이의 �
 의미 있는 수치다. README는 이 경제성 주장이 어떤 규모, 어떤
 조직 유형에 적용 가능한지에 대한 맥락을 제공하지 않는다.
 
+GN에서 kaydash가 GPU 없이 동작하는 라이브러리들이 아직은
+쓸모가 있겠다고 한 것이 이 지점을 정확히 짚는다.[^kaydash]
+olmOCR이 GPU를 전제하는 한, GPU가 없는 환경에서는
+Tesseract 같은 경량 대안이 여전히 자기 자리를 지킨다.
+kleinstein이 현재 Windows에서 돌아가지 않는다고 지적한 것도[^kleinstein]
+이 도구가 아직 특정 인프라 환경을 전제함을 보여 준다.
+저렴함이라는 프레이밍은 그 전제를 충족한 조직에게만 성립한다.
+
 ## 인사이트
 
 ### 검증 가능한 부분 보상 설계는 강화학습이 “정답이 모호한” 도메인으로 계속 확장되고 있다는 신호다
@@ -272,12 +282,23 @@ PDF로 옮기는 작업에 쓰고 있다고 소개했다. Google Vision과 o1을
 ---
 
 [^vikp]: <https://news.ycombinator.com/item?id=43214140>
+
 [^kennyblanken]: <https://news.ycombinator.com/item?id=43223876>
+
 [^constantinum]: <https://news.ycombinator.com/item?id=43215160>
+
 [^rahimnathwani]: <https://news.ycombinator.com/item?id=43212718>
+
 [^chad1n]: <https://news.ycombinator.com/item?id=43213626>
+
 [^xz18r]: <https://news.ycombinator.com/item?id=43213045>
+
 [^zardoz84]: <https://news.ycombinator.com/item?id=43217700>
+
 [^rahimnathwani-tesseract]: <https://news.ycombinator.com/item?id=43213070>
+
 [^fschuett]: <https://news.ycombinator.com/item?id=43215123>
 
+[^kaydash]: <https://news.hada.io/topic?id=19525#cid35374>
+
+[^kleinstein]: <https://news.hada.io/topic?id=19525#cid35478>
