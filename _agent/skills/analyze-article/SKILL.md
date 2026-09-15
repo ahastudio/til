@@ -2,24 +2,24 @@
 name: analyze-article
 description: >-
   Read a web source — an article OR a non-article (GitHub repo, project
-  homepage, service site) — and write a TIL document (in Korean) with
-  analysis, critique, and insights. The H1 title is written in Korean.
-  Published pieces (articles, posts, papers, tweets, videos) get a
-  `원문: [원문 제목](URL)` titled-link source line and a `## 요약` section;
-  non-articles get bare `<URL>` line(s) with NO `원문:` label, no titled link,
-  and a fitting first heading like `## 소개`. Takes a URL as an argument. Use
-  when the user asks to analyze an article/repo/site, document it, or organize
-  a technical post.
+  homepage, service site) — and write a TIL document (in Korean). The H1 title
+  is written in Korean. Published pieces (articles, posts, papers, tweets,
+  videos) get a `원문: [원문 제목](URL)` titled-link source line and a
+  `## 요약` section; non-articles get bare `<URL>` line(s) with NO `원문:`
+  label, no titled link, and a fitting first heading like `## 소개`. Body
+  structure follows the source's own job — analytical for a piece that argues,
+  practical for one that teaches. Takes a URL as an argument. Use when the user
+  asks to analyze an article/repo/site, document it, or organize a technical
+  post.
 argument-hint: '<url> [output-path]'
 disable-model-invocation: true
 ---
 
-Read a web article and write a TIL document
-with a summary / analysis / critique / insights structure.
+Read a web source and write a TIL document whose structure follows what the
+source is for: analytical when it argues, practical when it teaches.
 
 **The output document MUST be written in Korean.**
-All section content (summary, analysis, critique, insights) is
-written in Korean.
+Every section is written in Korean, whichever body structure step 5a selects.
 Technical terms may be written alongside their original English form.
 
 ## Usage
@@ -236,14 +236,51 @@ The first top-level section depends on the same classification:
   `## 주요 기능`, `## CLI`. A single subject may warrant multiple top-level
   sections if its content naturally splits.
 
-Regardless of subject type, always include `## 분석`, then `## 비평`
-immediately after, and end with `## 인사이트`.
+### 5a. Choose the body structure — argue vs. teach (CRITICAL)
+
+**The body structure follows the source's own job. Do not impose an analytical
+structure on a source whose job is to teach a task.**
+
+Decide which of these the source is, then use the matching body:
+
+- **The source argues.** It advances a thesis, takes a position, reports an
+  event with a frame, or reviews something. Blog posts, essays, news stories,
+  papers, opinion pieces, most conference talks.
+  → Body is `## 분석` → `## 비평` → `## 인사이트`, in that order, 비평
+  immediately after 분석 and 인사이트 last. This is the default.
+
+- **The source teaches.** Its job is to let the reader do a task: reference
+  documentation, an API guide, a specification, a tutorial, a runbook, a tool's
+  usage docs. The useful note is one the reader can work from, not one that
+  critiques the manual's prose.
+  → Body is practical. Choose headings that fit the task — e.g. `## 동작 방식`,
+  `## 설정하기`, `## 구현하기`, `## 값 정하기`, `## 트레이드오프`,
+  `## 체크리스트`, `## 함정`. Cover: how it actually works, what to decide and
+  on what basis, what the trade-offs cost on each side, what goes wrong in
+  practice, and how to verify. End with a short `## 기억할 원칙` when there is a
+  transferable principle worth stating.
+
+When a teaching source still carries a strong claim worth contesting, a single
+`## 비평` section is welcome — but it is one section among practical ones, not
+the spine of the document.
+
+When genuinely torn, ask what the reader will do with the note. If they will
+*think differently*, the source argues. If they will *build something*, it
+teaches.
+
+**Trade-offs are where a teaching note earns its keep.** A table of "what you
+gain / what you give up" in one line each is too thin. Show why the obvious fix
+does not work, what breaks when you pick each side, and what you cannot have at
+all. Name the difficulty, not just the cost.
 
 ### 6. Write the document
 
-Write a markdown document with the following structure. **The `원문:` line and
-`## 요약` heading shown below apply to ARTICLES ONLY — for non-articles,
-substitute per steps 4 and 5.**
+Two templates follow: one for a source that **argues**, one for a source that
+**teaches**. Pick the one step 5a selected. **The `원문:` line and `## 요약`
+heading shown apply to ARTICLES ONLY — for non-articles, substitute per steps
+4 and 5.**
+
+#### 6a. Template — the source argues
 
 ```markdown
 # <한국어 제목>
@@ -323,19 +360,92 @@ What to avoid:
 Write at least 3 insights. 4 is better if the subject warrants it.
 ```
 
+#### 6b. Template — the source teaches
+
+Headings here are examples, not a fixed set. Choose ones that match the task
+and drop any that do not apply. What matters is that the reader can act from
+the note.
+
+```markdown
+# <한국어 제목>
+
+원문: [<원문 제목>](<URL>)
+
+## <첫 섹션: 요약 또는 소개>
+
+What this is and what contract it offers. For a spec or reference, state the
+guarantee and its exact boundary — what it promises, and what it explicitly
+does not.
+
+## 동작 방식
+
+How it actually works, in enough depth that the reader can predict behavior
+rather than memorize steps. Walk a concrete scenario in order (a timeline, a
+request path, a state transition) when the mechanism is easy to misread.
+
+## <구현하기 / 설정하기>
+
+What the reader does. Include real, runnable code or commands — not fragments
+that only illustrate. Comment the lines that encode a decision. Name the
+values that must be chosen and what each one depends on.
+
+## 값 정하기
+
+Starting values with the reasoning behind each, in a table. A starting value
+without its basis is unusable, because the reader cannot tell when to change
+it. Add what to measure so the value can be revised from evidence.
+
+## 트레이드오프
+
+The heart of a teaching note. For each decision, show what you gain, what it
+costs, AND what remains hard afterward. Give each significant trade-off its
+own sub-section when one line cannot carry it: why the obvious fix fails,
+what breaks on each side, what cannot be had at all. A two-column
+gain/loss table alone is too thin.
+
+## 함정
+
+Failure modes that show up in practice but not in the source. What looks
+correct and is not, what only breaks under load or at scale, what the source
+assumes but never states.
+
+## <확인하기>
+
+How to verify locally — a reproducible experiment, a command sequence, a
+minimal setup. A note the reader can run beats one they can only read.
+
+## 체크리스트
+
+Checkable items for before shipping or reviewing. Write each so the answer is
+yes or no, not "consider X."
+
+## 기억할 원칙
+
+Only when a transferable principle is genuinely there. One or two, each with
+a `###` sub-heading and a few paragraphs. Skip this section rather than pad
+it.
+```
+
 ### 7. Writing rules
 
-- Follow the writing guidelines in AGENTS.md (heading spacing, table
-  alignment, line breaks, etc.).
+- Follow `_agent/rules/writing-guidelines.md` in full: heading spacing, CJK
+  table alignment, inline code, fenced-block language identifiers, the `박다`
+  vocabulary ban, and the rule that structure belongs to headings and never to
+  bold text.
 - Write in Korean. Technical terms may be written alongside their original
   English form.
-- Keep body lines at 80 columns or less wherever possible. Break at sentence
-  boundaries per `_agent/rules/writing-guidelines.md` (each sentence starts a
-  new line; long sentences break once at a natural clause boundary such as
-  이며/하지만/그러나/그리고/하면/때문에). Never break at a fixed character
-  count, and never indent a continuation line. This applies to prose only —
-  tables, code blocks, headings, and footnote/URL lines are exempt. Check
-  this before invoking `quotes-curly` in step 9, not after.
+- Break body text at sentence boundaries: each sentence starts a new line, and
+  a long sentence breaks once at a natural clause boundary (이며/하지만/
+  그러나/그리고/하면/때문에). Never break at a fixed character count — not 80
+  columns, not any other — and never indent a continuation line, because an
+  indented line renders as a code block. This applies to prose only; tables,
+  code blocks, headings, and footnote/URL lines are exempt. Check this before
+  invoking `quotes-curly` in step 9, not after.
+- Every fenced code block carries a language identifier (`python`, `bash`,
+  `text`, …). A bare fence is always wrong.
+- Code in a teaching note must be runnable, not illustrative. Prefer a complete
+  function over an ellipsis. Comment the lines that encode a decision, not the
+  lines that restate the syntax.
 - The H1 is Korean (step 3a). Every `##` and `###` heading is Korean too.
 - Sections are marked with headings, never with bold text. When the first
   section runs long enough to need internal divisions, give those divisions
@@ -346,6 +456,36 @@ Write at least 3 insights. 4 is better if the subject warrants it.
 - The document should read as if written by someone who disagrees with
   parts of the source and has thought carefully about why.
 - Maintain the same tone and depth as existing TIL documents.
+
+### 7a. Link and footnote conventions
+
+Lines under the H1 appear in this order, each separated by a blank line:
+
+```markdown
+원문: [<원문 제목>](<URL>)
+
+HN 토론: <URL> (<점수>점, <댓글 수>개 댓글)
+
+Lobste.rs 토론: <URL> (<점수>점, <댓글 수>개 댓글)
+
+GN 토론: <URL>
+```
+
+The discussion lines are added by the reaction skills in step 10 — do not
+invent them yourself. Keep the bare `<URL>` form for all three.
+
+When a reaction skill weaves in a comment, the comment is attributed inline and
+linked with a footnote whose label is the commenter's handle:
+
+```markdown
+tttttaa는 회색지대 사례를 살펴볼수록 미묘해진다고 적었다.[^tttttaa]
+
+[^tttttaa]: <https://news.hada.io/topic?id=33582#comment-123456>
+```
+
+Footnote definitions collect at the bottom of the document, after the last
+body section. Each label is the handle exactly as that site spells it, and
+each target is a permalink to the individual comment — never the thread root.
 
 ### 8. Output
 
@@ -375,6 +515,30 @@ though the H1 is Korean (step 3a).
 2. Ask of each word: does it answer *which* thing this is, or *what kind of*
    thing this is?
 3. Delete every word that answers the second question.
+
+### 8b. Verify the document before post-processing
+
+Run this against the file you just wrote. Every item is checkable by reading
+the file — do not report a document as written until all of them pass.
+
+1. Is the H1 Korean prose, not the source title transliterated or pasted?
+2. Does the source line match the subject's kind — `원문: [제목](URL)` for a
+   published piece, a bare `<URL>` for a repo or homepage?
+3. Does the body structure match step 5a's choice — analytical for a source
+   that argues, practical for one that teaches?
+4. Does every fenced code block carry a language identifier?
+5. Is there any line that is entirely bold and followed by body text it
+   introduces? If so it is a heading in disguise; convert or dissolve it.
+6. Are CJK table columns padded so the pipes align (Korean characters count
+   as two)?
+7. Does any `박다`-stem verb appear? Replace it.
+8. Does any prose line break at a fixed width rather than a sentence or clause
+   boundary? Does any continuation line start with indentation?
+9. Do the sections do different work, or do two of them restate each other?
+
+Fix what fails before moving on. A defect found here costs one edit; the same
+defect found after the reaction skills have woven comments into the document
+costs a careful merge.
 
 ### 9. Post-processing
 

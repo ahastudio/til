@@ -171,8 +171,10 @@ what the subject actually is, not to a fixed template.
   A single subject may warrant multiple top-level sections if its content
   naturally splits (e.g., spec + CLI for a tool with both).
 
-Regardless of subject type, always include `## 비평` immediately after
-`## 분석`, and end with `## 인사이트`.
+Sections beyond the first are chosen to fit the subject. A note that exists to
+teach a task may use practical headings (procedure, trade-offs, checklist); a
+note that examines a piece of writing may use analytical ones. Do not impose an
+analytical structure on a document whose job is something else.
 
 ## Line Breaks in Body Text
 
