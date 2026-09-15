@@ -58,6 +58,26 @@ HTMX를 선호한다고 밝힌다.
 0으로 설정해 로컬 스토리지 캐시 자체를 비활성화하며,
 `disableInheritance`를 true로 설정해 HTMX 속성 상속을 끄는 등 여러
 설정을 기본값으로 제시한다.
+브라우저가 실제로 보고 있는 URL이 필요한 경우도 다룬다.
+HTMX는 `hx-boost`나 `hx-push-url`, `hx-replace-url`을 쓰지 않는 한
+URL을 바꾸지 않고 응답을 교체하므로, 핸들러에서 보는 `r.URL`은 사용자가 주소창에서
+보고 있는 것과 다를 수 있다.
+HTMX가 매 요청에 붙여 보내는 `HX-Current-URL` 헤더를 파싱해 `url.URL`로 돌려주고,
+헤더가 없으면 `r.URL`로 물러나는 `browserURL()` 헬퍼가 그의 해법이다.
+
+설정값 목록에는 앞서 언급한 것 외에 두 가지가 더 있다.
+`includeIndicatorStyles`를 false로 꺼서 HTMX가 스타일을 주입하지 않게 하고
+인디케이터 스타일을 자기 CSS 규칙 옆에 직접 정의하는 것,
+그리고 기본적으로 시간 제한이 없는 HTMX 요청에 `timeout` 값을 두는 것이다.
+그가 제시하는 출발점 설정은 `includeIndicatorStyles: false`,
+`historyCacheSize: 0`, `historyRestoreAsHxRequest: false`,
+상태 코드별 `responseHandling` 배열, `timeout: 5000`의 조합이다.
+`historyCacheSize`를 0으로 두는 이유로는 로컬 스토리지 캐싱이 버그와 보안 문제의
+원천이라는 점을 들며, 두 설정 모두 같은 이유로 앞으로의 HTMX 버전에서는 기본값이
+될 것이라고 덧붙인다.
+글 서두에는 이 템플릿 패턴 상당수가 Unpoly나 Hotwire 같은 다른 HTML over the wire
+도구에도 잘 맞을 것이라는 단서도 달려 있다.
+
 글 말미에는 관리자 영역처럼 레이아웃이 여러 개 필요한 경우 `base`와
 `page:content` 사이에 `layout` 템플릿 계층을 추가하는 확장 방법도
 간단히 다룬다.
@@ -181,6 +201,57 @@ HTMX4에서 모두 기본값으로 흡수되었다는 사실을 짚는다.
 이는 이 글에서 관찰한 “설정값이 기본값보다 보수적인 방향으로
 수렴한다”는 분석이 추측이 아니라 실제로 다음 메이저 버전에서
 검증된 방향이었음을 보여준다.
+
+### 저자의 설정 목록은 HTMX 기본값에 대한 불신임 투표에 가깝다
+
+그가 조정하는 설정은 다섯 가지인데, 방향이 한결같다.
+`historyCacheSize`를 0으로 두어 히스토리 캐시를 아예 끄고,
+`historyRestoreAsHxRequest`를 꺼서 캐시 미스 요청이 부분 응답을 받지 않게 하고,
+`disableInheritance`를 켜서 속성 상속을 막고,
+`includeIndicatorStyles`를 꺼서 주입되는 스타일을 없애고,
+`timeout`을 설정해 무한 대기를 차단한다.
+전부 자동으로 일어나던 일을 멈추고 명시적으로 쓰게 만드는 변경이다.
+
+주목할 점은 이 중 둘에 대해 저자가 향후 버전에서 기본값이 바뀔 것이라고 적어
+두었다는 것이다.
+즉 그의 설정은 개인 취향이 아니라 프로젝트 자체가 이미 인정한 방향을 앞당겨
+적용한 것이다.
+히스토리 캐시와 속성 상속은 HTMX가 초기에 편의를 위해 켜 두었다가
+버그와 보안 문제의 원천으로 판명된 기능들이며, 둘 다 암묵적으로 작동한다는
+공통점이 있다.
+
+이 패턴은 도구의 생애 주기에서 반복된다.
+초기에는 마법처럼 알아서 해 주는 동작이 채택을 이끌고,
+성숙기에는 같은 동작이 디버깅 비용의 대부분을 차지해 기본값이 뒤집힌다.
+jQuery의 암묵적 형 변환, Rails의 자동 로딩, ORM의 지연 로딩이 모두 같은 길을
+걸었다.
+HTMX에서 지금 이 전환이 진행 중이라는 것이,
+이 글이 개별 프로젝트의 설정 파일 이상으로 읽히는 이유다.
+
+### HX-Current-URL 헬퍼는 이 아키텍처가 만든 새로운 상태 불일치를 보여 준다
+
+`browserURL()` 헬퍼는 코드 다섯 줄짜리 편의 함수처럼 보이지만,
+그것이 존재해야 하는 이유가 더 중요하다.
+HTMX는 요청을 보내고 응답을 교체하면서 주소창을 바꾸지 않으므로,
+서버가 아는 URL과 사용자가 보는 URL이 갈라진다.
+서버 렌더링의 장점으로 흔히 꼽히는 것이 하나의 진실 원천인데,
+여기서는 위치라는 상태가 두 군데로 나뉜다.
+
+이 불일치는 SPA가 겪던 문제와 같은 종류다.
+SPA에서는 라우터가 URL과 화면 상태를 동기화하는 일을 맡고,
+그 동기화가 틀어질 때 뒤로 가기와 공유 링크가 깨진다.
+HTMX 방식에서는 그 일이 헤더와 `hx-push-url` 속성으로 흩어지고,
+동기화 책임은 핸들러마다 개발자에게 온다.
+글이 뒤로 가기 동작과 `Vary` 헤더와 리다이렉트 처리에 지면의 상당 부분을 쓰는 것도
+결국 같은 뿌리의 문제를 세 방향에서 다루는 것이다.
+
+그래서 이 글이 실질적으로 증명하는 것은 HTMX가 프런트엔드 복잡도를 없앤다는 명제가
+아니다.
+복잡도의 종류가 바뀐다는 것이다.
+상태 관리 라이브러리와 컴포넌트 트리가 사라진 자리에,
+헤더 기반 분기와 캐시 가시성과 URL 동기화라는 HTTP 계층의 숙제가 들어온다.
+이 숙제가 더 쉬운지 여부는 팀이 어느 쪽 지식을 이미 갖고 있느냐에 달렸고,
+Go 백엔드 개발자에게는 대체로 더 쉽다는 것이 이 글이 설득력을 갖는 조건이다.
 
 ## 비평
 
@@ -365,10 +436,17 @@ React Router나 Next.js 같은 클라이언트 라우팅 프레임워크에서�
 ---
 
 [^latent22]: <https://news.ycombinator.com/item?id=48915123>
+
 [^foxwell_1959]: <https://news.ycombinator.com/item?id=48916535>
+
 [^localhostinger]: <https://news.ycombinator.com/item?id=48917022>
+
 [^arch1e]: <https://news.ycombinator.com/item?id=48916595>
+
 [^overflowy]: <https://news.ycombinator.com/item?id=48914423>
+
 [^yawaramin]: <https://news.ycombinator.com/item?id=48915935>
+
 [^rslabbert]: <https://lobste.rs/s/rg1wee/how_i_use_htmx_with_go#1tt946>
+
 [^vaelatern]: <https://lobste.rs/s/rg1wee/how_i_use_htmx_with_go#cmqxio>
