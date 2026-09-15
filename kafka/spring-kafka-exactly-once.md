@@ -2,10 +2,17 @@
 
 원문: [Exactly Once Semantics :: Spring Kafka](https://docs.spring.io/spring-kafka/reference/kafka/exactly-once.html)
 
+관련 문서:
+
+- [Transactions :: Spring Kafka](https://docs.spring.io/spring-kafka/reference/kafka/transactions.html)
+- [After-rollback Processor :: Spring Kafka](https://docs.spring.io/spring-kafka/reference/kafka/annotation-error-handling.html#after-rollback)
+- [KIP-447: Producer scalability for exactly once semantics](https://cwiki.apache.org/confluence/display/KAFKA/KIP-447%3A+Producer+scalability+for+exactly+once+semantics)
+
 ## 요약
 
 Spring for Apache Kafka가 정확히 한 번 의미(EOS)를 구현하는 방식을 설명하는
 공식 문서 페이지다.
+확인 시점의 문서 버전은 4.1.1이다.
 리스너 컨테이너에 `KafkaAwareTransactionManager` 인스턴스를 제공하면,
 컨테이너가 리스너를 호출하기 전에 트랜잭션을 시작한다.
 리스너가 수행하는 `KafkaTemplate` 연산은 그 트랜잭션에 참여한다.
@@ -30,6 +37,84 @@ V2 모드에서는 소비자 메타데이터가 오프셋과 함께 트랜잭션
 이는 KIP-447(정확히 한 번 의미의 프로듀서 확장성)과
 KIP-732(eos-alpha 폐기, eos-beta를 eos-v2로 대체)에 정렬된 것이다.
 
+### 이 페이지가 미룬 것들
+
+원문 페이지는 매우 짧고 세 개의 링크로 끝난다.
+그 링크가 가리키는 곳에 실제 구현의 대부분이 있다.
+
+트랜잭션을 켜는 방법 자체가 이 페이지에 없다.
+`DefaultKafkaProducerFactory`에 `transactionIdPrefix`를 주는 것이 활성화 조건이며,
+팩토리는 단일 프로듀서를 공유하지 않고 트랜잭션 프로듀서의 캐시를 유지한다.
+`KafkaTransactionManager`는 `PlatformTransactionManager` 구현이라
+`@Transactional`이나 `TransactionTemplate` 같은 Spring의 표준 트랜잭션 지원과
+함께 쓸 수 있고,
+`KafkaTemplate`은 트랜잭션 매니저와 같은 `ProducerFactory`를 쓰도록 설정해야 한다.
+
+컨테이너 없이 쓰는 지역 트랜잭션도 있다.
+`executeInTransaction()`은 콜백이 정상 종료하면 커밋하고 예외가 나면 롤백하는데,
+이때 만들어지는 것은 중첩된 새 트랜잭션이라
+활성화된 `KafkaTransactionManager` 트랜잭션을 쓰지 않는다.
+
+```java
+boolean result = template.executeInTransaction(t -> {
+    t.sendDefault("thing1", "thing2");
+    t.sendDefault("cat", "hat");
+    return true;
+});
+```
+
+`transactionIdPrefix`는 `EOSMode.V2`에서 애플리케이션 인스턴스마다 고유해야 한다.
+3.2부터는 `TransactionIdSuffixStrategy`가 접미사를 관리하며,
+`DefaultTransactionIdSuffixStrategy`에 `maxCache`를 주면
+정해진 범위 안에서 `transactional.id`를 재사용한다.
+`maxCache`가 5면 `my.txid.0`부터 `my.txid.4`까지 쓰고,
+모두 사용 중이면 `NoProducerAvailableException`이 난다.
+`ConcurrentMessageListenerContainer`와 함께 쓸 때는
+`maxCache`를 `concurrency` 이상으로 둬야 한다.
+
+트랜잭션 `KafkaTemplate`은 기본적으로 활성 트랜잭션이 없으면
+`IllegalStateException`을 던진다.
+2.4.3부터 `allowNonTransactional`을 켜면
+`ProducerFactory.createNonTransactionalProducer()`로 트랜잭션 밖 발행을 허용한다.
+
+배치 리스너와 트랜잭션을 함께 쓰면 실패 시 배치 전체가 재전달된다.
+프레임워크가 어느 레코드가 실패했는지 모르기 때문이다.
+2.4.2의 `BatchToRecordAdapter`는 배치 리스너를 쓰면서도
+레코드를 하나씩 처리해 이 문제를 완화한다.
+
+### After-rollback Processor가 실제로 하는 일
+
+롤백 뒤 기본 동작은 실패한 레코드를 포함해
+처리되지 않은 레코드를 `seek`으로 되감아 다음 폴에서 다시 가져오는 것이다.
+`DefaultAfterRollbackProcessor`는 여기에 복구와 백오프를 더한다.
+
+```java
+AfterRollbackProcessor<String, String> processor =
+    new DefaultAfterRollbackProcessor((record, exception) -> {
+        // 3회 실패 후 복구 — 예: 데드 레터 토픽으로 보낸다
+    }, new FixedBackOff(0L, 2L));
+```
+
+기본값은 10회 실패 후 `ERROR` 수준으로 기록하는 것이며,
+`FixedBackOff.UNLIMITED_ATTEMPTS`로 사실상 무한 재시도도 가능하다.
+`DeserializationException`, `MessageConversionException`, `ClassCastException` 등은
+재시도해도 소용없는 치명적 예외로 분류되어 첫 실패에서 바로 복구기를 부른다.
+`addNotRetryableException()`으로 목록에 더할 수 있다.
+
+`DeadLetterPublishingRecoverer`와 조합하면 실패 레코드를 데드 레터 토픽으로 보내고,
+2.2.5부터 `setCommitRecovered(true)`와 `setKafkaTemplate()`을 주면
+롤백 뒤 새 트랜잭션에서 복구기를 호출해
+복구된 레코드의 오프셋을 그 트랜잭션에 보낸다.
+데드 레터 레코드에는 `KafkaHeaders.DLT_EXCEPTION_FQCN`,
+`DLT_ORIGINAL_TOPIC`, `DLT_ORIGINAL_OFFSET` 같은 헤더가 함께 붙는다.
+3.2부터는 `ContainerProperties.setBatchRecoverAfterRollback(true)`로
+배치 단위 복구도 된다.
+
+`ProducerFencedException`이 나면 컨테이너는
+그것이 리밸런스 때문인지 타임아웃 때문인지 구별하지 못한다.
+`setStopContainerWhenFenced(true)`로 컨테이너를 멈추고
+`ConsumerStoppedEvent`의 `Reason.FENCED`를 받아 대응하라는 것이 문서의 안내다.
+
 ## 분석
 
 ### 이 문서의 핵심은 트랜잭션 경계를 애플리케이션에서 컨테이너로 옮긴 것이다
@@ -43,7 +128,7 @@ Spring의 EOS 구현에서 결정적 설계는
 개발자는 트랜잭션 경계를 직접 다루지 않는다.
 
 이 이전이 중요한 이유는 정확히 한 번의 실수 여지를 없애기 때문이다.
-앞선 exactly-once-semantics 문서가 보였듯,
+앞선 [exactly-once-semantics](./exactly-once-semantics.md) 문서가 보였듯,
 정확히 한 번의 핵심은 오프셋 커밋과 결과 쓰기를
 같은 트랜잭션에 원자적으로 묶는 것이다.
 개발자가 이 묶음을 손으로 관리하면
@@ -68,6 +153,12 @@ Kafka EOS도 같은 패턴을 따라,
 V2는 소비자 메타데이터를 오프셋과 함께 보내
 브로커가 그것으로 펜싱을 판단하므로 이 제약을 없앴다.
 
+KIP-447이 밝힌 비용은 프로듀서 개수 자체가 아니라 그것이 끌고 오는 자원이다.
+프로듀서마다 별도의 메모리 버퍼와 스레드와 네트워크 연결이 따라붙어
+배치 효율이 떨어지고 브로커의 메타데이터 관리 부담이 중복된다.
+프로듀서 수가 늘어나는 것이 문제가 아니라,
+프로듀서 하나가 결코 가볍지 않다는 것이 문제였다.
+
 이 개선이 중요한 이유는 정확히 한 번의 확장성을 결정하기 때문이다.
 파티션마다 프로듀서를 둬야 한다면,
 높은 병렬성을 가진 애플리케이션에서
@@ -80,11 +171,38 @@ V2는 정확히 한 번을 실험실의 보장에서 운영 가능한 기능으�
 펜싱 메커니즘의 이동도 주목할 만하다.
 좀비 프로듀서를 걸러 내는 펜싱이
 프로듀서 정체성 기반에서 소비자 메타데이터 기반으로 바뀌었다.
-브로커가 소비자 그룹의 상태를 알고 있으므로,
-프로듀서를 파티션에 고정하지 않고도
-어느 프로듀서가 유효한지를 판단할 수 있다.
-이 재설계가 프로듀서와 파티션의 강한 결합을 끊었고,
+예전에는 `transactional.id` 안에 입력 파티션을 정적으로 표현해야 했는데,
+리밸런스로 파티션 소유권이 옮겨 가는 상황을 그 방식으로는 다룰 수 없어
+파티션마다 프로듀서를 두는 우회가 강제됐다.
+KIP-447은 `sendOffsetsToTransaction`에 `ConsumerGroupMetadata`를 함께 보내
+`generation.id`, `member.id`, `group.instance.id`를 노출하고,
+그룹 코디네이터가 제출된 세대 ID가 현재 소비자 그룹 상태와 맞는지 검증해
+어긋나면 즉시 펜싱한다.
+펜싱의 책임이 트랜잭션 코디네이터에서 그룹 코디네이터로 옮겨 간 것이
+프로듀서와 파티션의 강한 결합을 끊었고,
 그 결과가 확장성 개선으로 나타났다.
+
+### 이 보장은 가용성을 대가로 지불한다
+
+KIP-447이 스스로 명시한 한계가 이 문서에는 없다.
+제안서는 이것이 가용성과 정확성 사이의 절충이라고 적으면서,
+비정상 종료 시 최악의 경우 트랜잭션 타임아웃이 만료될 때까지
+기다려야 하는 가용성 손실이 있다고 밝힌다.
+같은 KIP에서 기본 트랜잭션 타임아웃이 60초에서 10초로 줄어든 것도
+이 대기 시간을 줄이려는 조정이다.
+
+이 절충이 중요한 이유는 정확히 한 번을 켜는 결정이
+성능 문제가 아니라 가용성 문제이기 때문이다.
+[exactly-once-semantics](./exactly-once-semantics.md)에서 인용된 처리량 수치,
+곧 최소 한 번 대비 3% 감소는 이 기능의 비용을 과소평가하게 만든다.
+진짜 비용은 평균 처리량이 아니라 장애 시의 행동에 있다.
+컨슈머가 비정상 종료하면 그 파티션은 타임아웃이 만료될 때까지 막힌다.
+
+브로커 쪽 메커니즘을 보면 이 대기가 어디서 오는지가 분명해진다.
+소비자가 `read_committed`로 읽으면 LSO(last stable offset)를 넘어갈 수 없고,
+LSO는 그보다 낮은 오프셋의 결정이 모두 끝난 지점을 가리킨다.
+결정되지 않은 트랜잭션이 하나 있으면 그 뒤의 모든 메시지가 보이지 않는다.
+정확히 한 번의 가시성 지연은 이 구조의 필연적 결과다.
 
 ## 비평
 
@@ -103,7 +221,7 @@ V2는 정확히 한 번을 실험실의 보장에서 운영 가능한 기능으�
 롤백이 일어나도 그 부수 효과는 되돌려지지 않는다.
 Kafka 트랜잭션은 Kafka 안의 쓰기만 원자적으로 관리하며,
 처리 중 발생한 외부 부수 효과는 그 경계 밖이다.
-exactly-once-semantics에서 nicktelford가 짚은 한계가
+[exactly-once-semantics](./exactly-once-semantics.md)에서 nicktelford가 짚은 한계가
 Spring 사용자에게도 그대로 적용된다.
 
 문서가 이 한계를 정확히 명시한 것은 정직하지만,
@@ -118,19 +236,17 @@ Spring 사용자에게도 그대로 적용된다.
 ### 짧은 문서가 실제 구현의 복잡성을 감춘다
 
 이 페이지는 매우 짧고,
-코드 예제나 상세 설정, `ChainedKafkaTransactionManager` 같은
-복합 트랜잭션 시나리오는 다른 페이지로 미룬다.
+코드 예제나 상세 설정, 복합 트랜잭션 시나리오는 다른 페이지로 미룬다.
 그 결과 정확히 한 번을 켜는 것이 간단해 보이지만,
 실제 운영 구성은 훨씬 복잡하다.
 
 이 간결함이 문제가 되는 이유는 채택의 난이도를 왜곡하기 때문이다.
-Kafka 트랜잭션과 데이터베이스 트랜잭션을 함께 써야 하는 흔한 경우,
-곧 처리 결과를 Kafka와 DB에 모두 원자적으로 쓰고 싶은 상황은
-이 페이지가 다루지 않는다.
-그런 경우 두 트랜잭션 매니저를 조율해야 하는데,
-이것은 분산 트랜잭션의 근본 어려움을 다시 불러온다.
-Kafka 안의 정확히 한 번은 깔끔하지만,
-Kafka와 외부 시스템을 아우르는 정확성은 여전히 미해결이다.
+앞의 요약이 보이듯, 이 페이지에 없는 것이 이 기능의 대부분이다.
+활성화 조건인 `transactionIdPrefix`도,
+인스턴스마다 접두사가 고유해야 한다는 제약도,
+배치 리스너에서 배치 전체가 재전달된다는 사실도 다른 페이지에 있다.
+페이지의 분량과 기능의 복잡성이 이렇게까지 어긋나면,
+문서를 읽고 난이도를 가늠한 사람은 반드시 틀린 추정을 하게 된다.
 
 After-rollback Processor를 별도 페이지로 넘긴 것도 같은 맥락이다.
 반복 실패하는 레코드, 곧 독약 메시지(poison message)의 처리는
@@ -139,6 +255,79 @@ After-rollback Processor를 별도 페이지로 넘긴 것도 같은 맥락이�
 소비자가 멈춘다.
 이 현실적 함정이 정확히 한 번의 개념 설명에서는 빠져 있어,
 개발자가 운영에서야 그 복잡성을 발견하게 된다.
+
+### V2의 펜싱 변화를 문서가 끝까지 설명하지 않는다
+
+문서는 V2에서 프로듀서를 파티션마다 둘 필요가 없다고만 적고,
+그 변화가 `transactional.id` 운영에 무엇을 의미하는지는 말하지 않는다.
+이 공백은 실제로 혼란을 낳았다.
+spring-kafka 이슈 2515는 3.0.0 문서가
+V2에서는 더 이상 필요 없는 `transactional.id` 명명 규칙과
+좀비 펜싱 설명을 그대로 두고 있다고 지적한다.
+보고자는 2.8.x 문서가 오히려
+`EOSMode.BETA`를 쓰면 이 문제가 사라진다고 명시했었다는 점을 짚는다.
+
+이 지적이 정확한 이유는 두 개의 펜싱이 섞여 있기 때문이다.
+V2가 없앤 것은 파티션 소유권 이동에 대응하기 위한 펜싱,
+곧 `transactional.id`에 입력 파티션을 표현해야 했던 요구다.
+없애지 않은 것은 같은 논리적 프로듀서의 이전 인스턴스를 막는 펜싱이다.
+후자는 여전히 `transactional.id`와 에포크로 동작하며,
+그래서 접두사는 여전히 인스턴스마다 고유해야 한다.
+문서가 앞의 것만 말하고 뒤의 것을 말하지 않으면,
+읽는 사람은 접두사 관리에서 자유로워졌다고 오해한다.
+
+이 오해의 대가가 운영에서 나타나는 형태가 교차 펜싱이다.
+쿠버네티스에서 같은 `transaction-id-prefix`를 가진 파드가 늘어나면,
+새 파드가 `InitProducerId`를 호출할 때
+코디네이터가 그 id의 에포크를 올리면서 기존 파드의 프로듀서를 조용히 펜싱한다.
+접두사에 파드 이름을 넣어 인스턴스마다 다르게 만드는 것이 해법이며,
+이것은 문서가 한 줄로 적은 고유성 요구가 실제로는
+배포 구성에까지 영향을 준다는 뜻이다.
+
+### 복합 트랜잭션에 대한 안내가 오래 뒤처져 있었다
+
+Kafka 트랜잭션과 데이터베이스 트랜잭션을 함께 써야 하는 흔한 경우,
+곧 처리 결과를 Kafka와 DB에 모두 원자적으로 쓰고 싶은 상황은
+이 페이지가 다루지 않는다.
+한때 그 답이 `ChainedKafkaTransactionManager`였지만,
+이 클래스는 2.7부터 폐기 예정이며 지금도 그 상태로 남아 있다.
+현재 권장되는 방식은 컨테이너에 `KafkaTransactionManager`를 두고
+리스너 메서드에 `@Transactional`을 붙이는 것이다.
+
+폐기의 이유가 단순한 API 정리가 아니라는 점이 중요하다.
+Spring Data 쪽 논의는 자원과 동기화 저장소가 단일 `ThreadLocal`이라
+`AbstractPlatformTransactionManager` 기반 매니저를 둘 쓰면
+첫 번째 매니저가 모든 동기화를 처리하게 된다고 지적한다.
+그래서 두 번째 매니저가 실패했을 때 제대로 복구할 수 없다.
+분산 트랜잭션을 알려진 빈틈이 있는 채로 최선 노력 수준에서 흉내 내는 것이며,
+그 빈틈이 롤백 과정의 불일치로 나타난다는 것이다.
+
+권장 방식으로 바꿔도 원자성이 생기는 것은 아니다.
+컨테이너가 Kafka 트랜잭션을 열고, 리스너 안에서 DB 트랜잭션이 열리고 닫히고,
+메서드가 반환된 뒤 Kafka 트랜잭션이 커밋되는 순차적 커밋일 뿐이다.
+Spring 팀 자신도 한쪽이 커밋되고 다른 쪽이 롤백될 가능성은 늘 있으며
+그래서 애플리케이션 코드가 중복 제거를 처리해야 한다고 적는다.
+정확히 한 번을 켜 놓고도 멱등성을 직접 구현해야 한다는 이 요구가
+이 기능에 대한 가장 흔한 오해와 정면으로 부딪힌다.
+
+### 운영 실패 양식이 설정값의 부등식으로 드러난다
+
+문서는 `ProducerFencedException`이 발생하면 컨테이너를 멈추라고 안내하지만,
+왜 그것이 발생하는지는 다루지 않는다.
+실무에서 보고되는 전형적 경로는 긴 정지(stop-the-world GC나 CPU 고갈)가
+`transaction.timeout.ms`를 넘기는 것이다.
+코디네이터가 트랜잭션을 만료시키며 에포크를 올리고,
+정지에서 깨어난 프로듀서는 낡은 에포크로 요청하다 거부된다.
+
+이 실패가 고약한 이유는 스스로 증폭되기 때문이다.
+기본 오류 처리가 롤백하고 오프셋을 되감아 같은 레코드를 다시 처리하는데,
+그 레코드의 처리가 원래 무거웠다면 다시 타임아웃을 넘긴다.
+파티션이 영구히 잠기는 순환이 만들어진다.
+결국 이 기능을 운영한다는 것은 여러 타임아웃 사이의 부등식을 유지하는 일이며,
+`max.poll.interval.ms`가 `transaction.timeout.ms`보다 크고
+그것이 다시 블로킹 시간과 처리 시간의 합보다 커야 한다는 관계가 성립해야 한다.
+문서가 이 관계를 다루지 않는 것이,
+개념 설명과 운영 사이의 거리를 가장 잘 보여 준다.
 
 ## 인사이트
 
@@ -156,7 +345,7 @@ Spring은 이 모두를 컨테이너 뒤로 숨겨,
 정확히 한 번의 이론은 소수 전문가의 것이었다.
 프레임워크가 그것을 설정 가능한 기능으로 만들면,
 평범한 애플리케이션 개발자도 그 보장을 쓴다.
-이것은 kafka-streams-core-concepts에서
+이것은 [kafka-streams-core-concepts](./kafka-streams-core-concepts.md)에서
 `processing.guarantee=exactly_once` 한 줄이 한 것과 같은 대중화이며,
 Spring은 그 대중화를 자바 엔터프라이즈 생태계로 확장한다.
 
@@ -169,13 +358,39 @@ Spring은 그 대중화를 자바 엔터프라이즈 생태계로 확장한다.
 프레임워크가 강한 보장을 쉽게 만들수록
 그 보장의 조건을 함께 가르쳐야 할 책임도 커진다.
 
+### 추상화의 품질은 성공 경로가 아니라 실패 경로에서 드러난다
+
+이 문서를 앞뒤 페이지와 함께 읽으면 분량의 배분이 눈에 띈다.
+정확히 한 번이 성공하는 경로는 한 문단이면 끝난다.
+트랜잭션을 열고, 처리하고, 오프셋을 보내고, 커밋한다.
+반면 실패 경로는 페이지 하나를 다 쓰고도 모자란다.
+재시도 횟수, 백오프, 치명적 예외 분류, 데드 레터 발행,
+복구기 자체가 실패할 때의 상태 재설정, 재시도 리스너, 펜싱 감지.
+
+이 비대칭이 말하는 것은 프레임워크가 감춘 것의 정체다.
+Spring이 없앤 것은 성공 경로의 조율,
+곧 `sendOffsetsToTransaction`을 언제 부르느냐 같은 타이밍 문제다.
+없애지 못한 것은 실패를 어떻게 다룰지에 대한 결정이다.
+몇 번 재시도할지, 언제 포기할지, 포기한 레코드를 어디로 보낼지는
+프레임워크가 대신 정해 줄 수 없는 도메인 판단이기 때문이다.
+
+그래서 선언적 추상화의 실제 이득을 가늠하려면
+설정이 얼마나 간단한지가 아니라
+실패했을 때 개발자가 내려야 하는 결정이 몇 개인지를 세어야 한다.
+`DefaultAfterRollbackProcessor` 하나를 제대로 구성하는 데 필요한 결정의 수가
+이 기능의 진짜 도입 비용이다.
+이것은 Kafka에 국한된 교훈이 아니다.
+어떤 추상화든 성공 경로만 보고 고르면,
+비용은 전부 장애 대응에서 뒤늦게 청구된다.
+
 ### 정확성의 경계는 프레임워크가 아니라 시스템 통합 지점에서 정해진다
 
 Spring, Kafka Streams, raw Kafka가 모두 정확히 한 번을 제공하지만,
 그 보장의 경계는 셋 다 같은 자리,
 곧 Kafka와 외부 시스템의 통합 지점에서 무너진다.
 이 문서의 읽기·처리는 최소 한 번이라는 단서와
-exactly-once-semantics의 외부 DB 쓰기 한계는 같은 경계를 가리킨다.
+[exactly-once-semantics](./exactly-once-semantics.md)의 외부 DB 쓰기 한계는
+같은 경계를 가리킨다.
 프레임워크가 아무리 우아해도
 정확성은 Kafka라는 섬을 벗어나면 다시 약속되지 않는다.
 
@@ -187,6 +402,13 @@ exactly-once-semantics의 외부 DB 쓰기 한계는 같은 경계를 가리킨�
 캐시를 갱신할 때 정확성이 어떻게 유지되는가.
 이 통합 지점의 설계가 실제 시스템의 정확성을 결정하며,
 그것은 어떤 단일 프레임워크의 설정으로도 해결되지 않는다.
+
+`ChainedKafkaTransactionManager`의 폐기가 이 경계를 제도적으로 확인해 준다.
+두 트랜잭션 매니저를 엮어 분산 트랜잭션을 흉내 내려던 시도가
+알려진 빈틈 때문에 물러났고,
+공식 권장안조차 한쪽만 커밋될 가능성을 인정하며
+중복 제거를 애플리케이션의 몫으로 돌려놓는다.
+프레임워크가 경계를 넘으려다 실패한 기록이 API 폐기로 남은 셈이다.
 
 세 번째 차수의 효과는 이것이 아키텍처 결정을 재편한다는 점이다.
 정확성이 Kafka 안에서만 보장된다면,
