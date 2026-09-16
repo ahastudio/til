@@ -100,7 +100,7 @@ Confluent와 동일한 API 표면을 구현해 Kafka 프로듀서/컨슈머, ksq
 
 [^evolution]: [Confluent Docs: Schema Evolution and Compatibility](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html)
 
-[^hidden-arch]: [Medium: The Hidden Architecture of Confluent Schema Registry](https://medium.com/@aywengo/the-hidden-architecture-of-confluent-schema-registry-how-leader-election-really-works-b10069d760bd)
+[^hidden-arch]: [Medium: The Hidden Architecture of Confluent Schema Registry](https://medium.com/@aywengo/b10069d760bd)
 
 [^cncf]: [Apicurio Registry Joins CNCF](https://www.apicur.io/blog/2026/06/18/apicurio-registry-joins-cncf)
 

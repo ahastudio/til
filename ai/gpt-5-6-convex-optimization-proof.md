@@ -1,6 +1,6 @@
 # GPT-5.6이 30년 미해결 볼록 최적화 문제를 증명했다
 
-원문: <https://medium.com/@kerger.p/an-ai-assisted-breakthrough-in-convex-optimization-an-optimization-problem-dating-back-30-years-a-db5c631119de>
+원문: [An AI-Assisted Breakthrough in Mathematical Optimization: A Problem Dating back 30 Years, a 2.5-Hour AI Session, and Lean | by Phillip Kerger | Medium](https://medium.com/@kerger.p/db5c631119de)
 
 HN 토론: <https://news.ycombinator.com/item?id=48957779> (587점, 385개 댓글)
 

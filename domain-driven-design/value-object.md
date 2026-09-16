@@ -20,4 +20,4 @@
 
 ## Articles
 
-[값 객체(Value Object)를 활용하여 변경 용이성 개선하기 | by 설연수 | 29CM TEAM | Medium](https://medium.com/29cm/%EA%B0%92-%EA%B0%9D%EC%B2%B4-value-object-%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%98%EC%97%AC-%EB%B3%80%EA%B2%BD-%EC%9A%A9%EC%9D%B4%EC%84%B1-%EA%B0%9C%EC%84%A0%ED%95%98%EA%B8%B0-7457787b84c0)
+[값 객체(Value Object)를 활용하여 변경 용이성 개선하기 | by 설연수 | 29CM TEAM | Medium](https://medium.com/29cm/7457787b84c0)

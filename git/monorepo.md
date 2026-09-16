@@ -16,4 +16,4 @@
 
 ## 비판
 
-[Monorepos: Please don’t! | by Matt Klein](https://medium.com/@mattklein123/monorepos-please-dont-e9a279be011b)
+[Monorepos: Please don’t! | by Matt Klein](https://medium.com/@mattklein123/e9a279be011b)

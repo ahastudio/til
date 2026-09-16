@@ -1,6 +1,6 @@
 # Pinterest가 사내에 MCP 생태계를 만든 방법
 
-원문: [Building an MCP Ecosystem at Pinterest](https://medium.com/pinterest-engineering/building-an-mcp-ecosystem-at-pinterest-d881eb4c16f1)
+원문: [Building an MCP Ecosystem at Pinterest](https://medium.com/pinterest-engineering/d881eb4c16f1)
 
 ## 요약
 

@@ -1,6 +1,6 @@
 # 인과 추론으로 AI 인프라를 측정 가능한 사업 투자로 바꾸다
 
-원문: [Measuring What Matters: How Causal Inference Turned AI Infrastructure Into a Quantifiable Business Investment](https://medium.com/@AnalyticsAtMeta/measuring-what-matters-how-causal-inference-turned-ai-infrastructure-into-a-quantifiable-business-bbc49bddaa2b)
+원문: [Measuring What Matters: How Causal Inference Turned AI Infrastructure Into a Quantifiable Business Investment](https://medium.com/@AnalyticsAtMeta/bbc49bddaa2b)
 
 ## 요약
 

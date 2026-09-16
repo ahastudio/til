@@ -1,6 +1,6 @@
 # EKS에서 Job 워크로드를 위한 노드 오토스케일링 전략
 
-원문: <https://medium.com/daangn/a6a28376d153>
+원문: [Job 워크로드를 위한 EKS Node Group 오토스케일링 도입기 | by Jungsub Shin | 당근 기술 블로그 | Medium](https://medium.com/daangn/a6a28376d153)
 
 ## 요약
 

@@ -10,4 +10,4 @@
 
 ---
 
-[Template literal types in the Vuex | by Przemyslaw Jan Beigert](https://medium.com/@przemyslaw.jan.beigert/template-literal-types-in-the-vuex-e2faf6f0a8a8)
+[Template literal types in the Vuex | by Przemyslaw Jan Beigert](https://medium.com/@przemyslaw.jan.beigert/e2faf6f0a8a8)

@@ -1,6 +1,6 @@
 # Pinterest 임베딩 검색 플랫폼의 진화: 양자화, SSD 서빙, 다중 임베딩
 
-원문: [Evolving Pinterest's Embedding Retrieval Platform](https://medium.com/pinterest-engineering/evolving-pinterests-embedding-retrieval-platform-aede4e831e01)
+원문: [Evolving Pinterest's Embedding Retrieval Platform](https://medium.com/pinterest-engineering/aede4e831e01)
 
 GN 토론: <https://news.hada.io/topic?id=33719>
 

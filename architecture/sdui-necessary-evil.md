@@ -1,6 +1,6 @@
 # SDUI는 모바일 앱이 결국 받아들이게 되는 필요악이다
 
-원문: [Server Driven UI (SDUI): The Necessary Evil for Scalable Mobile Apps](https://medium.com/digia-studio/server-driven-ui-sdui-the-necessary-evil-for-scalable-mobile-apps-80c650a2c8de)
+원문: [Server Driven UI (SDUI): The Necessary Evil for Scalable Mobile Apps](https://medium.com/digia-studio/80c650a2c8de)
 
 ## 요약
 

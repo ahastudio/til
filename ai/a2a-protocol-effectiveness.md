@@ -72,8 +72,8 @@ A2A가 내세운 장기 실행 태스크 관리, 상태 유지 통신, 엔터프
 정작 보안·인프라 장치 없이 MCP를 더 빠르게 채택하는 역설적
 상황을 지적한다.
 Medium에 실린
-“[Everything wrong with Agent2Agent (A2A) Protocol](https://medium.com/@ckekula/everything-wrong-with-agent2agent-a2a-protocol-7e5ae8d4ab2b)”과
-“[A2A Is a Nonsense Protocol](https://medium.com/@balajibal/a2a-is-a-nonsense-protocol-49a0c2a0f84c)”
+“[Everything wrong with Agent2Agent (A2A) Protocol](https://medium.com/@ckekula/7e5ae8d4ab2b)”과
+“[A2A Is a Nonsense Protocol](https://medium.com/@balajibal/49a0c2a0f84c)”
 같은 개인 블로그성 비판 글도 다수 발견됐는데, 이런 글들은
 저자 개인의 의견이라는 한계가 있어 근거로 채택하기보다는
 “채택 실패”라는 정서가 개발자 커뮤니티에 널리 퍼져 있다는

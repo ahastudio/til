@@ -6,4 +6,4 @@
 
 ## camelCase 지원
 
-<https://medium.com/analytics-vidhya/camel-case-models-with-fast-api-and-pydantic-5a8acb6c0eee>
+<https://medium.com/analytics-vidhya/5a8acb6c0eee>
