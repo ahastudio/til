@@ -1,10 +1,7 @@
 # Webpack and Rollup: the same but different
 
 원문:
-[https://medium.com/webpack/webpack-and-rollup-the-same-but-different-a41ad427058c](https://j.mp/2o8Z9jT)
-
-날림 번역입니다. 피드백은 Issue Tracker에 부탁드립니다:
-<https://github.com/ahastudio/til/issues>
+[Webpack and Rollup: the same but different | by Rich Harris | webpack | Medium](https://medium.com/webpack/a41ad427058c)
 
 ---
 

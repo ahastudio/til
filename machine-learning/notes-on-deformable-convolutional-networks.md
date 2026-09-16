@@ -1,10 +1,7 @@
-원문:
-[https://medium.com/@phelixlau/notes-on-deformable-convolutional-networks-baaabbc11cf3](https://j.mp/2pCV496)
-
-날림 번역입니다. 피드백은 Issue Tracker에 부탁드립니다:
-<https://github.com/ahastudio/til/issues>
-
 # Notes on “Deformable Convolutional Networks”
+
+원문:
+<https://medium.com/@phelixlau/baaabbc11cf3>
 
 Dai, Jifeng, Haozhi Qi, Yuwen Xiong, Yi Li, Guodong Zhang, Han Hu, and Yichen
 Wei. 2017. “Deformable Convolutional Networks.” arXiv [cs.CV]. arXiv.
