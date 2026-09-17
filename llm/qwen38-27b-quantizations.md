@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=49611128> (221점, 109개 댓글)
 
+Lobste.rs 토론: <https://lobste.rs/s/lxiabq/benchmarking_qwen3_8_27b_quantizations_4> (5점, 1개 댓글)
+
 GN 토론: <https://news.hada.io/topic?id=33396>
 
 ## 요약
@@ -339,6 +341,21 @@ Q8_0은 위쪽 구간이라 보간이 그나마 그럴듯하지만,
 비선형 곡선에서 가장 정보량이 큰 지점을 비워둔 셈이며, 실제로 커뮤니티에서는
 ISTA-DASLab의 GSQ-RCO 같은 새로운 동적 3비트 양자화가
 기존 3비트를 능가하는지를 두고 이미 논의가 오가고 있다[^dofm].
+
+공백은 아래쪽으로도 뻗는다.
+Lobste.rs에 달린 단 하나의 댓글이 정확히 그 자리를 가리킨다 —
+2비트가 4비트보다 나쁘지만 쓸모없지는 않은 것으로 나왔다면,
+3진(ternary) 양자화는 어디쯤에 놓이겠느냐는 물음이다[^k749gtnc9l3w].
+3진은 가중치당 약 1.58비트여서 글이 측정한 2비트와 1비트 사이에 정확히 들어간다.
+그리고 그 구간이 바로 이 글이 작은 하락과 붕괴라고 이름 붙인 두 구간의 경계다.
+
+이 질문이 날카로운 이유는 3진 모델이 대개 사후 양자화가 아니라는 데 있다.
+처음부터 3진을 전제로 학습되므로,
+앞서 인용한 QAT 논거 — 1비트에서 무너지는 것은 사후 양자화이기 때문이라는 설명 — 를
+시험할 수 있는 사례가 된다.
+같은 비트 예산에서 사후 양자화와 학습 단계 양자화가 갈린다면
+절벽은 비트 수의 함수가 아니라 제작 방식의 함수이고,
+이 글의 x축은 애초에 성격이 다른 두 축을 하나로 겹쳐 그린 것이 된다.
 
 ### 반박하려는 불평과 사용한 지표가 서로 다른 것을 재고 있다
 
@@ -688,6 +705,8 @@ top-1 정확도는 4비트와 8비트를 비교할 때는 아마 충분히 유�
 [^purpleflame1257]: <https://news.ycombinator.com/item?id=49611970>
 
 [^dofm]: <https://news.ycombinator.com/item?id=49612755>
+
+[^k749gtnc9l3w]: <https://lobste.rs/s/lxiabq/benchmarking_qwen3_8_27b_quantizations_4#c_pgzdtv>
 
 [^bellowsgulch]: <https://news.ycombinator.com/item?id=49612053>
 
