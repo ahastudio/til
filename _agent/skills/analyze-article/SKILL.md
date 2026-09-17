@@ -129,13 +129,13 @@ and must read as Korean prose.
 
 Examples:
 
-| 원문 제목                                        | H1                                            |
-| ------------------------------------------------ | --------------------------------------------- |
-| SwiftUI After 7 Years: A Story of Mediocrity      | SwiftUI 7년, 평범함의 기록                    |
-| Devtools must be open source                      | 개발 도구는 오픈소스여야 한다                 |
-| GitHub has alternatives, but no replacement       | GitHub에는 대안이 있지만 대체재는 없다        |
-| Soppo (project homepage)                          | Soppo: Go에 빠진 기능을 더한 언어             |
-| The next chapter of our AI momentum               | Google AI 모멘텀의 다음 장                    |
+| 원문 제목                                    | H1                                     |
+| -------------------------------------------- | -------------------------------------- |
+| SwiftUI After 7 Years: A Story of Mediocrity | SwiftUI 7년, 평범함의 기록             |
+| Devtools must be open source                 | 개발 도구는 오픈소스여야 한다          |
+| GitHub has alternatives, but no replacement  | GitHub에는 대안이 있지만 대체재는 없다 |
+| Soppo (project homepage)                     | Soppo: Go에 빠진 기능을 더한 언어      |
+| The next chapter of our AI momentum          | Google AI 모멘텀의 다음 장             |
 
 This rule governs the H1 only. Two things stay in their original language:
 
@@ -207,12 +207,12 @@ identifies them.
 Some sources need a fetch strategy or a link form of their own. Handle these
 explicitly rather than improvising.
 
-| Source type       | Fetch method                              | Source line                                  |
-| ----------------- | ----------------------------------------- | -------------------------------------------- |
-| Twitter / X       | `agent-browser` (see `web-fetching.md`)   | `트윗: [<제목 또는 첫 문장>](URL)`           |
-| YouTube           | Transcript or description via WebFetch     | `영상: [<영상 제목>](URL)`                   |
-| Paper (PDF/arXiv) | WebFetch, or Read the PDF                  | `논문: [<논문 제목>](URL)`                   |
-| Press release     | WebFetch                                   | `원문: [<제목>](URL)`                        |
+| Source type       | Fetch method                            | Source line                        |
+| ----------------- | --------------------------------------- | ---------------------------------- |
+| Twitter / X       | `agent-browser` (see `web-fetching.md`) | `트윗: [<제목 또는 첫 문장>](URL)` |
+| YouTube           | Transcript or description via WebFetch  | `영상: [<영상 제목>](URL)`         |
+| Paper (PDF/arXiv) | WebFetch, or Read the PDF               | `논문: [<논문 제목>](URL)`         |
+| Press release     | WebFetch                                | `원문: [<제목>](URL)`              |
 
 For Twitter / X, `twitter.com` is used instead of `x.com` per
 `writing-guidelines.md`. For a long tweet, call it a `트윗`, not a `스레드`,

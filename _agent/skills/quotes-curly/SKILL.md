@@ -15,7 +15,7 @@ double quotes.
 
 ## Usage
 
-```
+```text
 /quotes-curly path/to/file.md
 ```
 
