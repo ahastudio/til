@@ -67,6 +67,38 @@ publish the same content in a fetchable form — a `.md` sibling URL, an oEmbed
 endpoint, a JSON API, or an RSS item. Check for those before opening a browser,
 because they are faster and quote more exactly.
 
+## An Empty Result Is Not a Result (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**Never conclude that something does not exist from a search that returned
+nothing, until you have confirmed the search actually ran.**
+
+Sites increasingly answer automated requests with an interstitial that
+carries HTTP 200 — an anti-bot challenge, a consent wall, a rate-limit
+notice, or a JavaScript shell with no content. A scraper reading that page
+finds zero matches, and zero matches looks exactly like a genuine absence.
+This has already produced wrong conclusions in this repository: a Lobste.rs
+thread with 170 points and 64 comments was reported as "no thread found"
+because `lobste.rs/search` was serving `Making sure you're not a bot!` with
+a 200.
+
+Before writing any sentence that asserts absence:
+
+1. **Look at the body, not just the status code.** Check for `not a bot`,
+   `challenge`, `captcha`, `Enable JavaScript`, `Access denied`,
+   `rate limit`, or a body far shorter than a real page.
+2. **Run a control query.** Search for something you know exists through the
+   exact same code path. If the control also returns zero, the pipeline is
+   broken — fix it before concluding anything.
+3. **Try a different transport.** A blocked HTML endpoint often has a working
+   JSON, RSS, or per-item sibling. Blocking is usually applied per path, not
+   per host.
+4. **Distinguish the two outcomes in what you report.** "Searched and found
+   nothing" and "could not search" are different findings. Say which one it
+   is, and name the endpoints you tried.
+
+Known blocked paths are recorded in the skill that uses them; when you
+discover a new one, add it there rather than rediscovering it later.
+
 ## agent-browser (fallback only)
 
 Use only when Claude in Chrome is unavailable, and say so when you do.

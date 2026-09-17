@@ -55,6 +55,27 @@ Pick the thread with the highest `points`. If multiple threads exist for the
 same article, prefer the one with the most comments. If no thread is found,
 report that to the user and stop.
 
+Algolia is a plain JSON API and is not bot-walled, so an empty response here
+is usually a genuine absence rather than a blocked request. Confirm it is
+before reporting one:
+
+- Read `nbHits`, not just the length of `hits`. `nbHits: 0` with HTTP 200 is
+  a real empty result set.
+- Search by **URL and by keywords separately.**
+  `restrictSearchableAttributes=url` matches only the submitted link, so a
+  thread posted under a different URL (a mirror, a `nitter` link, a release
+  page) will not appear. A keyword query catches those.
+- Keyword queries are fuzzy and will return unrelated stories with a large
+  `nbHits`. Check the returned titles and URLs against the actual subject —
+  `termcn` returns 13,392 hits, none of them the project.
+- If several queries in a row return `nbHits: 0`, run one control
+  (`ripgrep` returns ~184 stories) through the same code path before
+  concluding.
+
+When several threads exist for one article, note that the highest-scoring one
+may have no comments at all. A link to a 0-comment thread is worth little, so
+prefer the thread that actually holds the discussion even if it scored lower.
+
 ### 3. Fetch top-level comments
 
 Fetch the story item from the HN Firebase API to get the `kids` array
@@ -70,8 +91,35 @@ Then fetch each top-level comment individually:
 https://hacker-news.firebaseio.com/v0/item/<comment-id>.json
 ```
 
-For comments that have substantive replies, also fetch the first level of
-child comments. Extract `id`, `by`, and `text` (HTML-unescape the text).
+**Fetch every id in `kids`, not a prefix.** Slicing the array to the first
+20–30 to save time is the most common way this skill produces a thin
+document: `kids` is not ordered by quality, and substantive material sits at
+the end as often as at the front. Both APIs are unauthenticated JSON with no
+rate limit in practice — fetch them all concurrently.
+
+**Then fetch the replies. This is where the best material is.**
+
+A first pass over top-level comments gives you positions. The replies give
+you the argument: the rebuttal, the correction, the concrete number, and
+very often the article's own author answering a criticism. Every time this
+step has been skipped, a second pass later found something that changed the
+document.
+
+At minimum, fetch the first level of children under:
+
+- every comment you are considering citing,
+- the highest-scoring comments, and
+- any comment that reads as a strong objection — objections attract the
+  replies that test them.
+
+**Look specifically for the author.** Blog authors routinely turn up in their
+own threads, and their reply is the single most citable comment available:
+it is a direct response to the criticism you are about to write up. Check
+whether any commenter's handle matches the article's author or their
+project, and read those first. Citing a critique the author already answered,
+without the answer, misrepresents the discussion.
+
+Extract `id`, `by`, and `text` (HTML-unescape the text).
 
 ### 4. Select significant comments
 

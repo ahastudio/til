@@ -13,17 +13,24 @@ the document with key community reactions, each linked to the exact comment.
 
 **This skill must actually run to completion every time it is invoked — NO
 EXCEPTIONS.** Skipping the search, or assuming "this probably isn't a
-Lobste.rs kind of article" without actually running all four search
-strategies, is a defect. Every invocation must end in one of two concrete
-states:
+Lobste.rs kind of article" without actually searching, is a defect. Every
+invocation must end in one of three concrete states:
 
 - A matching Lobste.rs story was found and its comments were actually
   fetched and screened (comments woven in, or confirmed none worth
   weaving), with the `Lobste.rs 토론:` line added.
-- No matching story exists after all four search strategies (URL, title
-  keywords, domain, full domain) were actually tried — report this
-  explicitly ("Lobste.rs 스레드 없음 확인") rather than silently omitting
-  any mention of Lobste.rs.
+- No matching story exists after the search strategies in step 2 actually
+  ran against endpoints that returned real data — report this explicitly
+  ("Lobste.rs 스레드 없음 확인") rather than silently omitting any mention
+  of Lobste.rs.
+- The search could not be performed because every avenue was blocked —
+  report that, and say which endpoints were tried. This is NOT the same as
+  "no thread exists" and must never be written up as such.
+
+**A zero-result response is not a result.** Lobste.rs serves an anti-bot
+challenge with HTTP 200 on several endpoints (see step 2), and a scraper
+reads that as "no matches". Before concluding absence, confirm that the
+endpoint you used actually returned data.
 
 Never substitute a check of HN or GeekNews for actually searching
 Lobste.rs — each platform is searched independently, because a thread
@@ -51,48 +58,127 @@ Read the target TIL file. Extract the source URL from the `원문:` line.
 If the document already has a `Lobste.rs 토론:` line, extract the story ID
 from that URL directly and skip to step 3.
 
-Otherwise, try the following search strategies **in order**, stopping as soon
-as a matching thread is found:
+#### The `/search` endpoint is bot-blocked — never conclude from it (ABSOLUTE PRIORITY)
 
-**Strategy A — search by source URL:**
+**`https://lobste.rs/search` and `https://lobste.rs/search.json` return an
+anti-bot challenge page with HTTP 200, not search results.** The body starts
+with `<title>Making sure you're not a bot!</title>`. A link-extraction script
+run against that page finds zero stories and looks exactly like a genuine
+"no results" — which is how a real 170-point thread with 64 comments was once
+reported as "no Lobste.rs thread".
+
+An empty result from `/search` is evidence that the search did not run. It is
+never evidence that the thread does not exist. Do not use `/search` as the
+basis for any conclusion.
+
+Known endpoint status (verified):
+
+| Endpoint                                | Status  |
+| --------------------------------------- | ------- |
+| `/search`, `/search.json`               | blocked |
+| `/domains/<domain>[.json]`              | blocked |
+| `/newest/page/<N>.json`                 | blocked |
+| `/newest.json`, `/newest.json?page=N`   | works   |
+| `/hottest.json`, `/hottest.json?page=N` | works   |
+| `/page/<N>.json`                        | works   |
+| `/t/<single-tag>.json`                  | works   |
+| `/s/<short_id>.json`                    | works   |
+| `/rss`                                  | works   |
+
+Comma-joined tags (`/t/ai,ml.json`) are blocked; use one tag per request.
+
+The table above describes **scripted access** (`curl`, `WebFetch`). Inside a
+real browser session the picture differs, and that difference is usable:
+
+| Path in Claude in Chrome | Behavior (verified)                              |
+| ------------------------ | ------------------------------------------------ |
+| `/domain/<host>`         | 404 if that host was never posted, 200 if it was |
+| `/search?q=<keywords>`   | renders real results (`N results for ...`)       |
+| `/search?q=<full URL>`   | login wall, not a result set                     |
+
+`/domain/<host>` is the cleanest check that exists for a homepage- or
+project-type subject, because it does not depend on how the search tokenizes
+your query: the host either has a story or it does not. Fetch it from a page
+already on `lobste.rs` (a cross-origin `fetch` from another site is blocked
+by CORS), and read the status code.
+
+The login wall on URL-form search is a **"could not search"**, not an
+absence. Re-run the query as title keywords instead.
+
+
+#### Strategy A — web search restricted to the domain (primary)
+
+Use the `WebSearch` tool with `allowed_domains: ["lobste.rs"]` and the
+article title plus a distinctive term (author, product, or domain). This
+returns story URLs in `/s/<short_id>/<slug>` form, which gives you both the
+id and the slug needed for footnote anchors.
 
 ```text
-https://lobste.rs/search?q=<percent-encoded-source-url>&what=stories&order=relevance
+WebSearch(query: "<article title> <author or domain>",
+          allowed_domains: ["lobste.rs"])
 ```
 
-Example: for `https://example.com/my-article`, search
-`https://lobste.rs/search?q=https%3A%2F%2Fexample.com%2Fmy-article&what=stories&order=relevance`
+Take the `/s/<short_id>/<slug>` hit and go to step 2a to verify it.
 
-**Strategy B — search by article title keywords:**
+#### Strategy B — scan the JSON listings (fallback for recent stories)
 
-Extract 2–4 significant words from the article title and search:
+If Strategy A returns nothing usable and the article is recent, scan the
+listing APIs for a story whose `url` matches the source URL:
 
-```text
-https://lobste.rs/search?q=<title-keywords>&what=stories&order=relevance
+```bash
+UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+for ep in hottest newest; do
+  for p in 1 2 3; do
+    curl -s -A "$UA" "https://lobste.rs/$ep.json?page=$p" | python3 -c "
+import json,sys
+for s in json.load(sys.stdin):
+    if '<source-domain>' in (s.get('url') or ''):
+        print(s['short_id'], s['comments_url'], s.get('comment_count'))
+"
+  done
+done
 ```
 
-Use underscores as well as hyphens and spaces, because Lobste.rs story slugs
-use underscores (e.g. `towards_understandable_software`).
+This only covers stories still on the front pages. Not finding one here says
+nothing about older stories.
 
-**Strategy C — search by domain name:**
+#### Strategy C — tag listing
 
-```text
-https://lobste.rs/search?q=<domain-without-tld>&what=stories&order=relevance
-```
+If the article's topic maps to a Lobste.rs tag, scan `/t/<tag>.json` the same
+way. One tag per request.
 
-Example: for `gracefulliberty.com`, search `q=gracefulliberty`.
+### 2a. Verify the match before using it
 
-**Strategy D — search by full domain:**
+Fetch `https://lobste.rs/s/<short_id>.json` and confirm that the story's
+`url` field equals the source URL from the TIL document. A title that merely
+looks similar is not a match — the same title can appear on a different
+domain, and the same article can be submitted with a tracking suffix.
 
-```text
-https://lobste.rs/search?q=<full-domain>&what=stories&order=relevance
-```
+The JSON also gives you `comments_url`, which contains the canonical slug
+(e.g. `https://lobste.rs/s/1ifr5f/contagion_fear`). Use that slug in footnote
+URLs rather than guessing it from the title.
 
-Example: `q=gracefulliberty.com`.
+### 2b. Concluding that no thread exists
 
-After each strategy, look for a story whose URL matches the source article.
-Pick the thread with the highest score among matches. If all four strategies
-return no matching thread, report that to the user and stop.
+You may report "Lobste.rs 스레드 없음 확인" only when **both** hold:
+
+1. Strategy A ran and returned no `/s/...` URL whose story `url` matches the
+   source.
+2. Strategy B (or C) ran against a working JSON endpoint — one that returned
+   parseable JSON, not a challenge page.
+
+A `/domain/<host>` 404 read inside Claude in Chrome satisfies both conditions
+on its own for a subject whose source URL is that host's own page, since it
+answers the question directly rather than through a search index.
+
+If every avenue you tried was blocked, that is a different outcome: say the
+search could not be performed and why, rather than reporting absence.
+
+**Sanity check before any negative conclusion:** if you used any HTML
+endpoint, run one control query you know should match (e.g. a well-known
+story) through the same code path. If the control also returns zero, your
+extraction is broken or you are being challenged — fix that before
+concluding anything.
 
 ### 3. Fetch comments
 
@@ -103,6 +189,8 @@ https://lobste.rs/s/<story-id>.json
 ```
 
 This returns the story object with a `comments` array. Each comment has:
+- `url`: the canonical permalink for this comment, already anchored
+  (`https://lobste.rs/s/<id>/<slug>#c_<short_id>`) — use this for footnotes
 - `short_id`: unique comment identifier used in anchor URLs
 - `commenting_user`: object with `username` field
 - `comment`: comment text (HTML)
@@ -147,9 +235,13 @@ section (`## 분석`, `## 비평`, or `## 인사이트`). Rules:
   or add a new paragraph within an existing sub-section.
 - Use a footnote reference (`[^handle]`) in the body text and add the exact
   comment URL at the bottom of the file.
-- The footnote URL must point to the specific comment using its `short_id`
-  as the anchor:
-  `https://lobste.rs/s/<story-id>/<story-slug>#<comment-short-id>`
+- **Use each comment's own `url` field from the story JSON, verbatim.** It is
+  already the exact permalink, in the form
+  `https://lobste.rs/s/<story-id>/<story-slug>#c_<comment-short-id>`.
+  Never assemble this URL by hand: Lobste.rs shortens slugs in ways that are
+  not derivable from the title (for example `The contagion of fear` becomes
+  `contagion_fear`, dropping `the` and `of`), so a constructed link will be
+  wrong even when the id is right.
 - Write the reaction content in Korean. The commenter's handle stays in its
   original form.
 - If a footnote key conflicts with an existing one (e.g. from a prior

@@ -52,36 +52,112 @@ skip to step 3.
 
 ### 2. Find the GN discussion
 
-GeekNews has no public search API, so use `agent-browser` (per
-`web-fetching.md`) — GN is a JavaScript-rendered page and WebFetch will not
-reliably return comment content.
+Two things about GeekNews, both verified:
+
+- **`/search?q=...` is JavaScript-rendered.** `curl` and `WebFetch` both get
+  the page shell with zero results and HTTP 200. An empty result from it is
+  not evidence of absence (see `web-fetching.md`, «An Empty Result Is Not a
+  Result»). The shell is also the **same size for every query** — roughly
+  52KB whether the term has 484 hits or none — so a length or diff heuristic
+  will not reveal that the search never ran.
+- **Topic pages are NOT JavaScript-rendered.** `https://news.hada.io/topic?id=N`
+  returns full server-rendered HTML including every comment and its `cid`
+  anchor. No browser is needed for step 3.
+
+So the browser is only ever needed for *finding* the topic id, and there is a
+better way to do that.
+
+#### Strategy A — web search restricted to the domain (primary)
+
+Use the `WebSearch` tool with `allowed_domains: ["news.hada.io"]`. GN titles
+are Korean, so search Korean keywords describing the article, not the English
+title:
 
 ```text
-agent-browser open "https://news.hada.io/search?q=<title-or-domain-keywords>"
+WebSearch(query: "<한국어 주제 키워드>", allowed_domains: ["news.hada.io"])
+```
+
+This returns `news.hada.io/topic?id=NNNNN` URLs with their Korean titles.
+Try two or three phrasings — a literal rendering of the title, and a
+description of what the thing does — because GN titles are frequently
+rewritten rather than translated.
+
+#### Strategy B — browser (only if Strategy A fails)
+
+Per `web-fetching.md`, use Claude in Chrome; fall back to `agent-browser`
+only when Chrome is not connected, and say so:
+
+```text
+agent-browser open "https://news.hada.io/search?q=<keywords>"
 agent-browser snapshot -i
 ```
 
-Look for a topic link whose title matches the source article and whose
-target URL matches the source domain. If nothing matches, try narrower or
-broader keyword variants (title words, then bare domain). If still not
-found, report that to the user and stop — do not guess a topic id.
+Read the rendered result count, not the HTML. A search that ran shows
+`검색결과 약 N개(0.NN초)` near the top; extract that line and the
+`topic?id=` links beneath it.
+
+**Wait before concluding zero.** Immediately after navigation the count line
+is often absent because the results have not been injected yet, and that
+state is indistinguishable from a genuine zero. Before reporting absence,
+wait ~2–3 seconds, re-read, and require one of these two:
+
+- the `검색결과 약 N개` line with a count, and no matching topic among the
+  results, or
+- an explicit no-result phrase in the body (`결과가 없`, `일치하는`,
+  `찾을 수 없`).
+
+If neither is present, the page has not finished rendering — read it again
+rather than writing a conclusion.
+
+**Run a control query.** `ripgrep` returns ~484 results through this path.
+If a control returns nothing, the search is not running and no negative
+conclusion may be drawn from that session.
+
+#### Verify the match
+
+Fetch the topic page (step 3) and confirm the source URL appears in it. A
+matching title is not enough — GN carries many topics on the same subject
+from different sources.
+
+If nothing matches after both strategies, report that and stop — do not
+guess a topic id.
+
+**Never sweep a range of topic ids.** Fetching topic pages sequentially to
+hunt for one triggers an IP-level block: GN starts returning HTTP 403 with a
+10-byte body for every request, across every language subdomain
+(`es.`, `ja.`, …), and it persists for hours. This has already cost a
+session the ability to read GN at all. If you are tempted to scan ids,
+Strategy A is the answer instead.
 
 ### 3. Fetch the discussion page and comment anchors
 
-```text
-agent-browser open "https://news.hada.io/topic?id=<topic-id>"
-agent-browser eval "
-  const comments = document.querySelectorAll('[id^=cid]');
-  let result = [];
-  comments.forEach(c => result.push(c.id + ' :: ' + c.innerText));
-  result.join('\n---\n');
+Plain HTTP with a browser User-Agent is enough:
+
+```bash
+UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+curl -s -A "$UA" "https://news.hada.io/topic?id=<topic-id>" | python3 -c "
+import re,sys,html
+h=sys.stdin.read()
+print('출처 URL 포함:', '<source-domain>' in h)
+parts=re.split(r\"id=['\\\"]?(cid\d+)['\\\"]?\", h)
+for i in range(1, len(parts), 2):
+    t=re.sub(r'<script.*?</script>','',parts[i+1],flags=re.S)
+    t=re.sub('<[^>]+>',' ', t)
+    t=re.sub(r'\s+',' ', html.unescape(t)).strip()
+    t=re.sub(r'^data-comment[^>]*>\s*','',t)
+    m=re.search(r'▲\s*(\S+)', t)
+    print(parts[i], '|', m.group(1) if m else '?', '::', t[:600])
 "
 ```
 
 Each comment element's `id` attribute (e.g. `cid56704`) is the exact anchor
 to use in footnote URLs: `https://news.hada.io/topic?id=<topic-id>#<cid>`.
 
-Close the browser when done reading (`agent-browser close`).
+If this returns HTTP 403 with a tiny body, you are IP-blocked; `WebFetch` on
+the same topic URL still returns the comment text and handles, but it strips
+HTML attributes, so you will get the comments without their `cid` anchors.
+In that state you can read the discussion but cannot footnote it — say so
+rather than guessing anchors.
 
 ### 4. Filter out re-aggregated HN/Lobste.rs comments
 
