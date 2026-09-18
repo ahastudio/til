@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=46688173> (125점, 65개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=26010>
+
 ## 소개
 
 X(구 Twitter)의 For You 피드가 어떤 게시물을 보여줄지 결정하는 핵심 코드를 담은 저장소다.
@@ -56,6 +58,14 @@ xAI가 공개 announcement에서 강조한 문장 — “우리는 시스템에�
 이 저장소의 진짜 메시지다.
 2023년 `twitter/the-algorithm`이 수많은 수작업 피처와 규칙의 집합이었다면, 이 버전은 그것을
 하나의 트랜스포머로 대체했다.
+
+두 저장소의 관계는 공개 당시 실제로 혼동을 낳았다.
+GN 토론에서 nemorize는 트위터가 추천 알고리즘을 오픈소스로 공개한 그 일과 이것이 또 다른
+것이냐고 물었다.[^nemorize]
+이름도 목적도 같은데 저장소가 다르고 조직도 `twitter`에서 `xai-org`로 옮겨 갔으니 당연한
+물음이며, README도 이 관계를 명시하지 않는다.
+전작과의 연속성을 밝히지 않은 것은 사소해 보이지만, 무엇이 바뀌었는지를 비교하려는 사람에게는
+첫 장벽이 된다.
 
 이 전환이 중요한 이유는 추천 시스템의 패러다임 변화를 대표하기 때문이다.
 전통적 추천은 “좋아요 수 × a + 리트윗 수 × b + 최신성 × c” 같은 명시적 피처 조합이었고, 각
@@ -273,13 +283,25 @@ X가 시범 운영하는 “Under the Hood” 투명성 도구 — 자기 계정
 ---
 
 [^swyx]: <https://news.ycombinator.com/item?id=46688271>
+
 [^rapsey]: <https://news.ycombinator.com/item?id=46688269>
+
 [^roryirvine]: <https://news.ycombinator.com/item?id=46690238>
+
 [^binsquare]: <https://news.ycombinator.com/item?id=46688334>
+
 [^dotandgtfo]: <https://news.ycombinator.com/item?id=46688541>
+
 [^wraptile]: <https://news.ycombinator.com/item?id=46688385>
+
 [^sunaookami]: <https://news.ycombinator.com/item?id=46689054>
+
 [^kklisura]: <https://news.ycombinator.com/item?id=46688349>
+
 [^dudisubekti]: <https://news.ycombinator.com/item?id=46688292>
+
+[^nemorize]: <https://news.hada.io/topic?id=26010#cid49635>
+
 [^readme]: <https://github.com/xai-org/x-algorithm>
+
 [^ref-dogwood]: 형식 규칙은 무엇을 할 수 있는가를 통제하지 그것이 옳은 판단인가를 통제하지 않는다는 논의는 이 저장소의 [Dogwood 문서](../security/dogwood-agent-runtime-verification.md)에 정리해 두었다.
