@@ -1,6 +1,14 @@
-# clasp: Apps Script 프로젝트를 로컬에서 개발하는 CLI
+# Clasp: Apps Script 프로젝트를 로컬에서 개발하는 CLI
+
+> Develop Apps Script projects locally using clasp
+> (**C**ommand **L**ine **A**pps **S**cript **P**rojects).
+>
+> Note: This is not an officially supported Google product.
 
 <https://github.com/google/clasp>
+
+- [Use the command-line interface with clasp  |  Apps Script  |  Google for Developers](https://developers.google.com/apps-script/guides/clasp)
+- [clasp와 함께 명령줄 인터페이스 사용  |  Apps Script  |  Google for Developers](https://developers.google.com/apps-script/guides/clasp?hl=ko)
 
 HN 토론: <https://news.ycombinator.com/item?id=19926835> (2점, 1개 댓글)
 
@@ -31,6 +39,189 @@ clasp는 그 프로젝트를 로컬 파일 시스템으로 내리고 다시 올�
 이름에 슬래시를 넣는 관례를 실제 디렉터리로 바꿔 주는 것이다.
 
 Node.js 22.0.0 이상이 필요하다.
+
+## clasp가 다루지 않는 것
+
+이 절이 이 문서에서 가장 실용적인 부분이다.
+“Apps Script를 Git으로 관리한다”고 말할 때 실제로 Git에 들어가는 것이 무엇인지가 여기서 정해지기 때문이다.
+
+Google 공식 문서가 이 경계를 한 문장으로 명시한다.
+clasp가 독립 스크립트와 컨테이너 바운드 스크립트를 모두 관리하지만, 트리거와 문서 속성과 사용자 속성은 직접 관리하지 않으며 그것들은 Apps Script 런타임 환경 안에 남는다는 것이다.
+
+| 프로젝트 상태                   | clasp가 다루는가 | 어디에 사는가                     |
+| ------------------------------- | ---------------- | --------------------------------- |
+| 스크립트 파일(`.gs`/`.js`)      | 예               | 파일                              |
+| HTML 파일                       | 예               | 파일                              |
+| 매니페스트(`appsscript.json`)   | 예               | 파일                              |
+| 시간 기반·이벤트 트리거         | 아니오           | 서버 측 프로젝트 상태             |
+| Script/User/Document Properties | 아니오           | 서버 측 속성 저장소               |
+| 배포본과 배포 ID                | 명령으로만       | 서버 측. 파일로 표현되지 않음     |
+| 버전 번호와 설명                | 명령으로만       | 서버 측                           |
+| 라이브러리 의존 버전            | 부분적           | 매니페스트에 선언되나 승인은 서버 |
+| 컨테이너 바운드 연결            | 아니오           | 생성 시점에 고정                  |
+| OAuth 승인 상태                 | 아니오           | 사용자 계정                       |
+| 편집자·뷰어 권한                | 아니오           | Drive 권한                        |
+
+트리거가 특히 중요하다.
+매니페스트에 선언할 수 있는 것은 애드온용 단순 트리거 정도이고, `ScriptApp.newTrigger()`로 만들었거나 웹 편집기에서 손으로 만든 설치형 트리거는 서버에만 존재한다.
+즉 저장소를 새 스크립트에 통째로 push해도 트리거는 따라오지 않으며, 그 사실을 모르면 “코드는 배포했는데 아무것도 안 돈다”가 된다.
+
+Properties도 같다. API 키나 시트 ID를 `PropertiesService`에 넣어 두었다면 그것은 코드가 아니라 데이터이고 clasp의 시야 밖이다.
+이 성질은 보안상 바람직하지만(키가 저장소에 들어가지 않는다) 재현성 면에서는 공백이다.
+
+## 메타데이터를 관리하는 방법
+
+파일이 아닌 상태를 다루는 방법은 셋이고, 셋을 함께 써야 빈틈이 없다.
+
+| 방법              | 대상                  | 저장소에 들어가는 것     |
+| ----------------- | --------------------- | ------------------------ |
+| 선언을 코드로     | 트리거, 필수 속성 키  | 생성·검증 함수           |
+| 스냅숏을 파일로   | 현재 트리거·속성 구성 | 내보낸 JSON(값은 마스킹) |
+| 명령을 스크립트로 | 버전·배포             | 배포 스크립트와 배포 ID  |
+
+### 트리거를 코드로 선언하기
+
+트리거 생성을 부트스트랩 함수 한곳에 모으면, 파일이 아닌 상태가 최소한 **선언**으로는 저장소에 남는다.
+
+```javascript
+/**
+ * 프로젝트를 재현 가능한 상태로 만드는 부트스트랩.
+ * 새 환경에 push한 뒤 이 함수를 한 번 실행하면 트리거가 선다.
+ * 웹 편집기에서 손으로 만든 트리거는 Git이 볼 수 없으므로,
+ * 트리거 생성은 반드시 이 함수 한 곳에만 둔다.
+ */
+function bootstrapTriggers() {
+  // 기존 트리거를 먼저 지운다. 그래야 이 함수가 멱등해진다.
+  ScriptApp.getProjectTriggers().forEach(t => ScriptApp.deleteTrigger(t));
+
+  ScriptApp.newTrigger('dailySync')
+    .timeBased()
+    .atHour(3)               // 운영 시간대를 피한다
+    .everyDays(1)
+    .create();
+
+  const formId = PropertiesService.getScriptProperties().getProperty('FORM_ID');
+  ScriptApp.newTrigger('onFormSubmitHandler')
+    .forForm(formId)
+    .onFormSubmit()
+    .create();
+}
+```
+
+### 필수 속성을 코드로 선언하기
+
+값은 저장소에 두지 않고 **어떤 키가 필요한지**만 코드로 남긴다.
+
+```javascript
+/** 이 프로젝트가 요구하는 Script Properties 계약. */
+const REQUIRED_PROPERTIES = ['FORM_ID', 'SHEET_ID', 'WEBHOOK_URL'];
+
+/**
+ * 배포 직후와 각 트리거 진입점에서 호출한다.
+ * 런타임 중간이 아니라 시작 시점에 실패시키는 것이 목적이다.
+ */
+function assertRequiredProperties() {
+  const props = PropertiesService.getScriptProperties();
+  const missing = REQUIRED_PROPERTIES.filter(k => !props.getProperty(k));
+  if (missing.length) {
+    throw new Error(`Missing script properties: ${missing.join(', ')}`);
+  }
+}
+```
+
+### 메타데이터를 파일로 내보내기
+
+선언만으로는 “지금 서버가 어떤 상태인가”를 알 수 없다.
+그래서 현재 상태를 JSON으로 덤프하는 함수를 두고, 그 출력을 저장소의 `metadata/`에 커밋한다.
+
+```javascript
+/**
+ * 현재 프로젝트의 트리거와 속성 키를 JSON으로 덤프한다.
+ * clasp run-function 으로 호출해 출력을 파일로 저장한다.
+ * 속성 값은 비밀일 수 있으므로 키와 존재 여부만 남긴다.
+ */
+function exportMetadata() {
+  const triggers = ScriptApp.getProjectTriggers().map(t => ({
+    handlerFunction: t.getHandlerFunction(),
+    eventType: String(t.getEventType()),
+    triggerSource: String(t.getTriggerSource()),
+    // 소스 ID 는 폼·시트 ID 라서 환경마다 다르다. 키로만 남긴다.
+    triggerSourceId: t.getTriggerSourceId() ? '<set>' : null,
+  }));
+
+  const scriptProps = PropertiesService.getScriptProperties().getProperties();
+  const propertyKeys = Object.keys(scriptProps).sort().map(k => ({
+    key: k,
+    // 값 자체는 내보내지 않는다. 설정 여부와 길이만 기록한다.
+    isSet: scriptProps[k] !== '',
+    length: scriptProps[k].length,
+  }));
+
+  return JSON.stringify({ triggers, propertyKeys }, null, 2);
+}
+```
+
+```bash
+# 내보낸 스냅숏을 저장소에 넣는다
+clasp run-function exportMetadata --user prod > metadata/prod.json
+git diff metadata/prod.json    # 서버 상태가 바뀌었는지 리뷰에서 보인다
+```
+
+이 파일이 하는 일은 재현이 아니라 **검출**이다.
+누군가 웹 편집기에서 트리거를 추가하면 다음 덤프에서 diff로 드러나고, 그때 그것을 `bootstrapTriggers()`에 반영할지 지울지 결정하면 된다.
+
+### 속성 값을 환경별로 주입하기
+
+값 자체는 저장소에 두지 않되, 주입 절차는 자동화한다.
+
+```bash
+#!/usr/bin/env bash
+# set-properties.sh — 환경별 속성을 한 번에 주입한다
+# 값은 비밀 관리자에서 읽고 저장소에는 키 목록만 둔다
+set -euo pipefail
+
+env="${1:?usage: set-properties.sh <staging|prod>}"
+
+# 임시 Apps Script 함수에 넘길 JSON 을 만든다
+payload=$(jq -n \
+  --arg form "$(op read "op://apps-script/$env/FORM_ID")" \
+  --arg sheet "$(op read "op://apps-script/$env/SHEET_ID")" \
+  '{FORM_ID: $form, SHEET_ID: $sheet}')
+
+clasp run-function setProperties --user "$env" -p "[$payload]"
+```
+
+```javascript
+/** 외부에서 주입받은 속성을 일괄 설정한다. */
+function setProperties(values) {
+  PropertiesService.getScriptProperties().setProperties(values, false);
+  assertRequiredProperties();
+}
+```
+
+`setProperties`의 두 번째 인자를 `false`로 두는 것이 결정 지점이다.
+`true`로 하면 기존 속성을 모두 지우고 교체하므로, 주입 목록에 없는 키가 사라진다.
+
+### 저장소 구조
+
+```text
+.
+├── src/                     # 소스. 번들러 입력
+├── build/                   # rootDir. push 대상
+├── metadata/
+│   ├── prod.json            # exportMetadata 출력
+│   └── staging.json
+├── scripts/
+│   ├── clasp-drift-check.sh
+│   ├── deploy.sh
+│   └── set-properties.sh
+├── .clasp.prod.json         # scriptId 등 환경별 설정
+├── .clasp.staging.json
+└── .claspignore
+```
+
+배포 ID는 비밀이 아니므로 환경별 설정 파일이나 저장소의 별도 파일에 두는 편이 낫다.
+웹 앱 URL을 유지하려면 `update-deployment`에 이 ID가 필요한데, 이것을 사람의 기억이나 콘솔 조회에 의존하면 결국 새 배포를 만들어 URL을 깨뜨리게 된다.
 
 ## 설치와 최초 설정
 
@@ -93,6 +284,74 @@ MCP 모드에서는 프로젝트 디렉터리에서 시작할 필요가 없고 �
 로그 명령에 중요한 단서가 붙어 있다.
 출력되는 것은 Cloud Logging 로그이며 `console.log`에서 온 것이지 `Logger.log`에서 온 것이 아니라는 점이다.
 Apps Script에서 두 로깅 함수가 다른 곳으로 가는 것을 모르면 로그가 비어 보인다.
+
+### 생성과 복제
+
+`create-script`는 새 프로젝트를 만든다. 타입을 지정하지 않으면 프롬프트로 묻는다.
+
+```bash
+clasp create-script --type standalone              # 기본. 독립 스크립트
+clasp create-script --type sheets                  # 새 스프레드시트에 바운드
+clasp create-script --type webapp
+clasp create-script --type api
+clasp create-script --title "My Script" --rootDir ./dist
+clasp create-script --parentId "1D_Gxyv...NXO7o"   # 기존 문서에 바운드
+```
+
+`--parentId`가 지정되면 `--type`은 무시된다.
+`--parentId`는 Google 문서·시트·폼·슬라이드의 Drive ID이며 URL의 `/d/{id}/edit`에서 얻는다.
+지정하지 않으면 독립 스크립트가 만들어진다.
+
+`clone-script`는 스크립트 ID나 URL을 받고, 버전 번호도 받는다.
+
+```bash
+clasp clone-script "15ImUCpyi1Jsd8yF8Z6wey_7cw793CymWTLxOqwMka3P1CzE5hQun6qiC"
+clasp clone-script "https://script.google.com/d/15Im.../edit"
+clasp clone-script "15Im..." --rootDir ./src
+clasp clone-script "15Im..." 23                    # 특정 버전을 복제
+```
+
+버전 번호를 주면 그 시점의 코드를 가져온다. 사고 원인을 과거 버전과 비교할 때 쓴다.
+
+### pull의 옵션이 중요한 이유
+
+| 옵션                  | 동작                                                                       |
+| --------------------- | -------------------------------------------------------------------------- |
+| `--versionNumber <n>` | 특정 버전을 가져온다                                                       |
+| `--deleteUnusedFiles` | push 대상이었을 로컬 파일 중 서버가 돌려주지 않은 것을 삭제. 확인을 묻는다 |
+| `--force`             | `--deleteUnusedFiles`와 함께 써서 확인을 건너뛴다                          |
+
+기본 `pull`은 로컬에만 있는 파일을 지우지 않는다.
+그래서 기본 동작은 “덮어쓰기”이지 “동기화”가 아니며, 원격과 로컬을 정확히 같게 만들려면 `--deleteUnusedFiles`가 필요하다.
+`--force`까지 붙이면 확인 없이 지우므로 저장소가 깨끗한 상태에서만 쓰는 것이 안전하다.
+
+### 버전과 배포는 다른 개념이다
+
+이 둘을 혼동하는 것이 Apps Script에서 가장 흔한 운영 실수다.
+
+| 개념 | 명령                      | 성질                                                  |
+| ---- | ------------------------- | ----------------------------------------------------- |
+| 버전 | `clasp create-version`    | 코드의 **불변** 스냅숏. 번호가 붙는다                 |
+| 배포 | `clasp create-deployment` | 특정 버전을 실행 가능한 형태로 노출. 배포 ID가 붙는다 |
+
+```bash
+clasp create-version "Bump the version."   # 현재 코드를 버전으로 고정
+clasp list-versions
+
+clasp create-deployment                    # 새 버전 + 새 배포
+clasp create-deployment --versionNumber 4  # 기존 버전으로 새 배포
+clasp update-deployment abcd1234 -V 7 -d "설명"
+clasp list-deployments
+clasp delete-deployment --all
+```
+
+웹 앱에서는 배포마다 고유 URL이 생긴다는 점이 결정적이다.
+`create-deployment`를 반복하면 URL이 계속 바뀌고, 이미 배포한 URL을 쓰는 곳이 있다면 전부 깨진다.
+기존 URL을 유지하면서 코드를 갱신하려면 `update-deployment <배포ID>`를 써야 한다.
+
+그리고 `push`는 배포에 영향을 주지 않는다.
+`push`가 바꾸는 것은 편집 중인 HEAD 상태이며 배포된 버전은 그대로다.
+개발 중에 `push` 후 웹 앱을 열었는데 변경이 안 보이는 것은 대개 이 이유다.
 
 ## 2.x에서 3.x로
 
@@ -191,6 +450,50 @@ https://www.googleapis.com/auth/cloud-platform
 서비스 계정 지원은 `--adc` 옵션으로 제공되지만 README가 명시적으로 “실험적 / 동작하지 않음”이라고 표시한다.
 그리고 근본적인 제약을 밝힌다. 서비스 계정은 스크립트를 소유할 수 없으므로, 서비스 계정으로 push나 pull을 하려면 스크립트를 그 계정과 적절한 역할로 공유해야 한다는 것이다. push하려면 `Editor`다.
 
+## run-function 설정하기
+
+`clasp run-function`은 설정이 가장 까다로운 명령이다. `docs/run.md`가 다섯 가지 선행 조건을 든다.
+
+| 단계 | 내용                                                                                 |
+| ---- | ------------------------------------------------------------------------------------ |
+| 1    | `.clasp.json`에 `projectId` 설정                                                     |
+| 2    | `Desktop Application` 타입 OAuth 클라이언트 ID 생성 후 `client_secret.json`으로 저장 |
+| 3    | `clasp login --creds client_secret.json --user <key>`                                |
+| 4    | `appsscript.json`에 `executionApi` 추가                                              |
+| 5    | 프로젝트를 API Executable로 배포                                                     |
+
+매니페스트에 넣을 항목은 이것이다.
+
+```json
+{
+  "executionApi": {
+    "access": "ANYONE"
+  }
+}
+```
+
+그리고 Apps Script 프로젝트와 GCP 프로젝트를 연결해야 한다.
+`clasp open-script` 후 `프로젝트 설정 > Google Cloud Platform(GCP) 프로젝트`에서 프로젝트 **번호**를 넣는다.
+`.clasp.json`에는 프로젝트 **ID**를, 웹 편집기에는 프로젝트 **번호**를 넣는다는 점을 혼동하기 쉽다.
+
+스코프가 필요한 함수를 실행하려면 로그인 명령이 달라진다.
+
+```bash
+# appsscript.json 의 스코프 + clasp 기본 스코프를 한 프로필에 합친다
+clasp login --user prod --use-project-scopes --include-clasp-scopes --creds client_secret.json
+
+clasp push
+clasp run-function --user prod sendMail
+clasp run-function 'addOptions' -p '["string", 123, {"test": "for"}, true]'
+```
+
+`-p`는 JSON 문자열 배열이며 함수 인자로 전달된다.
+`--nondev`를 붙이면 devMode가 아닌 상태, 즉 마지막으로 배포된 버전으로 실행된다. 붙이지 않으면 현재 HEAD 코드로 실행된다.
+이 차이가 “로컬에서는 되는데 배포본에서는 안 된다”를 진단하는 가장 빠른 방법이다.
+
+`Script API executable not published/deployed.` 오류가 나면 웹 편집기에서 `배포 > 새 배포 > 유형 API Executable`로 배포해야 한다.
+이 단계는 아직 CLI로 되지 않으므로 GUI가 필요하다.
+
 ## 프로젝트 설정 파일
 
 `clone`이나 `create`를 실행하면 현재 디렉터리에 `.clasp.json`이 만들어진다.
@@ -270,24 +573,154 @@ node_modules/**
 
 기본값에서 `.git`과 `node_modules`를 제외한 하위 폴더는 처리된다는 점이 2.x와의 차이이며, `skipSubdirectories`가 그 호환을 위해 존재한다.
 
+## Git을 진실 공급원으로 두기
+
+`push`가 전체 교체라는 사실은, Git을 단일 진실 공급원으로 두면 대부분 무해해진다.
+어차피 매번 전체를 올리는 것이고 되돌릴 근거는 원격이 아니라 저장소에 있다.
+오히려 전체 교체가 더 단순하다. 원격 파일 상태가 항상 특정 커밋과 1:1로 대응하기 때문이다.
+
+그래서 규율은 한 줄로 정리된다. 웹 편집기는 읽기 전용으로 취급한다.
+
+```bash
+# .gitignore
+.clasprc.json
+client_secret.json
+node_modules/
+build/
+.clasp.json
+```
+
+`.clasp.json` 자체는 무시하고 `.clasp.prod.json` 같은 환경별 파일을 커밋하는 편이 깔끔하다. `scriptId`가 환경마다 다르기 때문이다.
+
+Git이 못 보는 것이 하나 남는다. 웹 편집기에서 누군가 고친 변경이다.
+그 변경은 저장소에 들어온 적이 없으므로 작업 트리는 깨끗하고 충돌도 diff도 없으며, `push` 시점에 조용히 덮인다.
+도구가 막아 주지는 않지만 검사할 수는 있다.
+
+```bash
+#!/usr/bin/env bash
+# scripts/clasp-drift-check.sh
+# 원격이 저장소와 다른지 확인한다. push 전에 실행한다.
+set -euo pipefail
+
+project_file="${1:-.clasp.json}"
+tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
+
+# 임시 디렉터리에서 원격 상태만 따로 받는다.
+# rootDir 를 제거해 원격 파일이 임시 디렉터리 루트로 떨어지게 한다.
+python3 - "$project_file" "$tmp/.clasp.json" <<'PY'
+import json, sys
+cfg = json.load(open(sys.argv[1]))
+cfg.pop("rootDir", None)
+json.dump(cfg, open(sys.argv[2], "w"))
+PY
+
+(cd "$tmp" && clasp pull --deleteUnusedFiles --force >/dev/null)
+
+local_dir=$(python3 -c "import json,sys;print(json.load(open(sys.argv[1])).get('rootDir','.'))" "$project_file")
+
+if diff -ru --exclude='.clasp.json' "$tmp" "$local_dir"; then
+  echo "원격과 로컬이 동일합니다."
+else
+  echo "경고: 원격에 저장소가 모르는 변경이 있습니다. push 하면 덮어씁니다." >&2
+  exit 1
+fi
+```
+
+이 스크립트를 `pre-push` 훅이나 배포 스크립트 앞에 두면 웹 편집기 편집이 사고가 아니라 경고가 된다.
+완벽하지는 않다. `pull`이 파일만 가져오므로 트리거나 속성의 변경은 여전히 감지되지 않으며, 그쪽은 `exportMetadata` 덤프의 diff가 맡는다.
+
+배포까지 포함한 전체 흐름은 이렇게 된다.
+
+```bash
+#!/usr/bin/env bash
+# scripts/deploy.sh — 저장소의 현재 커밋을 지정 환경에 배포한다
+set -euo pipefail
+
+env="${1:?usage: deploy.sh <staging|prod>}"
+project=".clasp.${env}.json"
+
+# 커밋되지 않은 변경이 있으면 멈춘다. 배포는 커밋과 대응해야 한다.
+git diff --quiet && git diff --cached --quiet || {
+  echo "커밋되지 않은 변경이 있습니다." >&2; exit 1
+}
+
+./scripts/clasp-drift-check.sh "$project"
+
+npm run build                                       # 번들러가 build/ 를 만든다
+clasp push --project "$project" --user "$env" -f
+
+# 버전 설명에 커밋 해시를 넣어야 나중에 역추적할 수 있다
+clasp create-version --project "$project" --user "$env" \
+  "$(git rev-parse --short HEAD) $(git log -1 --pretty=%s)"
+
+# 웹 앱이라면 URL 유지를 위해 반드시 update-deployment 를 쓴다
+if [[ -n "${DEPLOYMENT_ID:-}" ]]; then
+  clasp update-deployment "$DEPLOYMENT_ID" --project "$project" --user "$env"
+fi
+
+# 서버 측 메타데이터 스냅숏을 갱신한다
+clasp run-function exportMetadata --project "$project" --user "$env" \
+  > "metadata/${env}.json"
+```
+
+CI에서 돌리려면 자격 증명을 비밀로 넣어야 한다.
+공식 문서도 GitHub Actions 예제에서 `CLASPRC_JSON`과 `CLASP_JSON` 두 비밀을 쓴다.
+
+```bash
+gh secret set CLASPRC_JSON < ~/.clasprc.json
+gh secret set CLASP_JSON < .clasp.prod.json
+```
+
+```yaml
+# .github/workflows/deploy.yml 의 핵심 부분
+- run: npm install -g @google/clasp
+- run: printf '%s' "${{ secrets.CLASPRC_JSON }}" > ~/.clasprc.json
+- run: printf '%s' "${{ secrets.CLASP_JSON }}" > .clasp.json
+- run: npm run build && clasp push -f
+```
+
+이 방식의 한계는 아래 트레이드오프 절에서 다룬다. 서비스 계정을 쓸 수 없어 사람 계정의 토큰을 넣는 것이기 때문이다.
+
+## 값 정하기
+
+| 결정 항목               | 시작값                            | 근거                                                                |
+| ----------------------- | --------------------------------- | ------------------------------------------------------------------- |
+| `rootDir`               | `build/`                          | 번들러 출력과 push 대상을 일치시킨다. 소스와 산출물이 섞이지 않는다 |
+| `.clasp.json` 커밋 여부 | 무시하고 환경별 파일을 커밋       | `scriptId`가 환경마다 다르다                                        |
+| OAuth 클라이언트        | 개인은 기본, 조직은 자체 프로젝트 | 조직은 허용 목록 요청이 결재로 가고, 나중에 옮기면 재인증이 필요    |
+| `--user` 프로필         | 환경마다 하나                     | 프로덕션 자격 증명으로 스테이징에 push하는 사고를 구조적으로 막는다 |
+| 웹 편집기 정책          | 읽기 전용                         | `push`가 전체 교체이므로 양방향 편집은 반드시 손실을 만든다         |
+| 배포 갱신 방식          | `update-deployment`               | `create-deployment`는 웹 앱 URL을 바꾼다                            |
+| 버전 설명               | 커밋 해시 + 제목                  | Apps Script 버전 목록에서 커밋을 역추적할 수 있다                   |
+| 트리거 관리             | 부트스트랩 함수 하나              | 트리거는 Git에 담기지 않으므로 생성 코드를 한곳에 모은다            |
+| 비밀값                  | Script Properties + 주입 스크립트 | 저장소에 값이 들어가지 않으면서 주입 절차는 재현 가능해진다         |
+| 메타데이터 스냅숏       | 배포 때마다 갱신                  | 서버 측 변경이 diff로 드러난다                                      |
+
+`rootDir`를 빌드 출력으로 두는 결정이 나머지 여럿을 따라오게 만든다.
+`.claspignore` 패턴의 기준이 되고, `filePushOrder`의 경로 기준이 되며, 소스 파일이 실수로 올라가는 것을 막는다.
+
 ## 트레이드오프
 
-### push가 전체 교체이므로 원격 편집과 로컬 편집을 동시에 할 수 없다
+### 전체 교체는 Git으로 대부분 닫히고, 남는 것은 파일이 아닌 상태다
 
 README가 경고 블록으로 명시한다.
-Google의 scripts API가 현재 원자적 연산도 파일 단위 연산도 지원하지 않으므로, `push` 명령이 항상 온라인 프로젝트의 전체 내용을 push하는 파일들로 **교체**한다는 것이다.
+Google의 scripts API가 원자적 연산도 파일 단위 연산도 지원하지 않으므로, `push`가 항상 온라인 프로젝트의 전체 내용을 교체한다는 것이다.
 
-이 한 문장이 clasp를 쓰는 팀의 워크플로를 사실상 결정한다.
-누군가 웹 편집기에서 고친 것이 있으면 `push` 한 번에 사라지고, 되돌릴 방법은 Apps Script 자체의 버전 이력뿐이다.
-git의 3방향 병합 같은 것이 존재하지 않는다.
+이 경고를 처음 읽으면 위험해 보이지만, Git을 진실 공급원으로 두면 실질적 위험이 거의 사라진다.
+전체 교체는 “저장소의 이 커밋 = 원격의 현재 파일 상태”라는 단순한 대응을 만들어 주고, 부분 갱신이 만드는 어중간한 상태가 없다.
+되돌리기도 `git checkout` 후 다시 `push`면 끝난다.
 
-그래서 실무에서 가능한 규율은 둘 중 하나다.
-웹 편집기를 읽기 전용으로 취급하고 모든 편집을 로컬에서 하거나, 반대로 clasp를 `pull` 전용으로 써서 백업과 버전 관리에만 쓰는 것이다.
-두 방향을 섞으면 반드시 누군가의 작업이 사라진다.
+실제로 남는 위험은 둘이다.
+하나는 Git이 자기가 못 본 변경을 경고해 주지 못한다는 것이다. 웹 편집기 편집은 저장소를 거치지 않으므로 충돌로 나타나지 않고 조용히 덮인다.
+이것은 드리프트 검사 스크립트로 검출 가능하며, 도구가 아니라 규율과 자동화의 문제다.
 
-그리고 이 제약은 clasp의 결함이 아니라 API의 성질이다.
-파일 단위 연산이 없으면 어떤 클라이언트도 부분 갱신을 할 수 없고, 여러 클라이언트가 동시에 쓰는 것을 안전하게 만들 수 없다.
-clasp가 고칠 수 있는 문제가 아니라는 점이 중요하다. 대안 도구로 옮겨도 같은 벽에 부딪힌다.
+다른 하나가 더 본질적이다. 프로젝트 상태의 상당 부분이 애초에 파일이 아니라는 것이다.
+트리거, Properties, 배포본, 컨테이너 연결, 권한은 `push`로 올라가지도 `pull`로 내려오지도 않는다.
+그래서 “저장소를 통째로 새 스크립트에 올리면 같은 것이 만들어진다”가 성립하지 않으며, 부트스트랩 함수와 메타데이터 덤프 같은 장치로 그 간극을 코드로 메워야 한다.
+
+즉 이 절의 결론은 “전체 교체가 위험하다”가 아니라 “Git이 관리하는 경계가 프로젝트 경계보다 좁다”이다.
+그 경계를 알고 나머지를 코드로 끌어들이는 것이 실무 설계의 핵심이며, 도구를 바꿔도 이 경계는 그대로다.
 
 ### TypeScript를 뺀 것은 더 나은 TypeScript를 위한 선택이지만 진입 비용을 올린다
 
@@ -299,7 +732,19 @@ Rollup 같은 번들러를 앞에 두면 그 제약이 사라진다.
 2.x에서는 `.ts` 파일을 두고 `clasp push`만 하면 됐는데, 3.x에서는 번들러 설정, 빌드 스텝, `rootDir`를 빌드 출력으로 맞추는 작업이 추가된다.
 README가 템플릿 저장소 넷을 나열하는 것 자체가 이 설정이 처음부터 쓰기에는 부담스럽다는 인정이다.
 
-그리고 이 변화가 clasp의 대상 사용자를 이동시킨다.
+그리고 그리고 번들링에는 Apps Script 특유의 함정이 하나 더 있다.
+트리거와 메뉴 핸들러는 전역 스코프에 이름으로 존재해야 하는데, 번들러는 기본적으로 모든 것을 감싸고 이름을 망가뜨린다.
+그래서 진입점 함수들을 명시적으로 전역에 노출하는 코드가 필요하다.
+
+```javascript
+// 번들 후에도 트리거가 찾을 수 있도록 전역에 노출한다.
+// 이 목록이 사실상 이 프로젝트의 공개 API 다.
+globalThis.dailySync = dailySync;
+globalThis.onFormSubmitHandler = onFormSubmitHandler;
+globalThis.onOpen = onOpen;
+```
+
+이 변화가 clasp의 대상 사용자를 이동시킨다.
 Apps Script를 쓰는 사람의 상당수는 프런트엔드 빌드 도구에 익숙하지 않은 업무 자동화 담당자이고, 그들에게 Rollup 설정은 새로운 학습 영역이다.
 결과적으로 3.x는 전문 개발자에게 더 나은 도구가 되면서 원래 사용자층에게는 문턱을 올렸다.
 
@@ -331,6 +776,11 @@ README가 그 요청 문구까지 제공한다는 것은 이 상황이 흔하다
 서비스 계정은 스크립트를 소유할 수 없으므로, push나 pull을 하려면 스크립트를 서비스 계정과 공유해야 한다는 것이다.
 
 이 제약이 CI 설계를 바꾼다.
+
+그러면 그 계정의 권한 전체가 CI에 노출되고, 계정 소유자가 퇴사하면 파이프라인이 멈춘다.
+대안은 자동화 전용 Google 계정을 만드는 것인데, 조직 정책상 금지되는 경우가 많고 2단계 인증 관리도 별도 문제가 된다.
+
+현실적인 타협은 CI가 빌드와 검증까지만 하고 배포는 사람이 로컬에서 실행하는 것이며, 그 배포 스크립트를 저장소에 두어 재현 가능하게 만드는 것이다.
 서비스 계정이 쓸 수 없다면 CI가 쓸 수 있는 것은 사람 계정의 리프레시 토큰뿐이고, 그 토큰을 비밀 저장소에 넣어야 한다.
 그러면 그 계정의 권한 전체가 CI에 노출되고, 계정 소유자가 퇴사하면 파이프라인이 멈춘다.
 
@@ -364,6 +814,24 @@ Node 22 미만에서는 동작하지 않는다.
 `--auth` 옵션은 사용 중단되었다. 여러 계정을 쓰려면 `--user`다.
 
 3.x로 올리면 `logs --setup`과 `settings`가 사라진다. 스크립트에서 이 명령을 쓰고 있었다면 대체가 없다.
+
+`clasp pull`은 기본적으로 로컬 전용 파일을 지우지 않는다. 원격과 정확히 맞추려면 `--deleteUnusedFiles`가 필요하다.
+
+트리거는 push로 따라오지 않는다. 새 환경에 코드를 올려도 자동 실행은 시작되지 않는다.
+
+Script Properties도 따라오지 않는다. 새 환경에서는 필수 속성이 비어 있어 런타임에 실패한다.
+
+`create-deployment`를 반복하면 웹 앱 URL이 매번 바뀐다. 기존 URL을 유지하려면 `update-deployment <배포ID>`다.
+
+`push`만 하고 배포하지 않으면 배포된 웹 앱의 동작은 바뀌지 않는다. 버전 고정과 배포 갱신이 별도 단계다.
+
+`PropertiesService.setProperties(values, true)`는 목록에 없는 기존 키를 전부 지운다. 주입 스크립트에서 두 번째 인자를 확인한다.
+
+번들러를 쓰면 트리거 대상 함수가 전역에서 사라질 수 있다. `globalThis`에 명시적으로 노출해야 한다.
+
+`run-function` 설정에서 `.clasp.json`에는 GCP 프로젝트 ID를, 웹 편집기에는 프로젝트 번호를 넣는다. 둘은 다른 값이다.
+
+`clasp delete-script -f`는 확인 없이 스크립트를 지운다. README도 스크립트에서 clasp를 돌리는 경우가 아니면 좋은 생각이 아니라고 적는다.
 
 ## 확인하기
 
@@ -400,6 +868,36 @@ clasp tail-logs
 4번이 이 도구에서 가장 값진 습관이다.
 `push`가 전체 교체이므로, 무엇이 올라가는지 모른 채 `push`하는 것이 사고의 대부분을 만든다.
 
+웹 편집기 편집이 실제로 조용히 덮이는지 직접 재현해 보면 규율의 필요성이 체감된다.
+
+```bash
+# 1. 웹 편집기를 열어 hello.js 에 한 줄을 추가하고 저장한다
+clasp open-script
+
+# 2. 로컬은 건드리지 않은 상태로 상태를 본다. 아무 경고도 없다
+clasp show-file-status
+
+# 3. push 하면 웹에서 추가한 줄이 사라진다
+clasp push && clasp pull && cat hello.js
+```
+
+드리프트 검사 스크립트를 넣으면 3번이 실패로 바뀐다.
+
+```bash
+./scripts/clasp-drift-check.sh && clasp push
+```
+
+파일이 아닌 상태는 따로 확인한다.
+
+```bash
+# 웹 편집기에서 트리거를 하나 추가한 뒤 덤프를 다시 뜬다
+clasp run-function exportMetadata > /tmp/after.json
+diff metadata/prod.json /tmp/after.json
+```
+
+차이가 나오면 그 트리거를 `bootstrapTriggers()`에 반영할지 지울지 결정한다.
+차이가 안 나오면 덤프 함수가 그 종류의 상태를 보고 있지 않은 것이므로 덤프를 넓혀야 한다.
+
 `.claspignore`를 고쳤을 때도 같은 방식으로 확인한다.
 
 ```bash
@@ -413,16 +911,25 @@ clasp show-file-status --json | python3 -m json.tool
 
 - Node 22 이상인가
 - `https://script.google.com/home/usersettings`에서 Apps Script API를 켰는가
-- 팀에서 웹 편집기 편집을 금지하거나, 반대로 clasp를 pull 전용으로 쓰기로 합의했는가
-- `push` 전에 `show-file-status`로 올라갈 목록을 확인하는 습관이 있는가
+- 웹 편집기를 읽기 전용으로 취급하기로 팀이 합의했는가
+- `push` 전에 드리프트를 검사하거나 최소한 `show-file-status`로 확인하는가
+- 트리거 생성을 부트스트랩 함수 한곳에 모았는가
+- 필수 Script Properties 목록을 코드에 선언하고 시작 시점에 검증하는가
+- 속성 값 주입을 스크립트로 자동화했는가, 값이 저장소에 들어가지 않는가
+- 메타데이터 스냅숏(`exportMetadata` 출력)을 저장소에 두고 배포마다 갱신하는가
+- 배포 ID를 저장소나 환경별 설정에 기록했는가
+- 웹 앱이라면 `update-deployment`로 갱신하고 있는가(URL 유지)
+- 버전 설명에 커밋 해시를 넣고 있는가
 - `.claspignore`의 디렉터리 패턴을 `**/dir/**` 형태로 썼는가
 - `.claspignore` 패턴이 `rootDir` 기준이라는 것을 반영했는가
-- `.clasprc.json`이 `.gitignore`에 있는가
+- `.clasprc.json`과 `client_secret.json`이 `.gitignore`에 있는가
+- 환경이 여럿이면 `--project`로 설정 파일을, `--user`로 자격 증명을 분리했는가
 - 조직 자산을 다룬다면 자체 GCP 프로젝트와 OAuth 클라이언트를 준비했는가
 - 필요한 API 넷(`script`, `serviceusage`, `drive`, `logging`)을 켰는가
-- 여러 배포 대상이 있다면 `--project`로 설정 파일을 분리했는가
 - CI 배포가 필요하다면 서비스 계정이 동작하지 않는다는 제약을 알고 대안을 정했는가
 - TypeScript를 쓴다면 번들러 설정과 `rootDir`를 빌드 출력으로 맞췄는가
+- 번들러를 쓴다면 트리거 대상 함수를 `globalThis`에 노출했는가
+- `filePushOrder`가 필요한 전역 초기화 파일이 있는지 확인했는가
 - 3.x로 올릴 때 `logs --setup`이나 `settings`를 쓰는 스크립트가 없는지 확인했는가
 
 ## 비평
@@ -440,6 +947,21 @@ API 자체의 제약이 이 문제를 키운다.
 파일 단위 연산도 원자적 연산도 없다는 것은 API 설계에서 로컬 개발이 일급 사용 사례가 아니었다는 뜻이고, clasp가 그 위에서 할 수 있는 최선을 하고 있는 것이다.
 즉 진짜 공백은 clasp가 아니라 Apps Script API에 있으며, 비공식 도구가 그 공백을 메우고 있다는 구조가 여러 해째 유지되고 있다.
 
+### README가 파일만 다룬다는 사실을 말하지 않는다
+
+이 README에서 가장 큰 누락이다.
+clasp를 쓰면 Apps Script 프로젝트를 로컬에서 개발하고 소스 관리에 넣을 수 있다고 첫 줄에서 말하는데, 실제로 소스 관리에 들어가는 것이 파일뿐이라는 사실은 어디에도 없다.
+
+Google 공식 가이드 쪽에는 그 문장이 있다. 트리거와 문서·사용자 속성은 직접 관리하지 않는다는 진술이다.
+그런데 대부분의 사용자가 먼저 읽는 것은 저장소 README이고, 두 문서 사이에 이 정보에 대한 상호 참조가 없다.
+
+이 누락이 비싼 이유는 실패 시점이 늦기 때문이다.
+개발 중에는 아무 문제가 없고, 새 환경에 배포하거나 재해 복구를 시도하는 순간에 드러난다.
+“저장소에 다 있으니 괜찮다”고 믿고 있던 시점과 그것이 틀렸다는 것을 아는 시점 사이가 몇 달일 수 있다.
+
+한 문단이면 될 일이었다. clasp가 관리하는 것은 프로젝트의 파일 집합이며 트리거와 속성과 배포 설정은 별도로 관리해야 한다는 문장이다.
+그리고 그 별도 관리를 어떻게 하는지에 대한 권장 패턴이 어느 문서에도 없다는 점이 더 아쉽다.
+
 ### MCP 모드를 실험적이라고 하면서 설치 안내에서는 대등하게 제시한다
 
 설치 절에서 Gemini CLI 확장과 Claude Code 플러그인이 npm 설치 바로 다음에 나온다.
@@ -450,6 +972,10 @@ Claude Code 쪽은 플러그인 설치를 권장으로 표시하기까지 한다
 
 이 불일치가 실무에서 문제가 되는 이유는, 에이전트로 Apps Script를 다루려는 사람이 설치 절만 보고 결정하기 때문이다.
 어떤 도구가 노출되는지, 어떤 작업이 CLI로만 가능한지를 알려면 문서를 더 내려가야 하며, 그 정보도 “제한된 부분집합”이라는 말 외에는 없다.
+
+그리고 에이전트에게 `push` 권한을 준다는 것이 이 플랫폼에서 무엇을 뜻하는지도 다루지 않는다.
+전체 교체이므로 에이전트의 잘못된 `push` 한 번이 원격 전체를 바꾸고, 트리거가 걸린 프로덕션 스크립트라면 그 즉시 실행된다.
+Git처럼 되돌릴 수 있다고 해도 그 사이에 실행된 부작용은 되돌아오지 않는다.
 
 그리고 자격 증명 전환에 서버 재시작이 필요하다는 제약이 MCP 절에만 있다.
 여러 계정으로 스크립트를 다루는 것이 이 도구의 주요 사용 패턴인데, 에이전트 경로에서는 그것이 매끄럽지 않다는 사실이 설치 안내에 없다.
@@ -471,6 +997,55 @@ Claude Code 쪽은 플러그인 설치를 권장으로 표시하기까지 한다
 `settings`는 프로젝트 설정을 조회하던 명령이고 `logs --setup`은 `setup-logs`로 옮겨 간 것처럼 보이지만 표에는 “N/A”로 적혀 있어, 실제로 어떻게 대응해야 하는지가 표만으로는 판단되지 않는다.
 
 ## 기억할 원칙
+
+### 버전 관리의 경계는 도구가 아니라 “무엇이 파일인가”가 정한다
+
+clasp를 쓰면 Apps Script가 Git으로 관리된다고 말할 수 있다.
+그 문장이 참인 범위는 정확히 파일로 표현되는 것까지다.
+
+이 구분이 Apps Script만의 이야기가 아니다.
+Kubernetes에서 매니페스트는 Git에 있지만 클러스터의 실제 상태는 아니고, Terraform에서 코드는 Git에 있지만 상태 파일과 수동 변경은 아니며, 데이터베이스에서 스키마 마이그레이션은 Git에 있지만 데이터는 아니다.
+어느 경우든 “코드를 버전 관리한다”와 “시스템을 재현할 수 있다”는 다른 주장이다.
+
+그래서 새 플랫폼을 코드로 관리하려 할 때 던져야 할 질문이 정해진다.
+이 시스템의 상태 중 파일로 표현되는 것과 그렇지 않은 것을 나누어 적어 보는 것이다.
+그 목록의 두 번째 열이 비어 있으면 운이 좋은 것이고, 비어 있지 않다면 그것을 코드로 끌어들일 방법을 따로 설계해야 한다.
+
+끌어들이는 방법은 대개 둘이다. 상태를 만드는 **절차**를 코드로 쓰는 것과, 현재 상태의 **스냅숏**을 파일로 내보내는 것이다.
+전자는 재현을 담당하고 후자는 검출을 담당하며, 둘 중 하나만으로는 부족하다.
+절차만 있으면 서버가 언제 어긋났는지 모르고, 스냅숏만 있으면 어긋난 것을 되돌릴 방법이 없다.
+
+### 조용한 덮어쓰기는 도구가 아니라 검사 절차로 막는다
+
+Git이 웹 편집기 편집을 경고해 주지 못하는 이유는 단순하다. 그 변경이 Git을 거치지 않았기 때문이다.
+어떤 버전 관리 도구도 자기가 관측하지 못한 변경에 대해서는 충돌을 낼 수 없다.
+
+이 구조가 반복적으로 나타난다.
+누군가 프로덕션 서버에 직접 접속해 설정 파일을 고치면 Ansible이 조용히 덮고, 콘솔에서 보안 그룹을 바꾸면 Terraform이 조용히 되돌린다.
+공통점은 시스템에 쓰기 경로가 둘인데 한쪽만 이력을 남긴다는 것이다.
+
+해법은 두 가지뿐이고 둘 다 도구 바깥에 있다.
+하나는 두 번째 경로를 막는 것이다. 권한으로 웹 편집기 접근을 제한하거나 콘솔 쓰기 권한을 회수하는 것이다.
+다른 하나는 적용 직전에 실제 상태를 읽어 기대 상태와 비교하는 것이다. Terraform의 plan, Kubernetes의 diff, 그리고 여기서는 `clasp pull` 후 비교다.
+
+두 번째가 거의 항상 더 현실적이다. 첫 번째는 조직 정책 변경을 요구하고 예외 요청을 낳기 때문이다.
+그리고 이 검사는 사람이 기억해야 하는 절차가 아니라 배포 스크립트의 한 줄이어야 한다.
+기억에 의존하는 규율은 바쁜 날에 가장 먼저 무너지고, 조용한 덮어쓰기는 바쁜 날에 일어난다.
+
+### 배포 단위를 코드 단위와 명시적으로 연결하지 않으면 추적이 끊긴다
+
+Apps Script는 코드의 스냅숏(버전)과 실행되는 것(배포)을 분리한다.
+그리고 그 둘 어디에도 커밋 해시가 자동으로 들어가지 않는다.
+
+이 공백을 메우지 않으면 몇 달 뒤 “지금 프로덕션에 도는 게 어느 코드인가”에 답할 수 없다.
+Apps Script 콘솔은 버전 7이라고 말해 주고 Git은 커밋 `a1b2c3`이 있다고 말해 주는데, 둘을 잇는 것이 아무것도 없다.
+
+해법은 저렴하다. 버전을 만들 때 설명에 커밋 해시를 넣는 것이다.
+`clasp create-version "$(git rev-parse --short HEAD) $(git log -1 --pretty=%s)"` 한 줄이면 된다.
+
+이 원칙은 Apps Script 바깥에서도 같다.
+Docker 이미지 태그에 커밋 해시를 넣고, 빌드 산출물에 버전 정보를 심고, 배포 이벤트에 리비전을 기록하는 것이 전부 같은 일이다.
+런타임이 자기 출처를 말할 수 있어야 사고 조사가 성립하며, 그 연결은 배포 시점에 한 줄로 만드는 것이 나중에 역추적하는 것보다 압도적으로 싸다.
 
 ### 플랫폼 API가 부분 갱신을 제공하지 않으면 그 위의 모든 도구가 전체 교체 도구가 된다
 
