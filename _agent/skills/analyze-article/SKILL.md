@@ -8,9 +8,10 @@ description: >-
   `## 요약` section; non-articles get bare `<URL>` line(s) with NO `원문:`
   label, no titled link, and a fitting first heading like `## 소개`. Body
   structure follows the source's own job — analytical for a piece that argues,
-  practical for one that teaches. Takes a URL as an argument. Use when the user
-  asks to analyze an article/repo/site, document it, or organize a technical
-  post.
+  practical for one that teaches. The document shape is a closed spec enforced
+  by scripts/check_format.py, which must print OK before the file is reported
+  as written. Takes a URL as an argument. Use when the user asks to analyze an
+  article/repo/site, document it, or organize a technical post.
 argument-hint: '<url> [output-path]'
 disable-model-invocation: true
 ---
@@ -37,9 +38,12 @@ The user often pastes several URLs at once, sometimes each on its own
 `/analyze-article` line. Treat that as a queue, not as an error.
 
 - Run the full procedure below once per URL, in the order given.
-- Finish one document completely — write, quote-convert, weave community
-  reactions — before starting the next. Do NOT write all summaries first and
+- Finish one document completely — write, run the post-processing and the
+  format gate of step 8b, weave community reactions, run the gate again in
+  step 10 — before starting the next. Do NOT write all summaries first and
   circle back.
+- A long queue never justifies skipping the gate for a file. A file that has
+  not printed `OK` is not finished and does not belong in the summary table.
 - If a URL turns out to be a duplicate or cannot be fetched, report that one
   and continue to the next. A single failure never aborts the queue.
 - Report at the end as a table: one row per URL, with the resulting path or
@@ -213,6 +217,13 @@ explicitly rather than improvising.
 | YouTube           | Transcript or description via WebFetch  | `영상: [<영상 제목>](URL)`         |
 | Paper (PDF/arXiv) | WebFetch, or Read the PDF               | `논문: [<논문 제목>](URL)`         |
 | Press release     | WebFetch                                | `원문: [<제목>](URL)`              |
+| Forum post (GN/HN) | WebFetch, or the site's JSON API       | `Ask GN: [<제목>](URL)` 등         |
+
+A forum post that is itself the subject — a GeekNews `Ask GN` / `Show GN`
+thread, a Hacker News `Ask HN` / `Show HN` thread — is a published piece, so
+it takes a labeled titled link. The label repeats the thread's own prefix:
+`Ask GN:`, `Show GN:`, `Ask HN:`, `Show HN:`. Do not also add a `GN 토론:` or
+`HN 토론:` line pointing at the same thread; the source line already is it.
 
 For Twitter / X, `twitter.com` is used instead of `x.com` per
 `writing-guidelines.md`. For a long tweet, call it a `트윗`, not a `스레드`,
@@ -230,11 +241,20 @@ from prior knowledge of the subject.
 
 The first top-level section depends on the same classification:
 
-- **Article** → `## 요약` (summary).
+- **Article** → `## 요약` is the usual opening, but it is not the only one.
+  Choose the heading that matches what the first section actually does: a
+  piece that argues gets `## 요약`; a reference or a tutorial may open with
+  `## 소개`, a long document may open with `## 목차`. The document's type
+  decides, not a blanket rule.
 - **Non-article** → do NOT use `## 요약`. Choose a heading that fits what the
   section actually covers — e.g. `## 소개`, `## 명세`, `## 사용법`,
   `## 주요 기능`, `## CLI`. A single subject may warrant multiple top-level
   sections if its content naturally splits.
+
+What is fixed is not the name of the opening section but the body structure
+step 5a selects. Getting `## 요약` versus `## 소개` slightly wrong is a matter
+of fit; shipping a document that was supposed to carry the analytical body and
+carries only half of it is a defect.
 
 ### 5a. Choose the body structure — argue vs. teach (CRITICAL)
 
@@ -260,9 +280,19 @@ Decide which of these the source is, then use the matching body:
   practice, and how to verify. End with a short `## 기억할 원칙` when there is a
   transferable principle worth stating.
 
-When a teaching source still carries a strong claim worth contesting, a single
-`## 비평` section is welcome — but it is one section among practical ones, not
-the spine of the document.
+**The analytical body is all-or-nothing.** If you pick it, the document
+carries `## 분석`, `## 비평` and `## 인사이트`, all three, in that order. A
+document that analyses and then offers insights without ever challenging the
+source is the most common way this structure fails, and 비평 is the section
+that makes the note worth more than the source. Half the structure is a
+defect, not a lighter version of it. The format gate in step 8b enforces this:
+once `## 분석` appears, all three must appear, in that order.
+
+A practical note is free to borrow one of these headings without owing the
+other two. When a teaching source carries a strong claim worth contesting, a
+single `## 비평` among practical sections is welcome; a practical note may
+likewise close with `## 인사이트` instead of `## 기억할 원칙`. What marks a
+document as analytical — and therefore owing all three — is `## 분석`.
 
 When genuinely torn, ask what the reader will do with the note. If they will
 *think differently*, the source argues. If they will *build something*, it
@@ -373,6 +403,8 @@ the note.
 
 ## <첫 섹션: 요약 또는 소개>
 
+Pick per step 5. A non-article never uses `## 요약`.
+
 What this is and what contract it offers. For a spec or reference, state the
 guarantee and its exact boundary — what it promises, and what it explicitly
 does not.
@@ -428,6 +460,10 @@ it.
 
 ### 7. Writing rules
 
+Most of the rules below are enforced mechanically by the format gate in step
+8b. They are written out here so you produce a conforming document the first
+time, rather than writing freely and patching afterwards.
+
 - Follow `_agent/rules/writing-guidelines.md` in full: heading spacing, CJK
   table alignment, inline code, fenced-block language identifiers, the `박다`
   vocabulary ban, and the rule that structure belongs to headings and never to
@@ -440,7 +476,7 @@ it.
   columns, not any other — and never indent a continuation line, because an
   indented line renders as a code block. This applies to prose only; tables,
   code blocks, headings, and footnote/URL lines are exempt. Check this before
-  invoking `quotes-curly` in step 9, not after.
+  invoking the post-processing of step 8b, not after.
 - Every fenced code block carries a language identifier (`python`, `bash`,
   `text`, …). A bare fence is always wrong.
 - Code in a teaching note must be runnable, not illustrative. Prefer a complete
@@ -457,11 +493,15 @@ it.
   parts of the source and has thought carefully about why.
 - Maintain the same tone and depth as existing TIL documents.
 
-### 7a. Link and footnote conventions
+### 7a. Document shape — CLOSED SPEC (NO EXCEPTIONS)
 
-Lines under the H1 appear in this order, each separated by a blank line:
+**A document produced by this skill has exactly the shape below. The set of
+line kinds allowed above the first `##` is closed: nothing else may appear
+there, however useful it seems.**
 
 ```markdown
+# <한국어 제목>
+
 원문: [<원문 제목>](<URL>)
 
 HN 토론: <URL> (<점수>점, <댓글 수>개 댓글)
@@ -469,23 +509,70 @@ HN 토론: <URL> (<점수>점, <댓글 수>개 댓글)
 Lobste.rs 토론: <URL> (<점수>점, <댓글 수>개 댓글)
 
 GN 토론: <URL>
+
+## <첫 섹션>
+
+...본문...
+
+---
+
+[^handle]: <URL>
 ```
 
-The discussion lines are added by the reaction skills in step 10 — do not
-invent them yourself. Keep the bare `<URL>` form for all three.
+Rules that follow from it:
 
-When a reaction skill weaves in a comment, the comment is attributed inline and
-linked with a footnote whose label is the commenter's handle:
+- The H1 is line 1, Korean prose, followed by one blank line.
+- Exactly one source line, in the form step 4 selected. A non-article may use
+  two or more consecutive bare `<URL>` lines (homepage first, then repo), each
+  separated by a blank line.
+- Discussion lines come after the source line, one per line, separated by
+  blank lines, in the order HN → Lobste.rs → GN. HN and Lobste.rs carry
+  `(N점, N개 댓글)`; GN carries the bare URL alone. Two threads on the same
+  platform for the same subject get two lines of that platform, adjacent.
+- **No other labeled line exists.** `제품 페이지:`, `저자:`, `발표:`,
+  `관련 글:` and every other invented label is forbidden. Information like
+  that belongs in a body section, in prose.
+- The discussion lines are written by the reaction skills in step 9. Do not
+  invent, guess, or pre-fill them.
+
+**Sections are a closed set too.** Use the headings the step 6 template for
+your chosen body gives you, plus subject-fitting sections for a non-article.
+Never add a section that reports on the *process* of writing the document.
+`## 반응 현황`, `## 반응`, `## 커뮤니티 반응` and the like are forbidden: when
+a platform has no thread, that is reported to the user in chat, never as a
+section of the document. A document records what is true about the subject,
+not what the search turned up.
+
+### 7b. Footnotes — STRICT RULE (NO EXCEPTIONS)
+
+A woven-in reaction is attributed inline and carried by a footnote whose label
+is the commenter's handle:
 
 ```markdown
 tttttaa는 회색지대 사례를 살펴볼수록 미묘해진다고 적었다.[^tttttaa]
 
-[^tttttaa]: <https://news.hada.io/topic?id=33582#comment-123456>
+[^tttttaa]: <https://news.hada.io/topic?id=33582#cid123456>
 ```
 
-Footnote definitions collect at the bottom of the document, after the last
-body section. Each label is the handle exactly as that site spells it, and
-each target is a permalink to the individual comment — never the thread root.
+1. Definitions collect at the bottom, after the last body section, under a
+   `---` rule, one per line, separated by blank lines.
+2. Every definition is a bare `<URL>` in angle brackets. No prose, no quoted
+   comment text, no trailing commentary.
+3. The target is a permalink to the individual comment, never the thread root.
+4. Labels and definitions are one-to-one. A defined label that nothing
+   references, and a reference with no definition, are both defects.
+5. The label is the handle exactly as that site spells it. On a collision with
+   an existing label, disambiguate with a suffix (`[^handle-lobsters]`), never
+   by renaming the person.
+6. **Never write an anchor you have not observed.** Comment ids are read off
+   the page or the API response you actually fetched. Constructing one that
+   looks plausible — guessing a `#cid`, incrementing an id, reusing a
+   neighbouring comment's anchor — is fabrication, and it has happened in this
+   repository before. If you cannot see the id, do not cite the comment.
+7. A footnote reference must not sit inside a code fence or an inline code
+   span. Regex character classes like `[^,]` and `[^)]` inside a fence read as
+   footnote syntax to some tooling; rewrite the expression or move it out of
+   the snippet rather than leaving the collision in place.
 
 ### 8. Output
 
@@ -516,40 +603,61 @@ though the H1 is Korean (step 3a).
    thing this is?
 3. Delete every word that answers the second question.
 
-### 8b. Verify the document before post-processing
+### 8b. Post-processing and the format gate — MANDATORY SEQUENCE
 
-Run this against the file you just wrote. Every item is checkable by reading
-the file — do not report a document as written until all of them pass.
+**Run these four commands, in this order, every time, on every file this
+skill writes or enhances. The document is not written until they pass.**
 
-1. Is the H1 Korean prose, not the source title transliterated or pasted?
-2. Does the source line match the subject's kind — `원문: [제목](URL)` for a
-   published piece, a bare `<URL>` for a repo or homepage?
-3. Does the body structure match step 5a's choice — analytical for a source
+```bash
+# 1. straight quotes → curly, outside fenced code
+python3 .claude/skills/quotes-curly/scripts/convert_quotes.py <file>
+
+# 2. restore straight quotes inside inline `code spans`
+#    (convert_quotes.py skips fenced blocks but not spans)
+python3 .claude/skills/analyze-article/scripts/fix_code_spans.py <file>
+
+# 3. pad table cells so the pipes line up (CJK counts as two)
+python3 .claude/skills/analyze-article/scripts/align_tables.py <file>
+
+# 4. the format gate
+python3 .claude/skills/analyze-article/scripts/check_format.py <file>
+```
+
+`check_format.py` enforces the mechanical half of this skill: the H1, the
+closed header block of step 7a, the source-line form of step 4, the ban on
+`## 요약` in a non-article, the completeness and order of the analytical body
+from step 5a, code-fence language identifiers,
+CJK table alignment, standalone bold lines, indentation that would render as
+a code block, the `박다` vocabulary ban, quote direction inside and outside
+code, and footnote integrity from step 7b.
+
+It prints `OK` or `FAIL` with a line number for each defect. **A `FAIL` is
+not advisory.** Fix the file and run it again until it prints `OK`. Never
+report a document as finished, and never move to the next URL in a queue,
+while the gate is failing. Do not edit the gate to make a document pass.
+
+If you believe the gate is wrong about a specific rule, say so to the user
+and stop; do not route around it silently.
+
+### 8c. What the gate cannot check
+
+The script checks shape. These remain your judgment, and are checked by
+reading the file you just wrote:
+
+1. Is the H1 Korean prose that carries the source's claim, rather than a
+   transliteration or a flattened topic label?
+2. Does the body structure match step 5a's choice — analytical for a source
    that argues, practical for one that teaches?
-4. Does every fenced code block carry a language identifier?
-5. Is there any line that is entirely bold and followed by body text it
-   introduces? If so it is a heading in disguise; convert or dissolve it.
-6. Are CJK table columns padded so the pipes align (Korean characters count
-   as two)?
-7. Does any `박다`-stem verb appear? Replace it.
-8. Does any prose line break at a fixed width rather than a sentence or clause
-   boundary? Does any continuation line start with indentation?
-9. Do the sections do different work, or do two of them restate each other?
+3. Do the sections do different work, or do two of them restate each other?
+4. Is every number, name, and quoted phrase traceable to the fetched text
+   rather than to memory?
+5. Does every footnote point at a comment you actually observed?
+6. Is the file name the subject and nothing else (step 8a)?
 
-Fix what fails before moving on. A defect found here costs one edit; the same
-defect found after the reaction skills have woven comments into the document
-costs a careful merge.
+### 9. Community reactions
 
-### 9. Post-processing
-
-After creating the file, invoke the `quotes-curly` skill via the Skill tool
-with the output file path as the argument. Show the conversion result to the
-user.
-
-### 10. Community reactions
-
-After post-processing, automatically invoke the following three skills in
-sequence via the Skill tool, passing the output file path as the argument to
+After the gate in step 8b has printed `OK`, automatically invoke the
+following three skills in sequence via the Skill tool, passing the output file path as the argument to
 each:
 
 1. `hackernews-reactions` — finds the Hacker News thread and weaves key
@@ -589,3 +697,24 @@ friction be a reason to defer or drop it. "I already checked HN and that
 was thin, so GN is probably thin too" is not a valid basis for skipping the
 GN check — each source must be searched independently regardless of what
 the others returned.
+
+### 10. Run the format gate again — FINAL STEP
+
+The reaction skills in step 9 edit the document: they insert discussion lines
+into the header block, weave sentences into body sections, and append footnote
+definitions. Every one of those edits can break the shape that step 8b just
+certified — a discussion line in the wrong order or missing its counts, a
+footnote defined but never referenced, a handle colliding with an existing
+label, curly quotes landing inside a code span in a quoted comment.
+
+So the gate runs a second time, after the last reaction skill has finished:
+
+```bash
+python3 .claude/skills/analyze-article/scripts/check_format.py <file>
+```
+
+**A document is finished when this second run prints `OK`.** Not when the
+prose is good, not when the reactions are woven in, not when the queue is
+long and the next URL is waiting. Report the file as complete only after
+you have seen `OK` from this run, and in a queue report only files that
+reached it.
