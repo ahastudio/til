@@ -163,13 +163,13 @@ MC/DC는 단순히 분기를 덮는 게 아니라,
 
 속도는 신중한 결정에서 나온다:
 
-| 설계 결정               | SQLite              | Rust 재구현체              |
-| ----------------------- | ------------------- | -------------------------- |
-| 페이지 캐시             | 제로카피 직접 포인터 | `.to_vec()` 매번 복사      |
-| 준비된 구문             | 컴파일 1회, 재사용   | 매 호출마다 재컴파일       |
-| 스키마 확인             | 쿠키 정수 1개 비교   | B-tree 순회 + 전체 재파싱  |
-| 동기화                  | `fdatasync`         | `sync_all`                 |
-| iPK 체크                | `where.c` 한 줄     | 구현됐으나 미사용          |
+| 설계 결정   | SQLite               | Rust 재구현체             |
+| ----------- | -------------------- | ------------------------- |
+| 페이지 캐시 | 제로카피 직접 포인터 | `.to_vec()` 매번 복사     |
+| 준비된 구문 | 컴파일 1회, 재사용   | 매 호출마다 재컴파일      |
+| 스키마 확인 | 쿠키 정수 1개 비교   | B-tree 순회 + 전체 재파싱 |
+| 동기화      | `fdatasync`          | `sync_all`                |
+| iPK 체크    | `where.c` 한 줄      | 구현됐으나 미사용         |
 
 Tony Hoare의 1980 튜링상 강연:
 
@@ -181,7 +181,7 @@ Tony Hoare의 1980 튜링상 강연:
 이것은 “정확성 먼저, 최적화 나중에”가 아니라
 **정확성 자체의 부재**다.
 
-## 비판
+## 비평
 
 ### 1. 선택 편향: 최악의 사례를 일반화하는 위험
 
@@ -608,7 +608,11 @@ LLM은 후자를 쉽게 만들었다.
 ---
 
 [^amw-zero-lobsters]: <https://lobste.rs/s/dnqcvh/your_llm_doesn_t_write_correct_code_it#r3rtdu>
+
 [^internetjanitor-lobsters]: <https://lobste.rs/s/dnqcvh/your_llm_doesn_t_write_correct_code_it#ytfvay>
+
 [^marginalia-lobsters]: <https://lobste.rs/s/dnqcvh/your_llm_doesn_t_write_correct_code_it#snfkt4>
+
 [^sunshowers-lobsters]: <https://lobste.rs/s/dnqcvh/your_llm_doesn_t_write_correct_code_it#xj6vou>
+
 [^reezer-lobsters]: <https://lobste.rs/s/dnqcvh/your_llm_doesn_t_write_correct_code_it#ag5swg>
