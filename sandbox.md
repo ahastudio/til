@@ -4917,7 +4917,7 @@
 ### 2. Python 3.15's JIT is now back on track
 
 - **출처**: Hacker News (top) —
-  <https://fidget-spinner.github.io/posts/jit-is-back.html>
+  <https://fidget-spinner.github.io/posts/jit-on-track.html>
 - **한 줄 요약**: Python 3.15에서 JIT 컴파일러가 다시 본격 궤도에 올라, 실제
   병목 구간의 성능 개선 가능성이 커지고 있다.
 - **왜 주목받나**: HN에서 약 470점·290댓글을 기록했고, 파이썬의 고질적인 성능
@@ -5002,7 +5002,7 @@
 ### 6. A tale about fixing eBPF spinlock issues
 
 - **출처**: Hacker News (new) —
-  <https://tanelpoder.com/posts/tale-about-ebpf-spinlock-issues/>
+  <https://rovarma.com/articles/a-tale-about-fixing-ebpf-spinlock-issues-in-the-linux-kernel/>
 - **한 줄 요약**: eBPF 스핀락 문제를 추적하고 고친 과정을 통해, 커널 레벨 동시성
   버그를 어떻게 관측하고 좁혀가는지 보여주는 실전 디버깅 기록이다.
 - **왜 주목받나**: HN에서 약 156점·15댓글을 기록했고, 화려한 뉴스보다 드문 “진짜
@@ -5023,7 +5023,7 @@
 ### 7. Edge.js: Run Node apps inside a WebAssembly sandbox
 
 - **출처**: Hacker News (top) —
-  <https://wasmer.io/posts/edge-js-run-node-apps-inside-a-webassembly-sandbox>
+  <https://wasmer.io/posts/edgejs-safe-nodejs-using-wasm-sandbox>
 - **한 줄 요약**: Wasmer의 Edge.js는 Node.js 애플리케이션을 WebAssembly 샌드박스
   안에서 실행해 배포성과 격리를 동시에 노린다.
 - **왜 주목받나**: HN에서 약 163점·44댓글을 기록했고, Node 실행 환경을 더
@@ -5626,7 +5626,7 @@
 ### 5. ZJIT removes redundant object loads and stores
 
 - **출처**: Hacker News (top) —
-  <https://railsatscale.com/2026-03-21-zjit-removes-redundant-object-loads-and-stores/>
+  <https://railsatscale.com/2026-03-18-how-zjit-removes-redundant-object-loads-and-stores/>
 - **한 줄 요약**: Ruby ZJIT가 불필요한 객체 로드·스토어를 제거해 Ruby/Rails 실행
   경로의 메모리 접근 오버헤드를 줄이는 최적화를 소개했다.
 - **왜 주목받나**: HN에서 약 83점·16댓글을 기록했고, 언어 런타임 내부 최적화가
@@ -5647,7 +5647,7 @@
 ### 6. How we give every user SQL access to a shared ClickHouse cluster
 
 - **출처**: Hacker News (top) —
-  <https://trigger.dev/blog/how-we-give-every-user-sql-access-to-a-shared-clickhouse-cluster>
+  <https://trigger.dev/blog/how-trql-works>
 - **한 줄 요약**: Trigger.dev가 멀티테넌트 환경에서 사용자별로 안전한 SQL 접근을
   제공하기 위해 쿼리 파싱·검증·컴파일 계층을 설계한 과정을 공개했다.
 - **왜 주목받나**: HN에서 약 67점·77댓글을 받았고, “사용자에게 SQL을 열어주되
@@ -5979,7 +5979,7 @@
 ### 1. iPhone 17 Pro Demonstrated Running a 400B LLM
 
 - **출처**: Hacker News (top) —
-  <https://twitter.com/anemll/status/1904313313611243584>
+  <https://twitter.com/anemll/status/2035901335984611412>
 - **한 줄 요약**: 아이폰 17 Pro에서 400B 규모 LLM을 구동하는 데모가 공개되며,
   온디바이스 추론의 현실적인 상한선이 다시 올라갔다.
 - **왜 주목받나**: HN에서 약 523점·248댓글을 기록했고, 모바일에서도 대규모 모델
@@ -6000,7 +6000,7 @@
 
 ### 2. Autoresearch on an old research idea
 
-- **출처**: Hacker News (top) — <https://ykumar.me/autoresearch-old-idea/>
+- **출처**: Hacker News (top) — <https://ykumar.me/blog/eclip-autoresearch/>
 - **한 줄 요약**: 에이전트 기반 자동 연구 워크플로로 오래된 아이디어를 다시
   탐색한 실험이, "연구 자동화"의 실제 활용 가능성을 보여줬다.
 - **왜 주목받나**: HN에서 약 309점·68댓글을 얻었고, AI를 단순 코딩 보조가 아닌
@@ -6041,7 +6041,7 @@
 ### 4. I built an AI receptionist for a mechanic shop
 
 - **출처**: Hacker News (top) —
-  <https://www.itsthatlady.dev/blog/ai-receptionist-mechanic-shop>
+  <https://www.itsthatlady.dev/blog/building-an-ai-receptionist-for-my-brother/>
 - **한 줄 요약**: 작은 오프라인 비즈니스에 맞춘 AI 접수·응대 시스템 구현기가,
   실제 전화/예약 자동화의 적용 방식을 구체적으로 보여줬다.
 - **왜 주목받나**: HN에서 약 235점·258댓글로 반응이 매우 컸고, "AI가 실제
@@ -6084,7 +6084,7 @@
 ### 6. Trivy under attack again: Widespread GitHub Actions tag compromise secrets
 
 - **출처**: Hacker News (top/new) —
-  <https://socket.dev/blog/trivy-under-attack-again-widespread-github-actions-tag-compromise-secrets>
+  <https://socket.dev/blog/trivy-under-attack-again-github-actions-compromise>
 - **한 줄 요약**: Trivy 관련 GitHub Actions 태그 악용 사례가 다시 퍼지며, CI
   보안 체인의 취약점이 재점검되고 있다.
 - **왜 주목받나**: HN에서 약 174점·63댓글을 얻었고, 공급망 공격이 이제 패키지뿐
@@ -6103,7 +6103,7 @@
 
 ### 7. An incoherent Rust
 
-- **출처**: Hacker News (top) — <https://www.boxyuwu.blog/incoherent-rust/>
+- **출처**: Hacker News (top) — <https://www.boxyuwu.blog/posts/an-incoherent-rust/>
 - **한 줄 요약**: Rust의 coherence와 trait 시스템을 파고드는 글이, 타입 시스템
   설계와 API 안정성 문제를 다시 조명했다.
 - **왜 주목받나**: HN에서 약 147점·66댓글을 기록했고, 실무 Rust 사용자들이 자주
@@ -6124,7 +6124,7 @@
 ### 8. Finding all regex matches has always been O(n²)
 
 - **출처**: Hacker News (top) —
-  <https://iev.ee/posts/2026-03-23-finding-all-regex-matches-has-always-been-on2/>
+  <https://iev.ee/blog/the-quadratic-problem-nobody-fixed/>
 - **한 줄 요약**: "모든 매치를 찾는 정규식 처리"가 구조적으로 O(n²) 문제가 될 수
   있다는 설명이, 문자열 처리 성능의 숨은 함정을 짚었다.
 - **왜 주목받나**: HN에서 약 173점·44댓글을 기록했고, 겉보기엔 단순한 API 사용이
@@ -6144,7 +6144,7 @@
 
 ### 9. If DSPy is so great, why isn't anyone using it?
 
-- **출처**: Hacker News (top) — <https://skylarbpayne.com/posts/dspy-critique>
+- **출처**: Hacker News (top) — <https://skylarbpayne.com/posts/dspy-engineering-patterns/>
 - **한 줄 요약**: DSPy의 장점과 실제 채택 저항을 함께 다룬 비판적 글이, LLM
   오케스트레이션 프레임워크 도입 기준을 다시 생각하게 만들었다.
 - **왜 주목받나**: HN에서 약 199점·113댓글을 얻었고, 프레임워크 자체보다 "왜
@@ -7068,7 +7068,7 @@
 
 ### 2. I decompiled the White House's new app
 
-- **출처**: Hacker News (top) — <https://thereallo.dev/posts/whitehouse-app/>
+- **출처**: Hacker News (top) — <https://thereallo.dev/blog/decompiling-the-white-house-app>
 - **한 줄 요약**: 새 White House 앱을 디컴파일해 내부 구조, API 호출 방식,
   패키징 흔적을 분석한 실전 리버스엔지니어링 사례다.
 - **왜 주목받나**: HN top에서 약 406점·148댓글로 반응이 컸고, 모바일 앱 분석과
@@ -7089,7 +7089,7 @@
 ### 3. Linux is an interpreter
 
 - **출처**: Hacker News (top) —
-  <https://astrid.tech/2026/03/28/linux-is-an-interpreter/>
+  <https://astrid.tech/2026/03/28/0/linux-is-an-interpreter/>
 - **한 줄 요약**: ELF 로딩과 실행 관점에서 운영체제 커널을 일종의 인터프리터로
   보는 사고 실험을 통해 실행 모델을 다시 설명한 글이다.
 - **왜 주목받나**: HN top에서 약 168점·33댓글을 기록했고, OS·런타임·실행 파일
@@ -7111,7 +7111,7 @@
 ### 4. Detecting file changes on macOS with kqueue
 
 - **출처**: Hacker News (top) —
-  <https://www.vegardstikbakke.com/how-does-watching-for-file-changes-work-on-macos/>
+  <https://www.vegardstikbakke.com/kqueue/>
 - **한 줄 요약**: macOS에서 `kqueue` 기반 파일 변경 감지가 어떤 이벤트 모델로
   동작하는지, 구현 시 주의점이 무엇인지 설명한 글이다.
 - **왜 주목받나**: HN top에서 약 68점·11댓글로 반응을 얻었고, 개발 도구의 기본
@@ -7946,7 +7946,7 @@
 ### 2. Subscription bombing and how to mitigate it
 
 - **출처**: bytemash (HN top) —
-  <https://bytemash.net/posts/subscription-bombing/>
+  <https://bytemash.net/posts/subscription-bombing-your-signup-form-is-a-weapon/>
 - **한 줄 요약**: 공격자가 피해자 이메일로 수백 개 서비스에 가입해 보안 알림을
   묻어버리는 `subscription bombing` 공격과 완화 방법을 정리한 글이다.
 - **왜 주목받나**: HN에서 약 133점·101댓글을 기록했고, 공격 자체보다 “우리
@@ -10750,7 +10750,7 @@
 
 ### 3. I Just Want Simple S3
 
-- **출처**: Hacker News (top) — <https://blog.feld.me/i-just-want-simple-s3/>
+- **출처**: Hacker News (top) — <https://blog.feld.me/posts/2026/04/i-just-want-simple-s3/>
 - **한 줄 요약**: 단순하고 빠른 로컬 S3 호환 스토리지를 찾기 위해 MinIO,
   SeaweedFS, Garage, Ceph 등을 비교하고 실제로 쓸 만한 선택지를 정리한 글이다.
 - **왜 주목받나**: HN top에서 약 208점·112댓글을 기록했고, 과한 분산 스토리지가
@@ -15728,7 +15728,7 @@
 ### 10. cheahjs / free-llm-api-resources
 
 - **출처**: GitHub Trending (오늘) —
-  <https://github.com/cheahjs/free-llm-api-resources>
+  <https://github.com/cheahjs/free-llm-api-resources> (URL 미확인)
 - **한 줄 요약**: 무료로 접근 가능한 LLM 추론 API 리소스를 정리한 목록형
   저장소가 오늘 트렌딩에 올랐다.
 - **왜 주목받나**: GitHub Trending today에서 전체 약 20.4k stars와 오늘 255
@@ -15881,7 +15881,7 @@
 ### 7. Show HN: Alien – Self-hosting with remote management
 
 - **출처**: Hacker News (show) / TokenBurn —
-  <https://www.tokenburn.fyi/article/show-hn-alien-self-hosting-with-remote-management-written-in-rust>
+  <https://news.ycombinator.com/item?id=47835599>
 - **한 줄 요약**: `Rust`로 작성된 self-hosting 원격 관리 도구가 고객 환경 배포와
   운영 자동화 문제를 겨냥한다.
 - **왜 주목받나**: HN에서 수십 점대 추천과 활발한 댓글을 얻었고, SaaS와
@@ -17936,7 +17936,7 @@
 ### 2. Native all the way, until you need text
 
 - **출처**: Hacker News —
-  <https://textslashplain.com/2026/05/17/native-all-the-way-until-you-need-text/>
+  <https://justsitandgrin.im/posts/native-all-the-way-until-you-need-text/>
 - **한 줄 요약**: 네이티브 앱도 텍스트 입력, 렌더링, 접근성, 국제화가 얽히면
   구현 복잡도가 급격히 높아진다는 글입니다.
 - **왜 주목받나**: 네이티브 UI와 웹 UI의 장단점을 실제 텍스트 처리 문제로 비교해
@@ -17958,7 +17958,7 @@
 ### 3. Apple Silicon costs more than OpenRouter
 
 - **출처**: Hacker News —
-  <https://theahura.substack.com/p/apple-silicon-costs-more-than-openrouter>
+  <https://www.williamangel.net/blog/2026/05/17/offline-llm-energy-use.html>
 - **한 줄 요약**: 로컬 Apple Silicon 기반 AI 실행 비용과 API 기반 추론 비용을
   비교하며 로컬 LLM 경제성을 따져본 글입니다.
 - **왜 주목받나**: 로컬 AI 하드웨어 구매와 클라우드/API 사용 사이의 비용 계산이
@@ -17980,7 +17980,7 @@
 ### 4. Hosting a website on an 8-bit microcontroller
 
 - **출처**: Hacker News —
-  <https://noah.meyerhans.us/blog/2026/05/16/hosting-a-website-on-an-8-bit-microcontroller/>
+  <https://maurycyz.com/projects/mcusite/>
 - **한 줄 요약**: 8비트 마이크로컨트롤러에서 웹사이트를 호스팅하며 극저자원
   환경의 네트워킹과 최적화를 다룬 실험입니다.
 - **왜 주목받나**: 제한된 메모리와 처리 능력 안에서 웹 서버를 구현한 사례가
@@ -18001,7 +18001,7 @@
 
 ### 5. C++26 Shipped a SIMD Library Nobody Asked For
 
-- **출처**: Hacker News — <https://ashvardanian.com/posts/cpp26-simd-library/>
+- **출처**: Hacker News — <https://lucisqr.substack.com/p/c26-shipped-a-simd-library-nobody>
 - **한 줄 요약**: C++26 표준 SIMD 라이브러리의 설계와 현실적인 성능 포터빌리티
   문제를 비판적으로 살펴본 글입니다.
 - **왜 주목받나**: 표준 라이브러리의 방향이 실제 고성능 코드 작성에 얼마나
@@ -18023,7 +18023,7 @@
 ### 6. I turned a $80 RK3562 Android tablet into a Debian Linux workstation
 
 - **출처**: Hacker News —
-  <https://celestia.moe/posts/2026-05-16-android-tablet-linux>
+  <https://github.com/tech4bot/rk3562deb>
 - **한 줄 요약**: 저가 Android 태블릿을 Debian Linux 워크스테이션으로 전환한
   실전 기록입니다.
 - **왜 주목받나**: 저렴한 ARM 하드웨어를 범용 개발 장비로 바꾸는 과정이
@@ -18824,7 +18824,7 @@
 ### 3. Indexing a year of video locally on a 2021 MacBook with Gemma4-31B
 
 - **출처**: Hacker News (top) —
-  <https://blog.simbastack.com/p/indexing-a-year-of-video-locally>
+  <https://blog.simbastack.com/indexed-a-year-of-video-locally/>
 - **한 줄 요약**: 2021년형 MacBook에서 Gemma 4 31B와 로컬 파이프라인으로 1년치
   영상을 검색 가능한 아카이브로 만든 실험입니다.
 - **왜 주목받나**: HN top에서 291 points, 91 comments를 기록하며, 고가 SaaS 없이
@@ -19333,7 +19333,7 @@
 ### 6. --dangerously-skip-reading-code
 
 - **출처**: Hacker News (top) / olano.dev —
-  <https://olano.dev/blog/dangerously-skip-reading-code/>
+  <https://olano.dev/blog/dangerously-skip/>
 - **한 줄 요약**: AI가 생성한 코드를 사람이 읽지 않는 흐름이 가능하더라도, 그에
   맞는 검증·책임 모델이 없으면 위험하다는 문제 제기입니다.
 - **왜 주목받나**: HN top에서 약 102 points, 117 comments를 기록했고, 에이전트형
@@ -19445,7 +19445,7 @@
 ### 1. Jira Is Turing Complete
 
 - **출처**: Hacker News (top) —
-  <https://beza1e1.tuxen.de/lore/jira_turing_complete.html>
+  <https://seriot.ch/computation/jira.html>
 - **한 줄 요약**: Jira의 워크플로, 상태 전이, 자동화 규칙만으로 계산 가능한
   시스템을 구성할 수 있음을 보인 기술 실험입니다.
 - **왜 주목받나**: Hacker News에서 약 6시간 만에 273 points와 219 comments를
@@ -19491,7 +19491,7 @@
 ### 3. Constraint Decay: AI-assisted Programming in Long-Term Projects
 
 - **출처**: Hacker News (top) —
-  <https://www.dzombak.com/blog/2026/05/constraint-decay-ai-assisted-programming-in-long-term-large-scale-projects.html>
+  <https://www.dzombak.com/blog/2026/05/constraint-decay-ai-assisted-programming-in-long-term-large-scale-projects.html> (URL 미확인)
 - **한 줄 요약**: AI 보조 코딩이 장기 프로젝트에서 암묵적 제약과 설계 의도를
   서서히 약화시킬 수 있다는 문제를 분석한 글입니다.
 - **왜 주목받나**: Hacker News에서 약 14시간 만에 297 points와 206 comments를
@@ -19513,7 +19513,7 @@
 
 ### 4. Memory Has Grown Cheaper, but Memory Has Become Expensive
 
-- **출처**: Hacker News (top) — <https://danluu.com/memory-cost/>
+- **출처**: Hacker News (top) — <https://danluu.com/memory-cost/> (URL 미확인)
 - **한 줄 요약**: 메모리 단가는 낮아졌지만 성능, latency, bandwidth, locality
   관점에서는 여전히 비싼 자원이라는 점을 정리한 글입니다.
 - **왜 주목받나**: Hacker News에서 약 11시간 만에 283 points와 187 comments를
@@ -19535,7 +19535,7 @@
 
 ### 5. DeepSeek reasonix
 
-- **출처**: Hacker News (top) — <https://deepseek-reasonix.github.io/>
+- **출처**: Hacker News (top) — <https://esengine.github.io/DeepSeek-Reasonix/>
 - **한 줄 요약**: DeepSeek 계열 reasoning 모델의 동작과 평가를 탐색하는 공개
   데모성 프로젝트입니다.
 - **왜 주목받나**: Hacker News에서 약 5시간 만에 196 points와 58 comments를
@@ -19580,7 +19580,7 @@
 ### 7. microsoft / knowledge-work-plugins
 
 - **출처**: GitHub Trending (오늘) —
-  <https://github.com/microsoft/knowledge-work-plugins>
+  <https://github.com/anthropics/knowledge-work-plugins>
 - **한 줄 요약**: 업무와 데이터 작업을 AI agent가 처리하도록 돕는 Microsoft의
   공식 plugin 모음입니다.
 - **왜 주목받나**: GitHub Trending에서 전체 1,272 stars, 오늘 +254 stars를
@@ -20882,7 +20882,7 @@
 
 ### 6. Parallel Reconstruction of Lawful TLS Wiretapping
 
-- **출처**: Hacker News (top) — <https://remyhax.xyz/posts/parrecon/>
+- **출처**: Hacker News (top) — <https://remyhax.xyz/posts/reproducing-lawful-tls-wiretapping/>
 - **한 줄 요약**: TLS 감청과 인증서 발급·ACME·certificate transparency의 빈틈을
   둘러싼 실제적인 Web PKI 위협 모델을 분석한 글입니다.
 - **왜 주목받나**: HN에서 약 94 points와 41 comments를 기록했고, HTTPS를 믿는
@@ -22431,7 +22431,7 @@
 ### 5. Building Rust Procedural Macros from the Grounds Up
 
 - **출처**: Hacker News (top) / Learnix OS —
-  <https://www.learnix-os.com/building-rust-procedural-macros-from-the-grounds-up/>
+  <https://www.learnix-os.com/ch02-03-implementing-the-bitfields-proc-macro.html>
 - **한 줄 요약**: Rust procedural macro를 기초부터 구현하며 토큰 처리, 코드
   생성, 컴파일 타임 확장의 동작 방식을 설명한다.
 - **왜 주목받나**: HN에서 약 87점·18댓글을 기록했고, Rust 생태계에서 매크로가
@@ -24814,7 +24814,7 @@
 
 ### 5. Launch HN: Adam - Open-Source AI CAD
 
-- **출처**: Hacker News (top) / GitHub — <https://github.com/adam-cad/adam>
+- **출처**: Hacker News (top) / GitHub — <https://github.com/Adam-CAD/CADAM>
 - **한 줄 요약**: Adam은 AI 기반 CAD 워크플로를 오픈소스로 구현하려는
   프로젝트로, 설계 자동화와 엔지니어링 도구의 AI 접목을 보여준다.
 - **왜 주목받나**: HN에서 약 177점·84댓글을 기록했고, 코드 생성 중심 AI가 CAD와
@@ -24858,7 +24858,7 @@
 ### 7. x86 AI Compute Extensions (ACE) Specification
 
 - **출처**: Hacker News (top) / x86 Ecosystem —
-  <https://x86ecosystem.org/specifications/ace/AI-Compute-Extensions/>
+  <https://x86ecosystem.org/wp-content/uploads/2026/06/ACE_v1_Specification_public_1_15.pdf>
 - **한 줄 요약**: x86 진영이 AI 연산 확장을 위한 ACE 명세를 공개하며 CPU 기반 AI
   실행 경로를 표준화하려는 움직임을 보였다.
 - **왜 주목받나**: HN에서 약 28점·13댓글을 기록했고, GPU·NPU 중심 AI 가속 경쟁
@@ -25060,7 +25060,7 @@
 ### 6. Zero-Touch OAuth for MCP
 
 - **출처**: Hacker News (top) / Model Context Protocol —
-  <https://blog.modelcontextprotocol.io/zero-touch-oauth-for-mcp>
+  <https://blog.modelcontextprotocol.io/posts/enterprise-managed-auth/>
 - **한 줄 요약**: MCP 서버와 클라이언트가 OAuth 설정을 더 자동으로 발견하고
   연결하도록 만드는 인증 흐름 제안이다.
 - **왜 주목받나**: HN에서 약 63점·24댓글을 기록했고, MCP 도구 연결이 늘수록 인증
@@ -25704,7 +25704,7 @@
 ### 5. British Columbia, Time Zones, and Postgres
 
 - **출처**: Hacker News (top) / Crunchy Data —
-  <https://www.crunchydata.com/blog/british-columbia-time-zones-and-postgres>
+  <https://www.crunchydata.com/blog/british-columbia-and-time-zone-changes>
 - **한 줄 요약**: 브리티시컬럼비아의 시간대 변경을 계기로 Postgres와
   애플리케이션 코드에서 시간대 데이터를 어떻게 다뤄야 하는지 설명한 글이다.
 - **왜 주목받나**: HN top에서 약 95점·61댓글을 얻었고, 시간대 정책 변화가
@@ -31737,7 +31737,7 @@
 
 ### 7. Nativ: Run frontier open models locally on your Mac
 
-- **출처**: Hacker News (top) — <https://blaizzy.github.io/>
+- **출처**: Hacker News (top) — <https://blaizzy.github.io/nativ/>
 - **한 줄 요약**: Nativ는 Mac에서 고성능 오픈 모델을 로컬로 실행하는 흐름을 쉽게
   만들려는 프로젝트다.
 - **왜 주목받나**: HN에서 97점·38댓글을 얻었고, 오픈 웨이트 모델의 성능이
@@ -32258,7 +32258,7 @@
 
 ### 1. Show HN: Echo - Fable-level results at 1/3 the cost using open-weight models
 
-- **출처**: Hacker News (top/show) — <https://echo.tracerml.ai/>
+- **출처**: Hacker News (top/show) — <https://news.ycombinator.com/item?id=49026810>
 - **한 줄 요약**: 여러 오픈 웨이트 모델을 요청별로 조합해 단일 모델보다 낮은
   비용으로 강한 결과를 내도록 라우팅하는 추론 시스템이다.
 - **왜 주목받나**: Hacker News 상위권에서 약 270점대와 130개 안팎의 댓글을
@@ -33050,7 +33050,7 @@
 
 ### 7. Some more things about Django I've been enjoying
 
-- **출처**: Hacker News (top) — <https://jvns.ca/blog/2026/07/26/django-things/>
+- **출처**: Hacker News (top) — <https://jvns.ca/blog/2026/07/21/more-nice-django-things/>
 - **한 줄 요약**: Django의 서버 렌더링, ORM, 관리자 도구, 문서화된 기본 기능이
   작은 웹앱 개발에서 여전히 강력하다는 실전 사용기가 공유됐다.
 - **왜 주목받나**: Hacker News에서 110점대와 70개 이상의 댓글을 기록했고,
@@ -33573,7 +33573,7 @@
 
 ### 1. Show HN: Open-source engine running Gemma 4 26B in 2 GB RAM on any M-series Mac
 
-- **출처**: Hacker News (top) — <https://github.com/drumih>
+- **출처**: Hacker News (top) — <https://github.com/drumih/turbo-fieldfare>
 - **한 줄 요약**: Apple Silicon의 메모리 매핑과 로컬 추론 최적화를 활용해 Gemma
   4 26B급 모델을 2GB RAM 환경에서 실행하려는 오픈소스 엔진이 공개됐다.
 - **왜 주목받나**: HN에서 651점과 225댓글을 기록했고, 고사양 GPU 없이 대형 오픈
@@ -33615,7 +33615,7 @@
 ### 3. Document-borne AI worms can self-propagate through Copilot for Word
 
 - **출처**: Hacker News (top) —
-  <https://enklypesalt.com/document-borne-ai-worms-can-self-propagate-through-copilot-for-word/>
+  <https://enklypesalt.com/posts/context-collapse-part3-ai-worming-through-word/>
 - **한 줄 요약**: 문서 안의 악성 지시가 Copilot for Word 같은 문서 보조 AI를
   통해 읽기, 요약, 전달 과정에서 자기 전파형 공격으로 이어질 수 있음을 분석했다.
 - **왜 주목받나**: HN에서 345점과 262댓글을 기록했고, 업무 문서와 오피스
@@ -33809,7 +33809,7 @@
 ### 2. Gemini Robotics 2 brings whole body intelligence to robots
 
 - **출처**: Hacker News (top) —
-  <https://deepmind.google/discover/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/>
+  <https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/>
 - **한 줄 요약**: Google DeepMind가 로봇의 전신 제어와 지각·행동 결합을 강조한
   Gemini Robotics 2를 공개했다.
 - **왜 주목받나**: HN 최근 48시간 상위권에서 455점·386댓글을 기록했고, 범용 로봇
@@ -33830,7 +33830,7 @@
 
 ### 3. User Interfaces of the Demo Scene
 
-- **출처**: Hacker News (top) — <https://www.datagubbe.se/uidemoscene/>
+- **출처**: Hacker News (top) — <https://www.datagubbe.se/scenegui/>
 - **한 줄 요약**: 데모신(demoscene) 소프트웨어의 독특한 UI 관습을 분석하며
   제한된 환경에서 도구성이 어떻게 만들어졌는지 보여준다.
 - **왜 주목받나**: HN 최근 48시간 상위권에서 429점·74댓글을 기록했고, 레트로
@@ -33852,7 +33852,7 @@
 ### 4. SQLite in Production: Optimizing WAL Mode, Concurrency, and VFS Layers
 
 - **출처**: Hacker News (top) —
-  <https://micrologics.org/posts/sqlite-in-production-optimizing-wal-mode-concurrency-and-vfs-layers/>
+  <https://micrologics.org/blog/sqlite-in-production-optimizing-wal-mode-concurrency-and-vfs-layers-for-low-latency-app-servers>
 - **한 줄 요약**: SQLite를 프로덕션에서 운영할 때 WAL, 동시성, VFS 계층을 어떻게
   다뤄야 하는지 설명한 실무형 글이다.
 - **왜 주목받나**: HN 최근 48시간 상위권에서 252점·77댓글을 기록했고, 단순한
@@ -34575,7 +34575,7 @@
 ### 7. Rust All Hands 2026 Retrospective
 
 - **출처**: Hacker News (top) / Rust Blog —
-  <https://blog.rust-lang.org/2026/08/02/rust-all-hands-2026-retrospective/>
+  <https://blog.rust-lang.org/inside-rust/2026/07/31/all-hands-2026-retrospective/>
 - **한 줄 요약**: Rust 프로젝트가 2026 All Hands 회고를 통해
   언어·컴파일러·거버넌스 우선순위를 공유했다.
 - **왜 주목받나**: HN에서 약 94점·45댓글을 기록했고, Rust 생태계의 다음 방향이
@@ -34617,7 +34617,7 @@
 ### 9. Rooting, firmware analysis and persistent credentials of TP-Link TL-841N
 
 - **출처**: Hacker News (top) / juni-mp4 —
-  <https://blog.juni-mp4.com/rooting-firmware-analysis-and-persistent-credentials-of-tp-link-tl-841n/>
+  <https://blog.juni-mp4.com/posts/42/rooting-the-tplink-tl841n-pt1/>
 - **한 줄 요약**: TP-Link TL-841N 공유기의 펌웨어 분석과 루팅 과정을 통해 영속
   자격증명과 임베디드 보안 문제를 파헤친 글이다.
 - **왜 주목받나**: HN에서 약 77점·14댓글을 기록했고, 흔한 네트워크 장비가 어떤
@@ -35548,7 +35548,7 @@
 ### 1. DeepSeek V4 Flash 0731
 
 - **출처**: Hacker News (top) / ARC Prize —
-  <https://arcprize.org/blog/deepseek-v4-flash-0731>
+  <https://arcprize.org/results/deepseek-v4-flash-0731>
 - **한 줄 요약**: DeepSeek V4 Flash 0731이 코딩·에이전트 성능과 비용 효율을
   앞세워 공개되며 모델 선택 논쟁을 다시 키웠다.
 - **왜 주목받나**: HN top에서 621점·374댓글을 기록했고, 저비용 고성능 모델이
@@ -35592,7 +35592,7 @@
 ### 3. Assembly Hall of Shame
 
 - **출처**: Hacker News (top) / GitHub —
-  <https://github.com/xoreaxeaxeax/assembly-hall-of-shame>
+  <https://github.com/xoreaxeaxeax/asm-hall-of-shame>
 - **한 줄 요약**: 어셈블리 코드의 나쁜 패턴과 실수를 모은 저장소가 저수준
   성능·보안 학습 자료로 주목받았다.
 - **왜 주목받나**: HN top에서 343점·85댓글을 기록했고, 최적화·리버싱·컴파일러
@@ -35613,7 +35613,7 @@
 ### 4. Making Postgres 300x faster for analytics: batching, operator fusion, and SIMD
 
 - **출처**: Hacker News (top) / malisper.me —
-  <https://malisper.me/making-postgres-300x-faster-for-analytics-batching-operator-fusion-and-simd/>
+  <https://malisper.me/how-we-made-postgres-hundreds-of-times-faster-the-query-engine/>
 - **한 줄 요약**: Postgres 분석 쿼리를 batching, operator fusion, SIMD로 크게
   가속하는 접근을 시스템 내부 관점에서 설명한다.
 - **왜 주목받나**: HN top에서 285점·139댓글을 기록했고, 범용 데이터베이스에서
@@ -36125,7 +36125,7 @@
 ### 7. CSS: The bomb inside your inbox
 
 - **출처**: Hacker News (top) / PortSwigger —
-  <https://portswigger.net/research/talks?talkid=37>
+  <https://portswigger.net/research/css-the-bomb-inside-your-inbox>
 - **한 줄 요약**: PortSwigger가 CSS와 HTML만으로 웹메일 보안 경계를 깨는 공격
   기법을 Black Hat USA 2026 발표 주제로 공개했다.
 - **왜 주목받나**: HN top에서 91점·33댓글을 기록했고, JavaScript 없이도 CSS
@@ -37698,7 +37698,7 @@
 
 ### 9. jundot / omlx
 
-- **출처**: GitHub Trending (오늘) — <https://github.com/jundot/omlx>
+- **출처**: GitHub Trending (오늘) — <https://github.com/jundot/omlx> (URL 미확인)
 - **한 줄 요약**: Apple Silicon에서 연속 배칭과 SSD 캐싱을 제공하는 macOS용 LLM
   추론 서버가 관심을 얻고 있다.
 - **왜 주목받나**: GitHub Trending 오늘 기준 전체 19,045 stars, 오늘 +78 stars를
@@ -37764,7 +37764,7 @@
 ### 2. Google replaced Git tags for certain source code with obtaining via Google Drive
 
 - **출처**: Hacker News (top) / GrapheneOS —
-  <https://grapheneos.social/@GrapheneOS/115060600649232428>
+  <https://grapheneos.social/@GrapheneOS/115060600649232428> (URL 미확인)
 - **한 줄 요약**: GrapheneOS가 Google의 일부 소스 배포가 Git 태그 대신 Google
   Drive 획득 흐름으로 바뀌었다고 지적하며 공급망 재현성 논쟁이 커졌다.
 - **왜 주목받나**: HN에서 약 378점·158댓글을 기록했고, 오픈소스 빌드 재현성과
@@ -37849,7 +37849,7 @@
 ### 6. How Kubernetes Probes Work
 
 - **출처**: Hacker News (top) / ngrok —
-  <https://ngrok.com/blog-post/kubernetes-probes>
+  <https://ngrok.com/blog/probes>
 - **한 줄 요약**: Kubernetes의 liveness, readiness, startup probe가 실제로 언제
   호출되고 어떤 장애를 만들 수 있는지 설명한 운영형 글이다.
 - **왜 주목받나**: HN에서 약 124점·21댓글을 기록했고, 프로브 오설정이 배포
@@ -42314,7 +42314,7 @@
 ### 1. OpenAI bots knew about the RubyGems caching vulnerability
 
 - **출처**: Hacker News (top) —
-  <https://tenderlovemaking.com/2026/09/14/openai-bots-knew-about-the-rubygems-caching-vulnerability/>
+  <https://tenderlovemaking.com/2026/09/11/what-a-time-to-be-alive/>
 - **한 줄 요약**: RubyGems 캐싱 취약점이 공개되기 전 AI 크롤러가 관련 경로를
   이미 건드렸다는 분석이 공급망 보안과 크롤러 행동 감시 문제를 부각했다.
 - **왜 주목받나**: HN top에서 약 379점·323댓글을 기록했고, 패키지 인프라
@@ -42356,7 +42356,7 @@
 
 ### 3. Principles for Fast Tokio Applications
 
-- **출처**: Hacker News (top) — <https://dial9-rs.github.io/blog/fast-tokio/>
+- **출처**: Hacker News (top) — <https://dial9-rs.github.io/blog/principles-for-fast-tokio-applications/>
 - **한 줄 요약**: Rust Tokio 애플리케이션에서 latency와 throughput을 지키기 위한
   runtime, task, blocking 작업 설계 원칙을 정리한 글이다.
 - **왜 주목받나**: HN top에서 약 164점·42댓글을 얻었고, async Rust 성능 문제가
@@ -42378,7 +42378,7 @@
 ### 4. Notes on gotchas while migrating 35kb preprompts from Opus to self-hosted Ollama
 
 - **출처**: Hacker News (top) —
-  <https://patrickmccanna.net/posts/llm-migration-gotchas/>
+  <https://patrickmccanna.net/notes-on-migrating-large-prompts-away-from-anthropic-openai-to-self-hosted-llms/>
 - **한 줄 요약**: 대형 클라우드 모델용 긴 시스템 프롬프트를 self-hosted Ollama
   환경으로 옮길 때 생기는 컨텍스트, 지시 충돌, 품질 저하 문제를 정리했다.
 - **왜 주목받나**: HN top에서 약 114점·66댓글을 기록했고, 모델 비용과 데이터
@@ -42399,7 +42399,7 @@
 
 ### 5. Cloudflare AKE cuts origin HelloRetryRequests from 52% to 3.7%
 
-- **출처**: Hacker News (top) — <https://blog.cloudflare.com/ake/>
+- **출처**: Hacker News (top) — <https://blog.cloudflare.com/automatic-key-exchange-for-origins/>
 - **한 줄 요약**: Cloudflare가 AKE를 적용해 origin 연결의 TLS HelloRetryRequest
   비율을 크게 낮춘 사례를 공개했다.
 - **왜 주목받나**: HN top에서 약 88점·23댓글을 얻었고, TLS handshake 최적화가
@@ -42464,7 +42464,7 @@
 ### 8. GPT-5.6 Luna vs. GPT-6 Astra: Is a $1.20 Model Good Enough for Code Review?
 
 - **출처**: Hacker News (top) —
-  <https://entelligence.ai/blog/gpt-5-6-luna-vs-gpt-6-astra-code-review/>
+  <https://entelligence.ai/blogs/gpt-5.6-luna-vs-gpt-6-astra-is-a-1.20-model-good-enough-for-code-review>
 - **한 줄 요약**: 저가 모델과 고급 모델의 코드 리뷰 품질·비용을 비교하며 AI 리뷰
   자동화의 경제성을 따져본 글이다.
 - **왜 주목받나**: HN top에서 약 110점·110댓글을 기록했고, 코딩 모델 선택이 단순
