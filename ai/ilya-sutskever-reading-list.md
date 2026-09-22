@@ -389,8 +389,11 @@ GitHub를 통한 기여 구조가 이를 뒷받침한다.
 ---
 
 [^sillysaurusx]: <https://news.ycombinator.com/item?id=34646759>
+
 [^jimmySixDOF]: <https://news.ycombinator.com/item?id=34642918>
+
 [^optimalsolver]: <https://news.ycombinator.com/item?id=34643472>
+
 [^loveparade]: <https://news.ycombinator.com/item?id=34652467>
+
 [^jung5966]: <https://news.hada.io/topic?id=31224#cid61422>
-</content>
