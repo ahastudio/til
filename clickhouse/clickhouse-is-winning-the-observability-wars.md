@@ -1,8 +1,10 @@
 # ClickHouse가 Observability 전쟁에서 이기고 있다
 
-원문: <https://matduggan.com/clickhouse-is-winning-the-observability-wars/>
+원문: [Clickhouse is winning the Observability Wars](https://matduggan.com/clickhouse-is-winning-the-observability-wars/)
 
-Lobste.rs 토론: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability> (70점, 24개 댓글)
+Lobste.rs 토론: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability> (78점, 32개 댓글)
+
+GN 토론: <https://news.hada.io/topic?id=31101>
 
 ## 요약
 
@@ -94,6 +96,36 @@ observability 도구 시장에서 각 벤더가 독자적인 쿼리 언어(PromQ
 기술적 선택인 동시에 시장 전략이기도 하다.
 이미 SQL을 아는 인력 풀 전체가 잠재적 사용자가 되기 때문이다.
 
+### SQL 선택이 실제 채택 경험에서 어떻게 작동했는가
+
+이 대목은 Lobste.rs에서 가장 많은 지지를 받은 경험담으로 뒷받침된다.
+
+koala는 2019년에 잠깐 일한 스타트업에서 ClickHouse를 처음 접하고 깊은 인상을 받았다고 적는다.[^koala]
+그전까지는 PostgreSQL 말고 다른 것이 필요해질 일이 드물 것이라 생각했는데 ClickHouse는 써 보고 싶어졌다는 것이다.
+그리고 그 이유를 이 글과 같은 곳에서 찾는다.
+Elasticsearch와 InfluxDB를 비롯한 여러 도구를 써 봤지만 늘 별로였는데,
+아마 전부 질의 언어를 처음부터 새로 만들었기 때문일 것이라는 것이다.
+반면 ClickHouse는 익숙한 SQL을 채택하고 필요한 지점만 조금씩 확장했다고 적는다.
+
+그가 뒤이어 덧붙인 말이 이 선택의 성격을 더 정확히 짚는다.[^koala-sql]
+SQL은 형편없지만 다른 모든 것은 더 형편없으며,
+SQL이 수십 년에 걸쳐 겪은 진화를 따라잡아야 하는 처지라는 것이다.
+즉 SQL의 우위는 설계의 우수함이 아니라 축적의 결과이고,
+그래서 새 언어를 만드는 쪽이 따라잡기 어렵다는 것이다.
+
+nolan은 다른 각도에서 같은 채택 경험을 말한다.[^nolan]
+직장에서 ClickHouse를 쓰는데 상자에서 꺼내자마자 얼마나 빠른지에 놀랐다는 것이다.
+지금껏 쓴 거의 모든 데이터베이스에서 인덱스의 거친 모서리나 조인 최적화 방법을 배워야 한다고 느꼈는데,
+ClickHouse는 무엇을 던지든 거의 힘들이지 않고 받아 낸다는 것이다.
+보조 인덱스를 추가할 수 있고 이름도 여러 가지이지만 사실상 필요해 보이지도 않으며,
+손을 거의 대지 않아도 그냥 되는 것처럼 보여서 어리둥절한 데이터베이스라고 적는다.
+
+이 두 증언이 글의 논지를 보강한다.
+저자가 강조한 것은 규모가 커져도 아키텍처가 변하지 않는다는 점이었는데,
+사용자들이 실제로 체감한 것은 시작 시점의 조율 부담이 작다는 점이다.
+그리고 두 가지는 같은 성질에서 나온다.
+필요한 지식의 종류가 상황에 따라 바뀌지 않는다는 것이다.
+
 ## 비평
 
 ### 이 글 자체가 LLM 저작물일 가능성에 대한 의혹이 근거 있는 지적이다
@@ -169,6 +201,119 @@ ClickHouse가 아무리 효율적으로 추적 데이터를 저장하더라도, 
 이 부분에서 ClickHouse 생태계가 Datadog 같은 완성형 제품에 비해 열세라면
 “전쟁에서 이기고 있다”는 제목의 단정은 스택의 절반에 대한 평가로 제한해서 읽어야 한다.
 
+### 그냥 된다는 인상은 특정 임계를 넘으면 무너진다
+
+이 글에서 가장 필요한 보정이 Lobste.rs의 운영 경험담에서 나왔다.
+
+355E3B는 한때 세계에서 가장 큰 ClickHouse 배포 중 하나를 맡는 미심쩍은 영예를 누렸다고 적으며,
+훌륭하게 작동하다가 어느 순간 그러지 않는다고 말한다.[^355E3B]
+복제를 둘러싼 경합이 생길 때마다 건강성과 안정성 문제를 많이 겪었고,
+그것을 푸는 데 손이 많이 가는 시간이 들었다는 것이다.
+그리고 원인을 분명히 한다.[^355E3B-zk]
+ZooKeeper와 관련된 문제는 ClickHouse가 식별자 범위를 넘기는 경우뿐이었고 그것은 예고가 충분했으며,
+복제 문제는 전적으로 ClickHouse 프로세스 안에 있었다는 것이다.
+
+Pentlander도 같은 형태의 경험을 보고한다.[^Pentlander]
+많은 오픈소스 체계에서 같은 것을 겪었다고 하며,
+ClickHouse는 큰 병합이 한꺼번에 몰리기 전까지는 잘 작동하고
+그 상황이 되면 사실상 기다리는 것 말고는 할 수 있는 일이 없다고 적는다.
+VictoriaMetrics와 Thanos 클러스터에서도 비슷했으며,
+그 지점에 도달하면 고치기가 아주 어렵다는 것이다.
+
+soulcutter가 이 논의에서 가장 실무적인 질문을 던진다.[^soulcutter]
+그렇게 되는 규모가 대략 어느 정도인지 알려 달라는 것이다.
+자기 용도는 세계 최대 배포 근처에도 가지 않을 텐데,
+그 문제가 가장 크기 때문에 생기는 것인지 훨씬 낮은 문턱에서 생기는 것인지 판단하기 어렵다고 적으며
+자기 경우를 하루 5TB 정도로 추정한다.
+
+이 질문에 답이 달리지 않았다는 사실 자체가 이 글의 빈틈을 드러낸다.
+글의 비교표는 하루 1TB와 5TB와 10TB에서 ClickHouse의 구조가 같다고 적지만,
+구조가 같다는 것과 운영이 같다는 것은 다르다.
+같은 다이어그램 안에서도 복제 경합과 병합 폭주라는 새로운 종류의 문제가 나타나며,
+그것은 샤드를 더하는 것과 다른 종류의 지식을 요구한다.
+
+반대 방향의 증언도 있다.
+vbernat은 자기 프로젝트를 시작할 때 Kafka와 ClickHouse를 포함한 모든 것을
+메모리 64GB짜리 가상 기계 한 대에 넣었고,
+한 대형 통신사에서 그 구성을 몇 년 동안 굴렸다고 적는다.[^vbernat]
+개발용으로 만든 구성이 그렇게 오래 버틸 줄은 계획하지 않았다는 것이다.
+
+두 증언을 합치면 이 글이 빠뜨린 축이 보인다.
+ClickHouse의 진짜 강점은 아주 작은 구성에서 시작할 수 있다는 것이고,
+아주 큰 구성에서도 같다는 주장은 운영 문제를 세지 않았을 때만 성립한다.
+
+### 샘플링 문제에는 이미 알려진 대응이 있다
+
+추적이 조직에 뿌리내리지 못한다는 논의에서, 샘플링이 실질적 장벽으로 지목되었다.
+그런데 같은 글타래에 그 장벽을 낮추는 구체적인 방법이 제시되어 있다.
+
+rsalmond는 추적 처리가 비싸고 트래픽이 많은 환경에서 샘플링이 사실상 필수라는 데 동의한 뒤,
+그것이 괴롭다면 추적 표본 지정이라는 것을 살펴보라고 권한다.[^rsalmond-exemplars]
+관심 있는 각 조건마다, 보통은 지연 분포의 각 구간마다
+추적을 최소 하나는 확보하도록 보장하는 방법이라는 것이다.
+그리고 표본 비율을 상황별로 다르게 두는 것도 제안한다.
+성공 응답은 1퍼센트만, 서버 오류는 100퍼센트,
+또는 첫 화면 조회는 1퍼센트만, 결제 요청은 100퍼센트 식이다.
+
+icholy는 다른 이득을 짚는다.[^icholy]
+표본에 뽑히지 않더라도 추적 식별자는 여전히 전파되어 로그에 포함되며, 그것만으로도 크다는 것이다.
+
+cjs가 여기에 절제된 반론을 단다.[^cjs-reqid]
+자기들은 이미 스택 대부분에서 공통 요청 식별자를 로그에 넣고 있었고 그것이 아주 유용하지만
+그것을 위해 추적 표준이 필요하지는 않다는 것이다.
+그리고 뒤이어 자기 입장을 분명히 한다.[^cjs-header]
+전파는 추적 라이브러리가 하듯 평범한 HTTP 헤더로 하면 되며,
+스택의 구성 요소들에 추적 지원을 더하는 일에 가치가 없다는 말이 아니라
+요청량이 큰 프로덕션 환경에서 쓸 계획이라면
+추적 벤더의 판매 문구를 크게 에누리해서 들어야 한다는 것이다.
+
+이 교환이 앞 절의 진단을 한 단계 정교하게 만든다.
+추적이 채택되지 않는 이유가 신호 자체의 난이도라기보다,
+전체를 다 모으지 않으면 쓸모없다는 잘못된 전제 때문일 수 있다는 것이다.
+그리고 그 전제를 버리면 샘플링은 결함이 아니라 설계 항목이 된다.
+
+### 저장 방식의 우위가 이 글만의 발견은 아니다
+
+dlants는 Honeycomb이 이 구도에서 어디에 놓이는지 묻는다.[^dlants]
+알기로 그들도 열 기반 저장 형식을 쓰고,
+Elasticsearch나 Datadog이 쓰는 역인덱스 대신
+압축과 구간 나누기에 크게 기대어 읽을 때 많은 자료를 건너뛴다는 것이다.
+
+hmpc가 답한다.[^hmpc-honeycomb]
+몇 년 전 Honeycomb 공동 창업자가 회사를 시작할 때 ClickHouse가 있었다면
+아마 그냥 그것을 썼을 것이라고 말했던 것으로 기억한다는 것이다.
+다만 둘 사이에 개념적으로 얼마나 겹치는지는 확실하지 않으며,
+문제 공간이 자연히 비슷한 접근으로 이끌었는지 아는 것은 흥미로울 것이라고 적는다.
+
+이 교환은 이 글의 제목이 담은 경쟁 구도를 다시 보게 한다.
+열 기반 저장이 관측 가능성에 맞는다는 것은 이미 여러 곳에서 독립적으로 도달한 결론이고,
+그렇다면 ClickHouse의 우위는 통찰의 독점이 아니라 그 구현을 누구나 쓸 수 있게 열어 둔 데 있다.
+즉 이것은 기술 경쟁이라기보다 배포 형태의 경쟁이다.
+
+### LLM 저작 의혹에 대한 더 정확한 정리
+
+이 문서가 이미 다룬 논쟁에 한 사람의 정리가 더해졌고, 그것이 가장 균형 잡혀 있다.
+
+vpr은 저자가 최소한 관측 가능성에 정통한 사람이라고 적으며 경력을 확인해 준다.[^vpr]
+그리고 욕설 섞인 표현에서 저자 자신의 목소리가 드러난다고 본다.
+그런데 탐지 도구에 넣어 보면 LLM일 확률이 71퍼센트, 혼합이 28퍼센트로 나온다고 덧붙인다.
+가장 사람처럼 읽히는 도입부는 글자 수 제한 때문에 잘라 냈다는 단서를 달면서 말이다.
+그의 결론은 저자가 실제로 검토하고 다듬었지만
+LLM 특유의 표현을 걸러 내거나 어조를 조율하지는 않았다는 것이다.
+그리고 한 문장을 덧붙인다.
+줄표를 쓰지 않는 것만으로는 더 이상 그 냄새를 피할 수 없다는 것이다.
+
+jedschmidt는 자기가 확신하게 된 근거를 든다.[^jedschmidt]
+최근 챗봇과 함께 ClickHouse 작업을 많이 했는데,
+열 기반 압축이 무엇을 아침으로 먹어 치운다는 식의 표현을
+모델이 압축에 대해 늘 쓴다는 것이다.
+
+이 두 댓글이 앞의 논쟁을 실질적으로 진전시킨다.
+문제가 저자가 썼느냐 모델이 썼느냐의 양자택일이 아니라,
+저자가 검토했는데도 문체의 흔적이 남았느냐라는 세 번째 선택지가 있다는 것이다.
+그리고 그 경우 글의 내용은 신뢰할 만한데 문체는 신뢰를 깎는 상태가 되므로,
+독자는 둘을 따로 판단해야 한다.
+
 ## 인사이트
 
 ### “복잡성이 규모에 비례하지 않는다”는 것은 인프라 선택 기준 자체를 바꾸는 기준이다
@@ -220,8 +365,45 @@ isuffix와 dryya가 제기하는 LLM 저작 의혹, 그리고 이를 정면으�
 ---
 
 [^isuffix]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_fyedz6>
+
 [^dryya]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_rc2ahh>
+
 [^wrs]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_tksr7s>
+
 [^hmpc]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_jpuljy>
+
 [^rsalmond]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_wr4lkp>
+
 [^cjs]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_nhvtel>
+
+[^koala]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_ekrp5n>
+
+[^koala-sql]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_ib4who>
+
+[^nolan]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_fdxqdo>
+
+[^355E3B]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_da50eo>
+
+[^355E3B-zk]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_tzfjaj>
+
+[^Pentlander]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_ypwglx>
+
+[^soulcutter]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_qbdbes>
+
+[^vbernat]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_ouewzg>
+
+[^rsalmond-exemplars]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_vp9c5m>
+
+[^icholy]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_j6mgzo>
+
+[^cjs-reqid]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_vfwdbq>
+
+[^cjs-header]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_rlheug>
+
+[^dlants]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_uwsf8w>
+
+[^hmpc-honeycomb]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_uozatl>
+
+[^vpr]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_ktz6zm>
+
+[^jedschmidt]: <https://lobste.rs/s/asi79o/clickhouse_is_winning_observability#c_jdks7j>
