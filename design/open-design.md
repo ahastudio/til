@@ -18,11 +18,15 @@ Claude Code, Codex, Cursor Agent, Gemini CLI, OpenCode, Qwen Code, GitHub Copilo
 Hermes, Kimi, Pi, Kiro CLI 등 11개 코딩 에이전트 CLI를 시스템 `PATH`에서 자동 감지해
 디자인 엔진으로 활용한다.
 CLI가 없는 경우 OpenAI 호환 BYOK 프록시로 같은 파이프라인을 사용할 수 있다.
+공개 직후 11개였던 지원 CLI는 이후 Devin을 포함한 16종으로 늘었고, 저장소는 Apache 2.0 라이선스로 공개돼 있다.
 
 기능 범위는 넓다. 31개의 컴포저블 스킬(Skill)과 72개 이상의 브랜드 수준 디자인 시스템을
 내장하며, 웹·데스크톱·모바일 프로토타입, 슬라이드 덱, 이미지, 비디오, HyperFrame을
 생성할 수 있다. 산출물은 샌드박스 iframe에서 미리보기 가능하고, HTML·PDF·PPTX·MP4로
-내보낼 수 있다. 저장소로는 로컬 SQLite(`better-sqlite3`)를 사용하고 대화, 파일, 탭,
+내보낼 수 있다.
+미디어 생성도 같은 채팅 화면 안에서 이어진다.
+이미지는 gpt-image-2, 비디오는 Seedance 2.0과 HyperFrames(HTML→MP4)로 만들고, 오디오 생성과 93개 템플릿도 함께 제공한다.
+저장소로는 로컬 SQLite(`better-sqlite3`)를 사용하고 대화, 파일, 탭,
 템플릿 상태를 영속한다.
 
 설계 철학은 여섯 가지 핵심 아이디어로 압축된다.
@@ -32,6 +36,27 @@ CLI가 없는 경우 OpenAI 호환 BYOK 프록시로 같은 파이프라인을 �
 (4) 인터랙티브 질문 폼이 리다이렉트의 80%를 막는다,
 (5) 데몬이 에이전트에게 실제 로컬 파일시스템을 준다,
 (6) 프롬프트 스택이 곧 제품이다.
+
+## 사용법
+
+권장 경로는 open-design.ai에서 받는 데스크톱 앱이고, 별도 설치가 필요 없다.
+소스에서 직접 빌드하거나 Docker로 띄울 수도 있다.
+
+```bash
+# 소스 빌드
+git clone https://github.com/nexu-io/open-design.git
+cd open-design
+corepack enable
+pnpm install
+pnpm tools-dev run web
+
+# Docker
+cd deploy && docker compose up -d
+# http://localhost:7456 접속
+```
+
+기존 Claude Design 사용자를 위한 이전 경로도 있다.
+Claude Design에서 내보낸 ZIP 파일을 끌어다 놓으면, 로컬 에이전트가 이어서 편집할 수 있는 프로젝트로 바뀐다.
 
 ## 분석
 
@@ -44,6 +69,8 @@ CLI가 없는 경우 OpenAI 호환 BYOK 프록시로 같은 파이프라인을 �
 CLI별로 타입 이벤트 파서가 따로 구현돼 있어
 (`claude-stream-json`, `acp-json-rpc`, `pi-rpc`, `plain` 등)
 에이전트마다 서로 다른 통신 프로토콜을 흡수한다.
+데몬이 로컬에서 돌기 때문에 에이전트는 프로젝트 폴더에 대해 실제 `Read`, `Write`, `Bash`, `WebFetch` 권한을 갖는다.
+데이터는 `.od/app.sqlite`에 저장되고, 산출물은 디스크에 그대로 남는다.
 
 BYOK 프록시(`POST /api/proxy/stream`)는 OpenAI 호환 엔드포인트로 SSE를 통과시키며,
 루프백·링크 로컬·RFC1918 주소는 데몬 단에서 차단한다(SSRF 방어).
@@ -80,7 +107,7 @@ Linear, Stripe, Vercel, Anthropic, Apple, Figma 등 시장 주요 브랜드 시�
 단순 `system + user`가 아니라 DISCOVERY 지시문, 아이덴티티 차터,
 활성 `DESIGN.md`, 활성 `SKILL.md`, 프로젝트 메타데이터, 스킬 사이드파일이
 모두 합성된다.
-특히 첫 번째 턴에서 반드시 `<question-form id=“discovery”>`을 먼저 보내
+특히 첫 번째 턴에서 반드시 `<question-form id="discovery">`을 먼저 보내
 표면·타깃·톤·브랜드 컨텍스트·규모·제약을 30초 안에 확정하는 방식은
 [`huashu-design`](https://github.com/alchaincyf/huashu-design)의
 “주니어 디자이너 모드”를 공식화한 것이다.
@@ -125,6 +152,10 @@ AI 도구들이 AI로 작성된 마케팅 언어로 가득 차면서, 독자는 
 누적될수록 “31개 스킬”이라는 숫자가 과대 대표될 수 있다.
 스킬 등록이 “폴더 하나 드롭”으로 너무 쉬운 것은 생태계 확장성에 유리하지만,
 품질 문호가 낮아지는 이중성을 가진다.
+
+디자인 시스템 쪽 부채는 더 조용히 쌓인다.
+72개 디자인 시스템의 품질은 큐레이션 수준에 따라 크게 달라지는데, Figma Variables나 실제 컴포넌트 라이브러리와 동기화되지 않는 마크다운 문서만으로 최신 상태를 유지하는 것은 운영 부담이 크다.
+브랜드 가이드라인이 자주 바뀌는 대형 프로젝트일수록, 문서 속 토큰과 실제 제품의 토큰이 어긋나는 시점이 빨리 온다.
 
 hmokiguess는 이 복잡성 문제를 다른 각도에서 제기했다[^hmokiguess].
 도구 안에 좋은 것이 많더라도 진입 곡선이 너무 가파르면, 결국 원작자만 완전히 이해하는
@@ -216,10 +247,31 @@ Open Design의 실제 모트는 31개 스킬 카탈로그, 72개 디자인 시�
 “우리가 공개한 프롬프트 스택을 베이스라인으로 커뮤니티가 더 나은 스킬을 만들어라”는 초대장이다.
 이것이 성공한다면 오픈소스 모델의 전형적 승리 패턴이 된다.
 
+### 디자인 시스템이 마크다운이 되면 “진실의 원천”이 옮겨 간다
+
+전통적인 디자인 도구(Figma, Sketch)는 자체 파일 형식으로 디자인 자산을 소유한다.
+Open Design이 디자인 시스템을 마크다운으로 표현한 것은 이 구조에 대한 도전이다.
+Git으로 버전을 관리하고, 텍스트 편집기로 고치고, LLM이 직접 읽는 디자인 시스템이 실용적이라면, Figma가 지켜 온 디자인의 진실 원천이라는 지위가 흔들린다.
+
+물론 지금은 복잡한 인터랙션 디자인이나 실제 컴포넌트 구현에서 Figma를 대신하기 어렵다.
+그러나 LLM이 시각적 결과물을 직접 만드는 능력이 좋아질수록 디자인 파일과 코드의 경계는 더 흐려진다.
+그때 경쟁의 축은 누가 더 좋은 편집기를 갖고 있느냐가 아니라, 누구의 형식이 에이전트에게 읽히느냐로 옮겨 간다.
+
+### 디자인 시스템 카탈로그는 커뮤니티 레지스트리가 될 때만 지속된다
+
+72개 디자인 시스템을 한 팀이 계속 유지하는 것은 오래 가기 어렵다.
+그러나 이것을 커뮤니티가 기여하는 구조로 바꾸면 그림이 달라진다.
+npm처럼 누구나 디자인 시스템 패키지를 올리고 Open Design이 그것을 설치하는 생태계가 생긴다면, 이 프로젝트는 도구를 넘어 AI 시대의 디자인 시스템 표준을 정하는 자리에 설 수 있다.
+앞서 짚은 동기화 부채도 이 구조에서는 각 브랜드의 관리자에게 나뉘어 돌아간다.
+
 ---
 
 [^ricardobeat]: <https://news.ycombinator.com/item?id=47986103>
+
 [^MSaiRam10]: <https://news.ycombinator.com/item?id=47986634>
+
 [^hmokiguess]: <https://news.ycombinator.com/item?id=47987626>
+
 [^Saline9515]: <https://news.ycombinator.com/item?id=47986540>
+
 [^jshaqaw]: <https://news.ycombinator.com/item?id=47986616>
