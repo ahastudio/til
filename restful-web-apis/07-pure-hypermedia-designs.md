@@ -245,7 +245,7 @@ HAL 문서는 기존 JSON API에 `_links`만 얹으면 되므로 이행 비용�
 
 이 대비가 두 형식의 채택 차이를 상당 부분 설명한다.
 HAL은 값싸고 읽기 중심 API에 딱 맞았고, Siren은 표현력이 크지만 그만큼 요구가 컸다.
-이 저장소의 [whats-new 문서](whats-new.md)에 정리한 대로, 실무는 결국 어느 쪽으로도 크게 가지 않고 하이퍼미디어 없는 컬렉션 패턴 JSON에 머물렀다.
+이 저장소의 [RESTful Web APIs와 RESTful Web Services 비교 문서](../architecture/restful-web-apis-vs-services.md)에 정리한 대로, 실무는 결국 어느 쪽으로도 크게 가지 않고 하이퍼미디어 없는 컬렉션 패턴 JSON에 머물렀다.
 
 ## HTML 마이크로포맷과 마이크로데이터
 
@@ -296,7 +296,7 @@ HTML은 이미 링크와 폼을 가진 범용 형식이지만 도메인 의미�
 
 ## 참고
 
-- 관련 문서: [RESTful Web APIs 정리 (색인)](README.md), [6장 컬렉션 패턴](06-collection-pattern.md), [RESTful Web APIs 예제 코드](example-code.md), [RESTful Web Services에서 RESTful Web APIs로](whats-new.md)
+- 관련 문서: [RESTful Web APIs 정리 (색인)](README.md), [6장 컬렉션 패턴](06-collection-pattern.md), [RESTful Web APIs 예제 코드](example-code.md), [RESTful Web APIs와 RESTful Web Services는 무엇이 다른가](../architecture/restful-web-apis-vs-services.md)
 - HAL 명세: <https://stateless.co/hal_specification.html>
 - Siren 명세: <https://github.com/kevinswiber/siren>
 - 저자 공식 장별 설명: <http://restfulwebapis.com/chapters.html>

@@ -12,12 +12,12 @@
 이 정리는 저자의 공식 장별 설명과 해당 장이 다루는 공개 표준을 근거로 하며, 책 본문을 옮긴 것이 아니다.
 
 따라서 아래 내용은 두 층으로 나뉜다.
-프로파일이라는 개념의 위치와 저자의 의도는 공식 설명과 이 저장소의 [whats-new.md](whats-new.md)에 근거하고, 형식의 구체적 문법과 규칙은 ALPS 인터넷 드래프트, RFC 6906, JSON-LD 권고안, XMDP 명세를 직접 확인한 것이다.
+프로파일이라는 개념의 위치와 저자의 의도는 공식 설명과 이 저장소의 [restful-web-apis-vs-services.md](../architecture/restful-web-apis-vs-services.md)에 근거하고, 형식의 구체적 문법과 규칙은 ALPS 인터넷 드래프트, RFC 6906, JSON-LD 권고안, XMDP 명세를 직접 확인한 것이다.
 
 ## 프로파일이 겨냥하는 문제: 하이퍼미디어가 못 푸는 절반
 
 프로파일을 이해하려면 먼저 하이퍼미디어가 무엇을 풀고 무엇을 못 푸는지를 갈라야 한다.
-저자는 이 구별을 두 책의 차이를 설명하는 글에서 명시했고, 이 저장소에는 [RESTful Web Services에서 RESTful Web APIs로: 세 가지 큰 변화](whats-new.md)에 정리돼 있다.
+저자는 이 구별을 두 책의 차이를 설명하는 글에서 명시했고, 이 저장소에는 [RESTful Web APIs와 RESTful Web Services는 무엇이 다른가](../architecture/restful-web-apis-vs-services.md)에 정리돼 있다.
 
 하이퍼미디어는 “클라이언트가 다음에 어떤 HTTP 요청을 할 수 있는가”를 잘 푼다.
 링크와 폼이 가능한 상태 전이를 표현 안에 실어 주므로, 클라이언트는 URL 구조를 사전에 알 필요 없이 서버가 준 것만 따라가면 된다.
@@ -277,4 +277,4 @@ JSON-LD는 Linked Data 계보에서 `@context`로 JSON 키에 IRI를 붙여 같�
 - JSON-LD 1.1 (W3C Recommendation): <https://www.w3.org/TR/json-ld11/>
 - XMDP: <https://gmpg.org/xmdp/>
 - 저자 공식 장별 설명: <http://restfulwebapis.com/chapters.html>
-- 이 저장소의 관련 문서: [whats-new.md](whats-new.md), [example-code.md](example-code.md)
+- 이 저장소의 관련 문서: [restful-web-apis-vs-services.md](../architecture/restful-web-apis-vs-services.md), [example-code.md](example-code.md)

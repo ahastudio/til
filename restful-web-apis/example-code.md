@@ -344,7 +344,7 @@ Maze+XML은 `rel=“north”`가 “북쪽 방으로 이동”을 뜻한다는 �
 컸기 때문이지, 발상이 틀려서가 아니었다.
 LLM이 그 구현 비용을 없애자 같은 발상 — 기계가 읽을 수 있는 도메인 의미 정의 — 이 도구 스키마
 형태로 폭발적으로 채택됐다.
-앞서 whats-new 문서에서 본 “하이퍼미디어의 진짜 사용처는 AI 에이전트였다”는 통찰이[^ref-whatsnew]
+앞서 RESTful Web APIs와 RESTful Web Services 비교 문서에서 본 “하이퍼미디어의 진짜 사용처는 AI 에이전트였다”는 통찰이[^ref-whatsnew]
 여기서 한 겹 더 구체화된다 — Maze+XML이 시대를 앞선 것은 형식이 아니라 그것을 소비할 클라이언트의
 지능이었다.
 
@@ -373,13 +373,18 @@ HTTP가 무엇인지를 가린 것 없이 보여준다.
 
 ## 참고
 
-- 관련 문서: [RESTful Web APIs 정리 (색인)](README.md), [RESTful Web Services에서 RESTful Web APIs로](whats-new.md), [RESTful Web Services 정리](../restful-web-services/README.md), [MCP가 무상태로 간다: 2026-07-28 스펙 릴리스 후보](../mcp/mcp-2026-07-28-spec.md)
+- 관련 문서: [RESTful Web APIs 정리 (색인)](README.md), [RESTful Web APIs와 RESTful Web Services는 무엇이 다른가](../architecture/restful-web-apis-vs-services.md), [RESTful Web Services 정리](../restful-web-services/README.md), [MCP가 무상태로 간다: 2026-07-28 스펙 릴리스 후보](../mcp/mcp-2026-07-28-spec.md)
 
 ---
 
 [^ref-rws]: 통일 인터페이스와 연결성(connectedness) 등 ROA의 네 속성에 대한 논의는 이 저장소의 [RESTful Web Services 정리](../restful-web-services/README.md)에 정리해 두었다.
-[^ref-whatsnew]: 하이퍼미디어가 푸는 문제와 못 푸는 문제의 구별, ALPS를 책을 위해 직접 개발한 사정, 그리고 하이퍼미디어의 진짜 사용처가 AI 에이전트였다는 논의는 이 저장소의 [whats-new 문서](whats-new.md)에 정리해 두었다.
+
+[^ref-whatsnew]: 하이퍼미디어가 푸는 문제와 못 푸는 문제의 구별, ALPS를 책을 위해 직접 개발한 사정, 그리고 하이퍼미디어의 진짜 사용처가 AI 에이전트였다는 논의는 이 저장소의 [RESTful Web APIs와 RESTful Web Services 비교 문서](../architecture/restful-web-apis-vs-services.md)에 정리해 두었다.
+
 [^ref-mcp]: 도구 정의와 스키마로 기계가 읽을 수 있는 의미를 공급하는 구조에 대한 논의는 이 저장소의 [MCP 2026-07-28 문서](../mcp/mcp-2026-07-28-spec.md)에 정리해 두었다.
+
 [^ref-evals]: eval의 어려움이 측정이 아니라 무엇을 실패로 볼지 정의하는 데 있다는 논의는 이 저장소의 [llm-evals 문서](../llm/llm-evals.md)에 정리해 두었다.
+
 [^ref-graph]: 일부 증거는 에이전트 시스템 바깥에서 와야 한다는 논의는 이 저장소의 [그래프 엔지니어링 문서](../agentic-coding/graph-engineering.md)에 정리해 두었다.
+
 [^ref-fund]: 생성이 싸질수록 이음매와 기초 이해가 값지다는 논의는 이 저장소의 [fundamentals-matter 문서](../software-engineering/fundamentals-matter.md)에 정리해 두었다.

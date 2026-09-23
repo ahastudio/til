@@ -164,7 +164,7 @@ JSON을 버릴 필요는 없고, JSON 위에 링크와 폼의 의미를 규정�
 
 ## 참고
 
-- 관련 문서: [RESTful Web APIs 정리 (색인)](README.md), [1장 웹 서핑](01-surfing-the-web.md), [3장 리소스와 표현](03-resources-and-representations.md), [예제 코드 분석](example-code.md), [RESTful Web Services에서 RESTful Web APIs로](whats-new.md)
+- 관련 문서: [RESTful Web APIs 정리 (색인)](README.md), [1장 웹 서핑](01-surfing-the-web.md), [3장 리소스와 표현](03-resources-and-representations.md), [예제 코드 분석](example-code.md), [RESTful Web APIs와 RESTful Web Services는 무엇이 다른가](../architecture/restful-web-apis-vs-services.md)
 - 저자 공식 장별 설명: <http://restfulwebapis.com/chapters.html>
 - Collection+JSON 명세: <http://amundsen.com/media-types/collection/format/>
 - 예제 코드 저장소: <https://github.com/RESTful-Web-APIs/example-code>
