@@ -8,7 +8,7 @@
 
 MobX는 신호(signal) 기반의 상태 관리 라이브러리로,
 투명한 함수형 반응형 프로그래밍(TFRP)을 통해 상태 관리를 단순하고 확장 가능하게 만든다.
-핵심 철학은 "애플리케이션 상태에서 파생될 수 있는 것은 모두 자동으로 파생되어야 한다"는 것이다.
+핵심 철학은 “애플리케이션 상태에서 파생될 수 있는 것은 모두 자동으로 파생되어야 한다”는 것이다.
 
 세 가지 설계 원칙이 있다.
 
@@ -197,3 +197,7 @@ Action → Observable State → Computed Values → Reactions (UI 렌더링 등)
 
 이벤트가 액션을 호출하고, 액션이 observable 상태를 변경하면,
 해당 상태에 의존하는 computed 값과 reaction이 자동으로 업데이트된다.
+
+공식 문서의 [MobX의 요지](https://ko.mobx.js.org/the-gist-of-mobx.html)가 이 흐름을 한 장의 그림으로 보여 준다.
+
+![uni-directional data flow](https://mobx.js.org/assets/action-state-view.png)

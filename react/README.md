@@ -94,7 +94,7 @@ EP4: How ReactDOM.render works
 [State of JS 2020: Data Layer](https://2020.stateofjs.com/en-US/technologies/datalayer/)
 
 - <https://github.com/ahastudio/til/blob/main/react/redux.md>
-- <https://github.com/ahastudio/til/blob/main/react/mobx.md>
+- <https://github.com/ahastudio/til/blob/main/react-native/mobx.md>
 - <https://github.com/ahastudio/til/blob/main/react/recoil.md>
 - <https://github.com/ahastudio/til/blob/main/react/hookstate.md>
 - <https://github.com/ahastudio/til/blob/main/react/zustand.md>
