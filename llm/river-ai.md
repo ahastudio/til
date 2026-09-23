@@ -316,11 +316,13 @@ River가 하겠다고 밝힌 것은 셋이다 — 학습 인프라, 지속학습
 
 ## 참고
 
-- 관련 문서: [500달러로 9B 모델 미세조정하기](500-dollar-9b-finetune.md), [LoRA 스피드런](lora-speedrun.md), [추론에는 지식이 필요하다](knowledge-for-reasoning.md), [LLM Eval의 핵심은 도구가 아니라 오류 분석이다](llm-evals.md), [하드웨어가 소프트웨어를 먹는 AI 스택](../business/hardware-eating-software-ai-stack.md)
+- 관련 문서: [500달러로 9B 모델 미세조정하기](../business/when-machines-take-the-wheel.md), [LoRA 스피드런](lora-speedrun.md), [추론에는 지식이 필요하다](knowledge-for-reasoning.md), [LLM Eval의 핵심은 도구가 아니라 오류 분석이다](llm-evals.md), [하드웨어가 소프트웨어를 먹는 AI 스택](../business/hardware-eating-software-ai-stack.md)
 - Hacker News와 Lobste.rs 모두 이 포스트의 제출 기록이 없다.
 
 ---
 
 [^ref-hw]: 모델 계층의 상품화가 하드웨어 계층의 마진을 지키는 구조는 이 저장소의 [hardware-eating-software-ai-stack 문서](../business/hardware-eating-software-ai-stack.md)에 정리해 두었다.
+
 [^ref-evals]: 도메인 정답 집합이 사올 수 없는 자산이라는 논의는 이 저장소의 [llm-evals 문서](llm-evals.md)에 정리해 두었다.
+
 [^ref-knowledge]: 추론에 필요한 지식이 가중치에 있어야 한다는 논의는 이 저장소의 [knowledge-for-reasoning 문서](knowledge-for-reasoning.md)에 정리해 두었다.
