@@ -13,7 +13,7 @@ Andrej Karpathy의 트윗:
 ## Coding Agents
 
 - [GitHub Copilot](https://github.com/features/copilot)
-- [Cursor](./cursor.md)
+- [Cursor](../cursor/README.md)
 - [Claude Code](../claude/claude-code.md)
 - [Codex](../codex)
 - [Windsurf Cascade](https://windsurf.com/cascade)
@@ -23,7 +23,7 @@ Andrej Karpathy의 트윗:
   [README (Korean)](https://github.com/cline/cline/blob/main/locales/ko/README.md)
 - [Roo Code](https://roocode.com/) ·
   [README (Korean)](https://github.com/RooCodeInc/Roo-Code/blob/main/locales/ko/README.md)
-- [Devin](./devin.md)
+- [Devin](../ai-tool/devin.md)
 - [OpenHands](https://github.com/All-Hands-AI/OpenHands) ·
   [README (Korean)](https://www.readme-i18n.com/ko/All-Hands-AI/OpenHands)
 

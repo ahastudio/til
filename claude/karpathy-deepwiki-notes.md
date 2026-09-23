@@ -81,5 +81,5 @@ knowledge)**를 코드에서 직접 뽑아내는 강력한 방법이다.
 
 - [Karpathy's Claude Coding Notes](./karpathy-claude-coding-notes.md)
 - [Karpathy-Inspired Claude Guidelines](./karpathy-inspired-claude-guidelines.md)
-- [Vibe Coding](./vibe-coding.md)
+- [Vibe Coding](../agentic-coding/vibe-coding.md)
 - [Claude Code](../claude/claude-code.md)

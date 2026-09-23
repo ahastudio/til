@@ -88,7 +88,7 @@ SVG가 “하이퍼미디어는 텍스트가 아니어도 된다”를 보인다
 ## 컬렉션 패턴을 담은 형식들
 
 저자는 컬렉션 패턴을 REST API의 약 80%를 포섭하는 반복 구조로 규정했다.
-이 저장소의 [restful-web-apis-vs-services.md](../architecture/restful-web-apis-vs-services.md)에 정리했듯, 이 패턴에 이름을 붙인 것 자체가 책의 방법론적 기여다.
+이 저장소의 [restful-web-apis-vs-services.md](restful-web-apis-vs-services.md)에 정리했듯, 이 패턴에 이름을 붙인 것 자체가 책의 방법론적 기여다.
 
 ### Atom과 AtomPub
 
@@ -359,4 +359,4 @@ WADL이나 WSDL 같은 기술 형식과의 경계는 정보가 실리는 자리�
 - URI Template (RFC 6570): <https://www.rfc-editor.org/rfc/rfc6570>
 - Home Documents for HTTP APIs: <https://datatracker.ietf.org/doc/draft-nottingham-json-home/>
 - 저자 공식 장별 설명: <http://restfulwebapis.com/chapters.html>
-- 이 저장소의 관련 문서: [restful-web-apis-vs-services.md](../architecture/restful-web-apis-vs-services.md), [example-code.md](example-code.md), [08-profiles.md](08-profiles.md)
+- 이 저장소의 관련 문서: [restful-web-apis-vs-services.md](restful-web-apis-vs-services.md), [example-code.md](example-code.md), [08-profiles.md](08-profiles.md)

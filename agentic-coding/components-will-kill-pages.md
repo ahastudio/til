@@ -235,5 +235,5 @@ AI 플랫폼 안의 컴포넌트도 같은 권력 구조를 따를 것이다.
 
 ## 관련 문서
 
-- [The Component Gallery](/design/component-gallery.md) -
+- [The Component Gallery](../design/component-gallery.md) -
   디자인 시스템의 컴포넌트를 모아 비교하는 레퍼런스

@@ -141,7 +141,7 @@ Worktree 기반 강제 병렬화가 위험한 이유는 머지 충돌 자체가 
 
 ## File-based Planning Workflow와의 연계
 
-FD 시스템과 [File-based Planning Workflow](./file-based-planning-workflow.md) 는
+FD 시스템과 [File-based Planning Workflow](../ai/file-based-planning-workflow.md) 는
 같은 직관에서 출발한다: **파일 시스템이 에이전트의 영구 메모리다.** 하지만 두
 시스템은 서로 다른 문제를 풀며, 결합할 때 비로소 완전해진다.
 
@@ -213,7 +213,7 @@ Schipper의 시스템에서 각 Worker 에이전트는 **독립된 세션**으�
 
 `/fd-deep`의 출력을 `findings.md` 형식으로 정규화하면, 탐색 결과가 후속
 에이전트의 컨텍스트로 자연스럽게 유입된다. 이것은
-[컨텍스트 엔지니어링](./agent-skills-for-context-engineering.md) 에서 말하는
+[컨텍스트 엔지니어링](../agent-skill/agent-skills-for-context-engineering.md) 에서 말하는
 **Progressive Disclosure** — 필요한 정보를 필요한 시점에 제공하는 원칙 — 의 파일
 기반 구현이다.
 
@@ -333,7 +333,7 @@ Schipper가 `/fd-verify`에서 “현재 상태를 커밋”하는 첫 단계를
 
 ### 컨텍스트 엔지니어링 관점에서 본 FD 시스템
 
-[컨텍스트 엔지니어링](./agent-skills-for-context-engineering.md) 의 핵심 개념인
+[컨텍스트 엔지니어링](../agent-skill/agent-skills-for-context-engineering.md) 의 핵심 개념인
 **주의 예산(Attention Budget)** 으로 FD 시스템을 분석하면:
 
 #### 컨텍스트 절약 전략
@@ -377,11 +377,11 @@ Schipper가 `/fd-verify`에서 “현재 상태를 커밋”하는 첫 단계를
 
 ## 관련 문서
 
-- [File-based Planning Workflow](./file-based-planning-workflow.md)
+- [File-based Planning Workflow](../ai/file-based-planning-workflow.md)
 - [Spec-Driven Development](./spec-driven-development.md)
 - [에이전틱 엔지니어링 패턴 #1: 코드는 거의 공짜다](./agentic-engineering-patterns.md)
 - [에이전틱 엔지니어링 패턴 #2: Red/Green TDD](./agentic-engineering-patterns.md)
 - [에이전틱 소프트웨어의 5단계](./agentic-software-levels.md)
 - [골빈해커의 코딩 에이전트 프롬프팅 플로우](./golbin-agent-prompting-flow.md)
-- [에이전트 스킬: 컨텍스트 엔지니어링](./agent-skills-for-context-engineering.md)
+- [에이전트 스킬: 컨텍스트 엔지니어링](../agent-skill/agent-skills-for-context-engineering.md)
 - [AI 코딩 에이전트 가이드라인](./ai-coding-agent-guidelines.md)

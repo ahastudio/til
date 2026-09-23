@@ -11,7 +11,7 @@ GN 토론: <https://news.hada.io/topic?id=33421>
 2026년 9월 8일 Inception의 CEO Stefano Ermon이
 Mercury 2.5를 발표했다.
 지금까지 중 가장 유능한 프로덕션 모형이며
-[Mercury 2](../mercury/mercury-2.md)보다 품질이 크게 올랐고
+[Mercury 2](mercury-2.md)보다 품질이 크게 올랐고
 지연 시간과 비용의 서비스 특성은 그대로라는 것이다.
 
 Mercury 2 출시 이후 수천 명의 개발자가 이것으로 만들었고

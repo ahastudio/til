@@ -200,7 +200,7 @@ XML 기반 타입이다.
 
 ## 참고
 
-- 관련 문서: [RESTful Web APIs 정리 (색인)](README.md), [4장 하이퍼미디어](04-hypermedia.md), [RESTful Web APIs 예제 코드](example-code.md), [RESTful Web APIs와 RESTful Web Services는 무엇이 다른가](../architecture/restful-web-apis-vs-services.md)
+- 관련 문서: [RESTful Web APIs 정리 (색인)](README.md), [4장 하이퍼미디어](04-hypermedia.md), [RESTful Web APIs 예제 코드](example-code.md), [RESTful Web APIs와 RESTful Web Services는 무엇이 다른가](restful-web-apis-vs-services.md)
 - 예제 저장소의 Maze 서버: <https://github.com/RESTful-Web-APIs/example-code/blob/master/Maze/server/app.js>
 - 제3자 Maze+XML 구현(구조 교차 확인에 사용): <https://github.com/malevy/mazeagent>
 - RFC 6838 Media Type Specifications and Registration Procedures: <https://www.rfc-editor.org/rfc/rfc6838>

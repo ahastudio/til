@@ -194,4 +194,4 @@ npx cc-sdd@latest --claude --lang ko
 
 [Kiro IDE](https://kiro.dev)
 
-[Spec-Driven Development](../ai/spec-driven-development.md)
+[Spec-Driven Development](../agentic-coding/spec-driven-development.md)

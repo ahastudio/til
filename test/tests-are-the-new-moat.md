@@ -366,7 +366,7 @@ AI로도 쉽게 복제할 수 없는 자산이다.
 - [AI 시대에 TDD가 더 강력해진 이유](
   ../ai/tdd-in-ai-era.md)
 - [Test Pyramid](./test-pyramid.md)
-- [Earn and Learn](../ai/earn-and-learn.md)
+- [Earn and Learn](../agile/earn-and-learn.md)
 
 ## 참고
 

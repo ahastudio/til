@@ -41,7 +41,7 @@ DELETE /collection/1     -> 아이템 삭제
 ```
 
 이 배분이 이른바 CRUD API의 뼈대이며, 저자가 REST API의 상당수를 이 패턴이 덮는다고 본 이유다.
-이 저장소의 [RESTful Web APIs와 RESTful Web Services 비교 문서](../architecture/restful-web-apis-vs-services.md)에 정리한 대로, 저자는 이른바 REST API의 약 80%가 이 패턴에 포섭되지만 REST는 그보다 크다고 봤다.
+이 저장소의 [RESTful Web APIs와 RESTful Web Services 비교 문서](restful-web-apis-vs-services.md)에 정리한 대로, 저자는 이른바 REST API의 약 80%가 이 패턴에 포섭되지만 REST는 그보다 크다고 봤다.
 패턴에 이름을 주는 행위 자체가 그 너머를 보게 한다는 것이 이 장의 방법론적 주장이다.
 
 ## Collection+JSON: 패턴을 통째로 형식으로 만든 것
@@ -255,7 +255,7 @@ AtomPub은 이 패턴을 개척한 2007년 표준이며, 서비스 문서로 컬
 
 ## 참고
 
-- 관련 문서: [RESTful Web APIs 정리 (색인)](README.md), [7장 순수 하이퍼미디어 설계](07-pure-hypermedia-designs.md), [RESTful Web APIs 예제 코드](example-code.md), [RESTful Web APIs와 RESTful Web Services는 무엇이 다른가](../architecture/restful-web-apis-vs-services.md)
+- 관련 문서: [RESTful Web APIs 정리 (색인)](README.md), [7장 순수 하이퍼미디어 설계](07-pure-hypermedia-designs.md), [RESTful Web APIs 예제 코드](example-code.md), [RESTful Web APIs와 RESTful Web Services는 무엇이 다른가](restful-web-apis-vs-services.md)
 - Collection+JSON 명세: <https://github.com/collection-json/spec>
 - RFC 5023 (The Atom Publishing Protocol): <https://www.rfc-editor.org/rfc/rfc5023.txt>
 - 저자 공식 장별 설명: <http://restfulwebapis.com/chapters.html>

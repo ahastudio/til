@@ -153,7 +153,7 @@ AGENTS.md는 AI 에이전트에게 "나라는 시스템"의
 
 → 잘 작성된 AGENTS.md가 있는 사람과 없는 사람의
 AI 활용 격차는 시간이 갈수록 벌어진다.
-[컨텍스트 엔지니어링](../ai/agent-skills-for-context-engineering.md)의
+[컨텍스트 엔지니어링](../agent-skill/agent-skills-for-context-engineering.md)의
 가장 기초적이면서도 강력한 실천이다.
 
 ### 3. 빈 시스템의 콜드 스타트 문제

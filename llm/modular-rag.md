@@ -308,5 +308,5 @@ Modular RAG는 결국 “전문가의 인지 과정”을
 
 ## 관련 문서
 
-- [RAG 기본 개념](../llm/rag.md)
+- [RAG 기본 개념](../agentic-coding/rag.md)
 - [온디바이스 RAG](./on-device-rag-for-app-developers.md)

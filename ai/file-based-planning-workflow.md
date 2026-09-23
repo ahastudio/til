@@ -285,7 +285,7 @@ Figma에서 확인한 로그인 화면:
 
 함께 사용하면: Spec으로 방향을 정하고, Planning으로 과정을 추적
 
-[Spec-Driven Development](./spec-driven-development.md)
+[Spec-Driven Development](../agentic-coding/spec-driven-development.md)
 
 ## 구현 사례
 

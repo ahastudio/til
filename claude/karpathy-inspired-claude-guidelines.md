@@ -101,4 +101,4 @@ curl -o CLAUDE.md \
 ## 관련 문서
 
 - [Karpathy's Claude Coding Notes](./karpathy-claude-coding-notes.md)
-- [Vibe Coding](./vibe-coding.md)
+- [Vibe Coding](../agentic-coding/vibe-coding.md)

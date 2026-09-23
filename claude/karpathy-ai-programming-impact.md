@@ -371,5 +371,5 @@ CLAUDE.md, AGENTS.md 같은 컨텍스트 파일,
 - [Karpathy's Claude Coding Notes](./karpathy-claude-coding-notes.md)
 - [Karpathy's DeepWiki Notes](./karpathy-deepwiki-notes.md)
 - [Karpathy-Inspired Claude Guidelines](./karpathy-inspired-claude-guidelines.md)
-- [Vibe Coding](./vibe-coding.md)
-- [Agentic Software Levels](./agentic-software-levels.md)
+- [Vibe Coding](../agentic-coding/vibe-coding.md)
+- [Agentic Software Levels](../agentic-coding/agentic-software-levels.md)

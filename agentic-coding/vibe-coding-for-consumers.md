@@ -58,11 +58,11 @@ Veracode의 2025 보고서에 따르면 AI 생성 코드의 거의 절반이 보
   **아키텍처 재설계**를 요구한다. 셋업, 보안, 배포를 모두 추상화해야 하기
   때문이다. [프롬프트에서 하네스까지](prompt-to-harness.md)가 정리한 “하네스 엔지니어링” 단계가 바로 이 재설계의 기술적 어휘를 제공한다.
   소비자가 안전하게 바이브 코딩하려면 결정론적 피드백 하네스(린터, 타입 체커, 보안 스캐너)가 제품 내부에 내장돼야 한다.
-- [거대 코딩 AI 시대의 소프트웨어 제품](./software-products-in-the-age-of-big-coding-ais.md)에서
+- [거대 코딩 AI 시대의 소프트웨어 제품](../ai/software-products-in-the-age-of-big-coding-ais.md)에서
   논의한 “검증 수요 폭발”과 맞물린다. 소비자가 만든 코드는 전문가의 검증 없이
   배포되므로 자동화된 보안 검증 도구의 중요성이 더욱 커진다.
 
 ## 관련 문서
 
 - [Vibe Coding](./vibe-coding.md)
-- [거대 코딩 AI 시대의 소프트웨어 제품](./software-products-in-the-age-of-big-coding-ais.md)
+- [거대 코딩 AI 시대의 소프트웨어 제품](../ai/software-products-in-the-age-of-big-coding-ais.md)

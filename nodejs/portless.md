@@ -555,4 +555,4 @@ Portless가 Node.js 전용 도구가 아님을 증명한다.
 
 ## 관련 문서
 
-- [agent-browser](../ai/agent-browser.md)
+- [agent-browser](../ai-tool/agent-browser.md)

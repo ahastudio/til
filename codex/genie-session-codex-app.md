@@ -257,7 +257,7 @@ Kent Beck이 이 세션에서 보여준 것은 특정 기술의 우월함이 아
 ## 관련 문서
 
 - [Genie Sessions: GPU Sorted Map](./genie-sessions-gpu-sorted-map.md)
-- [Augmented Coding](./augmented-coding.md)
-- [Vibe Coding](./vibe-coding.md)
+- [Augmented Coding](../agentic-coding/augmented-coding.md)
+- [Vibe Coding](../agentic-coding/vibe-coding.md)
 - [Codex](../codex) - OpenAI Codex
 - [Kent Beck](../agile/kent-beck.md)

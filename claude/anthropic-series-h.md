@@ -34,7 +34,7 @@ Claude 배포는 엔터프라이즈 운영과 개인 워크플로 전반으로 �
 650억 달러 조달의 배경에는 거대한 컴퓨트 수요가 있다.
 Amazon 5GW, Google/Broadcom 5GW TPU, SpaceX GPU 접근이라는 용량 계약은,
 모델 학습과 추론이 천문학적 전력·하드웨어를 요구함을 보여준다.
-이 자본 수요는 [LocalAI 경제학 글](localai-economics.md)이 짚은 "API 가격
+이 자본 수요는 [LocalAI 경제학 글](../ai/localai-economics.md)이 짚은 "API 가격
 인상"의 근본 원인이기도 하다 — 추론 비용이 막대하니 가격이 오를 수밖에
 없다.
 

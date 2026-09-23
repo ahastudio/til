@@ -176,7 +176,7 @@ Karpathy가 지적했듯이 규칙 파일로 지시해도 완벽히 따르지는
 
 ## 관련 문서
 
-- [Karpathy's Claude Coding Notes](./karpathy-claude-coding-notes.md)
-- [File-based Planning Workflow](./file-based-planning-workflow.md)
+- [Karpathy's Claude Coding Notes](../claude/karpathy-claude-coding-notes.md)
+- [File-based Planning Workflow](../ai/file-based-planning-workflow.md)
 - [Spec-Driven Development](./spec-driven-development.md)
 - [Vibe Coding](./vibe-coding.md)

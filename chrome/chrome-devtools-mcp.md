@@ -198,4 +198,4 @@ claude mcp add --transport stdio chrome-devtools \
 - [Chrome DevTools MCP 공식 블로그](https://developer.chrome.com/blog/chrome-devtools-mcp?hl=ko)
 - [GitHub: ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp)
 - [Rafael Mendiola: Chrome Debugging Profile + MCP](https://raf.dev/blog/chrome-debugging-profile-mcp/)
-- [WebMCP Early Preview](/chrome/webmcp-early-preview.md)
+- [WebMCP Early Preview](webmcp-early-preview.md)

@@ -8,8 +8,8 @@ https://tech.kakaopay.com/post/how-llm-works/
 
 ## Resources
 
-- [awesome-llm-apps](awesome-llm-apps.md)
+- [awesome-llm-apps](../ai-tool/awesome-llm-apps.md)
 
 ## Tools
 
-- [QMD (Query Markup Documents)](qmd.md)
+- [QMD (Query Markup Documents)](../agentic-coding/qmd.md)

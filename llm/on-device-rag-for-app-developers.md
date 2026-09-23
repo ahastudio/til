@@ -283,5 +283,5 @@ CRM은 자연스럽게 나뉘지만,
 
 ## 관련 문서
 
-- [RAG (Retrieval-Augmented Generation)](../llm/rag.md)
-- [Chunk Translator 분석](chunk-translator.md)
+- [RAG (Retrieval-Augmented Generation)](../agentic-coding/rag.md)
+- [Chunk Translator 분석](../ai-tool/chunk-translator.md)

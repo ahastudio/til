@@ -13,7 +13,7 @@
 
 **1. 속도의 역설 — 빠를수록 위험하다.** AI가 코드를 100배 빨리 쓰지만, 인간의
 리뷰 대역폭은 그대로다. 생성 속도와 검증 속도의 격차에서 기술 부채가 폭발한다.
-이것이 BIG SLOP이다. [Vibe Coding](./vibe-coding.md)의 편리함에 취하면 부채 축적
+이것이 BIG SLOP이다. [Vibe Coding](../agentic-coding/vibe-coding.md)의 편리함에 취하면 부채 축적
 속도도 100배가 된다.
 이 예측은 [검증 부채](../agentic-coding/verification-debt.md)라는 이름으로
 정확히 들어맞았다.
@@ -24,7 +24,7 @@
 
 ### 2. 규모의 역설 — 에이전트를 늘려도 나아지지 않는다
 
-[1인간 + 1에이전트](./one-human-one-agent.md)가 수백 개 서브에이전트 스웜을
+[1인간 + 1에이전트](../agentic-coding/one-human-one-agent.md)가 수백 개 서브에이전트 스웜을
 이긴다. 브룩스의 “맨먼스 미신”이 AI에도 적용된다. 병목은 지능이 아니라 **조정
 비용** 이다.
 이 역설도 대체로 들어맞았다.
@@ -56,7 +56,7 @@
 제약이 에이전트에게 가장 명확한 지침이 된다. 테스트 스위트가 인간의 의도와
 기계의 실행을 잇는 **인터페이스** 가 된다.
 
-[SDD](./spec-driven-development.md)의 “명세가 단일 정보원(single source of
+[SDD](../agentic-coding/spec-driven-development.md)의 “명세가 단일 정보원(single source of
 truth)”이라는 사상과 정확히 일치한다.
 이 통찰은 이후 사업적 논지로 한 단계 더 발전했다.
 [테스트가 새로운 해자다](../test/tests-are-the-new-moat.md)는 Cloudflare가
@@ -104,7 +104,7 @@ SaaS는 이제 **에이전트**(API), **오퍼레이터**(대시보드), **이�
 
 ## 관련 문서
 
-- [Spec-Driven Development](./spec-driven-development.md)
-- [AI Agent](./agent.md)
-- [One Human + One Agent](./one-human-one-agent.md)
-- [Vibe Coding](./vibe-coding.md)
+- [Spec-Driven Development](../agentic-coding/spec-driven-development.md)
+- [AI Agent](../agentic-coding/agent.md)
+- [One Human + One Agent](../agentic-coding/one-human-one-agent.md)
+- [Vibe Coding](../agentic-coding/vibe-coding.md)

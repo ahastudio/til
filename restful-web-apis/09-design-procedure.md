@@ -40,7 +40,7 @@
 
 ## 무게중심이 표현으로 옮겨간다
 
-저자 Leonard Richardson이 두 책의 차이를 직접 정리한 글의 요지는 이 저장소의 [restful-web-apis-vs-services.md](../architecture/restful-web-apis-vs-services.md)에 정리돼 있고, 9장을 이해하는 열쇠도 거기 있다.
+저자 Leonard Richardson이 두 책의 차이를 직접 정리한 글의 요지는 이 저장소의 [restful-web-apis-vs-services.md](restful-web-apis-vs-services.md)에 정리돼 있고, 9장을 이해하는 열쇠도 거기 있다.
 
 저자에 따르면 《Services》는 HTTP의 리소스 개념에 무겁게 초점을 맞춰 사실상 서버 측을 강조했다.
 반면 《APIs》는 표현 — 클라이언트와 서버가 주고받는 문서 — 에 초점을 맞추며, REST가 사는 곳이 바로 그 표현이라고 본다.
@@ -149,5 +149,5 @@ ALPS가 상태 전이를 `safe`, `idempotent`, `unsafe`로 추상화한 것도 �
 ## 참고
 
 - 저자 공식 장별 설명: <http://restfulwebapis.com/chapters.html>
-- 이 저장소의 관련 문서: [restful-web-apis-vs-services.md](../architecture/restful-web-apis-vs-services.md), [example-code.md](example-code.md), [08-profiles.md](08-profiles.md)
+- 이 저장소의 관련 문서: [restful-web-apis-vs-services.md](restful-web-apis-vs-services.md), [example-code.md](example-code.md), [08-profiles.md](08-profiles.md)
 - 전작의 설계 절차: [읽기 전용 서비스 설계](../restful-web-services/05-read-only-services.md), [베스트 프랙티스](../restful-web-services/08-best-practices.md)

@@ -59,7 +59,7 @@ Spawn a subagent to inspect repo-specific writing conventions.
 
 - 앱 코드 중심 저장소라기보다 주제별 마크다운 문서를 쌓아두는
   TIL 아카이브에 가깝다.
-- [`ai`](../ai), [`codex`](./README.md), [`.agent/skills`](../.agent/skills)
+- [`ai`](../ai), [`codex`](./README.md), [`_agent/skills`](../_agent/skills)
   등이 눈에 띄는 영역이다.
 - [`AGENTS.md`](../AGENTS.md) 와 [`.prettierrc`](../.prettierrc) 가
   이후 작업 규칙에 중요하다.

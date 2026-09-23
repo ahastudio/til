@@ -225,8 +225,8 @@ hooks·권한 설정·CI 게이트(코드)는 구조적으로 강제되는 것�
 
 대부분의 AI 코딩 도구가 프롬프트 엔지니어링(더 나은 입력)에 집중할 때,
 Ouroboros는 사양 엔지니어링(더 나은 정의)에 집중한다.
-[코드 리뷰가 사양 리뷰로 전환](./reviews-dead.md)되어야 한다는 논의,
-[Spec-Driven Development](./spec-driven-development.md)의 흐름과
+[코드 리뷰가 사양 리뷰로 전환](../agentic-coding/reviews-dead.md)되어야 한다는 논의,
+[Spec-Driven Development](../agentic-coding/spec-driven-development.md)의 흐름과
 정확히 같은 방향이다.
 프롬프트는 휘발성이지만 사양은 축적된다.
 
@@ -377,8 +377,8 @@ Ambiguity Score, 드리프트 측정, 4패턴 정체 감지, 배심원 독립성
 
 ### SDD 생태계의 수렴
 
-[Spec-Driven Development](./spec-driven-development.md),
-[코드 리뷰의 사양 리뷰 전환](./reviews-dead.md),
+[Spec-Driven Development](../agentic-coding/spec-driven-development.md),
+[코드 리뷰의 사양 리뷰 전환](../agentic-coding/reviews-dead.md),
 그리고 Ouroboros까지 — 모두 같은 방향을 가리킨다.
 “코드가 아니라 사양을 리뷰하라”는 합의가 형성되고 있다.
 Ouroboros의 가치는 이 합의를 실행 가능한 도구로 구체화했다는 데 있다.

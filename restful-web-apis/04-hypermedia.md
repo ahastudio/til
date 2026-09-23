@@ -199,7 +199,7 @@ HATEOAS는 응답에 링크가 있느냐가 아니라 클라이언트가 URL을 
 
 ## 참고
 
-- 관련 문서: [RESTful Web APIs 정리 (색인)](README.md), [RESTful Web APIs와 RESTful Web Services는 무엇이 다른가](../architecture/restful-web-apis-vs-services.md), [RESTful Web APIs 예제 코드](example-code.md), [5장 도메인 특화 설계](05-domain-specific-designs.md)
+- 관련 문서: [RESTful Web APIs 정리 (색인)](README.md), [RESTful Web APIs와 RESTful Web Services는 무엇이 다른가](restful-web-apis-vs-services.md), [RESTful Web APIs 예제 코드](example-code.md), [5장 도메인 특화 설계](05-domain-specific-designs.md)
 - IANA Link Relations 레지스트리: <https://www.iana.org/assignments/link-relations/link-relations.xhtml>
 - RFC 8288 Web Linking: <https://www.rfc-editor.org/rfc/rfc8288>
 - RFC 6573 (`collection`, `item`), RFC 6861 (`create-form`, `edit-form`), RFC 6906 (`profile`)
@@ -207,5 +207,5 @@ HATEOAS는 응답에 링크가 있느냐가 아니라 클라이언트가 URL을 
 ---
 
 [^ref-readme]: 저자 공식 장별 설명과 이 책의 논지 요약은 이 저장소의 [RESTful Web APIs 색인 문서](README.md)에 정리해 두었다.
-[^ref-whatsnew]: 하이퍼미디어가 푸는 질문과 못 푸는 질문의 구별, JSON에 하이퍼미디어가 없다는 문제, ALPS를 책을 위해 직접 개발한 사정은 이 저장소의 [RESTful Web APIs와 RESTful Web Services 비교 문서](../architecture/restful-web-apis-vs-services.md)에 정리해 두었다.
+[^ref-whatsnew]: 하이퍼미디어가 푸는 질문과 못 푸는 질문의 구별, JSON에 하이퍼미디어가 없다는 문제, ALPS를 책을 위해 직접 개발한 사정은 이 저장소의 [RESTful Web APIs와 RESTful Web Services 비교 문서](restful-web-apis-vs-services.md)에 정리해 두었다.
 [^ref-example]: 지도 그리기 봇의 링크 수집 코드, the-boaster의 동작, Collection+JSON의 `template`에 대한 분석은 이 저장소의 [예제 코드 문서](example-code.md)에 정리해 두었다.

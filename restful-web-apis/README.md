@@ -48,7 +48,7 @@ REST의 인기가 커지면서 아키텍처의 이점을 대부분 담지 못한
 등)이 전작 출간 이후 발명됐고, 이 책이 그것들을 다룬다.
 셋째, 하이퍼미디어를 넘어 분야를 계속 전진시킬 프로파일(profile) 같은 최첨단 아이디어를 다룬다.
 
-- 상세 문서: [RESTful Web APIs와 RESTful Web Services는 무엇이 다른가](../architecture/restful-web-apis-vs-services.md)
+- 상세 문서: [RESTful Web APIs와 RESTful Web Services는 무엇이 다른가](restful-web-apis-vs-services.md)
 
 ## 예제 코드
 

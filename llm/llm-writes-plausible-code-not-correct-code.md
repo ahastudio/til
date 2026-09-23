@@ -598,8 +598,8 @@ LLM은 후자를 쉽게 만들었다.
 
 ## 관련 문서
 
-- [AI 시대에 TDD가 더 강력해진 이유](tdd-in-ai-era.md)
-- [Vibe Coding](vibe-coding.md)
+- [AI 시대에 TDD가 더 강력해진 이유](../agentic-coding/tdd-in-ai-era.md)
+- [Vibe Coding](../agentic-coding/vibe-coding.md)
 - [코드는 싸다 — 에이전틱 엔지니어링 패턴](
     agentic-engineering-patterns.md)
 - [Red-Green TDD — 에이전틱 엔지니어링 패턴](

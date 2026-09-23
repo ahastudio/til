@@ -373,13 +373,13 @@ HTTP가 무엇인지를 가린 것 없이 보여준다.
 
 ## 참고
 
-- 관련 문서: [RESTful Web APIs 정리 (색인)](README.md), [RESTful Web APIs와 RESTful Web Services는 무엇이 다른가](../architecture/restful-web-apis-vs-services.md), [RESTful Web Services 정리](../restful-web-services/README.md), [MCP가 무상태로 간다: 2026-07-28 스펙 릴리스 후보](../mcp/mcp-2026-07-28-spec.md)
+- 관련 문서: [RESTful Web APIs 정리 (색인)](README.md), [RESTful Web APIs와 RESTful Web Services는 무엇이 다른가](restful-web-apis-vs-services.md), [RESTful Web Services 정리](../restful-web-services/README.md), [MCP가 무상태로 간다: 2026-07-28 스펙 릴리스 후보](../mcp/mcp-2026-07-28-spec.md)
 
 ---
 
 [^ref-rws]: 통일 인터페이스와 연결성(connectedness) 등 ROA의 네 속성에 대한 논의는 이 저장소의 [RESTful Web Services 정리](../restful-web-services/README.md)에 정리해 두었다.
 
-[^ref-whatsnew]: 하이퍼미디어가 푸는 문제와 못 푸는 문제의 구별, ALPS를 책을 위해 직접 개발한 사정, 그리고 하이퍼미디어의 진짜 사용처가 AI 에이전트였다는 논의는 이 저장소의 [RESTful Web APIs와 RESTful Web Services 비교 문서](../architecture/restful-web-apis-vs-services.md)에 정리해 두었다.
+[^ref-whatsnew]: 하이퍼미디어가 푸는 문제와 못 푸는 문제의 구별, ALPS를 책을 위해 직접 개발한 사정, 그리고 하이퍼미디어의 진짜 사용처가 AI 에이전트였다는 논의는 이 저장소의 [RESTful Web APIs와 RESTful Web Services 비교 문서](restful-web-apis-vs-services.md)에 정리해 두었다.
 
 [^ref-mcp]: 도구 정의와 스키마로 기계가 읽을 수 있는 의미를 공급하는 구조에 대한 논의는 이 저장소의 [MCP 2026-07-28 문서](../mcp/mcp-2026-07-28-spec.md)에 정리해 두었다.
 

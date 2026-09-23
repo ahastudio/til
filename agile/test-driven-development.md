@@ -110,4 +110,4 @@ setup, 호출, assertion이 포함된 자동화 테스트를 하나만 작성한
 
 ## AI 시대의 TDD
 
-[AI 시대에 TDD가 더 강력해진 이유](./2026-02-26-tdd-in-ai-era.md)
+[AI 시대에 TDD가 더 강력해진 이유](../agentic-coding/tdd-in-ai-era.md)

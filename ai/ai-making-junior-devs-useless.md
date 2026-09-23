@@ -294,4 +294,4 @@ AI와 함께 기본기를 익히는 새로운 학습 패러다임이
 - [AI 시대의 개발자 온보딩 회고](./ai-onboarding-retrospective.md)
 - [AI가 프로그래밍을 바꾼 방식: Karpathy의 진단](
   ./karpathy-ai-programming-impact.md)
-- [Vibe Coding](./vibe-coding.md)
+- [Vibe Coding](../agentic-coding/vibe-coding.md)

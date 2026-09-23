@@ -352,7 +352,7 @@ OpenAI의 100만 줄 실험, Stripe의 주당 1,000 PR이라는
 “100만 줄, 인간 코드 0줄”은 강렬한 헤드라인이지만,
 내부 실험이라 외부에서 코드 품질, 유지보수성,
 기술 부채를 검증할 방법이 없다. 100만 줄이
-[그럴듯하지만 올바르지 않은 코드](./llm-writes-plausible-code-not-correct-code.md)일
+[그럴듯하지만 올바르지 않은 코드](../llm/llm-writes-plausible-code-not-correct-code.md)일
 가능성에 대한 논의가 빠져 있다.
 
 #### 실패 사례의 깊이 부족
@@ -442,7 +442,7 @@ AI가 생성한 코드는 인간 코드보다 **더 빠르게**
 파일 하나는 완벽하지만 프로젝트 전체는 방향이
 다른 100개의 “완벽한” 파일로 이루어진 혼돈.
 이것이 [LLM이 그럴듯하지만 올바르지 않은 코드를
-쓴다](./llm-writes-plausible-code-not-correct-code.md)는
+쓴다](../llm/llm-writes-plausible-code-not-correct-code.md)는
 문제의 **시스템 수준 발현**이다.
 
 가비지 컬렉션 에이전트라는 해법이 우아하다.

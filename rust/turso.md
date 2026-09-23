@@ -40,7 +40,7 @@ Turso는 자신을 “강한 개방형 기여 지향으로 SQLite의 다음 진�
 언어 바인딩은 Rust·JavaScript(NPM)·Python·Go·Java·.NET·WebAssembly로 폭넓고,
 GitHub 별 20.6k개·Rust 85.7%·MIT 라이선스다(SQLite는 퍼블릭 도메인이라 MIT가
 오히려 더 제약적이다).
-SQLite 창시자 Richard Hipp의 관점은 이 저장소의 [Hipp 인터뷰 문서](richard-hipp-on-turso-ai-26-years.md)에서
+SQLite 창시자 Richard Hipp의 관점은 이 저장소의 [Hipp 인터뷰 문서](../sqlite/richard-hipp-on-turso-ai-26-years.md)에서
 함께 볼 수 있다.
 
 ## 분석

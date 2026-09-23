@@ -195,6 +195,6 @@ Playwright가 잡는 것은 통합 실패, 렌더링 버그,
 
 ## 관련 문서
 
-- [Claude Code Best Practice](./claude-code-best-practice.md)
-- [Claude Skills Guide](./claude-skills-guide.md)
-- [Planning with Files](./planning-with-files.md)
+- [Claude Code Best Practice](../claude/claude-code-best-practice.md)
+- [Claude Skills Guide](../claude/claude-skills-guide.md)
+- [Planning with Files](../claude/planning-with-files.md)

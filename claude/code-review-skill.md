@@ -179,4 +179,4 @@ claude plugins add https://github.com/sanyuan0704/code-review-expert
 ## 관련 문서
 
 - [Claude Code](./claude-code.md)
-- [Karpathy-Inspired Claude Guidelines](../ai/karpathy-inspired-claude-guidelines.md)
+- [Karpathy-Inspired Claude Guidelines](karpathy-inspired-claude-guidelines.md)

@@ -218,5 +218,5 @@ soul.md가 던진 철학적 질문(기능주의, 텍스트를 통한 정체성 �
 
 - [SOUL.md — AI에게 “영혼”을 부여한다는 것](
   ../openclaw/soul-document.md)
-- [One Human + One Agent](./one-human-one-agent.md)
+- [One Human + One Agent](../agentic-coding/one-human-one-agent.md)
 - [AI Ethics](./ethics.md)

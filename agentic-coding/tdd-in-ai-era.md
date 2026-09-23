@@ -196,7 +196,7 @@ TDD가 가장 잘 작동하는 영역이며, AI가 가장 잘 만드는 영역�
 ### 검증이 새로운 병목이다 — Karpathy의 진단과 연결
 
 Karpathy는 AI가 “에디터에 코드를 타이핑하는 70년 패러다임을 끝냈다”고 선언했다.
-([AI가 프로그래밍을 바꾼 방식](./karpathy-ai-programming-impact.md))
+([AI가 프로그래밍을 바꾼 방식](../claude/karpathy-ai-programming-impact.md))
 
 동시에 그가 진단한 새로운 병목:
 
@@ -231,7 +231,7 @@ Kent Beck의 실험: AI에게 이렇게 지시했다.
 
 ### 결승선 게임 vs 복리 게임
 
-Kent Beck의 “Earn and Learn”에서: ([Earn and Learn](./earn-and-learn.md))
+Kent Beck의 “Earn and Learn”에서: ([Earn and Learn](../agile/earn-and-learn.md))
 
 **결승선 게임**: 목표 X에 도달하면 끝. 미래가 없으니 미래를 고려할 필요가 없다.
 AI는 이 게임을 역사상 가장 빠르고 싸게 해준다.
@@ -271,7 +271,7 @@ TDD는 명세 능력을 훈련하는 가장 정제된 방법이다.
 
 ### Canon TDD의 “실수 목록”이 더 중요해졌다
 
-[Canon TDD](./test-driven-development.md)에서 Kent Beck은 각 단계의 흔한 실수를
+[Canon TDD](../agile/test-driven-development.md)에서 Kent Beck은 각 단계의 흔한 실수를
 나열했다.
 
 AI와 함께하면 이 실수들을 더 빠르게 저지른다:
@@ -327,10 +327,10 @@ TDD는 느리고 번거로운 옛 방식이 아니다. AI와 함께 일하는 �
 
 ## 관련 문서
 
-- [테스트 주도 개발](./test-driven-development.md)
-- [AI가 프로그래밍을 바꾼 방식](../ai/karpathy-ai-programming-impact.md)
-- [Karpathy's Claude Coding Notes](../ai/karpathy-claude-coding-notes.md)
-- [Augmented Coding](../ai/augmented-coding.md)
-- [Vibe Coding](../ai/vibe-coding.md)
-- [Spec-Driven Development](../ai/spec-driven-development.md)
-- [Earn and Learn](./earn-and-learn.md)
+- [테스트 주도 개발](../agile/test-driven-development.md)
+- [AI가 프로그래밍을 바꾼 방식](../claude/karpathy-ai-programming-impact.md)
+- [Karpathy's Claude Coding Notes](../claude/karpathy-claude-coding-notes.md)
+- [Augmented Coding](augmented-coding.md)
+- [Vibe Coding](vibe-coding.md)
+- [Spec-Driven Development](spec-driven-development.md)
+- [Earn and Learn](../agile/earn-and-learn.md)

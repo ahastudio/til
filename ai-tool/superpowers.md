@@ -99,6 +99,6 @@ Superpowers는 **3개마다 사람이 확인**한다.
 
 ## 관련 문서
 
-- [Spec-Driven Development](./spec-driven-development.md)
-- [File-based Planning Workflow](./file-based-planning-workflow.md)
-- [Karpathy's Claude Coding Notes](./karpathy-claude-coding-notes.md)
+- [Spec-Driven Development](../agentic-coding/spec-driven-development.md)
+- [File-based Planning Workflow](../ai/file-based-planning-workflow.md)
+- [Karpathy's Claude Coding Notes](../claude/karpathy-claude-coding-notes.md)

@@ -132,7 +132,7 @@ git)를 분리하라.**
 파일에서 로드한다.
 이건 페이징(paging)이다.
 
-[File-based Planning Workflow](./file-based-planning-workflow.md)와
+[File-based Planning Workflow](../ai/file-based-planning-workflow.md)와
 동일한 원리. Ralph Loop은 여기에 Docker 샌드박스
 + 자동 반복 실행 + PRD 생성까지 패키징한 것.
 

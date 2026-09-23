@@ -71,6 +71,6 @@ AI가 “이상해지기” 시작하면 **작업을 분할**한다.
 
 ## 관련 문서
 
-- [Augmented Coding](./augmented-coding.md)
-- [Vibe Coding](./vibe-coding.md)
+- [Augmented Coding](../agentic-coding/augmented-coding.md)
+- [Vibe Coding](../agentic-coding/vibe-coding.md)
 - [Codex](../codex) - OpenAI Codex

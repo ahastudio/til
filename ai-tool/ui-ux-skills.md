@@ -70,5 +70,5 @@ npx -y degit \
 
 ## 관련 문서
 
-- [Vibe Coding](./vibe-coding.md)
+- [Vibe Coding](../agentic-coding/vibe-coding.md)
 - [Claude Code](../claude/claude-code.md)

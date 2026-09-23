@@ -72,5 +72,5 @@ IDE를 옆에 띄워놓고 **매처럼 지켜봐야 한다**.
 
 ## 관련 문서
 
-- [Vibe Coding](./vibe-coding.md)
+- [Vibe Coding](../agentic-coding/vibe-coding.md)
 - [Claude Code](../claude/claude-code.md)

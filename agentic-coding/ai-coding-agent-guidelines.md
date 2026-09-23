@@ -200,5 +200,5 @@ AI 에이전트는 실수한다. 이 문서는 그 사실을 공리(axiom)로
 
 ## 관련 문서
 
-- [File-based Planning Workflow](./file-based-planning-workflow.md)
+- [File-based Planning Workflow](../ai/file-based-planning-workflow.md)
 - [Spec-Driven Development](./spec-driven-development.md)

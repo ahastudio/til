@@ -209,7 +209,7 @@ AI 에이전트 시대에 인간에게 남는 영향력은 스토리·신뢰·�
 
 ## 관련 문서
 
-- [거대 코딩 AI 시대의 소프트웨어 제품](./software-products-in-the-age-of-big-coding-ais.md)
+- [거대 코딩 AI 시대의 소프트웨어 제품](../ai/software-products-in-the-age-of-big-coding-ais.md)
 - [AI가 프로그래밍을 바꾼 방식: Karpathy의 진단](./karpathy-ai-programming-impact.md)
-- [AI Agent](./agent.md)
-- [Vibe Coding](./vibe-coding.md)
+- [AI Agent](../agentic-coding/agent.md)
+- [Vibe Coding](../agentic-coding/vibe-coding.md)

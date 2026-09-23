@@ -105,7 +105,7 @@ jacquesm는 반대로 과정에 초점을 맞춘다.[^jacquesm]
 
 ## 관련 문서
 
-- [Karpathy's Claude Coding Notes](./karpathy-claude-coding-notes.md)
+- [Karpathy's Claude Coding Notes](../claude/karpathy-claude-coding-notes.md)
 - [Vibe Coding](./vibe-coding.md)
 - [Agent](./agent.md)
 

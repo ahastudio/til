@@ -361,6 +361,6 @@ CTO/매니저 경험이 에이전트 시대에 직접적 경쟁력이
 
 - [Agentic Engineering Patterns](./agentic-engineering-patterns.md)
 - [Agentic Software Levels](./agentic-software-levels.md)
-- [Karpathy's Claude Coding Notes](./karpathy-claude-coding-notes.md)
+- [Karpathy's Claude Coding Notes](../claude/karpathy-claude-coding-notes.md)
 - [Spec-Driven Development](./spec-driven-development.md)
 - [AI Coding Agent Guidelines](./ai-coding-agent-guidelines.md)

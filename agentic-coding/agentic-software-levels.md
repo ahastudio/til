@@ -203,4 +203,4 @@ Agno 라이브러리를 소개하는 글이지만, 프레임워크 독립적인 
 
 - [AI Agent](./agent.md)
 - [Golbin Agent Prompting Flow](./golbin-agent-prompting-flow.md)
-- [Karpathy's Claude Coding Notes](./karpathy-claude-coding-notes.md)
+- [Karpathy's Claude Coding Notes](../claude/karpathy-claude-coding-notes.md)

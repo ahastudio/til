@@ -266,7 +266,7 @@ svara는 정보 이론의 관점으로 이 불안정성의 본질을 설명한�
 - [Spec-Driven Development](./spec-driven-development.md)
 - [코드 리뷰는 어떻게 죽는가](./reviews-dead.md)
 - [검증 부채](./verification-debt.md)
-- [LLM은 그럴듯한 코드를 쓴다](./llm-writes-plausible-code-not-correct-code.md)
+- [LLM은 그럴듯한 코드를 쓴다](../llm/llm-writes-plausible-code-not-correct-code.md)
 - [에이전틱 엔지니어링 패턴 1.1: 코드는 싸다](./agentic-engineering-patterns.md)
 - [AI 시대의 TDD](./tdd-in-ai-era.md)
 - [Tests Are The New Moat](../test/tests-are-the-new-moat.md)

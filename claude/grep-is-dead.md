@@ -252,4 +252,4 @@ Claude의 도구 호출 로그(Read, Edit, Write, Glob, Grep, Bash)에서
 
 ## 관련 항목
 
-- [QMD](../llm/qmd.md)
+- [QMD](../agentic-coding/qmd.md)

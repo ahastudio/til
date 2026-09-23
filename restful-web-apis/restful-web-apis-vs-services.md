@@ -261,7 +261,7 @@ LLM 에이전트는 문서를 미리 읽고 코드를 짜는 대신 런타임에
 
 ## 참고
 
-- 관련 문서: [RESTful Web APIs 정리 (색인)](../restful-web-apis/README.md), [RESTful Web Services 정리](../restful-web-services/README.md), [MCP가 무상태로 간다: 2026-07-28 스펙 릴리스 후보](../mcp/mcp-2026-07-28-spec.md), [모델은 일부러 지식을 버리고 추론을 택하고 있다](../llm/knowledge-for-reasoning.md)
+- 관련 문서: [RESTful Web APIs 정리 (색인)](README.md), [RESTful Web Services 정리](../restful-web-services/README.md), [MCP가 무상태로 간다: 2026-07-28 스펙 릴리스 후보](../mcp/mcp-2026-07-28-spec.md), [모델은 일부러 지식을 버리고 추론을 택하고 있다](../llm/knowledge-for-reasoning.md)
 
 ---
 

@@ -11,11 +11,11 @@
 
 ## Modular RAG
 
-[Modular RAG: 파이프라인에서 의사결정 시스템으로](../ai/modular-rag.md)
+[Modular RAG: 파이프라인에서 의사결정 시스템으로](../llm/modular-rag.md)
 
 ## 온디바이스 RAG
 
-[온디바이스 RAG: 임베딩, 벡터 검색, 그리고 그 너머](../ai/on-device-rag-for-app-developers.md)
+[온디바이스 RAG: 임베딩, 벡터 검색, 그리고 그 너머](../llm/on-device-rag-for-app-developers.md)
 \
 → 원문:
 [On-Device RAG for App Developers | Medium](https://medium.com/google-developer-experts/47127e954c24)

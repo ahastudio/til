@@ -15,7 +15,7 @@ GN 토론: <https://news.hada.io/topic?id=31807>
 ## 시점 정리
 
 Anthropic이 Claude Opus 5를 발표한 것은 2026년 7월 24일이다
-([발표 문서](claude-opus-5-announcement.md) 참고).
+([발표 문서](../claude/claude-opus-5-announcement.md) 참고).
 같은 날 UTC 기준 19시 45분(한국 시간으로는 7월 25일 새벽 4시 45분경)에
 “Opus 5 is currently #1 on Artificial Analysis Intelligence Leaderboard”라는
 제목으로 Hacker News에 제출됐고, 여기서 다루는 HN 스레드(`id=49040741`)가
@@ -106,7 +106,7 @@ GN 댓글에서 지적된 것처럼 GPT-5.6 Sol과 Kimi K3는 절반 가격으�
 Medium 수준으로 낮추면 비용이 K3의 거의 절반까지 내려가면서도
 코딩 작업의 95%에는 충분할 가능성이 있다는 지적도 있었다.
 
-이 구조는 [Claude Opus 5 발표 문서](claude-opus-5-announcement.md)에서
+이 구조는 [Claude Opus 5 발표 문서](../claude/claude-opus-5-announcement.md)에서
 분석했던 “가성비 모델의 존재 이유” 문제와 정확히 이어진다.
 그 문서에서는 Anthropic이 Opus 5를 Fable 5에 근접한 절반 가격으로
 포지셔닝했다고 분석했는데, 이 독립적인 제3자 리더보드에서는

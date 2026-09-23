@@ -114,7 +114,7 @@ StackBlitz는 2023년 말 연매출 $80,000에 불과했다.
 
 ### 바이브 코딩 도구의 성숙
 
-Bolt.new는 [바이브 코딩](./vibe-coding.md) 트렌드의
+Bolt.new는 [바이브 코딩](../agentic-coding/vibe-coding.md) 트렌드의
 대표적인 구현체다. “코드를 잊고 결과에 집중”하는 접근이
 실제 비즈니스에서 통한다는 것을 $40M ARR로 증명했다.
 
@@ -166,7 +166,7 @@ Bolt.new가 증명하는 것은 1인 개발자가 이전에는
 - [Lovable](https://lovable.dev/)
 - [Replit Agent](https://replit.com/products/agent)
 - [v0 by Vercel](https://v0.dev/)
-- [Cursor](./cursor.md)
+- [Cursor](../cursor/README.md)
 - [Base44](https://base44.com/)
 
 ## 참고 자료

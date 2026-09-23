@@ -206,5 +206,5 @@ AI를 튜터가 아니라 대필자로 쓸 때 — 어떤 일이 벌어지는지
 
 ## 관련 문서
 
-- [Karpathy's Claude Coding Notes](./karpathy-claude-coding-notes.md)
-- [Vibe Coding](./vibe-coding.md)
+- [Karpathy's Claude Coding Notes](../claude/karpathy-claude-coding-notes.md)
+- [Vibe Coding](../agentic-coding/vibe-coding.md)
