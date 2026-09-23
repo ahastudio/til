@@ -260,7 +260,7 @@ AI와 함께 모든 것이 일회성 코드가 되고
 같은 논리로, 이 전환이 무엇을 실제로 위협하는지도 좁혀진다.
 위협받는 것은 숙련 자체가 아니라 숙련의 신호 기능이며 —
 이력서, 포트폴리오, 사이드 프로젝트, 기술 블로그가 그 신호 장치다.
-[노력을 보여야 관심을 요구할 수 있다는 관찰](if-you-demand-attention-show-effort.md)이
+[노력을 보여야 관심을 요구할 수 있다는 관찰](../agentic-coding/human-attention-and-human-effort.md)이
 신호가 비싸야 작동한다는 것을 말했는데,
 생성 비용이 0에 가까워지면 그 신호가 정보를 잃는다.
 
@@ -339,20 +339,37 @@ AI 사용량이 아니라 의미를 어디에 걸어 뒀는지였다.
 ---
 
 [^kypro]: <https://news.ycombinator.com/item?id=49347249>
+
 [^happytoexplain]: <https://news.ycombinator.com/item?id=49346946>
+
 [^Balgair]: <https://news.ycombinator.com/item?id=49344977>
+
 [^pickleglitch]: <https://news.ycombinator.com/item?id=49345490>
+
 [^piloto_ciego]: <https://news.ycombinator.com/item?id=49348478>
+
 [^happytoexplain2]: <https://news.ycombinator.com/item?id=49346607>
+
 [^preg_match]: <https://news.ycombinator.com/item?id=49346916>
+
 [^OutOfHere]: <https://news.ycombinator.com/item?id=49346797>
+
 [^preg_match2]: <https://news.ycombinator.com/item?id=49347097>
+
 [^tavavex]: <https://news.ycombinator.com/item?id=49348304>
+
 [^andreyvit]: <https://news.ycombinator.com/item?id=49349003>
+
 [^AtlasBarfed]: <https://news.ycombinator.com/item?id=49348427>
+
 [^EmeraldSky]: <https://news.ycombinator.com/item?id=49342964>
+
 [^preg_match3]: <https://news.ycombinator.com/item?id=49346869>
+
 [^zingababba]: <https://news.ycombinator.com/item?id=49351062>
+
 [^rbtms]: <https://news.ycombinator.com/item?id=49343043>
+
 [^throw-the-towel]: <https://news.ycombinator.com/item?id=49351732>
+
 [^port11]: <https://news.ycombinator.com/item?id=49346307>
