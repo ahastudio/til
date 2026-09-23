@@ -2,7 +2,7 @@
 
 원문: [Introducing Ad Blocker for Firefox on iOS: More Control, Fewer Distractions](https://blog.mozilla.org/en/firefox/ad-blocker-on-ios/)
 
-HN 토론: <https://news.ycombinator.com/item?id=49521973> (363점, 125개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=49521973> (590점, 204개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=33136>
 
@@ -186,6 +186,35 @@ HN 스레드는 이 간극이 생각보다 크다는 것을 드러낸다.
 방해를 줄이는 도구를 얻는 조건이 추적을 허용하는 것이라면, 그
 “선택”은 사용자가 상상한 선택이 아니다.
 
+### 뒤늦은 최소 기능이라는 평가에 답할 근거가 발표문에 없다
+
+DavideNL은 시점 자체를 문제 삼는다.[^DavideNL]
+10년 넘게 늦은 것 아니냐는 것이며,
+그 시간이 지난 뒤에 나온 것이 거의 아무것도 막지 못하는 최소한의 차단기라는 것이다.
+목록 하나에만 의존하고 그마저도 예외가 많으며,
+iOS에서 여러 해 동안 제공되어 온 다른 차단기들에 비하면 그렇다고 적는다.
+그리고 발표문의 예외 문장을 그대로 인용해 근거로 삼는다.
+
+이 지적에 대해 발표문이 내놓을 답이 없다는 것이 문제다.
+발표문은 이 기능이 무엇을 하는지 말하지만
+왜 지금인지, 기존 차단기들과 무엇이 다른지를 말하지 않는다.
+그리고 이 두 질문이 사용자가 실제로 묻는 것이다.
+garrettjoecox가 한 줄로 그것을 묻는다.[^garrettjoecox]
+기존 차단기 대신 이것을 쓸 이유가 있느냐는 것이다.
+
+답할 수 있는 근거가 하나 있기는 하다.
+별도 앱을 설치하지 않아도 된다는 것이다.
+그런데 발표문이 그 이점을 명시하지 않으므로,
+독자는 기능 목록만 비교하게 되고 그 비교에서는 이길 수 없다.
+
+alentred는 차단 이후의 국면을 보고한다.[^alentred]
+모바일에서 DNS 수준 필터링을 쓰는데,
+차단기를 감지한 일부 사이트가 브라우저 기본 알림창을 띄워
+사실상 페이지를 막고 알림을 닫으면 새로 고침하는 방식을 쓰기 시작했다는 것이다.
+그리고 이것에 대한 해법이 있는지 궁금해한다.
+차단과 우회의 순환에서 다음 수가 무엇인지를 보여 주는 관찰이며,
+이 발표문이 다루는 정적인 목록 기반 차단으로는 대응할 수 없는 종류다.
+
 ## 인사이트
 
 ### 플랫폼 소유자가 경쟁 브라우저의 기능 상한을 결정한다
@@ -294,3 +323,9 @@ Mozilla는 “광고를 막을지 말지 당신이 정하라”고 함으로써,
 [^eikenberry]: <https://news.ycombinator.com/item?id=49527238>
 
 [^c0_0p_]: <https://news.ycombinator.com/item?id=49531631>
+
+[^DavideNL]: <https://news.ycombinator.com/item?id=49532479>
+
+[^garrettjoecox]: <https://news.ycombinator.com/item?id=49523298>
+
+[^alentred]: <https://news.ycombinator.com/item?id=49533765>
