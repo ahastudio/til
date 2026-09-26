@@ -1,6 +1,6 @@
 # Rails에는 새 거버넌스가 필요하다: 커뮤니티가 소유하는 협동조합으로
 
-원문: [Rails Needs New Governance](https://davidcel.is/articles/rails-needs-new-governance)
+원문: [The DHH Problem by @davidcelis](https://davidcel.is/articles/the-dhh-problem)
 
 HN 토론: <https://news.ycombinator.com/item?id=45307003> (56점, 44개 댓글)
 
@@ -303,6 +303,7 @@ Rails로 커리어 대부분을 쌓았는데 다른 언어나 프레임워크를
 
 ## 참고
 
+- 이 글은 처음 “Rails Needs New Governance”라는 제목으로 `davidcel.is/articles/rails-needs-new-governance`에 발행됐고, 이후 제목이 “The DHH Problem”으로 바뀌면서 옛 주소는 `davidcel.is/articles/the-dhh-problem`으로 영구 이동(301)한다. 발행 시각과 본문은 같다. HN 스레드는 옛 제목으로 올라왔다.
 - 2025년 9월 19일 오후 6시 43분(UTC) 발행. 본문 약 15,500자다. 저자는 15년간 모든 직장에서 Rails를 썼다고 밝힌다.
 - 저자 스스로 밝힌 소셜 반응은 Bluesky에서 답글 21개, 재게시 47개, 좋아요 119개이고 Mastodon에서 답글 11개, 재게시 205개, 좋아요 251개다.
 - 이 글은 2014년 Tom Stuart 발표의 전문을 옮겨 적었고 슬라이드 내용까지 대괄호로 기록했다. 이 문서의 요약에서 인용한 발표 문장은 [해당 발표의 자막 전문](../ruby/the-dhh-problem.md)과 대조해 일치를 확인했다.
@@ -314,13 +315,22 @@ Rails로 커리어 대부분을 쌓았는데 다른 언어나 프레임워크를
 
 ---
 
-[^hn-tim]: HN 사용자 `tim333`: 본문의 “...posts from DHH covering a range of far-right talking points... all the way to outright nationalism”을 인용하며 “which links to DHH saying he's proud to be Danish... The horror!”라고 적었다.
-[^hn-giveita]: HN 사용자 `giveita`: “Also noticed some of the hyperlinks are not good summaries of the linked thing. That is all I can say as dont want to start tangent, see if you agree.”
-[^hn-sarcher]: HN 사용자 `sarchertech`: “most of the blog articles the author linked to were very mainstream views that they tried to make sound nefarious. The vast majority of them wouldn't have been out of place coming from Democratic politicians.”
-[^hn-jared-tobi]: HN 사용자 `richardlblair`가 Tobi를 끌어들이는 것이 무리라고 지적한 데 대해 `jaredcwhite`가 “Tobi's views during recent Canadian elections were extremely public on X. This isn't even something to state as a controversy, geez.”라고 답했다.
-[^hn-mafia]: HN 사용자 `themafia`: “I think invoking a programmers personal blog or points of view to make a point about project governance is wholly inappropriate. There is absolutely nothing in the way of technical analysis or suggestions and the post even ends admitting that the author doesn't believe there's a tractable way forward. What was the point of this?”
-[^hn-basta]: HN 사용자 `bastawhiz`: “Rails governance isn't about reviewing PRs, it's about managing people. And if you show outright disdain (if not hate) for many of those people, how is that affecting your ability to drive the project forward?... Would you trust a school superintendent who posted the same things on their personal blog?”
-[^hn-kayode]: HN 사용자 `kayodelycaon`: “All this drama has me worried. I'm unemployed and I've been doing ruby on rails for most of my career. With all the drama lately, do I need to find a different language or framework to work with?”
-[^hn-jared]: HN 사용자 `jaredcwhite`: “I talk to so many people on almost a daily basis now who are migrating out of Rails or have already done so. The brain drain problem is massive. DHH has grown a cult of personality that is actually shrinking the overall ecosystem.”
-[^hn-mooja]: HN 사용자 `moojacob`: “Rails IS FREE TO USE. If you want to improve test driven development, do the work yourself... 37signals and Shopify make the decisions because THEY DO THE WORK. I am happy to sit back and free load off of their contributions even if I disagree with DHH and Tobi's political opinions.”
-[^hn-andrew]: HN 사용자 `andrewmutz`: “Rails would have become irrelevant long ago if it wasnt for DHH. Especially in recent years he has been doing an enormous amount of stuff to keep Rails relevant and still the top choice for rapidly building businesses with a small team. I don't agree with him on political matters but that is irrelevant. He's not my senator, he runs an open source project (and does it really well).”
+[^hn-tim]: <https://news.ycombinator.com/item?id=45323789>
+
+[^hn-giveita]: <https://news.ycombinator.com/item?id=45307804>
+
+[^hn-sarcher]: <https://news.ycombinator.com/item?id=45307780>
+
+[^hn-jared-tobi]: <https://news.ycombinator.com/item?id=45309332>
+
+[^hn-mafia]: <https://news.ycombinator.com/item?id=45307786>
+
+[^hn-basta]: <https://news.ycombinator.com/item?id=45308134>
+
+[^hn-kayode]: <https://news.ycombinator.com/item?id=45307600>
+
+[^hn-jared]: <https://news.ycombinator.com/item?id=45309386>
+
+[^hn-mooja]: <https://news.ycombinator.com/item?id=45307775>
+
+[^hn-andrew]: <https://news.ycombinator.com/item?id=45307768>
