@@ -296,24 +296,40 @@ Ruby는 지도자에게서 나오는 것이 적어 더 쉬울 수 있고 Shopify
 두 반응이 가리키는 결론은 같다.
 보류로 얻을 수 있는 것과 얻을 수 없는 것을 먼저 구분해야 하며, 소유권 이전을 목표로 하는 요구와 관심을 옮기는 것을 목표로 하는 요구는 다른 수단을 쓴다.
 
-
 ---
 
-[^lob-rory]: Lobste.rs 사용자 `roryokane`: 9년 전 제출된 `Let The Asset Pipeline Die`를 떠올리며 “it said that MINASWAN was a bad description of Ruby culture and too vague a motto to be useful for new Rubyists. Its main claim was that 和 ('wa')... was a better description of and goal for Ruby culture.”라고 적었다. 그 글도 DHH를 근거로 들었으나 정치적 신념이 논쟁이 되기 전이었다는 점을 함께 언급했다.
-[^lob-andyc]: Lobste.rs 사용자 `andyc`: “I took a brief look at the Claude commits to Ruby, and it looks like fixing typos and comments and docs... It looks like Claude commits started in March 2026, and it's #3 over the last 12 months with 580 commits... Can anybody find any commits by Claude with code? (Not that I think this is bad -- I just think the original claim is misleading, maybe to the point of a smear)”
-[^lob-author-claude]: 저자 `threedaymonk`의 답글: “You have to check the 'Co-Authored-By' header, which is a bit tricky to extract... There's stuff in the JIT, the garbage collector, the VM, fibers, and it's not just fixing spelling (which could incidentally be done with less environmental cost using a spell checker like typos). (I'm the post author.)”
-[^lob-author-literal]: 저자 `threedaymonk`의 답글: “I'm not anthropomorphising anything, I assure you. I mean 'contributor' strictly in the literal sense that GitHub lists it as the second most prolific 'contributor'.”
-[^lob-a5]: Lobste.rs 사용자 `a5rocks`: “it's all test changes/spec changes (AFAICT) + it seems it's mostly just hsbt who uses it... (I'm not convinced the ranking isn't simply an artifact of merging the PRs with every commit, so all the fixups get counted. Most of the things that popped up in the GH search link were quite trivial...)”
-[^lob-fede]: Lobste.rs 사용자 `FedericoSchonborn`: “Those are the commits authored by Claude (props for the honesty, I guess); the rest are authored by someone else, 'co-authored' by Claude”
-[^lob-john]: Lobste.rs 사용자 `johnjoz`: “the title cites Matz, then the article briefly mentions him, then turns into an endless tirade against DHH, with observations and content ubiquitous online...and understandably objectionable, but entirely unrelated to Matz. (and i don't disagree with the ranting, but it's not about Matz)”
-[^lob-jjdh]: Lobste.rs 사용자 `jjdh`: “But isn't that the point of the article? That the mantra of Ruby - Matz is Nice so we are nice - is meaningless because he's not actually very visible in the community while the main faces of Ruby are writing or retweeting blog posts about forcing ethnic groups out of Europe to restore white communities.”
-[^hn-egg]: HN 사용자 `eggbrain`: “I think if they had focused perhaps on DHH... and also dropped the AI bit at the end, they might have had a stronger point, but Tobias ends up being judged guilty by the author almost purely through association”
-[^lob-schneems]: Lobste.rs 사용자 `schneems`: “I don't have any evidence that supports any kind of 'team orders'” 이후 Ruby Central의 파열 사고 보고서를 링크하고 “Joel also uncritically repeated other claims without any fact checking. Especially the claim that GH access had nothing to do with prod access to the service (verifiable as false by checking the source code).”라고 덧붙였다.
-[^hn-max]: HN 사용자 `max_faust`: “So we should seeks to impose political purity tests on open-source software? Contribution of open code is independent of the contributor's social, political, or private views. Attempting to filter contributors through a political lens creates an 'intellectual monoculture' which is less robust and less efficient than one that evaluates output based on technical rigor alone.”
-[^hn-croes]: HN 사용자 `croes`: “That's not a binary decision, monoculture or no filter. Your agricultural metaphor is the best example, just because you don't want monoculture doesn't mean you want weed.”
-[^hn-krapp]: HN 사용자 `krapp`: “Intellectual culture loses nothing of value with your exclusion, and I seriously doubt the technical rigor of software development will suffer either.”
-[^hn-egg-fork]: HN 사용자 `eggbrain`: “When a piece of software now also represents an ideology, people that want to contribute (but are not coders) end up contributing to the ideology instead... When the 'easy' bigots are found and removed, the work does not stop -- the definition of what is a bigot changes, and new bigots are found. To be clear, the above happens regardless of ideology -- it's just human nature (See: Levari et al., Science, 2018).”
-[^lob-kingy]: Lobste.rs 사용자 `kingy`: “For a time I think a lot of us gave the benefit of the doubt to those Rails core members that ended up at places like Shopify too... After hearing the public far right comments from DHH and Lütke over a number of years you have to evaluate your relationship to these people. At what point does it become a tacit act of support to keep working with and for these people.”
-[^lob-zem]: Lobste.rs 사용자 `zem`: “in an alternate timeline I could very conceivably have ended up at shopify because they were one of the few companies hiring for the kind of work I do... I also think there are people who are at shopify simply to do good work... most of the rank and file have very little control over that.”
-[^lob-vira]: Lobste.rs 사용자 `viraptor`: “Ruby may be much easier, since fewer things are coming from the leader as far as I know... Maybe even making some noise about Shopify being part of the community will be enough. It's still relatively early - conferences can be still boycotted. And then we learn if it's just inertia that can be broken, or is the majority genuinely rotten.”
-[^lob-kolja]: Lobste.rs 사용자 `kolja`: “Rails has the advantage (I think it is an advantage) that it gets dogfood-developed in conjunction with a concrete, public, product. Do you think that can be matched, in some way, by the fork, or do you see it as not a big deal?”
+[^lob-rory]: <https://lobste.rs/s/w1va9j/it_doesn_t_matter_whether_matz_is_nice#c_kt7jjg>
+
+[^lob-andyc]: <https://lobste.rs/s/w1va9j/it_doesn_t_matter_whether_matz_is_nice#c_nkkegi>
+
+[^lob-author-claude]: <https://lobste.rs/s/w1va9j/it_doesn_t_matter_whether_matz_is_nice#c_a2n4va>
+
+[^lob-author-literal]: <https://lobste.rs/s/w1va9j/it_doesn_t_matter_whether_matz_is_nice#c_7xluzj>
+
+[^lob-a5]: <https://lobste.rs/s/w1va9j/it_doesn_t_matter_whether_matz_is_nice#c_czhcks>
+
+[^lob-fede]: <https://lobste.rs/s/w1va9j/it_doesn_t_matter_whether_matz_is_nice#c_4dqn0u>
+
+[^lob-john]: <https://lobste.rs/s/w1va9j/it_doesn_t_matter_whether_matz_is_nice#c_bozzos>
+
+[^lob-jjdh]: <https://lobste.rs/s/w1va9j/it_doesn_t_matter_whether_matz_is_nice#c_uqhavs>
+
+[^hn-egg]: <https://news.ycombinator.com/item?id=49098520>
+
+[^lob-schneems]: <https://lobste.rs/s/w1va9j/it_doesn_t_matter_whether_matz_is_nice#c_cyokbh>
+
+[^hn-max]: <https://news.ycombinator.com/item?id=49098277>
+
+[^hn-croes]: <https://news.ycombinator.com/item?id=49109144>
+
+[^hn-krapp]: <https://news.ycombinator.com/item?id=49098574>
+
+[^hn-egg-fork]: <https://news.ycombinator.com/item?id=49098520>
+
+[^lob-kingy]: <https://lobste.rs/s/w1va9j/it_doesn_t_matter_whether_matz_is_nice#c_e133is>
+
+[^lob-zem]: <https://lobste.rs/s/w1va9j/it_doesn_t_matter_whether_matz_is_nice#c_wdj0iu>
+
+[^lob-vira]: <https://lobste.rs/s/w1va9j/it_doesn_t_matter_whether_matz_is_nice#c_za1rjm>
+
+[^lob-kolja]: <https://lobste.rs/s/w1va9j/it_doesn_t_matter_whether_matz_is_nice#c_cszsw7>
