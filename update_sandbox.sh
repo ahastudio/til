@@ -1,10 +1,4 @@
 #!/usr/bin/env bash
-#
-# sandbox.md에 오늘의 개발자 트렌드 섹션을 추가하고 커밋·푸시한다.
-#
-# 중복 방지는 프롬프트가 아니라 이 스크립트가 책임진다.
-# sandbox.md는 3MB가 넘어서 모델이 전체를 읽고 중복을 판단할 수 없기 때문에,
-# 기존 URL 목록을 여기서 뽑아 프롬프트에 직접 넣는다.
 
 set -euo pipefail
 
@@ -13,6 +7,9 @@ cd "$(dirname "$0")"
 SANDBOX_FILE="sandbox.md"
 TODAY="$(date +%Y-%m-%d)"
 COMMIT_MESSAGE_FILE="$(mktemp -t til-update-sandbox-commit-message)"
+CODEX_MODEL="gpt-5.6-sol"
+CODEX_REASONING_EFFORT="high"
+CO_AUTHOR="Codex GPT-5.6-Sol <noreply@openai.com>"
 
 trap 'rm -f "$COMMIT_MESSAGE_FILE"' EXIT
 
@@ -21,28 +18,54 @@ if [ ! -f "$SANDBOX_FILE" ]; then
   exit 1
 fi
 
-# 오늘 섹션이 이미 있으면 중복 실행이므로 멈춘다.
-if grep -q "^## ${TODAY} 개발자 트렌드" "$SANDBOX_FILE"; then
-  echo "error: ${TODAY} 섹션이 이미 있습니다. 중복 실행으로 보입니다." >&2
-  exit 1
-fi
+run_codex() {
+  codex exec \
+    -m "$CODEX_MODEL" \
+    -c model_reasoning_effort="$CODEX_REASONING_EFFORT" \
+    "$1"
+}
 
-# 작업 트리가 깨끗한지 확인한다.
-# 관계없는 변경이 섞인 채로 자동 커밋·푸시되는 것을 막는다.
-if ! git diff --quiet || ! git diff --staged --quiet; then
-  echo "error: 커밋하지 않은 변경이 있습니다. 정리한 뒤 다시 실행하세요." >&2
-  git status --short >&2
-  exit 1
-fi
+commit_sandbox() {
+  git add "$SANDBOX_FILE"
 
-# 기존에 등장한 URL을 모두 뽑는다. 이 목록이 중복 방지의 근거가 된다.
-EXISTING_URLS="$(grep -oE '<https?://[^>]+>' "$SANDBOX_FILE" \
-  | tr -d '<>' \
-  | sort -u)"
+  run_codex "
+  이 저장소의 규칙 파일은 '_agent/rules/' 에 있다. '.agent/' 가 아니다.
+  커밋 메시지 규칙은 '_agent/rules/git-commit-message.md' 를 읽고 그대로 따른다.
 
-echo "기존 URL $(echo "$EXISTING_URLS" | wc -l | tr -d ' ')개를 중복 제외 목록으로 전달합니다."
+  git diff --staged 내용을 기반으로 Git Commit Message를 작성하고,
+  ${COMMIT_MESSAGE_FILE} 파일에 저장해줘.
+  " || echo "warning: 커밋 메시지 생성이 실패했습니다." >&2
 
-codex exec "
+  if [ ! -s "$COMMIT_MESSAGE_FILE" ]; then
+    echo "warning: 커밋 메시지가 비어 있어 기본 메시지를 사용합니다." >&2
+    cat > "$COMMIT_MESSAGE_FILE" <<EOF
+Add ${TODAY} developer trends
+
+Record today's developer trends from Hacker News and GitHub Trending.
+The commit message generator returned nothing, so this default is used.
+EOF
+  fi
+
+  # 모델은 자기 이름을 모르고 추측해서 쓰므로 트레일러는 스크립트가 붙인다.
+  { grep -iv '^Co-Authored-By:' "$COMMIT_MESSAGE_FILE" || true; } \
+    | sed -e :a -e '/^\n*$/{$d;N;ba' -e '}' \
+    > "$COMMIT_MESSAGE_FILE.tmp"
+  printf '\nCo-Authored-By: %s\n' "$CO_AUTHOR" >> "$COMMIT_MESSAGE_FILE.tmp"
+  mv "$COMMIT_MESSAGE_FILE.tmp" "$COMMIT_MESSAGE_FILE"
+
+  git commit -F "$COMMIT_MESSAGE_FILE"
+}
+
+add_today_section() {
+  local existing_urls new_urls duplicated
+
+  existing_urls="$(grep -oE '<https?://[^>]+>' "$SANDBOX_FILE" \
+    | tr -d '<>' \
+    | sort -u)"
+
+  echo "기존 URL $(echo "$existing_urls" | wc -l | tr -d ' ')개를 중복 제외 목록으로 전달합니다."
+
+  run_codex "
 이 저장소의 규칙 파일은 '_agent/rules/' 에 있다. '.agent/' 가 아니다.
 마크다운 작성 규칙은 '_agent/rules/writing-guidelines.md' 를 읽고 따른다.
 
@@ -63,7 +86,7 @@ codex exec "
 ${SANDBOX_FILE} 파일 자체는 3MB가 넘으니 통째로 읽지 마.
 
 --- 이미 등장한 URL 목록 시작 ---
-${EXISTING_URLS}
+${existing_urls}
 --- 이미 등장한 URL 목록 끝 ---
 
 ${SANDBOX_FILE} 파일 맨 끝에 아래 형식의 h2 섹션을 새로 추가해:
@@ -88,59 +111,46 @@ ${SANDBOX_FILE} 파일 맨 끝에 아래 형식의 h2 섹션을 새로 추가해
   4) '놓치면 안 되는 핵심 포인트나 주의사항:'
 - '실무 영향: ... 즉시 활용: ... 방향: ... 주의: ...'처럼 한 줄 문단으로 합치지 마.
 - 각 하위 불릿은 한 문장 이상으로 구체적으로 작성해.
-"
+" || echo "warning: 트렌드 생성이 실패했습니다." >&2
 
-# 모델이 실제로 오늘 섹션을 추가했는지 확인한다.
-# 확인하지 않으면 빈 커밋이나 엉뚱한 커밋으로 이어진다.
-if ! grep -q "^## ${TODAY} 개발자 트렌드" "$SANDBOX_FILE"; then
-  echo "error: ${TODAY} 섹션이 추가되지 않았습니다." >&2
-  exit 1
+  if ! grep -q "^## ${TODAY} 개발자 트렌드" "$SANDBOX_FILE"; then
+    echo "warning: ${TODAY} 섹션이 추가되지 않았습니다." >&2
+    return
+  fi
+
+  # git diff에서 뽑으면 prettier가 다시 감싼 옛 줄의 URL까지 잡힌다.
+  new_urls="$(awk -v header="## ${TODAY} 개발자 트렌드" \
+    'index($0, header) == 1 { found = 1 } found' "$SANDBOX_FILE" \
+    | grep -oE '<https?://[^>]+>' \
+    | tr -d '<>' \
+    | sort -u || true)"
+
+  duplicated="$(comm -12 \
+    <(echo "$existing_urls") \
+    <(echo "$new_urls"))"
+
+  if [ -n "$duplicated" ]; then
+    echo "warning: 이미 등장한 URL이 다시 추가되었습니다:" >&2
+    echo "$duplicated" >&2
+  fi
+
+  echo "새 URL $(echo "$new_urls" | wc -l | tr -d ' ')개를 추가했습니다."
+}
+
+if grep -q "^## ${TODAY} 개발자 트렌드" "$SANDBOX_FILE"; then
+  echo "${TODAY} 섹션이 이미 있어서 가져오기를 건너뜁니다."
+else
+  add_today_section
 fi
 
 npx prettier --write "$SANDBOX_FILE"
 
-# prettier 실행 후에도 변경이 남아 있는지 본다.
 if git diff --quiet -- "$SANDBOX_FILE"; then
-  echo "error: ${SANDBOX_FILE}에 변경이 없습니다." >&2
-  exit 1
+  echo "${SANDBOX_FILE}에 커밋할 변경이 없습니다."
+else
+  commit_sandbox
 fi
-
-# 새로 추가된 URL이 기존 목록과 겹치지 않는지 스크립트가 직접 검증한다.
-NEW_URLS="$(git diff -- "$SANDBOX_FILE" \
-  | grep -E '^\+' \
-  | grep -oE '<https?://[^>]+>' \
-  | tr -d '<>' \
-  | sort -u)"
-
-DUPLICATED="$(comm -12 \
-  <(echo "$EXISTING_URLS") \
-  <(echo "$NEW_URLS"))"
-
-if [ -n "$DUPLICATED" ]; then
-  echo "error: 이미 등장한 URL이 다시 추가되었습니다:" >&2
-  echo "$DUPLICATED" >&2
-  exit 1
-fi
-
-echo "새 URL $(echo "$NEW_URLS" | wc -l | tr -d ' ')개를 추가했습니다."
-
-git add "$SANDBOX_FILE"
-
-codex exec "
-이 저장소의 규칙 파일은 '_agent/rules/' 에 있다. '.agent/' 가 아니다.
-커밋 메시지 규칙은 '_agent/rules/git-commit-message.md' 를 읽고 그대로 따른다.
-
-git diff --staged 내용을 기반으로 Git Commit Message를 작성하고,
-${COMMIT_MESSAGE_FILE} 파일에 저장해줘.
-"
-
-if [ ! -s "$COMMIT_MESSAGE_FILE" ]; then
-  echo "error: 커밋 메시지가 비어 있습니다." >&2
-  exit 1
-fi
-
-git commit -F "$COMMIT_MESSAGE_FILE"
 
 git fetch origin --prune
-git pull --rebase
+git pull --rebase --autostash
 git push
