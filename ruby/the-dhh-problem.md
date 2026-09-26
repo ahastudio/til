@@ -39,12 +39,12 @@ DHH의 의견에 마땅한 만큼의 무게를 달라고 요청하고, 그것은
 
 페이지의 산문 대부분은 발표가 아니라 그 뒤에 덧붙은 갱신 기록이다.
 
-| 시점        | 내용                                                                                                                                                       |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 시점        | 내용                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 2020년 2월  | 이 발표를 한 지 거의 6년이 되었고 발표한 이유는 대체로 지지하지만 인터넷에서 6년은 아주 긴 시간이다. 그 뒤로 DHH는 나이가 들고 현명해졌으며 이제 상당한 영향력을 공정성과 평등과 프라이버시와 사용자의 필요를 옹호하는 데 쓴다. 그가 내 승인을 필요로 하지는 않지만 기록을 위해 밝히자면 요즘은 승인한다. 2014년 DHH에 대해 한 말이 2020년 DHH에게는 더 이상 적용되지 않지만 그런 말을 한 적 없는 척하는 것은 이상할 테니 특정 시점의 스냅숏으로 남겨 둔다 |
-| 2021년 4월  | 어, 이거 좀 곤란하다. 아무래도 처음이 맞았던 것 같다. 오류를 정정한다                                                                                        |
-| 2022년 11월 | 한숨. 피곤하다                                                                                                                                              |
-| 2025년 9월  | 개탄스럽다                                                                                                                                                  |
+| 2021년 4월  | 어, 이거 좀 곤란하다. 아무래도 처음이 맞았던 것 같다. 오류를 정정한다                                                                                                                                                                                                                                                                                                                                                                                      |
+| 2022년 11월 | 한숨. 피곤하다                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 2025년 9월  | 개탄스럽다                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 2021년 4월 갱신에는 Basecamp 사태를 다룬 The Verge 기사와 Jane Yang의 공개 서한이 링크되어 있고, 2022년 11월과 2025년 9월 갱신에는 각각 DHH의 게시물이 하나씩 링크되어 있다.
 
@@ -263,10 +263,17 @@ DHH의 정치적 게시물이 Ruby 커뮤니티에서 10년에 걸친 사건들�
 ---
 
 [^hn-argorak]: HN 사용자 `Argorak`(2014): “He is more attacking the person cult. DHH has an aura that shadows many other voices, so not DHH himself is the problem, but the reception of DHH.”
+
 [^lob-light]: Lobste.rs 사용자 `lightandlight`: “I was worried that the video would be unkind and irrational, but I was pleasantly surprised. It felt like a reasonable character critique, and like it's encouraging us to be excellent to each other rather than trying to earn points by tearing someone down.”
+
 [^hn-meistro]: HN 사용자 `meistro`(2014): “Extremely hard to read. Maybe considering porting the message to a different medium?”
+
 [^hn-ritchiea]: HN 사용자 `ritchiea`(2014): “I don't see how this is making things better... This isn't adding to intelligent dialogue about TDD or best practices any more than the writer is accusing DHH of being detrimental.” 이후 “this strikes me more as an ad hominem attack than real meta commentary.”라고 덧붙였다.
+
 [^hn-colin]: HN 사용자 `colinbartlett`(2014): “I don't think there's anything wrong with the meta-commentary that the author provides. He is, after all, encouraging everyone to contribute their own commentary in the same way that Fowler, Bernhardt, and Beck did. It's sort of like saying we shouldn't ever discuss or scrutinize the reporting done by news outlets.” 같은 스레드에서 발표 내용을 직접 옮겨 적기도 했다.
+
 [^lob-mort]: Lobste.rs 사용자 `mort`: “What people here have haven't mentioned, that I believe is the reason why this has gotten attention again now, is: DHH recently made his own 'distro'/dotfile collection called Omarchy. Framework has very publicly boosted Omarchy on its social media accounts and is sponsoring its development.”
+
 [^lob-lpil]: Lobste.rs 사용자 `lpil`: “The oldest DHH controversy of this sort that I'm aware of is from 2009. There was a conference talk at a major Ruby conference that made heavy use of porn references and images of scantily-clad women... DHH came out in support of the porn themed talk and stated there should be more talks like this, which resulted in similar discussion about whether DHH is a suitable leader for the Ruby community, especially given its focus on being welcoming and progressive at the time.”
+
 [^lob-pushcx]: Lobste.rs 관리자 `pushcx`: “DHH's political postings have led to a decade of events in the Ruby community, and this last month there's a new backend org for gems and an in-progress bundler feature to better support multiple backends. Right now the rule is that how projects are run and the governance criticism that's led to this patch are topical.”
