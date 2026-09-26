@@ -236,8 +236,11 @@ Footnote block format (at the very end of the file, after `---`):
 ---
 
 [^gn-handle]: <https://news.hada.io/topic?id=TOPIC_ID#cidCOMMENT_ID>
+
+[^gn-other-handle]: <https://news.hada.io/topic?id=TOPIC_ID#cidCOMMENT_ID>
 ```
 
+Separate every footnote definition from the next with one blank line.
 If footnotes already exist, append new ones to the existing block.
 
 ### 8. Writing rules

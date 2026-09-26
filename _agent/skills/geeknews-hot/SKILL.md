@@ -125,8 +125,11 @@ Footnote block format (at the very end of the file, after `---`):
 ---
 
 [^handle]: <https://news.hada.io/topic?id=TOPIC_ID#cidCOMMENT_ID>
+
+[^other-handle]: <https://news.hada.io/topic?id=TOPIC_ID#cidCOMMENT_ID>
 ```
 
+Separate every footnote definition from the next with one blank line.
 If footnotes already exist, append new ones to the existing block. If no
 comment is referenced in the body, omit the footnote block entirely.
 

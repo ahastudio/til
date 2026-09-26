@@ -166,8 +166,11 @@ Footnote block format (at the very end of the file, after `---`):
 ---
 
 [^handle]: <https://news.ycombinator.com/item?id=COMMENT_ID>
+
+[^other-handle]: <https://news.ycombinator.com/item?id=COMMENT_ID>
 ```
 
+Separate every footnote definition from the next with one blank line.
 If footnotes already exist, append new ones to the existing block.
 
 ### 7. Writing rules

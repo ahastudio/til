@@ -132,6 +132,19 @@ Example:
 - "Explanation" (11 English chars = 11 columns) is longest in right
 - All cells padded to match their column's maximum width
 
+## Footnote Spacing
+
+Separate every footnote definition from the next with one blank line.
+Never stack definitions on consecutive lines. When appending to an existing
+footnote block, keep the same spacing and fix any stacked entries you find
+in that block.
+
+```markdown
+[^first]: <https://example.com/1>
+
+[^second]: <https://example.com/2>
+```
+
 ## Inline Code Formatting
 
 Wrap code-like tokens in backticks for readability. This applies to
