@@ -4,7 +4,7 @@
 
 <https://github.com/devdotfast/whiteboard>
 
-HN 토론: <https://news.ycombinator.com/item?id=49833867> (258점, 97개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=49833867> (291점, 114개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=34245>
 
@@ -110,6 +110,10 @@ README는 다이어그램이 코드와 어긋날 때 그것을 사람에게 어�
 HN에서 asdev는 이런 제품의 문제가 팀의 다른 도구들 옆에 N+1번째 진실 공급원을 만드는 것이라고 지적했다.
 프로젝트가 진행되면 본질적으로 낡을 것이고, 에이전트가 변경에 맞춰 갱신하게 하면 설계 문서가 알아볼 수 없는 찌꺼기가 되어 나중에 쓸모가 없어질 것이라는 것이다.[^asdev]
 팀원 milanb는 이 지적이 정확하다고 인정하며, 앞으로 호스팅 제품으로 이 문제를 다루겠다고 답했다.[^milanb]
+vladzoff도 에이전트와 사람이 같은 설계를 본다는 가치는 알겠지만, 구현이 움직이기 시작하면 다이어그램이 코드와 조금씩 멀어지는 또 하나의 산출물이 될까 걱정된다고 적었다.[^vladzoff]
+작성자 sidharthkmenon은 다이어그램이 설계상 모두 코드에 붙어 있어 어긋났는지 알아챌 수 있다며, 다이어그램 노드를 코드 포지의 코멘트처럼 다룬다고 설명했다.[^sidharthkmenon-drift]
+팀원 ketan_around는 더 솔직하게 답했다.[^ketan_around]
+다이어그램과 산출물은 낡기 때문에 일시적인 것이고, 화이트보드 세션이 남기는 더 오래가는 결과는 자신이 이해한 덕분에 품질이 높아진 코드와 현재 코드베이스에 맞춰진 자기 머릿속 모델이라는 것이다.
 
 지금의 답은 계획이다.
 README의 공유 기능조차 공유 뒤의 변경이 반영되지 않는다고 밝히고 있으니, 현재의 Whiteboard는 한 사람이 한 변경을 이해하는 순간을 위한 도구이지 팀이 오래 참조하는 설계 문서가 아니다.
@@ -125,6 +129,9 @@ factorialboy는 macOS에서 앱 크기가 736MB라고 지적했고[^factorialboy
 Code OSS를 통째로 들여온 선택은 LSP와 키 바인딩을 공짜로 얻게 해 주지만, 편집 기능을 뺀 리뷰 도구에 편집기 전체의 무게를 지운다.
 그리고 정기적으로 상위의 보안 패치를 합친다는 약속은, 패치가 아니라 통째로 들여온 코드베이스에서는 합칠 때마다 충돌을 해결하는 비용이 된다.
 Windows를 지원하지 않는다는 요청이 여러 번 나온 것[^gusmally]도 같은 비용의 다른 모습이다.
+
+기존 표기법을 두고 새 형식을 만든 이유도 설명되지 않았다.
+solatic은 완전히 오픈소스이고 커뮤니티가 이끄는 likec4.dev와 erode.dev와 어떻게 비교되느냐고 물으며, C4가 LLM이 큰 아키텍처 다이어그램을 만들고 유지하는 데 필요한 텍스트 표현을 이미 제공하는데 왜 그 전통 위에 짓지 않느냐고 적었다.[^solatic]
 
 ## 인사이트
 
@@ -186,3 +193,11 @@ metanonsense가 코드베이스와 소프트웨어 설계를 이해하는 일이
 [^itissid]: <https://news.ycombinator.com/item?id=49836484>
 
 [^metanonsense]: <https://news.ycombinator.com/item?id=49836440>
+
+[^vladzoff]: <https://news.ycombinator.com/item?id=49840763>
+
+[^sidharthkmenon-drift]: <https://news.ycombinator.com/item?id=49840966>
+
+[^ketan_around]: <https://news.ycombinator.com/item?id=49841001>
+
+[^solatic]: <https://news.ycombinator.com/item?id=49841490>
