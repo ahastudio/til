@@ -4,7 +4,7 @@
 
 <https://github.com/devdotfast/whiteboard>
 
-HN 토론: <https://news.ycombinator.com/item?id=49833867> (291점, 114개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=49833867> (400점, 132개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=34245>
 
@@ -13,7 +13,7 @@ GN 토론: <https://news.hada.io/topic?id=34245>
 Whiteboard는 “신중한 소프트웨어 설계를 위한 오픈 소스 캔버스”를 표방하는 데스크톱 앱이다.
 사람과 에이전트가 같은 작업 공간에서 함께 소프트웨어를 설계하게 하며, Claude Code나 Codex 같은 기존 도구에 붙어 에이전트에게 앱 안의 캔버스에 그림을 그릴 SDK를 준다.
 에이전트는 그 캔버스에 자기가 한 일을 다이어그램으로 설명한다.
-MIT 라이선스이고 TypeScript로 작성됐으며, 2026년 8월 18일에 저장소가 만들어져 9월 25일 기준 스타 643개, 포크 27개다.
+MIT 라이선스이고 TypeScript로 작성됐으며, 2026년 8월 18일에 저장소가 만들어져 9월 26일 기준 스타 1,357개, 포크 58개다.
 HN 제출 제목에 따르면 YC W26 회사가 만든다.
 
 빠른 시작은 세 단계다.
@@ -90,6 +90,12 @@ README는 파일을 편집할 수 없다는 것을 알려진 한계의 첫 항�
 HN에서 icar와 cjmcqueen은 편집할 수 없는데 IDE라고 부를 수 있느냐고 물었고[^icar][^cjmcqueen], 작성자 sidharthkmenon은 IDE라는 말이 잘못된 표현이며 에이전트가 구현과 절충을 이해시키는 데 쓰는 캔버스에 가깝다고 인정했다.[^sidharthkmenon-ide]
 이 대화는 도구의 범주가 아직 이름을 갖지 못했다는 것을 보여 준다.
 쓰기 도구는 에이전트 쪽으로 옮겨 갔고, 사람 쪽에 남은 도구는 읽고 이해하고 판단하는 도구인데, 우리는 아직 그것을 부를 말로 “IDE”밖에 갖고 있지 않다.
+bpshaver도 이런 도구가 여럿 나오고 있어 이름이 필요하다며, 비슷한 도구 하나는 스스로를 “Code Navigator”라 부르고, T3나 Superset 같은 도구는 사실상 하네스를 위한 하네스라고 적었다.[^bpshaver]
+
+작성자가 그리는 작업 흐름도 이 구분을 따른다.
+sidharthkmenon은 지금 대부분의 사용자가 계획을 세우고 승인한 뒤 에이전트가 코드를 쓰면, 그 코드를 설명하는 데 Whiteboard를 쓴다고 설명했다.[^sidharthkmenon-flow]
+계획을 별도 산출물로 두지 않고 Go의 설계 초안(design draft)처럼 계획과 코드를 함께 내보내는 방식도 있으며, 계획을 먼저 Whiteboard에 올리는 스크래치패드 모드는 아직 실험 단계라고 한다.
+다른 답글에서는 이것이 테크 리드와 시니어 엔지니어를 위한 도구라며, 에이전트와 구상하고, 에이전트가 코드를 쓰고, 에이전트가 코드에 연결된 Whiteboard 세션을 만들어 사람이 그 위에서 다듬는 순환이 중간의 Plan Mode 단계를 없앤다고 적었다.[^sidharthkmenon-lead]
 
 ## 비평
 
@@ -130,8 +136,25 @@ Code OSS를 통째로 들여온 선택은 LSP와 키 바인딩을 공짜로 얻�
 그리고 정기적으로 상위의 보안 패치를 합친다는 약속은, 패치가 아니라 통째로 들여온 코드베이스에서는 합칠 때마다 충돌을 해결하는 비용이 된다.
 Windows를 지원하지 않는다는 요청이 여러 번 나온 것[^gusmally]도 같은 비용의 다른 모습이다.
 
+작성자는 nnevatie의 질문에 마크다운의 어려움이 명세를 코드와 diff에 묶는 것과, 그 산출물들을 한 인터페이스에서 매끄럽게 오가는 것이라고 답했다.[^sidharthkmenon-md]
+마크다운 편집기에는 정의로 이동하기나 좋은 diff 뷰어가 없고, 지금 필요한 것은 코드와 diff를 보는 능력뿐이지만 세계에서 가장 많이 쓰는 편집기에서 출발하면 자연스럽게 느껴지리라 봤다는 것이다.
+다른 답글에서는 이 기능을 MCP UI로도 내놓아 Codex Desktop이나 Superset, Conductor, Emdash에서 바로 볼 수 있게 하겠다고 밝혔다.[^sidharthkmenon-flow]
+코드 탐색, diff 보기, 에이전트 추적의 시각화만 필요하다면 이 기능이 결국 기존 도구 안으로 들어갈 수 있다는 것을 작성자도 인정하는 셈이고, 그렇다면 736MB의 독립 앱은 도착점이 아니라 경유지에 가깝다.
+
 기존 표기법을 두고 새 형식을 만든 이유도 설명되지 않았다.
 solatic은 완전히 오픈소스이고 커뮤니티가 이끄는 likec4.dev와 erode.dev와 어떻게 비교되느냐고 물으며, C4가 LLM이 큰 아키텍처 다이어그램을 만들고 유지하는 데 필요한 텍스트 표현을 이미 제공하는데 왜 그 전통 위에 짓지 않느냐고 적었다.[^solatic]
+
+### “로컬”이라는 약속은 용어부터 다시 설명해야 한다
+
+README는 Whiteboard가 로컬 체크아웃을 대상으로 돌고, 익명 텔레메트리가 코드나 diff나 프롬프트를 담지 않는다고 밝힌다.
+그런데 HN에서 satwikhebbar은 Codex가 Whiteboard가 저장소 데이터를 저작 서버(authoring server)에 올리거나 노출해야 한다고 경고한다며, 로컬이고 기존 하네스에 붙는 플러그인이라는 설명과 다르게 이해했다고 물었다.[^satwikhebbar]
+팀원 thesiti92는 그 저작 서버가 사용자의 기기에서 도는 stdio MCP 서버를 가리키므로 모두 로컬이고 비공개이며, 이 용어를 분명히 해야겠다고 답했다.[^thesiti92]
+저장소 정보는 사용자가 동의하고 버그 리포트를 보내거나 세션을 공유할 때만 모은다고 덧붙였다.
+
+답 자체는 안심할 만하지만, 이 일은 에이전트 도구의 신뢰가 어디서 흔들리는지를 보여 준다.
+사용자가 읽는 것은 README가 아니라, 에이전트가 도구를 연결할 때 띄우는 경고문이다.
+도구가 스스로 붙인 이름이 에이전트의 경고 문구를 거쳐 “저장소를 서버에 올린다”로 읽히면, README의 개인정보 절이 아무리 정확해도 첫 인상은 이미 정해진다.
+코드를 다루는 도구라면 MCP 서버의 이름과 설명까지 개인정보 문서의 일부로 다뤄야 한다.
 
 ## 인사이트
 
@@ -152,8 +175,16 @@ syl5x는 같은 생각을 흐름과 관련 코드를 담은 웹사이트를 만�
 
 이 동시다발성은 수요의 크기를 말해 준다.
 에이전트가 쓰는 코드가 늘어날수록 사람이 이해해야 할 코드도 늘고, 그 간극을 메우는 도구가 저마다의 팀에서 따로 만들어진다.
+같은 스레드에는 다른 형태의 시도도 여럿 올라왔다.
+ithkuil은 복잡한 기능을 만든 뒤 모델에게 구성 요소 사이의 데이터 흐름을 시뮬레이션하고 리뷰어가 매개변수를 바꾸거나 결함을 넣어 볼 수 있는 대화형 “설명기”를 만들게 한다며, 에이전트가 쓰는 코드만큼 설계 문서도 많아져 리뷰하기 어려워진다고 적었다.[^ithkuil]
+mtford는 파일 더미 대신 변경의 “안내 투어”를 만드는 서술형 코드 리뷰 TUI를 만들고 있다고 했고,[^mtford] chris_st는 변경을 설명하는 워크스루를 만드는 Simon Willison의 showboat를 권했다.[^chris_st]
+
 metanonsense가 코드베이스와 소프트웨어 설계를 이해하는 일이 곧 완전히 새로운 산업이 될 것이라고 쓴 것[^metanonsense]은 과장이 아니다.
 다만 그 산업의 승자는 가장 예쁜 다이어그램을 그리는 쪽이 아니라, 다이어그램이 코드와 어긋나지 않는다는 것을 가장 잘 보증하는 쪽이 될 것이다.
+
+이 수요를 반대편에서 읽는 사람도 있다.
+bschwindHN은 기계가 코드를 다 쓰게 하고 다른 기계가 그것을 “설명”하게 하는 것이냐며, 이런 도구가 코드가 정확히 무엇을 하는지 이해하기를 내려놓고 이미 나쁜 추상화 위에 로봇이 코드를 더 쌓게 부추긴다고 비판했다.[^bschwindHN]
+이해 도구가 이해를 돕는지, 이해했다는 느낌만 주는지는 도구가 아니라 사용하는 사람의 태도에 달려 있고, 그 차이는 다이어그램이 틀렸을 때 사람이 알아채는지로 드러난다.
 
 ---
 
@@ -201,3 +232,23 @@ metanonsense가 코드베이스와 소프트웨어 설계를 이해하는 일이
 [^ketan_around]: <https://news.ycombinator.com/item?id=49841001>
 
 [^solatic]: <https://news.ycombinator.com/item?id=49841490>
+
+[^bpshaver]: <https://news.ycombinator.com/item?id=49834688>
+
+[^sidharthkmenon-flow]: <https://news.ycombinator.com/item?id=49835171>
+
+[^sidharthkmenon-lead]: <https://news.ycombinator.com/item?id=49837051>
+
+[^sidharthkmenon-md]: <https://news.ycombinator.com/item?id=49840892>
+
+[^satwikhebbar]: <https://news.ycombinator.com/item?id=49842572>
+
+[^thesiti92]: <https://news.ycombinator.com/item?id=49844280>
+
+[^ithkuil]: <https://news.ycombinator.com/item?id=49840203>
+
+[^mtford]: <https://news.ycombinator.com/item?id=49842013>
+
+[^chris_st]: <https://news.ycombinator.com/item?id=49844984>
+
+[^bschwindHN]: <https://news.ycombinator.com/item?id=49841081>
