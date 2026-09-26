@@ -36,15 +36,15 @@ Claude 덕분에 구현 속도는 빨라졌지만 기본 개념은 이미 알고
 
 글의 중심은 antirez의 입장이 어떻게 이동했는지를 시간순으로 배열한 부분이다.
 
-| 시점 | 글 | 내용 |
-| ---- | -- | ---- |
-| 2024년 1월 | LLM들과 2024년 초반의 프로그래밍 동향 | LLM을 많이 아는 바보로 규정. 문서가 부족한 ONNX 모델의 출력 형식은 몇 번의 대화로 해석했지만, `llama.cpp`의 Q6_K 양자화 포맷에서 GPT-4는 비트 위치와 부호 확장을 계속 틀려 종이와 펜과 코드 직접 읽기로 해결 |
-| 2025년 | 인간 개발자가 LLM보다 여전히 더 뛰어난 이유 | Redis Vector Sets에서 HNSW 그래프 링크의 상호 연결 검증. 단순한 방법은 O(N²)로 2천만 벡터 로딩이 45초에서 90초로 두 배. Gemini 2.5 PRO는 정렬 후 이진 탐색이라는 표준적 답만 냈고, antirez는 128비트 누적자에 XOR을 적용해 상호 연결이면 상쇄되어 0이 되는 방식을 고안. 이 시점의 LLM은 스마트한 러버덕 |
-| 2025년 여름 | LLM을 활용한 코딩 | 평가가 올라감. 버그를 출시 전에 잡고 Amiga용 68000 어셈블리처럼 낯선 영역까지 함께 탐색. 이를 페어 디자인이라 부름. 다만 요구는 엄격했고 코드 에이전트나 IDE 통합 에이전트 사용 지양, RAG처럼 일부 맥락만 보여주는 방식 대신 코드베이스와 문서를 통째로 넣기, 과정마다 사람이 직접 코드를 복사·붙여넣으며 흐름 추적 |
-| 2026년 초 | AI에 반대하는 분위기에 휩쓸리지 마세요 | 숫자가 바뀜. BERT 계열 임베딩 추론용 순수 C 라이브러리를 5분 만에 약 700줄로 생성, PyTorch 대비 15% 느리지만 동일한 결과. Redis Streams 내부 구조 변경을 설계 문서만으로 약 20분 만에 재현. `linenoise`에 UTF-8 지원 추가. 이를 자동 프로그래밍이라 부르며 바이브 코딩과 구분 |
-| 2026년 1~5월 | Redis array: 긴 개발 과정의 짧은 이야기 | 1월 초 시작, 약 4개월 뒤 PR. 첫 달은 통째로 명세. 두 번째 달부터 자동 프로그래밍으로 구현. 동작한 뒤에도 `sparsearray.c`와 `t_array.c`를 한 줄씩 읽으며 검토해 작은 비효율과 설계 오류를 수정하고 여러 모듈을 재작성. 기간은 줄지 않았고 LLM 이전에도 4개월 안에 가능했을 것이며 달라진 건 같은 기간에 훨씬 더 많은 일을 했다는 점 |
-| 2026년 6월 무렵 | DS4에 대한 몇 마디 | DwarfStar 4를 일주일 만에 만들었고 GPT-5.5의 도움 없이는 그 기간에 불가능했을 것. 대신 첫 일주일은 하루 평균 14시간 작업했고 Redis 초기 몇 달과 비슷한 강도 |
-| 2026년 7월 | 코드가 아니라 아이디어를 통제하라 | 매일 5,000줄을 검토하는 방식은 현실적이지 않다는 입장 |
+| 시점            | 글                                          | 내용                                                                                                                                                                                                                                                                                                                               |
+| --------------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2024년 1월      | LLM들과 2024년 초반의 프로그래밍 동향       | LLM을 많이 아는 바보로 규정. 문서가 부족한 ONNX 모델의 출력 형식은 몇 번의 대화로 해석했지만, `llama.cpp`의 Q6_K 양자화 포맷에서 GPT-4는 비트 위치와 부호 확장을 계속 틀려 종이와 펜과 코드 직접 읽기로 해결                                                                                                                       |
+| 2025년          | 인간 개발자가 LLM보다 여전히 더 뛰어난 이유 | Redis Vector Sets에서 HNSW 그래프 링크의 상호 연결 검증. 단순한 방법은 O(N²)로 2천만 벡터 로딩이 45초에서 90초로 두 배. Gemini 2.5 PRO는 정렬 후 이진 탐색이라는 표준적 답만 냈고, antirez는 128비트 누적자에 XOR을 적용해 상호 연결이면 상쇄되어 0이 되는 방식을 고안. 이 시점의 LLM은 스마트한 러버덕                            |
+| 2025년 여름     | LLM을 활용한 코딩                           | 평가가 올라감. 버그를 출시 전에 잡고 Amiga용 68000 어셈블리처럼 낯선 영역까지 함께 탐색. 이를 페어 디자인이라 부름. 다만 요구는 엄격했고 코드 에이전트나 IDE 통합 에이전트 사용 지양, RAG처럼 일부 맥락만 보여주는 방식 대신 코드베이스와 문서를 통째로 넣기, 과정마다 사람이 직접 코드를 복사·붙여넣으며 흐름 추적                |
+| 2026년 초       | AI에 반대하는 분위기에 휩쓸리지 마세요      | 숫자가 바뀜. BERT 계열 임베딩 추론용 순수 C 라이브러리를 5분 만에 약 700줄로 생성, PyTorch 대비 15% 느리지만 동일한 결과. Redis Streams 내부 구조 변경을 설계 문서만으로 약 20분 만에 재현. `linenoise`에 UTF-8 지원 추가. 이를 자동 프로그래밍이라 부르며 바이브 코딩과 구분                                                      |
+| 2026년 1~5월    | Redis array: 긴 개발 과정의 짧은 이야기     | 1월 초 시작, 약 4개월 뒤 PR. 첫 달은 통째로 명세. 두 번째 달부터 자동 프로그래밍으로 구현. 동작한 뒤에도 `sparsearray.c`와 `t_array.c`를 한 줄씩 읽으며 검토해 작은 비효율과 설계 오류를 수정하고 여러 모듈을 재작성. 기간은 줄지 않았고 LLM 이전에도 4개월 안에 가능했을 것이며 달라진 건 같은 기간에 훨씬 더 많은 일을 했다는 점 |
+| 2026년 6월 무렵 | DS4에 대한 몇 마디                          | DwarfStar 4를 일주일 만에 만들었고 GPT-5.5의 도움 없이는 그 기간에 불가능했을 것. 대신 첫 일주일은 하루 평균 14시간 작업했고 Redis 초기 몇 달과 비슷한 강도                                                                                                                                                                        |
+| 2026년 7월      | 코드가 아니라 아이디어를 통제하라           | 매일 5,000줄을 검토하는 방식은 현실적이지 않다는 입장                                                                                                                                                                                                                                                                              |
 
 2024년 1월 글에서 가장 많이 인용된 대목은 성능 평가가 아니라고 짚는다.
 ChatGPT 없이도 할 수 있었을까, 당연히 가능했겠지만 가장 흥미로운 것은 더 오래 걸렸을 거라는 사실이 아니며, 사실은 그럴 가치가 없어서 아예 시도조차 하지 않았을 것이라는 대목이다.
@@ -218,6 +218,13 @@ antirez 원문 토론에서 이 간격이 다른 방향으로 지적됐다.
 아이디어는 흔해서 값이 없고 실행과 테스트와 사용자 참여와 반복이 중요하며, 아이디어에서 프로토타입까지의 비용을 거의 0으로 줄이고 있지만 그것은 버릴 코드의 산이 생긴다는 뜻이고 그 안에 보석이 한두 개 있을 수 있다는 반론[^hn-jgeada]이다.
 좋은 팀이 관례적으로 하는 아이디어 선별을 아직 무엇도 대체하지 못했다는 것이다.
 
+Lobste.rs의 원문 토론에서 가장 많은 공감을 받은 반응은 더 짧았다.
+mxey는 antirez가 아무도 이 코드를 보지 말고 코드가 담은 아이디어만 봐야 한다고 한 문장을 인용하며, 코드를 읽지 않고 어떻게 코드에서 아이디어를 뽑아내느냐고 물었다.[^mxey]
+BinaryIgor는 소스 코드야말로 소프트웨어에 구현된 아이디어의 궁극적인 명세이며, 가장 자세하고 결정적인 진실의 원천을 사람의 언어로 대신하는 것은 더 못한 도구를 쓰는 것이라고 답했다.[^BinaryIgor]
+Student는 코드가 정말 자기가 생각하는 아이디어를 담고 있는지, 그 아이디어가 올바르게 구현됐는지, 아이디어들의 조합이 좋은지라는 세 질문을 들었고,[^Student] viraptor는 antirez가 바로 그 반대 방향, 곧 설계 설명을 저장소에 넣는 쪽을 말한 것이라고 반박했다.[^viraptor]
+mtset은 결정론보다 지역적 추론이 문제라고 짚었다.[^mtset]
+컴파일러에서 문서 처리 코드를 고쳤는데 코드 생성이 바뀌면 고쳐야 할 버그지만, AGENTS.md의 문서 관련 부분을 고치면 문서와 무관한 출력까지 바뀔 수 있을 뿐 아니라 바뀌어야 하며, 그 지역적 추론의 상실이 이해 가능성과 공학 개념 자체에 큰 타격이라는 것이다.
+
 ### 원문이 스스로 장치라고 밝힌 부분을 이 글은 논거로 옮긴다
 
 antirez는 자기 공개 발언의 성격을 직접 규정한다.
@@ -313,6 +320,11 @@ antirez 원문 토론에서 이 지점을 실무로 옮긴 반응이 있었다.
 계획 단계에서 합의해도 구현에서 지름길을 택하는 일이 있으므로 준수 여부를 신뢰성 있게 검증하는 방법이 문제이며, 다른 AI에게 검사시켜도 버그를 놓칠 수 있으니 인수 테스트를 빈틈없게 만드는 데 모든 노력을 넣어야 하고 타입 시스템과 단위 테스트와 가능하면 형식 검증과 린팅까지 다층 방어가 필요하다는 것[^hn-esafak]이다.
 아직 해결되지 않은 문제는 주어진 예산에서 정확성 노력을 어떻게 배분하느냐라고 정리했다.
 
+Lobste.rs에서 bitshift는 하루 8시간의 교환 관계라는 대목에 가장 동의한다며, 어떤 목표를 좇든 저수준 코드에 팔꿈치까지 담그는 시간의 최적 비율은 100%보다 작고 늘 그랬다고 적었다.[^bitshift]
+그러나 아무도 코드를 보지 말아야 한다는 대목에는 가장 덜 동의한다고 했다.
+gcupc는 유지보수를 신규 개발보다 훨씬 많이 하는 자기에게는 코드를 읽는 것이 늘 가장 중요한 일이고, 충분히 읽고 생각한 뒤에는 도움 없이도 실제 코딩이 거의 공짜라고 답했다.[^gcupc]
+이 반응은 검토 처리량의 제약이 신규 코드를 만드는 쪽에서 가장 크게 느껴지고, 이미 있는 코드를 고치는 쪽에서는 읽기가 곧 일 자체라는 것을 보여 준다.
+
 ### DESIGN.md는 헌장과 같은 도구이므로 결국 다투어질 것이다
 
 antirez가 원하는 것은 각 데이터 구조의 핵심 아이디어를 사람이 이해할 수 있는 언어로 담은 문서를 코드보다 상위에 두는 것이다.
@@ -383,13 +395,33 @@ ChatGPT 없이도 할 수 있었겠지만 사실은 그럴 가치가 없어서 �
 - 이 GeekNews 아티클 자체에 대한 HN이나 Lobste.rs 스레드는 없다. 이 문서에 인용한 HN 반응은 이 글의 축이 되는 antirez 원문 코드가 아니라 아이디어를 통제하라(`antirez.com/news/169`, 2026년 7월 13일)에 대한 것이며 227점과 189개 댓글이 달렸다.
 - 참고로 antirez의 다른 글들이 HN에서 받은 반응 규모는 AI에 반대하는 분위기에 휩쓸리지 마세요가 1,296점 1,631개 댓글, 우리가 소프트웨어를 망가뜨리고 있음이 1,012점 622개 댓글, 복귀 선언문이 1,190점 455개 댓글이다.
 - GeekNews 페이지 외에 이 글에 대한 별도 스레드는 찾지 못했다.
+- antirez 원문에는 Lobste.rs 스레드(`lobste.rs/s/5t3wzn`)도 있으며 24점과 41개 댓글이 달렸다. 이 문서에 인용한 Lobste.rs 반응은 그 스레드의 것이다.
 - 관련 문서: [DS4: Redis 창시자 antirez의 로컬 LLM 추론 엔진](../llm/ds4-dwarfstar4-antirez.md), [Rails는 DHH 없이도 Rails일 수 있을까](../rails/rails-without-dhh.md), [에이전트 코딩 비용 관리](../ai-tool/coding-costs.md), [토큰맥싱](../ai-tool/tokenmaxxing.md), [Valkey](../redis/valkey.md)
 
 ---
 
-[^hn-andsoitis]: HN 사용자 `andsoitis`: Matteo Collina 관련 대목을 인용한 뒤 “I wonder why he HAS TO ('I need to...') review the code even if he thinks it is pointless? Is that because his employer, Redis, requires it?”라고 물었다.
-[^hn-jgeada]: HN 사용자 `jgeada`: “Ideas are a dime a dozen... Execution matters, testing and sanity checking matters, actual engagement with users and iteration matters. Sure, we're reducing the cost of idea -> prototype to near zero... but that just means we now have mountains of throw away code, within which there may a gem or two. Nothing yet has replaced the curating of ideas that good teams do as a matter of course.”
-[^hn-krupan]: HN 사용자 `krupan`: “But if giving good enough instructions requires some level of coding skill, how are you going to gain that skill if you don't do much programming or reading code? It all sorta feels like an old guy (he says he's old in TFA) who forgot how he got to where he is today trying to give advice. Be careful what you believe, young programmers.”
-[^hn-rbehrends]: HN 사용자 `rbehrends`: “The raison d'être for our existing software engineering methods is that humans make mistakes and we needed to contain the effects of these mistakes... This does not change with agents doing the coding. Coding agents make mistakes also... And without a methodology to keep problems in check your agentic code will also accumulate software defects over time and result in code that becomes less and less maintainable, because you have no mental model of the software.”
-[^hn-esafak]: HN 사용자 `esafak`: “So the question is how to reliably verify compliance. If you merely tell another AI to check it properly implemented the plan it too can miss bugs, so you need to put all your effort in making the acceptance tests foolproof, and this is easier said than done. You need a defense in depth approach, using the type system, unit tests, formal verification (if you can), linting, etc.”
-[^hn-kamranjon]: HN 사용자 `kamranjon`: “Some of the most exciting engineering work is happening in the DS4 repo - and I'm watching it almost like a sports game.” 논문 공개 다음 날 여러 사람이 구현을 시도하고 실패를 검증해 PR로 종합된 과정, 방향 조종 기능과 새 모델 지원과 하드웨어 최적화가 외부 기여자를 통해 들어온 것을 열거하며 “I haven't watched a repo like this since llama.cpp and whisper.cpp in the early days”라고 적었다.
+[^hn-andsoitis]: <https://news.ycombinator.com/item?id=48892784>
+
+[^hn-jgeada]: <https://news.ycombinator.com/item?id=48892769>
+
+[^hn-krupan]: <https://news.ycombinator.com/item?id=48892716>
+
+[^hn-rbehrends]: <https://news.ycombinator.com/item?id=48892689>
+
+[^hn-esafak]: <https://news.ycombinator.com/item?id=48893109>
+
+[^hn-kamranjon]: <https://news.ycombinator.com/item?id=48892597>
+
+[^mxey]: <https://lobste.rs/s/5t3wzn/control_ideas_not_code#c_saocrj>
+
+[^BinaryIgor]: <https://lobste.rs/s/5t3wzn/control_ideas_not_code#c_vaf6s6>
+
+[^Student]: <https://lobste.rs/s/5t3wzn/control_ideas_not_code#c_risyqd>
+
+[^viraptor]: <https://lobste.rs/s/5t3wzn/control_ideas_not_code#c_tkt4om>
+
+[^mtset]: <https://lobste.rs/s/5t3wzn/control_ideas_not_code#c_bofyrq>
+
+[^bitshift]: <https://lobste.rs/s/5t3wzn/control_ideas_not_code#c_viktuv>
+
+[^gcupc]: <https://lobste.rs/s/5t3wzn/control_ideas_not_code#c_yvikuq>
