@@ -1,6 +1,8 @@
 # 엔터만 누르는 엔지니어: 모든 것을 Claude Code가 만드는 회사에서 보낸 보름
 
-원문: [I am done with this shit.](https://www.reddit.com/r/ClaudeAI/comments/1wm5c21/i_am_done_with_this_shit/)
+원문: <https://twitter.com/v0xium/status/2101526107128529120>
+
+Reddit 토론: <https://www.reddit.com/r/ClaudeAI/comments/1wm5c21/i_am_done_with_this_shit/>
 
 HN 토론: <https://news.ycombinator.com/item?id=49812975> (256점, 204개 댓글)
 
@@ -8,8 +10,8 @@ GN 토론: <https://news.hada.io/topic?id=34176>
 
 ## 요약
 
-Reddit의 r/ClaudeAI에 2026년 9월 21일 사용자 MrMenuk가 올린 짧은 글이다.
-본문 끝에는 X 사용자 voxium(@v0xium)이 9월 20일에 올린 원래 게시물이라는 표기가 있어, 다른 사람의 글을 옮겨 온 것으로 보인다.
+Twitter 사용자 voxium(@v0xium)이 2026년 9월 20일 올린 트윗이다.
+다음 날 사용자 MrMenuk가 이 트윗을 Reddit의 r/ClaudeAI에 옮겨 올렸다.
 글은 “이딴 짓은 이제 못 해 먹겠다, 끝났다”는 선언으로 시작한다.
 
 글쓴이는 대기업에 새로 합류한 지 보름이 됐다.
@@ -84,7 +86,7 @@ GN에서 semjei가 가장 인상 깊다고 꼽은 원칙, 곧 모든 코드와 �
 HN에서 FrustratedMonky는 겨우 2주밖에 안 됐으니 온보딩 과정이 형편없어서 절차를 제대로 보지 못한 것일 수도 있다며, 정말 이 정도라면 회사가 무너질 것이라고 의문을 제기했다.[^FrustratedMonky]
 GN 토픽 본문도 Reddit 댓글을 주제별로 묶은 것일 뿐, 개별 직장의 사례를 업계 전체로 일반화한 것은 아니라고 단서를 달았다.
 
-게다가 이 글은 원래 X에 올라온 게시물을 옮겨 온 것으로 보이며, 글쓴이의 회사나 역할에 대한 구체적 정보는 전혀 없다.
+게다가 글쓴이의 회사나 역할에 대한 구체적 정보는 전혀 없다.
 L1에서 L7까지라는 표현으로 규모를 짐작할 뿐이다.
 800개가 넘는 공감 댓글은 이 경험이 많은 사람에게 익숙하다는 것을 보여주지만, 그것이 이 조직의 실상을 검증하지는 않는다.
 공감의 크기와 사실의 정확성은 다른 문제다.
