@@ -9,7 +9,7 @@ GN 토론: <https://news.hada.io/topic?id=19371>
 洪民憙(Hong Minhee)가 Hackers' Pub에 쓴 이 글은
 연합우주(fediverse)와 ActivityPub을
 비개발자와 개발자 양쪽에게 설명하는 안내서다.
-X나 Instagram 같은 중앙화된 소셜 미디어에 지쳤는지,
+Twitter나 Instagram 같은 중앙화된 소셜 미디어에 지쳤는지,
 데이터 사생활과 알고리즘 추천과 끊임없는 광고가 걱정되는지 물으며 시작한다.
 연합우주는 federated와 universe를 합친 말이고
 한국어권에서는 주로 연합우주라 불리며,
@@ -26,7 +26,7 @@ Mastodon 사용자가 Misskey나 PeerTube 사용자와 소통할 수 있으며,
 전자우편 주소와 매우 비슷하다고 적는다.
 
 주요 플랫폼을 표로 정리한다.
-Mastodon은 X와 유사한 마이크로블로깅으로
+Mastodon은 Twitter와 유사한 마이크로블로깅으로
 500자 제한과 해시태그와 콘텐츠 경고 기능이 있고,
 공식 인스턴스 `mastodon.social`과
 한국 중심 인스턴스 우리.인생을 예로 든다.

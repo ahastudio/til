@@ -149,9 +149,9 @@ Omarchy의 기본 키 바인딩은 이 프로젝트의 성격을 가장 압축�
 관리자 같은 필수 바인딩 다음에 사전 설치 애플리케이션용 바인딩 블록이
 따라오고, 그 안에 `Super + Shift + Alt + A`로 grok.com,
 `Super + Shift + C`와 `Super + Shift + E`로 HEY 캘린더와 메일,
-`Super + Shift + X`와 `Super + Shift + Alt + X`로 X와 X 글쓰기 창을
+`Super + Shift + X`와 `Super + Shift + Alt + X`로 Twitter와 Twitter 글쓰기 창을
 여는 항목이 들어 있다.
-HEY는 37signals의 제품이고, Grok과 X는 DHH가 공개적으로 지지해 온
+HEY는 37signals의 제품이고, Grok과 Twitter는 DHH가 공개적으로 지지해 온
 회사의 서비스다.
 
 이 배치는 취향과 사업의 경계가 흐려지는 지점이다.

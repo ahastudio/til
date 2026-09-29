@@ -258,7 +258,7 @@ Opus 5 문서에서 본 “모델의 목표 청중이 사람에서 에이전트�
 
 ## 참고
 
-- 관련 문서: [uBlock Origin이 Facebook 광고 차단을 포기했다](../web/ublock-facebook-ads.md), [X의 For You 피드를 굴리는 Grok 트랜스포머 랭킹 알고리즘](../machine-learning/x-for-you-algorithm.md), [Wails v3 베타: Go 데스크톱 앱을 위한 새 토대와 2년 반의 알파](../go/wails-v3-beta.md)
+- 관련 문서: [uBlock Origin이 Facebook 광고 차단을 포기했다](../web/ublock-facebook-ads.md), [Twitter의 For You 피드를 굴리는 Grok 트랜스포머 랭킹 알고리즘](../machine-learning/x-for-you-algorithm.md), [Wails v3 베타: Go 데스크톱 앱을 위한 새 토대와 2년 반의 알파](../go/wails-v3-beta.md)
 
 ---
 

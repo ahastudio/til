@@ -98,7 +98,7 @@ skill-name/
 구성된 개인 운영 체제. Progressive Disclosure와
 append-only 메모리 패턴을 실증한다.
 
-**X-to-Book System:** X(Twitter) 계정을 모니터링하고
+**X-to-Book System:** Twitter 계정을 모니터링하고
 일일 합성 도서를 생성하는 다중 에이전트 아키텍처.
 
 **LLM-as-Judge Skills:** 직접 채점(Direct Scoring),

@@ -48,7 +48,7 @@ Facebook, Instagram 등 주요 광고 플랫폼이 이 기준을 채택해 크�
 ### 플랫폼 종속성과 표준화 문제
 
 3초 조회수는 각 광고 플랫폼이 자체 정의한 지표이므로
-Facebook, YouTube, TikTok, X(트위터) 간에 집계 방식이 완전히 동일하지 않다.
+Facebook, YouTube, TikTok, Twitter 간에 집계 방식이 완전히 동일하지 않다.
 YouTube는 별도로 30초 조회수를 과금 기준으로 사용하며,
 TikTok은 2초 이상을 일부 리포팅에 활용하기도 한다.
 이 글은 Facebook/Meta 광고 생태계를 암묵적 기준으로 서술하며,

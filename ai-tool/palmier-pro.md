@@ -32,7 +32,7 @@ Cursor의 `~/.cursor/mcp.json` 수동 설정, Claude Desktop의 번들 mcpb 확�
 라이선스는 분할돼 있다 — 생성형 AI 기능을 제외한 에디터, MCP 서버, 에이전트
 채팅은 GPLv3 오픈소스이고, 생성형 AI 처리만 클로즈드 소스다.
 에디터 자체는 로그인 없이 무료이며, AI 생성은 구독을 요구한다.
-GitHub 별 4.4k개·포크 349개를 기록 중이고, Discord·X(@Palmier_io)·이메일
+GitHub 별 4.4k개·포크 349개를 기록 중이고, Discord·Twitter(@Palmier_io)·이메일
 (founders@palmier.io)로 소통한다.
 
 다만 README는 정작 핵심을 비워 둔다.

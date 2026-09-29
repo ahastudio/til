@@ -8,7 +8,7 @@ HN 토론: <https://news.ycombinator.com/item?id=48809664> (2점, 1개 댓글)
 
 Claude Code 팀 공식 계정(ClaudeDevs)이 2026년 7월 6일에 올린 아티클이다.
 “프롬프트하는 대신 루프를 설계하라(designing loops instead of
-prompting)”는 말이 X에서 유행하지만, 정작 “루프”가 무엇을 뜻하는지에
+prompting)”는 말이 Twitter에서 유행하지만, 정작 “루프”가 무엇을 뜻하는지에
 대해서는 사람마다 답이 다르다는 문제의식에서 출발한다.
 
 Claude Code 팀은 루프를 “에이전트가 정지 조건이 충족될 때까지 작업

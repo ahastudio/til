@@ -179,7 +179,7 @@ Google이 `webRequestBlocking`을 제거해 광고 차단을 약화시킬 수 �
 Manifest는 기술 명세처럼 보이지만 실제로는 사용자와 광고주 사이의 권력 배분이다.
 Chromium이 웹의 대부분을 구동하는 한, Google은 표준 제정자이자 최대 광고주라는 이해 상충을
 동시에 갖는다.
-앞서 X의 For You 알고리즘 문서에서 본[^ref-x] “인프라를 소유한 자가 그 위의 모든 것을 통제한다”는
+앞서 Twitter의 For You 알고리즘 문서에서 본[^ref-x] “인프라를 소유한 자가 그 위의 모든 것을 통제한다”는
 원리가, 브라우저 엔진이라는 웹의 가장 깊은 인프라에서 가장 강력하게 작동한다.
 Firefox를 지키는 것이 중요한 이유는 uBlock이 아니라, 광고 회사가 소유하지 않은 엔진이 하나라도
 남아 있어야 웹의 규칙이 단일 이해관계에 완전히 종속되지 않기 때문이다.
@@ -234,7 +234,7 @@ failure)으로 만든다.
 
 ## 참고
 
-- 관련 문서: [uBlock Origin이 Facebook 광고 차단을 포기했다](ublock-facebook-ads.md), [X의 For You 피드를 굴리는 Grok 트랜스포머 랭킹 알고리즘](../machine-learning/x-for-you-algorithm.md), [넓게 만들고 좁게 출하하라](../agentic-coding/build-wide-ship-narrow.md)
+- 관련 문서: [uBlock Origin이 Facebook 광고 차단을 포기했다](ublock-facebook-ads.md), [Twitter의 For You 피드를 굴리는 Grok 트랜스포머 랭킹 알고리즘](../machine-learning/x-for-you-algorithm.md), [넓게 만들고 좁게 출하하라](../agentic-coding/build-wide-ship-narrow.md)
 
 ---
 

@@ -198,7 +198,7 @@ OpenWiki가 이 자리를 노린다면, 에이전트 도구 체인에서 문서�
 
 ### Personal 모드는 개인 지식 관리와 에이전트가 만나는 자리다
 
-Gmail, Notion, X를 묶어 개인 지식 위키를 만드는 Personal 모드는 PKM(Personal Knowledge Management) 도구와 에이전트를 잇는 시도다.
+Gmail, Notion, Twitter를 묶어 개인 지식 위키를 만드는 Personal 모드는 PKM(Personal Knowledge Management) 도구와 에이전트를 잇는 시도다.
 Obsidian이나 Roam이 사람이 읽는 그래프를 만든다면, OpenWiki의 Personal 모드는 에이전트가 읽는 구조화 문서를 만든다.
 에이전트가 개인의 이메일, 메모, 소셜 활동을 이해하고 그것을 바탕으로 일하는 방향으로 나아갈수록, 이 계층의 품질이 에이전트의 쓸모를 결정한다.
 그리고 앞서 rrvsh와 bad_username이 짚은 위키의 유지 비용은 개인 위키에서 더 무겁다.

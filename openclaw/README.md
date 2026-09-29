@@ -92,7 +92,7 @@ OpenClaw에서만 활용할 수 있는 것은 아니다. LLM 에이전트/워크
 - **AI Earnings Tracker**: 기술/AI 기업 실적 발표를 모니터링하고 알림 전송
 - **Custom Morning Brief**: 뉴스, 할 일, 콘텐츠 초안, AI 추천을 SMS로 개인화된
   아침 브리핑 제공
-- **X Account Analyzer**: X(트위터) 계정을 정성적으로 분석
+- **Twitter Account Analyzer**: Twitter 계정을 정성적으로 분석
 - **Newsletter Inbox Digest**: 뉴스레터를 요약해 다이제스트 이메일로 전송
 
 핵심은 "매일 반복하지만 직접 하기엔 귀찮은 일"을 에이전트에게 맡기는 것이다.
@@ -141,7 +141,7 @@ OpenClaw에서만 활용할 수 있는 것은 아니다. LLM 에이전트/워크
   적용해 하이브리드 검색 제공
 - **Second Brain**: 텍스트 메시지로 개인 정보를 저장하고 Next.js 인터페이스로
   검색
-- **Market Research Factory**: Reddit, X에서 불편 사항을 발굴하고 MVP까지
+- **Market Research Factory**: Reddit, Twitter에서 불편 사항을 발굴하고 MVP까지
   빌드하는 시장 조사 자동화
 
 "기억은 에이전트에게, 판단은 인간에게"라는 분업 모델이다.

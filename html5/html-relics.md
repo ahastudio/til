@@ -65,7 +65,7 @@ Microsoft FrontPage는 `<!--webbot bot="Timestamp" ... -->`, `TableOfContents`, 
 `<link rel="EditURI">`는 Really Simple Discovery로, Windows Live Writer나 BlogJet, MarsEdit 같은 클라이언트가 연결할 엔드포인트를 담은 XML 문서를 가리켰고 WordPress, Blogger, LiveJournal, TypePad, MediaWiki에 구현되었다.
 `<link rel="pingback">`은 링크를 걸었을 때 상대 사이트에 알리는 시스템이었는데, 빠르게 스팸과 SEO 조작의 통로가 되었고 사이트를 DDoS 공격에 동원하는 취약점까지 널리 악용되었다.
 `rel="image_src"`, `rel="audio_src"`, `rel="video_src"`는 Facebook이 Open Graph를 만들기 전 쓰던 'Share Partners' 시스템의 것으로, Digg를 비롯한 여러 사이트가 사실상의 표준처럼 채택했다.
-`twitter:card` 계열 태그들에 대해서는 문서와 카드 검증기가 모두 접근 불가가 되었고 X가 Open Graph로 대체 처리하므로 제거하고 Open Graph를 쓰라고 권한다 — 그리고 여기에 저자는 X를 운영하는 인물에 대한 정치적 비판을 한 문장 덧붙인다.
+`twitter:card` 계열 태그들에 대해서는 문서와 카드 검증기가 모두 접근 불가가 되었고 Twitter가 Open Graph로 대체 처리하므로 제거하고 Open Graph를 쓰라고 권한다 — 그리고 여기에 저자는 Twitter를 운영하는 인물에 대한 정치적 비판을 한 문장 덧붙인다.
 `twitter:dnt`도 더는 존중되지 않는 것으로 보인다고 적는다.
 
 글은 이것이 포괄적인 목록이 아니며 더 인기 있고 주목할 만한 비표준 조각들만 다루었다고 밝히면서, 호기심 있는 사람을 위해 WhatWG 위키의 더 긴 목록을 가리킨다.
@@ -163,7 +163,7 @@ IE 11의 지원이 끝난 뒤에도 몇 년이 더 걸렸고, 그다음 층은 �
 
 netol은 반대 방향의 의문을 제기한다.
 `twitter:card`에는 Open Graph 대응물이 없고 여전히 작동한다고 알고 있다는 것이다.[^netol]
-원문은 X가 Open Graph로 대체 처리하므로 Twitter 전용 선언이 대체로 쓸모없다고 단정하는데, 카드 유형을 지정하는 이 속성만큼은 대응물이 없다는 지적이다.
+원문은 Twitter가 Open Graph로 대체 처리하므로 Twitter 전용 선언이 대체로 쓸모없다고 단정하는데, 카드 유형을 지정하는 이 속성만큼은 대응물이 없다는 지적이다.
 목록이 “무관해졌다”고 분류한 항목 중 일부는 아직 무관하지 않을 수 있다는 뜻이고, 이것이 이 글에 제거 지침이 없어서 생기는 정확한 종류의 혼란이다.
 
 ### 조각들의 뒤를 이은 것에 대한 서술이 고르지 않다
@@ -195,10 +195,10 @@ Skype 툴바와 Baidu 트랜스코더는 성가신 확장과 지역 브라우저
 
 ### 마지막 항목의 정치적 언급이 문서의 성격을 바꾼다
 
-`twitter:card` 항목에서 저자는 이 태그들을 제거하고 Open Graph를 쓰라고 권한 뒤, X를 제거해야 할 또 다른 이유로 소유자에 대한 정치적 비판을 한 문장 덧붙인다.
+`twitter:card` 항목에서 저자는 이 태그들을 제거하고 Open Graph를 쓰라고 권한 뒤, Twitter를 제거해야 할 또 다른 이유로 소유자에 대한 정치적 비판을 한 문장 덧붙인다.
 
 이 문장의 내용에 동의하느냐와 별개로, 배치가 문제를 만든다.
-앞의 권고는 기술적 근거를 갖는다 — 문서가 사라졌고, 검증기가 없어졌고, X가 Open Graph로 대체 처리하므로 중복이다.
+앞의 권고는 기술적 근거를 갖는다 — 문서가 사라졌고, 검증기가 없어졌고, Twitter가 Open Graph로 대체 처리하므로 중복이다.
 그 근거만으로 결론이 이미 성립한다.
 
 뒤의 문장은 다른 종류의 근거를 같은 결론에 붙인다.

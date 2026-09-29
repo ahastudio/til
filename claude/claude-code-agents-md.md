@@ -149,7 +149,7 @@ Astra가 Codex 쪽으로 큰 이동을 만들어 낸 것이 항복을 끌어냈�
 
 실제로 jtbaker가 링크한 기사에 따르면 Shopify의 Tobi Lütke는
 Claude Code가 `AGENTS.md`와 `.agents/skills`를 읽도록 마음을 바꿀 때까지
-사내에서 금지하는 것을 생각하고 있다고 X에 적었다.[^jtbaker]
+사내에서 금지하는 것을 생각하고 있다고 Twitter에 적었다.[^jtbaker]
 
 ## 비평
 

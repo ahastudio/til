@@ -40,7 +40,7 @@ Bluesky 같은 소셜 미디어에서 흥미로운 사람들의 isola를 이따�
 지식과 관계 맺는 진지한 방식이 아니며,
 부족주의와 집단사고 면에서 최악의 본능을 촉발하고
 우리를 지적으로 게으르게 만든다.
-Instagram이든 TikTok이든 X든 Mastodon이든
+Instagram이든 TikTok이든 Twitter든 Mastodon이든
 어디서 경험하든 마찬가지라고 적는다.
 
 긴 형식도 안전하지 않다.

@@ -4,7 +4,7 @@
 
 ## 요약
 
-Anthropic의 Lance Martin(@RLanceMartin)이 2026년 6월 10일 X에 올린 롱폼 글로,
+Anthropic의 Lance Martin(@RLanceMartin)이 2026년 6월 10일 Twitter에 올린 롱폼 글로,
 Mythos급 모델인 Claude Fable 5를 최대한 활용하기 위한 두 가지 팁 — 자기 교정
 루프(self-correction loops)와 메모리(memory) — 를 자신의 실험과 함께 소개한다.
 그는 이런 모델을 직접 프롬프트로 조종(steering)하기보다 환경 피드백에 반응해

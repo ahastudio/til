@@ -20,7 +20,7 @@ Firefox의 WebCompat 시스템은 `about:compat`에서 사용자가 직접 확�
 Safari의 `Quirks.cpp`는 더 구체적이다.
 TikTok의 잘못된 업그레이드 메시지 처리, Netflix의 팝오버 문제 수정,
 Amazon 제품 이미지 패닝 시 터치·마우스 이벤트 변환,
-Facebook·X·Reddit의 Picture-in-Picture 비디오 일시정지 문제 등이 하드코딩되어 있다.
+Facebook·Twitter·Reddit의 Picture-in-Picture 비디오 일시정지 문제 등이 하드코딩되어 있다.
 
 Chrome은 이런 예외 처리 파일이 거의 필요 없다.
 웹이 이미 Chrome 중심으로 개발되었기 때문이다.

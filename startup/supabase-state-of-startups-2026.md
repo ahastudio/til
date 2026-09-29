@@ -225,10 +225,10 @@ Supabase는 누구나 무엇이든 출시할 수 있게 되면 유통이 병목�
 
 창업자들이 덜 방송하고 있다.
 주 3회 이상 쓰는 소셜 플랫폼은
-YouTube 61%, Instagram 51%, LinkedIn 51%, X(Twitter) 38%,
+YouTube 61%, Instagram 51%, LinkedIn 51%, Twitter 38%,
 Reddit 28%, Discord 21%, TikTok 18%,
 “소셜 미디어를 포기했다” 11%, Threads 6%, BlueSky 3%다.
-X가 6%p, LinkedIn이 3%p, Reddit과 Discord가 3~4%p 잃었고
+Twitter가 6%p, LinkedIn이 3%p, Reddit과 Discord가 3~4%p 잃었고
 TikTok만 유일하게 성장했다.
 “온라인 페르소나가 없다”는 5%p 늘어 33%가 됐다.
 
@@ -556,7 +556,7 @@ Bill Hinostroza가 인용된 문장 그대로,
 여기서 이 조사가 다루지 않은 이차 효과가 나온다.
 만드는 비용이 떨어지면 공급이 늘고,
 공급이 늘면 유통 채널의 혼잡도가 올라간다.
-같은 조사에서 X가 6%p, LinkedIn이 3%p 잃고
+같은 조사에서 Twitter가 6%p, LinkedIn이 3%p 잃고
 “온라인 페르소나 없음”이 33%로 늘었다는 것,
 그리고 컨퍼런스 미참석이 60%가 됐다는 것이
 그 혼잡의 결과일 수 있다 —

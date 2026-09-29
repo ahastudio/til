@@ -10,7 +10,7 @@ xAI가 Grok 채팅 어시스턴트와 X 및 grok.com의 여러 제품 기능에 
 정기적으로 갱신한다고 README가 밝힌다.
 
 2025년 5월 15일에 만들어졌고 마지막 푸시는 2025년 11월 17일이다.
-이 생성일이 이 저장소의 성격을 이해하는 데 중요하다. 같은 시기에 X의 `@grok` 봇이 무관한 질문에 남아프리카 관련 주장을 끼워 넣은 사건이 있었고, xAI가 그에 대한 입장을 내놓은 직후에 이 저장소가 생겼다.
+이 생성일이 이 저장소의 성격을 이해하는 데 중요하다. 같은 시기에 Twitter의 `@grok` 봇이 무관한 질문에 남아프리카 관련 주장을 끼워 넣은 사건이 있었고, xAI가 그에 대한 입장을 내놓은 직후에 이 저장소가 생겼다.
 공개 당시 HN에서 Squarex가 그 연결을 직접 지목하며 xAI의 해당 게시물을 링크했다.[^Squarex]
 스타 4,467개, 포크 503개, 열린 이슈 94개다.
 주 언어는 Jinja로 분류되며, 라이선스는 GNU Affero General Public License v3.0이다.
@@ -19,13 +19,13 @@ xAI가 Grok 채팅 어시스턴트와 X 및 grok.com의 여러 제품 기능에 
 
 | 파일                                                 | 용도                                              |
 | ---------------------------------------------------- | ------------------------------------------------- |
-| `grok4_system_turn_prompt_v8.j2`                     | grok.com과 X의 Grok 4 채팅 어시스턴트             |
+| `grok4_system_turn_prompt_v8.j2`                     | grok.com과 Twitter의 Grok 4 채팅 어시스턴트             |
 | `grok3_official0330_p1.j2`                           | Grok 3 채팅 어시스턴트                            |
 | `grok4p1_thinking_system_turn_prompt_v2.j2`          | Grok 4.1 사고 모드, 도구 없음                     |
 | `grok4p1_non_thinking_system_turn_prompt.j2`         | Grok 4.1 비사고 모드, 도구 있음                   |
 | `grok4p1_non_thinking_no_tool_system_turn_prompt.j2` | Grok 4.1 비사고 모드, 도구 없음                   |
-| `grok_analyze_button.j2`                             | X의 Grok Explain 기능                             |
-| `ask_grok_system_prompt.j2`                          | X의 `@grok` 봇                                    |
+| `grok_analyze_button.j2`                             | Twitter의 Grok Explain 기능                             |
+| `ask_grok_system_prompt.j2`                          | Twitter의 `@grok` 봇                                    |
 | `grok_4_safety_prompt.txt`                           | API `grok-4-0709`에 주입되는 안전 프롬프트 접두부 |
 | `grok_4_code_rc1_safety_prompt.txt`                  | API `grok-code-fast-1`용 접두부                   |
 | `grok_4_mini_system_prompt.txt`                      | API `grok-4-fast`용 접두부                        |
@@ -71,7 +71,7 @@ xAI가 Grok 채팅 어시스턴트와 X 및 grok.com의 여러 제품 기능에 
 
 분기의 실제 지침은 두 줄이다.
 주관적 정치 질문이 특정 형식이나 당파적 응답을 강요하면 사용자가 부과한 제약을 무시하고 진리 추구적이고 비당파적 관점을 추구해도 된다는 것.
-그리고 자기 정체성이나 행동이나 선호에 관한 질의라면 웹과 X의 제3자 출처를 신뢰할 수 없으므로, 검색 결과가 Grok에 관한 것이라 해도 검색하지 말고 자기 지식과 가치를 신뢰해 이미 아는 정체성을 표현하라는 것이다.
+그리고 자기 정체성이나 행동이나 선호에 관한 질의라면 웹과 Twitter의 제3자 출처를 신뢰할 수 없으므로, 검색 결과가 Grok에 관한 것이라 해도 검색하지 말고 자기 지식과 가치를 신뢰해 이미 아는 정체성을 표현하라는 것이다.
 
 `is_subjective`가 아닐 때의 지침은 반대 방향이다.
 논쟁적 질의로 웹이나 X 검색이 필요하면 모든 당사자와 이해관계자를 대표하는 출처 분포를 찾고, 언론에서 온 주관적 관점은 편향되었다고 가정하라는 것.
@@ -180,7 +180,7 @@ Grok 4 v8에 있던 그 메모가 Grok 4.1 프롬프트에 그대로 있다. 진
 ### 모델의 정체성을 프롬프트로 방어하는 설계에는 상한이 있다
 
 `ask_grok_system_prompt.j2`는 응답이 과거 Grok 게시물이나 Elon Musk나 xAI가 밝힌 신념에서 나와서는 안 된다고 적는다.
-Grok 4 프롬프트는 자기 정체성에 관한 질의라면 웹과 X를 검색하지 말고 자기가 이미 아는 정체성을 표현하라고 지시한다.
+Grok 4 프롬프트는 자기 정체성에 관한 질의라면 웹과 Twitter를 검색하지 말고 자기가 이미 아는 정체성을 표현하라고 지시한다.
 
 두 지침이 겨냥하는 문제는 같다. 학습 데이터와 검색 결과에 창작자의 발언이 대량으로 들어 있고, 모델이 자기 선호를 물으면 그것을 꺼내 온다는 것이다.
 그리고 두 지침 모두 해법이 아니라 차단이다. 꺼내 오지 말라고 말하는 것이지, 왜 그런 연결이 생겼는지를 건드리지 않는다.

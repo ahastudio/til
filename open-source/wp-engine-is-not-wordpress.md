@@ -219,7 +219,7 @@ WordPress의 방향을 정하는 기여는 그 자체로 영향력이며,
 동시에 일방적인 지배의 증거이기도 한데, 글은 앞의 해석만 제시한다.
 
 usaphp가 HN에서 이 논쟁의 촉발 경위를 정리했다.
-며칠 전 Mullenweg가 X에 WP Engine이 Automattic과 비슷한 매출을 올리면서
+며칠 전 Mullenweg가 Twitter에 WP Engine이 Automattic과 비슷한 매출을 올리면서
 약속한 만큼 오픈소스에 기여하지 않는다고 올렸고,
 한 WP Engine 직원이 경영진이 KPI 목표와 맞지 않는다는 이유로 기여를 허용하지
 않는다고 답글을 달았으며,

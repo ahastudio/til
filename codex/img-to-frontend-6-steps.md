@@ -4,7 +4,7 @@
 
 ## 요약
 
-am.will(@LLMJunky)이 X에 공개한 “Codex Guide: Images ⟶ Real UI in 6 Steps”
+am.will(@LLMJunky)이 Twitter에 공개한 “Codex Guide: Images ⟶ Real UI in 6 Steps”
 아티클이다. OpenAI의 신규 이미지 모델 `gpt-image-2`(GI2)와 Codex를 결합해,
 이미지 목업에서 시작해 실제 동작하는 프론트엔드까지 끌고 가는 워크플로를
 6단계로 정리한다. Codex Marketplace에 공개된 `img-to-frontend` 스킬이 기둥
@@ -219,7 +219,7 @@ GitHub Issues가 “버그 보고서”의 표준 형식을 정의했듯, 어노
 
 ### 콘텐츠 마케팅이 모델 마케팅을 대체한다
 
-이 아티클이 X에 올라온 시점은 OpenAI가 “GPT-5.5와 Image Gen으로 만들어라,
+이 아티클이 Twitter에 올라온 시점은 OpenAI가 “GPT-5.5와 Image Gen으로 만들어라,
 Codex가 좋은 출품작을 골라 DevDay 티켓을 주겠다”고 발표한 직후다. 가이드
 저자는 마케팅 캠페인의 정점에서 “나는 이미 6단계 워크플로를 검증했다”고
 선언한다. 모델이 무엇을 할 수 있는지를 OpenAI가 직접 광고하지 않고,
