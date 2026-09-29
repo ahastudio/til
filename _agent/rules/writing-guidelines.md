@@ -5,6 +5,70 @@ paths:
 
 # Writing Guidelines
 
+## Established Korean Terms vs. Coined Translations (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**Use a Korean term only when it is established as the Korean term for that
+concept. Otherwise write the English term as is. Never coin a Korean
+translation.**
+
+The difference between the two cases is enormous.
+An established Korean term is the correct word and must be used.
+A coined translation is garbage, even when every word in it is real Korean.
+Translating an English term into Korean does not make it easier to read.
+A made-up Korean word forces the reader to guess which English term
+it stands for, and the guess is often wrong.
+This is a defect every time, not a style choice.
+
+**Established Korean terms — use them:**
+
+| English term     | Correct       |
+| ---------------- | ------------- |
+| pair programming | 짝 프로그래밍 |
+| worktree         | 작업 트리     |
+
+**Not established — never translate, keep the English term:**
+
+| English term | Coined (forbidden) | Correct |
+| ------------ | ------------------ | ------- |
+| loop         | 순환               | 루프    |
+| hook         | 갈고리             | 훅      |
+| harness      | 마구               | 하네스  |
+
+Keeping the English term means writing it as developers say it,
+in English letters or as a plain transliteration.
+
+These tables are illustrative, not exhaustive.
+They apply to every term, not just the ones listed.
+
+**Rules:**
+
+- Decide per term whether a Korean term is established.
+  Never apply a blanket preference for Korean or for English.
+- Your own sense of which terms are established is unreliable.
+  It has already marked established Korean terms as coined in this
+  repository.
+- When a document already uses a Korean term,
+  never replace it on your own judgment that it is not established.
+  Ask the user.
+- When writing a new term and unsure whether a Korean term is established,
+  keep the English term and never invent one.
+- A Korean word that merely exists in the dictionary is not enough.
+  It must be the word practitioners use for this specific concept.
+- Never translate a term just because the sentence around it is Korean.
+  Korean prose with English-origin terms is normal Korean.
+- Idioms follow the same rule.
+  Never render an English idiom word for word.
+  Say what it means in plain Korean, or quote the original.
+- Apply this to headings, body text, and summaries of source material
+  equally.
+  Paraphrasing an English source is exactly where this failure happens.
+
+**Test:** Before writing any Korean noun for a technical or domain concept,
+ask whether a Korean developer reading it would instantly know the English
+term behind it without thinking.
+If there is any hesitation, the word is wrong.
+Replace it with the term people actually use.
+
 ## Natural Korean — No Literal Translation (ABSOLUTE PRIORITY — NO EXCEPTIONS)
 
 **Never translate English words or expressions literally into Korean prose.**
