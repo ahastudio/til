@@ -283,6 +283,41 @@ Revo를 짧은 시간에 이해시키는 데 효과적이지만,
 운영 의사결정자 관점에서 필요한 릴리스 정책은 상대적으로 얇다.
 ```
 
+## Twitter, Never X (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**The service is always called Twitter. X does not exist in this
+repository. Never write X by itself as the name of the service.**
+
+This applies everywhere: headings, body text, summaries, link text,
+and translations of source material that says X.
+When a source says X, write Twitter anyway.
+A post on the service is a 트윗 (see Tweet Terminology below),
+never 게시물 or post.
+
+**Spelling:** The default is the English spelling `Twitter`.
+`트위터` is also allowed where the Korean spelling reads more naturally.
+
+**Allowed exceptions:** `Twitter(현 X)` and `Twitter(X)` are acceptable.
+They name the service as Twitter and only note the current name.
+Never rewrite an existing `Twitter(현 X)` or `Twitter(X)`.
+
+Forbidden forms include, but are NOT limited to:
+
+- `X`, `X에`, `X의`, `X 사용자`, `X 계정`, `X 게시물`
+- `X(옛 트위터)`, `X(구 트위터)`, `X(Twitter)`, `트위터(X)`
+- `x.com` in any URL
+
+Correct forms: `Twitter`, `Twitter 사용자`, `Twitter 계정`, `트윗`,
+`Twitter(현 X)`, `Twitter(X)`, and `트위터` where it reads more naturally.
+
+**Checklist before saving any `.md` file:**
+
+1. Search the text for a standalone `X` used as a service name,
+   and for `x.com`.
+2. Replace every hit with `Twitter`, `트윗`, or `twitter.com`.
+3. A standalone `X` that is not the service (a variable, a product name
+   such as iPhone X or Mac OS X) is not affected.
+
 ## Twitter Links
 
 Always use `twitter.com` instead of `x.com` for tweet URLs.
