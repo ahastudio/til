@@ -44794,3 +44794,240 @@
   - 놓치면 안 되는 핵심 포인트나 주의사항: OBS를 설치한 것만으로 공격되는
     취약점은 아니고 악성 입력을 정화하지 않는 오버레이가 진입점이므로, 엔진
     업데이트와 콘텐츠 정화를 모두 적용해야 공격 체인을 끊을 수 있다.
+
+## 2026-09-29 개발자 트렌드
+
+### 1. 텍스트 생성 없이 30ms 안에 결정을 내리는 소형 모델 Jeff
+
+- **출처**: Hacker News — <https://github.com/firelex/jeff>
+- **한 줄 요약**: Jeff는 Qwen3.5와 Gemma 4를 fine-tuning해 자유 서술형 선택지를
+  한 번의 forward pass로 분류하고, 각 선택지의 보정된 확률을 약 30ms에 반환하는
+  0.8B·2B 로컬 decision model이다.
+- **왜 주목받나**: Hacker News에서 약 12시간 만에 491점과 댓글 184개를 모았고,
+  범용 LLM을 매번 호출하는 대신 작고 빠른 모델로 라우팅·분류를 처리할 수 있다는
+  실용성과 embedding 기반 분류기와의 비교가 활발한 토론을 만들었다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 고객 문의 라우팅, 정책 분류, 도구
+    선택처럼 출력 후보가 정해진 작업은 생성형 모델보다 지연 시간과 비용이 낮고
+    결과 스키마가 안정적인 전용 decision model로 분리할 수 있다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 실제 업무 데이터로
+    Jeff와 embedding·로지스틱 회귀 기준선을 함께 평가하고, 오분류 비용이 낮은
+    요청부터 기존 LLM 호출 앞단의 라우터로 적용할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 큰 모델이 계획과 예외를
+    맡고 소형 System 1 모델이 반복 판단을 처리하는 계층형 추론 구조가 늘어날
+    것이다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: reasoning 비중이 높은 과제에서는
+    성능이 떨어질 수 있고 선택지 표현에 민감하므로, 공개 benchmark보다 자체
+    데이터의 calibration과 실패 사례 검증을 우선해야 한다.
+
+### 2. 여러 코딩 에이전트 팀을 YAML로 운영하는 OpenRig
+
+- **출처**: GitHub Trending — <https://github.com/mvschwarz/openrig>
+- **한 줄 요약**: OpenRig는 lead와 specialist 역할을 YAML로 선언하고 Claude
+  Code와 Codex 세션을 지속적인 팀처럼 기동·관찰·재개하는 multi-agent
+  orchestration harness다.
+- **왜 주목받나**: 오늘 GitHub Trending에서 하루 734개 star를 얻었으며, 여러
+  터미널에서 에이전트를 수동으로 관리하던 흐름을 재현 가능한 팀 구성과 단일
+  명령으로 바꾼다는 점이 큰 관심을 끌었다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 에이전트별 역할, 작업 공간, 모델,
+    세션 수명을 코드로 관리할 수 있어 병렬 작업의 재현성과 운영 가시성을 높일 수
+    있다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 작은 저장소에서 lead,
+    구현, 테스트 역할만 정의하고 `rig setup --dry-run`과 `rig up --plan`으로
+    변경 범위를 확인한 뒤 제한된 실험부터 시작할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 코딩 에이전트 활용은
+    단일 대화 중심에서 역할·권한·관찰 가능성을 선언하는 운영 계층 중심으로
+    이동할 것이다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 설정 과정이 hook과 provider 설정,
+    workspace trust를 바꿀 수 있으므로 별도 작업 공간과 최소 권한을 사용하고 각
+    에이전트의 결과를 사람의 검토 없이 합치지 않아야 한다.
+
+### 3. WebGPU로 브라우저 안에서 7개 소형 LLM을 돌리는 MicroLLM Lab
+
+- **출처**: Hacker News — <https://stateofutopia.com/experiments/microllmlab/>
+- **한 줄 요약**: MicroLLM Lab은 25M~360M 규모의 Q4 모델 7개를 WebGPU로 브라우저
+  안에서 실행하고 속도와 품질을 같은 화면에서 비교하는 로컬 실험실이다.
+- **왜 주목받나**: Hacker News에서 약 13시간 만에 233점과 댓글 82개를 모았으며,
+  계정·서버 비용·데이터 전송 없이 즉시 모델을 바꿔 가며 체험할 수 있다는 점과
+  Firefox·Linux 호환성 및 소형 모델의 한계가 함께 논의됐다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 요약, 자동 완성, 간단한 분류처럼
+    작은 모델로 충분한 기능은 사용자 장치에서 처리해 서버 비용과 개인정보 전송을
+    동시에 줄일 수 있다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 목표 브라우저와 실제
+    저사양 장치에서 초기 다운로드 크기, warm-up 시간, tokens/s, 정확도를
+    측정하고 서버 fallback을 둔 기능부터 적용할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): WebGPU와 브라우저
+    저장소를 활용한 on-device AI가 PWA의 기본 선택지로 자리 잡고, 서버 모델은
+    복잡한 요청만 처리하는 hybrid 구성이 늘어날 것이다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: WebGPU 지원과 메모리 한도는
+    브라우저와 GPU마다 다르고 작은 모델의 유창함이 정확성을 보장하지 않으므로
+    기능별 평가와 명확한 fallback이 필요하다.
+
+### 4. C·Linux 시스템 프로그래밍 교재를 공개한 Illinois CS 341 Coursebook
+
+- **출처**: GitHub Trending — <https://github.com/cs341-illinois/coursebook>
+- **한 줄 요약**: Illinois CS 341 Coursebook은 C, POSIX, 프로세스, thread,
+  동기화, 메모리 할당, 네트워크, filesystem, 보안을 한데 묶은 공개 시스템
+  프로그래밍 교재다.
+- **왜 주목받나**: 오늘 GitHub Trending에서 하루 195개 star를 얻었고, 실제 대학
+  강의에서 사용하는 체계적인 자료를 PDF·Markdown·HTML로 빌드해 학습과 팀 교육에
+  바로 재사용할 수 있다는 점이 호응을 얻었다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 메모리, scheduler, IPC, socket의
+    동작을 이해하면 성능 저하와 race condition을 framework 밖의 원인까지 내려가
+    진단할 수 있다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 팀의 장애 유형에 맞춰
+    deadlock, `malloc`, networking, signals 장을 골라 읽고 작은 C 실습과
+    postmortem 리뷰를 온보딩 과정에 넣을 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 에이전트가 코드를
+    빠르게 생성할수록 결과를 검증하는 개발자의 시스템 기초와 debugging 역량은 더
+    중요한 차별점이 될 것이다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 프로그래밍 언어와 assembly 기초를
+    전제로 한 교육 자료이므로, 예제를 production 지침으로 그대로 옮기기보다 해당
+    플랫폼의 최신 문서와 함께 봐야 한다.
+
+### 5. 10.5GHz phased-array radar 전체 설계를 공개한 AERIS-10
+
+- **출처**: GitHub Trending — <https://github.com/NawfalMotii79/PLFM_RADAR>
+- **한 줄 요약**: AERIS-10은 최대 3km 또는 20km 구성을 목표로 하는 10.5GHz Pulse
+  LFM phased-array radar의 schematic, PCB, FPGA firmware, STM32 코드, Python
+  GUI를 공개한 hardware·software 통합 프로젝트다.
+- **왜 주목받나**: 오늘 GitHub Trending에서 하루 158개 star를 얻었고, pulse
+  compression, Doppler FFT, MTI, CFAR까지 포함한 end-to-end radar 설계를 재현
+  가능한 형태로 공개했다는 기술적 깊이가 관심을 모았다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: embedded, FPGA, DSP 개발자는 센서
+    front-end부터 실시간 신호 처리와 시각화까지 이어지는 전체 pipeline을 하나의
+    참조 구현에서 살펴볼 수 있다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 직접 송신하기 전에
+    공개된 HDL과 Python 신호 처리 코드를 simulation과 저장된 sample에 적용해
+    pulse compression·CFAR 알고리즘을 학습하고 검증할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 고가 장비에 묶여 있던
+    sensing 기술이 open hardware와 commodity FPGA를 통해 연구·교육·robotics
+    쪽으로 더 빠르게 확산될 것이다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 프로젝트가 active development
+    상태이고 일부 기능은 미완성이며, 고주파 송신은 지역별 전파 규정과 안전
+    요건을 충족해야 하므로 회로를 그대로 제작·운용해서는 안 된다.
+
+### 6. PostgreSQL `AT TIME ZONE`이 만드는 타입 전환과 환경 의존성
+
+- **출처**: Hacker News —
+  <https://bookofrevenue.com/blog/6ab81e9a97a13f0001f7e4e1/postgres-at-time-zone-u-does-not-do-what-you-think-it-does>
+- **한 줄 요약**: PostgreSQL의 `AT TIME ZONE`은 입력에 따라 `timestamp`와
+  `timestamptz` 사이를 전환하므로, 같은 SQL도 session `TimeZone` 설정과 DST
+  경계에 따라 다른 결과를 낼 수 있다.
+- **왜 주목받나**: Hacker News에서 하루 안에 165점과 댓글 104개를 모았고,
+  production 환경은 UTC인데 개발 환경은 지역 시간대일 때 숨어 있던 bug가
+  드러나는 과정과 원문의 과도한 주장에 대한 기술적 교정이 깊은 토론으로
+  이어졌다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 시간대 변환 뒤의 타입을 잘못
+    가정하면 조회 조건, 정렬, 만료 계산이 환경마다 달라져 재현하기 어려운 데이터
+    bug가 생길 수 있다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 의심스러운 query에
+    `pg_typeof()`를 붙여 중간 타입을 확인하고, CI에서 UTC와 서비스 지역 시간대를
+    바꿔 DST 전후의 비교·덧셈 test를 실행할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): database driver와 ORM은
+    시간 타입을 더 엄격히 구분하고, 팀은 session 시간대 고정과 typed wrapper를
+    schema 규칙으로 채택하는 쪽으로 갈 것이다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 서로 다른 시간 타입의 비교가 항상
+    실패하는 것은 아니며 PostgreSQL이 session 시간대를 기준으로 암묵 변환하므로,
+    원문의 결론보다 실제 타입과 실행 환경을 직접 검증해야 한다.
+
+### 7. 3천 개 Cloudflare API 작업을 다루는 새 `cf` CLI
+
+- **출처**: Hacker News —
+  <https://blog.cloudflare.com/cloudflare-cf-cli-launch/>
+- **한 줄 요약**: Cloudflare의 open beta `cf` CLI는 OpenAPI에서 생성한 3천 개
+  이상의 API 작업, JSON 기본 출력, 자연어 command 검색, TypeScript 설정을 제공해
+  사람과 코딩 에이전트가 같은 interface로 infrastructure를 다루게 한다.
+- **왜 주목받나**: Hacker News에서 약 17시간 만에 152점과 댓글 74개를 모았으며,
+  Wrangler보다 넓은 API coverage와 agent 친화적 출력이 환영받는 동시에 Node 기반
+  CLI의 startup 비용과 배포 방식이 논쟁거리가 됐다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 제품별 CLI와 직접 API 호출을
+    오가던 Cloudflare 자동화를 하나의 발견 가능한 command surface로 통합해
+    script와 에이전트 작업의 유지보수 비용을 낮출 수 있다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: sandbox 계정에서
+    `cf cli search`로 필요한 작업을 찾고 JSON 출력을 `jq`나 CI pipeline에 연결한
+    뒤, `cf migrate` 결과를 review해 기존 Wrangler 구성을 점진적으로 옮길 수
+    있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 대형 platform의 CLI는
+    사람이 외우는 command 집합보다 API 전체를 기계적으로 노출하고 agent가 검색해
+    조합하는 interface로 발전할 것이다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 아직 open beta이고 infrastructure
+    변경 범위가 넓으므로 production token을 그대로 넘기지 말고 최소 권한, dry
+    run, 변경 diff와 audit log를 함께 운영해야 한다.
+
+### 8. 자연의 나선 패턴을 audio-reactive LED로 구현한 Phyllotaxis
+
+- **출처**: Hacker News — <https://jagi.studio/posts/phyllotaxis/>
+- **한 줄 요약**: Phyllotaxis는 황금비 point cloud와 Voronoi tessellation으로
+  만든 89개 LED 구조에 STM32·I2S mic·FFT를 결합하고, 이후
+  ESP32·Rust·WebAssembly로 확장한 physical computing 프로젝트다.
+- **왜 주목받나**: Hacker News에서 약 5시간 만에 135점과 댓글 14개를 모았으며,
+  생성 알고리즘에서 CadQuery·3D printing·PCB·DSP·firmware까지 이어지는 전 과정을
+  실패와 개선 과정까지 공개한 점이 maker 개발자들의 호응을 얻었다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: algorithmic design을 CAD와
+    firmware 데이터로 공유하면 화면 속 simulation을 반복 생산 가능한 physical
+    product로 연결하는 pipeline을 만들 수 있다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: golden ratio 좌표를
+    CadQuery geometry와 LED lookup table의 단일 원천으로 만들고, CMSIS DSP의
+    FFT와 multiband energy를 소규모 조명 prototype에 적용할 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): parametric CAD, 저가
+    PCB assembly, Rust embedded, 장치 내 WebAssembly가 결합되면서 hardware
+    prototype의 반복 주기가 더 짧아질 것이다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 수작업 soldering과 diffuser 조립이
+    실제 병목이었으므로 software 설계뿐 아니라 조립 공정, ESD, 열 손상, 수리
+    가능성을 초기 prototype부터 함께 검증해야 한다.
+
+### 9. ESP32-S3 일곱 대에 1.58-bit LLM을 나눈 inference cluster
+
+- **출처**: Hacker News — <https://github.com/Low-Zi-Hong/ESP32s3-LLM-Cluster>
+- **한 줄 요약**: 이 프로젝트는 0.5B LLM의 embedding과 24개 Transformer block을
+  ESP32-S3 일곱 대에 나누고 SPI daisy-chain으로 연결해 1.58-bit pipeline
+  inference를 구현한다.
+- **왜 주목받나**: Hacker News에서 약 11시간 만에 97점과 댓글 19개를 모았고,
+  microcontroller cluster에서 LLM을 실제로 구동한 구현이 흥미를 끈 한편 memory
+  bandwidth와 통신 병목 때문에 경제성이 낮다는 현실적인 토론도 이어졌다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: edge inference 설계에서 parameter
+    수보다 weight packing, KV cache, layer partition, interconnect bandwidth가
+    전체 성능을 좌우한다는 점을 작은 hardware로 명확히 보여준다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: ESP-IDF firmware와
+    Python quantization 도구를 참조해 자체 모델의 layer별 메모리 사용량을
+    계산하고, 실제 장치에 올리기 전에 SPI 전송 시간이 compute보다 큰지 측정할 수
+    있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): microcontroller AI는
+    범용 대화 모델보다 vocabulary와 task를 줄인 전용 소형 모델, 1~4bit
+    quantization, application-specific accelerator 쪽으로 수렴할 것이다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 기술 시연의 성공과 production 효율은
+    다르며 daisy-chain은 node가 늘수록 지연과 failure point가 증가하므로 정확도,
+    전력, tokens/s를 단일 SoC 대안과 함께 비교해야 한다.
+
+### 10. AI 보안 에이전트가 먼저 찾게 될 ‘아무도 테스트하지 않는 시스템’
+
+- **출처**: Hacker News —
+  <https://blog.christianperone.com/2026/09/the-systems-that-no-one-will-test/>
+- **한 줄 요약**: 장기 작업형 AI 보안 에이전트가 충분히 관리되지 않는
+  공공·legacy 시스템의 단순하지만 큰 영향의 취약점을 사람보다 빠른 속도로 대량
+  탐색할 수 있다는 위험을 실제 사례와 함께 분석한다.
+- **왜 주목받나**: Hacker News 상위권에 오른 뒤 약 3시간 만에 44점과 댓글 16개를
+  모았으며, 새로운 exploit 기법보다 아무도 점검하지 않는 대규모 시스템과
+  자동화된 공격자의 결합이 더 현실적인 위험이라는 문제 제기가 토론을 불렀다.
+- **개발자 관점 인사이트**:
+  - 이 기술/이슈가 실무에 어떤 영향을 주는지: 공격 비용이 낮아지면 오래된 인증,
+    객체별 권한 검사 누락, 순차 ID, 과도한 API 응답처럼 알려진 약점도 짧은
+    시간에 전체 자산에서 반복 악용될 수 있다.
+  - 지금 당장 써먹을 수 있다면 어떻게 활용할 수 있는지: 외부 노출 자산을 다시
+    inventory하고 승인된 test 환경에서 enumeration, IDOR, rate limit, SSRF,
+    authorization 회귀 test를 자동화하며 명확한 disclosure 창구를 둘 수 있다.
+  - 앞으로 어떤 방향으로 흘러갈 것 같은지 (트렌드 예측): 방어팀도 장기 작업형
+    agent를 지속적 attack-surface 점검에 사용하고, 정부·기업 조달 기준에
+    자동화된 adversarial testing과 수정 기한이 포함될 가능성이 크다.
+  - 놓치면 안 되는 핵심 포인트나 주의사항: 자율 보안 도구는 승인 범위와 rate
+    limit, 데이터 보존 정책을 벗어나면 실제 피해와 법적 문제가 생기므로
+    production 대상의 무단 탐색에 사용해서는 안 된다.
