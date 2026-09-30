@@ -13,12 +13,32 @@ Puppeteer 같은 도구는 격리된 새 브라우저를 띄웁니다. chrome-cd
 사용자가 실제로 사용 중인 Chrome 탭에 연결합니다. 로그인 상태, 페이지
 상태, 열린 탭 전부를 AI 에이전트가 그대로 활용할 수 있습니다.
 
+그래서 Gmail, GitHub, 사내 도구처럼 로그인이 필요한 페이지를 읽고, 사용자가 작업 중인 탭과 상호작용하고, 새로 고친 깨끗한 상태가 아니라 작업 도중의 실제 페이지 상태를 볼 수 있습니다.
+저장소는 2026년 3월에 만들어졌고 MIT 라이선스이며, 2026년 9월 말 기준 GitHub 별 3,267개, 포크 202개입니다.
+
 ## 설치
 
 `skills/chrome-cdp/` 디렉토리를 복사.
 
 - Node.js 22+ 필요.
 - npm install 불필요.
+
+pi 에이전트라면 `pi install`로 설치하고, Amp, Claude Code, Cursor 같은 다른 에이전트라면 이 디렉터리를 에이전트가 스킬을 읽는 곳에 복사합니다.
+스킬 설명(`description`)에는 사용자가 Chrome에 열린 페이지를 검사하거나 디버깅하거나 조작해 달라고 요청한 뒤 명시적으로 승인했을 때만 쓰라고 적혀 있습니다.
+
+```bash
+# 1. 스킬을 에이전트가 읽는 곳에 복사한다(Claude Code의 프로젝트 스킬 예시)
+git clone https://github.com/pasky/chrome-cdp-skill /tmp/chrome-cdp-skill
+mkdir -p .claude/skills
+cp -r /tmp/chrome-cdp-skill/skills/chrome-cdp .claude/skills/
+
+# 2. Chrome에서 chrome://inspect/#remote-debugging을 열고 스위치를 켠다.
+
+# 3. 동작을 확인한다
+node --version                                   # 22 이상이어야 한다
+node .claude/skills/chrome-cdp/scripts/cdp.mjs list
+node .claude/skills/chrome-cdp/scripts/cdp.mjs snap <targetId 앞 8자>
+```
 
 Chrome에서 `chrome://inspect/#remote-debugging` 토글을 켜야 합니다.
 
@@ -44,6 +64,7 @@ Chrome, Chromium, Brave, Edge, Vivaldi를 자동 감지합니다.
 | `stop [target]`                  | 데몬 종료                                  |
 
 `<target>`은 `list` 출력의 targetId 고유 접두사입니다.
+모호한 접두사는 거부됩니다.
 
 ## 아키텍처
 
@@ -103,6 +124,9 @@ JSON) 프로토콜입니다.
 `net.createServer`로 스트림을 받아 줄 단위로 파싱합니다. 불완전한
 마지막 줄은 버퍼에 보관하고 다음 청크와 합칩니다.
 
+소켓은 `XDG_RUNTIME_DIR/cdp`, 없으면 `~/.cache/cdp` 아래에 `cdp-<targetId>.sock`으로 만들어지고, Windows에서는 이름 있는 파이프를 씁니다.
+디렉터리는 `0o700` 권한으로, 프로세스 umask는 `0o077`로 설정해 같은 사용자만 소켓에 닿을 수 있게 합니다.
+
 ### 브라우저 자동 탐지
 
 `getWsUrl()`이 macOS, Linux, Windows의 알려진 경로에서
@@ -149,6 +173,9 @@ Page.getLayoutMetrics → Emulation.getDeviceMetricsOverride →
 `typeStr()`은 `Runtime.evaluate` 대신 `Input.insertText` CDP
 명령을 사용합니다. 크로스오리진 iframe에서도 동작하는 선택입니다.
 
+결제 폼이나 로그인 위젯처럼 다른 출처의 iframe 안 입력란에는 `eval`로 값을 넣을 수 없으므로, `click`이나 `clickxy`로 먼저 포커스를 준 뒤 `type`을 씁니다.
+이 능력은 편리하지만 에이전트가 결제나 로그인 입력란에 무언가를 쓸 수 있다는 뜻이기도 하므로, 승인 규칙을 따로 두는 편이 좋습니다.
+
 ## vs chrome-devtools-mcp
 
 | 항목             | chrome-cdp-skill       | chrome-devtools-mcp      |
@@ -158,6 +185,33 @@ Page.getLayoutMetrics → Emulation.getDeviceMetricsOverride →
 | 100+ 탭         | 안정 동작              | 열거 타임아웃            |
 | 의존성           | Node.js 22 내장만      | Puppeteer 등             |
 | 코드 규모        | 단일 파일 870줄        | 다수 파일                |
+
+## 함정
+
+### DOM이 바뀌는 사이의 인덱스 선택
+
+스킬 문서가 직접 경고합니다.
+여러 `eval` 호출에 걸쳐 `querySelectorAll(...)[i]` 같은 인덱스 선택을 쓰면, 그 사이 DOM이 바뀌어 인덱스가 밀립니다.
+예를 들어 무시 버튼을 누르고 나면 카드의 인덱스가 바뀝니다.
+데이터는 한 번의 `eval`로 모으거나 안정적인 선택자를 써야 합니다.
+
+### 스크린샷 좌표와 클릭 좌표의 단위가 다르다
+
+`shot`은 기기 해상도로 저장하므로 이미지 픽셀은 CSS 픽셀에 DPR을 곱한 값이고, `clickxy`는 CSS 픽셀을 받습니다.
+Retina처럼 DPR이 2이면 스크린샷 좌표를 2로 나눠야 합니다.
+
+### 스크린샷은 뷰포트만 담는다
+
+`shot`은 보이는 영역만 찍습니다.
+아래쪽 내용이 필요하면 먼저 `eval`로 스크롤해야 하고, 스크롤한 뒤의 좌표는 다시 계산해야 합니다.
+
+## 체크리스트
+
+- 원격 디버깅을 쓰지 않을 때는 꺼 두었는가?
+- 민감한 계정이 로그인되지 않은 프로필에서 쓰고 있는가?
+- 에이전트가 `eval`과 `evalraw`를 실행하기 전에 승인을 받도록 설정했는가?
+- 작업이 끝난 뒤 `stop`으로 데몬을 내렸는가?
+- 스크린샷 좌표를 DPR로 나눠 클릭했는가?
 
 ## 비평
 
@@ -203,6 +257,21 @@ CDP 프로토콜 모킹이 어려운 건 사실이지만, 최소한 `resolvePref
 컨텍스트에서 실행합니다. `nav` 명령은 http/https만 허용하지만,
 도메인 제한은 없습니다. AI 에이전트가 악의적 프롬프트에 의해
 민감한 페이지에서 데이터를 추출하거나 조작할 수 있습니다.
+
+같은 위험을 지는 도구와 비교하면 안전 계층의 위치가 드러납니다.
+Claude in Chrome(`claude/claude-in-chrome.md`)은 권한 모드, 사이트 단위 허용, 금지 행동 목록, 행동 검사 분류기를 제품 안에 둡니다.
+Browser MCP(`mcp/browser-mcp.md`)는 도구만 주고 승인은 MCP 클라이언트에 맡깁니다.
+chrome-cdp-skill은 그보다 더 얇아서, 무엇을 허용할지가 에이전트의 셸 명령 승인 설정과 스킬 설명의 명시적 승인 문장에 달려 있습니다.
+
+또 원격 디버깅은 탭 단위가 아니라 브라우저 단위로 열립니다.
+스위치를 켜면 Chrome은 디버깅 포트를 열고, 켜져 있는 동안에는 같은 기기의 다른 프로세스도 그 포트를 찾아 연결을 시도할 수 있습니다.
+허용 모달은 그 시도를 사용자에게 보여 주는 장치일 뿐이라, 무심코 허용하면 그 프로세스도 탭을 조작할 수 있습니다.
+그래서 이 스위치는 필요할 때만 켜고 작업이 끝나면 끄거나, 민감한 계정이 로그인되지 않은 별도 프로필에서만 켜는 편이 안전합니다.
+
+데몬 유지는 편하지만 세션이 남는다는 점도 있습니다.
+탭마다 데몬을 20분 동안 유지하는 설계 덕분에 모달이 한 번만 뜨지만, 에이전트가 작업을 마친 뒤에도 최대 20분 동안 그 탭의 디버깅 세션이 열려 있습니다.
+그 사이 같은 사용자로 도는 다른 에이전트나 스크립트가 소켓에 명령을 보내면 다시 묻지 않고 실행됩니다.
+작업이 끝나면 `stop`으로 데몬을 직접 내리는 습관이 이 창을 닫습니다.
 
 ## 인사이트
 
@@ -361,6 +430,10 @@ Chrome이 원격 디버깅 연결마다 "허용" 모달을 띄우는 것은 올�
 체계, 샌드박스 실행 모드 같은 것들이 논의되고 있지만, 어느 것도
 "라이브 세션의 편의"와 "보안"을 동시에 만족시키지 못합니다.
 chrome-cdp-skill은 이 딜레마의 가장 선명한 사례 중 하나입니다.
+
+브라우저에 붙는 도구는 얇을수록 사용자가 채워야 할 방어가 두꺼워집니다.
+chrome-cdp-skill의 얇음은 탭 100개를 견디게 하고 설치를 몇 초로 줄이지만, 제품이 대신 해 주던 사이트 허용, 금지 행동, 행동 검사를 하지 않는다는 뜻이기도 합니다.
+그래서 이런 도구를 쓸 때는 도구가 무엇을 할 수 있는지보다 무엇을 막아 주지 않는지를 먼저 적고, 그 목록을 에이전트의 승인 설정과 프로필 격리로 채워야 합니다.
 
 ### 7. "탭별 데몬"이 시사하는 에이전트 아키텍처의 미래
 
