@@ -73,19 +73,28 @@ basis for any conclusion.
 
 Known endpoint status (verified):
 
-| Endpoint                                | Status  |
-| --------------------------------------- | ------- |
-| `/search`, `/search.json`               | blocked |
-| `/domains/<domain>[.json]`              | blocked |
-| `/newest/page/<N>.json`                 | blocked |
-| `/newest.json`, `/newest.json?page=N`   | works   |
-| `/hottest.json`, `/hottest.json?page=N` | works   |
-| `/page/<N>.json`                        | works   |
-| `/t/<single-tag>.json`                  | works   |
-| `/s/<short_id>.json`                    | works   |
-| `/rss`                                  | works   |
+| Endpoint                                     | Status  |
+| -------------------------------------------- | ------- |
+| `/search`, `/search.json`                    | blocked |
+| `/domains/<domain>[.json]`                   | blocked |
+| `/newest/page/<N>.json`                      | blocked |
+| `/newest.json`, `/hottest.json`              | works   |
+| `?page=N` on `/newest.json`, `/hottest.json` | ignored |
+| `/page/<N>.json`                             | works   |
+| `/t/<single-tag>.json`                       | works   |
+| `/s/<short_id>.json`                         | works   |
+| `/rss`                                       | works   |
 
 Comma-joined tags (`/t/ai,ml.json`) are blocked; use one tag per request.
+
+**`?page=N` is silently ignored.** `/hottest.json?page=3` and
+`/newest.json?page=3` return page 1 again, with HTTP 200 and valid JSON. A
+loop over `page=1..5` therefore looks like it scanned five pages while it
+scanned one, five times. To go deeper, use the path form `/page/<N>.json`
+(the hottest ranking, 25 stories per page), and de-duplicate by `short_id`
+so you can report how many distinct stories the scan actually covered.
+Run in late September 2026, `/page/1.json` through `/page/15.json` reached
+stories from early June, about 480 distinct stories.
 
 The table above describes **scripted access** (`curl`, `WebFetch`). Inside a
 real browser session the picture differs, and that difference is usable:
@@ -127,20 +136,34 @@ listing APIs for a story whose `url` matches the source URL:
 
 ```bash
 UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
-for ep in hottest newest; do
-  for p in 1 2 3; do
-    curl -s -A "$UA" "https://lobste.rs/$ep.json?page=$p" | python3 -c "
-import json,sys
-for s in json.load(sys.stdin):
-    if '<source-domain>' in (s.get('url') or ''):
-        print(s['short_id'], s['comments_url'], s.get('comment_count'))
-"
-  done
-done
+NEEDLE='<source-domain-or-path>'
+python3 - "$UA" "$NEEDLE" <<'EOF'
+import json, subprocess, sys
+ua, needle = sys.argv[1], sys.argv[2]
+# ?page=N is ignored by the server; use the /page/<N>.json path form.
+eps = ["newest.json"] + [f"page/{n}.json" for n in range(1, 16)]
+seen = {}
+for ep in eps:
+    body = subprocess.run(["curl", "-s", "-A", ua, f"https://lobste.rs/{ep}"],
+                          capture_output=True, text=True).stdout
+    try:
+        stories = json.loads(body)
+    except ValueError:
+        print("BLOCKED", ep, body[:60])   # a challenge page, not a result
+        continue
+    for s in stories:
+        seen[s["short_id"]] = s
+print("distinct stories scanned:", len(seen),
+      "oldest:", min(s["created_at"] for s in seen.values()))
+for s in seen.values():
+    if needle in (s.get("url") or ""):
+        print("HIT", s["short_id"], s["comments_url"], s["score"], s["comment_count"])
+EOF
 ```
 
-This only covers stories still on the front pages. Not finding one here says
-nothing about older stories.
+This only covers stories still in the ranked listing. Report the distinct
+count and the oldest date it reached; not finding a story says nothing
+about stories older than that date.
 
 #### Strategy C — tag listing
 
