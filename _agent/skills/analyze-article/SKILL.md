@@ -211,13 +211,13 @@ identifies them.
 Some sources need a fetch strategy or a link form of their own. Handle these
 explicitly rather than improvising.
 
-| Source type       | Fetch method                            | Source line                        |
-| ----------------- | --------------------------------------- | ---------------------------------- |
-| Twitter / X       | `agent-browser` (see `web-fetching.md`) | `트윗: [<제목 또는 첫 문장>](URL)` |
-| YouTube           | Transcript or description via WebFetch  | `영상: [<영상 제목>](URL)`         |
-| Paper (PDF/arXiv) | WebFetch, or Read the PDF               | `논문: [<논문 제목>](URL)`         |
-| Press release     | WebFetch                                | `원문: [<제목>](URL)`              |
-| Forum post (GN/HN) | WebFetch, or the site's JSON API       | `Ask GN: [<제목>](URL)` 등         |
+| Source type        | Fetch method                             | Source line                        |
+| ------------------ | ---------------------------------------- | ---------------------------------- |
+| Twitter            | Claude in Chrome (see `web-fetching.md`) | `트윗: [<제목 또는 첫 문장>](URL)` |
+| YouTube            | Transcript or description via WebFetch   | `영상: [<영상 제목>](URL)`         |
+| Paper (PDF/arXiv)  | WebFetch, or Read the PDF                | `논문: [<논문 제목>](URL)`         |
+| Press release      | WebFetch                                 | `원문: [<제목>](URL)`              |
+| Forum post (GN/HN) | WebFetch, or the site's JSON API         | `Ask GN: [<제목>](URL)` 등         |
 
 A forum post that is itself the subject — a GeekNews `Ask GN` / `Show GN`
 thread, a Hacker News `Ask HN` / `Show HN` thread — is a published piece, so
@@ -225,9 +225,19 @@ it takes a labeled titled link. The label repeats the thread's own prefix:
 `Ask GN:`, `Show GN:`, `Ask HN:`, `Show HN:`. Do not also add a `GN 토론:` or
 `HN 토론:` line pointing at the same thread; the source line already is it.
 
-For Twitter / X, `twitter.com` is used instead of `x.com` per
+For Twitter, `twitter.com` is used instead of `x.com` per
 `writing-guidelines.md`. For a long tweet, call it a `트윗`, not a `스레드`,
 unless the user says otherwise.
+
+A tweet that links to a Twitter Article (long-form post) shows only a `t.co`
+link in its text; the article body renders on the same status page.
+`get_page_text` cuts off around 50,000 characters, which an article with
+embedded quote tweets and code blocks can exceed. Read the rest with
+`javascript_tool` on `document.querySelector('article').innerText`, sliced
+into chunks of under 1,000 characters, because longer return values are
+truncated. Strip URLs and `?`/`&`/`=` from the text first: a return value
+that contains query-string data is replaced wholesale with
+`[BLOCKED: Cookie/query string data]`.
 
 For YouTube, the first section is `## 요약` only if the video advances an
 argument (a talk, an essay video). For a demo or a walkthrough, choose a

@@ -29,13 +29,13 @@ report rather than switching silently.
 2. If YES — use it. Do not use `agent-browser`.
 3. If NO — say so in the response, then fall back to `agent-browser`.
 
-## Twitter / X (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+## Twitter (ABSOLUTE PRIORITY — NO EXCEPTIONS)
 
 **NEVER use WebFetch for twitter.com or x.com URLs.**
 **ALWAYS open tweets in a browser, and that browser is Claude in Chrome.**
 
-WebFetch is blocked by X's paywall (HTTP 402). Using it will produce empty or
-fabricated content. There are zero cases where WebFetch is acceptable for X.
+WebFetch is blocked by Twitter's paywall (HTTP 402). Using it will produce empty or
+fabricated content. There are zero cases where WebFetch is acceptable for Twitter.
 
 Procedure for any tweet URL:
 
