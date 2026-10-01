@@ -2,7 +2,7 @@
 
 원문: [DevDay 2026 Recap | OpenAI](https://openai.com/index/devday-2026-recap/)
 
-HN 토론: <https://news.ycombinator.com/item?id=49896600> (90점, 43개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=49896600> (94점, 48개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=34505>
 

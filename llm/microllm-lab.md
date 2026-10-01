@@ -4,7 +4,7 @@
 
 <https://github.com/robss2020/microllm-lab>
 
-HN 토론: <https://news.ycombinator.com/item?id=49882781> (276점, 113개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=49882781> (281점, 113개 댓글)
 
 Lobste.rs 토론: <https://lobste.rs/s/1gy0zx/microllm_lab_tiny_llms_q4_your_browser> (1점, 3개 댓글)
 

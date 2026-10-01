@@ -2,7 +2,7 @@
 
 원문: [Introducing cf: the agentic CLI for the entire Cloudflare API | Cloudflare Blog](https://blog.cloudflare.com/cloudflare-cf-cli-launch/)
 
-HN 토론: <https://news.ycombinator.com/item?id=49879577> (167점, 84개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=49879577> (169점, 86개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=34473>
 
@@ -95,6 +95,9 @@ geodel은 자사 인프라에서 돌 때는 Rust로 최적화하고, 사용자 �
 글은 에이전트가 첫 번째 사용자라고 말한다.
 에이전트는 샌드박스, CI 컨테이너, 새로 만든 가상 머신에서 CLI를 실행하는 일이 많고, 그때마다 Node 런타임과 `npm i -g`가 전제 조건이 된다.
 단일 바이너리였다면 설치가 한 단계로 끝났을 것이다.
+시작 시간도 문제다.
+amluto는 새로 설치한 gcloud가 캐시가 따뜻한 상태에서도 도움말 하나 띄우는 데 1.2초가 걸린다며, 원격 LLM조차 지루해할 만큼 느리고 에이전트용 CLI라면 더 빨라야 한다고 썼다[^amluto].
+도구 호출마다 CLI를 새로 띄우는 에이전트에게는 처리량이 아니라 호출당 지연이 비용이고, 런타임을 띄우는 언어는 그 지연을 매번 더한다.
 설정 파일을 TypeScript로 만든 결정은 타입 검사라는 분명한 이유가 있지만, CLI 본체까지 TypeScript여야 하는 이유는 글에 없다.
 
 ### 에이전트에게 전역 지시 파일을 고치게 하는 프롬프트는 경계를 넘는다
@@ -197,3 +200,5 @@ verdverm이 소개한, 사람만 할 수 있거나 사람이 해야 하는 일�
 [^esafak]: <https://news.ycombinator.com/item?id=49882151>
 
 [^smithclay]: <https://news.ycombinator.com/item?id=49881577>
+
+[^amluto]: <https://news.ycombinator.com/item?id=49895683>

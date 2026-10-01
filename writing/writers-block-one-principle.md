@@ -107,6 +107,8 @@ Peter Elbow의 1973년 책 Writing Without Teachers가 프리라이팅을 대중
 그래서 AI 시대의 막힘은 무엇을 쓸지가 아니라 무엇이 내 주장인지에서 생긴다.
 발산 시 제약 제거 원칙은 여전히 유효하지만, 발산의 주체가 자신이어야 그 원칙의 효과, 즉 생각이 풀리는 경험이 따라온다.
 저자가 AI 대신 음성 인식을 택한 것은 이 점에서 의미가 있다.
+다만 GN의 syate는 앞에 누군가 있다고 생각하고 설명하듯 쓰는 방법을 주로 LLM을 상대로 쓰는데 도움이 많이 된다고 했다[^gn-syate].
+LLM을 대신 쓰는 사람이 아니라 설명을 들어 주는 상대로 두면, 발산의 주체는 여전히 자신이다.
 말은 여전히 자기 생각의 발산이고, 도구는 받아 적기만 한다.
 
 ### 볼륨이 불안을 줄이는 원리는 진행률 표시줄과 같다
@@ -134,3 +136,5 @@ Peter Elbow의 1973년 책 Writing Without Teachers가 프리라이팅을 대중
 [^gn-dieafterwork]: <https://news.hada.io/topic?id=34466#cid66543>
 
 [^gn-jeinu95]: <https://news.hada.io/topic?id=34466#cid66546>
+
+[^gn-syate]: <https://news.hada.io/topic?id=34466#cid66697>
