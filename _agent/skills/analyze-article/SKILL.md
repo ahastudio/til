@@ -480,13 +480,19 @@ time, rather than writing freely and patching afterwards.
   bold text.
 - Write in Korean. Technical terms may be written alongside their original
   English form.
-- Break body text at sentence boundaries: each sentence starts a new line, and
-  a long sentence breaks once at a natural clause boundary (이며/하지만/
-  그러나/그리고/하면/때문에). Never break at a fixed character count — not 80
-  columns, not any other — and never indent a continuation line, because an
-  indented line renders as a code block. This applies to prose only; tables,
-  code blocks, headings, and footnote/URL lines are exempt. Check this before
-  invoking the post-processing of step 8b, not after.
+- Break body text at sentence boundaries and keep every line within 80
+  columns: each sentence starts a new line, no line exceeds 80 columns
+  (CJK characters count as 2), and a sentence that does not fit breaks at
+  natural semantic boundaries (after a comma, before 이며/하지만/그러나/
+  그리고/하면/때문에, between clauses) as many times as needed. Never split
+  a title, a name, a number with its counter, or a footnote reference across
+  lines, never leave a one-syllable tail on its own line, and never indent a
+  continuation line, because an indented line renders as a code block. This
+  applies to prose only; tables, code blocks, headings, and footnote/URL
+  lines are exempt from both the sentence-break rule and the 80-column
+  limit, so never wrap or shorten them to fit. The full rule is in `writing-guidelines.md`. Check this
+  before invoking the post-processing of step 8b, not after, and verify the
+  80-column limit on the finished file.
 - Every fenced code block carries a language identifier (`python`, `bash`,
   `text`, …). A bare fence is always wrong.
 - Code in a teaching note must be runnable, not illustrative. Prefer a complete

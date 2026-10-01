@@ -191,23 +191,32 @@ analytical structure on a document whose job is something else.
 
 ## Line Breaks in Body Text
 
-Break body text at sentence boundaries, not at a fixed column width. Each
-sentence ends on its own line. Within a single sentence, break at a natural
-semantic unit (e.g. before a conjunction or after a clause) only when the
-sentence is long enough to warrant it.
+Break body text at sentence boundaries first, then keep every line within
+80 columns by breaking at natural semantic units. Each sentence starts on its
+own line, and no line may exceed 80 columns.
 
 **Rules:**
 
 - Every sentence starts on a new line.
 - A period (`.`), question mark (`?`), or exclamation mark (`!`) ends the
   line — do not continue the next sentence on the same line.
-- For long sentences, break once at the most natural semantic boundary
-  (before 이며/하지만/그러나/그리고/하면/때문에 etc.) and continue on the
-  next line with NO indentation — indented continuation lines become
-  code blocks in most markdown renderers.
-- Do NOT break at 80 columns or any other fixed character count.
-- This rule applies to all `.md` body text. Code blocks, tables, and list
-  items are excluded.
+- No body line may exceed 80 columns. Count Korean (CJK) characters as 2
+  columns each and everything else as 1, the same as the table alignment
+  rule.
+- When a sentence does not fit within 80 columns, break it at the most
+  natural semantic boundary: after a comma, before a conjunction or
+  connective (이며/하지만/그러나/그리고/하면/때문에 etc.), or between
+  clauses. Break as many times as needed to stay within 80 columns.
+- Never break mid-phrase just to fill the line (e.g. between a noun and its
+  particle-bearing modifier, or inside a title or name). Prefer a shorter
+  line that ends at a semantic boundary over a full line that splits a unit.
+- Continue on the next line with NO indentation — indented continuation
+  lines become code blocks in most markdown renderers.
+- Do not break inside a link, an inline code span, or a footnote reference.
+- This rule applies to all `.md` body text. Code blocks, tables, headings,
+  footnote definitions, URL lines, and list items are excluded, and the
+  80-column limit does not apply to them either. Never wrap or reflow a
+  table row, code line, heading, or URL line to fit 80 columns.
 
 **Example:**
 
