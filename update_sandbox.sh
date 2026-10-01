@@ -7,9 +7,9 @@ cd "$(dirname "$0")"
 SANDBOX_FILE="sandbox.md"
 TODAY="$(date +%Y-%m-%d)"
 COMMIT_MESSAGE_FILE="$(mktemp -t til-update-sandbox-commit-message)"
-CODEX_MODEL="gpt-5.6-sol"
+CODEX_MODEL="gpt-6.1-sol"
 CODEX_REASONING_EFFORT="high"
-CO_AUTHOR="Codex GPT-5.6-Sol <noreply@openai.com>"
+CO_AUTHOR="Codex GPT-6.1-Sol <noreply@openai.com>"
 
 trap 'rm -f "$COMMIT_MESSAGE_FILE"' EXIT
 
