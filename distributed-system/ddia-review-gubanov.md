@@ -1,6 +1,6 @@
 # DDIA를 읽고: 로그라는 하나의 아이디어가 책 전체를 관통한다
 
-원문: <https://www.linkedin.com/pulse/what-i-have-say-ddia-sergei-gubanov-woioc/>
+원문: [What I have to say about DDIA](https://www.linkedin.com/pulse/what-i-have-say-ddia-sergei-gubanov-woioc/)
 
 ## 요약
 
@@ -11,6 +11,16 @@ Sergei Gubanov가 Martin Kleppmann의 《Designing Data-Intensive Applications�
 책은 12개의 비슷한 분량의 장으로 구성되며, 각 장 말미에 요약이 있고 장당 약 100개의 참고문헌이 달려 있다.
 참고문헌 대부분은 2015년 이전 자료로, 사례들이 다소 오래된 느낌을 준다.
 저자는 이에 대해 오래된 컴퓨팅의 좋은 시절(1970~80년대)을 끌어오는 병렬 분석이 깊이 있는 전문가만이 할 수 있는 작업이라며 오히려 즐겼다고 적었다.
+
+글은 2024년 1월 24일에 LinkedIn에 게시되었다.
+저자는 책 곳곳에 유머가 조금씩 있었다고 말하며, 윤리 장에서는 DDIA를 “Designing
+Surveillance-Intensive Applications”라고 농담 삼아 부른다는 점을 예로 든다.
+그러면서도 유머가 더 많았으면 한다고 적는데,
+생생하고 웃긴 시나리오일수록 기억에 훨씬 오래 남기 때문이다.
+또 2024년 초에 이 정도 품질의 오픈소스 책이 나온다면 어떤 모습일지
+궁금하다고 덧붙인다.
+결론에서는 뉴질랜드 친구들에게 이 책을 오클랜드 도서관에서 무료로
+빌릴 수 있다고 알린다.
 
 책의 흐름은 네트워킹 프로토콜·API 버전 관리·데이터 모델 같은 기초부터 시작해,
 분산 애플리케이션의 복잡도를 추상화해온 데이터베이스 내부 구조로 들어가고,
@@ -84,7 +94,8 @@ Gubanov의 서술은 이 뉘앙스를 일부 압축했다.
 Gubanov의 글은 책의 내용을 충실하게 소개하지만, 서평으로서 핵심이 빠져 있다.
 독자가 서평에서 기대하는 것은 “이 책이 무엇을 다루는가”뿐 아니라
 “이 책의 주장이 맞는가, 유효한가, 어떤 맥락에서 한계를 가지는가”다.
-Gubanov는 Kleppmann의 주장을 거의 전적으로 수용하며 설명하는 데 그친다.
+Gubanov는 예제가 낡았다거나 유머가 부족하다는 감상은 적지만,
+Kleppmann의 주장 자체는 거의 전적으로 수용하며 설명하는 데 그친다.
 
 예를 들어 DDIA의 NoSQL 관련 논의는 2015년 이전 자료에 기반해 있어
 현재의 NewSQL, 분산 SQL 시스템의 성장을 반영하지 못한다.
@@ -182,3 +193,73 @@ Kleppmann이 2판을 준비 중이라고 알려져 있지만, 참고문헌의 �
 재판(reprint)만 반복된 현재 판은 독자에게 정확한 신호를 보내지 못하고 있다.
 독자는 이 책이 안정된 원리를 담은 책인지, 아니면 업데이트된 현황을 담은 책인지를
 판의 번호가 아니라 참고문헌 날짜로 판단해야 한다.
+
+### 로그 하나로 컴팩션과 복구와 재생이 모두 설명된다
+
+Gubanov가 짚은 네 가지 맥락은 한 장의 코드로 줄여 볼 수 있다.
+아래는 추가 전용 로그 하나를 상태의 원천으로 삼는 최소한의 키-값 저장소다.
+이 예제는 글의 주장을 설명하려고 내가 만든 것이며 DDIA의 코드는 아니다.
+
+```python
+import json, os, tempfile
+
+class LogKV:
+    """추가 전용 로그 하나로 상태를 만들고, 컴팩션하고, 복구한다."""
+    def __init__(self, path):
+        self.path, self.state = path, {}
+        self._replay()
+
+    def _replay(self):
+        # WAL 복구와 이벤트 재생이 같은 연산이다: 로그를 처음부터 다시 적용한다
+        self.state = {}
+        if os.path.exists(self.path):
+            with open(self.path) as f:
+                for line in f:
+                    e = json.loads(line)
+                    self.state[e["k"]] = e["v"]
+
+    def put(self, k, v):
+        with open(self.path, "a") as f:
+            f.write(json.dumps({"k": k, "v": v}) + "\n")
+        self.state[k] = v
+
+    def compact(self):
+        # 로그 컴팩션: 키마다 마지막 값만 남긴다
+        tmp = self.path + ".tmp"
+        with open(tmp, "w") as f:
+            for k, v in self.state.items():
+                f.write(json.dumps({"k": k, "v": v}) + "\n")
+        os.replace(tmp, self.path)
+
+d = tempfile.mkdtemp(); p = os.path.join(d, "log")
+a = LogKV(p)
+for i in range(5): a.put("x", i)
+a.put("y", "hello")
+print("줄 수(컴팩션 전):", sum(1 for _ in open(p)))
+b = LogKV(p)                     # 프로세스가 죽었다 다시 뜬 상황
+print("복구한 상태:", b.state)
+b.compact()
+print("줄 수(컴팩션 후):", sum(1 for _ in open(p)))
+print("컴팩션 후 복구:", LogKV(p).state)
+```
+
+실행하면 다섯 번 덮어쓴 키 `x`와 `y`가 로그에 여섯 줄로 남고,
+새 인스턴스를 만들어 로그를 재생하면 `x`는 마지막 값 4로 복구된다.
+컴팩션을 거치면 키마다 마지막 값만 남아 두 줄로 줄어들고,
+이후 복구한 상태도 같다.
+이 결과는 직접 실행해 확인했다.
+
+여기서 눈여겨볼 점은 `_replay`가 하는 일이다.
+충돌 뒤에 WAL을 다시 적용하는 일과 이벤트 소싱에서 이벤트 스트림을 재생해 상태를
+만드는 일이 같은 코드다.
+Gubanov가 버그 복구가 충돌 복구와 매우 닮았다고 한 대목이 이 점을 가리킨다.
+차이는 로그를 남기는 이유다.
+WAL은 느린 페이지 쓰기를 미루고도 내구성을 얻으려고 남기고,
+이벤트 소싱은 상태가 아니라 일어난 일을 기록으로 삼으려고 남긴다.
+
+이 예제가 보여 주지 못하는 것도 분명하다.
+쓰기 도중 전원이 나가면 반쯤 쓰인 줄이 남을 수 있고, 이
+코드는 그 줄을 견디지 못한다.
+`fsync`로 내구성을 보장하는 일, 동시 쓰기, 컴팩션 중의 충돌은 모두 빠져 있다.
+로그라는 아이디어는 간단하지만 그것을 안전하게 만드는 부분이 데이터베이스 구현의
+대부분이라는 점이 DDIA가 두꺼운 이유 중 하나일 것이다.

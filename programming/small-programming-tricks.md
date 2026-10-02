@@ -2,7 +2,7 @@
 
 원문: [Small Programming Tricks](https://will-keleher.com/posts/small-programming-tricks-matter/)
 
-HN 토론: <https://news.ycombinator.com/item?id=49729000> (556점, 249개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=49729000> (681점, 294개 댓글)
 
 Lobste.rs 토론: <https://lobste.rs/s/f65fy3/small_programming_tricks> (59점, 28개 댓글)
 
@@ -203,6 +203,14 @@ lsofzz는 동기 쪽을 건드렸다. 사람들이 배울 만큼 충분히 동�
 koala가 인자 길이 제한을 짚었다. bash에서 `getconf ARG_MAX`로 확인할 수 있으며 대개는 충분하지만 수백에서 수천 개 파일을 매칭하면 그 한계에 닿는다는 것이다.[^koala]
 wiredfool도 같은 이유로 결국 `find`로 돌아가게 된다고 적었다.[^wiredfool]
 
+deathanatos는 스크립트에서는 여전히 `find`가 필요할 수 있다고 보았다.
+재귀 글로브는 인자 목록 길이 제한을 넘길 수 있고, 매칭이 하나도 없을 때 글로브가
+패턴 문자열 그대로 남는 문제도 있어 `nullglob`을 따로 알아야 한다는 것이다.
+그는 `find`가 어려운 이유도 짚었다.
+두 번째 인자 묶음이 사실은 식(expression)이어서 `-and`와 `-or`가 단락 평가되고,
+`-prune`과 `-exec`는 값을 돌려주면서 부작용을 일으키는데 대개 부작용
+때문에 쓰이므로 식의 일부라는 점이 잘 드러나지 않는다는 설명이다.[^deathanatos]
+
 `globstar`를 켜는 것 자체도 무료가 아니다.
 wyclif는 큰 트리에서 이따금 느려지는 비용이 있으며, 일반적인 용도로는 켜도 되지만 스크립트에서는 이식성과 예상보다 넓게 확장될 가능성이 더 큰 걱정거리라고 지적했다.[^wyclif]
 
@@ -224,6 +232,19 @@ tentacloids도 실행 전에 시각적으로 확인할 수 없다는 점이 위�
 ryan-duve의 관찰이 그 조건을 정확히 설명한다.
 그는 이런 팁으로 미니 워크숍을 하곤 했는데 가장 많이 채택되어 몇 년 뒤까지 이어진 것이 `ctrl-r`이었다고 적는다.
 그것을 강력하게 만든 것은 bash와 zsh는 물론 IPython, erl/iex, Claude Code까지 프롬프트가 있는 곳이면 어디서나 작동한다는 점이었고, 동료들이 그것을 또 다른 사람에게 가르치는 것을 보는 일이 보람 있었다고 밝힌다.[^ryan-duve]
+
+이 요령들이 정말 중요하냐는 회의에는 장애 사례가 답이 된다.
+alexpotato는 블루/그린 배포의 한쪽에서만 이상한
+네트워크 문제가 생겼는데 `tcpdump`와 Wireshark로도 원인을 못 찾던 중,
+자신이 프로토콜 분석에 쓰던 `tcpflow`를 제안했다고 적었다.
+네트워크 엔지니어가 아닌 SRE의 제안이라 회의적인 시선이 있었지만 TCP 메시지가
+문제 쪽에서 잘리고 있다는 것이 드러나 설정 오류가 고쳐졌다.[^alexpotato]
+js2는 VPN으로 `git clone`이 1Mbps 안팎으로 느린 것을 몇 달 참다가, 방화벽이 TCP
+윈도 스케일링을 제거하고 있다는 것을 패킷 캡처 30분 만에 찾아냈다고 한다.
+그러나 네트워크 팀과 보안 팀을 설득해 고치는 데 한 주 넘게 걸렸고, 근본 원인
+대신 IP 허용 목록으로 때우는 일이 이어졌다.[^js2]
+두 사례 모두 요령 자체보다 그것을 떠올려 증거로 만드는 일,
+그리고 그 증거를 다른 팀에 넘기는 일이 병목이라는 점을 보여 준다.
 
 즉 오래 남는 요령의 조건은 두 가지다. 발동 상황이 자주 오고, 그 상황이 환경을 가리지 않는 것이다.
 이 기준으로 보면 원문 목록의 항목들이 갈린다. `ctrl-r`과 `git log -S`는 조건을 만족하고, `zsh` 자동완성 설정처럼 한 번 하고 잊는 것은 요령이라기보다 설정이다.
@@ -350,3 +371,9 @@ embedding-shape가 그은 3초 대 30초의 경계가 실질적인 방어선인 
 [^catlifeonmars]: <https://news.ycombinator.com/item?id=49729542>
 
 [^embedding-shape]: <https://news.ycombinator.com/item?id=49734648>
+
+[^deathanatos]: <https://news.ycombinator.com/item?id=49736462>
+
+[^alexpotato]: <https://news.ycombinator.com/item?id=49739634>
+
+[^js2]: <https://news.ycombinator.com/item?id=49743343>

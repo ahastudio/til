@@ -4,8 +4,9 @@
 
 <https://github.com/earendil-works/pi>
 
-코딩 에이전트 CLI는 모노레포의 하위 패키지다:
-<https://github.com/earendil-works/pi/tree/main/packages/coding-agent>
+HN 토론: <https://news.ycombinator.com/item?id=47143754> (608점, 306개 댓글)
+
+GN 토론: <https://news.hada.io/topic?id=26999>
 
 ## 히스토리
 
@@ -15,18 +16,22 @@
 
 npm 패키지 스코프도 함께 변경되었다.
 
-| 이전                        | 이후                           |
-| --------------------------- | ------------------------------ |
+| 이전                            | 이후                              |
+| ------------------------------- | --------------------------------- |
 | `@mariozechner/pi-coding-agent` | `@earendil-works/pi-coding-agent` |
 | `@mariozechner/pi-agent-core`   | `@earendil-works/pi-agent-core`   |
 | `@mariozechner/pi-ai`           | `@earendil-works/pi-ai`           |
 
 ## 소개
 
-Pi는 별 50,000개 이상을 받은 TypeScript 기반의 터미널 코딩 에이전트 하네스다.
+Pi는 별 111,360개와 포크 14,138개를 가진(GitHub API로 확인한 시점) MIT 라이선스의 TypeScript 기반 터미널 코딩 에이전트 하네스다.
 슬로건은 “Adapt pi to your workflows, not the other way around” —
 “Pi에 워크플로우를 맞추지 말고, Pi를 워크플로우에 맞춰라.”
 코어를 최소화하고 확장성을 극대화하는 설계 철학 아래, Mario Zechner가 제작했다.
+
+코딩 에이전트 CLI는 모노레포의 하위 패키지(`packages/coding-agent`)이며 위치는 아래 주소다.
+
+<https://github.com/earendil-works/pi/tree/main/packages/coding-agent>
 
 ```bash
 npm install -g @earendil-works/pi-coding-agent
@@ -35,15 +40,15 @@ pi
 
 모노레포 구조로 다음 패키지를 포함한다.
 
-| 패키지                              | 역할                                              |
-| ----------------------------------- | ------------------------------------------------- |
-| `@earendil-works/pi-coding-agent`   | 인터랙티브 코딩 에이전트 CLI                      |
-| `@earendil-works/pi-agent-core`     | 툴 호출·상태 관리를 갖춘 에이전트 런타임          |
-| `@earendil-works/pi-ai`             | 다중 LLM 제공자 통합 API                          |
-| `@earendil-works/pi-tui`            | 차등 렌더링 기반 터미널 UI 라이브러리             |
-| `@earendil-works/pi-web-ui`         | AI 채팅 인터페이스용 웹 컴포넌트                  |
-| `pi-mom`                            | Slack → pi 에이전트 위임 봇                       |
-| `pi-pods`                           | GPU 파드 vLLM 배포 관리 CLI                       |
+| 패키지                            | 역할                                     |
+| --------------------------------- | ---------------------------------------- |
+| `@earendil-works/pi-coding-agent` | 인터랙티브 코딩 에이전트 CLI             |
+| `@earendil-works/pi-agent-core`   | 툴 호출·상태 관리를 갖춘 에이전트 런타임 |
+| `@earendil-works/pi-ai`           | 다중 LLM 제공자 통합 API                 |
+| `@earendil-works/pi-tui`          | 차등 렌더링 기반 터미널 UI 라이브러리    |
+| `@earendil-works/pi-web-ui`       | AI 채팅 인터페이스용 웹 컴포넌트         |
+| `pi-mom`                          | Slack → pi 에이전트 위임 봇              |
+| `pi-pods`                         | GPU 파드 vLLM 배포 관리 CLI              |
 
 기본 제공 도구는 네 가지로만 구성된다. `read`, `write`, `edit`, `bash`.
 선택적으로 `grep`, `find`, `ls`를 추가할 수 있다.
@@ -57,6 +62,39 @@ API 키 기반: Anthropic, OpenAI, Azure OpenAI, Google Vertex, Amazon Bedrock,
 Mistral, Groq, Cerebras, xAI, OpenRouter, Hugging Face, DeepSeek 등
 
 `/login` 명령으로 OAuth 인증을 하거나 API 키를 환경 변수로 설정하면 된다.
+
+## Pi 1.0 이후의 변화
+
+2026년 10월 1일 Pi 1.0과 실험 패키지 Pi Durable이 함께 나왔고,
+홈페이지 맨 위에는 둘을 자기 것으로 만들라는 안내가 걸려 있다.
+1.0의 변경 내용과 논쟁은 이 저장소의 `pi-1-0` 노트가,
+오래 도는 에이전트를 위한 Pi Durable은 `pi-durable` 노트가 다룬다.
+이 노트의 이전 판 내용 가운데 달라진 것은 세 가지다.
+
+첫째, MCP다.
+홈페이지의 “What we didn't build” 목록에서 “No MCP”가 “Now with MCP+Codemode”로
+바뀌었고, MCP가 내장되며 Codemode가 에이전트가 JavaScript 샌드박스에서 도구
+호출을 조합하게 해 주고 MCP 확장도 계속 지원한다고 한다.
+이 판단의 이유는 `you-said-no-mcp` 노트가 다룬다.
+둘째, 제외 목록은 그대로 유지된다.
+서브에이전트(tmux로 Pi 인스턴스를 띄우거나 확장으로),
+권한 팝업(컨테이너나 확장으로), 플랜 모드(파일이나 확장), 내장 할 일(`TODO.md`),
+백그라운드 bash(tmux)가 여전히 없다.
+셋째, 설치 방법이 정리됐다.
+`curl -fsSL https://pi.dev/install.sh | sh`(Windows는 PowerShell 한 줄)가 앞에
+있고, npm과 pnpm과 bun은 `--ignore-scripts`를 붙여 전역 설치한다.
+
+홈페이지가 소개하는 사용 방식도 적어 둔다.
+실행 중인 에이전트에는 `Enter`가 조종 메시지(현재 도구 뒤에 전달되고 남은 도구를
+중단), `Alt+Enter`가 후속 메시지(끝난 뒤 처리)를 보낸다.
+세션은 트리로 저장되고 `/tree`로 이전 지점으로 이동하며 모든 가지가 한 파일에
+있고, `/export`는 HTML로, `/share`는 GitHub gist로 내보낸다.
+확장과 스킬과 프롬프트 템플릿과 테마를 묶어 `pi install npm:@foo/pi-tools`나
+`pi install git:...`로 설치하는 패키지로 배포하며, 50개 이상의 예시가 있다.
+홈페이지는 제공자를 15개 이상, 모델을 수백 개라고 쓰는데,
+아래 “30개 이상”은 저장소 문서의 수치라 두 곳의 기준이 다르다(필자가 어느 쪽이
+맞는지는 확인하지 못했다).
+홈페이지 하단에는 `pi.dev` 도메인을 exe.dev가 기증했다는 문구가 있다.
 
 ## 운영 모드
 
@@ -166,23 +204,31 @@ export { createAgentSession, createBashTool, createCodingTools } from "./core/sd
 export { InteractiveMode, runPrintMode, runRpcMode } from "./modes/index.js";
 ```
 
-## 분析
+## 분석
 
 ### “의도적 부재”의 설계 철학
 
 Pi 철학의 가장 독특한 부분은 기능을 추가한 목록이 아니라 기능을 빼낸 목록이다.
 
-| 제외 항목               | 대안                                              |
-| ----------------------- | ------------------------------------------------- |
-| MCP 내장                | Extension으로 직접 구현 가능                      |
-| Sub-agents              | Pi 인스턴스 스폰 또는 Extension으로 해결          |
-| Permission popups       | 컨테이너 환경 또는 커스텀 확인 흐름 구현          |
-| Plan mode / To-dos      | 파일이나 Extension으로 필요에 따라 구현           |
-| Background bash         | 보안 모델을 직접 선택                             |
+| 제외 항목          | 대안                                       |
+| ------------------ | ------------------------------------------ |
+| MCP 내장           | 2026년 10월 Pi 1.0부터 내장(Codemode 포함) |
+| Sub-agents         | Pi 인스턴스 스폰 또는 Extension으로 해결   |
+| Permission popups  | 컨테이너 환경 또는 커스텀 확인 흐름 구현   |
+| Plan mode / To-dos | 파일이나 Extension으로 필요에 따라 구현    |
+| Background bash    | tmux를 쓴다(완전한 관찰성과 직접 상호작용) |
 
 이 각각은 “아직 구현하지 않았다”가 아니라 “의도적으로 코어에 넣지 않았다”는 결정이다.
 예를 들어 서브에이전트는 tmux로 Pi 인스턴스를 여러 개 실행하거나, Extension으로 구현하라고 안내한다.
 이 패턴은 일관적이다. 코어가 결정하는 대신, 사용자가 자신의 워크플로우에 맞는 방식을 선택하게 한다.
+
+HN에서 플랜 모드가 없는 이유를 묻는 질문이 나왔다.
+mongrelion은 구현 전에 에이전트와 토론해 세부를 다듬고 싶지 않느냐고 물었고,
+alvivar는 `Plan.md` 파일을 만들게 하고 구현할 준비가 될 때까지 함께
+다듬는다고 답했다.[^alvivar]
+miroljub은 pi.dev의 패키지 목록에 이미 모든 것의 여러 구현이
+있다고 했다.[^miroljub]
+mongrelion은 확장 모델을 몰랐다며 이 방식을 써 보겠다고 정정했다.[^mongrelion]
 
 ### 이벤트 기반 에이전트 코어
 
@@ -204,7 +250,7 @@ OSS 세션 공유 캠페인도 주목할 만하다.
 
 ### 강점: 일관된 철학과 극단적 확장성
 
-48,039개의 별은 이 접근법이 상당한 공명을 일으킨다는 증거다.
+별이 11만 개를 넘은 것(이 노트의 이전 판에서는 48,039개였다)은 이 접근법이 상당한 공명을 일으킨다는 증거다.
 “코어를 최소화하고 확장성을 극대화한다”는 철학이 말에서 그치지 않고 실제 설계 결정으로 구현됐다는 점이 신뢰를 준다.
 30개 이상 LLM 제공자 지원은 단일 모델·제공자에 종속되지 않으려는 사용자에게 실질적 가치를 제공한다.
 
@@ -212,9 +258,21 @@ OSS 세션 공유 캠페인도 주목할 만하다.
 
 “원하는 기능은 Extension으로 구현하라”는 철학은 기술적으로 숙련된 사용자에게는 자유이지만,
 그렇지 않은 사용자에게는 장벽이다.
-MCP나 서브에이전트 없이 시작하면 많은 사람이 기대하는 기본 기능이 없는 상태로 느껴질 수 있다.
+서브에이전트나 플랜 모드 없이 시작하면 많은 사람이 기대하는 기본 기능이 없는 상태로 느껴질 수 있다(MCP는 1.0부터 내장되어 이 점은 해소됐다).
 Pi 패키지 생태계가 아직 초기 단계라면 결국 직접 Extension을 작성해야 한다는 의미고,
 이는 TypeScript 숙련도를 전제한다.
+
+HN의 반응이 이 양면을 보여 준다.
+tmustier는 며칠 써 보고 일상 도구로 삼지 않은
+사람을 본 적이 없다고 했고,[^tmustier] sshine은 품질에서 Claude CLI와 OpenCode에
+미치지 못하고 일을 끝내지 못했으며 확장에는 흥미롭지만 생산성 이득은 다른 곳에
+있다고 답했다.[^sshine]
+Pi를 미리 갖춘 포크 oh-my-pi가 이를 메우지만 thepasch는 그것이 Pi의
+요점을 놓친다고 했다.
+Pi의 매력은 처음부터 자기 것으로 만들고 필요한 것만 쓰는 가벼움이라서, 기능이
+가득하고 부풀려진 기성품 하네스를 원한다면 OpenCode가 낫다는 것이다.[^thepasch]
+amin2는 무작위 저장소에서 하네스에 도구를 계속 얹는 일이 위험하다며, 휴대폰 앱을
+설치하듯 아무것도 잘못될 수 없다고 믿을 수 있는 격리와 보안을 바랐다.[^amin2]
 
 ### 보완할 시각: 세션 데이터 공유의 프라이버시 트레이드오프
 
@@ -222,6 +280,15 @@ OSS 세션 공유 캠페인은 흥미롭지만, 공개 저장소 작업 세션�
 미공개 코드)가 포함될 수 있다.
 “실제 개발 워크플로우 데이터”를 공개 Hugging Face 데이터셋으로 기여한다는 선택은
 각 사용자가 신중하게 검토해야 할 결정이다.
+
+비용 구조도 장벽이다.
+bjackman은 제3자 도구를 안정적으로 쓰려면 API 과금이 필요하고 소비자 구독보다 한
+자릿수 더 비싸 보인다고 했고,[^bjackman] vanillameow는 더 가볍고 나은
+하네스를 쓰고 싶지만 월 비용이 다섯 배가 되는 것은 싫다며 가격 이점이 불편보다
+크다고 했다.[^vanillameow]
+이는 하네스의 중립성이 구독 기반 가격과 충돌하는 지점이다.
+mihneadevries는 Pi를 헤드리스로 써 봤는데 괜찮지만 최소 설계라 종료 조건을 직접
+연결해야 한다고 했다.[^mihneadevries]
 
 ## 인사이트
 
@@ -274,3 +341,75 @@ Pi의 접근은 이 문제를 커뮤니티 기여로 해결하려 한다.
 실제 에이전트가 겪는 어려움을 담고 있다.
 더 나아가, 이 캠페인은 Pi 사용자가 도구의 수동적 소비자가 아니라
 에이전트 개선의 능동적 기여자가 되게 한다.
+
+### 소프트웨어가 설치물에서 살아 있는 도구가 된다
+
+HN의 CGamesPlay는 Pi와 “claw” 현상이 오픈소스에 던지는 의미가
+가장 흥미롭다고 했다.
+기능 요청이나 풀 리퀘스트를 내는 일이 철 지난 것이 되고, 설치하는 확장
+대신 코딩 에이전트에게 기능을 추가하는 법을 알려 주는 스킬 파일을 내려받으며,
+소프트웨어가 아티팩트에서 누구의 복사본과도 같지 않은 살아 있는 도구가 된다는
+것이다.[^CGamesPlay]
+throwaway13337은 환경에 대한 통제가 없는 것이 사람을
+우울하게 만든다며 가변적이고 개인적이고 싼 소프트웨어가 진짜 소유를 줄 수 있다고
+했고,[^throwaway13337] redfloatplane은 1~10명의 청중을 위한 극도로 개인적인
+소프트웨어가 곧 크게 늘 것이라고 했다.[^redfloatplane]
+
+반론도 같은 스레드에 있다.
+bandrami는 이 개발 방식이 어느 대기업이나 정부도 허용하지 않아 기관 채택에서는
+사실상 불가능하다고 했고,[^bandrami] GTP는 오픈소스에 닥친 첫 영향이 AI가
+지어낸 풀 리퀘스트와 취약점 신고로 유지보수자의 시간을 빼앗는 것이며 GitHub가 풀
+리퀘스트를 끄는 기능을 내놓았다고 짚었다.[^GTP]
+Pi의 확장 모델은 이 두 힘의 사이에 서 있다.
+개인에게는 소유를 주지만, 설치물이 아니라 사람마다 다른 사본이 되면 공유와
+신뢰와 보안 검토의 단위가 사라진다(필자의 해석이다).
+
+### 하네스의 선택은 작은 모델과 종속의 문제이기도 하다
+
+jmorgan은 Pi를 작고 간단한 일에 쓰는데 시스템 프롬프트가 Claude나
+Codex보다 훨씬 짧고 기본 도구 집합이 작아 작은 매개변수 모델에 쓰기 좋은
+하네스라고 했다.[^jmorgan]
+buremba는 석 달 동안 Codex와 Claude Code SDK를 도입했다가 벤더 종속이고
+취약하다는 것을 알았다고 했다.
+이들은 CLI로 쓰도록 만들어져 라이브러리로는 프로그래밍하기 어렵고,
+OpenClaw의 성공 대부분이 밑의 하네스인 Pi에서 왔으며, 도구 호출부터
+압축까지 모든 단계에 훅을 걸 수 있어 에이전트를 만든다면 모델 제공사의 독점 SDK
+대신 ai-sdk나 Pi를 쓰라는 것이다.[^buremba]
+작은 모델에서는 짧은 프롬프트가, 에이전트 제작에서는 벤더 중립이 이점이 되며, 이
+둘은 모두 앞의 최소주의가 비용과 이식성으로 이어지는 경로다.
+
+---
+
+[^alvivar]: <https://news.ycombinator.com/item?id=47144996>
+
+[^miroljub]: <https://news.ycombinator.com/item?id=47145003>
+
+[^mongrelion]: <https://news.ycombinator.com/item?id=47144965>
+
+[^tmustier]: <https://news.ycombinator.com/item?id=47145723>
+
+[^sshine]: <https://news.ycombinator.com/item?id=47147031>
+
+[^thepasch]: <https://news.ycombinator.com/item?id=47149183>
+
+[^amin2]: <https://news.ycombinator.com/item?id=47149110>
+
+[^bjackman]: <https://news.ycombinator.com/item?id=47148582>
+
+[^vanillameow]: <https://news.ycombinator.com/item?id=47148606>
+
+[^mihneadevries]: <https://news.ycombinator.com/item?id=47150120>
+
+[^CGamesPlay]: <https://news.ycombinator.com/item?id=47146936>
+
+[^throwaway13337]: <https://news.ycombinator.com/item?id=47147362>
+
+[^redfloatplane]: <https://news.ycombinator.com/item?id=47150242>
+
+[^bandrami]: <https://news.ycombinator.com/item?id=47148931>
+
+[^GTP]: <https://news.ycombinator.com/item?id=47153543>
+
+[^jmorgan]: <https://news.ycombinator.com/item?id=47144284>
+
+[^buremba]: <https://news.ycombinator.com/item?id=47148023>

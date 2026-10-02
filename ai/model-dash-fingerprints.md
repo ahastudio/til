@@ -2,7 +2,7 @@
 
 원문: [Your dashes suggest which model you're copy-pasting from](https://will-keleher.com/posts/your-dashes-suggest-which-model-youre-copy-pasting-from/)
 
-HN 토론: <https://news.ycombinator.com/item?id=49763167> (1점, 1개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=49763167> (2점, 1개 댓글)
 
 ## 요약
 

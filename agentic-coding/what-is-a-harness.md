@@ -2,7 +2,9 @@
 
 원문: [What is a Harness?](https://earendil.com/posts/what-is-a-harness/)
 
-HN 토론: <https://news.ycombinator.com/item?id=49409092> (372점, 143개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=49409092> (589점, 181개 댓글)
+
+GN 토론: <https://news.hada.io/topic?id=32813>
 
 ## 요약
 
@@ -337,6 +339,27 @@ LLM은 여전히 토큰 예측기이고, 명령처럼 보이는 출력을 유도
 같은 메커니즘이 한쪽에서는 주체성의 도구로, 다른 쪽에서는 파싱 루프로 서술된다.
 어느 서술이 옳은지는 기술이 아니라 그 위에 무엇을 올리는지가 결정한다.
 
+이 용어가 AI 이전에 이미 다른 뜻으로 쓰이던 단어라는 지적도 있었다.
+rurban은 수십 년 전부터 하네스를 다뤄 왔는데 Perl의 테스트 모음이 harness라
+불리며, 지원하는 모든 플랫폼과 설정과 회귀를 한 번에 시험하게 하는 빌드와
+테스트 체계라고 했다.
+그가 보기에 에이전트는 모델과 하네스 사이의 피드백 고리일 뿐이고,
+고리는 빨라야 하므로 진짜 CI는 비싸 최종 검증에만 쓰이며 좋은 하네스는
+아키텍처별 빠른 시험을 정리와 병렬화와 함께 제공해야 한다.[^rurban]
+stacktraceyo도 에이전트 이전의 하네스를 테스트용 소형 프레임워크로 기억하고,
+asim은 과거에 가장 가까운 말이 프레임워크이며 에이전트 작업을 시작하며 관련된
+모든 것이 에이전트 하네스가 됐다고 적었다.[^stacktraceyo][^asim]
+저자의 정의는 이 역사적 의미를 다루지 않고 등산 하네스의 은유로 바로 간다.
+
+경계의 문제도 남는다.
+francisofascii는 정의를 읽고도 아래가 하네스인지 모르겠다고 했다.
+Codex나 VS Code의 Copilot 플러그인, ChatGPT 웹 애플리케이션,
+자신이 Anthropic이나 OpenAI API 엔드포인트에 REST 요청을 보내고 처리하려고 쓴
+코드가 모두 정의에 들어맞는 것처럼 들린다는 것이다.[^francisofascii]
+글의 네 가지 요소(시스템 프롬프트, 도구, 에이전트 고리,
+번역 계층)를 기준으로 삼으면 마지막 항목만이 소유와 중립성을 구분하는데,
+어디까지가 하네스인지는 정의가 직접 답하지 않는다.
+
 ## 인사이트
 
 ### 하네스 경쟁의 잠금 지점은 모델이 아니라 세션 기록이다
@@ -424,6 +447,18 @@ Earendil이 Pi를 만드는 회사라는 사실은 이 구조의 예외가 아�
 그 이점은 “누가 유지 비용을 대는가”라는 질문에 답이 있을 때만 유지된다.
 글은 이 질문을 제기하지 않고, 오픈소스라는 사실이 답을 대신하게 둔다.
 
+재단 아래에서 유지되는 하네스는 이 질문에 대한 다른 답이다.
+dwheeler는 또 하나의 AI 하네스로 Linux Foundation 산하
+Agentic AI Foundation에 속한 오픈소스 Goose를 소개했다(그는 Linux Foundation에서
+일한다고 밝혔다).[^dwheeler]
+유지 비용을 회사의 수익 모델이 아니라 재단이 대는 구조이고, 이 방식이 모델 갱신
+속도를 따라가는 비용을 감당하는지는 별개의 문제다.
+throwawayqqq11은 기본 상태의 하네스를
+믿지 않아 llama-server를 잠근 systemd 서비스로 감싸고 Goose 클라이언트를
+처음부터 쓴 AppArmor 프로필과 필터링된 네트워크 인터페이스 뒤에 두었으며,
+많은 일이 들었고 완벽하지 않지만 가치가 있다고 했다.[^throwawayqqq11]
+중립적 하네스를 쓰는 것과 그 하네스를 신뢰하는 것이 다른 일이라는 사례다.
+
 ### 하네스 설계의 실제 축은 중립성이 아니라 작업별 위험 등급이다
 
 이 글은 하네스를 랩 소유 대 중립 오픈소스라는 축으로 배치한다.
@@ -483,3 +518,15 @@ AI가 제안한 CI 설정 수정이 외부 입력을 셸 문자열에 넣어
 [^xrd]: <https://news.ycombinator.com/item?id=49410304>
 
 [^FinnLobsien]: <https://news.ycombinator.com/item?id=49412046>
+
+[^rurban]: <https://news.ycombinator.com/item?id=49416787>
+
+[^stacktraceyo]: <https://news.ycombinator.com/item?id=49409800>
+
+[^asim]: <https://news.ycombinator.com/item?id=49409847>
+
+[^francisofascii]: <https://news.ycombinator.com/item?id=49421661>
+
+[^dwheeler]: <https://news.ycombinator.com/item?id=49410163>
+
+[^throwawayqqq11]: <https://news.ycombinator.com/item?id=49417591>
