@@ -106,12 +106,25 @@ def check_header(lines, issues):
             continue
         if line.startswith("## "):
             break
+        # a Show/Ask thread replaces that platform's `토론:` line
+        forum = re.match(r"^(Show|Ask) (GN|HN): (.+)$", line)
         m = re.match(r"^(HN|Lobste\.rs|GN) 토론: (.+)$", line)
-        if not m:
+        if not m and not forum:
             issues.append(f"{i + 1}: 헤더 블록에 허용되지 않은 줄")
             break
         if not lines[i - 1].strip() == "":
             issues.append(f"{i + 1}: 토론 줄 앞에 빈 줄이 없음")
+        if forum:
+            plat, rest = forum.group(2), forum.group(3)
+            if not re.match(
+                r"^\[[^\]]+\]\(https?://[^)]+\)( \(\d+점, \d+개 댓글\))?$", rest
+            ):
+                issues.append(
+                    f"{i + 1}: {forum.group(1)} {plat} 줄이 `[제목](URL)` 형태가 아님"
+                )
+            seen.append(plat)
+            i += 1
+            continue
         plat, rest = m.group(1), m.group(2)
         if plat == "GN":
             if not re.match(r"^<https?://[^>]+>$", rest):

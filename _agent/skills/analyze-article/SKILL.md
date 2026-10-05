@@ -219,11 +219,21 @@ explicitly rather than improvising.
 | Press release      | WebFetch                                 | `원문: [<제목>](URL)`              |
 | Forum post (GN/HN) | WebFetch, or the site's JSON API         | `Ask GN: [<제목>](URL)` 등         |
 
-A forum post that is itself the subject — a GeekNews `Ask GN` / `Show GN`
-thread, a Hacker News `Ask HN` / `Show HN` thread — is a published piece, so
-it takes a labeled titled link. The label repeats the thread's own prefix:
-`Ask GN:`, `Show GN:`, `Ask HN:`, `Show HN:`. Do not also add a `GN 토론:` or
-`HN 토론:` line pointing at the same thread; the source line already is it.
+A `Show GN` / `Ask GN` / `Show HN` / `Ask HN` thread is written as a
+titled link labeled with the thread's own prefix: `Show GN: [<제목>](URL)`.
+Where that line goes depends on what the subject is:
+
+- **The thread presents a thing that has its own address** (a product
+  homepage, a GitHub repository, an app page). The subject is the thing, so
+  the source line stays the bare `<URL>` of the thing (homepage first, then
+  repo). The `Show GN:` line goes in the discussion block **in place of** the
+  `GN 토론:` line (and `Show HN:` in place of `HN 토론:`). It never replaces
+  or removes the bare source URL.
+- **The thread itself is the only source** (an `Ask GN` question, or a post
+  with no separate address). Then the labeled line is the source line.
+
+Either way, never add both a `Show GN:` line and a `GN 토론:` line for the
+same thread.
 
 For Twitter, `twitter.com` is used instead of `x.com` per
 `writing-guidelines.md`. For a long tweet, call it a `트윗`, not a `스레드`,
@@ -543,7 +553,9 @@ Rules that follow from it:
   separated by a blank line.
 - Discussion lines come after the source line, one per line, separated by
   blank lines, in the order HN → Lobste.rs → GN. HN and Lobste.rs carry
-  `(N점, N개 댓글)`; GN carries the bare URL alone. Two threads on the same
+  `(N점, N개 댓글)`; GN carries the bare URL alone. A `Show GN:` /
+  `Ask GN:` line takes the GN slot and a `Show HN:` / `Ask HN:` line takes
+  the HN slot, as `[<제목>](URL)`. Two threads on the same
   platform for the same subject get two lines of that platform, adjacent.
 - **No other labeled line exists.** `제품 페이지:`, `저자:`, `발표:`,
   `관련 글:` and every other invented label is forbidden. Information like
