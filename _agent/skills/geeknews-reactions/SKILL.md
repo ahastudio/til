@@ -47,8 +47,8 @@ platform says nothing about whether one exists on another.
 Read the target TIL file. Extract the source URL from the `원문:` line (or
 the first link at the top of the document).
 
-If the document already has a `GN 토론:` line, use that URL directly and
-skip to step 3.
+If the document already has a `GN 토론:`, `Show GN:` or `Ask GN:` line,
+use that URL directly and skip to step 3.
 
 ### 2. Find the GN discussion
 
@@ -196,7 +196,9 @@ the thread offers.
 
 ### 6. Add the GN link to the document header
 
-If the document does not already have a `GN 토론:` line, add it after any
+If the document already has a `Show GN:` or `Ask GN:` line, that line is
+the GN discussion line; do not add a `GN 토론:` line next to it.
+Otherwise, if the document does not already have a `GN 토론:` line, add it after any
 existing `HN 토론:` / `Lobste.rs 토론:` lines, otherwise immediately after
 the `원문:` line:
 
