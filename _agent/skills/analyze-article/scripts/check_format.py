@@ -130,7 +130,7 @@ def check_header(lines, issues):
             if not re.match(r"^<https?://[^>]+>$", rest):
                 issues.append(f"{i + 1}: GN 토론 줄은 `<URL>` 만 와야 함")
         else:
-            if not re.match(r"^<https?://[^>]+> \(\d+점, \d+개 댓글\)$", rest):
+            if not re.match(r"^<https?://[^>]+> \(-?\d+점, \d+개 댓글\)$", rest):
                 issues.append(
                     f"{i + 1}: {plat} 토론 줄이 `<URL> (N점, N개 댓글)` 형태가 아님"
                 )
