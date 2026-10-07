@@ -553,7 +553,8 @@ Rules that follow from it:
   separated by a blank line.
 - Discussion lines come after the source line, one per line, separated by
   blank lines, in the order HN → Lobste.rs → GN. HN and Lobste.rs carry
-  `(N점, N개 댓글)`; GN carries the bare URL alone. A `Show GN:` /
+  `(N점, N개 댓글)`, copied as the site reports it, including a negative
+  score such as `(-1점, 4개 댓글)`; GN carries the bare URL alone. A `Show GN:` /
   `Ask GN:` line takes the GN slot and a `Show HN:` / `Ask HN:` line takes
   the HN slot, as `[<제목>](URL)`. Two threads on the same
   platform for the same subject get two lines of that platform, adjacent.
