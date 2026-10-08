@@ -16,6 +16,7 @@ import unicodedata
 ARTICLE_LABELS = (
     "원문", "트윗", "영상", "논문",
     "Ask GN", "Show GN", "Ask HN", "Show HN",
+    "GeekNews Article",
 )
 DISCUSSION_ORDER = ("HN", "Lobste.rs", "GN")
 
@@ -67,6 +68,14 @@ def check_header(lines, issues):
         issues.append("출처 줄이 없음")
         return None
 
+    # established convention: a `> 제목` quote line may sit above a bare URL
+    if lines[idx].startswith("> "):
+        j = idx + 1
+        while j < len(lines) and not lines[j].strip():
+            j += 1
+        if j < len(lines) and re.match(r"^<https?://[^>]+>$", lines[j].strip()):
+            idx = j
+
     src = lines[idx].strip()
     labeled = re.match(r"^(%s): (.+)$" % "|".join(ARTICLE_LABELS), src)
     bare = re.match(r"^<https?://[^>]+>$", src)
@@ -75,12 +84,24 @@ def check_header(lines, issues):
     if labeled:
         kind = "article"
         body = labeled.group(2)
-        if re.match(r"^<https?://", body):
+        # established convention: `원문: <URL>` without a title
+        if re.match(r"^<https?://[^>]+>$", body):
+            pass
+        elif re.match(r"^<https?://", body):
             issues.append(
                 f"{idx + 1}: 레이블 있는 출처 줄이 맨 URL — [제목](URL) 형태여야 함"
             )
         elif not re.match(r"^\[[^\]]+\]\(https?://[^)]+\)$", body):
             issues.append(f"{idx + 1}: 출처 줄이 `레이블: [제목](URL)` 형태가 아님")
+        # one document may cover a multi-part source: same label, one per line
+        label = labeled.group(1)
+        while idx + 2 < len(lines) and re.match(
+            r"^%s: \[[^\]]+\]\(https?://[^)]+\)$" % re.escape(label),
+            lines[idx + 2].strip(),
+        ):
+            if lines[idx + 1].strip():
+                issues.append(f"{idx + 2}: 출처 줄 사이에 빈 줄이 없음")
+            idx += 2
     elif bare:
         kind = "non-article"
         # a subject may carry both a homepage and a repo, one bare URL per line
@@ -109,6 +130,10 @@ def check_header(lines, issues):
         # a Show/Ask thread replaces that platform's `토론:` line
         forum = re.match(r"^(Show|Ask) (GN|HN): (.+)$", line)
         m = re.match(r"^(HN|Lobste\.rs|GN) 토론: (.+)$", line)
+        # established convention: `GeekNews: <URL>` is the GN discussion line
+        legacy_gn = re.match(r"^GeekNews: (<https?://[^>]+>)$", line)
+        if legacy_gn:
+            m = re.match(r"^(GN) 토론: (.+)$", "GN 토론: " + legacy_gn.group(1))
         if not m and not forum:
             issues.append(f"{i + 1}: 헤더 블록에 허용되지 않은 줄")
             break
@@ -130,7 +155,8 @@ def check_header(lines, issues):
             if not re.match(r"^<https?://[^>]+>$", rest):
                 issues.append(f"{i + 1}: GN 토론 줄은 `<URL>` 만 와야 함")
         else:
-            if not re.match(r"^<https?://[^>]+> \(-?\d+점, \d+개 댓글\)$", rest):
+            # counts are expected, but a bare `<URL>` is an established convention
+            if not re.match(r"^<https?://[^>]+>( \(-?\d+점, \d+개 댓글\))?$", rest):
                 issues.append(
                     f"{i + 1}: {plat} 토론 줄이 `<URL> (N점, N개 댓글)` 형태가 아님"
                 )

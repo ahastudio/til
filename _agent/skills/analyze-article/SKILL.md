@@ -218,6 +218,7 @@ explicitly rather than improvising.
 | Paper (PDF/arXiv)  | WebFetch, or Read the PDF                | `논문: [<논문 제목>](URL)`         |
 | Press release      | WebFetch                                 | `원문: [<제목>](URL)`              |
 | Forum post (GN/HN) | WebFetch, or the site's JSON API         | `Ask GN: [<제목>](URL)` 등         |
+| GeekNews Article   | WebFetch, or curl the article page       | `GeekNews Article: [<제목>](URL)`  |
 
 A `Show GN` / `Ask GN` / `Show HN` / `Ask HN` thread is written as a
 titled link labeled with the thread's own prefix: `Show GN: [<제목>](URL)`.
@@ -548,7 +549,10 @@ GN 토론: <URL>
 Rules that follow from it:
 
 - The H1 is line 1, Korean prose, followed by one blank line.
-- Exactly one source line, in the form step 4 selected. A non-article may use
+- Exactly one source line, in the form step 4 selected. When the user asks
+  for several published pieces to be combined into one document (a
+  multi-part tutorial, for example), write one labeled source line per piece,
+  in order, each separated by a blank line. A non-article may use
   two or more consecutive bare `<URL>` lines (homepage first, then repo), each
   separated by a blank line.
 - Discussion lines come after the source line, one per line, separated by
@@ -558,6 +562,12 @@ Rules that follow from it:
   `Ask GN:` line takes the GN slot and a `Show HN:` / `Ask HN:` line takes
   the HN slot, as `[<제목>](URL)`. Two threads on the same
   platform for the same subject get two lines of that platform, adjacent.
+- Existing documents in this repository also use four older header forms,
+  and the gate accepts them so those documents are left as they are: a
+  `원문: <URL>` source line without a title, a
+  `> <제목>` quote line directly above a bare source URL, a `GeekNews: <URL>`
+  line in the GN slot, and an `HN 토론:` / `Lobste.rs 토론:` line without
+  counts. New documents still use the forms above.
 - **No other labeled line exists.** `제품 페이지:`, `저자:`, `발표:`,
   `관련 글:` and every other invented label is forbidden. Information like
   that belongs in a body section, in prose.
