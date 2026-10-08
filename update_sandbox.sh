@@ -111,11 +111,23 @@ ${SANDBOX_FILE} 파일 맨 끝에 아래 형식의 h2 섹션을 새로 추가해
   4) '놓치면 안 되는 핵심 포인트나 주의사항:'
 - '실무 영향: ... 즉시 활용: ... 방향: ... 주의: ...'처럼 한 줄 문단으로 합치지 마.
 - 각 하위 불릿은 한 문장 이상으로 구체적으로 작성해.
+- '## ${TODAY} 개발자 트렌드' 제목 바로 다음에는 빈 줄 하나만 두고 곧바로 '### 1.' 항목을 시작해.
+- 제목과 첫 항목 사이에 도입 문단을 절대 쓰지 마.
+  확인 시각, 조사 기간, 선정 기준, 수치의 조회 시점, 해석 방식처럼 작성 과정을 설명하는 글은
+  섹션 어디에도 쓰지 마. 문서에는 주제 자체에 대한 내용만 남긴다.
 " || echo "warning: 트렌드 생성이 실패했습니다." >&2
 
   if ! grep -q "^## ${TODAY} 개발자 트렌드" "$SANDBOX_FILE"; then
     echo "warning: ${TODAY} 섹션이 추가되지 않았습니다." >&2
     return
+  fi
+
+  if awk -v header="## ${TODAY} 개발자 트렌드" '
+    index($0, header) == 1 { found = 1; next }
+    found && /^### / { exit }
+    found && NF { bad = 1; exit }
+    END { exit !bad }' "$SANDBOX_FILE"; then
+    echo "warning: ${TODAY} 섹션 제목과 첫 항목 사이에 도입 문단이 있습니다." >&2
   fi
 
   # git diff에서 뽑으면 prettier가 다시 감싼 옛 줄의 URL까지 잡힌다.
