@@ -38,3 +38,5 @@ TypeSafe의 System One 계열 모델.
 ## 평가와 맥락
 
 [Jev는 지능 경쟁이 비워 둔 파레토 곡선의 한 점이다](./karpathy-latent-demand.md)
+
+[비즈니스 AI는 판단을 넘겨받는 에이전트가 아니라 코드에 종속된 컴포넌트여야 한다](./agents-to-components.md)
