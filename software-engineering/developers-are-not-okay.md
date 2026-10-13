@@ -4,7 +4,7 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=49989377> (8점, 2개 댓글)
 
-HN 토론: <https://news.ycombinator.com/item?id=50025798> (8점, 1개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=50025798> (11점, 2개 댓글)
 
 HN 토론: <https://news.ycombinator.com/item?id=50009177> (7점, 2개 댓글)
 
@@ -14,7 +14,7 @@ HN 토론: <https://news.ycombinator.com/item?id=49977406> (5점, 4개 댓글)
 
 HN 토론: <https://news.ycombinator.com/item?id=49999842> (5점, 1개 댓글)
 
-Lobste.rs 토론: <https://lobste.rs/s/0gvyif/software_developers_are_not_okay> (115점, 101개 댓글)
+Lobste.rs 토론: <https://lobste.rs/s/0gvyif/software_developers_are_not_okay> (118점, 113개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=34974>
 
@@ -299,6 +299,12 @@ Lobste.rs의 alanmeira가 지적한 마비 상태도 같은 방향을 가리킨�
 악화시킨다는 관찰이다.[^alanmeira]
 저자가 말한 새로움의 부재는 개발자의 일이 지루해진 문제이기 전에 투자가 멈춘
 문제일 수 있다.
+thirdtruck은 이 구조가 할리우드와 AAA 게임 업계에서 일어난 일과 매우 닮았다고
+지적했다.[^thirdtruck]
+투자자들이 블록버스터 흥행만 기대하게 되면서
+지속 가능한 제작비로 적당한 수익을 내는 작품은 밀려났다는 것이다.
+소프트웨어도 같은 길을 간다면 문제는 특정 경영진의 의도가 아니라
+투자 자본이 요구하는 수익의 형태다.
 
 ### 다른 직업이 오래 겪은 일을 처음 겪는 일처럼 말한다
 
@@ -331,6 +337,12 @@ HN의 jleyank는 컴퓨터가 비서직을 무너뜨렸을 때 사람들이 그�
 저자는 개발자의 고통이 특별하다고 주장하지는 않지만,
 다른 직업이 먼저 겪은 같은 과정과 비교하지 않아 개발자가 처음 겪는 재난처럼
 읽히게 둔다.
+
+singpolyma는 다른 각도에서 시간축을 문제 삼았다.[^singpolyma]
+그는 큰 기술 기업이 애초에 일하기 좋은 곳이었던 적이 없어서
+경력 내내 피하려 했다며, 지금 더 나빠졌다는 데는 동의하지만
+예전이 좋았다는 전제에는 동의하지 않는다고 했다.
+저자가 상실로 그린 과거가 모두에게 같은 과거는 아니었다는 뜻이다.
 
 ## 인사이트
 
@@ -396,6 +408,15 @@ AI를 두려워한다고 반박했다.[^emk]
 저자의 비관이 맞다면 지금의 불안은 몇 년 뒤 숙련 인력 부족이라는 반대 방향의
 위기로 바뀔 수 있다.
 
+교육 현장의 증언은 이 경로가 양쪽에서 흔들린다는 점을 보여 준다.
+datarama는 LLM 시대 초기에 커뮤니티 칼리지에서 컴퓨터과학을 가르치는 일이
+영혼을 짓누를 만큼 우울하고 스트레스가 커서 업계로 돌아왔다고 했다.[^datarama]
+반대로 thermokarst는 20년 동안 엔지니어로 일하다
+최근 고등학교 컴퓨터과학 교사가 되었고,
+지금까지 해 본 일 중 가장 힘들지만 기쁨과 엉뚱함이 많다고 적었다.[^thermokarst]
+가르치는 사람이 떠나는 곳과 업계를 떠난 사람이 가르치러 가는 곳이
+동시에 존재한다는 것은, 다음 세대를 길러 낼 자리도 재편되고 있다는 신호다.
+
 ### 개발자의 정체성 위기는 직업이 아니라 서사의 붕괴다
 
 저자가 말하는 정체성 위기는 단순히 일을 잃는 문제가 아니다.
@@ -414,6 +435,21 @@ Lobste.rs의 jschuster는 LLM 사용을 비윤리적이라고 보는데,
 느끼며, 갇혀 있고 조금은 배신당한 기분이라고 썼다.[^jschuster]
 그는 프로그래밍 자체는 여전히 즐겁고 대체된다는 느낌도 없다고 했으니,
 그의 고통은 일 자체가 아니라 업계가 지향한다고 믿었던 가치와의 결별에서 온다.
+
+unwind는 이 상실을 경제의 언어로 요약했다.[^unwind]
+생산성 배수(multiplier)가 도착했는데 그것이 인력 제수(divisor)로 쓰일 때,
+자신의 가치가 완전히 0으로 매겨지는 느낌을 피하기 어렵다는 것이다.
+반면 tome은 예전에도 프로그래밍을 즐겼고 지금은 더 즐긴다며,
+자신과 비슷한 사람들이 슬퍼하는 이유를 아직 이해하지 못하겠다고 했다.[^tome]
+HN의 deterministic도 30년 넘는 경력에서 지금처럼
+LLM 이전에는 엄두도 못 낼 큰 프로젝트를 맡을 수 있는 때가 없었다며
+변화를 받아들이라고 권했다.[^deterministic]
+jjuran은 저장소마다 생기는 `AGENTS.md`에 맞서는 상징적 행동으로
+자기 코드 저장소에 `HUMANS.md`를 추가하고 시를 적었다.[^jjuran]
+같은 도구가 어떤 사람에게는 정체성의 상실이고
+어떤 사람에게는 즐거움의 확장이라는 사실은,
+위기의 원인이 도구가 아니라 그 도구가 놓인
+고용 관계와 서사에 있음을 다시 보여 준다.
 
 산업혁명기의 장인들이 겪은 일도 비슷했다.
 그들이 잃은 것은 임금만이 아니라,
@@ -468,3 +504,19 @@ Lobste.rs의 jschuster는 LLM 사용을 비윤리적이라고 보는데,
 [^jschuster]: <https://lobste.rs/s/0gvyif/software_developers_are_not_okay#c_tv6ayr>
 
 [^alanmeira]: <https://lobste.rs/s/0gvyif/software_developers_are_not_okay#c_e5nqic>
+
+[^thirdtruck]: <https://lobste.rs/s/0gvyif/software_developers_are_not_okay#c_djz66w>
+
+[^singpolyma]: <https://lobste.rs/s/0gvyif/software_developers_are_not_okay#c_oqe2rs>
+
+[^datarama]: <https://lobste.rs/s/0gvyif/software_developers_are_not_okay#c_5nxcrh>
+
+[^thermokarst]: <https://lobste.rs/s/0gvyif/software_developers_are_not_okay#c_ts5im9>
+
+[^unwind]: <https://lobste.rs/s/0gvyif/software_developers_are_not_okay#c_qz2qwh>
+
+[^tome]: <https://lobste.rs/s/0gvyif/software_developers_are_not_okay#c_bodc5z>
+
+[^jjuran]: <https://lobste.rs/s/0gvyif/software_developers_are_not_okay#c_ijiav0>
+
+[^deterministic]: <https://news.ycombinator.com/item?id=50028622>

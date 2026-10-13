@@ -4,6 +4,14 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=28319624> (822점, 332개 댓글)
 
+HN 토론: <https://news.ycombinator.com/item?id=45358980> (1244점, 611개 댓글)
+
+HN 토론: <https://news.ycombinator.com/item?id=45898407> (1106점, 627개 댓글)
+
+HN 토론: <https://news.ycombinator.com/item?id=48238789> (594점, 608개 댓글)
+
+GN 토론: <https://news.hada.io/topic?id=4913>
+
 ## 소개
 
 yt-dlp는 수천 개의 사이트에서 영상과 오디오를 내려받는 명령줄 도구다.
@@ -23,11 +31,29 @@ SponsorBlock 통합으로 광고/스폰서 구간을 자동으로 잘라낼 수 
 ffmpeg/ffprobe는 사실상 필수이며, 프로젝트가 직접 yt-dlp/FFmpeg-Builds라는 커스텀 빌드를 배포한다.
 완전한 YouTube 지원을 위해서는 `yt-dlp-ejs`와 JavaScript 런타임이 필요하고,
 Deno를 권장 런타임으로 명시하면서 Node.js, Bun, QuickJS를 대안으로 둔다.
+2025년 11월 공지(이슈 #15012)의 권장 순서는
+Deno, Node, QuickJS, QuickJS-ng, Bun이고,
+보안상의 이유로 기본으로 켜진 것은 Deno뿐이다.
+나머지는 `--js-runtimes node`처럼 직접 지정해야 쓴다.
 그 밖에 SSL을 위한 certifi, Brotli 디코딩, 브라우저 모사를 위한 `curl_cffi`, 메타데이터용 mutagen 등을 선택 의존성으로 둔다.
 
 배포 채널은 stable(월간), nightly(일간), master(푸시 직후 카나리)로 셋이며,
 Windows/macOS/Linux용 단일 실행 파일과 PyPI 설치를 함께 지원한다.
+README는 stable이 이름과 달리 자주 “낡아서” 사이트 변경에 깨지기 쉽다고 스스로
+밝히고,
+일반 사용자에게 권장하는 채널은 nightly라고 적는다.
+stable에서 문제를 겪으면 버그를 신고하기 전에 nightly로 올리라는 것이 공식
+안내다.
+지원 Python은 CPython 3.10 이상, PyPy 3.11 이상이고,
+90일이 넘은 버전을 실행하면 업데이트를 권하는 경고가 뜬다.
+필요한 의존성이 없으면 yt-dlp가 작업 시점에 경고하고,
+`--verbose` 출력 맨 위에 현재 쓸 수 있는 의존성 목록을 보여 준다.
 라이선스는 코어 코드가 Unlicense지만, PyInstaller로 묶인 실행 파일은 GPLv3+ 코드가 포함되어 전체가 GPLv3+로 배포된다.
+README의 라이선스 절은 배포물별로 나눠 설명한다.
+git 저장소와 PyPI의 소스 배포본·휠에는 Unlicense 코드만 들어 있고,
+zipimport 방식의 Unix 실행 파일과 릴리스 tarball에는 `meriyah`(ISC)와
+`astring`(MIT) 코드가 들어 있으며,
+자세한 내역은 `THIRD_PARTY_LICENSES.txt`에 있다.
 플러그인 시스템으로 추출기와 후처리기를 외부에서 확장할 수 있고,
 프로젝트는 Maintainers.md, CONTRIBUTORS, Discord, GitHub Discussions를 통해 비교적 분산된 거버넌스를 유지한다.
 
@@ -67,6 +93,37 @@ URL 목록이 좀 더 복잡해질 수는 있어도, `--allow-read`는 필요 �
 yt-dlp-ejs가 도입되기 한참 전, 추출 로직을 신뢰 없이 실행해야 한다는 문제 의식과 Deno의 권한 모델이 그 답이 될 수 있다는 진단이 이미 외부에서 나와 있었던 셈이다.
 프로젝트의 최근 결정은 이 진단을 뒤늦게 수용한 형태에 가깝다.
 
+2025년 9월 공지(이슈 #14404)는 이 전환의 이유를 직접 밝힌다.
+그때까지 yt-dlp는 플레이어 JS에서 필요한 함수를 정규식으로 찾아내고,
+역시 정규식으로 만든 파이썬 내장 해석기(`jsinterp`)로 그 코드를 돌렸다.
+YouTube가 플레이어 JS를 바꿀 때마다 메인테이너 여럿이 하던 일을 멈추고
+2~3일을 매달려야 했는데,
+새 변경 이후에는 필요한 함수가 플레이어 곳곳에 흩어져서 같은 방식이면
+2~3주가 걸릴 것으로 봤다.
+그래서 정규식 대신 AST 기반의 `yt-dlp-ejs`로 옮겼다.
+Deno를 고른 이유도 공지에 적혀 있다.
+기본 권한 모델이 파일시스템과 네트워크 접근을 막아 기술에 덜 익숙한 사용자를
+보호하고,
+단일 실행 파일이라 설치가 ffmpeg만큼 간단하며,
+앞으로 모든 플레이어 클라이언트에 강제될 PO 토큰 생성까지 감당할 수 있다는
+것이다.
+JS 런타임 없이 YouTube를 쓰는 것은 이제 “deprecated”이고,
+가용 포맷이 줄어드는 것은 버그가 아니라 피할 수 없는 일로 간주한다.
+
+HN에서 Andrews54757은 깨진 부분이 플레이어 코드(`base.js`)가 만드는
+nsig/sig 토큰이고,
+그 생성 코드를 정규식으로 뽑아내던 방식 대신 이제 코드를 실제로 실행해야
+한다고 정리했다.[^Andrews54757]
+adzm은 Node가 아니라 Deno를 고른 데 놀랐지만,
+단일 실행 파일 배포가 많은 고통을 덜어 준다고 봤다.[^adzm]
+rcarmo는 QuickJS처럼 가볍고 내장할 수 있는 엔진 대신 Deno를 고른 것이
+과해 보인다고 했다.[^rcarmo]
+anvuong은 갑자기 다운로드가 360p로 제한됐는데 Deno를 설치하자 정상으로
+돌아왔다고 적었다.[^anvuong]
+[YouTube 영상을 받아 압축하고 자막 달기](../video/youtube-download.md)에서도
+JS 런타임 없이 실행하자 같은 경고와 함께 일부 포맷이 빠졌고,
+Deno를 설치한 뒤 `Solving JS challenges using deno` 로그가 찍혔다.
+
 ### 의존성과 배포 구성은 “법적 회피”의 형태로도 읽힌다
 
 코어 코드는 Unlicense, 즉 사실상 퍼블릭 도메인이다.
@@ -74,8 +131,11 @@ yt-dlp-ejs가 도입되기 한참 전, 추출 로직을 신뢰 없이 실행해�
 법적 위협이 닥쳤을 때 코드의 출처와 책임을 분산하는 효과가 있다.
 누구나 포크해 자체 빌드를 만들고 책임에서 자유로워질 수 있다는 의미다.
 
-동시에 PyInstaller 번들 실행 파일은 GPLv3+로 강제되는데,
-이는 ffmpeg/일부 의존성의 라이선스를 흡수한 결과다.
+동시에 PyInstaller 번들 실행 파일은 GPLv3+로 강제된다.
+README는 번들에 GPLv3+ 코드가 들어 있다고만 쓰고 어느 구성 요소인지는
+`THIRD_PARTY_LICENSES.txt`로 넘긴다.
+ffmpeg는 번들에 들어가지 않고 사용자가 따로 설치하는 의존성이므로,
+GPL의 원인을 ffmpeg로 볼 근거는 README에 없다.
 사용자 입장에서는 “같은 yt-dlp인데 설치 방식에 따라 라이선스가 바뀐다”는 비대칭이 발생한다.
 이 비대칭은 다운스트림(예: 회사 내부 도구에 임베드하려는 사용자)에 실제 부담을 준다.
 
@@ -121,7 +181,10 @@ ffmpeg 없이 포맷 병합이 안 되고, JS 런타임 없이 YouTube 핵심 �
 이는 “단일 명령어로 설치되어 바로 동작한다”는 CLI 도구의 기본적인 약속을 일부 깬다.
 실제로 신규 사용자가 만나는 첫 경험은 의존성 누락에서 오는 오류이거나,
 패키지 매니저로 깐 ffmpeg가 너무 오래되어 새 코덱을 처리하지 못한다는 종류의 문제다.
-README는 이런 “기본 경험의 실패 가능성”을 충분히 경고하지 않는다.
+README가 이 실패 가능성을 아예 말하지 않는 것은 아니다.
+ffmpeg·ffprobe·`yt-dlp-ejs`·JS 런타임을 “highly recommended”로 따로 묶고,
+의존성이 없으면 작업 시점에 경고하며 `--verbose`로 확인할 수 있다고 적는다.
+문제는 그 경고가 설치 단계가 아니라 실행 중에야 나온다는 점이다.
 
 설치 마찰뿐 아니라 이름 자체도 사용자 경험을 미세하게 갉아먹는다.
 HN의 krick은 “까다롭게 들리겠지만, youtube-dl의 drop-in 대체품을 표방하면서 이름을 갑자기 youtube-dlp가 아닌 yt-dlp 같은 외우기 어려운 형태로 바꾼 건 꽤 불편하다.
@@ -141,6 +204,15 @@ CLI 도구가 사용자에게 채널을 직접 고르게 만든다는 것은 “
 공식 권장은 “패키지 매니저 대신 자체 업데이터를 쓰라”는 쪽으로 흐른다.
 이는 시스템 차원의 패키지 관리 원칙(중앙 집중적 업데이트, 보안 패치)과 충돌한다.
 
+다만 README는 이 문제를 숨기지 않는다.
+stable이 자주 낡아서 외부 변경에 깨지기 쉽다고 스스로 쓰고,
+일반 사용자에게 nightly를 권한다.
+실제 마찰은 공식 채널이 아니라 서드파티 패키지에서 생긴다.
+JS 런타임 공지 스레드에서 creaktive는 2017년형 iMac에서 brew가 더는 yt-dlp를
+갱신하지 않는 이유를 그제야 알았다고 했다.[^creaktive]
+공지는 서드파티 패키지 사용자에게 필요한 조치가 패키지 저장소의 대응에 달렸다고
+적고 `--remote-components` 옵션을 우회로로 안내한다.
+
 ### Unlicense + GPLv3 번들이라는 라이선스 이중 구조는 책임 회피의 흔적을 남긴다
 
 코어가 Unlicense라는 선택은 “누구나 갖다 써도 된다”는 자유의 표명처럼 보이지만,
@@ -148,10 +220,46 @@ CLI 도구가 사용자에게 채널을 직접 고르게 만든다는 것은 “
 youtube-dl이 겪은 DMCA 사태의 교훈이 여기에 짙게 묻어 있다.
 
 하지만 사용자가 실제로 받는 바이너리는 GPLv3+가 강제된다.
-이 비대칭을 README는 한 줄로 처리한다.
+README는 이 비대칭을 배포물별로 나눠 설명하고 상세 내역은
+`THIRD_PARTY_LICENSES.txt`로 넘긴다.
+하지만 어느 배포물을 써야 Unlicense만 적용되는지 고르는 일은
+여전히 사용자 몫이다.
 다운스트림 입장에서는 “소스를 받아 빌드한 yt-dlp”와 “공식 바이너리 yt-dlp”의 라이선스가 다르다는 사실이 실무에 영향을 준다.
 사내 도구 통합, 재배포, 임베드 시 의무가 달라지기 때문이다.
 이 부분에 대한 명확한 안내 없이 사용자가 알아서 판단하라고 두는 것은 무책임에 가깝다.
+
+### Bun 지원 축소는 런타임의 품질이 아니라 개발 방식을 기준으로 삼았다
+
+2026년 5월 공지(이슈 #16766)는 Bun 지원을 1.2.11부터 1.3.14까지로 좁히고
+deprecated로 바꿨다.
+이유는 두 가지다.
+1.2.0보다 오래된 Bun으로 `ejs`를 빌드하면 lockfile이 무시되어 npm 공급망
+공격에 노출되고,
+1.2.11 미만에서는 테스트 스위트를 돌릴 수 없다는 것이 첫째다.
+둘째는 Bun이 Claude로 Rust 재작성되면서 개발이 “완전히 바이브 코딩”으로
+기우는 것처럼 보여 우려스럽다는 것이고,
+상한 1.3.14는 원래 Zig 코드베이스로 만든 마지막 릴리스라는 설명이다.
+
+첫째 이유는 측정 가능한 기준이지만 둘째는 그렇지 않다.
+HN에서 johnfn은 Rust 재작성 이후 세그폴트나 OOM, 취약점이 늘어난 것을 본 적이
+있느냐고 물으며,
+재작성이 아직 출시되지도 않았으니 이 결정은 공학보다 정치에 가깝다고
+비판했다.[^johnfn]
+ozten은 다른 지원 런타임도 커밋 메타데이터를 보면 AI의 도움을 받고 있다고
+지적했다.[^ozten]
+반대로 maxloh는 코드 대부분을 직접 쓰지 않은 메인테이너가 코드베이스를 어떻게
+이해하겠느냐며 결정을 이해한다고 했고,[^maxloh]
+xmodem은 무보수 메인테이너가 자기 노동을 어디에 쓸지 정하는 일을 공격적으로
+비판하는 댓글이 많다고 꼬집었다.[^xmodem]
+5G_activated는 Deno가 기본값이라 Bun으로 yt-dlp를 쓰는 사람이 애초에 거의
+없다고 짚었다.[^5G_activated]
+
+이 결정의 실제 영향은 작을 수 있지만,
+지원 범위를 정하는 기준을 “어떤 문제가 관찰됐는가”에서 “어떻게 만들어졌는가”로
+옮겼다는 점은 선례로 남는다.
+같은 기준이라면 다른 런타임이나 ffmpeg가 AI 보조 개발을 늘릴 때도 같은 판단을
+해야 하는데,
+공지는 그 경계를 정의하지 않는다.
 
 ## 인사이트
 
@@ -173,6 +281,13 @@ HN의 weq는 “2006년경에 만들어진 옛 다운로더들도 마지막 업�
 어떤 추출 도구는 동작 중지된 채로도 검색 결과 상단을 점유하면서 새 사용자를 계속 흡수한다.
 즉 도구의 수명은 “실제 동작 여부”뿐 아니라 “검색 인덱스에 남아 있는 정도”에도 의존한다.
 yt-dlp가 어느 시점에 동작을 멈춘다 해도 같은 식으로 한참 동안 다운로드 카운터가 돌아갈 가능성이 높다.
+
+GN에 yt-dlp가 처음 소개된 2021년 8월에도 비슷한 관찰이 있었다.
+joyfui는 한 달에 두 번은 업데이트되던 youtube-dl이
+6월 이후로 멈췄다고 적었고,[^joyfui]
+xguru는 차단 이슈로 개발자들이 지쳐서 잠시 쉬는 것 같다고 답했다.[^xguru]
+원조가 멈춘 그 틈을 yt-dlp가 메웠다는 점에서,
+이 계열 도구의 세대교체는 법적 사건보다 유지보수 여력의 소진이 이끌어 왔다.
 
 따라서 yt-dlp의 장기 생존을 평가할 때 봐야 할 지표는 다운로드 수나 별 개수가 아니다.
 “최근 6개월간 5건 이상 머지된 기여자 수”가 훨씬 정확한 건강 지표다.
@@ -238,7 +353,35 @@ README는 이 점을 절대 말해주지 않는다.
 ---
 
 [^Tistron]: <https://news.ycombinator.com/item?id=28321958>
+
 [^polote]: <https://news.ycombinator.com/item?id=28320648>
+
 [^krick]: <https://news.ycombinator.com/item?id=28322805>
+
 [^weq]: <https://news.ycombinator.com/item?id=28322393>
+
 [^thomasfl]: <https://news.ycombinator.com/item?id=28325945>
+
+[^Andrews54757]: <https://news.ycombinator.com/item?id=45359766>
+
+[^adzm]: <https://news.ycombinator.com/item?id=45359630>
+
+[^rcarmo]: <https://news.ycombinator.com/item?id=45360172>
+
+[^anvuong]: <https://news.ycombinator.com/item?id=45908962>
+
+[^creaktive]: <https://news.ycombinator.com/item?id=45900450>
+
+[^johnfn]: <https://news.ycombinator.com/item?id=48240144>
+
+[^ozten]: <https://news.ycombinator.com/item?id=48242424>
+
+[^maxloh]: <https://news.ycombinator.com/item?id=48239653>
+
+[^xmodem]: <https://news.ycombinator.com/item?id=48240652>
+
+[^5G_activated]: <https://news.ycombinator.com/item?id=48241195>
+
+[^joyfui]: <https://news.hada.io/topic?id=4913#cid6575>
+
+[^xguru]: <https://news.hada.io/topic?id=4913#cid6576>

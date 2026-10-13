@@ -4,7 +4,13 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=47243272> (543점, 310개 댓글)
 
+HN 토론: <https://news.ycombinator.com/item?id=47393908> (165점, 94개 댓글)
+
 Lobste.rs 토론: <https://lobste.rs/s/rqvdts/agentic_engineering_patterns>
+
+GN 토론: <https://news.hada.io/topic?id=27206>
+
+## 소개
 
 Simon Willison이 코딩 에이전트 시대의 엔지니어링 패턴을 체계적으로
 정리하는 가이드다.
@@ -18,6 +24,7 @@ Simon Willison이 코딩 에이전트 시대의 엔지니어링 패턴을 체계
 
 ## 목차
 
+- [소개](#소개)
 - [1부. 원칙 (Principles)](#1부-원칙-principles)
   - [에이전틱 엔지니어링이란](#에이전틱-엔지니어링이란)
   - [코드 작성은 이제 거의 공짜다](#코드-작성은-이제-거의-공짜다)
@@ -63,8 +70,12 @@ Claude Code, OpenAI Codex, Gemini CLI가 그 예다.
 
 바이브 코딩(vibe coding)은 Andrej Karpathy가 2025년 2월에 만든 용어로
 코드의 존재 자체를 무시한 채 LLM에게 코드를 시키는 것이다.
-에이전틱 엔지니어링은 그 검토되지 않은 프로토타입 품질의 결과물을
-의도적인 검토와 반복으로 프로덕션 품질까지 끌어올린다는 점에서 정반대 끝에 선다.
+Willison은 이 용어가 Claude Code 첫 공개보다 공교롭게도 3주 앞섰다고 적는다.
+그는 LLM으로 코드를 만드는 모든 경우를 바이브 코딩이라 부르는 확장된 용법을
+실수라고 본다.
+검토되지 않은 프로토타입 품질의 LLM 생성 코드를,
+작성자가 프로덕션 수준까지 끌어올린 코드와 구별할 단어가 필요하기 때문에
+바이브 코딩은 원래의 좁은 뜻으로 남겨 두는 편이 더 쓸모 있다는 것이다.
 핵심은 코드 작성이 엔지니어의 유일한 활동이었던 적이 없다는 것이다.
 엔지니어는 트레이드오프가 다른 수십 가지 해법 중 무엇을 만들지를 결정한다.
 그래서 에이전틱 엔지니어링에서도 사람의 책임은 그대로 남는다:
@@ -72,6 +83,60 @@ Claude Code, OpenAI Codex, Gemini CLI가 그 예다.
 결과가 문제를 견고히 푼다고 확신할 때까지 검증·반복하고,
 배운 교훈을 바탕으로 지시를 의도적으로 갱신하는 것이다.
 이 일을 잘하면 더 야심찬 프로젝트를, 더 높은 품질로, 더 큰 문제에 적용할 수 있다.
+
+챕터는 에이전트를 정의하는 일 자체가 적어도 1990년대부터 AI 연구자들을
+괴롭혀 온 문제라고 인정한 뒤,
+LLM 분야에서 자신이 받아들인 정의로 “목표를 위해 루프 안에서 도구를 실행한다”를
+고른다.
+그리고 코드 실행을 에이전틱 엔지니어링을 가능하게 하는 결정적 능력으로 꼽는다.
+사람의 몫에 대해서는 한 문장이 눈에 띈다.
+LLM은 과거의 실수에서 배우지 않지만,
+사람이 배운 것을 지시문과 도구 하네스에 의도적으로 반영하면
+코딩 에이전트는 배울 수 있다는 것이다.
+가이드 소개에서는 도구가 발전해도 낡지 않을 패턴을 찾는 것이 목표이고,
+어떤 챕터도 완성된 것으로 보지 말라고 덧붙인다.
+
+이 챕터만 따로 올라온 HN 스레드에서는 정의의 경계가 가장 큰 쟁점이었다.
+zx8080이 코드를 50%, 10%, 1%만 검토하면
+어디까지가 바이브 코딩이냐고 묻자,[^zx8080]
+Willison은 경계선이 코드에 책임을 지고 실수를 LLM 탓으로 돌리지 않는
+순간이라고 답했다.[^simonw-borderline]
+그는 앞서 바이브 코딩을
+“생성되는 코드를 한 번도 보지 않고 프롬프트만 하는 것”으로 정의하며
+그 정의를 챕터에 추가했다고 밝혔다.[^simonw-vibe]
+maxbond는 이것이 새 분야가 아니라 소프트웨어 엔지니어링 안의 새 기법이라고
+반박했고,[^maxbond]
+Willison도 하위 분야라는 데 동의하며 자동 테스트, 린트, 문서, CI/CD처럼
+좋은 엔지니어링 관행이 에이전트의 결과도 낫게 만든다고 답했다.[^simonw-subfield]
+
+용어 자체에 대한 반발도 컸다.
+neonbrain은 기계공학, 전기공학의 명명 관례대로라면 “agentic engineering”은
+에이전트를 만드는 공학이어야 한다고 지적했고,[^neonbrain]
+Willison은 Armin Ronacher가 쓰는 “agentic coding”이 코드에 한정된다는 점에서
+더 분명하다고 인정했다.[^simonw-ronacher]
+그가 이 용어로 정한 계기는 z.AI가 GLM-5 발표에서 같은 말을 쓴 것이었다고
+한다.[^simonw-glm5]
+sigseg1v는 캐나다처럼 공인 자격 없이 Engineer라는 칭호를 쓰는 것이 불법인
+나라가 있다고 짚었다.[^sigseg1v]
+imtringued가 “software”를 빼고 “engineer”만 남기는 것은 자존심 문제라고
+비꼬자,[^imtringued]
+Willison은 바이브 코딩과 구별하려면 더 그럴듯하게 들리는 단어가 필요하다고
+솔직하게 답했다.[^simonw-impressive]
+
+정의의 근거를 문제 삼은 댓글도 있다.
+TheAtomic이 “에이전트는 루프에서 도구를 실행한다”는 정의가 순환적이라고
+비판하자,
+Willison은 에이전트를 분명히 정의하지 않았다는 지적이 옳다며 해당 절에 문장을
+보탰다고 답했다.[^simonw-define]
+“작동하는 코드를 쓸 수 있는 소프트웨어가 생겼다”는 전제에 대해서는
+AdieuToLogic이 AI 코딩 도구와 연관된 Amazon의 장애 사례를 들어
+반박했다.[^AdieuToLogic]
+Willison은 “작동하는 코드를 만든다”와 “작동하는 코드만 만든다”를 혼동하고
+있다고 답하면서,
+그래서 이 도구로 좋은 코드를 만드는 법에 대한 가이드를 쓰는 것이라고
+덧붙였다.[^simonw-exclusively]
+jbethune은 사람에게 남는 “많은 일”을 한 단어로 줄이면 책임(accountability)이라고
+정리했다.[^jbethune]
 
 ### 코드 작성은 이제 거의 공짜다
 
@@ -201,7 +266,7 @@ LLM은 무상태(stateless)라 매번 백지에서 시작하므로
 새 입력마다 대화 전체를 재생해야 하고 토큰 비용이 누적된다.
 토큰 캐싱이 짧은 시간 내 반복 토큰에 할인을 줘 이 비용을 상쇄한다.
 도구는 하네스가 제공하는 함수로,
-모델이 `<tool>get_weather(“San Francisco”)</tool>` 같은 텍스트로 실행을 요청하면
+모델이 `<tool>get_weather("San Francisco")</tool>` 같은 텍스트로 실행을 요청하면
 하네스가 추출·실행해 결과를 다음 프롬프트로 돌려준다.
 Bash 명령 실행과 Python 코드 실행이 특히 강력한 도구다.
 시스템 프롬프트는 수백 줄에 달하는 숨겨진 초기 지시로,
@@ -317,7 +382,7 @@ Build using red/green TDD.
 에이전트의 수동 테스트는 서버 크래시나 사라진 UI 요소처럼 자동 테스트가 놓치는 문제를 드러낸다.
 
 언어·프레임워크별 접근이 다르다.
-Python 라이브러리는 `python -c “... 코드 ...”`로 인터프리터에 코드를 직접 넘겨
+Python 라이브러리는 `python -c "... 코드 ..."`로 인터프리터에 코드를 직접 넘겨
 영구 파일을 만들지 않고 엣지 케이스를 시험한다.
 일반적으로는 `/tmp`에 데모 코드를 써서 실수로 저장소에 커밋되는 것을 막는다.
 JSON을 다루는 웹 API는 `curl`로 엔드포인트를 두드리며, 에이전트에 “탐색(explore)”을 지시해 커버리지를 넓힌다.
@@ -696,12 +761,51 @@ TDD 워크플로우에서는 에이전트가 파일을 읽거나 검토된 diff�
 ---
 
 [^slaye]: <https://news.ycombinator.com/item?id=47248610>
+
 [^mohsen1]: <https://news.ycombinator.com/item?id=47244282>
+
 [^storus]: <https://news.ycombinator.com/item?id=47247012>
+
 [^jihadjihad]: <https://news.ycombinator.com/item?id=47248086>
+
 [^gaigalas]: <https://news.ycombinator.com/item?id=47245337>
+
 [^yieldcrv]: <https://news.ycombinator.com/item?id=47245320>
+
 [^winwang]: <https://news.ycombinator.com/item?id=47244948>
+
 [^bluemario]: <https://news.ycombinator.com/item?id=47252610>
+
 [^alexcalderai]: <https://news.ycombinator.com/item?id=47261405>
+
 [^mw-lobsters]: <https://lobste.rs/s/rqvdts/agentic_engineering_patterns#t44u64>
+
+[^zx8080]: <https://news.ycombinator.com/item?id=47395495>
+
+[^simonw-borderline]: <https://news.ycombinator.com/item?id=47395525>
+
+[^simonw-vibe]: <https://news.ycombinator.com/item?id=47395421>
+
+[^maxbond]: <https://news.ycombinator.com/item?id=47394422>
+
+[^simonw-subfield]: <https://news.ycombinator.com/item?id=47394650>
+
+[^neonbrain]: <https://news.ycombinator.com/item?id=47394492>
+
+[^simonw-ronacher]: <https://news.ycombinator.com/item?id=47394582>
+
+[^simonw-glm5]: <https://news.ycombinator.com/item?id=47394603>
+
+[^sigseg1v]: <https://news.ycombinator.com/item?id=47396629>
+
+[^imtringued]: <https://news.ycombinator.com/item?id=47409583>
+
+[^simonw-impressive]: <https://news.ycombinator.com/item?id=47411742>
+
+[^simonw-define]: <https://news.ycombinator.com/item?id=47395419>
+
+[^AdieuToLogic]: <https://news.ycombinator.com/item?id=47394995>
+
+[^simonw-exclusively]: <https://news.ycombinator.com/item?id=47395096>
+
+[^jbethune]: <https://news.ycombinator.com/item?id=47394459>

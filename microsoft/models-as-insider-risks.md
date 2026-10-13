@@ -4,6 +4,10 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=50035193> (7점, 0개 댓글)
 
+HN 토론: <https://news.ycombinator.com/item?id=50049535> (8점, 1개 댓글)
+
+GN 토론: <https://news.hada.io/topic?id=35207>
+
 ## 요약
 
 Microsoft CEO Satya Nadella가 2026년 10월 10일에 올린 Twitter Article이다.
