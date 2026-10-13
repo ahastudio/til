@@ -19,6 +19,8 @@ ARTICLE_LABELS = (
     "GeekNews Article",
 )
 DISCUSSION_ORDER = ("HN", "Lobste.rs", "GN")
+# link text: any character but `]`, or a backslash-escaped one
+LINK_TEXT = r"(?:[^\]\\]|\\.)+"
 
 
 def width(s):
@@ -91,12 +93,12 @@ def check_header(lines, issues):
             issues.append(
                 f"{idx + 1}: 레이블 있는 출처 줄이 맨 URL — [제목](URL) 형태여야 함"
             )
-        elif not re.match(r"^\[[^\]]+\]\(https?://[^)]+\)$", body):
+        elif not re.match(r"^\[%s\]\(https?://[^)]+\)$" % LINK_TEXT, body):
             issues.append(f"{idx + 1}: 출처 줄이 `레이블: [제목](URL)` 형태가 아님")
-        # one document may cover a multi-part source: same label, one per line
-        label = labeled.group(1)
+        # one document may cover several sources, one labeled line each
         while idx + 2 < len(lines) and re.match(
-            r"^%s: \[[^\]]+\]\(https?://[^)]+\)$" % re.escape(label),
+            r"^(%s): \[%s\]\(https?://[^)]+\)$"
+            % ("|".join(ARTICLE_LABELS), LINK_TEXT),
             lines[idx + 2].strip(),
         ):
             if lines[idx + 1].strip():

@@ -145,6 +145,68 @@ in that block.
 [^second]: <https://example.com/2>
 ```
 
+## Source Footnotes in Researched Documents (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**When a document is assembled from collected material — web searches,
+several articles, reports, official pages — every factual claim carries a
+footnote that points to the source it came from.**
+A reference list at the end of the document is not a substitute.
+A list says what was read; only a footnote says which source supports which
+sentence, and that is what a reader needs in order to check a number.
+
+Why this is a defect and not a style choice: a researched document is only
+as trustworthy as the reader's ability to trace each claim. When sources
+disagree — and in researched topics they routinely do — an unattributed
+number cannot be weighed against its rivals, and an error cannot be traced
+back to where it entered.
+
+Rules:
+
+- Every number, date, name, quotation, and specific factual claim that came
+  from a source gets a footnote reference right after it, in the same
+  sentence or table cell.
+- The footnote points to the page the claim was actually read from.
+  If the claim was read in a secondary report that cites a primary source,
+  footnote the page that was read, and name the primary source in the prose.
+  Never footnote a primary source you did not open.
+- A quotation is footnoted to the page where the quoted words appear.
+- One footnote label per source page, reused wherever that page supports a
+  claim. Choose a short, readable label that identifies the source.
+- A table that compiles figures from several sources carries a footnote in
+  each row or cell, not one note for the whole table.
+- The document's own analysis, comparison, and judgment are not footnoted;
+  the facts they rest on are.
+- Every footnote definition carries the publisher, the source's own title
+  as a link, and the source's publication date. A bare URL is not enough:
+  the reader must be able to tell what the source is and how current it is
+  without opening it.
+
+  ```markdown
+  [^label]: <매체>, [<원문 제목>](<URL>), <YYYY-MM-DD>
+  ```
+
+  The title is copied as the source presents it, untranslated. The date is
+  the publication date read from the page itself (its byline, metadata, or
+  URL), never a guess and never the date it was read. If a page shows no
+  publication date, say so in the definition rather than leaving the field
+  out silently.
+- Footnote definitions follow `## Footnote Spacing` and sit at the end of
+  the document after a `---` rule.
+- This format is for researched sources. Footnotes that cite a community
+  comment (Hacker News, Lobste.rs, GeekNews) keep the bare `<URL>` form
+  their skills specify.
+- A separate reference-list section is not added on top of the footnotes.
+- Claims that could not be confirmed are stated as such in the text, never
+  footnoted to a source that does not actually say them.
+
+**Mandatory check before finishing a researched document:**
+
+1. Scan every paragraph, table row, and list item for numbers, dates, names,
+   and quotations.
+2. For each one, confirm a footnote reference sits next to it.
+3. For each footnote, confirm the page it points to was actually read and
+   says what the sentence claims.
+
 ## Inline Code Formatting
 
 Wrap code-like tokens in backticks for readability. This applies to

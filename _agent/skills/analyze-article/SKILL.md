@@ -65,6 +65,9 @@ thin summary — numbers, names, and quoted phrasing must come from the actual
 text. For sources WebFetch cannot handle, see step 4a and
 `_agent/rules/web-fetching.md`.
 
+For a YouTube URL (`youtube.com`, `youtu.be`), skip WebFetch entirely and go
+straight to `yt-dlp` as described in step 4a. WebFetch returns only the title.
+
 ### 2. Check for duplicates
 
 Check in this order, and do all three before concluding anything:
@@ -211,14 +214,14 @@ identifies them.
 Some sources need a fetch strategy or a link form of their own. Handle these
 explicitly rather than improvising.
 
-| Source type        | Fetch method                             | Source line                        |
-| ------------------ | ---------------------------------------- | ---------------------------------- |
-| Twitter            | Claude in Chrome (see `web-fetching.md`) | `트윗: [<제목 또는 첫 문장>](URL)` |
-| YouTube            | Transcript or description via WebFetch   | `영상: [<영상 제목>](URL)`         |
-| Paper (PDF/arXiv)  | WebFetch, or Read the PDF                | `논문: [<논문 제목>](URL)`         |
-| Press release      | WebFetch                                 | `원문: [<제목>](URL)`              |
-| Forum post (GN/HN) | WebFetch, or the site's JSON API         | `Ask GN: [<제목>](URL)` 등         |
-| GeekNews Article   | WebFetch, or curl the article page       | `GeekNews Article: [<제목>](URL)`  |
+| Source type        | Fetch method                              | Source line                        |
+| ------------------ | ----------------------------------------- | ---------------------------------- |
+| Twitter            | Claude in Chrome (see `web-fetching.md`)  | `트윗: [<제목 또는 첫 문장>](URL)` |
+| YouTube            | `yt-dlp` info JSON + captions (see below) | `영상: [<영상 제목>](URL)`         |
+| Paper (PDF/arXiv)  | WebFetch, or Read the PDF                 | `논문: [<논문 제목>](URL)`         |
+| Press release      | WebFetch                                  | `원문: [<제목>](URL)`              |
+| Forum post (GN/HN) | WebFetch, or the site's JSON API          | `Ask GN: [<제목>](URL)` 등         |
+| GeekNews Article   | WebFetch, or curl the article page        | `GeekNews Article: [<제목>](URL)`  |
 
 A `Show GN` / `Ask GN` / `Show HN` / `Ask HN` thread is written as a
 titled link labeled with the thread's own prefix: `Show GN: [<제목>](URL)`.
@@ -253,6 +256,55 @@ that contains query-string data is replaced wholesale with
 For YouTube, the first section is `## 요약` only if the video advances an
 argument (a talk, an essay video). For a demo or a walkthrough, choose a
 heading that fits — e.g. `## 내용`, `## 데모`.
+
+#### YouTube: fetch with `yt-dlp`, never with WebFetch
+
+**WebFetch cannot read a YouTube video.** It returns the page title and the
+site footer, with no description, no chapters and no transcript (verified
+October 2026). A document written from that is written from the title alone,
+which step 4a forbids. Use `yt-dlp` instead. YouTube extraction needs a
+JavaScript runtime (Deno) installed; see `cli/yt-dlp.md`.
+
+Fetch in two calls, into a scratch directory, never into the repository:
+
+```bash
+D=<scratchpad>/yt-<video-id>
+mkdir -p "$D"
+
+# 1. metadata: title, channel, upload date, duration, description, chapters,
+#    and the spoken language (`language`) plus which caption tracks exist
+yt-dlp --skip-download --write-info-json -o "$D/v.%(ext)s" "<URL>"
+
+# 2. one caption track, in the spoken language
+yt-dlp --skip-download --write-auto-subs --write-subs \
+  --sub-langs "<lang>-orig" --sub-format vtt --sleep-subtitles 5 \
+  -o "$D/v.%(ext)s" "<URL>"
+```
+
+Rules for what comes back:
+
+- **The source line uses `title` from the info JSON, verbatim**, including
+  prefixes like `[한글자막]`.
+- **Read the spoken-language track, not a translation.** Pick `<lang>` from
+  the info JSON `language` field (`en-US` → `en`). The `-orig` auto track is
+  speech recognition in that language; other language tracks are machine
+  translations of it. Quote and paraphrase from the original-language track.
+- **Request one track per call.** Asking for several languages at once is the
+  usual way to hit `HTTP Error 429: Too Many Requests` on captions. On a 429,
+  wait, then retry a single track once with `--sleep-subtitles`. Do not loop.
+- **Auto captions repeat and misspell.** Rolling captions emit each line
+  several times; de-duplicate and group by minute so you can cite timestamps.
+  Speech recognition mangles proper nouns (handles, product names, company
+  names). Check every name against the description, the chapters, the
+  uploader's links, or another source before writing it. Never copy a name
+  from the transcript unverified.
+- **A re-upload is not the speaker's own channel.** Translation channels
+  (`[한글자막]` and the like) re-post someone else's talk. Name the speaker,
+  not the uploader, as the author, and follow the description's links to find
+  the original post or event. The source line still links the URL the user
+  gave.
+- **No caption track at all** means the source cannot be read as text. STOP
+  and report it; do not transcribe the audio unless the user asks for that.
 
 If the source cannot be fetched at all, STOP and tell the user which URL
 failed and what was tried. Never write a document from the title alone or
