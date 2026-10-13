@@ -4,6 +4,10 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=49135365> (87점, 134개 댓글)
 
+Lobste.rs 토론: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement> (62점, 72개 댓글)
+
+GN 토론: <https://news.hada.io/topic?id=32104>
+
 ## 요약
 
 Lalit Maganti가 2026년 8월 1일에 쓴 글이다.
@@ -12,6 +16,9 @@ Lalit Maganti가 2026년 8월 1일에 쓴 글이다.
 저자는 그 결정 자체는 놀랍지 않다고 말한다.
 Codeberg는 언제나 중립적 인프라가 아니라 미션 중심의 GitHub 대안임을 표방해
 왔기 때문이다.
+저자는 각주에서 Codeberg 정관의 영문 번역을 인용하는데,
+단체의 목적에 자유 콘텐츠와 자유 소프트웨어를 둘러싼 사회적·철학적 질문에 대한
+인식을 높이는 일이 들어 있다.
 저자가 흥미롭게 본 것은 결정이 아니라 반응이었다 — 많은 사람이 몇 안 되는 그럴듯한
 GitHub 대체재 하나가 자기 프로젝트를 배제한 것처럼 실망했다는 점이다.
 
@@ -67,10 +74,14 @@ SourceHut은 집중되어 있고 투명하며 Codeberg처럼 가치 지향적이
 Forgejo의 페더레이션은 자체 호스팅 인스턴스를 하나의 네트워크로 잇겠다는 유망한
 시도지만 오랫동안 개발 중이고 여전히 실험 단계이며 모더레이션과 접근 제어가 아직
 없다.
+Forgejo 스스로도 호환성을 깨는 변경이 있을 것이라고 예고해 둔 상태다.
 Radicle은 저장소를 P2P로 복제하고 이슈와 패치를 함께 저장하는 기술적으로 흥미로운
 프로젝트지만, 웹 인터페이스가 읽기 전용이라 기여하려면 CLI나 데스크톱 앱을 설치해야
 한다 — 버그를 만난 사람이 신고하려고 포지 소프트웨어를 설치해야 해서는 안 된다는
 것이 저자의 지적이다.
+각주에 따르면 릴리스와 패키지 레지스트리 기능도 없고,
+CI는 커뮤니티 프로젝트로 가능하지만 공식 기능도 아니고 긴밀하게 통합되어 있지도
+않다.
 저자가 가장 관심 있는 것은 Tangled인데, 홈페이지가 옛 GitHub처럼 흥미로운 프로젝트를
 바로 보여주는 등 코드 주변의 사회적 경험에 집중한다는 점이 마음에 들지만 아직
 알파 단계다.
@@ -173,6 +184,11 @@ GitHub는 생성 쪽에 투자해 리뷰 병목을 키웠고, Codeberg는 유입
 저자가 스택 PR을 굳이 언급한 것은 이 지점을 겨냥한 것으로 읽힌다 — 큰 변경을 검토
 가능한 단위로 쪼개는 기능은 정확히 리뷰 병목을 푸는 도구인데, GitHub에서는 10년
 넘게 없다가 이제야 버그투성이로 등장했다.
+다만 HN의 한 댓글은 저자가 빠뜨린 사실을 덧붙였다.
+경쟁자들은 그보다 더 늦다는 것이다.
+GitLab에는 스택 PR이 없고 Forgejo는 계획조차 없으며,
+지원하는 포지는 Phabricator/Phorge와 Tangled 정도라는 지적이다.[^IshKebab]
+리뷰 병목이라는 기준으로 재면 GitHub는 뒤처진 선두일 뿐 꼴찌가 아니다.
 
 AI가 아니었다면 이 글은 쓰이지 않았을 것이다.
 GitHub의 느림과 발견 기능 퇴화는 몇 년째 있던 일이고, 대안들의 사회적 계층 부재도
@@ -194,6 +210,9 @@ bunny.net 같은 의도적으로 지루한 회사, 개발자와 소규모 조직
 그리고 각주에 Bitbucket을 명시적 반례로 달아 둔다 — 평범한 상업 포지였지만 GitHub에
 비견할 오픈소스 커뮤니티로 자라지 못했다.
 저자가 반례를 알면서도 제안을 유지하는 이유는 명확하지 않다.
+Lobste.rs에서는 이 대목을 인용하며 한숨부터 쉰 댓글이 있었다.
+그런 회사는 결국 망하거나, 크게 성공해서 제품이 망가지는 길을 걷고,
+그러면 같은 순환이 다시 시작된다는 것이다.[^sjamaan]
 
 가장 그럴듯한 독해는, 이것이 해법 제시가 아니라 문제의 난이도를 보여주는 장치라는
 것이다.
@@ -265,6 +284,53 @@ Ghostty는 지났다고 판단했고 실제로 옮기는 중이다.
 글은 Ghostty를 GitHub 문제의 증거로만 쓰고, Ghostty가 그럼에도 옮길 수 있었다는
 사실 — 즉 임계점이 존재한다는 사실 — 은 활용하지 않는다.
 
+### 글은 가장 무거운 락인인 무료 CI를 빠뜨린다
+
+저자가 세운 대체재의 조건은 정체성, 관행, 발견이라는 사회적 항목뿐이다.
+그런데 두 커뮤니티의 반응에서 가장 자주 나온 이탈 장벽은 사회적인 것이 아니었다.
+Lobste.rs에서 가장 높은 점수를 받은 댓글 중 하나는 GitHub의 진짜 핵심 기능이
+오픈소스에 기부하는 넉넉한 무료 CI 시간이라고 했다.[^ChrisDenton]
+Linux만이 아니라 macOS와 Windows 호스트까지 포함되며,
+그 기능이 비슷한 서비스를 하던 경쟁자들을 실제로 죽였다는 것이다.
+떠나면 다시 돈을 내는 법을 배워야 한다.
+HN에서도 같은 계산이 나왔다.
+Microsoft가 무료 CI 러너에 연간 1억 달러가량을 쓰고,
+GitHub 저장소의 대다수인 1인 프로젝트는 자체 러너를 세울 리 없으므로
+GitHub가 훨씬 더 나빠져야 사람들이 이것을 포기할 것이라는 주장이다.[^IshKebab]
+
+matklad는 이 역사 서술을 바로잡았다.[^matklad]
+GitHub 이전에도 오픈소스 저장소마다 Travis CI와 AppVeyor 설정 파일이 있었고
+둘 다 무료였으므로, GitHub Actions가 푼 문제는 무료 CI가 아니라
+단일 제공자의 크로스 플랫폼 CI였다는 것이다.
+두 파일을 하나로 합치고 나중에 macOS까지 더한 것인데,
+대체 CI 시스템 가운데 이 크로스 OS 영역을 다루는 곳이 거의 없다는 점이
+의아하다고 했다.
+yorickpeterse가 그 이유를 비용으로 설명했다.[^yorickpeterse]
+Linux나 FreeBSD 러너는 싸지만,
+macOS 러너는 서버에 적대적인 Apple의 라이선스 때문에
+비용과 운영 복잡도가 치솟는다.
+macOS 러너를 제공하는 CI 서비스 대부분은 사실상 손해를 보며
+다른 상품으로 메우고 있을 것이라는 추정이다.
+
+이 반론들은 저자의 진단을 뒤집지는 않지만 범위를 바꾼다.
+사회적 계층은 규모가 쌓여야 생기는 자산이고, 무료 macOS 러너는 Apple 하드웨어와
+Microsoft의 보조금이 있어야 생기는 자산이다.
+저자가 상상한 지루한 회사는 앞의 것을 기다리며 버틸 수는 있어도,
+뒤의 것은 매출로 감당할 수 없다.
+가장 큰 장벽이 사회적 계층이 아니라 원가 구조일 수 있다는 가능성을
+글은 다루지 않는다.
+
+해법의 방향을 다르게 잡은 댓글도 있었다.
+포지와 CI를 같은 제공자가 맡을 이유가 없고,
+Git을 뿌리째 옮기지 않고도 CI만 바꿀 수 있는 경쟁 시장이 생기면 무료 CI의 시대는
+끝나더라도 진짜 시장은 생긴다는 것이다.[^gspr]
+처음에는 원래 그렇게 시작했고 GitHub가 수직 통합으로 시장을 가져갔다는 답글이
+붙었다.[^jnb]
+Trac에서 GitHub로 옮긴 경험을 쓴 사람은 스팸 문제와 함께 CI를 글의 누락으로
+꼽았다.[^vbernat]
+저자는 대체재를 하나의 포지로 상상하지만,
+CI를 떼어 내면 GitHub에 남는 독점력은 생각보다 작아질 수 있다.
+
 ### 미션 중심 플랫폼에 대한 기각이 논점을 회피한다
 
 저자는 Codeberg와 SourceHut을 “가치 지향적”이라는 이유로 보편적 대안이 될 수 없다고
@@ -294,6 +360,24 @@ GitHub는 같은 종류의 결정을 약관 개정과 알고리즘 조정으로 
 글이 “또 하나의 중앙집중 플랫폼일 필요는 없다”고 한 줄 적어두고도 나머지 전체에서
 단일 대체재를 찾는 것은 이 전제가 얼마나 강한지를 보여준다.
 
+Lobste.rs 최상위 댓글이 이 전제를 정면으로 겨눴다.[^technomancy]
+GitHub에 대체재가 없는 이유는
+세상의 모든 소스 코드를 한 웹사이트에 둔다는 발상이
+처음부터 근본적으로 끔찍한 생각이었기 때문이라는 것이다.
+같은 논리로 Google과 Twitter에도 대체재가 없다고 덧붙였다.
+답글들은 발견 문제를 포지와 떼어 내는 길을 제시했다.
+freshmeat.net 같은 옵트인 디렉터리가 단일 포지로의 집중 없이도 발견 문제를 풀 수
+있다는 제안이었는데,
+제안한 사람 스스로 그런 디렉터리는 추진력을 얻기 전까지 가치가 생기지 않으며
+그 사회적 문제가 어려운 부분이라고 인정했다.[^hoistbypetard]
+다른 답글은 비기업 프로젝트 상당수가
+이미 Forgejo 인스턴스나 Codeberg, SourceHut으로 옮겨서
+탈중앙화는 이미 일어났고,
+이제 필요한 것은 여러 사이트의 프로젝트를 찾아 보여주는 큐레이션 사이트이며
+그것은 호스팅과 별개의 과제라고 정리했다.[^robey]
+AI 시대에 그런 디렉터리는 모더레이션 부담 때문에 성립하기 어렵다는 반론도
+달렸다.[^tobin_baker]
+
 ### 자체 호스팅 기각의 근거가 저자 개인의 표본에 머문다
 
 자체 호스팅 섹션은 글에서 가장 개인적인 부분이다.
@@ -307,6 +391,17 @@ Linux 커널, Git 자체, Postgres, Debian, GNOME, KDE는 모두 GitHub 바깥�
 저자는 SourceHut을 논하며 이메일 워크플로가 “Linux 커널 같은 프로젝트에서 검증되었다”고
 인정하는데, 그 인정이 자체 호스팅 기각과 충돌한다는 점은 다루지 않는다.
 검증되었지만 낯설다는 것은 채택 장벽이지 실패 증거가 아니다.
+
+SourceHut에 대한 저자의 서술 자체가 부정확하다는 지적도
+Lobste.rs에서 나왔다.[^PuercoPop]
+이메일이 기본 경로인 것은 맞지만 SourceHut은 웹 UI로도 변경을 제출할 수 있다.
+자기 저장소에 브랜치를 푸시한 뒤 브라우저에서 패치셋 준비를 누르고,
+커밋을 고르고 PR의 제목과 본문에 해당하는 커버 레터를 쓰면 된다.
+다만 리뷰 댓글은 여전히 텍스트 이메일로 보내야 하고,
+변경을 적용하는 것도 `hut` CLI나 `git am`으로 해야 한다.
+웹 UI에서는 아직 리뷰 댓글을 남길 수 없다는 답글도 달렸다.[^singpolyma]
+기여자가 처음 내딛는 한 걸음은 저자가 묘사한 것보다 가볍고,
+무거운 쪽은 메인테이너의 리뷰 흐름이다.
 
 더 흥미로운 반례는 규모의 방향이다.
 저자의 논리대로라면 큰 프로젝트일수록 GitHub가 더 필요해야 하는데, 실제로는 반대다.
@@ -385,6 +480,31 @@ CI, 웹에서의 발견 가능성, 그리고 이슈 신고가 끊기지 않도�
 그 기준으로 보면 Radicle과 Tangled가 미래에 가깝지만, Tangled는 비공개 저장소
 지원이, Radicle은 제대로 된 CI가 필요하고 둘 다 그리 멀지는 않았다는 평가다.[^oooyay]
 
+그런데 저자가 가장 기대를 건 Tangled에 대해서는 이 기준 자체가 흔들린다.
+HN에서는 Tangled이 벤처 투자를 받은 회사라는 이유로 피하라는 댓글이
+나왔다.[^colesantiago]
+Lobste.rs에서는 Tangled이 Bluesky 프로토콜 위에 있어서 영원히 벤처 자본의 뜻에
+매여 있을 것이라는 댓글이 많은 지지를 받았다.[^m_eiman]
+반론도 곧바로 붙었다.
+ATProto에는 이미 여러 서드파티 구현이 있고,
+Bluesky 인프라에 강하게 의존하는 것은 PLC 디렉터리 하나뿐인데 그마저 유럽의
+비영리 단체로 관리가 넘어가는 중이라는 것이다.[^ngp]
+그러자 걱정할 곳은 Bluesky가 아니라 Tangled 자체이며 Tangled도 벤처 자금이라는
+재반론이 나왔다.[^lilac]
+
+HN의 jeremyjh는 이 논쟁을 이 절의 주제로 되돌려 놓았다.[^jeremyjh-tangled]
+자기 PDS와 knot을 직접 호스팅할 수는 있지만,
+tangled.org가 가치관이 맞지 않는다고 판단해 색인을 멈추면
+Tangled 사용자가 보는 유일한 곳에서 내 작업은 아무에게도 보이지 않는다는 것이다.
+ATProto는 데이터 주권을 가능하게 하지만,
+이 용도에서는 모두가 옮겨 가는 다음 장소로 연결과 이력을 가져갈 수 있게 해줄
+뿐이라고 했다.
+이 지적은 데이터를 옮길 수 있느냐보다
+상대방이 어디서 나를 보느냐가 락인의 핵심이라는
+이 절의 주장과 정확히 맞물린다.
+정체성을 이식 가능하게 만들어도 발견을 쥔 색인이 하나뿐이면 락인은 그 색인으로
+옮겨 갈 뿐이다.
+
 ### 발견 기능의 소멸은 GitHub가 소셜 네트워크이기를 포기한 결과이고, 그 선택에는 이유가 있었다
 
 저자는 GitHub 피드 재설계를 지나가듯 언급한다 — 팔로우하는 사람이 별을 준 프로젝트로
@@ -414,6 +534,10 @@ Tangled 홈페이지가 흥미로운 프로젝트를 바로 보여주는 것은 
 하나 있다 — 모더레이션 비용이다.
 Forgejo의 페더레이션이 실험 단계에 머무는 이유로 저자가 인용한 것도 정확히
 “모더레이션과 접근 제어가 아직 개발되지 않았다”였다.
+HN에서 Forgejo가 페더레이션된 별 기능까지 실험적으로 개발 중이라는
+댓글이 달리자,
+3년이 지나도록 나온 것은 그 별 기능 정도이고 Codeberg는 여전히 다른 인스턴스와
+실제로 페더레이션하지 못한다는 답글이 붙었다.[^jeremyjh-forgejo]
 발견과 모더레이션은 같은 문제의 두 얼굴이고, 이것을 감당할 수 있는 조직 형태는
 자원봉사 커뮤니티도, 매출 규모에 맞춰 성장하는 지루한 회사도 아니기 쉽다.
 저자가 상상한 bunny.net 모델이 막히는 지점은 콜드 스타트가 아니라 오히려 성공
@@ -426,6 +550,19 @@ Codeberg의 결정은 콘텐츠 정책처럼 보이지만 실행 관점에서 �
 하는데, 신뢰할 수 있는 판별기는 존재하지 않는다.
 결국 이 정책은 자기 신고와 신고 접수, 그리고 사람의 재량으로 집행된다.
 즉 코드가 아니라 사람에 대한 판단으로 귀결된다.
+
+HN의 simonreiff는 이 재량이 실제로 어떻게 느껴지는지를
+자기 사례로 보여줬다.[^simonreiff]
+손으로 쓴 JS 코드베이스를 AI 도움을 받아 .NET/C#로 옮기면서 모든 줄을 직접
+검토하고 승인하고 있는데,
+완성되면 그 코드는 Codeberg 약관이 말하는 “대부분” AI 생성 코드가 된다는 것이다.
+약관의 “대부분”은 정의가 불분명하고,
+Codeberg가 자기 사례를 일관되게 해석해 줄 것이라고 믿을 근거도 없다고 했다.
+Lobste.rs에서도 같은 스펙트럼이 그려졌다.
+LLM이 코드 대부분을 썼어도 코드를 읽지 않는 바이브 코딩이 아닐 수 있다는
+것이다.[^pie_flavor]
+판별이 불가능한 정책은 기준이 아니라 재량으로 남고,
+재량은 결국 누가 그 프로젝트를 올렸느냐를 보게 된다.
 
 이 귀결은 Codeberg에 국한되지 않는다.
 에이전트가 PR을 무제한으로 생성할 수 있게 되면 모든 포지가 같은 질문에 부딪힌다 —
@@ -514,3 +651,47 @@ audit)”라는 것이다.[^merelydev]
 [^oooyay]: <https://news.ycombinator.com/item?id=49136113>
 
 [^merelydev]: <https://news.ycombinator.com/item?id=49136172>
+
+[^IshKebab]: <https://news.ycombinator.com/item?id=49136647>
+
+[^colesantiago]: <https://news.ycombinator.com/item?id=49135606>
+
+[^jeremyjh-tangled]: <https://news.ycombinator.com/item?id=49223052>
+
+[^jeremyjh-forgejo]: <https://news.ycombinator.com/item?id=49163412>
+
+[^simonreiff]: <https://news.ycombinator.com/item?id=49136068>
+
+[^sjamaan]: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement#c_lvpjgs>
+
+[^ChrisDenton]: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement#c_w4etb0>
+
+[^matklad]: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement#c_jq8f0n>
+
+[^yorickpeterse]: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement#c_f9blud>
+
+[^gspr]: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement#c_9svih2>
+
+[^jnb]: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement#c_xuhtkv>
+
+[^vbernat]: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement#c_gs7rwq>
+
+[^technomancy]: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement#c_i7t3hy>
+
+[^hoistbypetard]: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement#c_dwpbqp>
+
+[^robey]: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement#c_iylyof>
+
+[^tobin_baker]: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement#c_ctajqr>
+
+[^PuercoPop]: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement#c_shazws>
+
+[^singpolyma]: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement#c_mxnpk0>
+
+[^m_eiman]: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement#c_g972zt>
+
+[^ngp]: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement#c_sglc1u>
+
+[^lilac]: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement#c_irrocf>
+
+[^pie_flavor]: <https://lobste.rs/s/izrwdc/github_has_alternatives_no_replacement#c_nmywbe>
