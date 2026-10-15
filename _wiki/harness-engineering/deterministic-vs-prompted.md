@@ -115,6 +115,9 @@ AST 매칭으로 차단하는 이 도구는, “판단”이 들어갈 자리가
 [하네스란 무엇인가: 정의 논쟁](what-is-a-harness-debate.md) ·
 [하네스는 소모품이다: 유지와 가지치기](harness-as-disposable.md)
 
+관련:
+[AI 시대의 코드 리뷰의 리뷰를 어디로 옮기는가](../ai-era-code-review/shifting-review.md)는 린터·포매터·훅 같은 결정론적 게이트가 코드 리뷰의 어느 부분을 대신하는지 다룬다.
+
 ## 출처
 
 - [agentic-coding/sanglard-agent-md.md](../../agentic-coding/sanglard-agent-md.md)

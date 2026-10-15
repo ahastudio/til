@@ -97,6 +97,9 @@
 · [멀티 에이전트 오케스트레이션 특유의
 실패](../agentic-coding-failure-patterns/multi-agent-orchestration-failures.md)
 
+관련:
+[AI 시대의 코드 리뷰의 AI 리뷰어는 어디까지 하는가](../ai-era-code-review/ai-reviewers.md)는 AI 리뷰 도구의 측정된 성능과 다중 모델 교차 리뷰의 근거와 반론을 정리한다.
+
 ## 출처
 
 - [agentic-coding/learn-harness-engineering-lectures.md](../../agentic-coding/learn-harness-engineering-lectures.md)

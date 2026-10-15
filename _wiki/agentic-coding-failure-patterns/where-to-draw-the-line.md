@@ -106,6 +106,9 @@ Code)”, `intent-debt.md`의 “명시적 지시 없이 변경하지 말아야 
 이것이 이 저장소가 담고 있는, 아직 완결되지 않은 채로 축적되고 있는
 판단 기준이다.
 
+관련:
+[AI 시대의 코드 리뷰의 리뷰를 어디로 옮기는가](../ai-era-code-review/shifting-review.md)는 diff 대신 명세·게이트·표본 검사로 리뷰를 옮기는 처방과 그 반론을 모아 둔다.
+
 ## 출처
 
 - [agentic-coding/agent-responsibly.md](../../agentic-coding/agent-responsibly.md)

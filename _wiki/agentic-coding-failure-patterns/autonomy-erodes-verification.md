@@ -125,6 +125,9 @@ reviewer) 2명, 수정자 1명으로 구성된 태스크 단위를 64개 동시�
 분리 처방을 하네스 설계 쪽에서 더 깊이 다루며, 분리된 구조로도 완전히
 해소되지 않는 무한 후퇴 문제를 짚는다.
 
+관련:
+[AI 시대의 코드 리뷰의 리뷰가 병목이 되다](../ai-era-code-review/bottleneck.md)는 검증 부채를 낳는 리뷰 병목의 실측 데이터와 러버스탬프 승인을 리뷰 쪽에서 정리한다.
+
 ## 출처
 
 - [agentic-coding/verification-debt.md](../../agentic-coding/verification-debt.md)

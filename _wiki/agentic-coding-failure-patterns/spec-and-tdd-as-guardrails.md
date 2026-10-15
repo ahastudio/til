@@ -119,6 +119,9 @@ tasks에 실제로 반영됐는지 별도로 확인해야 하는 문제가 남�
 [어디까지 자율을 주고 어디서 개입해야 하는가](where-to-draw-the-line.md)에서
 다루는 “판단이 상류로 이동한다”는 관찰과 정확히 같은 결이다.
 
+관련:
+[AI 시대의 코드 리뷰의 리뷰를 어디로 옮기는가](../ai-era-code-review/shifting-review.md)는 스펙과 테스트를 코드 리뷰의 대체 수단으로 볼 때의 효과와 한계를 다룬다.
+
 ## 출처
 
 - [agentic-coding/spec-driven-development.md](../../agentic-coding/spec-driven-development.md)
