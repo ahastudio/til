@@ -35,6 +35,10 @@ Claude Code의 일부 기능도 mod로 만들어져 있다.
 공개 저장소 `anthropics/claude-code`의 `mods/` 아래에 있다고 적는다.
 `AGENTS.md` 지원 mod는 이 저장소의 `claude/claude-code-agents-md.md`에, mods로
 이어진 설계 제안 이슈는 `claude/claude-mods-function-hooks.md`에 정리되어 있다.
+mod의 범위, 신뢰 경계,
+실행 위치는 공식 문서를 정리한 [mods 개요](mods-overview.md)에,
+바로 설치해 쓸 수 있는 mod 모음은
+[hamzafer/claude-code-mods](hamzafer-claude-code-mods.md)에 있다.
 
 나는 이 글의 코드와 명령을 직접 실행하지 않았다.
 아래의 출력 예시와 동작 설명은 모두 원문이 보여 주는 것이다.
@@ -620,8 +624,13 @@ managed 설정이나 Team, Enterprise 로그인이 없는 개인 환경에서는
 mod의 승인이 앞선다는 것이며,
 그래서 꼭 막아야 할 명령은 명령 문자열에 기대지 않는 샌드박스 설정에 두는
 편이 맞다고 보았다.
-이 문서 내용은 원문에 없고 나는 공식 문서에서 따로 확인하지 않았지만, 사실이라면
-mod는 권한을 보조하는 장치가 아니라 권한을 뒤집을 수도 있는 층이 된다.
+이 내용은 원문에는 없지만 공식 [mods 개요](mods-overview.md)가 확인해 준다.
+개요는 도구 호출을 승인하는 mod가 `ask` 규칙이 물어볼 호출이나
+사용자의 `PreToolUse` 훅이 막은 호출도 승인할 수 있고,
+`deny` 규칙이 거부한 호출을 승인할 수 있는 경우도 있다고 적는다.
+또 mod는 샌드박스되지 않으며,
+샌드박스를 켜도 mod가 띄운 프로세스는 그 밖에서 돈다.
+즉 mod는 권한을 보조하는 장치가 아니라 권한을 뒤집을 수도 있는 층이다.
 
 ## 함정
 
