@@ -13,6 +13,8 @@ argument-hint: '<topic sentence>'
 disable-model-invocation: true
 ---
 
+# LLM Wiki
+
 Compile a small multi-page wiki under `_wiki/<slug>/` for one topic by
 finding every relevant TIL note across the repository (regardless of which
 folder it lives in), discovering the sub-themes those notes naturally form,
@@ -31,9 +33,8 @@ and synthesizing them into an index page plus linked sub-pages — Karpathy's
   and what doesn't. If the user gives only a short keyword, ask them to
   restate it as a fuller sentence before proceeding.
 - Standing topic sentences already agreed with the user are recorded in
-  `AGENTS.md` under "LLM Wiki Topics". Check there first — reuse an existing
-  entry's exact wording rather than inventing a new phrasing for the same
-  topic.
+  `_wiki/llm-wiki-topics.md`. Check there first — reuse an existing entry's
+  exact wording rather than inventing a new phrasing for the same topic.
 
 ## Core rule: this always re-compiles from scratch
 
@@ -98,6 +99,32 @@ For each candidate file found, judge relevance against the topic sentence —
 not against a loose keyword match. A file that merely mentions a keyword in
 passing is not automatically in scope; a file that substantively informs the
 topic sentence is.
+
+#### Do not scope narrowly (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**Use the whole repository, not the handful of notes that come to mind
+first.** A wiki built from the obvious five or ten files is a summary of
+those files, not a knowledge base for the topic. The value of this skill is
+in connecting notes that live far apart and were never written with the
+topic in mind.
+
+- Never start from a pre-chosen list of "related documents" — not one you
+  proposed earlier in the conversation, and not the files named in the topic
+  sentence. Those are examples of the topic, never its boundary.
+- Search every folder. Notes that inform a topic routinely sit in folders
+  whose names have nothing to do with it (`thinking/`, `management/`,
+  `business/`, `current-affairs/`, `startup/` and the like).
+- Search by the topic's underlying questions and mechanisms, not only by its
+  proper nouns. A note about a different product, industry, or era that
+  shows the same mechanism belongs in scope.
+- Expand outward in rounds: after reading the first set of notes, take the
+  terms, cases, and arguments they raise and search again. Stop only when a
+  new round returns no new relevant notes.
+- A note that informs a single sub-point still counts. Cite it there rather
+  than dropping it because it is not about the whole topic.
+- Report the number of notes cited and the folders they came from. A wiki
+  whose sources come from one or two folders is a warning sign that the
+  search stopped early; search again before finishing.
 
 ### 3. Read and extract
 
@@ -216,6 +243,21 @@ extend it to a full repository-wide sweep of every `_wiki/` directory.**
 Full staleness sweeps of directories unrelated to the current topic sentence
 are out of scope for this skill unless the user explicitly asks for one; do
 not invent that extra work on your own (see "Repository-wide sweeps" below).
+
+## Synthesis Quality
+
+Do not make a wiki page a longer inventory of its source notes.
+For each sub-theme, explain the mechanism connecting its examples and make
+disagreements visible instead of averaging them into a single conclusion.
+
+Keep reported facts, cross-source inferences, and practical judgments
+distinct. A claim about what a source says needs an inline link to that note;
+an inference should identify the facts it depends on; a recommendation
+should name the condition under which it applies.
+
+Where evidence is incomplete, say what is unknown and what observation
+would resolve it. A short page with a clear boundary is more useful than a
+long page whose extra claims cannot be traced or tested.
 
 ### 8. Report
 

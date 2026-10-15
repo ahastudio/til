@@ -108,6 +108,33 @@ writing a bold line as a section opener: STOP and decide the outline instead.
 Always add blank lines before and after headings. This is required for markdown
 linters and improves readability.
 
+## One Table Row Is One Record (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**Never split one cell's content across two table rows.**
+A markdown table has no line continuation.
+A second row with an empty first cell is not a continuation of the row
+above; it is a separate record with a blank key, and it renders as one.
+
+Why this is a defect and not a style choice: it changes what the table
+says. The reader sees a record with no name, and the content of one cell
+is torn into two unrelated cells.
+
+Rules:
+
+- Every row holds one complete record. Each cell holds its whole value on
+  one line, however long the line becomes.
+- Never wrap a cell to fit 80 columns. Tables are exempt from the
+  line-length limit; a long row is correct, a split row is wrong.
+- A row whose key cell is empty is forbidden unless the source data itself
+  has an empty key.
+- If a cell is too long to read comfortably, shorten the wording or move the
+  detail into prose below the table. Never continue it on the next row.
+
+**Mandatory check before finishing ANY `.md` write or edit that contains a
+table:** scan every row for an empty first cell. If one exists and the
+source data does not have an empty key there, merge it into the row above
+before finishing.
+
 ## Table Alignment
 
 When formatting markdown tables with Korean text:
@@ -304,3 +331,25 @@ such as a rule about which URLs to rewrite.
 
 Call it a "트윗" unless the user explicitly says "스레드". Long tweets are still
 tweets.
+
+## Argument and Evidence
+
+An analytical document must make three layers distinguishable:
+
+- **Reported fact:** what the cited material directly says.
+- **Inference:** what follows from those facts, including the assumptions
+  needed to connect them.
+- **Judgment:** what the writer recommends, doubts, or considers important.
+
+Do not let a sourced fact silently carry a broader conclusion. Name the
+bridge between them, and state when it is an assumption rather than a
+verified fact.
+
+When a claim is disputed, address its strongest plausible form. A useful
+critique identifies the evidence that would support the claim, the evidence
+that would weaken it, and the observation that could distinguish between
+competing explanations.
+
+For practical notes, end the reasoning with a decision rule, a sequence of
+actions, or a failure condition the reader can apply. Avoid adding a
+generic summary when the document already states its conclusion.

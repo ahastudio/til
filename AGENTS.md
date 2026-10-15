@@ -411,20 +411,16 @@ does not exist.
 - NEVER conclude that something does not exist. If you cannot find it,
   that is your failure — not proof of absence.
 
-## LLM Wiki Topics
+## Documentation Work
 
-Standing topic sentences for the `/llm-wiki` skill (see
-`.claude/skills/llm-wiki/SKILL.md`). Each entry is the exact sentence to pass
-as the skill's argument. Add new topics here as they come up; keep entries as
-full sentences, not bare keywords.
+When a task changes a document, preserve the distinction between what a
+source reports, what the author infers, and what the document recommends.
+Do not make an interpretation sound like a sourced fact merely by placing
+it beside one.
 
-### 에이전트형 코딩의 실패/함정 패턴
-
-에이전트에게 코드 작성과 의사결정을 맡기는 작업에서 실제로 어떤 종류의
-실패가 반복적으로 보고되는지, 그리고 그 실패가 "에이전트를 잘못 써서"인지
-"구조적으로 피하기 어려운 함정"인지를 구별하고 싶다. 자율성을 높일수록
-검증이 느슨해져서 생기는 사고(프로덕션 사고, 비용 폭주, DB 삭제 같은
-돌이키지 못하는 작업)와, 스펙치/TDD가 에이전트 시대에 어떤 역할을 하는지를
-같이 다루고 싶다. 결국 목표는 "어디까지 자율을 주고 어디서 사람이
-개입해야 하는가"에 대한 이 저장소 노트들의 공통된 판단 기준을 찾는
-것이다.
+For analytical writing, state the strongest version of the central claim,
+then identify what evidence supports it, where that evidence stops, and
+what observation would change the conclusion.
+Prefer a concrete decision or consequence over a generic closing summary.
+When a document is practical rather than argumentative, make its next
+action and its failure conditions explicit instead.
