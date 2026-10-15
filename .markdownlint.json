@@ -3,5 +3,10 @@
   "MD024": {
     "siblings_only": true
   },
-  "MD060": false
+  "MD060": false,
+  "MD010": {
+    "ignore_code_languages": [
+      "go"
+    ]
+  }
 }
