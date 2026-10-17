@@ -388,3 +388,55 @@ competing explanations.
 For practical notes, end the reasoning with a decision rule, a sequence of
 actions, or a failure condition the reader can apply. Avoid adding a
 generic summary when the document already states its conclusion.
+
+## Terminology (ABSOLUTE PRIORITY — NO EXCEPTIONS — ZERO TOLERANCE)
+
+**Every technical term must be its standard, full, established name.
+Clipped, coined, slangy, or loosely translated terms are forbidden in every
+document, every heading, every table cell, every footnote, and every chat
+message. There is no "it is understandable" exception.**
+
+Root cause of repeated failures: a term was picked because it was quick to
+write or sounded close enough, not because it is what the field calls the
+thing. The reader pays for that every time: they stop to decode it, they
+doubt the writer, and sometimes the sentence now says something else. A
+sloppy term in one place poisons trust in the rest of the document.
+
+Forbidden, without exception:
+
+- **Clipped forms** that people say aloud but the field does not write: a
+  half-word cut from a longer standard name. Write the whole name.
+- **Coined words and ad-hoc shorthand** invented for the document. If the
+  field has no settled word, describe the concept in a plain phrase and use
+  that same phrase every time.
+- **Word-for-word translation** of a technical word. A term that is settled
+  in English stays in English. A term that has a settled Korean form uses
+  that form. Never pick a Korean word only because a dictionary lists it.
+- **Near-synonyms that shift the meaning.** Two words that are loosely
+  related are different terms. Use the one that matches the concept.
+- **Mixing names for one thing.** One concept gets one term for the whole
+  document, headings and footnotes included.
+- **Overriding the user's term.** When the user names, corrects, or
+  rejects a term, that choice is final for the rest of the conversation and
+  for every later document. Apply it everywhere it appears, including
+  quotations of code or plans that you reproduce, unless the user says
+  otherwise.
+- **Unexplained abbreviations.** Write the full name at first use. Never
+  invent an abbreviation.
+
+Process, not intention:
+
+1. Before writing a term, ask: is this the name the field writes in its
+   documentation? If you are not sure, look it up in the repository's own
+   notes or the primary source before using it.
+2. When the user corrects one term, search the whole document, and every
+   other file you touched this session, for every variant of it. Fix all of
+   them in the same edit. Fixing only the sentence the user pointed at is a
+   violation.
+3. Do not wait to be told twice. A term the user has rejected once must
+   never reappear.
+
+**Mandatory check before finishing ANY `.md` write or edit, and before
+sending ANY chat message:** list every technical noun and verb you used,
+and confirm each is the standard full name. Replace each failure now. This
+check runs every time, including for short edits and short replies.
