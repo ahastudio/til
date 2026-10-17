@@ -26,6 +26,9 @@ Amazon Web Services의 Strands 팀이 만들며 라이선스는 Apache
 홈페이지는 이 SDK를 “운영용 AI 에이전트를 위한 오픈소스 도구 모음”으로 소개하며,
 하네스와 SDK 외에 에이전트 샌드박스 Box, 에이전트용 가상 셸 Shell,
 평가 SDK, 실험 프로젝트 Labs를 함께 보여 준다.[^home]
+Box는 OS 수준의 격리에 Dogwood 정책을 더한 샌드박스로 소개된다.[^home]
+홈페이지의 최근 소식은 Strands Decider에 에이전트 판단용
+Gemma 4 모델 네 개가 추가되었다는 것이다.[^home]
 홈페이지가 내세우는 GitHub 스타 14,800개 이상은 이 저장소 하나의 수치보다 커서,
 여러 저장소를 합친 값으로 보인다.[^home]
 하네스 출시 때 HN의 crossroadsguy도 가장 많은 스타를 받은 SDK
