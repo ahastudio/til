@@ -56,6 +56,22 @@ EOF
   git commit -F "$COMMIT_MESSAGE_FILE"
 }
 
+# sandbox.md에는 각주를 두지 않는다. 모델이 규칙 파일을 따라 각주를
+# 붙여도 여기서 결정적으로 제거한다.
+strip_footnotes() {
+  if ! grep -qE '\[\^[^]]+\]' "$SANDBOX_FILE"; then
+    return
+  fi
+
+  echo "warning: 각주가 있어서 제거합니다." >&2
+  perl -0pi -e '
+    s/^---\n\n(?=\[\^[^\]]+\]:)//mg;
+    s/^\[\^[^\]]+\]:[^\n]*\n(?:    [^\n]*\n)*\n?//mg;
+    s/\[\^[^\]]+\]//g;
+    s/\n{3,}/\n\n/g;
+  ' "$SANDBOX_FILE"
+}
+
 add_today_section() {
   local existing_urls new_urls duplicated
 
@@ -68,6 +84,10 @@ add_today_section() {
   run_codex "
 이 저장소의 규칙 파일은 '_agent/rules/' 에 있다. '.agent/' 가 아니다.
 마크다운 작성 규칙은 '_agent/rules/writing-guidelines.md' 를 읽고 따른다.
+단, 그 규칙의 출처 각주(footnote) 규정은 ${SANDBOX_FILE}에 적용하지 않는다.
+${SANDBOX_FILE}에는 각주 참조('[^id]')도, 각주 정의('[^id]: ...')도,
+각주 앞의 '---' 구분선도 절대 쓰지 마.
+출처는 각 항목의 '- **출처**' 줄에 적는 URL이 전부다.
 
 다음 소스에서 최근 48시간 이내에 올라온 개발자 트렌드 주제 10개를 찾아줘:
 - Hacker News (top/new)
@@ -121,6 +141,8 @@ ${SANDBOX_FILE} 파일 맨 끝에 아래 형식의 h2 섹션을 새로 추가해
     echo "warning: ${TODAY} 섹션이 추가되지 않았습니다." >&2
     return
   fi
+
+  strip_footnotes
 
   if awk -v header="## ${TODAY} 개발자 트렌드" '
     index($0, header) == 1 { found = 1; next }
