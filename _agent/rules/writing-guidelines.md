@@ -234,6 +234,41 @@ Rules:
 3. For each footnote, confirm the page it points to was actually read and
    says what the sentence claims.
 
+## Social Posts as a Starting Point (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**When the user brings a social post (a Threads post or thread, a tweet,
+and the like) and asks for a document on its subject, the document is
+built from facts, and the post is reflected only to the extent that it
+can carry a footnote.**
+
+The post is a lead, not the backbone. Root cause of a past failure: the
+post's framing, numbers, and claims drove the structure, and the critique
+section ended up arguing with the post instead of explaining the subject.
+
+Rules:
+
+- Find and read the primary sources the post points to or relies on
+  (original documents, reports, official pages), and build every section
+  from them.
+- The title, sections, and conclusions describe the subject, not the post.
+  Do not organize the document as a claim-by-claim check of the post, and
+  do not write a critique section aimed at the post.
+- Use the post only where it adds something citable: a fact the primary
+  sources lack, a firsthand account, or an interpretation worth noting in
+  a sentence or two. Every such use carries a footnote to the exact post.
+- The post always appears in at least one footnote.
+- When the post disagrees with the sources, state the sourced fact in the
+  body and note the discrepancy briefly, with the post footnoted.
+- Claims from the post that could not be verified are attributed to the
+  person, never stated as fact.
+- In prose, attribute to the person, never to the post. Name the platform
+  and the handle as a user: `Threads 사용자 <handle>는 ...라고 했다`
+  (or `적었다`, `짚었다`). Never call it 게시물, 타래, 글, 작성자, or
+  댓글 in the document, and never write that "the post claims" something.
+  This applies to the author and to repliers alike.
+- Footnote link text is the cited post's own opening words, not a label
+  such as 후속 게시물, 타래 3, or 댓글.
+
 ## Inline Code Formatting
 
 Wrap code-like tokens in backticks for readability. This applies to
