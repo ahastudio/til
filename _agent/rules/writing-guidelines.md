@@ -33,6 +33,41 @@ Sino-Korean verbs are acceptable when they are more natural and precise.
 Foreign-origin `-하다` verbs are only allowed when they are established
 industry-standard terms.
 
+### Collocation Is Part of Correctness (ABSOLUTE PRIORITY — ZERO TOLERANCE)
+
+**A Korean sentence is wrong when its noun and predicate do not belong
+together, even if every word in it is a real word.**
+Root cause of a repeated failure: an English collocation was carried over
+word for word, so the sentence pairs a noun with a verb that Korean writers
+never pair with it. A reader stops at it, and the whole document loses
+credibility. The user treats this as a severe defect, not a style issue.
+
+- Each noun takes the predicate that Korean writing actually uses with it.
+  Abstract nouns such as a definition, a standard, a consensus, or a
+  meaning take the predicates established in Korean prose for that noun,
+  never a physical or sensory verb borrowed from an English idiom.
+- Never render an English idiom or metaphor by its literal words. Find the
+  plain Korean predicate for what it means, or drop the metaphor.
+- If you cannot name a common Korean phrase that uses this exact noun and
+  predicate pair, the pair is suspect. Rewrite it with a plainer predicate.
+- Sentences translated from a source deserve the most suspicion: you wrote
+  them with the English still in mind.
+- This applies equally to documents, headings, table cells, footnotes, and
+  chat messages.
+
+**Mandatory check before finishing ANY `.md` write or edit, and before
+sending ANY chat message in Korean:**
+
+1. Read every sentence you produced as a Korean reader would, without the
+   source in mind.
+2. For each noun and predicate pair, ask whether a Korean writer would
+   naturally write that pair. Any doubt means rewrite.
+3. For each sentence that came from an English source, rebuild it from the
+   meaning instead of adjusting the translated words.
+4. Do this for the whole text you produced, not just the sentence a
+   previous correction pointed at. A correction to one sentence means the
+   same failure may exist elsewhere; search for it.
+
 ## Forbidden Vocabulary — 박다 계열 (ABSOLUTE PRIORITY — NO EXCEPTIONS)
 
 **NEVER use the verb `박다` or any of its conjugated or compound forms in TIL
