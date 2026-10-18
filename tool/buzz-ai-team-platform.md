@@ -6,13 +6,11 @@
 
 <https://github.com/block/buzz>
 
-HN 토론: <https://news.ycombinator.com/item?id=48995213> (359점, 317개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=48995213> (378점, 339개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=31701>
 
-관련 블로그 글: [AI가 '도구'가 아니라 '팀원'이 되는 회사 (Buzz)](https://javaexpert.tistory.com/1792)
-
-## 요약
+## 소개
 
 Jack Dorsey의 Block이 Buzz를 오픈소스로 공개했다.
 Buzz는 AI 에이전트를 보조 도구가 아닌 팀원으로 대우하는 협업 플랫폼이다.
@@ -46,6 +44,37 @@ Redis는 pub/sub, 프레즌스, 타이핑 인디케이터를 처리하고, S3/Mi
 외부 SaaS에 의존하지 않고 조직이 직접 운영할 수 있다.
 현재 릴레이 채널, 스레드, DM, 캔버스, 미디어, 검색, 감사 로그가 동작하며,
 모바일 클라이언트와 워크플로 승인 게이트는 구현 진행 중이다.
+
+### 2026년 10월 현재 상태
+
+buzz.xyz는 지금도 초기 단계를 함께 시험해 보자는 한 줄만 보여 준다.[^home]
+README는 Buzz를 사람과 에이전트가 직접 소유한 릴레이 위에서 함께 일하는
+작업 공간으로 소개한다.[^readme]
+README의 기능 현황표에서
+지금 동작하는 것으로 분류된 항목은 다음과 같다.[^readme]
+
+- 릴레이, 채널, 스레드, DM, 캔버스, 미디어, 검색, 감사 로그
+- Tauri와 React로 만든 데스크톱 앱
+- JSON으로 입출력하는 에이전트용 `buzz-cli`와
+  Goose, Codex, Claude Code를 붙이는 ACP 하네스
+- 메시지, 반응, 일정, 웹훅으로 실행되는 YAML 워크플로
+- NIP-34 Git 이벤트와 Git 호스팅 백엔드
+
+구현 중인 것은 Flutter로 만드는 iOS와 Android 클라이언트,
+워크플로 승인 게이트, 허들(음성 회의) 수명 주기 이벤트다.
+릴레이 간 신뢰망 평판, 푸시 알림, 문화 기능은 아직 구상 단계다.[^readme]
+배포판은 macOS(Apple Silicon, Intel), Linux, Windows용으로 나오며,
+Windows 빌드는 코드 서명이 되어 있지 않다.
+Railway에 릴레이를 한 번에 배포하는 버튼과,
+Postgres, Redis, MinIO를 묶은
+단일 서버용 Docker Compose 묶음도 제공한다.[^readme]
+저장소 `block/buzz`는 2026년 3월 6일에 만들어졌고,
+2026년 10월 18일 확인 기준 스타 36,094개, 포크 4,781개이며
+라이선스는 Apache 2.0이다.[^gh-api]
+
+국내에서는 javaexpert의 블로그 글
+[AI가 '도구'가 아니라 '팀원'이 되는 회사 (Buzz)](https://javaexpert.tistory.com/1792)가
+이 프로젝트를 소개했다.
 
 ## 분석
 
@@ -143,8 +172,8 @@ AI 팀원론의 혜택만 조명하고, 그 혜택을 얻기 위해 무엇을 �
 ### 멀티플레이어 에이전트가 가져오는 새로운 프라이버시 문제
 
 muglug(전 Slack 직원)는 에이전트 아키텍처의 두 가지 방향을 구분한다.[^muglug]
-"멀티플레이어 에이전트"는 공유 채널의 모든 정보에 접근해 여러 사람의 작업을 조율하는 반면,
-"싱글플레이어 에이전트"는 개별 사용자를 대신해 동작하고 공유 공간에 결과만 게시한다.
+“멀티플레이어 에이전트”는 공유 채널의 모든 정보에 접근해 여러 사람의 작업을 조율하는 반면,
+“싱글플레이어 에이전트”는 개별 사용자를 대신해 동작하고 공유 공간에 결과만 게시한다.
 멀티플레이어 접근은 강력하지만 복잡한 접근 제어와 프라이버시 문제가 따라온다.
 어느 에이전트가 어느 채널에 참여하느냐에 따라 의도치 않은 정보 유출이 생길 수 있다.
 
@@ -293,8 +322,19 @@ SaaS 구독료가 아니라 커스터마이징 역량이 협업 인프라의 새
 ---
 
 [^muglug]: <https://news.ycombinator.com/item?id=48996051>
+
 [^oooyay]: <https://news.ycombinator.com/item?id=48997954>
+
 [^jillesvangurp]: <https://news.ycombinator.com/item?id=48996432>
+
 [^theptip]: <https://news.ycombinator.com/item?id=49000648>
+
 [^sulam]: <https://news.ycombinator.com/item?id=48997102>
+
 [^sim04ful]: <https://news.ycombinator.com/item?id=48998406>
+
+[^home]: Block, [Buzz — Your people, your agents, your project — all in one place.](https://buzz.xyz/), 2026-10-18 확인
+
+[^readme]: GitHub, [block/buzz](https://github.com/block/buzz), 2026-10-18 확인
+
+[^gh-api]: GitHub API, [block/buzz](https://api.github.com/repos/block/buzz), 2026-10-18 확인
