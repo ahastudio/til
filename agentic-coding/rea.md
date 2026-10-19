@@ -222,6 +222,26 @@ HN에서 InvisibleUp은 TH04 디컴파일 결과가
 지금까지 본 AI 디컴파일보다 품질이 훨씬 좋다고 평가하면서도,
 파일 구조가 원 개발자의 의도보다 AI 작업에 맞춰져 있다고 지적했다.[^InvisibleUp]
 
+### 한글과 Word를 합친 워드프로세서
+
+국내에서도 REA를 쓴 사례가 나왔다.
+Threads 사용자 aijossi는 2026년 10월 14일 REA의 실제 활용 사례라며
+한글 2022와 MS Word에 AI 자동 작성 에이전트를 합친
+“탄글2026”이라는 프로그램을 소개했다.
+그는 이 프로그램을 개인용, 교육용으로 만들었고,
+기존 프로그램의 소스 코드를 한 줄도 가져오지 않고
+REA를 활용해 Rust로 빌드했다고 밝혔다.
+나쁜 사람 손에 들어가면 안 될 것 같다는 소감도 덧붙였다.[^aijossi]
+프로그램 자체는 공개되지 않아 동작 범위나 완성도는 확인할 수 없다.
+
+반응은 신기하다는 쪽과 무섭다는 쪽으로 나뉘었다.
+왜 무서운지 묻는 cjg7670에게 j.wo_on은
+REA를 쓰면 기존 프로그램을 비슷하게 복사할 수 있다고 답했다.[^cjg7670][^j-wo-on]
+이 문답이 아래 법적 논점의 핵심을 그대로 보여 준다.
+소스 코드를 옮기지 않았다는 말과
+바이너리를 분석해 동작을 다시 만들었다는 말은 서로 다른 주장이고,
+echelon이 말한 클린룸 구현은 앞의 것만으로는 성립하지 않는다.
+
 ## 트레이드오프
 
 ### 법적 판단은 전부 사용자에게 넘어간다
@@ -479,3 +499,9 @@ TH08의 128.0 사례처럼 검사가 놓치는 것은 통과한 결과 전체에
 [^cedws]: <https://news.ycombinator.com/item?id=50030919>
 
 [^mgaldys4]: <https://news.ycombinator.com/item?id=50029899>
+
+[^aijossi]: aijossi(Threads), [\[REA (Reverse Engineer Anything) 실제 활용 사례\]](https://www.threads.com/@aijossi/post/DedUezmGluF), 2026-10-14
+
+[^cjg7670]: cjg7670(Threads), [이해안되느데 무서운 이유가 뭔지 알려주실 수 있을까요??](https://www.threads.com/@cjg7670/post/DedY6whlM9o), 2026-10-14
+
+[^j-wo-on]: j.wo_on(Threads), [rea쓰면 기존 나온 프로그램들 복사 비스무리하게 할수 있데요!](https://www.threads.com/@j.wo_on/post/DedZbO0EkCr), 2026-10-14
