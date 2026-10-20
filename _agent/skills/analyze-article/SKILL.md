@@ -571,6 +571,10 @@ time, rather than writing freely and patching afterwards.
 - The document should read as if written by someone who disagrees with
   parts of the source and has thought carefully about why.
 - Maintain the same tone and depth as existing TIL documents.
+- Read the finished document once as a reader who has not seen the source.
+  A sentence whose meaning cannot be stated plainly is rebuilt from its
+  meaning, not patched. The rule is `Every Sentence Must Make Sense` in
+  `writing-guidelines.md`.
 
 ### 7a. Document shape — CLOSED SPEC (NO EXCEPTIONS)
 
@@ -636,6 +640,22 @@ not what the search turned up.
 
 ### 7b. Footnotes — STRICT RULE (NO EXCEPTIONS)
 
+**Footnotes for outside pages are complete and exact; the analyzed source needs
+none per sentence.** When the prose names where something came from, the
+footnote closes that sentence and links that exact page. References go at
+sentence ends, not mid-sentence. **The analyzed source itself never takes a footnote — ABSOLUTE, ZERO
+TOLERANCE.** The source line under the title is its only link: no footnote
+for a sentence, a quotation, a figure, the date, or the author, and none in
+the titled form. Say what is needed in the prose. Before the gate and again
+after the reaction skills, compare every footnote definition's URL with the
+source line's URL; any match is deleted with all of its references. A
+document you enhance is checked the same way.
+Every sentence that rests on an outside page — a page the source quotes that
+was also opened and read, or material fetched to check or extend the source —
+carries its own footnote in the titled form of `writing-guidelines.md`
+(`[^label]: <매체>, [<원문 제목>](<URL>), <YYYY-MM-DD>`), and two pages mean two
+references. Rules 2 and 5 below govern the community-comment footnotes only.
+
 A woven-in reaction is attributed inline and carried by a footnote whose label
 is the commenter's handle:
 
@@ -647,7 +667,7 @@ tttttaa는 회색지대 사례를 살펴볼수록 미묘해진다고 적었다.[
 
 1. Definitions collect at the bottom, after the last body section, under a
    `---` rule, one per line, separated by blank lines.
-2. Every definition is a bare `<URL>` in angle brackets. No prose, no quoted
+2. Every comment footnote definition is a bare `<URL>` in angle brackets. No prose, no quoted
    comment text, no trailing commentary.
 3. The target is a permalink to the individual comment, never the thread root.
 4. Labels and definitions are one-to-one. A defined label that nothing

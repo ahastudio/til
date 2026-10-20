@@ -68,6 +68,41 @@ sending ANY chat message in Korean:**
    previous correction pointed at. A correction to one sentence means the
    same failure may exist elsewhere; search for it.
 
+## Every Sentence Must Make Sense (ABSOLUTE PRIORITY — ZERO TOLERANCE)
+
+**A sentence is finished only when a reader who has not seen the source can
+say plainly what it means. A sentence that parses but says nothing, or says
+something other than what was meant, is a defect in every document, heading,
+table cell, footnote, and chat message.**
+
+Root cause of repeated failures: the writer compressed or translated while
+thinking in another language and never read the result as a stranger would.
+The usual forms are these:
+
+- Compressing a source's phrase into a fragment whose referent disappears,
+  so the reader cannot tell what the phrase points at.
+- Carrying a foreign sentence structure or idiom into Korean word for word.
+  Each word is real and the sentence still means nothing to a Korean reader.
+- Coining a shorthand name for a source, an idea, or a section, and using it
+  as if the reader already knew it.
+- Filler sentences that talk about the document itself instead of its
+  subject, repeated in the same stock shape across paragraphs.
+- Metaphors that only work in the original language.
+
+Rules:
+
+- Before finishing any text, read every sentence cold. For each one ask what
+  exactly it claims and what each noun refers to. If the answer cannot be
+  given in one plain sentence, rebuild the sentence from its meaning. Do not
+  patch it cosmetically.
+- Say who did what, which thing is meant, and which source said it. Do not
+  leave the reader to infer a subject, an object, or a time.
+- When a reader points at one unclear sentence, search the whole document, and
+  every other document written in the same session, for the same form of
+  failure, and fix them all in the same edit.
+- Never explain a source's circumstances (hosting, archiving, mirroring) unless
+  they change how the content should be read.
+
 ## Forbidden Vocabulary — 박다 계열 (ABSOLUTE PRIORITY — NO EXCEPTIONS)
 
 **NEVER use the verb `박다` or any of its conjugated or compound forms in TIL
@@ -207,11 +242,14 @@ in that block.
 [^second]: <https://example.com/2>
 ```
 
-## Source Footnotes in Researched Documents (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+## Source Footnotes in Source-Based Documents (ABSOLUTE PRIORITY — NO EXCEPTIONS)
 
-**When a document is assembled from collected material — web searches,
-several articles, reports, official pages — every factual claim carries a
-footnote that points to the source it came from.**
+**When a document reports what outside pages say — several articles compiled,
+reports, official pages, search results, or pages that a single analyzed
+article quotes or that were fetched to check it — every factual claim that
+rests on such a page carries a footnote that points to it. Footnotes for
+outside pages are complete and exact: every claim has its page, and each
+footnote sits where the claim is made — never sparse, never padded.**
 A reference list at the end of the document is not a substitute.
 A list says what was read; only a footnote says which source supports which
 sentence, and that is what a reader needs in order to check a number.
@@ -227,6 +265,48 @@ Rules:
 - Every number, date, name, quotation, and specific factual claim that came
   from a source gets a footnote reference right after it, in the same
   sentence or table cell.
+- Abundance is the default for every page other than the document's own
+  analyzed source. Every sentence that rests on such a page — a claim, a
+  number, an example, a quotation, a comparison — carries its own footnote
+  reference, and a sentence resting on two pages carries two. A paragraph of
+  such content with no footnote, or one reference parked at the end of
+  several sentences, is a defect. When in doubt, add the footnote.
+- A named source gets its own footnote. When the prose says where something
+  came from — taken from an encyclopedia entry, quoted from a report, said in
+  an interview — the footnote for that page sits at the end of that very
+  sentence, not several sentences later and not on a different page. Link the
+  page the words actually come from: confirm that the quoted or paraphrased
+  words appear there, and use the same language edition or version the source
+  drew on. When the exact page cannot be identified, say so in the text
+  instead of linking a near match.
+- Placement: the reference goes at the end of the sentence it supports, after
+  the final punctuation, whenever it can. A reference in the middle of a
+  sentence is allowed only when one sentence rests on different pages and the
+  clauses cannot be separated; even then, prefer splitting the sentence in two
+  so that each reference lands at a sentence end. Never leave a reference in
+  the middle of a phrase.
+- **The analyzed source never gets a footnote. Not one. (ABSOLUTE
+  PRIORITY — ZERO TOLERANCE)** In a document built around one article, post,
+  paper, tweet, video, or repository, the source line under the title is the
+  only link to that page. No footnote may point at that page: not on the
+  first sentence, not on a quotation, not on a figure, not on the publication
+  date, not for the author's name, and not in the titled
+  `[^label]: <매체>, [<제목>](<URL>), <날짜>` form either. A label such as
+  `essay`, `source`, `original`, `post`, or the author's name whose definition
+  is the source URL is a defect, and so is the same URL with a trailing slash,
+  a tracking parameter, or a different scheme. When a sentence needs the
+  author, the date, or the exact wording of the source, say it in the prose;
+  the reader already has the source line. Footnotes exist for the pages the
+  reader does not already have — never to repeat the page the document is
+  about. If you notice this defect in a document you are touching, delete
+  every reference and the definition, then reread the sentences to confirm
+  they still stand without the mark.
+- When the analyzed source quotes or relies on another page and that page was
+  also opened and read (an essay quoting an encyclopedia entry, a report citing
+  a paper), footnote that page on the sentence that reports the fact. The
+  source line covers the essay; the footnote covers the encyclopedia.
+- Material the writer fetched to check, extend, or contrast with the source
+  is footnoted like any other outside page.
 - The footnote points to the page the claim was actually read from.
   If the claim was read in a secondary report that cites a primary source,
   footnote the page that was read, and name the primary source in the prose.
@@ -261,13 +341,28 @@ Rules:
 - Claims that could not be confirmed are stated as such in the text, never
   footnoted to a source that does not actually say them.
 
-**Mandatory check before finishing a researched document:**
+**Mandatory check before finishing a source-based document:**
 
 1. Scan every paragraph, table row, and list item for numbers, dates, names,
-   and quotations.
-2. For each one, confirm a footnote reference sits next to it.
+   quotations, and any sentence that rests on a page other than the analyzed
+   source.
+2. For each one, confirm a footnote reference sits next to it. A sentence
+   resting on an outside page with none is a violation, including in the
+   summary section.
 3. For each footnote, confirm the page it points to was actually read and
    says what the sentence claims.
+4. Compare every footnote definition's URL with the URL on the source line.
+   If any definition points at that same page, it is a violation: delete the
+   definition and every reference to it before doing anything else. This
+   check runs on every document you write, enhance, or edit, and it runs
+   again after the reaction skills have added their footnotes.
+4. Wherever the prose names where something came from, confirm the footnote
+   sits at the end of that sentence and links that exact page. Look for
+   references stranded mid-sentence and move them to a sentence end.
+5. Count the references per paragraph. A paragraph resting on outside pages
+   with a single reference at its end means footnotes were written too
+   thinly: split them out per sentence. Equally, remove footnotes that only
+   repeat the analyzed source sentence by sentence.
 
 ## Social Posts as a Starting Point (ABSOLUTE PRIORITY — NO EXCEPTIONS)
 

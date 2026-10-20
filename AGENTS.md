@@ -418,6 +418,24 @@ source reports, what the author infers, and what the document recommends.
 Do not make an interpretation sound like a sourced fact merely by placing
 it beside one.
 
+Footnotes are complete and exact for every page other than the document's own
+analyzed source. Each sentence resting on an outside page carries its own
+footnote, the summary section included, and a sentence resting on two pages
+carries two. When the prose names where something came from, the footnote closes that
+sentence and links that exact page. References go at sentence ends, not
+mid-sentence.
+
+**The analyzed source never takes a footnote — not one, not for a quotation,
+not for its date or author, not in the titled form.** The source line is its
+only link. Before finishing any document, compare every footnote definition's
+URL with the source line's URL; a match is deleted together with all of its
+references. The full rule is in `writing-guidelines.md`.
+
+Every sentence must make sense to a reader who has not seen the source. Read
+the finished text sentence by sentence as a stranger would, and rebuild any
+sentence whose meaning cannot be stated plainly. The rule and its failure
+forms are in `writing-guidelines.md`.
+
 For analytical writing, state the strongest version of the central claim,
 then identify what evidence supports it, where that evidence stops, and
 what observation would change the conclusion.
