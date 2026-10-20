@@ -431,6 +431,12 @@ only link. Before finishing any document, compare every footnote definition's
 URL with the source line's URL; a match is deleted together with all of its
 references. The full rule is in `writing-guidelines.md`.
 
+**Never force an English term into Korean.** A word the field writes in
+English stays in English; never coin a Korean word for it or reuse a Korean
+word that already carries another meaning in that field. Check every Korean
+noun that stands in for a foreign term before finishing. The full rule is in
+`writing-guidelines.md`.
+
 Every sentence must make sense to a reader who has not seen the source. Read
 the finished text sentence by sentence as a stranger would, and rebuild any
 sentence whose meaning cannot be stated plainly. The rule and its failure

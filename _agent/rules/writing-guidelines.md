@@ -68,6 +68,45 @@ sending ANY chat message in Korean:**
    previous correction pointed at. A correction to one sentence means the
    same failure may exist elsewhere; search for it.
 
+## Never Force an English Term Into Korean (ABSOLUTE PRIORITY — ZERO TOLERANCE)
+
+**A word that the field uses in English stays in English. Inventing a Korean
+word for it, or picking a dictionary equivalent that readers have never
+seen in that role, is forbidden in every document, heading, table cell,
+footnote, and chat message.**
+
+Root cause of a repeated failure: an English term was swapped for a Korean
+word that is not what Korean practitioners write, and the swap also collides
+with another established meaning. A reader then asks what the word refers to,
+and the document loses credibility. The user treats this as a severe defect.
+
+- Before writing a Korean word for a foreign term, ask whether Korean
+  practitioners actually write that word for that concept. If you cannot name
+  a document, product, or standard that does, keep the original term.
+- Design, graphics, and platform vocabulary is the highest-risk area. Terms
+  such as material, surface, backdrop, layer, shader, and sample belong to
+  their field in English. Do not turn them into coined Korean nouns or
+  common-noun look-alikes.
+- A Korean word that already carries another established meaning in the same
+  field is never reused for the English term. If the reader could mistake it
+  for that other thing, the word is wrong.
+- When no settled Korean form exists, write the original term, or describe the
+  concept in a plain phrase once and then keep using the original term. Do not
+  create a shorthand.
+- Do not translate a product's own vocabulary (API names, parameter names, the
+  names of styles or modes). Keep it exactly as the product writes it.
+- Never force a sentence structure, metaphor, or compound noun from the
+  source into Korean word for word. If the Korean reads as a translation, the
+  sentence is rebuilt from its meaning.
+
+**Mandatory check before finishing ANY `.md` write or edit, and before
+sending ANY chat message:** list every Korean noun that stands in for a
+foreign technical term, and for each one confirm that practitioners write it
+that way. Replace every failure with the original term or a plain description.
+When the user points at one such word, search the whole document and every
+other document written in the same session for the same family of word and fix
+them all in the same edit.
+
 ## Every Sentence Must Make Sense (ABSOLUTE PRIORITY — ZERO TOLERANCE)
 
 **A sentence is finished only when a reader who has not seen the source can
