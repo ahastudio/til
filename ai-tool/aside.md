@@ -1167,47 +1167,47 @@ Claude Code는 계획하고 넘기고 결과를 받아 다음 일을 판단하�
 
 ---
 
-[^ph]: Product Hunt, [Aside: AI browser that actually gets work done for you](https://www.producthunt.com/products/aside-6), 날짜 미표기
+[^ph]: Product Hunt, [Aside: AI browser that actually gets work done for you](https://www.producthunt.com/products/aside-6)
 
-[^ai]: Aside Help Center, [Configure AI providers](https://docs.aside.com/help/ai), 날짜 미표기
+[^ai]: Aside Help Center, [Configure AI providers](https://docs.aside.com/help/ai)
 
-[^dev]: Aside Help Center, [Use the CLI, MCP, and REPL](https://docs.aside.com/help/developers), 날짜 미표기
+[^dev]: Aside Help Center, [Use the CLI, MCP, and REPL](https://docs.aside.com/help/developers)
 
 [^blog]: Aside, [Aside for Developers](https://aside.com/blog/developers), 2026-06-22
 
 [^vibecoding]: vibecoding.tech, [AI agent can see restricted logs: Aside connects Chromium via MCP](https://vibecoding.tech/news/2026/09/27/aside-browser-mcp-agents), 2026-09-27
 
-[^privacy]: Aside Help Center, [Manage privacy and local data](https://docs.aside.com/help/privacy), 날짜 미표기
+[^privacy]: Aside Help Center, [Manage privacy and local data](https://docs.aside.com/help/privacy)
 
-[^vault]: Aside Help Center, [Use Password Manager](https://docs.aside.com/help/password-manager), 날짜 미표기
+[^vault]: Aside Help Center, [Use Password Manager](https://docs.aside.com/help/password-manager)
 
-[^security]: Aside Help Center, [Set agent permissions](https://docs.aside.com/help/security), 날짜 미표기
+[^security]: Aside Help Center, [Set agent permissions](https://docs.aside.com/help/security)
 
-[^passwords]: Aside Help Center, [Configure password autofill](https://docs.aside.com/help/passwords), 날짜 미표기
+[^passwords]: Aside Help Center, [Configure password autofill](https://docs.aside.com/help/passwords)
 
-[^tasks]: Aside Help Center, [Run tasks](https://docs.aside.com/help/tasks), 날짜 미표기
+[^tasks]: Aside Help Center, [Run tasks](https://docs.aside.com/help/tasks)
 
-[^subscription]: Aside Help Center, [Manage your Aside subscription](https://docs.aside.com/help/subscription), 날짜 미표기
+[^subscription]: Aside Help Center, [Manage your Aside subscription](https://docs.aside.com/help/subscription)
 
-[^cic-trouble]: Claude Help Center, [Claude in Chrome troubleshooting](https://support.claude.com/en/articles/12902405-claude-in-chrome-troubleshooting), 날짜 미표기
+[^cic-trouble]: Claude Help Center, [Claude in Chrome troubleshooting](https://support.claude.com/en/articles/12902405-claude-in-chrome-troubleshooting)
 
-[^cic-safety]: Claude Help Center, [Using Claude in Chrome safely](https://support.claude.com/en/articles/12902428-using-claude-in-chrome-safely), 날짜 미표기
+[^cic-safety]: Claude Help Center, [Using Claude in Chrome safely](https://support.claude.com/en/articles/12902428-using-claude-in-chrome-safely)
 
-[^changelog]: Aside Help Center, [Components changelog](https://docs.aside.com/changelog/components), 날짜 미표기
+[^changelog]: Aside Help Center, [Components changelog](https://docs.aside.com/changelog/components)
 
-[^hermes]: GitHub, [steggdev/aside-browser-mcp](https://github.com/steggdev/aside-browser-mcp), 날짜 미표기 (Aside Browser 1.0.811.1, CLI v1.26.810에서 검증했다고 밝힘)
+[^hermes]: GitHub, [steggdev/aside-browser-mcp](https://github.com/steggdev/aside-browser-mcp) (Aside Browser 1.0.811.1, CLI v1.26.810에서 검증했다고 밝힘)
 
-[^automation]: Aside Help Center, [Use routines](https://docs.aside.com/help/automation), 날짜 미표기
+[^automation]: Aside Help Center, [Use routines](https://docs.aside.com/help/automation)
 
-[^memory]: Aside Help Center, [Manage memory](https://docs.aside.com/help/memory), 날짜 미표기
+[^memory]: Aside Help Center, [Manage memory](https://docs.aside.com/help/memory)
 
-[^sidepanel]: Aside Help Center, [Use the side panel](https://docs.aside.com/help/side-panel), 날짜 미표기
+[^sidepanel]: Aside Help Center, [Use the side panel](https://docs.aside.com/help/side-panel)
 
-[^ultrabrowse]: Aside Help Center, [Use Ultrabrowse](https://docs.aside.com/help/ultrabrowse), 날짜 미표기
+[^ultrabrowse]: Aside Help Center, [Use Ultrabrowse](https://docs.aside.com/help/ultrabrowse)
 
-[^troubleshooting]: Aside Help Center, [Troubleshoot Aside](https://docs.aside.com/help/troubleshooting), 날짜 미표기
+[^troubleshooting]: Aside Help Center, [Troubleshoot Aside](https://docs.aside.com/help/troubleshooting)
 
-[^relay]: GeekNews, [aside-relay - 휴대폰에서 Aside를 쓰는 웹 클라이언트](https://news.hada.io/topic?id=35153), 날짜 미표기
+[^relay]: GeekNews, [aside-relay - 휴대폰에서 Aside를 쓰는 웹 클라이언트](https://news.hada.io/topic?id=35153)
 
 [^brave]: Brave, [Agentic Browser Security: Indirect Prompt Injection in Perplexity Comet](https://brave.com/blog/comet-prompt-injection/), 2025-08-20
 
@@ -1221,21 +1221,21 @@ Claude Code는 계획하고 넘기고 결과를 받아 다음 일을 판단하�
 
 [^pranshu54]: <https://news.ycombinator.com/item?id=48665428>
 
-[^native]: Aside Help Center, [Aside Browser changelog](https://docs.aside.com/changelog/native), 날짜 미표기
+[^native]: Aside Help Center, [Aside Browser changelog](https://docs.aside.com/changelog/native)
 
-[^home]: Aside, [Aside | The browser built to do real work for you](https://aside.com/), 날짜 미표기
+[^home]: Aside, [Aside | The browser built to do real work for you](https://aside.com/)
 
-[^pricing]: Aside, [Aside | Pricing](https://aside.com/pricing), 날짜 미표기
+[^pricing]: Aside, [Aside | Pricing](https://aside.com/pricing)
 
 [^policy]: Aside, [Aside | Privacy Policy](https://aside.com/policy/privacy), 2026-06-23
 
-[^start]: Aside Help Center, [Get started](https://docs.aside.com/help/get-started), 날짜 미표기
+[^start]: Aside Help Center, [Get started](https://docs.aside.com/help/get-started)
 
-[^basics]: Aside Help Center, [Use Aside as your browser](https://docs.aside.com/help/browser-basics), 날짜 미표기
+[^basics]: Aside Help Center, [Use Aside as your browser](https://docs.aside.com/help/browser-basics)
 
 [^sota]: Aside, [How we built a browser agent that outperforms Fable](https://aside.com/blog/how-we-built-the-sota-browser-agent-that-outperforms-fable), 2026-06-25
 
-[^yc]: Y Combinator, [Aside: The browser built to do real work for you](https://www.ycombinator.com/companies/aside), 날짜 미표기
+[^yc]: Y Combinator, [Aside: The browser built to do real work for you](https://www.ycombinator.com/companies/aside)
 
 [^hiddnest]: Chanhee(Twitter), [Goodbye, YC Cluely: why we pivoted to an AI browser](https://twitter.com/hiddnest/status/2078506477980209258), 2026-07-19
 

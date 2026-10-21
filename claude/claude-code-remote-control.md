@@ -159,12 +159,12 @@ Channels는 CI나 알림을 세션이 받아야 할 필요가 분명할 때 붙�
 
 ---
 
-[^rc]: Anthropic, [Continue local sessions from any device with Remote Control](https://code.claude.com/docs/en/remote-control), 날짜 미표기
+[^rc]: Anthropic, [Continue local sessions from any device with Remote Control](https://code.claude.com/docs/en/remote-control)
 
-[^xs]: Anthropic, [Message your other Claude Code sessions](https://code.claude.com/docs/en/cross-session-messaging), 날짜 미표기
+[^xs]: Anthropic, [Message your other Claude Code sessions](https://code.claude.com/docs/en/cross-session-messaging)
 
-[^ch]: Anthropic, [Push events into a running session with channels](https://code.claude.com/docs/en/channels), 날짜 미표기
+[^ch]: Anthropic, [Push events into a running session with channels](https://code.claude.com/docs/en/channels)
 
-[^proj]: Anthropic, [Let Claude coordinate ongoing work with Projects](https://code.claude.com/docs/en/claude-projects), 날짜 미표기
+[^proj]: Anthropic, [Let Claude coordinate ongoing work with Projects](https://code.claude.com/docs/en/claude-projects)
 
-[^desk]: Anthropic, [Desktop application](https://code.claude.com/docs/en/desktop), 날짜 미표기
+[^desk]: Anthropic, [Desktop application](https://code.claude.com/docs/en/desktop)
