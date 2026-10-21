@@ -544,62 +544,62 @@ New Architecture 요건을 앱이 만족하는가.
 
 ---
 
-[^hig]: Apple, [Materials](https://developer.apple.com/design/human-interface-guidelines/materials), 날짜 미표기
+[^hig]: Apple, [Materials](https://developer.apple.com/design/human-interface-guidelines/materials)
 
-[^adopt]: Apple, [Adopting Liquid Glass](https://developer.apple.com/documentation/TechnologyOverviews/adopting-liquid-glass), 날짜 미표기
+[^adopt]: Apple, [Adopting Liquid Glass](https://developer.apple.com/documentation/TechnologyOverviews/adopting-liquid-glass)
 
-[^re]: Android Developers, [RenderEffect](https://developer.android.com/reference/android/graphics/RenderEffect), 날짜 미표기
+[^re]: Android Developers, [RenderEffect](https://developer.android.com/reference/android/graphics/RenderEffect)
 
-[^rs]: Android Developers, [RuntimeShader](https://developer.android.com/reference/android/graphics/RuntimeShader), 날짜 미표기
+[^rs]: Android Developers, [RuntimeShader](https://developer.android.com/reference/android/graphics/RuntimeShader)
 
-[^win]: Android Developers, [Window](https://developer.android.com/reference/android/view/Window), 날짜 미표기
+[^win]: Android Developers, [Window](https://developer.android.com/reference/android/view/Window)
 
-[^aosp]: Android Open Source Project, [Window blurs](https://source.android.com/docs/core/display/window-blurs), 날짜 미표기
+[^aosp]: Android Open Source Project, [Window blurs](https://source.android.com/docs/core/display/window-blurs)
 
-[^dm]: Android Developers, [Graphics modifiers](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers), 날짜 미표기
+[^dm]: Android Developers, [Graphics modifiers](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers)
 
 [^banes]: Chris Banes, [Compose has progressive blur. Do you still need Haze?](https://chrisbanes.me/posts/compose-progressive-blur/), 2026-09-13
 
 [^ci]: Compose Internals, [AGSL Shaders in Jetpack Compose - Liquid Glass Effect | Complete Tutorial](https://composeinternals.com/agsl-shaders-jetpack-compose-liquid-glass), 2025-01-15
 
-[^wcag]: W3C, [Understanding Success Criterion 1.4.3: Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), 날짜 미표기
+[^wcag]: W3C, [Understanding Success Criterion 1.4.3: Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html)
 
-[^uim]: Android Developers, [UiModeManager](https://developer.android.com/reference/android/app/UiModeManager), 날짜 미표기
+[^uim]: Android Developers, [UiModeManager](https://developer.android.com/reference/android/app/UiModeManager)
 
-[^am]: Android Developers, [AccessibilityManager](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager), 날짜 미표기
+[^am]: Android Developers, [AccessibilityManager](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager)
 
-[^cloudy]: GitHub, [skydoves/Cloudy](https://github.com/skydoves/Cloudy), 날짜 미표기
+[^cloudy]: GitHub, [skydoves/Cloudy](https://github.com/skydoves/Cloudy)
 
-[^haze-guide]: Haze, [Guide - Haze](https://chrisbanes.github.io/haze/latest/performance/), 날짜 미표기
+[^haze-guide]: Haze, [Guide - Haze](https://chrisbanes.github.io/haze/latest/performance/)
 
-[^kyant-effects]: Kyant, [Backdrop effects](https://kyant.gitbook.io/backdrop/api/backdrop-effects), 날짜 미표기
+[^kyant-effects]: Kyant, [Backdrop effects](https://kyant.gitbook.io/backdrop/api/backdrop-effects)
 
-[^kyant-bar]: Kyant, [Glass Bottom Bar](https://kyant.gitbook.io/backdrop/tutorials/glass-bottom-bar), 날짜 미표기
+[^kyant-bar]: Kyant, [Glass Bottom Bar](https://kyant.gitbook.io/backdrop/tutorials/glass-bottom-bar)
 
-[^haze-glass]: Haze, [Overview - Haze](https://chrisbanes.github.io/haze/latest/effects/glass/), 날짜 미표기
+[^haze-glass]: Haze, [Overview - Haze](https://chrisbanes.github.io/haze/latest/effects/glass/)
 
-[^sb-install]: @sbaiahmed1/react-native-blur, [Installation · react-native-blur](https://sbaiahmed1.github.io/react-native-blur/docs/installation), 날짜 미표기
+[^sb-install]: @sbaiahmed1/react-native-blur, [Installation · react-native-blur](https://sbaiahmed1.github.io/react-native-blur/docs/installation)
 
-[^sb-glass]: @sbaiahmed1/react-native-blur, [LiquidGlassView · react-native-blur](https://sbaiahmed1.github.io/react-native-blur/docs/liquid-glass-view), 날짜 미표기
+[^sb-glass]: @sbaiahmed1/react-native-blur, [LiquidGlassView · react-native-blur](https://sbaiahmed1.github.io/react-native-blur/docs/liquid-glass-view)
 
-[^sb-blur]: @sbaiahmed1/react-native-blur, [BlurView · react-native-blur](https://sbaiahmed1.github.io/react-native-blur/docs/blur-view), 날짜 미표기
+[^sb-blur]: @sbaiahmed1/react-native-blur, [BlurView · react-native-blur](https://sbaiahmed1.github.io/react-native-blur/docs/blur-view)
 
-[^sb-migration]: @sbaiahmed1/react-native-blur, [Migration & breaking changes · react-native-blur](https://sbaiahmed1.github.io/react-native-blur/docs/migration), 날짜 미표기
+[^sb-migration]: @sbaiahmed1/react-native-blur, [Migration & breaking changes · react-native-blur](https://sbaiahmed1.github.io/react-native-blur/docs/migration)
 
-[^overlay]: GitHub, [lvlrSajjad/react-native-blur-overlay](https://github.com/lvlrSajjad/react-native-blur-overlay), 날짜 미표기
+[^overlay]: GitHub, [lvlrSajjad/react-native-blur-overlay](https://github.com/lvlrSajjad/react-native-blur-overlay)
 
-[^lgm]: GitHub, [himanshu-lal4/react-native-liquid-glassmorphism](https://github.com/himanshu-lal4/react-native-liquid-glassmorphism), 날짜 미표기
+[^lgm]: GitHub, [himanshu-lal4/react-native-liquid-glassmorphism](https://github.com/himanshu-lal4/react-native-liquid-glassmorphism)
 
-[^skia-install]: React Native Skia, [Installation | React Native Skia](https://wcandillon.github.io/react-native-skia/docs/getting-started/installation/), 날짜 미표기
+[^skia-install]: React Native Skia, [Installation | React Native Skia](https://wcandillon.github.io/react-native-skia/docs/getting-started/installation/)
 
-[^expo-blur-doc]: Expo, [BlurView - Expo documentation](https://docs.expo.dev/versions/latest/sdk/blur-view/), 날짜 미표기
+[^expo-blur-doc]: Expo, [BlurView - Expo documentation](https://docs.expo.dev/versions/latest/sdk/blur-view/)
 
-[^expo-glass]: Expo, [GlassEffect - Expo documentation](https://docs.expo.dev/versions/latest/sdk/glass-effect/), 날짜 미표기
+[^expo-glass]: Expo, [GlassEffect - Expo documentation](https://docs.expo.dev/versions/latest/sdk/glass-effect/)
 
-[^callstack]: GitHub, [callstack/liquid-glass](https://github.com/callstack/liquid-glass), 날짜 미표기
+[^callstack]: GitHub, [callstack/liquid-glass](https://github.com/callstack/liquid-glass)
 
-[^rn-style]: React Native, [View Style Props · React Native](https://reactnative.dev/docs/view-style-props), 날짜 미표기
+[^rn-style]: React Native, [View Style Props · React Native](https://reactnative.dev/docs/view-style-props)
 
-[^rn-a11y]: React Native, [AccessibilityInfo · React Native](https://reactnative.dev/docs/accessibilityinfo), 날짜 미표기
+[^rn-a11y]: React Native, [AccessibilityInfo · React Native](https://reactnative.dev/docs/accessibilityinfo)
 
-[^rn-platform]: React Native, [Platform · React Native](https://reactnative.dev/docs/platform), 날짜 미표기
+[^rn-platform]: React Native, [Platform · React Native](https://reactnative.dev/docs/platform)

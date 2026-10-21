@@ -132,4 +132,4 @@ Liquid Glass는 뒤 화면을 봐야 성립하는 효과여서,
 
 ---
 
-[^expo-jc]: Expo, [Jetpack Compose - Expo documentation](https://docs.expo.dev/versions/latest/sdk/ui/jetpack-compose/), 날짜 미표기
+[^expo-jc]: Expo, [Jetpack Compose - Expo documentation](https://docs.expo.dev/versions/latest/sdk/ui/jetpack-compose/)

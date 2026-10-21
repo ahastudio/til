@@ -349,17 +349,17 @@ GDevelop을 고르는 제작자는 엔진의 자유와 서비스의 편의 사�
 
 ---
 
-[^readme]: GitHub, [4ian/GDevelop README](https://github.com/4ian/gdevelop), 날짜 미표기
+[^readme]: GitHub, [4ian/GDevelop README](https://github.com/4ian/gdevelop)
 
 [^api]: GitHub API, [repos/4ian/GDevelop](https://api.github.com/repos/4ian/GDevelop), 2026-10-19 조회
 
 [^release]: GitHub, [GDevelop v5.6.284](https://github.com/4ian/GDevelop/releases/tag/v5.6.284), 2026-10-14
 
-[^arch]: GitHub, [GDevelop Architecture Overview](https://github.com/4ian/GDevelop/blob/master/Core/GDevelop-Architecture-Overview.md), 날짜 미표기
+[^arch]: GitHub, [GDevelop Architecture Overview](https://github.com/4ian/GDevelop/blob/master/Core/GDevelop-Architecture-Overview.md)
 
-[^ai]: GDevelop wiki, [Build and learn with GDevelop AI](https://wiki.gdevelop.io/gdevelop5/interface/ai/), 날짜 미표기
+[^ai]: GDevelop wiki, [Build and learn with GDevelop AI](https://wiki.gdevelop.io/gdevelop5/interface/ai/)
 
-[^pricing]: GDevelop, [Pricing](https://gdevelop.io/pricing), 날짜 미표기
+[^pricing]: GDevelop, [Pricing](https://gdevelop.io/pricing)
 
 [^4ian]: <https://news.ycombinator.com/item?id=35084836>
 

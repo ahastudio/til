@@ -312,7 +312,7 @@ CPU와 메모리 사용이 어디서 생기는지 모를 때 프로파일을 더
 
 [^alloy]: Grafana Labs, [Introducing an OpenTelemetry Collector distribution with built-in Prometheus pipelines: Grafana Alloy](https://grafana.com/blog/2024/04/09/grafana-alloy-opentelemetry-collector-with-prometheus-pipelines/), 2024-04-09
 
-[^agent-eol]: Grafana Labs, [Grafana Agent | Grafana Agent documentation](https://grafana.com/docs/agent/latest/), 날짜 미표기
+[^agent-eol]: Grafana Labs, [Grafana Agent | Grafana Agent documentation](https://grafana.com/docs/agent/latest/)
 
 [^beyla]: Grafana Labs, [Introducing OpenTelemetry eBPF Instrumentation: Why we donated Grafana Beyla to OpenTelemetry](https://grafana.com/blog/2025/05/07/opentelemetry-ebpf-instrumentation-beyla-donation/), 2025-05-08
 
@@ -322,22 +322,22 @@ CPU와 메모리 사용이 어디서 생기는지 모를 때 프로파일을 더
 
 [^agpl]: Grafana Labs, [Grafana, Loki, and Tempo will be relicensed to AGPLv3](https://grafana.com/blog/2021/04/20/grafana-loki-tempo-relicensing-to-agplv3/), 2021-04-20
 
-[^exemplars]: Grafana Labs, [Introduction to exemplars](https://grafana.com/docs/grafana/latest/fundamentals/exemplars/), 날짜 미표기
+[^exemplars]: Grafana Labs, [Introduction to exemplars](https://grafana.com/docs/grafana/latest/fundamentals/exemplars/)
 
-[^prom-overview]: Prometheus, [Overview](https://prometheus.io/docs/introduction/overview/), 날짜 미표기
+[^prom-overview]: Prometheus, [Overview](https://prometheus.io/docs/introduction/overview/)
 
 [^prom3]: The Prometheus Team, [Announcing Prometheus 3.0](https://prometheus.io/blog/2024/11/14/prometheus-3-0/), 2024-11-14
 
-[^loki]: Grafana Labs, [Grafana Loki overview](https://grafana.com/docs/loki/latest/get-started/overview/), 날짜 미표기
+[^loki]: Grafana Labs, [Grafana Loki overview](https://grafana.com/docs/loki/latest/get-started/overview/)
 
-[^tempo]: Grafana Labs, [Grafana Tempo](https://grafana.com/docs/tempo/latest/), 날짜 미표기
+[^tempo]: Grafana Labs, [Grafana Tempo](https://grafana.com/docs/tempo/latest/)
 
 [^pyroscope]: Grafana Labs, [Pyroscope and Grafana Phlare join together to accelerate adoption of continuous profiling, the next pillar of observability](https://grafana.com/blog/2023/03/15/pyroscope-grafana-phlare-join-for-oss-continuous-profiling/), 2023-03-15
 
-[^otel-what]: OpenTelemetry, [What is OpenTelemetry?](https://opentelemetry.io/docs/what-is-opentelemetry/), 날짜 미표기
+[^otel-what]: OpenTelemetry, [What is OpenTelemetry?](https://opentelemetry.io/docs/what-is-opentelemetry/)
 
-[^otel-status]: OpenTelemetry, [Specification Status Summary](https://opentelemetry.io/docs/specs/status/), 날짜 미표기
+[^otel-status]: OpenTelemetry, [Specification Status Summary](https://opentelemetry.io/docs/specs/status/)
 
-[^otel-lgtm]: Grafana Labs, [Docker OpenTelemetry LGTM](https://grafana.com/docs/opentelemetry/docker-lgtm/), 날짜 미표기
+[^otel-lgtm]: Grafana Labs, [Docker OpenTelemetry LGTM](https://grafana.com/docs/opentelemetry/docker-lgtm/)
 
-[^pricing]: Grafana Labs, [Pricing](https://grafana.com/pricing/), 날짜 미표기
+[^pricing]: Grafana Labs, [Pricing](https://grafana.com/pricing/)
