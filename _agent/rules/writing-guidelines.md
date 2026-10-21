@@ -369,8 +369,7 @@ Rules:
   The title is copied as the source presents it, untranslated. The date is
   the publication date read from the page itself (its byline, metadata, or
   URL), never a guess and never the date it was read. If a page shows no
-  publication date, say so in the definition rather than leaving the field
-  out silently.
+  publication date, leave the date out; write no placeholder in its place.
 - Footnote definitions follow `## Footnote Spacing` and sit at the end of
   the document after a `---` rule.
 - This format is for researched sources. Footnotes that cite a community
@@ -395,10 +394,10 @@ Rules:
    definition and every reference to it before doing anything else. This
    check runs on every document you write, enhance, or edit, and it runs
    again after the reaction skills have added their footnotes.
-4. Wherever the prose names where something came from, confirm the footnote
+5. Wherever the prose names where something came from, confirm the footnote
    sits at the end of that sentence and links that exact page. Look for
    references stranded mid-sentence and move them to a sentence end.
-5. Count the references per paragraph. A paragraph resting on outside pages
+6. Count the references per paragraph. A paragraph resting on outside pages
    with a single reference at its end means footnotes were written too
    thinly: split them out per sentence. Equally, remove footnotes that only
    repeat the analyzed source sentence by sentence.
