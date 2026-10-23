@@ -8,6 +8,8 @@ HN 토론: <https://news.ycombinator.com/item?id=50065412> (5점, 1개 댓글)
 
 HN 토론: <https://news.ycombinator.com/item?id=47283655> (4점, 1개 댓글)
 
+HN 토론: <https://news.ycombinator.com/item?id=50175075> (8점, 21개 댓글)
+
 GN 토론: <https://news.hada.io/topic?id=35612>
 
 ## 소개
@@ -32,13 +34,13 @@ Codex 데스크톱 앱, Conductor, Claude Desktop, Cursor Glass 같은 기존 �
 | 언어          | TypeScript                                                 |
 | 라이선스      | MIT                                                        |
 | 저장소 생성   | 2026년 2월 8일                                             |
-| 스타와 포크   | 스타 28,645, 포크 7,673 (2026년 10월 20일 확인)            |
+| 스타와 포크   | 스타 29,563, 포크 7,927 (2026년 10월 23일 확인)            |
 | 배포 주기     | 하루에도 여러 번 나오는 nightly와 preview 빌드             |
 | 설치 경로     | 셸 스크립트, `npx`, winget, scoop, Homebrew cask, deb, AUR |
 | 지원 에이전트 | Codex, Claude, Cursor, Grok Build, OpenCode, Antigravity   |
 
-2026년 10월 20일 기준 저장소의 마지막 푸시는 같은 날이고,
-최신 릴리스 이름은 `v0.1.1-nightly.20261020.3386`이다.
+2026년 10월 23일 기준 저장소의 마지막 푸시는 같은 날이고,
+최신 릴리스 이름은 `T3 Code Nightly 0.1.3-nightly.20261023.3566`이다.
 버전이 0.1대인 점은 README의 문장과 맞는다.
 README는 프로젝트가 아주 초기이니 버그를 예상하라고 하고
 기여는 거의 받지 않으며 작은 수정만 검토하고 큰 기능은 받지 않는다고 밝힌다.
@@ -231,6 +233,32 @@ SFTP 브라우저나 파일 처리 기능을 찾지 못했다는 점도 짚었�
 Superset과 직접 비교한 자료는 확인하지 못했으므로,
 경쟁 도구와의 우열은 이 문서가 판단하지 않는다.
 
+### 써 본 사람들의 평가는 UX에 모인다
+
+HN에서 T3 Code가 널리 쓰이느냐고 묻자 두 사람이 사용 경험을 적었다.
+viraptor는 PR 미리보기와 git push처럼 흔한 일이 빨라지고,
+네임스페이스가 붙은 worktree를 기본으로 만들어 주고,
+메시지를 끼워 넣는(steer) 동작과 대기열에 쌓는(queue) 동작이 쓸모 있으며,
+다른 스레드를 참조하고 특정 작업자를 띄우는 기능과 받은편지함 같은 스레드 처리가 좋다고 했다.
+웹 작업이 많다면 내장 미니 브라우저가 지금까지 본 것 가운데 가장 낫고,
+cmux에서 t3code로 옮겨 후회가 없다고 했다.[^viraptor]
+joshka는 개발자에게 필요한 UX 면에서 Claude와 Codex의 공식 앱보다 훨씬 강하고,
+이슈 트래커가 블랙홀 같지 않으며 릴리스 노트가 실제 PR 링크라고 했다.
+Codex와 Claude 모델을 섞어 쓰며 하위 에이전트를 서로 넘긴다고 하면서,
+자신은 OpenAI에서 Codex의 TUI 쪽 일을 했으므로 Codex가 더 익숙하다는 편향을 스스로 밝혔다.[^joshka]
+두 증언은 이 문서의 앞부분이 다룬 구조(서버, 어댑터)가 아니라
+화면과 작업 흐름의 완성도를 장점으로 꼽는다는 점이 같고,
+README만 읽어서는 확인할 수 없는 부분이다.
+다만 둘 다 자발적으로 쓴 댓글 두 개이며 대조군이 없다.
+
+이 스레드의 제목은 저장소가 GitHub와 GitCafe 사이에서 동기화된다는 소식이었다.
+동기화를 맡은 versecafe는 PR 약 1만 8천 개, 이슈 약 4천 개,
+체크와 댓글과 리뷰까지 20만 개가 넘는 항목을 동기화하는 것이
+GitHub와 다른 플랫폼 사이에서 동기화된 공개 저장소 가운데 가장 큰 규모라고 알고 있다고 적었다.[^versecafe]
+preommr는 Git 저장소를 여러 곳에 두는 일은 흔하다고 반박했고,
+versecafe는 Git 미러링은 쉽고 어려운 것은 PR과 이슈와 리뷰와 댓글 같은 메타데이터라고 답했다.[^preommr]
+이 규모 주장은 동기화 담당자의 서술이며 이 문서가 확인하지 못했다.
+
 ## 함정
 
 기본 권한이 Full access라는 점이 가장 먼저 걸린다.
@@ -296,3 +324,11 @@ T3 Code의 문서화된 기본값은 반대다.
 [^3ae3ae]: <https://news.hada.io/topic?id=35612#cid68000>
 
 [^click]: <https://news.hada.io/topic?id=35612#cid67992>
+
+[^viraptor]: <https://news.ycombinator.com/item?id=50176139>
+
+[^joshka]: <https://news.ycombinator.com/item?id=50179892>
+
+[^versecafe]: <https://news.ycombinator.com/item?id=50175133>
+
+[^preommr]: <https://news.ycombinator.com/item?id=50175238>

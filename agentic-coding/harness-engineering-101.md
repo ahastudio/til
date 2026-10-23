@@ -4,7 +4,7 @@
 
 <https://github.com/IsuruMaduranga/harness-engineering-101>
 
-HN 토론: <https://news.ycombinator.com/item?id=50151390> (128점, 64개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=50151390> (132점, 64개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=35651>
 
