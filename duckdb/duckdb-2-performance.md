@@ -2,6 +2,8 @@
 
 원문: [Why DuckDB 2.0 is faster | MotherDuck](https://motherduck.com/blog/why-duckdb-20-is-faster/)
 
+HN 토론: <https://news.ycombinator.com/item?id=50035530> (222점, 64개 댓글)
+
 GN 토론: <https://news.hada.io/topic?id=34456>
 
 ## 요약
@@ -106,6 +108,20 @@ VARIANT shredding은 행 그룹을 쓸 때 필드를 분석하고 열을 나누�
 분석용 데이터베이스에서 적재는 파이프라인의 절반이다.
 저자가 스스로 테이블과 파이프라인을 만드는 사람을 위한 글이라고 했기에, 쓰기 쪽 비용이 빠진 것은 독자층과 맞지 않는 공백이다.
 
+### 읽는 방식과 빠진 항목이 HN에서 먼저 지적됐다
+
+HN 스레드에서는 기술 내용보다 글의 문체가 논쟁이 됐다.
+scythmic_waves는 시각화는 좋지만 문장에서 LLM이 쓴 글의 느낌이 강하다고 했고,[^scythmic_waves]
+kristianp는 AI가 쓴 흔적이 보이지만 전체적으로 나쁘지 않다고 하면서, 재귀 CTE 절이 최적화가 어떻게 이뤄졌는지 설명하지 않는다고 짚었다.[^kristianp]
+반대로 jdehesa는 어색한 표현이 영어를 모국어로 쓰지 않는 사람이 모국어 표현을 옮긴 흔적일 수 있다고 했다.[^jdehesa]
+글쓴이가 LLM을 썼는지는 이 문서가 확인할 수 없고, 문체에 대한 추측은 글의 수치와 별개다.
+다만 wodenokoto가 재귀 CTE 절의 그래프 도달성 40배라는 표현을 글 스스로 어렵다고 인정한 대목이라고 지적한 점은,[^wodenokoto] 이 문서가 앞에서 짚은 재귀 CTE 수치의 설명 부족과 겹친다.
+
+같은 스레드에는 내용에 대한 아쉬움도 있었다.
+robertclaus는 2.0에 트리거가 들어왔는데 글이 S3 읽기 최적화를 길게 다루면서 트리거는 지나갔다고 불평했고,[^robertclaus]
+tiagod도 같은 점을 짚었다.[^tiagod]
+이 문서가 쓰기 쪽 비용이 소개에서 빠졌다고 지적한 것과 같은 지점이다.
+
 ## 인사이트
 
 ### 비동기 I/O는 파일 크기에 대한 오래된 권고를 더 강하게 만든다
@@ -118,6 +134,11 @@ VARIANT shredding은 행 그룹을 쓸 때 필드를 분석하고 열을 나누�
 압축(compaction) 작업이나 DuckLake 같은 테이블 포맷으로 파일을 합치는 일의 가치가 엔진이 빨라질수록 커지는 역설이 생긴다.
 엔진의 개선은 균일하게 분배되지 않고, 이미 모양이 좋은 데이터에 먼저 돌아간다.
 
+HN에서 jiggawatts는 이 방향을 한 걸음 더 밀어 보라고 했다.
+Umbra나 CedarDB처럼 작업(task) 단위로 설계한 엔진과 달리, 대부분의 엔진은 스레드 n개가 교환 연산으로 일하는 방식이며 비동기 I/O 관리가 허술하다는 것이다.
+DuckDB가 이 점을 개선하지만 수십 년 된 연구를 따라잡는 단계라고도 했다.[^jiggawatts]
+이 평가가 맞다면 2.0의 비동기 I/O는 도착점이 아니라, 네트워크 지연이 큰 환경에서 스레드를 놀리지 않는 방향으로 가는 중간 단계다.
+
 ### 재귀 CTE가 빨라지면 그래프 데이터베이스의 경계가 옮겨 간다
 
 저자는 예전에 그래프 데이터베이스로 밀어내던 일이 이제 평범한 질의가 된다고 쓴다.
@@ -128,6 +149,10 @@ VARIANT shredding은 행 그룹을 쓸 때 필드를 분석하고 열을 나누�
 조상 찾기처럼 한 방향으로 따라가는 순회는 부모 열 조회로 충분하지만, 최단 경로나 패턴 매칭처럼 탐색 공간이 폭발하는 질의는 여전히 전용 구조가 필요하다.
 같은 시기 GeekNews에 올라온 LatticeDB처럼 그래프와 벡터와 전문 검색을 한 파일에 담으려는 시도들도 이 경계의 다른 쪽에서 오는 움직임이다.
 2.0이 끌어온 것은 그래프 문제 전체가 아니라, 계층형 데이터라는 가장 흔한 부분집합이다.
+
+HN에서 OneManHorde는 재귀 CTE가 빨라진 것은 맞지만 DuckDB에는 이미 그래프 데이터를 다루는 확장(DuckPGQ)이 있다고 알렸다.
+그는 이것이 일반 관계형 데이터베이스에서는 어려운 종류의 질의를 우아하게 처리한다고 했다.[^OneManHorde]
+그렇다면 경계는 재귀 CTE에서 멈추지 않고, 같은 엔진 안의 확장이 한 단계 더 넓힌다.
 
 ### VARIANT는 스키마 결정을 쓰기 시점에서 저장 시점으로 미룬다
 
@@ -140,3 +165,21 @@ VARIANT shredding은 그 사이, 즉 행 그룹을 저장하는 시점에 데이
 저자가 경고한 `231`과 `"231ms"`가 섞인 `latency_ms`가 그 예이고, 이런 데이터에서는 질의 성능이 행 그룹마다 달라진다.
 평균은 좋아도 꼬리가 나빠지는 구조라, 성능이 흔들릴 때 원인을 찾으려면 `pragma_storage_info`로 행 그룹별 분해 상태를 봐야 한다.
 스키마를 정하지 않아도 되는 자유는, 성능이 왜 흔들리는지 설명할 책임을 운영자에게 넘긴다.
+
+---
+
+[^scythmic_waves]: <https://news.ycombinator.com/item?id=50036555>
+
+[^kristianp]: <https://news.ycombinator.com/item?id=50037220>
+
+[^jdehesa]: <https://news.ycombinator.com/item?id=50037810>
+
+[^robertclaus]: <https://news.ycombinator.com/item?id=50038172>
+
+[^tiagod]: <https://news.ycombinator.com/item?id=50038782>
+
+[^jiggawatts]: <https://news.ycombinator.com/item?id=50037368>
+
+[^OneManHorde]: <https://news.ycombinator.com/item?id=50039225>
+
+[^wodenokoto]: <https://news.ycombinator.com/item?id=50040190>
