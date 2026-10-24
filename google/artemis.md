@@ -11,6 +11,8 @@ Apache-2.0 라이선스에 Python으로 작성되어 있다.
 공개 시점부터 한 달이 채 되지 않은 2026년 9월 10일 기준
 별 1,171개, 포크 104개를 기록하고 있었고,
 하루 뒤인 9월 11일에는 별 1,603개, 포크 144개, 열린 이슈 10개로 늘었다.
+이후 GitHub API로 확인한 최근 값은 별 14,210개이고 마지막 푸시는
+2026년 10월 1일이다.
 요구 사양은 Python 3.12 이상이며, 영문과 중문 README를 함께 제공하고
 Discord 커뮤니티를 운영한다.
 
@@ -45,12 +47,12 @@ README 첫머리의 데모는 Google 지도에서 주행 경로를 설정하고
 
 ARTEMIS는 네 가지 표면을 제공한다.
 
-| 표면            | 진입점                  | 쓰임새                                        |
-| --------------- | ----------------------- | --------------------------------------------- |
-| 웹 콘솔         | `uv run artemis ui`     | 화면 실시간 투사, 자연어 지시, 실행 리플레이  |
-| MCP 서버        | `artemis mcp --install` | IDE 채팅에서 실제 단말로 버그 재현과 테스트   |
-| CLI             | `uv run artemis run`    | 자동화 케이스, 탐색적 안정성 점검, 벤치마크   |
-| Python SDK      | `artemis-client`        | pytest·CI 파이프라인 통합, Pydantic 구조 출력 |
+| 표면       | 진입점                  | 쓰임새                                        |
+| ---------- | ----------------------- | --------------------------------------------- |
+| 웹 콘솔    | `uv run artemis ui`     | 화면 실시간 투사, 자연어 지시, 실행 리플레이  |
+| MCP 서버   | `artemis mcp --install` | IDE 채팅에서 실제 단말로 버그 재현과 테스트   |
+| CLI        | `uv run artemis run`    | 자동화 케이스, 탐색적 안정성 점검, 벤치마크   |
+| Python SDK | `artemis-client`        | pytest·CI 파이프라인 통합, Pydantic 구조 출력 |
 
 MCP 설치 대상으로 이름이 올라간 클라이언트는
 Antigravity, Cursor, Claude Code, Codex, Windsurf, VS Code, Cline/Roo,
@@ -105,6 +107,55 @@ Safety Net을 통과하며,
 Explorer 그라운딩의 등급(`flash`/`pro`/`ultra`)이 사용자 설정이라는 점이다.
 `config/artemis.jsonc`의 `pro.explorer.mode`나 `flash.explorer_mode`,
 또는 `--explorer-pro-mode`로 정하며, 에이전트가 스스로 고르지 못한다.
+
+## 단말에 설치되는 것
+
+첫 작업을 돌리면 Artemis Accessibility Helper라는 작은 접근성 서비스가
+단말에 설치된다.
+UiAutomation 연결을 점유하지 않고 화면 구조를 읽기 위한 것이며,
+UiAutomation을 쓰는 다른 도구는 `FLAG_DONT_SUPPRESS_ACCESSIBILITY_SERVICES`를
+켜지 않으면 이 서비스를 억제할 수 있다고 README가 설명한다.
+사용자에게는 “Artemis test helper is running”이라는 접힌 알림과
+설정의 접근성 메뉴에 생긴 항목으로 보이고, 단말 안에서만 수신하며
+다른 곳으로 아무것도 보내지 않는다고 한다.
+첫 작업의 약 3초 지연은 `uv run artemis helper install`로 미리 설치해 피한다.
+상태는 `uv run artemis helper status`나 `uv run artemis doctor`로 보고,
+`uv run artemis helper uninstall`로 언제든 지운다.
+UIAutomator2를 대신 쓰려면 `.env`에 `ARTEMIS_HIERARCHY_BACKEND=uiautomator`를,
+자동 설치를 막으려면 `ARTEMIS_HELPER_AUTO_INSTALL=false`를 둔다.
+작업 도중 이 서비스가 실패하면 UIAutomator2로 되돌아가며,
+그 사실을 작업 타임라인과 `mobile_manage_task` 상태와 최종 보고서에 밝힌다고
+한다.
+수신 범위에 대한 README의 설명을 이 문서가 코드로 확인하지는 못했다.
+
+## 출처 표기 논란
+
+README 하단의 라이선스 항목은 Google 소유가 아닌 코드가 `third_party/` 아래에
+업스트림 프로젝트별 디렉터리로 들어 있다고 하며,
+그 예로 Minitap, Inc.의 mobile-use 일부(Apache License 2.0)를 든다.
+이 문구는 처음부터 있던 것이 아니다.
+2026년 9월 11일 mobile-use 팀은 ARTEMIS가 자신들의 코드를 포함하는데
+Minitap과 mobile-use와 기여자에 대한 언급이 없다는 이슈를
+열었다.[^mobile-use-issue]
+이슈는 초기 `pyproject.toml`에 mobile-use의 버전 번호 3.6.3과 원저자 세 명이
+Google LLC 저작권 머리말 아래 있었고,
+교체된 커밋에서 그 이름들이 다른 저자로 바뀌었으며
+나머지 228개 파일은 그대로였다고 주장했다.[^mobile-use-issue]
+공유된 코드의 예로 ADB 터널 구현, 플래너 보조 함수, 앱 잠금 유틸리티,
+에이전트 프롬프트, SDK 예제를 들었다.[^mobile-use-issue]
+요구 사항은 README 감사 문구, 관련 파일의 업스트림 저작권 고지 복원,
+원저자와 기여자 표기였다.[^mobile-use-issue]
+
+이슈는 9월 15일에 닫혔다.
+댓글에 따르면 저장소가 커밋 371aa6d에서 README에 Minitap 표기를 넣고
+관련 파일의 업스트림 저작권 머리말을 되살렸다.[^mobile-use-issue]
+다만 다른 참가자는 그 조치가 완전하지 않다며
+여전히 mobile-use와 비슷한 파일 열세 개의 목록을 제시했고,
+한 참가자는 이를 바로잡는 풀 리퀘스트를 냈다고 적었다.[^mobile-use-issue]
+이 문서는 코드를 대조해 보지 않았고, 이슈 안의 주장과 조치 보고를
+그 내용대로 전할 뿐이다.
+AndroidWorld 점수를 둘러싼 비교(mobile-use 쪽 100%, ARTEMIS 99.1%)도
+이슈 댓글 한 건의 주장이며 이 문서가 확인하지 못했다.[^mobile-use-issue]
 
 ## 분석
 
@@ -343,3 +394,7 @@ ARTEMIS는 Planner와 Operator와 Checker는 나누면서 복구자만 두지 �
 그 역할이 필요로 하는 맥락이 요약을 견디는지로 판단해야 한다.
 요약을 견디는 작업은 나누고,
 원본 맥락이 있어야 하는 작업은 같은 에이전트 안에 두는 것이 낫다.
+
+---
+
+[^mobile-use-issue]: GitHub, [Missing attribution to mobile-use and its contributors](https://github.com/google/artemis/issues/40), 2026-09-11
