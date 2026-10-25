@@ -17,6 +17,8 @@ Sphinx는 에이전트가 거드는 개발을 위한 Git 훅이다.
 동작한다. npm 패키지 이름은 `sphinx-understand`이고 MIT 라이선스다.
 Node.js 22.19 이상이 필요하고 macOS, Linux, WSL에서 동작하며,
 네이티브 Windows는 아직 지원하지 않는다.
+이후 GitHub API로 확인한 값은 저장소 생성일이 2026년 10월 14일, 별 383개, 마지막
+푸시가 10월 25일이다.
 
 홈페이지의 표어는 사고는 맡길 수 있어도 이해는 맡길 수 없다는 문장이다.
 홈페이지는 이 문장을 손자(Sun Tzu)의 말로 소개하지만 출처를 달지 않았다.
@@ -52,8 +54,9 @@ Stripe가 시간 초과로 같은 이벤트를 다시 보내면
 큰 변경은 최대 세 개다.
 검토 모델이 거치는 경로도 변경 크기에 따라 작은 경로,
 중간 경로, 큰 경로로 나뉜다.
-`distance`가 `high`(기본값)이면 변경이 무엇을 하고 무엇에 영향을 주는지를 묻고,
+`distance`가 `high`이면 변경이 무엇을 하고 무엇에 영향을 주는지를 묻고,
 `low`이면 구체적인 로직과 조건과 경계 사례를 묻는다.
+기본값은 둘을 섞은 `mixed`다.
 커밋 뒤에 질문을 백그라운드에서 미리 만들어 두므로
 푸시할 때쯤 질문이 이미 준비된 경우가 많다고 한다.
 
@@ -96,7 +99,7 @@ git push origin main      # 질문이 뜨고 Git이 기다린다
   "branches": ["main", "release/*"],
   "remotes": ["*"],
   "level": "standard",
-  "distance": "high",
+  "distance": "mixed",
   "exclude": ["vendor/**"]
 }
 ```
@@ -108,6 +111,45 @@ Claude Code 요금제를 쓰는 `claude-economy`, Codex 요금제를 쓰는 `cod
 OpenAI 호환 엔드포인트라면
 OpenAI, Groq, Together, Ollama, LM Studio, vLLM도 쓸 수 있다.
 Sphinx에는 자체 계정이나 호스팅 서비스가 없다.
+
+## 연동과 범위
+
+### 터미널 모드와 GitHub 연동
+
+SSH처럼 브라우저를 백그라운드로 열 수 없는 곳에서는 `git push`를 실행한 터미널에
+질문이 바로 나온다.
+`/hint`, `/learn`, `/dispute <이유>`, `/skip`, `/stop`을 입력하고, 통과한 뒤에는
+`continue`나 `stop`을 쓴다.
+`sphinx config --interface terminal`로 항상 터미널을 쓰게 할 수 있고,
+`sphinx check`는 같은 검사를 터미널에서 실행한다.
+GitHub CLI(`gh`)로 로그인되어 있으면 통과한 커밋에 도장이 찍힌다.
+풀 리퀘스트 브랜치로 푸시하면 질문 요약과 첫 시도 결과를 풀 리퀘스트에 댓글로
+남길지 묻고, `sphinx init --github-check`로 Sphinx Action을 더하면 풀 리퀘스트에
+Sphinx 검사가 표시된다.
+README는 이 중 어느 것도 푸시를 막지 않는다고 적는다.
+
+### 버전 0.1이 다루지 않는 것
+
+README는 버전 0.1이 로컬 커밋과 푸시만 검사한다고 밝힌다.
+웹에서의 병합, CI에서 요구하는 검사, 배포는 다루지 않고, 바이너리 파일의 내용은
+읽지 못한다.
+이 도구는 이해를 시험할 뿐 코드를 감사하지 않는다.
+평가 결과 문서는 합성 변경에서 질문의 질과 채점 오류와 비용을 기록한 것이고
+임의의 저장소를 보증하지 않는다고 한다.
+검토 모델 호출 수는 `sphinx config --max-model-calls`로 검사당 1~100회까지
+제한할 수 있고, 컨텍스트 크기와 출력 토큰과 검토 시간은 항상 상한이 있다.
+공급자의 일시 오류는 최대 세 번 다시 시도하며, 그래도 채점하지 못한 답은 재개할
+때를 위해 저장된다.
+
+### 명령
+
+README의 명령은 열두 개다.
+`install`(머신 전체 Git 훅과 에이전트 연동 설치), `init`(저장소 정책과 무시와
+맥락 파일 생성), `doctor`(훅과 연동 범위 확인), `status`(정책, 대기 중인 검사,
+최근 건너뛰기), `check`(터미널에서 검사 시작이나 재개), `pending`(끝나지 않은
+검사 목록), `yolo`, `config`(검토 모델과 한도), `auth`(OpenRouter 키나 호환
+엔드포인트 저장), `prepare`(백그라운드 준비, 실패 뒤 `--retry`),
+`activate`(재설치 없이 에이전트 열기), `uninstall`이다.
 
 ## 분석
 
