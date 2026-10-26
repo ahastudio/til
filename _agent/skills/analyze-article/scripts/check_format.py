@@ -23,6 +23,17 @@ DISCUSSION_ORDER = ("HN", "Lobste.rs", "GN")
 LINK_TEXT = r"(?:[^\]\\]|\\.)+"
 
 
+# Twitter must always be called Twitter in prose; X is forbidden. The pattern
+# targets the ways a source's "X" gets copied into Korean prose.
+TWITTER_AS_X = re.compile(
+    r"(?<![A-Za-z0-9_/.\-])X(?:\s*\(\s*(?:옛|구|전|former|formerly|Twitter|트위터)"
+    r"|(?:에서|에|의|로|를|가|와|과|는|은)?\s*(?:게시|포스트|계정|프로필|글)"
+    r"|에\s*(?:올|썼|쓴|적|밝|공개|인용|남|답|게시|직접)"
+    r"|\s*/\s*LinkedIn|와 LinkedIn|\s*플랫폼)"
+    r"|엑스\s*\(|옛 트위터|구 트위터"
+)
+
+
 def width(s):
     return sum(2 if unicodedata.east_asian_width(c) in "WF" else 1 for c in s)
 
@@ -301,6 +312,9 @@ def check_vocab_and_quotes(lines, in_fence, issues):
         if re.search(r"박(다|는|았|힌|혀|제|아)", line):
             issues.append(f"{i + 1}: `박-` 어간 금지어")
         outside = re.sub(r"`[^`\n]*`", "", line)
+        no_urls = re.sub(r"\]\([^)]*\)|<https?://[^>]*>|https?://\S+", "", outside)
+        if TWITTER_AS_X.search(no_urls):
+            issues.append(f"{i + 1}: Twitter 를 X 로 부름 — 산문에서는 항상 Twitter (X 금지)")
         if '"' in outside:
             issues.append(f"{i + 1}: 곧은 큰따옴표 — quotes-curly 미적용")
         inside = re.findall(r"`[^`\n]*`", line)

@@ -239,6 +239,8 @@ Where that line goes depends on what the subject is:
 Either way, never add both a `Show GN:` line and a `GN 토론:` line for the
 same thread.
 
+For Twitter, the service is always called Twitter in prose, never X, even
+when the source writes X or 엑스; the format gate fails prose that calls it X.
 For Twitter, `twitter.com` is used instead of `x.com` per
 `writing-guidelines.md`. For a long tweet, call it a `트윗`, not a `스레드`,
 unless the user says otherwise.

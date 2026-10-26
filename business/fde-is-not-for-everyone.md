@@ -108,7 +108,7 @@ FDE가 많은 것을 하고 나가면 조직에 남는 것이 없다는 우려�
 ### 다섯 유형의 출처와 용도가 글과 다르다
 
 글은 프로토타이퍼, 빌더, 스위퍼, 그로어, 메인테이너를 Anthropic CTO가 말한 다섯 유형이라고 쓴다.
-확인한 기사는 이를 Anthropic에서 Claude Code를 이끄는 Boris Cherny가 2026년 6월 28일 X에 올린 글이라고 보도한다.[^cherny]
+확인한 기사는 이를 Anthropic에서 Claude Code를 이끄는 Boris Cherny가 2026년 6월 28일 Twitter에 올린 글이라고 보도한다.[^cherny]
 CTO라는 직함은 이 기사에 나오지 않는다.
 
 더 중요한 것은 용도의 차이다.

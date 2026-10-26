@@ -431,6 +431,12 @@ only link. Before finishing any document, compare every footnote definition's
 URL with the source line's URL; a match is deleted together with all of its
 references. The full rule is in `writing-guidelines.md`.
 
+**The service is Twitter, never X (ABSOLUTE PRIORITY — ZERO TOLERANCE).** A
+source that writes X, 엑스, or X(옛 트위터) never changes this: write Twitter,
+and tweet URLs use `twitter.com`. Search every text for a standalone X before
+finishing it. The full rule is `Twitter Naming` in `writing-guidelines.md`, and
+the analyze-article format gate fails any prose that calls the service X.
+
 **Never force an English term into Korean.** A word the field writes in
 English stays in English; never coin a Korean word for it or reuse a Korean
 word that already carries another meaning in that field. Check every Korean
