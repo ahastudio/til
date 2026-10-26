@@ -2,7 +2,7 @@
 
 원문: [“We should be more ambitious with the software we build”](https://danluu.com/ambitious/)
 
-HN 토론: <https://news.ycombinator.com/item?id=50225695> (280점, 238개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=50225695> (740점, 654개 댓글)
 
 Lobste.rs 토론: <https://lobste.rs/s/8h9sey/we_should_be_more_ambitious_with_software> (8점, 0개 댓글)
 
@@ -200,6 +200,37 @@ HN에서 blueblazin은 새 모델이 나올 때마다 한 달 이상 걸리는 �
 글이 부정적 결과를 모으지 않았으므로, 야심찬 시도 중 몇이 실패하는지는 이 글에서
 알 수 없다.
 
+### 병목이 구현이 아니라 팀의 절차라면 야심은 막힌다
+
+HN의 bob1029는 AI 논의가 개인 개발자에게 쏠려 있지만 팀에서는 조율 비용과 이념적
+마찰 때문에 이득이 위험에 놓인다고 적었다.[^bob1029]
+코드 작성이라는 병목이 사라진 뒤에는 일일 코드 리뷰가 너무 느려 수작업 개발로
+되돌아간 팀을 봤고, 코드를 빨리 써도 병합하고 고객에게 내보내는 것이 빠르지
+않으면 소용없다고 했다.[^bob1029]
+글의 사례는 모두 혼자 쓰는 도구나 개인 실험이어서 이 병목이 보이지 않는다.
+야심을 키우라는 조언이 팀에 그대로 옮겨 가려면 구현 비용이 아니라 리뷰와 병합의
+비용부터 다시 셈해야 한다는 뜻이다.
+이는 이 문서의 읽기이고 bob1029의 한 팀 경험에 기댄 것이다.
+
+### 야심을 권하는 목소리가 일자리 불안을 지나친다
+
+스레드에서 가장 큰 가지는 글 밖의 문제였다.
+mindcandy는 수십 년 코딩한 사람이 이전에 하던 일을 AI에게 시키게 되었다고만
+말하고
+AI의 도움으로 전에 생각도 못 한 것을 몇 달 걸려 만든 이야기는 적다고
+했다.[^mindcandy]
+happytoexplain은 AI에 대한 긍정적인 감정과 사람들의 고통을 분리하지 못하고
+불평으로만 보는 태도가 속이 메스껍다고 했고,[^happytoexplain]
+bluefirebrand는 어느 편을 지키려는 것이 아니라 일자리가 안전하길 바랄 뿐인데
+AI가 그 안정을 빼앗았다고 답했다.[^bluefirebrand]
+jacquesm은 새로운 현실에 모두가 적응할 수 있다고 보는 것이 잔인하다며
+40대 후반에서 60대의 개발자들이 주니어와 Claude, 때로는 Claude만과 경쟁하게
+됐다고 썼다.[^jacquesm]
+글은 만드는 사람의 관점에서 쓰였으므로 이 논쟁에 답하지 않는다.
+야심의 비용이 내려갔다는 말은 만드는 쪽의 이득이고, 같은 변화가 노동의 값을
+떨어뜨린다면 같은 사실이 서로 다른 감정으로 읽힌다.
+이는 이 문서의 해석이다.
+
 ## 인사이트
 
 ### 야심의 병목은 구현에서 검증으로 옮겨 가고 있다
@@ -238,6 +269,12 @@ Luu는 그런 도구는 연구소가 곧 쓸모없게 만들 것이라고 가정
 이어진다.
 그래서 야심을 키울 때 먼저 물어야 할 것은 이것이 누구의 기준에서 완성인가다.
 개인 도구는 지금 당장 늘릴 수 있고, 제품은 MVP 이후의 비용을 따로 셈해야 한다.
+HN의 apatheticonion은 이 글에 동의하며 Claude, Codex, Opencode가 모두 Electron인
+것을
+보고 네이티브 데스크톱 GUI API로 에이전트용 하네스를 Rust로 쓰기 시작했다고
+했다.[^apatheticonion]
+이는 글이 든 예가 아닌 같은 종류의 야심이며, 아직 기본적인 것만 동작하고 소스도
+닫아 두었다고 하므로 성공 사례로 세기에는 이르다.
 
 ### 이 글을 읽는 방법
 
@@ -277,3 +314,15 @@ Luu는 그런 도구는 연구소가 곧 쓸모없게 만들 것이라고 가정
 [^ModernMech]: <https://news.ycombinator.com/item?id=50226958>
 
 [^blueblazin]: <https://news.ycombinator.com/item?id=50227806>
+
+[^bob1029]: <https://news.ycombinator.com/item?id=50229101>
+
+[^mindcandy]: <https://news.ycombinator.com/item?id=50226246>
+
+[^happytoexplain]: <https://news.ycombinator.com/item?id=50226338>
+
+[^bluefirebrand]: <https://news.ycombinator.com/item?id=50226726>
+
+[^jacquesm]: <https://news.ycombinator.com/item?id=50226858>
+
+[^apatheticonion]: <https://news.ycombinator.com/item?id=50229337>

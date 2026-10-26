@@ -2,7 +2,7 @@
 
 <https://github.com/Zagitta/gpu-unlock>
 
-HN 토론: <https://news.ycombinator.com/item?id=50219700> (212점, 67개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=50219700> (340점, 80개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=35938>
 
@@ -20,12 +20,12 @@ README가 강조하는 이점은 NVIDIA가 새 드라이버를 낼 때마다 수
 없다는 점이다.
 
 저장소는 2026년 10월 18일에 만들어졌고 마지막 푸시는 10월 24일이며, GitHub API
-기준 언어는 C, 별은 3,469개다.
+기준 언어는 C, 별은 8,394개다(2026년 10월 26일 확인).
 README는 커널 모듈과 로컬 패키징이 GPL-2.0-only이고, 생성되는 페이로드는 고정된
 CMP 참조에서 파생됐으며 NVIDIA 펌웨어는 자체 약관을 따른다고 적는다.
 GitHub의 라이선스 메타데이터는 비어 있다.
-이 문서는 저장소의 코드와 문서를 직접 실행하거나 검증하지 않았고, README와 HN
-스레드에 쓰인 내용을 정리했다.
+이 문서는 저장소의 코드를 직접 실행하거나 검증하지 않았고, README와 저장소의
+기술 문서, HN 스레드에 쓰인 내용을 정리했다.
 
 README의 측정은 3090 Ti, 450W, 8192³ 밀집 GEMM, FP32 누적, 다섯 번의 중앙값이다.
 FP16은 87.46에서 118.39 TFLOPS로, BF16은 87.50에서 157.41 TFLOPS로, TF32는
@@ -51,6 +51,37 @@ GA106 카드를, PCI 주소를 쓰면 그 카드만 대상으로 한다.
 부팅 뒤에 모듈을 손으로 올리면 이미 `nvidia`가 붙잡은 카드에는 아무 일도 하지
 않는다.
 여러 카드는 동시에 언락하며 전부 합쳐 1초쯤 걸린다.
+
+### 속도 제한이 걸린 곳과 푸는 방법
+
+저장소의 기술 문서는 이 언락이 Ampere 세대 GPU의 부팅 과정에 있는 같은 결함을
+쓴다고 설명한다.[^ampere]
+드라이버는 SEC2 보안 프로세서에 서명된 Booter 펌웨어를 올리고, Booter는 암호화된
+GSP 펌웨어를 검증하고 복호화해 GSP에서 실행시킨다.
+문서는 이 Booter에 스택으로 쓰는 고전적인 버퍼 오버플로가 있어 ROP로 코드를
+실행할
+수 있다고 적는다.[^ampere]
+Zagitta는 HN에서 이 펌웨어가 완전히 암호화돼 있지만 NVIDIA가 공개한 암호화된
+디버그 이미지를 공개 테스트 키로 풀 수 있었고, 그 디버그 이미지가 실제 이미지와
+충분히 비슷해 익스플로잇을 만들 수 있었다고 설명했다.
+서명되지 않은 코드는 실행되지 않고 실행 흐름만 장악한다는 것이다.[^Zagitta-rop]
+
+문서가 밝히는 표적은 두 레지스터다.
+`SS0`(`0x0082381c`)는 DP, FFMA, FMLA16, FMLA32, IMLA0~3의 4비트 필드 여덟 개를
+담고, `SS1`(`0x00823820`)은 IMLA4의 필드 하나를 담는다.
+각 필드는 최상위 비트가 재정의 활성화, 아래 세 비트가 속도 선택이며 `00`이 풀
+속도, `01`이 절반 속도다.
+그래서 `SS0`에 `0x88888888`, `SS1`에 `0x8`을 쓰는 것이 목표인데, 호스트 쪽에서는
+이 레지스터에 쓸 수 없다.[^ampere]
+익스플로잇의 ROP 가젯은 크기 한계에 가까워 쓰기를 두 번 할 수 없다.
+그래서 문서는 이 레지스터들의 접근을 정하는 권한 수준 마스크(PLM)를 쓴다.
+두 레지스터는 `FEAT_OVR_PLM`(`0x00823804`) 하나가 관리하고, GA100과 GA102에서
+기본값은 `0xffffff8f`이며 하위 바이트의 상위 4비트가 `1000`이라 L3(heavy-secure)
+컨텍스트만 쓸 수 있다.
+가젯 안에서 이 마스크에 `0xFFFFFFFF`를 한 번 써 두면 드라이버가 `SS0`와 `SS1`을
+쓸 수 있게 된다.[^ampere]
+이 문서는 레지스터 값과 해석을 저장소 문서에서 옮긴 것이고 직접 검증하지 않았다.
+저장소 문서 스스로도 PLM 비트 해석이 관찰된 동작에서 추정한 모델이라고 적는다.
 
 ### 화면 출력과 절전에서의 동작
 
@@ -121,6 +152,16 @@ Tiberium은 저장소의 이슈에 3080 Ti, 3070 Ti, 3070, 3060의 보고가 있
 쓰기 때문에 작동하며 VBIOS 구성이 특이한 카드에 문제가 있다는 보고가 있다고
 했다.[^Zagitta-cards]
 README의 표도 이 답과 같은 모양이다.
+포크도 있다. qingcharles는 2080 Ti용 KohakUnlock을,[^qingcharles]
+Ey7NFZ3P0nzAe는
+Turing용 `turing-unlock`을 소개했다.[^Ey7NFZ3P0nzAe]
+jacquesm은 40 시리즈용 포크를 4090 48GB 개조 카드에서 돌려 전체 소요 시간이
+30% 줄었다고 보고했고, 450W는 커넥터에 부담이라 아직 전력을 다 올리지 않았다고
+덧붙였다.[^jacquesm-4090]
+포크가 드라이버 버전에 묶여 있다는 우려에는 Zagitta가, 포크의 고정은 펌웨어를
+꺼내 올리는 데만 쓰이고 드라이버에 넘기기 전에 Booter 부분이 리셋되므로 버전이
+맞을 필요가 없다고 답했다.[^Zagitta-pin]
+이 문서는 이 포크들을 시험하지 않았다.
 다만 3080 Ti OEM 카드는 BF16이 절반 속도에 남았다.
 
 ## 비평
@@ -202,6 +243,8 @@ README의 최대 수치가 아니라 사용자 보고의 중앙값에 가까운�
 
 ---
 
+[^ampere]: GitHub Zagitta/gpu-unlock, [How Nvidia Ampere generation GPUs got unlocked](https://github.com/Zagitta/gpu-unlock/blob/main/docs/How%20Ampere%20was%20unlocked.md)
+
 [^jacquesm]: <https://news.ycombinator.com/item?id=50221626>
 
 [^Zagitta-power]: <https://news.ycombinator.com/item?id=50222247>
@@ -229,3 +272,13 @@ README의 최대 수치가 아니라 사용자 보고의 중앙값에 가까운�
 [^pixl97]: <https://news.ycombinator.com/item?id=50224142>
 
 [^wewewedxfgdf]: <https://news.ycombinator.com/item?id=50228023>
+
+[^Zagitta-rop]: <https://news.ycombinator.com/item?id=50224227>
+
+[^qingcharles]: <https://news.ycombinator.com/item?id=50228636>
+
+[^Ey7NFZ3P0nzAe]: <https://news.ycombinator.com/item?id=50226669>
+
+[^jacquesm-4090]: <https://news.ycombinator.com/item?id=50222926>
+
+[^Zagitta-pin]: <https://news.ycombinator.com/item?id=50222789>
