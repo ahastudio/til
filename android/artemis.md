@@ -70,6 +70,298 @@ README는 두 곳에 중복 설치하지 말라고 명시한다.
 `CLAUDE.md`와 `rules/*.md`를 둘 다 읽기 때문에
 중복은 컨텍스트 낭비라는 이유다.
 
+## 설치와 첫 실행
+
+준비물은 USB 디버깅을 켠 안드로이드 단말이나 에뮬레이터 한 대다.
+저장소의 시작 스크립트가 ADB, scrcpy, FFmpeg, Python 의존성(`uv`)을 찾아
+없으면 설치하고, 감지한 IDE에 MCP 설정과 테스트 규칙을 넣을지 묻는다.
+
+```bash
+# macOS와 Linux
+git clone https://github.com/google/artemis.git && cd artemis
+./start.sh
+```
+
+```powershell
+# Windows PowerShell (CMD에서는 start.bat)
+git clone https://github.com/google/artemis.git
+cd artemis
+.\start.bat
+```
+
+스크립트가 끝나면 `http://localhost:8000`이 열리고,
+단말 연결 마법사, 실시간 화면 미러링, 프롬프트 샌드박스, 실행 리플레이가 나온다.
+README는 PowerShell이 현재 디렉터리의 스크립트를 찾지 않으므로
+`.\start.bat`처럼 앞에 `.\`를 붙이되 끝에 `\`는 붙이지 말라고 적는다.
+
+모델 키는 두 가지로 넣는다.
+`uv run artemis init`이 공급자를 Gemini, OpenAI, Anthropic, OpenRouter 중에서
+고르게 하고
+키를 입력받은 뒤 연결된 단말을 `adb devices -l`로 찾아 준다.
+직접 하려면 `.env.example`을 `.env`로 복사해 키를 채운다.
+
+```bash
+cp .env.example .env
+# GEMINI_API_KEY, OPENAI_API_KEY, ANTHROPIC_API_KEY 등 하나 이상을 채운다
+uv run artemis doctor
+```
+
+`artemis doctor`는 시스템 의존성, 단말 연결, 설정을 점검해 표로 보여 준다.
+`--fix`는 손상된 ADB 인증 키와 비정상 종료한 실행기가 남긴 단말 잠금처럼
+고칠 수 있는 문제를 고치고, `--json`은 같은 진단을 JSON으로 낸다.
+첫 지시는 `uv run artemis run "설정에서 배터리 잔량을 찾아 알려 줘"`처럼 작게
+시작한다.
+
+전역으로 `artemis` 명령을 쓰고 싶으면 저장소 루트에서
+`uv tool install -e .`를 한 번 실행한다.
+웹 콘솔을 다루는 명령은 `artemis restart`, `artemis stop`, `artemis status`다.
+
+## CLI로 실행하기
+
+`artemis run`은 지시 하나를 끝까지 실행한다.
+코드의 기본 프로파일은 `pro`이고,
+README의 예제는 `--profile flash`를 붙인다.
+같은 명령을 아무 옵션 없이 쓰면 Flash보다 느린 Pro가 돈다는 뜻이다.
+
+```bash
+# 빠른 반응형 루프로 한 번 실행
+uv run artemis run "Open Settings, find Battery and tell me current level" --profile flash
+
+# 특정 단말에 고정하고, 앱 하나로 행동 범위를 제한
+uv run artemis run "로그인 화면에서 틀린 비밀번호를 넣고 오류 문구를 확인해 줘" \
+  --profile pro \
+  --device-serial emulator-5554 \
+  --locked-app com.example.app
+
+# APK를 먼저 설치한 뒤 실행
+uv run artemis run "앱을 열고 첫 화면의 팝업을 모두 닫아 줘" --app-path ./app-debug.apk
+```
+
+주요 옵션은 다음과 같다.
+
+| 옵션                                     | 하는 일                                                           |
+| ---------------------------------------- | ----------------------------------------------------------------- |
+| `--profile`, `-p`                        | `flash` 또는 `pro`. 기본값은 `pro`                                |
+| `--device-serial`, `-s`                  | 단말 일련번호 지정. 에뮬레이터는 `emulator-5554` 형식             |
+| `--locked-app`, `-a`                     | 에이전트가 건드릴 수 있는 패키지를 하나로 제한                    |
+| `--app-path`                             | 실행 전에 설치할 로컬 APK 경로                                    |
+| `--verification-level`                   | Pro의 Checker 수준. `off`, `final`(기본), `checkpoints`, `strict` |
+| `--explorer-flash-mode`                  | Flash의 Explorer 등급. `flash`, `pro`, `ultra`                    |
+| `--explorer-pro-mode`                    | Pro의 Explorer 등급                                               |
+| `--enable-checker/--disable-checker`     | Checker 켜고 끄기                                                 |
+| `--enable-outputter/--disable-outputter` | 실행 뒤 보고서와 구조화 출력 합성 켜고 끄기                       |
+| `--force-output-synthesis`               | 출력 스키마가 없어도 보고서 합성을 강제                           |
+| `--enable-committee`                     | 여러 에이전트가 토론하는 Committee 도구 켜기                      |
+| `--standalone`                           | 데몬을 자동으로 띄우지 않고 프로세스 안에서 실행                  |
+| `--session-id`                           | 트레이스와 스트림 텔레메트리에 쓸 세션 UUID                       |
+
+`--verification-level`의 네 단계는 이렇게 읽는다.
+`off`는 점검이 없고, `final`은 끝날 때 목표 대비 최종 검토만 한다.
+`checkpoints`는 계획에 적힌 모든 체크포인트와 최종 검토를 하고,
+`strict`는 체크포인트에 수리 예산을 더 주며 assert가 실패하면 멈춘다.
+검증을 강하게 할수록 모델 호출이 늘어나므로 비용과 시간이 함께 늘어난다.
+이는 이 문서의 추론이다.
+
+여러 지시를 이어서 돌릴 때는 `artemis batch`를 쓴다.
+지시를 명령줄 인자로 주거나 `--file`로 한 줄에 하나씩 적은 텍스트 파일
+또는 JSON 배열 파일을 준다.
+
+```bash
+uv run artemis batch --file tasks.txt --profile flash --delay 5
+uv run artemis batch "Wi-Fi를 켜 줘" "블루투스 상태를 알려 줘" --profile pro
+```
+
+`batch`의 기본 프로파일도 `pro`이고 기본 간격은 5초다.
+모든 지시가 한 에이전트에서 차례로 실행되고 끝나면 성공과 실패를 표로 요약한다.
+
+실행 기록은 `artemis trace list`로 목록을 보고
+`artemis trace view <세션 이름>`으로 한 세션을 들여다본다.
+`--path`로 트레이스 디렉터리를 바꿀 수 있고, `list`는 `--limit`으로 개수를
+제한한다.
+
+## MCP로 IDE에서 쓰기
+
+IDE 안에서 단말을 다루게 하려면 MCP 서버를 설치한다.
+한 번에 모든 IDE에 설치하거나 하나만 고를 수 있다.
+
+```bash
+uv run artemis mcp --install all          # 지원하는 IDE 전부
+uv run artemis mcp --install claude       # Claude Code만
+uv run artemis mcp --generate-config codex  # 설정 조각만 출력
+```
+
+`--install` 대상은 `antigravity`, `claude`, `cursor`, `windsurf`, `vscode`,
+`cline`, `roo`, `openclaw`, `codex`, `all`이다.
+수동 설정이 필요하면 `--generate-config`가 출력한 조각을 붙이되,
+`command`는 저장소의 `.venv` 파이썬을, `cwd`는 저장소 경로를 가리켜야 한다.
+Codex는 `~/.codex/config.toml`에 `[mcp_servers.artemis]` 표를,
+Antigravity는 `~/.gemini/jetski/mcp_config.json`에,
+Claude Desktop은 `claude_desktop_config.json`에 같은 모양의 JSON을 넣는다.
+서버를 직접 띄울 때는 `uv run artemis mcp`이고, 전송 방식은 `--transport`로
+`stdio`나 `sse`를 고른다.
+
+설치기는 MCP 설정과 함께 테스트 규칙 파일(`rules.md`)을 IDE별 전역 위치에 둔다.
+Claude Code는 `~/.claude/rules/artemis.md`다.
+Claude Code가 `~/.claude/CLAUDE.md`와 `~/.claude/rules/*.md`를 둘 다 읽으므로
+규칙을 두 곳에 넣으면 컨텍스트만 낭비된다고 README가 경고한다.
+규칙 파일은 AI가 화면 전환을 추측하지 말고 먼저 MCP 도구로 앱을 탐색해
+실제 경로를 확인한 뒤 테스트 코드를 쓰게 하고,
+빠른 동작에는 Flash를, 계획과 검증 지점과 진단이 필요한 일에는 Pro를 고르게
+한다.
+또 도구가 오류를 내면 먼저 `mobile_diagnose`를 부르게 하고,
+키를 채팅으로 주고받지 말라고 한다.
+
+MCP가 여는 도구는 다섯 개다.
+
+| 도구                      | 하는 일                                                                                                  |
+| ------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `mobile_run_task`         | 지시를 백그라운드로 시작한다. `device_serial`, Pro의 `verification_level`과 `explorer_mode`를 줄 수 있다 |
+| `mobile_manage_task`      | 작업 상태 조회, 중지, 실행 중 지시 주입(`inject_instruction`)                                            |
+| `mobile_get_device_state` | 스크린샷이나 OCR과 XML 계층을 실시간으로 본다                                                            |
+| `mobile_inspect_trace`    | 트레이스, 동작 오버레이, 에이전트의 추론을 본다                                                          |
+| `mobile_diagnose`         | `artemis doctor`와 같은 점검을 IDE 안에서 실행한다                                                       |
+
+`mobile_run_task`는 작업을 분리된 백그라운드 프로세스로 돌리므로 IDE의
+에이전트가 막히지 않는다.
+끝나거나 실패하면 알림이 간다.
+Antigravity는 에이전트를 깨우는 방식, 다른 IDE는 OS 알림 배너와
+`notifications.jsonl` 기록이 기본이다.
+웹훅은 `OPENCLAW_WEBHOOK_URL`, `MCP_NOTIFICATION_WEBHOOK`, `ARTEMIS_WEBHOOK_URL`
+중 하나로,
+임의의 명령은 `ARTEMIS_NOTIFY_CMD`에 `{title}`, `{message}`, `{trace_id}`
+자리표시자를 넣어 연결한다.
+
+단말이 여러 대면 `device_serial`을 직접 주면 단말마다 잠금이 걸려 병렬로 돌고,
+생략하면 준비된 단말을 자동으로 고른다.
+README는 단말이 여럿일 때 AI가 사용자에게 어느 단말인지 먼저 물어야 한다고
+적는다.
+
+IDE 채팅에서는 이렇게 지시한다.
+
+```text
+최신 변경을 APK로 빌드해서 연결된 단말에 설치하고,
+테스트 계정으로 로그인 화면을 열어 로그인 뒤 예상치 못한 팝업이 있는지 확인한 다음
+마지막 화면의 스크린샷을 돌려줘.
+```
+
+## Python SDK로 CI에 붙이기
+
+SDK `artemis-client`는 개발 머신에서 돌고, 단말을 쥔 호스트의 데몬과 HTTP로만
+통신한다.
+ADB, 에이전트, 모델, 이미지 처리 코드가 없고 런타임 의존성도 0이다.
+
+```bash
+uv add "artemis-client @ git+https://github.com/google/artemis.git#subdirectory=packages/artemis-client"
+```
+
+```python
+import asyncio
+import os
+
+from artemis_client import ArtemisClient
+
+
+async def main() -> None:
+    client = ArtemisClient(
+        os.environ["ARTEMIS_BASE_URL"],
+        token=os.environ.get("ARTEMIS_TOKEN"),
+    )
+
+    handle = await client.submit(
+        "설정에서 배터리 페이지를 열고 배터리 잔량이 보이는지 확인해 줘",
+        profile="flash",
+        device_serial="emulator-5554",
+    )
+    result = await client.wait_for_task(handle.task_id, timeout=600)
+    if not result.succeeded:
+        raise RuntimeError(result.error or result.status)
+
+
+asyncio.run(main())
+```
+
+한 번에 제출하고 기다리려면 `await client.run("...")`을 쓴다.
+`health()`는 서버와 스케줄러가 살아 있는지, `readiness()`는 단말과 도구 체인
+진단을,
+`list_devices()`는 호스트의 단말 목록을, `stop()`은 작업 하나를 멈춘다.
+`submit()`은 클라이언트가 만든 UUID를 `session_id`로 보내 네트워크 재시도에서도
+같은 `task_id`를 쓰므로 작업이 중복 생성되지 않는다.
+
+보안 주의가 하나 있다.
+현재 데몬의 관리 API에는 원격 인증이 없으므로 포트를 인터넷에 직접 열면 안 된다.
+README는 초기에는 SSH 터널을 쓰라고 한다.
+
+```bash
+ssh -L 8000:127.0.0.1:8000 user@artemis-host
+```
+
+운영에서는 HTTPS와 베어러 토큰 인증을 강제하고 작업 관련 API만 노출하는
+리버스 프록시를 앞에 두라고 안내한다.
+SDK 0.1이 부르는 엔드포인트는 `POST /api/run`, `GET /api/sessions/{session_id}`,
+`GET /api/status`, `POST /api/stop`, `GET /api/devices`,
+`GET /api/system/readiness`다.
+
+## 설정 파일
+
+모델과 에이전트 동작은 `config/artemis.jsonc`가 정한다.
+최상위 구성은 네 덩어리다.
+
+| 항목      | 역할                                                                                  |
+| --------- | ------------------------------------------------------------------------------------- |
+| `default` | 모든 하위 에이전트가 따르는 기본 공급자, 모델, `thinking_level`과 대체(fallback) 모델 |
+| `presets` | `gemini-flagship`, `gemini-flash`, `openai-gpt4o`, `cost-saving`, `local-ollama`      |
+| `nodes`   | planner, operator, explorer, checker 같은 노드별 덮어쓰기                             |
+| `agent`   | Flash와 Pro 프로파일 옵션, 기록 압축과 메모리, 영상 분석, Explorer 등급               |
+
+기본 모델은 Gemini 3.8 Flash(`gemini-3.8-flash`)이고 대체 모델은 3.7 Flash다.
+`planner`는 `thinking_level`이 `high`, `operator`와 `checker`는 `medium`이다.
+Flash의 `max_turns`는 0이라 횟수 상한이 없고,
+기록을 상한 대신 압축으로 관리한다.
+컨텍스트 예산은 `context_budget_tokens` 80,000이고,
+`start_ratio` 0.35, `soft_ratio` 0.7, `hard_ratio` 0.9에서
+오래된 스크린샷이 시각 요약으로 바뀌는 시점을 정한다.
+Pro의 Checker 설정에는 `final_check`(기본 켜짐), `midway_checks`(기본 꺼짐),
+`assert_failure_policy`(`continue`나 `halt`)가 있고,
+Committee는 기본으로 꺼져 있다.
+`local-ollama` 프리셋은 공급자를 `openai`로 두고 모델을 `llama3.2-vision`으로
+지정한다.
+OpenAI 분기에만 `base_url`이 있으므로 로컬 Ollama와 vLLM은 OpenAI 호환
+엔드포인트로 붙이는 방식으로 읽힌다.
+이 해석은 이 문서의 추정이다.
+
+환경 변수로 바꾸는 값도 있다.
+
+| 변수                          | 기본값              | 뜻                                                                      |
+| ----------------------------- | ------------------- | ----------------------------------------------------------------------- |
+| `ARTEMIS_DEFAULT_PROFILE`     | `flash`             | 프로파일을 주지 않을 때의 기본 프로파일                                 |
+| `ARTEMIS_KEEP_DEVICE_AWAKE`   | `true`              | 실행 중 화면을 켜 둔다. 개인 단말이면 `false`                           |
+| `ARTEMIS_HIERARCHY_BACKEND`   | `auto`              | UI 계층 수집 방식. `auto`, `helper`, `uiautomator`                      |
+| `ARTEMIS_HELPER_AUTO_INSTALL` | `true`              | 첫 작업에서 접근성 도우미 APK를 자동 설치. 공용이나 개인 폰이면 `false` |
+| `ADB_HOST`, `ADB_PORT`        | `127.0.0.1`, `5037` | ADB 서버 주소                                                           |
+| `ADB_DEVICE_SERIAL`           | 없음                | 기본으로 쓸 단말 일련번호                                               |
+| `OCR_API_KEY`                 | 없음                | 고급 OCR을 위한 Google Cloud Vision 키(선택)                            |
+
+`.env.example`의 `ARTEMIS_DEFAULT_PROFILE`은 `flash`인데
+CLI의 `--profile` 기본값은 `pro`다.
+둘의 우선순위는 이 문서가 코드로 확인하지 못했다.
+혼동을 피하려면 `--profile`을 항상 명시하는 편이 안전하다.
+이는 이 문서의 권고다.
+
+## 문제가 생겼을 때
+
+가장 먼저 `uv run artemis doctor`를 돌린다.
+IDE 안이면 AI에게 `mobile_diagnose`를 부르게 하면 같은 점검이 돈다.
+ADB 인증 키가 깨졌거나 이전 실행이 단말 잠금을 남겼다면 `doctor --fix`가 고친다.
+
+접근성 도우미가 말썽이면 다음을 쓴다.
+`uv run artemis helper status`로 상태를 보고,
+`uv run artemis helper install`로 미리 설치해 첫 작업의 약 3초 지연을 없애고,
+`uv run artemis helper uninstall`로 지운다.
+도우미가 작업 중 실패하면 ARTEMIS는 UIAutomator2로 되돌아가고,
+작업 타임라인과 `mobile_manage_task` 상태와 최종 보고서에 그 사실을 적는다.
+UiAutomation 연결을 쥐는 다른 도구가 있으면 도우미가 억제될 수 있으므로,
+그 경우 `ARTEMIS_HIERARCHY_BACKEND=uiautomator`로 바꾼다.
+
 ## 실행 프로파일
 
 Flash와 Pro는 같은 도구를 얇게 쓰느냐 두껍게 쓰느냐의 차이가 아니라,
@@ -107,6 +399,61 @@ Safety Net을 통과하며,
 Explorer 그라운딩의 등급(`flash`/`pro`/`ultra`)이 사용자 설정이라는 점이다.
 `config/artemis.jsonc`의 `pro.explorer.mode`나 `flash.explorer_mode`,
 또는 `--explorer-pro-mode`로 정하며, 에이전트가 스스로 고르지 못한다.
+
+## 모델과 인증
+
+ARTEMIS가 내부 에이전트에 쓰는 모델은 `artemis/llm/router.py`의 라우터가 고른다.
+이 문서가 읽은 라우터는 Gemini(`google`), Vertex AI, OpenAI,
+Anthropic, OpenRouter, 로컬 Ollama와 vLLM을 공급자로 구분한다.
+`.env.example`에는 `GEMINI_API_KEY`, `GOOGLE_API_KEY`, `OPENAI_API_KEY`,
+`ANTHROPIC_API_KEY`, `OPEN_ROUTER_API_KEY`, `XAI_API_KEY`가 있고,
+적어도 하나를 채우라고 안내한다.
+
+Claude를 고르면 라우터는 LangChain의 `ChatAnthropic`을 만들고
+`api_key`에 엔드포인트 설정, `ANTHROPIC_API_KEY` 설정값,
+같은 이름의 환경 변수 중 처음 잡히는 값을 넘긴다.
+이 분기에는 로그인이나 OAuth 토큰을 받는 코드가 없고,
+OpenAI 분기에 있는 `base_url` 지정도 없다.
+확장 사고(thinking)는 `reasoning_effort`를 토큰 예산 2,048, 8,192, 32,768로
+옮겨 켠다.
+
+따라서 Claude Pro나 Max 같은 월정액만으로는 ARTEMIS 내부 모델로 Claude를 쓸 수
+없다.
+월정액 계정은 API 키를 주지 않고,
+Anthropic은 구독 계정의 OAuth 인증을 Claude Code와 자사 앱을 위한 것으로
+한정한다.
+제3자 개발자가 구독 자격으로 요청을 보내게 하는 것도 허용하지 않고
+API 키나 지원되는 클라우드 공급자 자격을 쓰라고 한다.[^anthropic-legal]
+Claude를 내부 모델로 쓰려면 종량제 API 키가 필요하다.
+
+키 하나로 끝나지도 않는다.
+기본 설정 파일은 화면 좌표를 잡는 `object_detector` 노드에
+`gemini-robotics-er-2-preview`를 지정해 두었고,
+주석은 Claude를 포함한 일반 모델에는 정밀한 좌표 탐지용 미세 조정이 없어
+이 노드는 Gemini ER 계열이어야 하며 다른 모델은 좌표 탐지에 실패한다고 경고한다.
+Flash 프로파일의 Explorer 기본 등급 `flash`가 이 노드에 일을 넘기므로,
+Claude만 쓰는 구성은 Explorer 등급을 `pro`나 `ultra`로 올려야 한다.
+`pro`와 `ultra`는 Gemini 네이티브 엔진과 범용 LangChain 엔진을 둘 다 지원한다고
+적혀 있다.
+단계 요약기, 기록 압축, 패키지 찾기 노드의 기본 모델도 Gemini라서
+Claude로 바꾸려면 `nodes`와 `agent` 항목을 따로 고쳐야 한다.
+이 내용은 설정 파일의 주석을 읽은 것이고,
+Claude 전용 구성을 이 문서가 실행해 보지는 못했다.
+
+월정액을 쓸 수 있는 길은 MCP 쪽에 있다.
+구독으로 로그인한 Claude Code가 ARTEMIS의 MCP 서버를 통해 단말을 다루는 구성은
+Claude Code의 정상적인 사용이고,
+Anthropic도 사용자가 수정하지 않은 Claude Code에 자기 구독으로 로그인하는 것은
+막지 않는다고 적는다.[^anthropic-legal]
+다만 README는 ADB, 에이전트, 모델, 이미지 처리가 단말을 쥔 호스트에 남는다고
+설명한다.
+그래서 `mobile_run_task`가 돌리는 ARTEMIS 내부 에이전트의 모델은
+여전히 호스트의 공급자 설정을 따를 것으로 보인다.
+`mobile_run_task`가 항상 내부 에이전트를 거치는지는 이 문서가 코드로 확인하지
+못했고,
+이는 이 문서의 추정이다.
+정리하면 구독은 Claude Code의 두뇌에 쓰이고,
+ARTEMIS 내부의 화면 인식과 행동 결정에는 따로 고른 모델의 키가 든다.
 
 ## 단말에 설치되는 것
 
@@ -398,3 +745,5 @@ ARTEMIS는 Planner와 Operator와 Checker는 나누면서 복구자만 두지 �
 ---
 
 [^mobile-use-issue]: GitHub, [Missing attribution to mobile-use and its contributors](https://github.com/google/artemis/issues/40), 2026-09-11
+
+[^anthropic-legal]: Claude Code Docs, [Legal and compliance](https://code.claude.com/docs/en/legal-and-compliance)

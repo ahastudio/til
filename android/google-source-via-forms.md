@@ -127,7 +127,7 @@ Android 새 버전 출시일에 GrapheneOS가 따라가지 못한다.
 Pixel에서 소스 접근이 나빠지는 것은
 GrapheneOS가 Pixel 의존을 줄일 이유가 되고,
 그 대안이 이미 준비되어 있다는 선언이 같은 스레드 안에 있다.
-[GrapheneOS 지원 기기가 2027년에 나온다는 후속 발표](../hardware/grapheneos-devices-2027.md)와
+[GrapheneOS 지원 기기가 2027년에 나온다는 후속 발표](../android/grapheneos-devices-2027.md)와
 이 게시글은 같은 주의 사건이며 같은 방향을 가리킨다.
 
 Motorola 쪽 계획의 서술이 그 차이를 구체적으로 보여 준다.
@@ -208,7 +208,7 @@ Google의 요청 양식이 `source.android.com/opensourcerequest`이며
 스레드에서 반복적으로 나온 표현대로 이것은 악의적 준수에 가깝다 —
 동시에 게시글이 제시하지 않은 논거 두 개는 실제로 유효하다.
 수정에 선호되는 형태 요건과 관례적 매체 요건이며,
-[열하루 뒤 다른 스레드에서 프로젝트 계정이 정확히 그 둘을 짚었다](../hardware/grapheneos-devices-2027.md)[^gos-gpl].
+[열하루 뒤 다른 스레드에서 프로젝트 계정이 정확히 그 둘을 짚었다](../android/grapheneos-devices-2027.md)[^gos-gpl].
 434회 부스트된 게시글에는 형용사가 있었고
 논거는 열하루 뒤 다른 사이트의 댓글에 있었으며,
 전자를 읽은 사람의 대다수는 후자를 보지 못했다.
