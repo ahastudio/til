@@ -2,7 +2,7 @@
 
 원문: [Vibe-Coded Browser Ports Of Games Work Perfectly, Unfortunately](https://kotaku.com/we-might-be-cooked-as-these-vibe-coded-web-browser-ports-of-halo-the-simpsons-hit-and-run-and-gta-vice-city-seem-to-work-perfectly-2000743300)
 
-HN 토론: <https://news.ycombinator.com/item?id=50035561> (103점, 79개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=50035561> (105점, 80개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=35192>
 
