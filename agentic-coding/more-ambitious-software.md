@@ -2,7 +2,7 @@
 
 원문: [“We should be more ambitious with the software we build”](https://danluu.com/ambitious/)
 
-HN 토론: <https://news.ycombinator.com/item?id=50225695> (740점, 654개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=50225695> (826점, 686개 댓글)
 
 Lobste.rs 토론: <https://lobste.rs/s/8h9sey/we_should_be_more_ambitious_with_software> (8점, 0개 댓글)
 
@@ -70,6 +70,37 @@ zstd 구현 평가에서는 GPT-6 Astra가 등록된 모든 시험을 99% 넘게
 커지고 있다고 한다.
 Luu는 이 글을 반 시간 만에 쓰고 거의 검토하지 않았으며, 평소 스타일이라면
 포괄적인 벤치마크를 붙였을 텐데 호기심을 채울 정도의 비교만 했다고 밝힌다.
+
+글 본문에는 이 요약이 다루지 않은 대목도 있다.
+Luu는 Anthropic이 일곱 명의 팀이 다섯 달 만에 Scion과 Antique(코드 리뷰 도구)를
+만들고 GitHub 대체 도구로 완전히 이전했다는 사례를 들면서, 무제한 토큰과 그 위에
+쌓은 인프라로 할 수 있는 일은 지금 제한된 예산으로 할 수 있는 일을 알려 주지
+않는다고 선을 긋는다.
+그가 보기에 더 대표적인 것은 pgrust 같은 프로젝트와 지인들이 여가에 만든 “works
+for me” 품질의 도구들이다.
+Malis는 pgrust 검증에서 Kani로 일부를 검증하다 Kani로 다루기 어려운 부분은
+Lean으로 옮겼다고 하고, Luu는 LLM 기반 증명에서 왜 ACL2가 아니라 Lean으로
+모이는지
+궁금해한다.
+Malis가 pgrust 디스코드에서 한 말도 인용된다. 주 운영 데이터베이스로 쓰라고
+권하지 않으며 장애에 상대적으로 관대한 회사에서 먼저 운영해 보는 중이고,
+0.4-beta의 새 쿼리 엔진은 일부 작업에서 매우 빠르지만 다른 작업에서는 성능이
+나빠지고 복잡한 쿼리를 지원하지 않는다는 내용이다.
+Luu는 이런 신중함이 그를 믿는 이유이고, 일반적인 데이터베이스 창업자의 과장과
+다르다고 본다.
+
+Luu는 자기 도구가 곧 쓸모없어질 것이라는 전제도 밝힌다.
+AI 연구소가 어차피 대체할 것이라고 보고, 토큰 예산 때문에 Rust 프런트엔드를
+포크하지 않았을 뿐 연구소에게는 그런 제약이 없다는 것이다.
+Steve Yegge가 Gas Town으로 Gas Town 이외의 것을 만들지 못했다는 점이나 Ralph
+Loop가 한동안 인기를 끌었지만 자기가 비교했을 때 평범한 루프보다 나빴다는 점을
+들어, 효과가 직접 보이는 일에만 머물려 한다고 한다.
+각주에서는 Thomas Ptacek이 지난 한 해를 100년처럼 느껴지는 해로 묘사한 대목을
+인용하고, 모델이 위조에 매우 능하며 진짜와 위조를 가려내는 데 필요한 전문성이
+모델이 좋아질수록 높아진다는 Max Bittker의 표현을 소개한다.
+같은 각주 가운데 하나는 Board Game Arena의 Azul에서 상위 10위 중 3명이
+부정행위자였다고 전해 들은 이야기를 적으며, 야심이 커진 부작용으로 사기꾼도
+늘었다고 한다.
 
 부록 셋이 붙는다.
 Yossi Kreinin은 대부분의 사람은 AI로 덜 야심차게 만들어야 하고 아니면 크게
@@ -231,6 +262,50 @@ jacquesm은 새로운 현실에 모두가 적응할 수 있다고 보는 것이 
 떨어뜨린다면 같은 사실이 서로 다른 감정으로 읽힌다.
 이는 이 문서의 해석이다.
 
+### 백만 배라는 속도 주장은 환산할 수 없고 새로운 일에서는 급격히 떨어진다
+
+Kreinin의 부록에 Luu가 붙인 반론에는, 어떤 일은 100만 배 넘게 빨라진다는 말이
+있다.
+danbruc은 이를 예로 들어 보라고 되받으며, 10초 대 1년 반이나 1시간 대 568년이
+되는 일이 무엇이냐고 물었다.
+그는 Navier-Stokes가 에이전트 1만 개가 88시간 돌았다는 점이 사람의 500년
+분량이지만 사람이 500년을 쓸 수 있다면 풀 수 있다는 것이 터무니없지 않다고
+했다.[^danbruc]
+rowanG077은 에이전트 수에 시간을 곱해 사람의 시간으로 환산하는 것이 맞지 않고,
+그래도 100만 배는 몇 자릿수 과하다고 답했다.[^rowanG077]
+Luu의 글은 이 배수가 어느 사례에서 나왔는지 밝히지 않으므로, 이 논쟁은
+글만으로는
+결론이 나지 않는다.
+
+더 근본적인 반론은 새로움이다.
+fritzo는 누구나 더 빠른 ripgrep을 만들 수 있으니 자신만이 명세할 수 있는 것을
+찾으라고 했고,[^fritzo]
+pydry는 새로운 것을 바이브 코딩하면 품질이 급격히 떨어지는데 LLM이 관련 학습
+자료의 존재에 크게 기대기 때문이라고 답했다.[^pydry]
+tlarkworthy는 Luu의 zstd 구현 평가를 Anthropic 모델로 다시 돌렸더니 haiku 5.5도
+해냈다고 했고,[^tlarkworthy]
+kristianp는 코드가 학습 자료에 들어갔을 수도 있다고 짚었다.[^kristianp]
+zstd, Pandoc, 정규식 엔진은 모두 구현이 이미 많이 공개된 영역이다.
+따라서 이 사례들이 보여 주는 것은 학습 자료가 두터운 영역에서의 능력이고, 그것이
+새로운 문제로 일반화되는지는 글의 근거로는 알 수 없다. 이는 이 문서의 해석이다.
+
+### 야심을 권하는 말에는 비용의 반대편도 있다
+
+jebarker는 컴파일러를 새로 만드는 사람이 결국 아무것도 내놓지 못한다는 글의
+문장에 Jonathan Blow를 반례로 들었다.
+Blow는 최신 게임을 만들며 엔진과 프로그래밍 언어와 컴파일러까지 직접 썼고,
+게임은 출시돼 호평을 받았으며, AI는 전혀 쓰지 않았다는 것이다.[^jebarker]
+outpost_mystic2는 그 결과가 10년과 수백만 달러를 태운 뒤에 나왔고 덜 알려진
+개발자 중 같은 길을 가서 성공하지 못한 경우는 어떠냐고
+되물었다.[^outpost_mystic2]
+이 주고받음은 글의 한 문장이 과거에 대해 한 말을 시험하지만, 글의 핵심 주장은
+오늘의 비용 모델이므로 크게 흔들지는 못한다.
+오히려 SoftTalker의 반대 방향 주장이 더 정면에 선다. 소프트웨어는 이미 올바르게
+쓰고 이해하고 안전하게 관리하기에 너무 야심차며, 매주 심각한 CVE가 나오는 지금
+더 야심을 내자고 말할 때가 아니라는 것이다.[^SoftTalker]
+글 속 Kreinin의 반론과 같은 방향이고, 둘 사이를 가르는 것은 만든 것을 검증하는
+비용이 구현 비용과 같은 속도로 떨어지는지에 달려 있다.
+
 ## 인사이트
 
 ### 야심의 병목은 구현에서 검증으로 옮겨 가고 있다
@@ -326,3 +401,21 @@ HN의 apatheticonion은 이 글에 동의하며 Claude, Codex, Opencode가 모�
 [^jacquesm]: <https://news.ycombinator.com/item?id=50226858>
 
 [^apatheticonion]: <https://news.ycombinator.com/item?id=50229337>
+
+[^danbruc]: <https://news.ycombinator.com/item?id=50231996>
+
+[^rowanG077]: <https://news.ycombinator.com/item?id=50232107>
+
+[^fritzo]: <https://news.ycombinator.com/item?id=50228795>
+
+[^pydry]: <https://news.ycombinator.com/item?id=50231286>
+
+[^tlarkworthy]: <https://news.ycombinator.com/item?id=50226345>
+
+[^kristianp]: <https://news.ycombinator.com/item?id=50226392>
+
+[^jebarker]: <https://news.ycombinator.com/item?id=50230982>
+
+[^outpost_mystic2]: <https://news.ycombinator.com/item?id=50231054>
+
+[^SoftTalker]: <https://news.ycombinator.com/item?id=50227025>

@@ -4,9 +4,9 @@
 
 <https://github.com/JetBrains/thinkrail>
 
-HN 토론: <https://news.ycombinator.com/item?id=50233294> (192점, 144개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=50233294> (234점, 171개 댓글)
 
-HN 토론: <https://news.ycombinator.com/item?id=50219186> (56점, 82개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=50219186> (57점, 83개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=35994>
 
@@ -26,8 +26,10 @@ IDE에서 바이브 코딩을
 스스로 만들게 하겠다고 한다.
 
 저장소는 2026년 7월 8일에 만들어졌고 TypeScript이며 Apache-2.0이다.
-확인한 시점에 별 1,937개, 포크 110개, 열린 이슈 206개였고 마지막 푸시는 10월
-26일이었다.
+처음 확인한 시점에 별 1,937개, 포크 110개, 열린 이슈 206개였고 마지막 푸시는
+10월 26일이었다.
+10월 27일에 다시 확인하니 별 2,895개, 포크 154개였고 마지막 푸시는 같은
+날이었다.
 
 ## 주요 기능
 
@@ -60,9 +62,19 @@ GitHub PR이 열리면 CI 검사와 리뷰 결정을 보이고 실패한 검사�
 - MCP 서버: `pi`의 `mcp.json`에 있는 서버를 연결하고, 읽기 전용으로 표시되지
 않은 호출은 채팅에서 묻고,
   저장소가 정의한 서버는 승인할 때까지 꺼 둔다.
+- 셸 밖의 에이전트 도구: 웹 조사와 함께 채팅 안에 다이어그램, 선택지 비교, 파일
+미리보기를 직접 그린다.
+에이전트가 UI 변경을 제안하면 적용 전후 목업을 보여 주고 사용자는 이를 diff처럼
+댓글로 검토한다.
+설정의 확장 목록에서 에이전트가 쓰는 ThinkRail 확장을 하나씩 끌 수 있다.
 - 공급자와 자격 증명: JetBrains AI로 로그인하거나 `pi`의 인증으로 아무 공급자나
 연결하며 ThinkRail 자체의
   계정은 없다.
+- 기존 pi 설정 재사용: `~/.pi/agent`의 설정을 그대로 읽는다.
+다른 설정 디렉터리(예: `~/.pi/agent-personal`)나 에이전트, 터미널, MCP 서버에
+넘길
+환경 변수는 설정의 환경 항목에서 지정하고, 다음 시작부터 적용된다.
+실행할 때 준 `PI_CODING_AGENT_DIR=… thinkrail` 같은 변수가 설정보다 우선한다.
 - 데스크톱 앱 또는 브라우저: 네이티브 데스크톱 앱과, 같은 앱을 브라우저에서 여는
 `thinkrail` CLI가 같은
   엔진 호스트를 쓴다.
@@ -73,9 +85,9 @@ GitHub PR이 열리면 CI 검사와 리뷰 결정을 보이고 실패한 검사�
 
 설치는 데스크톱 설치 프로그램과 독립형 CLI 두 가지이고, 모두 릴리스 페이지에
 `SHA256SUMS`와 함께 올라온다.
-README는 macOS(Apple Silicon)용 DMG, Windows x64용 설치 압축 파일, Linux x64와
-ARM64용 설치 tarball을
-안내하며 macOS Intel용 데스크톱 빌드는 없다고 적는다.
+README는 macOS 14 이상용 DMG를 Apple Silicon(`darwin-arm64`)과
+Intel(`darwin-x64`) 두 가지로, Windows x64용 설치 압축 파일, Linux x64와 ARM64용
+설치 tarball을 안내한다.
 Linux 데스크톱은 glibc 2.38 이상과 GTK 3, WebKitGTK 4.1 등이 필요하다.
 CLI는 아래 한 줄이고, 설치 프로그램이 알맞은 바이너리를 받아 SHA-256 체크섬을
 검증하고 PATH에 올린다.
@@ -86,6 +98,17 @@ thinkrail ~/code/my-repo   # git 저장소를 프로젝트로 열기
 ```
 
 `thinkrail`은 PATH에 `git`이 있어야 하고 모델 공급자가 필요하다.
+설치 스크립트는 `--channel stable|nightly`와 `--version`을 받고,
+Windows에서는 `THINKRAIL_CHANNEL`, `THINKRAIL_VERSION`, `THINKRAIL_PREFIX`,
+`THINKRAIL_NO_MODIFY_PATH` 환경 변수로 같은 일을 한다.
+설치된 CLI는 설정의 업데이트 항목에서 `thinkrail update`를 백그라운드로 돌릴 수
+있고,
+브라우저로 다른 기기에서 연 경우에도 호스트 머신에서 실행된다.
+`thinkrail uninstall`은 실행 파일, 설치 스크립트가 넣은 PATH 항목, 설치
+메타데이터를
+지우고 `~/.thinkrail` 앱 상태를 지울지 묻는다.
+데스크톱 패키지는 설정의 업데이트 항목에서 다운로드, 준비, 설치 후 재시작 순서로
+갱신하며 사용자가 설치를 고르기 전에는 아무것도 적용하지 않는다.
 서명 상태는 플랫폼마다 달라 Windows 바이너리는 JetBrains가 서명했고, macOS CLI는
 서명되었지만 아직 공증되지
 않았으며, Linux 산출물은 서명되지 않았다고 README가 적는다.
@@ -202,6 +225,20 @@ asteroidburger는 설계 문서와 저장소를 주고 에이전트에게 README
 이 문서는 README가 AI로 쓰였는지 판정하지 않는다.
 다만 첫 인상이 갈리는 지점이라는 점은 도구를 처음 접하는 독자에게 영향을 준다.
 
+반대편 논거도 있었다.
+tasuki는 README가 좋은지를 따질 일이지 누가 썼는지를 짐작해 깎아내릴 일이
+아니라고
+했고,[^tasuki]
+기술 문서 작성자인 alexjameson은 에이전트로 README를 수십 개 만들어 보니
+완벽하진
+않아도 대부분 충분했다고 썼다.[^alexjameson]
+비판 쪽에서 NichoPaolucci는 앱이 프롬프트를 몰래 조립하지 않는다는 README의
+문장을 짚으며, 그런 문장은 읽어 봤다면 빠졌을 것이라고 했다.[^NichoPaolucci]
+이 문장은 README의 Under the hood 대목에 실제로 있는 표현이다.
+논쟁의 쟁점은 AI 작성 여부가 아니라 쓴 사람이 결과를 읽고 다듬었는가이고,
+독자가 그 여부를 문장에서 추정한다는 점이다.
+이는 이 문서의 해석이다.
+
 ## 인사이트
 
 ### worktree 격리는 병렬 에이전트의 충돌을 푸는 현재의 합의가 되었다
@@ -226,6 +263,14 @@ ThinkRail은 호스트와 UI를 분리하고 브라우저에서 같은 앱을 �
 설계 문서는 휴대폰이 Tailscale로 호스트에 닿는 것도 상정한다.[^architecture]
 그러나 에이전트 실행 환경 자체의 격리(샌드박스)는 이 문서가 읽은 범위에서
 확인되지 않았다.
+같은 스레드에서 aliasxneo는 에이전트를 홈랩의 큰 VM에서 돌리며 네트워킹과
+가상화로
+제한하고, VM을 직접 띄우고 브라우저를 돌리고 비밀 값에 접근하게 해서
+로컬 머신에서의 에이전트 개발로는 돌아가지 않겠다고 했다.[^aliasxneo-vm]
+simpaticoder는 에이전트가 화면을 클릭할 필요는 그 위에 API를 만들 때까지만이라
+단기 전략이고, 창이 있는 VM 전체를 돌리는 것은 비싸다고 반박했다.[^simpaticoder]
+격리가 필요하다는 전제에는 둘이 동의하지만 격리의 비용이 어디까지 정당한지에서
+갈린다.
 
 ### 기존 IDE 제조사의 딜레마는 사용자의 시간이 에이전트 쪽으로 옮겨 간 것이다
 
@@ -291,6 +336,16 @@ Lobste.rs에는 이 저장소의 스레드가 없었다.
 [^swingboy]: <https://news.ycombinator.com/item?id=50219886>
 
 [^zihotki]: <https://news.ycombinator.com/item?id=50220506>
+
+[^tasuki]: <https://news.ycombinator.com/item?id=50236676>
+
+[^alexjameson]: <https://news.ycombinator.com/item?id=50242465>
+
+[^NichoPaolucci]: <https://news.ycombinator.com/item?id=50238403>
+
+[^aliasxneo-vm]: <https://news.ycombinator.com/item?id=50235751>
+
+[^simpaticoder]: <https://news.ycombinator.com/item?id=50235762>
 
 [^bpicolo]: <https://news.ycombinator.com/item?id=50236004>
 
