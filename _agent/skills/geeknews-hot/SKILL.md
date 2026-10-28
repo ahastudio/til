@@ -5,7 +5,6 @@ description:
   each. Select top articles by points and only process articles that do not
   duplicate existing documents.
 argument-hint: '[count (default 5)]'
-disable-model-invocation: true
 ---
 
 Pick popular GeekNews articles and, for each one, write a TIL document in the
