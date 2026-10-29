@@ -107,6 +107,100 @@ When the user points at one such word, search the whole document and every
 other document written in the same session for the same family of word and fix
 them all in the same edit.
 
+## Translation Is Understanding First, Then Writing (ABSOLUTE PRIORITY — ZERO TOLERANCE)
+
+**Every sentence that comes from an English source is a translation, whether
+it is a summary, a paraphrase, a woven-in comment, or a table cell. Keep the
+author's intent exactly, and write Korean that a Korean reader reads without
+stopping.**
+
+Principles:
+
+- Understanding and writing are both required. Writing fluent Korean without
+  having understood the source, or understanding the source and writing Korean
+  that reads as a translation, are both failures. Making the Korean smoother by
+  changing what the author meant is also a failure.
+- Different source terms stay different. Two English terms in the same source
+  never become one Korean word. Rendering both `client` and `customer` as the
+  same Korean word makes a reader who connects the two read the opposite of
+  what the author wrote. For every pair of English terms that sit near each
+  other, confirm the two Korean words differ and each can be told apart.
+- One source term stays one Korean term. The same English phrase gets the same
+  Korean wording across the whole document. Rendering one phrase three different
+  ways hides that it is one concept. Fix the choice at first use and reuse it.
+- The field decides the word, not the dictionary. Choose the word that
+  practitioners of that field write for that sense, and read the sense from the
+  context: `action` in a sentence about a team's work is closer to 업무 than to
+  행동, and `client` in a sentence about objects and systems is a technical
+  term, not a customer. If you do not know the field's word, keep the English
+  and describe the sense once in plain Korean. A guess from the dictionary is
+  the typical failure of translators who are not experts in the field.
+- Connectives and small words carry the logic. Read what each connective
+  relates (contrast, addition, cause, sequence) before choosing the Korean.
+  Rendering `meanwhile` with a contrast word reverses the relation between two
+  sentences, while the field's usual rendering for that sense is closer to 한편.
+  A wrong connective changes what the paragraph claims.
+- A term can bring a foreign practice with it. When the usual Korean rendering
+  of a term encodes a different concept (design rendered as 설계 or 기획 carries
+  the engineering split of design and build, and a custom from another country),
+  do not use that rendering silently. Keep the English and explain the sense in
+  a footnote.
+- Check the Korean against the English. When a sentence matters, set the
+  English beside the Korean and compare in both directions. A Korean sentence
+  that cannot be matched back to the English sentence is rebuilt from the
+  meaning.
+- Reviewing someone else's translation is done with the original in hand.
+  Quote the page, the translated sentence, and the original sentence, and say
+  what meaning changed. Calling a sentence awkward is not a review.
+
+### Ambiguous Translated Terms Get an Explanatory Footnote
+
+**When a translated term is ambiguous, or the choice among its Korean renderings
+is not obvious, attach a footnote that explains it.** The footnote is a note
+written in Korean prose. It does not translate anything and it does not cite a
+page.
+
+- Put the footnote reference at the end of the sentence that first uses the
+  term, and define it at the bottom of the document under the `---` rule like
+  every other footnote.
+- The note gives the English original, the sense that is meant, and why this
+  rendering was chosen over the others. When the usual rendering would mislead,
+  the note says so.
+- The note comes in addition to the English in parentheses from the rule on
+  English alongside, never instead of it.
+- An explanatory note carries no URL, because it is the writer's explanation
+  and not a citation. It therefore never points at the analyzed source, and the
+  rule that the analyzed source takes no footnote stays intact.
+- Do not decide that a term is clear enough to go without the note. When in
+  doubt, write it.
+
+A sentence translated from an outside page still carries the footnote for that
+page under the source footnote rules, and the two kinds of footnote are
+separate: a citation points at a page, an explanation explains a term.
+
+These principles work together with the rules on English terms: keep the
+English next to any Korean word that could be read another way, so the reader
+can check the translation too.
+
+**Mandatory check before finishing ANY `.md` write or edit, and before
+sending ANY chat message in Korean:**
+
+1. For each sentence taken from an English source, state what the author meant
+   in one plain sentence, then confirm the Korean says exactly that.
+2. List the English terms that sit near each other and confirm each has its
+   own Korean word. List the terms that repeat and confirm each keeps one
+   Korean word.
+3. Read every connective for the relation it expresses.
+4. List every translated term that is ambiguous or whose rendering is not
+   obvious, and confirm each has an explanatory footnote and the English in
+   parentheses.
+5. Check the footnote definitions of the finished text: every sentence resting
+   on an outside page has its own citation footnote, and no definition points
+   at the analyzed source.
+6. When the user points at one translation error, search the whole document and
+   every other document written in the same session for the same kind of error
+   and fix them all in the same edit.
+
 ## Every Sentence Must Make Sense (ABSOLUTE PRIORITY — ZERO TOLERANCE)
 
 **A sentence is finished only when a reader who has not seen the source can
@@ -174,6 +268,110 @@ the verb is banned regardless of how natural it sounds in context.
 
 If you catch yourself typing `박아`, `박힌`, `박제`, or any sibling form:
 STOP and rewrite with a neutral verb.
+
+## Forbidden Metaphors — 내기 계열 (ABSOLUTE PRIORITY — ZERO TOLERANCE)
+
+**NEVER carry an English figure of speech into Korean prose.** A noun or verb
+from sports, gambling, war, geography, or architecture that stands in for a
+plain claim reads as a mistranslation, and a Korean reader stops at it and asks
+what it means. The user treats each one as a severe defect, not a style choice.
+
+Root cause of a repeated failure: the English word was chosen first (bet,
+ceiling, battlefield, runner, landscape), then mapped to a Korean word with the
+same literal meaning. The Korean word has no such figurative use, so the
+sentence means nothing, and a table label or heading built on it spreads the
+defect through the whole document.
+
+Forbidden when used as a figure of speech, with the plain claim to write
+instead:
+
+- `내기`, `내기를 걸다`, `내기를 하다` for a strategic choice (bet on X): say
+  what was chosen and what it depends on, such as `X를 택했다`, `X 쪽으로
+  방향을 잡았다`, `X를 전제로 만들었다`. In a table, label the column by what it
+  holds (`방향`, `접근 방식`, `전제`), never `내기`.
+- `천장` for a limit (ceiling): `한도`, `상한`.
+- `전장`, `승부`, `싸움` for competition between products: `경쟁 영역`,
+  `경쟁`, `갈리는 지점`.
+- `주자` for competitors or candidates (runner): name them, or `도구`, `후보`.
+- `지형`, `지도`, `사각 구도` for a market or situation (landscape, quadrant):
+  `상황`, `구도`, `비교`, or describe what is being compared.
+- `도전자`, `챔피언`, `왕좌` and the like for products: `후발 제품`,
+  `기존 제품`.
+- `해자`, `병목` and similar borrowed images are allowed only when Korean
+  practitioners write them in that exact sense; otherwise state the plain claim.
+
+This list is illustrative, not exhaustive. The rule covers every metaphor of
+the same kind, including ones not spelled out above.
+
+`내기` stays correct only for an actual wager: a bet between people, or Pascal's
+wager as that established name. A company's or a product's choice of direction
+is never a wager.
+
+Test before writing any figurative noun or verb: would a Korean news article or
+documentation use this exact word in this sense? If you cannot name one that
+does, delete the image and write the claim in plain words. Rebuild the
+sentence from its meaning; do not swap in a near-synonym metaphor.
+
+**Mandatory check before finishing ANY `.md` write or edit, and before
+sending ANY chat message:**
+
+1. Search the text for every word in the list above and for any other figurative
+   noun or verb you used.
+2. Look in tables first. Column labels, row labels, and headings are where
+   such words hide and where they cost the most.
+3. Replace each hit with the plain claim.
+4. When the user points at one such word, search the whole document and every
+   other document written in the same session for the same family of word, and
+   fix them all in the same edit.
+
+## Any Doubt Means English Alongside (ABSOLUTE PRIORITY — ZERO TOLERANCE)
+
+**When a Korean word could be read in more than one way, even slightly, write
+the original English term next to it in parentheses: `한국어(English)`. This
+is the only reliable way to stop ambiguous or mistranslated wording, and it
+overrides the writer's confidence that the Korean is clear.**
+
+Root cause of a repeated failure: the writer judged a Korean word to be clear,
+the reader could not tell what it meant or which English term it stood for,
+and the document lost credibility. The writer's own sense that the word is
+fine is exactly the judgment that failed, so it is not allowed to decide
+whether the English is needed.
+
+Rules:
+
+- The threshold is any doubt. If a reader could attach a different meaning,
+  if more than one Korean rendering of the English exists, if the Korean word
+  is a translation rather than the form practitioners write, if it is coined
+  or newly combined, or if the same Korean word carries another meaning in the
+  field, the English goes next to it. When unsure whether it is ambiguous, it
+  is ambiguous.
+- Cost is not an argument. An extra parenthesis costs nothing; a wrong or
+  unclear term costs the reader's trust. Never skip the English to keep a
+  sentence short or smooth.
+- Write the English at the first use in the document, and again in every
+  heading, table label, table cell, and section a reader may enter on its own,
+  because those are read without the earlier text.
+- Use the English term exactly as the source or the field writes it, not a
+  paraphrase of it. Where there is no settled English term, describe the
+  concept in plain English words rather than inventing one.
+- The English does not excuse a bad Korean word. Words banned by the
+  vocabulary and metaphor rules stay banned with an English gloss attached,
+  and a coined Korean shorthand is still replaced, not annotated.
+- This applies to documents, headings, footnotes, and chat messages alike.
+
+**Mandatory check before finishing ANY `.md` write or edit, and before
+sending ANY chat message in Korean:**
+
+1. List every Korean noun, verb, and label that stands for a foreign or
+   technical term, a figure of speech, or a name you shaped yourself.
+2. For each one ask only: could a reader take it another way? If yes or not
+   sure, add the English in parentheses now.
+3. Do not decide that a word is common enough to leave bare. Leave a word bare
+   only when it is a proper name or a code identifier already written in its
+   original form.
+4. When the user points at one ambiguous word, search the whole document and
+   every other document written in the same session for the same family of
+   word, and add the English in the same edit.
 
 ## Structure Belongs to Headings (ABSOLUTE PRIORITY — NO EXCEPTIONS)
 

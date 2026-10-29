@@ -117,6 +117,37 @@ When in doubt, ask: "Is there an author advancing a thesis I can summarize, or
 am I describing a tool/project/site?" A README that pitches a product is a
 **non-article** (it describes the project), even though it contains prose.
 
+### 3-1. A product is the subject, its page is only a source (STRICT RULE)
+
+**When the URL is a product's page (a launch page, a product site, a pricing
+page, a spec sheet), the document is about the product, not about the page.**
+Writing "이 페이지는 …한다", "제품 페이지이다", "페이지의 수치" makes the
+document read as a summary of marketing copy, which is the wrong subject.
+
+- Name the subject as the product and its maker. Attribute claims to the
+  maker ("제조사는 … 말한다", "회사는 … 주장한다"), never to "the page".
+- Organize the body around the product: what it is, its specifications,
+  price and availability, how people reacted, what the claims rest on, and
+  what to check before buying or adopting. Do not follow the page's own
+  section order.
+- Everything a maker says about its own product is a claim, and the document
+  says so. Separate it from what an independent source, a user report, or the
+  document's own calculation shows.
+- Other pages that were actually opened (a press release, a localized
+  edition, documentation, a terms page, a pricing page of a different tier or
+  deployment mode) are outside pages and carry titled footnotes. The product
+  page the user gave is the analyzed source and takes no footnote, so what it
+  says is stated in prose without one.
+- The gate still requires one source line in the header (step 4). Keep the
+  bare URL there. Do not label it `원문:` and do not describe it in prose as
+  "the page".
+- When the user supplies a second page as a supplement (a localized edition),
+  treat it as an outside page: footnote it, and say where the two disagree.
+- Read an evidence table from the rendered page, not from extracted text.
+  Plan tables flatten, and a misaligned column turns a limit into its
+  opposite. When extracted text and the rendered table cannot be matched
+  with certainty, open the page in the browser and read the cells.
+
 ### 3a. Document title (H1) — write it in Korean
 
 **The `#` heading is written in Korean, not copied from the source.**
