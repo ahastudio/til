@@ -8,8 +8,10 @@ Paper는 팀과 에이전트와 코드와 데이터를 하나의 디자인 공�
 도구다.
 홈페이지는 스스로를 에이전트와 함께 제품을 내는 팀을 위한 연결된 캔버스라고
 부르고, 웹 표준 위에 만들어 번역 과정에서 잃는 것이 없다고 한다.
-데스크톱 앱(macOS)과 브라우저 버전이 있고, 에이전트를 연결하는 MCP와 셰이더 효과
-라이브러리 Paper Shaders와 글꼴 Paper Mono를 함께 공개한다.
+브라우저 버전과 데스크톱 앱이 있고,
+데스크톱 앱은 macOS(ARM만), Windows(x64), Linux를 지원한다.[^downloads]
+에이전트를 연결하는 MCP와 셰이더 효과 라이브러리 Paper Shaders,
+글꼴 Paper Mono를 함께 공개한다.
 
 홈페이지가 내세우는 흐름은 세 가지다.
 첫째, 디자인에서 코드로 가고 다시 디자인으로 돌아온다.
@@ -153,3 +155,5 @@ Paper가 덱, 다이어그램, 화이트보드로 쓰임새를 넓힌다고 말�
 [^figma]: Paper, [Paper vs Figma • Paper](https://paper.design/compare/figma)
 
 [^pricing]: Paper, [Pricing • Paper](https://paper.design/pricing)
+
+[^downloads]: Paper, [Downloads](https://paper.design/downloads)
