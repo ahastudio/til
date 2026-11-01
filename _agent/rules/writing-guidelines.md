@@ -5,6 +5,30 @@ paths:
 
 # Writing Guidelines
 
+## Table of Contents
+
+Search for a section title to read it in full. This table of contents adds no rule of its own.
+
+- Natural Korean, including Collocation: no literal translation; a noun must take the predicate Korean actually pairs with it
+- Never Force an English Term Into Korean: a term the field writes in English stays in English
+- Translation Is Understanding First: keep the author's intent; one source term, one Korean term; footnote ambiguous terms
+- Every Sentence Must Make Sense: a stranger must be able to say what each sentence means
+- Forbidden Vocabulary: the verb stem `박-` is banned
+- Forbidden Metaphors: no figurative 내기, 천장, 전장, 주자, 지형, 해자; write the plain claim
+- Any Doubt Means English Alongside: write `한국어(English)` whenever a Korean word could be read two ways
+- Structure Belongs to Headings: never bold text where a heading belongs
+- Heading Spacing, One Table Row Is One Record, Table Alignment: blank lines around headings, no split rows, CJK counts as 2 columns
+- Footnote Spacing: one blank line between definitions
+- Source Footnotes in Source-Based Documents: each sentence resting on an outside page has its own titled footnote; the analyzed source never takes one
+- Social Posts as a Starting Point: build from primary sources, cite the post only where it carries a footnote
+- Inline Code Formatting, Fenced Code Block Language: wrap code-like tokens; every fence has a language
+- Note Document Structure: article vs. project headings
+- Line Breaks in Body Text: sentence per line, at most 80 columns, CJK counts as 2
+- Twitter Naming: Twitter, never X; tweet URLs use `twitter.com`
+- Tweet Terminology: 트윗 unless the user says 스레드
+- Argument and Evidence: keep fact, inference and judgment distinguishable
+- Terminology: standard full names, no clipped or coined terms
+
 ## Natural Korean — No Literal Translation (ABSOLUTE PRIORITY — NO EXCEPTIONS)
 
 **Never translate English words or expressions literally into Korean prose.**

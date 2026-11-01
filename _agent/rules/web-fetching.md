@@ -1,5 +1,14 @@
 # Web Content Fetching
 
+## Table of Contents
+
+- Browser Choice: order of attempts is plain fetch, direct retrieval, then the user's own Chrome through the browser extension; the headless browser is a fallback only
+- Twitter: never plain fetch for tweet URLs; open them in the browser and read the exact text
+- Paywalled and Logged-In Pages: browser only; if unreadable, stop and report
+- Other JavaScript-Rendered Pages: look for a `.md` sibling, oEmbed, JSON API or RSS first
+- An Empty Result Is Not a Result: check the body, run a control query, try another transport, and report "searched and found nothing" separately from "could not search"
+- agent-browser: fallback only, and say so when used
+
 ## Browser Choice (ABSOLUTE PRIORITY — NO EXCEPTIONS)
 
 **When a page must be opened in a real browser, ALWAYS use Claude in Chrome.**

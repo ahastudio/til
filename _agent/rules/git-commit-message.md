@@ -1,5 +1,13 @@
 # Git Commit Message Guide
 
+## Table of Contents
+
+- Before Writing Any Commit Message: inspect the staged diff first; stop if nothing is staged
+- Rules: imperative summary of at most 50 characters, a body that explains why, wrapped at 72, one sentence per line, no bullets, English, trailer at the end
+- No Session-Link Trailers: never a session URL; the Co-Authored-By trailer is the only trailer
+- Co-Authored-By Trailer: identify the agent and model actually in use
+- Character Count Reference, Message Structure, Example: layout and a worked example
+
 Based on:
 
 - <https://github.com/agis/git-style-guide>

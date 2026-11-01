@@ -1,5 +1,33 @@
 # AGENTS.md
 
+## Table of Contents (read this first)
+
+Only the first lines of a long file may be read, so this table of contents lists every
+section below with its core point. It adds no rule of its own: the sections
+are authoritative. Search for a section title to read it in full.
+
+- User Authority Protocol: the user's instruction outranks your judgment; when corrected, acknowledge in one line and carry out the fix; when uncertain, stop and wait
+- Korean Communication: reply in Korean in formal polite speech, including status updates and errors
+- Action Boundaries: do only what was requested; no git commands unless asked
+- No Session-Link Trailers: never put a session URL or link trailer in a commit message or pull request description
+- Git Commit: only when the user's latest message says to commit; never an implicit permission
+- Git Push: never, even when asked
+- Never Rewrite Published History; Never Alter Commit Dates: never on commits that exist on a remote, never change dates
+- Current Disk State Is The Only Truth: judge by the files as they are now, not by earlier snapshots
+- Never Stall On A Clear Instruction: when action and scope are named, carry it out
+- Selection Is Part Of The Job: when asked to choose a subset, read and choose
+- Stop Instead of Deciding: an unspecified tradeoff means stop and ask
+- Never Revert a File That Changed Outside Your Own Edit: treat the new state as the user's deliberate change
+- Do Only What Was Asked: do not extend scope, reorder or restructure on your own
+- Do Not Mention Unrequested-Action Status Unprompted: do not bring up commit, push or pull request status unless the user's latest message does
+- Editing Scope: execute the request literally; ask if ambiguous
+- Report Completion With Evidence: state the check that was run and what it printed; a bare "done" or "all pass" is not a report; a subagent's success report is not evidence
+- Rules: which file under `.agent/rules/` applies (commit message, any `.md` file, web fetching, slash commands)
+- Rule Writing Guidelines: write behavioral principles, keep rules agent-agnostic; write only what the agent cannot find in the repository; keep files short; a rule with no exceptions is also enforced by the agent's enforcement settings, and growing emphasis is the signal to move it there; prefer a check that returns pass or fail
+- Every Text File Ends With A Newline: every text file you create or edit ends with exactly one newline; measure the last byte after every write, after every script that rewrites the file, and for all touched files before reporting
+- Forbidden Actions: never use the memory system; never touch global paths such as `~/.claude/`; never declare something missing from one failed search
+- Documentation Work: separate what a source reports from inference and recommendation; the analyzed source never takes a footnote; outside pages get exact footnotes per sentence; the service is Twitter, never X; do not force English terms into Korean; every sentence must make sense to a stranger
+
 ## User Authority Protocol (ABSOLUTE PRIORITY)
 
 ### The User's Instruction Outranks Everything (ABSOLUTE PRIORITY — NO EXCEPTIONS)
@@ -359,6 +387,16 @@ Rules:
   request. The user decides what is valuable, not you.
 - If the request is ambiguous, STOP and ask. Do not guess.
 
+### Report Completion With Evidence
+
+When reporting that work is finished, state the check that was run and what it
+printed: the command, its result line, or the observed output.
+A bare statement that everything passes or looks right is not a report, and for
+a task nobody watched it is the only evidence the reader has.
+When no check could be run, say so and say what was not verified.
+A subagent's report of success is not evidence: run the check yourself before
+relaying the result.
+
 ## Rules (ABSOLUTE PRIORITY)
 
 Situation-specific rules live in `.agent/rules/`. These rules are NOT optional.
@@ -383,6 +421,81 @@ When adding or editing rules in this file:
 - Keep rules agent-agnostic. NEVER hardcode a specific product name, model
   name, or vendor. Write rules that apply regardless of which AI agent
   executes them.
+- Write only what the agent cannot find by reading the repository.
+  Every line in this file takes attention on every task, so a line the agent
+  could work out from the code, or would rediscover cheaply, is cost without
+  benefit.
+- Keep files short. When a section outgrows what a reader can hold, move the
+  detail into a rule file or a skill that loads only when the task needs it,
+  and leave a one-line pointer.
+- Separate guidelines from rules with no exceptions. A guideline may be
+  weighed against the situation.
+  A rule that must hold every time is also enforced by the agent's own
+  enforcement settings (hooks, deny rules, permission settings), because a
+  written line is a request the agent may decide not to follow.
+  Adding emphasis to a line that keeps being missed is the signal to move it
+  into enforcement or to shorten the file, not to emphasize more.
+- Keep enforcement small. Every enforced rule will occasionally fire when it
+  should not, so enforce only rules with zero exceptions and leave
+  preferences in prose.
+- Prefer a check that comes back pass or fail over a description of quality,
+  and name the command that runs it.
+
+## Every Text File Ends With A Newline (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**Every text file you create or edit MUST end with exactly one newline
+character. Not zero, not two. This is checked on every file, every time,
+with no exception for size, type, or how routine the edit was.**
+
+A file that stops at its last character is broken: it shows up as a
+changed last line in every later diff, it breaks tools that read line by
+line, and it repeats unless it is checked each time. Writing the content
+correctly is not enough; the ending is part of the content.
+
+### What counts
+
+- Every text file: Markdown, JSON, YAML, TOML, source code, shell and
+  other scripts, configuration, data files, logs, and generated output you
+  write to disk. If a person could open it in a text editor, it counts.
+- Files you write directly, files a script or formatter rewrites for you,
+  files produced by a data dump or a template, and files changed by a
+  search-and-replace all count.
+- Temporary and scratch files count when they are kept or read by anything
+  else. Only throwaway files that nothing reads are exempt.
+
+### Why it keeps failing
+
+- Programs that serialize data (JSON dumps, string joins, templates)
+  commonly leave the final newline off. Never assume the writer added it.
+- Programs that rewrite a file (converters, fixers, aligners, formatters)
+  may drop it. A file that ended correctly before the run can end wrongly
+  after it.
+- A file edited by replacing its last line can lose it.
+- An unbroken final line looks identical on screen, so the defect cannot
+  be seen. It has to be measured.
+
+### What to do
+
+1. After creating or editing any text file, and again after any script
+   rewrites it, read its last byte and confirm it is a newline and that
+   the byte before it is not also a newline.
+2. If it is wrong, fix it at once, then check again.
+3. At the end of the task, before reporting, check the last byte of every
+   text file you created or changed during the task, not only the last
+   one you touched. List none that fail.
+4. When a post-processing pipeline runs, put the newline check after the
+   last step of the pipeline, because any step may undo it.
+5. When you write a script or a template that produces files, make it
+   write the final newline itself instead of relying on a later check.
+
+### Limits
+
+- Exactly one. A blank line at the end is not a substitute for the
+  newline, and an existing final newline is never stripped.
+- A file that already lacked the newline and that you edited is yours to
+  fix. Files you did not touch are left alone; do not edit them just to
+  add the newline.
+- Binary files are out of scope.
 
 ## Forbidden Actions (ABSOLUTE PRIORITY)
 
