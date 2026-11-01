@@ -2,7 +2,7 @@
 
 원문: [Northflank - Status](https://status.northflank.com)
 
-HN 토론: <https://news.ycombinator.com/item?id=50305025> (443점, 316개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=50305025> (457점, 331개 댓글)
 
 ## 요약
 
