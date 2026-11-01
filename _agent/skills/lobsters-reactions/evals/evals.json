@@ -1,0 +1,37 @@
+[
+  {
+    "skills": [
+      "lobsters-reactions"
+    ],
+    "query": "/lobsters-reactions on a document whose article has a Lobste.rs thread",
+    "files": [],
+    "expected_behavior": [
+      "Finds the story, then checks that its url equals the source URL",
+      "Uses each comment url field verbatim as the footnote",
+      "Adds a Lobste.rs 토론: line"
+    ]
+  },
+  {
+    "skills": [
+      "lobsters-reactions"
+    ],
+    "query": "/lobsters-reactions when /search returns the anti-bot page",
+    "files": [],
+    "expected_behavior": [
+      "Does not treat zero results as absence",
+      "Falls back to a web search on lobste.rs and the JSON listing scan",
+      "Separates \"searched and found nothing\" from \"could not search\""
+    ]
+  },
+  {
+    "skills": [
+      "lobsters-reactions"
+    ],
+    "query": "/lobsters-reactions on a document with no thread",
+    "files": [],
+    "expected_behavior": [
+      "Reports the distinct story count and oldest date scanned",
+      "Leaves no absence sentence in the document"
+    ]
+  }
+]

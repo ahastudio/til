@@ -1,7 +1,7 @@
 ---
 name: llm-wiki
 description:
-  Build or refresh a `_wiki/<slug>/` mini-wiki for one topic by searching the
+  Build or refresh a mini-wiki directory under `_wiki/` (named by the topic's slug) for one topic by searching the
   entire TIL repository for related notes, discovering the topic's natural
   sub-themes, and compiling them into an index page plus linked sub-pages.
   Re-running on the same topic re-scans the whole repository, updates pages
@@ -20,6 +20,24 @@ finding every relevant TIL note across the repository (regardless of which
 folder it lives in), discovering the sub-themes those notes naturally form,
 and synthesizing them into an index page plus linked sub-pages — Karpathy's
 "LLM Wiki" pattern applied to this repository.
+
+## Contents
+
+Section titles match the headings below; search for a title to jump to it.
+
+- Usage: `/llm-wiki <topic sentence>`
+- Core rule: this always re-compiles from scratch: no separate first-run or update mode
+- 1. Derive the topic slug and target directory
+- 2. Search the repository for relevant notes: whole repository, several angles
+- Do not scope narrowly: the rule against building from the first few notes that come to mind
+- 3. Read and extract
+- 4. Discover sub-themes: let them emerge, no fixed template
+- 5. Compile the pages: index page, sub-page format, source list
+- 6. Re-cluster if needed
+- 7. Prune: remove content no longer backed by source notes
+- Synthesis Quality: explain mechanisms, not an inventory of notes
+- 8. Report
+- Repository-wide sweeps: cleaning up or consolidating all of `_wiki/`
 
 ## Usage
 

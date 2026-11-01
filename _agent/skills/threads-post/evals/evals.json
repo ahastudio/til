@@ -1,0 +1,35 @@
+[
+  {
+    "skills": [
+      "threads-post"
+    ],
+    "query": "/threads-post with a Threads URL",
+    "files": [],
+    "expected_behavior": [
+      "Reads the post and thread in a browser, not from memory",
+      "Builds the document from primary sources",
+      "Footnotes the post only where it carries a claim"
+    ]
+  },
+  {
+    "skills": [
+      "threads-post"
+    ],
+    "query": "/threads-post where the post gives only a link",
+    "files": [],
+    "expected_behavior": [
+      "Follows the link and reads the target in full",
+      "Does not write from the post text alone"
+    ]
+  },
+  {
+    "skills": [
+      "threads-post"
+    ],
+    "query": "/threads-post with an unreadable post",
+    "files": [],
+    "expected_behavior": [
+      "Stops and reports the URL and what was tried"
+    ]
+  }
+]

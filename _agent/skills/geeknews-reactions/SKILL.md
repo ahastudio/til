@@ -30,6 +30,21 @@ GN — each platform is searched independently, because GN's own userbase and
 discussion patterns differ from HN's and Lobste.rs's, and a thread on one
 platform says nothing about whether one exists on another.
 
+## Contents
+
+Section titles match the headings below; search for a title to jump to it.
+
+- Usage: `/geeknews-reactions [file-path]`
+- 1. Identify the source URL and any existing GN link
+- 2. Find the GN discussion: search the GN search box in a real browser (Strategy A); web search alone never proves absence; never sweep topic ids
+- Verify the match: the source URL must appear in the topic page
+- 3. Fetch the discussion page and comment anchors: topic pages are server-rendered, `cid` anchors
+- 4. Filter out re-aggregated HN/Lobste.rs comments: skip the aggregator account
+- 5. Select significant comments: native GN comments only
+- 6. Add the GN link to the document header
+- 7. Weave reactions into the document body: handle footnotes, one permalink per comment
+- 8. Writing rules
+
 ## Usage
 
 ```text
@@ -64,42 +79,60 @@ Two things about GeekNews, both verified:
   returns full server-rendered HTML including every comment and its `cid`
   anchor. No browser is needed for step 3.
 
-So the browser is only ever needed for *finding* the topic id, and there is a
-better way to do that.
+So the browser is needed to *find* the topic id, and a web search engine is
+not a substitute for it: in one queue, domain-restricted `WebSearch` reported
+no GN thread for six documents whose threads existed, found afterwards through
+the GN search box. A negative conclusion from `WebSearch` alone is never
+allowed.
 
-#### Strategy A — web search restricted to the domain (primary)
+#### Strategy A — the GN search box in a real browser (primary)
 
-Use the `WebSearch` tool with `allowed_domains: ["news.hada.io"]`. GN titles
-are Korean, so search Korean keywords describing the article, not the English
-title:
+Per `web-fetching.md`, use a real browser (Claude in Chrome; fall back to
+`agent-browser` only when Chrome is not connected, and say so). Open
+`https://news.hada.io/search?q=<keywords>` and read the rendered page, not the
+HTML.
 
-```text
-WebSearch(query: "<한국어 주제 키워드>", allowed_domains: ["news.hada.io"])
+Search Korean keywords, because GN titles are Korean and often rewritten
+rather than translated. Try at least three phrasings per document: a literal
+rendering of the title, the product or project name alone, and a description
+of what it does.
+
+To run several phrasings in one call, from a tab already on `news.hada.io`,
+load each query in a hidden same-origin iframe, wait about 2.5 seconds, and
+read `d.body.innerText` plus the `topic?id=` links:
+
+```javascript
+const qs = ["<phrasing 1>", "<phrasing 2>", "<phrasing 3>"];
+const res = [];
+for (const q of qs) {
+  const f = document.createElement("iframe");
+  f.style.cssText = "position:fixed;left:-9999px;width:800px;height:600px";
+  f.src = "/search?q=" + encodeURIComponent(q);
+  document.body.appendChild(f);
+  await new Promise(r => f.onload = r);
+  await new Promise(r => setTimeout(r, 2500));
+  const d = f.contentDocument;
+  const count = (d.body.innerText.match(/검색결과 약 \d+개/) || ["no count line"])[0];
+  const seen = new Set(), items = [];
+  for (const a of d.querySelectorAll("a")) {
+    const m = (a.getAttribute("href") || "").match(/topic\?id=(\d+)/);
+    if (m && !seen.has(m[1])) { seen.add(m[1]); items.push(m[1] + " " + a.textContent.trim().slice(0, 40)); }
+  }
+  res.push(q + " [" + count + "] " + items.slice(0, 5).join(" ; "));
+  f.remove();
+}
+res.join("\n").replace(/[?=&]/g, " ")
 ```
 
-This returns `news.hada.io/topic?id=NNNNN` URLs with their Korean titles.
-Try two or three phrasings — a literal rendering of the title, and a
-description of what the thing does — because GN titles are frequently
-rewritten rather than translated.
+Two limits of that call: keep it to about six queries (the tool times out near
+45 seconds), and strip `?`, `=` and `&` from what it returns, because a return
+value that looks like query-string data is replaced wholesale with a blocked
+notice.
 
-#### Strategy B — browser (only if Strategy A fails)
-
-Per `web-fetching.md`, use Claude in Chrome; fall back to `agent-browser`
-only when Chrome is not connected, and say so:
-
-```text
-agent-browser open "https://news.hada.io/search?q=<keywords>"
-agent-browser snapshot -i
-```
-
-Read the rendered result count, not the HTML. A search that ran shows
-`검색결과 약 N개(0.NN초)` near the top; extract that line and the
-`topic?id=` links beneath it.
-
-**Wait before concluding zero.** Immediately after navigation the count line
-is often absent because the results have not been injected yet, and that
-state is indistinguishable from a genuine zero. Before reporting absence,
-wait ~2–3 seconds, re-read, and require one of these two:
+**Wait before concluding zero.** Immediately after loading, the count line is
+often absent because the results have not been injected yet, and that state is
+indistinguishable from a genuine zero. Before reporting absence, require one of
+these two:
 
 - the `검색결과 약 N개` line with a count, and no matching topic among the
   results, or
@@ -109,9 +142,15 @@ wait ~2–3 seconds, re-read, and require one of these two:
 If neither is present, the page has not finished rendering — read it again
 rather than writing a conclusion.
 
-**Run a control query.** `ripgrep` returns ~484 results through this path.
-If a control returns nothing, the search is not running and no negative
-conclusion may be drawn from that session.
+**Run a control query.** `ripgrep` returns about 500 results through this
+path. If the control returns nothing, the search is not running and no
+negative conclusion may be drawn from that session.
+
+#### Strategy B — domain-restricted web search (supplement only)
+
+`WebSearch(query: "<한국어 주제 키워드>", allowed_domains: ["news.hada.io"])`
+can surface a topic quickly, but its index is incomplete and recent topics are
+often missing. Use it to add candidates, never to rule a thread out.
 
 #### Verify the match
 
@@ -119,15 +158,16 @@ Fetch the topic page (step 3) and confirm the source URL appears in it. A
 matching title is not enough — GN carries many topics on the same subject
 from different sources.
 
-If nothing matches after both strategies, report that and stop — do not
-guess a topic id.
+If no candidate's source URL matches after Strategy A with three phrasings and
+a passing control query, report that GN has no thread and stop — do not guess a
+topic id.
 
 **Never sweep a range of topic ids.** Fetching topic pages sequentially to
 hunt for one triggers an IP-level block: GN starts returning HTTP 403 with a
 10-byte body for every request, across every language subdomain
 (`es.`, `ja.`, …), and it persists for hours. This has already cost a
 session the ability to read GN at all. If you are tempted to scan ids,
-Strategy A is the answer instead.
+the GN search box (Strategy A) is the answer instead.
 
 ### 3. Fetch the discussion page and comment anchors
 
@@ -156,8 +196,12 @@ to use in footnote URLs: `https://news.hada.io/topic?id=<topic-id>#<cid>`.
 If this returns HTTP 403 with a tiny body, you are IP-blocked; `WebFetch` on
 the same topic URL still returns the comment text and handles, but it strips
 HTML attributes, so you will get the comments without their `cid` anchors.
-In that state you can read the discussion but cannot footnote it — say so
-rather than guessing anchors.
+In that state read the topic page inside the browser instead: from a tab on
+`news.hada.io`, `fetch("/topic?id=<topic-id>")`, parse it with `DOMParser`, and
+take every `[id^=cid]` element's `id` and `innerText`. The browser is not
+subject to the block the plain HTTP client hit, and the `cid` anchors are
+intact. Only if that also fails, read the discussion with `WebFetch` and say
+that it cannot be footnoted rather than guessing anchors.
 
 ### 4. Filter out re-aggregated HN/Lobste.rs comments
 

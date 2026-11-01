@@ -3,7 +3,8 @@ name: threads-post
 description:
   Start from a Threads post (and its thread) and write a TIL document on its
   subject. The document is built from primary sources and reports; the post
-  is reflected only where it can carry a footnote.
+  is reflected only where it can carry a footnote. Use when the user gives a
+  Threads post URL and asks for a TIL document on its subject.
 argument-hint: '<threads URL> [output path]'
 disable-model-invocation: true
 ---
@@ -17,6 +18,20 @@ backbone.
 This skill applies `writing-guidelines.md` → «Social Posts as a Starting
 Point» and «Source Footnotes in Researched Documents» in full. Nothing here
 relaxes either rule.
+
+## Contents
+
+Section titles match the headings below; search for a title to jump to it.
+
+- Usage: `/threads-post <threads URL> [output path]`
+- 1. Resolve the post: a share link is resolved to the permalink
+- 2. Read the whole thread in Claude in Chrome: the author's thread and replies
+- 3. Find the primary sources: sources that establish what the post is about
+- 4. Check for duplicates: against the subject, not the post
+- 5. Separate fact from the post's claims: sort every claim into three groups
+- 6. Write the document: structure follows the subject, post only where it can carry a footnote
+- 7. Post-processing and checks: same sequence as `analyze-article` step 8b
+- 8. Report: path, primary sources read, which claims were confirmed or contradicted
 
 ## Usage
 

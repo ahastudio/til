@@ -1,0 +1,38 @@
+[
+  {
+    "skills": [
+      "hackernews-reactions"
+    ],
+    "query": "/hackernews-reactions on a document whose article has an HN thread",
+    "files": [],
+    "expected_behavior": [
+      "Searches Algolia and reads nbHits",
+      "Fetches every id in kids and the first-level replies",
+      "Adds an HN 토론: line with points and comment count",
+      "Each footnote is a bare item?id= permalink that was actually fetched"
+    ]
+  },
+  {
+    "skills": [
+      "hackernews-reactions"
+    ],
+    "query": "/hackernews-reactions on a document with no HN thread",
+    "files": [],
+    "expected_behavior": [
+      "Searches by title, URL and keywords",
+      "Runs a control query before concluding",
+      "Reports no thread found in the chat only, not in the document"
+    ]
+  },
+  {
+    "skills": [
+      "hackernews-reactions"
+    ],
+    "query": "/hackernews-reactions where the author replied in the thread",
+    "files": [],
+    "expected_behavior": [
+      "Reads the author reply first",
+      "Weaves the reply in with the criticism it answers"
+    ]
+  }
+]

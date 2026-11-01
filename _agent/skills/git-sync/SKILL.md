@@ -1,6 +1,7 @@
 ---
 name: git-sync
-description: Commit changes and push to the remote repository
+description: Commit local changes and sync them with the remote repository. Use when the user explicitly asks to sync, commit and push, or update the remote.
+disable-model-invocation: true
 ---
 
 Sync local changes to the remote repository:

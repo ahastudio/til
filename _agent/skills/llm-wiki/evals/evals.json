@@ -1,0 +1,35 @@
+[
+  {
+    "skills": [
+      "llm-wiki"
+    ],
+    "query": "/llm-wiki on a topic with notes across several directories",
+    "files": [],
+    "expected_behavior": [
+      "Searches the whole repository for related notes",
+      "Builds an index page and linked sub-pages under _wiki/ named by the topic slug",
+      "Every sub-page claim traces back to a source note"
+    ]
+  },
+  {
+    "skills": [
+      "llm-wiki"
+    ],
+    "query": "/llm-wiki re-run on an existing topic",
+    "files": [],
+    "expected_behavior": [
+      "Re-scans the repository and updates pages with anything new",
+      "Prunes content no longer backed by source notes"
+    ]
+  },
+  {
+    "skills": [
+      "llm-wiki"
+    ],
+    "query": "/llm-wiki on a topic with no related notes",
+    "files": [],
+    "expected_behavior": [
+      "Reports that nothing was found instead of inventing content"
+    ]
+  }
+]

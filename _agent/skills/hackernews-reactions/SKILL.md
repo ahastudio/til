@@ -27,6 +27,19 @@ Never substitute a check of Lobste.rs or GeekNews for actually searching
 HN — each platform is searched independently, because a thread existing (or
 not) on one platform says nothing about whether one exists on another.
 
+## Contents
+
+Section titles match the headings below; search for a title to jump to it.
+
+- Usage: `/hackernews-reactions [file-path]`
+- 1. Identify the source URL
+- 2. Find the HN discussion: Algolia search, read `nbHits`, control query, prefer the thread with comments
+- 3. Fetch top-level comments: every id in `kids`, then the replies, and look for the author
+- 4. Select significant comments
+- 5. Add the HN link to the document header
+- 6. Weave reactions into the document body: handle footnotes, one permalink per comment
+- 7. Writing rules
+
 ## Usage
 
 ```text

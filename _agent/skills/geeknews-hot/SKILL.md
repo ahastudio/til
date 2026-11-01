@@ -3,8 +3,10 @@ name: geeknews-hot
 description:
   Pick hot articles from GeekNews (news.hada.io) and write a TIL document for
   each. Select top articles by points and only process articles that do not
-  duplicate existing documents.
+  duplicate existing documents. Use when the user asks for the hot GeekNews
+  articles to be written up as TIL documents.
 argument-hint: '[count (default 5)]'
+disable-model-invocation: true
 ---
 
 Pick popular GeekNews articles and, for each one, write a TIL document in the
@@ -14,6 +16,19 @@ same format as the analyze-article skill.
 `/hackernews-reactions`, `/lobsters-reactions`, AND `/geeknews-reactions`
 (step 6). This is a hard requirement of the skill, not an optional
 enrichment — see step 6 for why it is not redundant with step 4.**
+
+## Contents
+
+Section titles match the headings below; search for a title to jump to it.
+
+- Usage: `/geeknews-hot [count]`, default 5 documents
+- 1. Collect popular articles: fetch the GeekNews front page, list by points
+- 2. Remove duplicates: check existing documents by title, source URL, project name
+- 3. Report the selection: show the list with expected paths, then start writing
+- 4. Gather materials: fetch source and topic page in parallel, decide the comment source
+- 5. Write the documents: run `analyze-article` per article, title rule, footnote URL per platform
+- 6. Mandatory post-processing: run all three reaction skills on every document
+- Document structure by source type: article vs. repository headings, directory, file name
 
 ## Usage
 

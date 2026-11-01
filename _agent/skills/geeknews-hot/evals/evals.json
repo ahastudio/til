@@ -1,0 +1,36 @@
+[
+  {
+    "skills": [
+      "geeknews-hot"
+    ],
+    "query": "/geeknews-hot 2",
+    "files": [],
+    "expected_behavior": [
+      "Fetches news.hada.io and orders by points",
+      "Excludes duplicates and shows the list with reasons",
+      "Writes each document with analyze-article, then runs all three reaction skills on it"
+    ]
+  },
+  {
+    "skills": [
+      "geeknews-hot"
+    ],
+    "query": "/geeknews-hot when the GN topic links to a Hacker News thread",
+    "files": [],
+    "expected_behavior": [
+      "Uses the upstream discussion as the first reaction source",
+      "Still runs the hackernews-reactions skill independently afterwards"
+    ]
+  },
+  {
+    "skills": [
+      "geeknews-hot"
+    ],
+    "query": "/geeknews-hot with no argument",
+    "files": [],
+    "expected_behavior": [
+      "Defaults to 5 documents",
+      "Does not recreate an existing document"
+    ]
+  }
+]

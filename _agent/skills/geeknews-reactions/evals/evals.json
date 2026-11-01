@@ -1,0 +1,36 @@
+[
+  {
+    "skills": [
+      "geeknews-reactions"
+    ],
+    "query": "/geeknews-reactions on a document whose article has a GN topic",
+    "files": [],
+    "expected_behavior": [
+      "Finds the topic by a domain-restricted web search, never by sweeping ids",
+      "Confirms the source URL appears in the topic page",
+      "Weaves only native comments, each with its cid anchor"
+    ]
+  },
+  {
+    "skills": [
+      "geeknews-reactions"
+    ],
+    "query": "/geeknews-reactions when the topic holds only GN+ re-aggregated comments",
+    "files": [],
+    "expected_behavior": [
+      "Adds the GN 토론: header line only",
+      "Does not footnote re-aggregated HN or Lobste.rs comments"
+    ]
+  },
+  {
+    "skills": [
+      "geeknews-reactions"
+    ],
+    "query": "/geeknews-reactions with no topic found",
+    "files": [],
+    "expected_behavior": [
+      "Reports it in the chat only",
+      "Does not guess a topic id"
+    ]
+  }
+]

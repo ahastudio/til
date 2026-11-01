@@ -37,6 +37,22 @@ Lobste.rs — each platform is searched independently, because a thread
 existing (or not) on one platform says nothing about whether one exists on
 another.
 
+## Contents
+
+Section titles match the headings below; search for a title to jump to it.
+
+- Usage: `/lobsters-reactions [file-path]`
+- 1. Identify the source URL
+- 2. Find the Lobste.rs discussion: the search endpoints are bot-blocked, so never conclude from them
+- Strategy A, B, C: web search on the domain, JSON listings scan, tag listing
+- 2a. Verify the match before using it: the story's `url` must equal the source
+- 2b. Concluding that no thread exists: when absence may be reported
+- 3. Fetch comments: use each comment's own permalink
+- 4. Select significant comments
+- 5. Add the Lobste.rs link to the document header
+- 6. Weave reactions into the document body
+- 7. Writing rules
+
 ## Usage
 
 ```text
@@ -93,8 +109,8 @@ loop over `page=1..5` therefore looks like it scanned five pages while it
 scanned one, five times. To go deeper, use the path form `/page/<N>.json`
 (the hottest ranking, 25 stories per page), and de-duplicate by `short_id`
 so you can report how many distinct stories the scan actually covered.
-Run in late September 2026, `/page/1.json` through `/page/15.json` reached
-stories from early June, about 480 distinct stories.
+The depth varies with traffic, so report the distinct count and the oldest
+date the scan reached rather than assuming a fixed reach.
 
 The table above describes **scripted access** (`curl`, `WebFetch`). Inside a
 real browser session the picture differs, and that difference is usable:

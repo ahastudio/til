@@ -11,6 +11,23 @@ description: AI(ChatGPT·Claude·Gemini 등)가 쓴 한글 텍스트를 "사람�
 > **v2.3.0** — 구조 수렴 게이트(`verify_gates.py` 4축: 목표달성·대구 전멸·수치·golden) + 진단 슬림 인덱스(`diagnosis-rules.md`, taxonomy 83%↓). (v2.2: route_hint 3경로 + 단일 콜 우선)
 > 버전 히스토리·실측 근거·테스트 시나리오: [`${CLAUDE_SKILL_DIR}/references/design-notes.md`](references/design-notes.md)
 
+## 목차
+
+이 파일의 소제목과 같은 이름이다. 소제목을 검색하면 해당 절로 간다.
+
+- Phase 0: 컨텍스트 확인 및 경로 결정: 경로(light, standard, heavy) 결정 규칙, `run_id` 결정
+- 스크립트 경로 규칙: 스크립트는 절대경로로 부르고 `references/*`는 스킬 디렉터리 기준으로 쓴다
+- Phase 1: 입력 저장과 정량 사전 점수: 입력 shim, 전 경로 공통
+- Light 경로(1콜), Standard 경로(2콜), Heavy 경로(3+콜): 진단과 윤문과 finalize의 호출 구성
+- Finalize 승급 규칙: finalize를 추가로 실행하는 조건
+- Phase 2.4: 서법 국소 복원: 게이트 직전의 결정적 변형, LLM 콜 0회
+- Phase 2.5: 구조 게이트: `verify_gates.py` 판정은 코드가 한다
+- 결과 전달: 사용자에게 돌려줄 네 가지
+- 부분 재실행과 후속 명령, 옵션: 사용자 신호별 처리, 장르와 강도 옵션
+- 데이터 흐름 요약, 설계 노트, 에이전트 호출 규칙: 구조와 근거
+- 주의 사항: 의미 불변이 최상위 불문율, 핵심 내용어 원형 보존
+- 참고 자료: `references/` 목록
+
 ## Phase 0: 컨텍스트 확인 및 경로 결정
 
 작업 시작 시 가장 먼저 다음 한 줄을 사용자에게 출력한다.

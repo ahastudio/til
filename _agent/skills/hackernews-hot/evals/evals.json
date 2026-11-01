@@ -1,0 +1,37 @@
+[
+  {
+    "skills": [
+      "hackernews-hot"
+    ],
+    "query": "/hackernews-hot 3",
+    "files": [],
+    "expected_behavior": [
+      "Reads the front page through the Algolia API and confirms the list is not empty",
+      "Reports the selection with points and comment counts before writing",
+      "Excludes job posts and documents that already exist, with the reason",
+      "Runs analyze-article on each story one at a time, in point order"
+    ]
+  },
+  {
+    "skills": [
+      "hackernews-hot"
+    ],
+    "query": "/hackernews-hot when one top story already has a TIL document",
+    "files": [],
+    "expected_behavior": [
+      "Lists it as a duplicate with the existing path",
+      "Takes the next story by points instead"
+    ]
+  },
+  {
+    "skills": [
+      "hackernews-hot"
+    ],
+    "query": "/hackernews-hot when one story URL cannot be fetched",
+    "files": [],
+    "expected_behavior": [
+      "Reports that story as skipped with the reason",
+      "Continues with the next story"
+    ]
+  }
+]

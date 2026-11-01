@@ -4,6 +4,8 @@ description:
   Pick hot stories from the Hacker News front page and write a TIL document
   for each with the analyze-article skill. Select top stories by points and
   only process stories that do not duplicate existing documents.
+  Use when the user asks for the hot Hacker News stories to be written up as
+  TIL documents.
 argument-hint: '[count (default 5)]'
 disable-model-invocation: true
 ---
@@ -14,6 +16,18 @@ running the `analyze-article` skill on it.
 **Every story is processed through the full `analyze-article` procedure,
 one at a time, in point order. This skill only selects; `analyze-article`
 writes. Nothing in this file relaxes any rule of `analyze-article`.**
+
+## Contents
+
+Section titles match the headings below; search for a title to jump to it.
+
+- Usage: `/hackernews-hot [count]`, default 5 documents
+- 1. Collect the front page: Algolia API request, confirm the list is real, fallback endpoint
+- 2. Filter: drop job posts and unreadable sources; Ask HN and Show HN stay
+- 3. Remove duplicates: the duplicate check of `analyze-article` step 2
+- 4. Report the selection: list and excluded stories, no approval step
+- 5. Write each document with `analyze-article`: one at a time, reactions, title, directory, file name
+- 6. Final report: table columns, gate must print OK, excluded list
 
 ## Usage
 

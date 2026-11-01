@@ -1,0 +1,33 @@
+[
+  {
+    "skills": [
+      "quotes-curly"
+    ],
+    "query": "/quotes-curly notes/a.md",
+    "files": [],
+    "expected_behavior": [
+      "Runs convert_quotes.py on the file",
+      "Changes ASCII double quotes to curly quotes outside code"
+    ]
+  },
+  {
+    "skills": [
+      "quotes-curly"
+    ],
+    "query": "/quotes-curly on a file with code fences",
+    "files": [],
+    "expected_behavior": [
+      "Leaves code fences and inline code unchanged"
+    ]
+  },
+  {
+    "skills": [
+      "quotes-curly"
+    ],
+    "query": "/quotes-curly with no file path",
+    "files": [],
+    "expected_behavior": [
+      "Asks for the path instead of guessing"
+    ]
+  }
+]
