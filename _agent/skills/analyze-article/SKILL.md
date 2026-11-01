@@ -5,7 +5,7 @@ description: >-
   homepage, service site) — and write a TIL document (in Korean). The H1 title
   is written in Korean. Published pieces (articles, posts, papers, tweets,
   videos) get a `원문: [원문 제목](URL)` titled-link source line and a
-  `## 요약` section; non-articles get bare `<URL>` line(s) with NO `원문:`
+  `## 요약` section; non-articles get bare URL line(s) with NO `원문:`
   label, no titled link, and a fitting first heading like `## 소개`. Body
   structure follows the source's own job — analytical for a piece that argues,
   practical for one that teaches. The document shape is a closed spec enforced
@@ -22,6 +22,46 @@ source is for: analytical when it argues, practical when it teaches.
 **The output document MUST be written in Korean.**
 Every section is written in Korean, whichever body structure step 5a selects.
 Technical terms may be written alongside their original English form.
+
+## Contents
+
+Details live in `references/`, one level below this file. Read the file a step
+points to when you reach that step instead of relying on an earlier read.
+
+- Usage, Multiple URLs in one invocation: queue handling, one document at a time
+- 1. Fetch the source; 2. Check for duplicates: both are in this file
+- 3, 3-1, 3a, 4. Classify the subject and choose the source-link line: [references/subject-and-source-line.md](references/subject-and-source-line.md) (article vs. non-article, product pages, Korean H1, `원문:` vs. bare URL)
+- 4a. Special source types: [references/special-sources.md](references/special-sources.md) (Twitter, YouTube with `yt-dlp`, papers, press releases, forum threads)
+- 5, 5a, 6, 7. Choose the body structure and write: [references/body-structure.md](references/body-structure.md) (argue vs. teach, both templates) and [references/writing-rules.md](references/writing-rules.md) (line breaks, headings, code fences)
+- 7a, 7b. Keep the document shape and the footnotes exact: [references/document-shape-and-footnotes.md](references/document-shape-and-footnotes.md) (closed header, closed section set, footnote rules)
+- 8. Output; 8a, 8b, 8c: [references/output-and-gate.md](references/output-and-gate.md) (file name, four post-processing commands, the gate, what it cannot check)
+- 9, 10. Community reactions and the final gate: [references/reactions.md](references/reactions.md)
+
+## Non-negotiables
+
+These hold even if only the top of this file is read. The steps below and the
+reference files give the full rules.
+
+- Never write from a title, a summary or memory. If the source cannot be read, stop and report.
+- Source line: a published piece gets `원문: [제목](<URL>)` (or its labeled variant); a thing (repository, homepage) gets bare URL line(s), never `원문:`.
+- The header is closed: H1, one source line, then HN, Lobste.rs, GN lines. The analyzed source never takes a footnote.
+- An analytical body carries `## 분석`, `## 비평`, `## 인사이트`, all three, in that order.
+- After writing, run the four post-processing commands of step 8b; the last one (`check_format.py`) must print `OK`.
+- Then run the three reaction skills on the file, and run `check_format.py` again; the file is finished only when that run prints `OK`, and the report quotes that printed line.
+
+## Progress checklist
+
+Copy this list into the reply and tick it off per document (a queue repeats it per URL).
+
+```text
+- [ ] 1. Fetch the source in full (stop and report if unreadable)
+- [ ] 2. Duplicate check: URL, proper nouns, directory
+- [ ] 3-4a. Classify the subject; choose the source line and the fetch method
+- [ ] 5-7b. Choose the body structure; write; check header and footnotes
+- [ ] 8. Write the file; run the four post-processing commands; last prints OK
+- [ ] 9. Run the three reaction skills on the file
+- [ ] 10. Run check_format.py again; finished only on OK
+```
 
 ## Usage
 
@@ -53,6 +93,10 @@ The user often pastes several URLs at once, sometimes each on its own
   rather than waiting for permission.
 
 ## Procedure
+
+Step numbers below keep the labels other skills and the gate refer to
+(2, 4a, 8a, 8b, 9, 10 and so on). A heading that lists several labels covers
+all of them.
 
 ### 1. Fetch the source
 
@@ -95,628 +139,57 @@ A near-miss is not a duplicate: a document that merely *mentions* the subject
 (e.g. cites the project in passing) does not block a document *about* the
 source. Say which case it is when reporting.
 
-### 3. Classify the subject — article vs. non-article (CRITICAL)
+### 3, 3-1, 3a, 4. Classify the subject and choose the source-link line
 
-**Before writing anything, decide what the source actually IS. This decision
-controls the source-link line AND the first section heading. Getting it wrong
-is a defect, not a style choice.**
+Read [references/subject-and-source-line.md](references/subject-and-source-line.md)
+before writing anything. It decides the source-link line and the Korean H1.
 
-There are two kinds of subjects:
-
-- **Article / blog post / news / paper** — the source is a *piece of writing*
-  by an author making an argument. Examples: a blog post, a newsletter issue,
-  a news story, an academic paper, an essay, a documentation *article* that
-  reads as prose.
-
-- **Non-article** — the source is a *thing you use or explore*, not a piece of
-  writing. Examples: a GitHub repository, a project/product homepage, a
-  library or framework landing page, a service marketing site, an API
-  reference index, a tool's docs root.
-
-When in doubt, ask: "Is there an author advancing a thesis I can summarize, or
-am I describing a tool/project/site?" A README that pitches a product is a
-**non-article** (it describes the project), even though it contains prose.
-
-### 3-1. A product is the subject, its page is only a source (STRICT RULE)
-
-**When the URL is a product's page (a launch page, a product site, a pricing
-page, a spec sheet), the document is about the product, not about the page.**
-Writing "이 페이지는 …한다", "제품 페이지이다", "페이지의 수치" makes the
-document read as a summary of marketing copy, which is the wrong subject.
-
-- Name the subject as the product and its maker. Attribute claims to the
-  maker ("제조사는 … 말한다", "회사는 … 주장한다"), never to "the page".
-- Organize the body around the product: what it is, its specifications,
-  price and availability, how people reacted, what the claims rest on, and
-  what to check before buying or adopting. Do not follow the page's own
-  section order.
-- Everything a maker says about its own product is a claim, and the document
-  says so. Separate it from what an independent source, a user report, or the
-  document's own calculation shows.
-- Other pages that were actually opened (a press release, a localized
-  edition, documentation, a terms page, a pricing page of a different tier or
-  deployment mode) are outside pages and carry titled footnotes. The product
-  page the user gave is the analyzed source and takes no footnote, so what it
-  says is stated in prose without one.
-- The gate still requires one source line in the header (step 4). Keep the
-  bare URL there. Do not label it `원문:` and do not describe it in prose as
-  "the page".
-- When the user supplies a second page as a supplement (a localized edition),
-  treat it as an outside page: footnote it, and say where the two disagree.
-- Read an evidence table from the rendered page, not from extracted text.
-  Plan tables flatten, and a misaligned column turns a limit into its
-  opposite. When extracted text and the rendered table cannot be matched
-  with certainty, open the page in the browser and read the cells.
-
-### 3a. Document title (H1) — write it in Korean
-
-**The `#` heading is written in Korean, not copied from the source.**
-The document is a Korean note; its title is the first thing the reader sees
-and must read as Korean prose.
-
-- Convey what the source is about. Do not transliterate the English title into
-  Hangul, and do not paste the original title as the H1.
-- Keep product names, project names, and established technical terms in their
-  original form: `SwiftUI`, `ClickHouse`, `Soppo`, `PostgreSQL`, `MCP`.
-  Translate the surrounding words, not these.
-- A `<제품명>: <한국어 설명>` shape works well when the subject is a named
-  thing. A plain Korean sentence or noun phrase works well when the subject is
-  an argument.
-- If the source title carries a claim, the Korean H1 should carry that claim
-  too — do not flatten it into a neutral topic label.
-
-Examples:
-
-| 원문 제목                                    | H1                                     |
-| -------------------------------------------- | -------------------------------------- |
-| SwiftUI After 7 Years: A Story of Mediocrity | SwiftUI 7년, 평범함의 기록             |
-| Devtools must be open source                 | 개발 도구는 오픈소스여야 한다          |
-| GitHub has alternatives, but no replacement  | GitHub에는 대안이 있지만 대체재는 없다 |
-| Soppo (project homepage)                     | Soppo: Go에 빠진 기능을 더한 언어      |
-| The next chapter of our AI momentum          | Google AI 모멘텀의 다음 장             |
-
-This rule governs the H1 only. Two things stay in their original language:
-
-- The `원문:` link text keeps the source's own title, untranslated (step 4).
-- The file name stays lowercase English kebab-case.
-
-If the H1 is in English, the document is wrong regardless of how good the body
-is. Fix it before writing the first section.
-
-**This rule applies to documents written from now on only.** Many existing TIL
-documents have English H1 titles. That is a settled decision, not a backlog:
-do NOT retitle them, and do NOT propose a sweep. Touch an existing H1 only
-when the user asks for that specific file.
-
-### 4. Source-link line — STRICT RULE (NO EXCEPTIONS)
-
-**This is the rule most often gotten wrong. Follow it exactly.**
-
-The link form depends on whether the subject is a **published piece** (an
-article, post, paper, tweet, or video) or a **thing** (a site address, a
-GitHub repository, a project homepage).
-
-- **Published piece** → labeled source line directly under the title, written
-  as a **titled markdown link** with the source's own title as the link text:
-
-  ```markdown
-  원문: [<원문 제목>](<URL>)
-  ```
-
-  Use the title exactly as the source presents it, including its site suffix
-  when the page title carries one (e.g. `... | Google Search Central Blog`).
-  Do not translate it, do not shorten it, do not invent one. If the page has
-  no usable title, use the most specific heading on the page.
-  A bare `<URL>` here is a defect: the reader cannot tell what they are about
-  to open.
-
-- **Non-article (GitHub repo, homepage, service site, etc.)** → **NEVER write
-  `원문:`, and NEVER use a titled link.** An `원문:` label means "original
-  *writing*," which a repo or homepage is not. Place the **bare URL(s)** under
-  the title with no label and no link text:
-
-  ```markdown
-  <https://github.com/org/project>
-  ```
-
-  If the subject has both a homepage and a repo, list both as separate bare
-  URL lines (homepage first, then repo), each on its own line separated by a
-  blank line.
-
-There is ZERO case where a GitHub repository or a product/service homepage
-gets an `원문:` label or a `[text](url)` link. If you catch yourself typing
-either one for a repo or a homepage, STOP — you misclassified the subject in
-step 3.
-
-**Checklist before writing the source line:**
-
-1. Is the subject a published piece or a thing?
-2. Published piece → `원문: [실제 제목](URL)`, never a bare `<URL>`.
-3. Thing → bare `<URL>`, never `원문:` and never `[text](url)`.
-
-If any answer is wrong, fix it before writing the first section.
-
-Discussion links added later (`HN 토론:`, `Lobste.rs 토론:`, `GN 토론:`) also
-keep the bare `<URL>` form, because their score/comment count already
-identifies them.
+- A published piece (article, post, paper, tweet, video) gets
+  `원문: [<원문 제목>](<URL>)` or its labeled variant, never a bare URL.
+- A thing (GitHub repository, project homepage, service site) gets bare
+  `<URL>` line(s) with no label and no link text. Never `원문:`.
+- A product page is a source about the product; the document is about the
+  product and attributes claims to its maker.
+- The H1 is Korean prose that carries the source's claim.
 
 ### 4a. Special source types
 
-Some sources need a fetch strategy or a link form of their own. Handle these
-explicitly rather than improvising.
+Twitter, YouTube, papers, press releases and forum threads each have their own
+fetch method and source-line label. Read
+[references/special-sources.md](references/special-sources.md) for any of them.
+
+- Tweets open in a real browser, never WebFetch. The service is Twitter, never
+  X, and tweet URLs use `twitter.com`.
+- YouTube is read with `yt-dlp` (info JSON plus one caption track), never
+  WebFetch.
+- A source that cannot be read at all stops the work: report which URL failed
+  and what was tried. Never write from a title or from memory.
+
+### 5, 5a, 6, 7. Choose the body structure and write
+
+Read [references/body-structure.md](references/body-structure.md) for the
+headings and the two templates, and
+[references/writing-rules.md](references/writing-rules.md) for the prose rules.
+
+- A source that argues gets `## 분석` → `## 비평` → `## 인사이트`, all three, in
+  that order. Half of the structure is a defect.
+- A source that teaches gets practical headings and may borrow a single
+  `## 비평`; it never carries `## 분석` without the other two.
+- Prose is sentence-per-line, at most 80 columns (CJK counts as 2), Korean,
+  with `한국어(English)` for any ambiguous term.
+
+### 7a, 7b. Keep the document shape and the footnotes exact
+
+Read
+[references/document-shape-and-footnotes.md](references/document-shape-and-footnotes.md)
+before writing the header and again before finishing.
+
+- The header is closed: H1, one source line, then HN, Lobste.rs, GN lines in
+  that order. No other labeled line and no process-report section exists.
+- The analyzed source never takes a footnote. Outside pages that were opened
+  get titled footnotes. Comment footnotes are bare permalinks that were
+  actually observed.
 
-| Source type        | Fetch method                              | Source line                        |
-| ------------------ | ----------------------------------------- | ---------------------------------- |
-| Twitter            | Claude in Chrome (see `web-fetching.md`)  | `트윗: [<제목 또는 첫 문장>](URL)` |
-| YouTube            | `yt-dlp` info JSON + captions (see below) | `영상: [<영상 제목>](URL)`         |
-| Paper (PDF/arXiv)  | WebFetch, or Read the PDF                 | `논문: [<논문 제목>](URL)`         |
-| Press release      | WebFetch                                  | `원문: [<제목>](URL)`              |
-| Forum post (GN/HN) | WebFetch, or the site's JSON API          | `Ask GN: [<제목>](URL)` 등         |
-| GeekNews Article   | WebFetch, or curl the article page        | `GeekNews Article: [<제목>](URL)`  |
-
-A `Show GN` / `Ask GN` / `Show HN` / `Ask HN` thread is written as a
-titled link labeled with the thread's own prefix: `Show GN: [<제목>](URL)`.
-Where that line goes depends on what the subject is:
-
-- **The thread presents a thing that has its own address** (a product
-  homepage, a GitHub repository, an app page). The subject is the thing, so
-  the source line stays the bare `<URL>` of the thing (homepage first, then
-  repo). The `Show GN:` line goes in the discussion block **in place of** the
-  `GN 토론:` line (and `Show HN:` in place of `HN 토론:`). It never replaces
-  or removes the bare source URL.
-- **The thread itself is the only source** (an `Ask GN` question, or a post
-  with no separate address). Then the labeled line is the source line.
-
-Either way, never add both a `Show GN:` line and a `GN 토론:` line for the
-same thread.
-
-For Twitter, the service is always called Twitter in prose, never X, even
-when the source writes X or 엑스; the format gate fails prose that calls it X.
-For Twitter, `twitter.com` is used instead of `x.com` per
-`writing-guidelines.md`. For a long tweet, call it a `트윗`, not a `스레드`,
-unless the user says otherwise.
-
-A tweet that links to a Twitter Article (long-form post) shows only a `t.co`
-link in its text; the article body renders on the same status page.
-`get_page_text` cuts off around 50,000 characters, which an article with
-embedded quote tweets and code blocks can exceed. Read the rest with
-`javascript_tool` on `document.querySelector('article').innerText`, sliced
-into chunks of under 1,000 characters, because longer return values are
-truncated. Strip URLs and `?`/`&`/`=` from the text first: a return value
-that contains query-string data is replaced wholesale with
-`[BLOCKED: Cookie/query string data]`.
-
-For YouTube, the first section is `## 요약` only if the video advances an
-argument (a talk, an essay video). For a demo or a walkthrough, choose a
-heading that fits — e.g. `## 내용`, `## 데모`.
-
-#### YouTube: fetch with `yt-dlp`, never with WebFetch
-
-**WebFetch cannot read a YouTube video.** It returns the page title and the
-site footer, with no description, no chapters and no transcript (verified
-October 2026). A document written from that is written from the title alone,
-which step 4a forbids. Use `yt-dlp` instead. YouTube extraction needs a
-JavaScript runtime (Deno) installed; see `cli/yt-dlp.md`.
-
-Fetch in two calls, into a scratch directory, never into the repository:
-
-```bash
-D=<scratchpad>/yt-<video-id>
-mkdir -p "$D"
-
-# 1. metadata: title, channel, upload date, duration, description, chapters,
-#    and the spoken language (`language`) plus which caption tracks exist
-yt-dlp --skip-download --write-info-json -o "$D/v.%(ext)s" "<URL>"
-
-# 2. one caption track, in the spoken language
-yt-dlp --skip-download --write-auto-subs --write-subs \
-  --sub-langs "<lang>-orig" --sub-format vtt --sleep-subtitles 5 \
-  -o "$D/v.%(ext)s" "<URL>"
-```
-
-Rules for what comes back:
-
-- **The source line uses `title` from the info JSON, verbatim**, including
-  prefixes like `[한글자막]`.
-- **Read the spoken-language track, not a translation.** Pick `<lang>` from
-  the info JSON `language` field (`en-US` → `en`). The `-orig` auto track is
-  speech recognition in that language; other language tracks are machine
-  translations of it. Quote and paraphrase from the original-language track.
-- **Request one track per call.** Asking for several languages at once is the
-  usual way to hit `HTTP Error 429: Too Many Requests` on captions. On a 429,
-  wait, then retry a single track once with `--sleep-subtitles`. Do not loop.
-- **Auto captions repeat and misspell.** Rolling captions emit each line
-  several times; de-duplicate and group by minute so you can cite timestamps.
-  Speech recognition mangles proper nouns (handles, product names, company
-  names). Check every name against the description, the chapters, the
-  uploader's links, or another source before writing it. Never copy a name
-  from the transcript unverified.
-- **A re-upload is not the speaker's own channel.** Translation channels
-  (`[한글자막]` and the like) re-post someone else's talk. Name the speaker,
-  not the uploader, as the author, and follow the description's links to find
-  the original post or event. The source line still links the URL the user
-  gave.
-- **No caption track at all** means the source cannot be read as text. STOP
-  and report it; do not transcribe the audio unless the user asks for that.
-
-If the source cannot be fetched at all, STOP and tell the user which URL
-failed and what was tried. Never write a document from the title alone or
-from prior knowledge of the subject.
-
-### 5. Choose the first section heading
-
-The first top-level section depends on the same classification:
-
-- **Article** → `## 요약` is the usual opening, but it is not the only one.
-  Choose the heading that matches what the first section actually does: a
-  piece that argues gets `## 요약`; a reference or a tutorial may open with
-  `## 소개`, a long document may open with `## 목차`. The document's type
-  decides, not a blanket rule.
-- **Non-article** → do NOT use `## 요약`. Choose a heading that fits what the
-  section actually covers — e.g. `## 소개`, `## 명세`, `## 사용법`,
-  `## 주요 기능`, `## CLI`. A single subject may warrant multiple top-level
-  sections if its content naturally splits.
-
-What is fixed is not the name of the opening section but the body structure
-step 5a selects. Getting `## 요약` versus `## 소개` slightly wrong is a matter
-of fit; shipping a document that was supposed to carry the analytical body and
-carries only half of it is a defect.
-
-### 5a. Choose the body structure — argue vs. teach (CRITICAL)
-
-**The body structure follows the source's own job. Do not impose an analytical
-structure on a source whose job is to teach a task.**
-
-Decide which of these the source is, then use the matching body:
-
-- **The source argues.** It advances a thesis, takes a position, reports an
-  event with a frame, or reviews something. Blog posts, essays, news stories,
-  papers, opinion pieces, most conference talks.
-  → Body is `## 분석` → `## 비평` → `## 인사이트`, in that order, 비평
-  immediately after 분석 and 인사이트 last. This is the default.
-
-- **The source teaches.** Its job is to let the reader do a task: reference
-  documentation, an API guide, a specification, a tutorial, a runbook, a tool's
-  usage docs. The useful note is one the reader can work from, not one that
-  critiques the manual's prose.
-  → Body is practical. Choose headings that fit the task — e.g. `## 동작 방식`,
-  `## 설정하기`, `## 구현하기`, `## 값 정하기`, `## 트레이드오프`,
-  `## 체크리스트`, `## 함정`. Cover: how it actually works, what to decide and
-  on what basis, what the trade-offs cost on each side, what goes wrong in
-  practice, and how to verify. End with a short `## 기억할 원칙` when there is a
-  transferable principle worth stating.
-
-**The analytical body is all-or-nothing.** If you pick it, the document
-carries `## 분석`, `## 비평` and `## 인사이트`, all three, in that order. A
-document that analyses and then offers insights without ever challenging the
-source is the most common way this structure fails, and 비평 is the section
-that makes the note worth more than the source. Half the structure is a
-defect, not a lighter version of it. The format gate in step 8b enforces this:
-once `## 분석` appears, all three must appear, in that order.
-
-A practical note is free to borrow one of these headings without owing the
-other two. When a teaching source carries a strong claim worth contesting, a
-single `## 비평` among practical sections is welcome; a practical note may
-likewise close with `## 인사이트` instead of `## 기억할 원칙`. What marks a
-document as analytical — and therefore owing all three — is `## 분석`.
-
-When genuinely torn, ask what the reader will do with the note. If they will
-*think differently*, the source argues. If they will *build something*, it
-teaches.
-
-**Trade-offs are where a teaching note earns its keep.** A table of "what you
-gain / what you give up" in one line each is too thin. Show why the obvious fix
-does not work, what breaks when you pick each side, and what you cannot have at
-all. Name the difficulty, not just the cost.
-
-### 6. Write the document
-
-Two templates follow: one for a source that **argues**, one for a source that
-**teaches**. Pick the one step 5a selected. **The `원문:` line and `## 요약`
-heading shown apply to ARTICLES ONLY — for non-articles, substitute per steps
-4 and 5.**
-
-#### 6a. Template — the source argues
-
-```markdown
-# <한국어 제목>
-
-원문: [<원문 제목>](<URL>)
-
-## 요약
-
-Summarize the core content in 3-5 paragraphs.
-Convey technical details accurately — preserve numbers, names, and
-technical terms. Do not editorialize; save judgment for later sections.
-
-## 분석
-
-Analyze the logical structure and context. Go beyond restating what the
-article says — ask WHY the argument is structured this way, WHAT it
-assumes, and WHERE it connects to broader trends.
-
-Each sub-section (###) should make a distinct analytical point:
-- What is the article's core claim, and what does it rest on?
-- What historical or technical context explains why this matters now?
-- What structural pattern does this represent — and where else does it
-  appear?
-- What does the author take for granted that deserves scrutiny?
-
-Aim for 3–4 sub-sections. Each sub-section is 2–4 paragraphs.
-Do NOT list observations — build an argument within each sub-section.
-
-## 비평
-
-Do NOT use "강점 / 약점" sub-headings. A list of pros and cons is not
-critique — it is a summary with opinions attached.
-
-Real critique means: identify a specific flaw in the article's logic,
-generalizability, omissions, or framing — and develop that flaw into a
-substantive argument with evidence or counter-examples. Each sub-section
-targets one such flaw.
-
-Frame sub-headings as focused critical claims, not generic categories:
-
-Good examples:
-- "글의 논리는 성공 조건을 숨긴다"
-- "저자가 인식하고도 답하지 않은 문제"
-- "이 워크플로는 특정 맥락에서만 성립한다"
-- "결론의 일반화는 근거 없이 확장된다"
-
-Bad examples (forbidden):
-- "강점"
-- "약점"
-- "한계"
-- "긍정적 측면 / 부정적 측면"
-
-Aim for 3–4 sub-sections of 3–5 paragraphs each. The critique must be
-harder and sharper than the analysis — find the places where the article
-fails to hold up under scrutiny.
-
-## 인사이트
-
-Insights are the most important section. They must offer something the
-reader could NOT have obtained by reading the source alone.
-
-Each insight (###) must be developed over 3–5 paragraphs. The sub-heading
-names the insight as a declarative claim — not a question or topic label.
-
-Mandatory coverage across the insights:
-- A second-order effect or consequence the article does not anticipate
-- A historical analogy or structural pattern that reframes the issue
-- A tension or trade-off the article glosses over but that will matter
-  at scale or over time
-
-What to avoid:
-- Restating the article's own conclusions as insights
-- Surface-level observations ("this is an important trend")
-- Insights that follow directly from the article without adding a new
-  frame
-
-Write at least 3 insights. 4 is better if the subject warrants it.
-```
-
-#### 6b. Template — the source teaches
-
-Headings here are examples, not a fixed set. Choose ones that match the task
-and drop any that do not apply. What matters is that the reader can act from
-the note.
-
-```markdown
-# <한국어 제목>
-
-원문: [<원문 제목>](<URL>)
-
-## <첫 섹션: 요약 또는 소개>
-
-Pick per step 5. A non-article never uses `## 요약`.
-
-What this is and what contract it offers. For a spec or reference, state the
-guarantee and its exact boundary — what it promises, and what it explicitly
-does not.
-
-## 동작 방식
-
-How it actually works, in enough depth that the reader can predict behavior
-rather than memorize steps. Walk a concrete scenario in order (a timeline, a
-request path, a state transition) when the mechanism is easy to misread.
-
-## <구현하기 / 설정하기>
-
-What the reader does. Include real, runnable code or commands — not fragments
-that only illustrate. Comment the lines that encode a decision. Name the
-values that must be chosen and what each one depends on.
-
-## 값 정하기
-
-Starting values with the reasoning behind each, in a table. A starting value
-without its basis is unusable, because the reader cannot tell when to change
-it. Add what to measure so the value can be revised from evidence.
-
-## 트레이드오프
-
-The heart of a teaching note. For each decision, show what you gain, what it
-costs, AND what remains hard afterward. Give each significant trade-off its
-own sub-section when one line cannot carry it: why the obvious fix fails,
-what breaks on each side, what cannot be had at all. A two-column
-gain/loss table alone is too thin.
-
-## 함정
-
-Failure modes that show up in practice but not in the source. What looks
-correct and is not, what only breaks under load or at scale, what the source
-assumes but never states.
-
-## <확인하기>
-
-How to verify locally — a reproducible experiment, a command sequence, a
-minimal setup. A note the reader can run beats one they can only read.
-
-## 체크리스트
-
-Checkable items for before shipping or reviewing. Write each so the answer is
-yes or no, not "consider X."
-
-## 기억할 원칙
-
-Only when a transferable principle is genuinely there. One or two, each with
-a `###` sub-heading and a few paragraphs. Skip this section rather than pad
-it.
-```
-
-### 7. Writing rules
-
-Most of the rules below are enforced mechanically by the format gate in step
-8b. They are written out here so you produce a conforming document the first
-time, rather than writing freely and patching afterwards.
-
-- Follow `_agent/rules/writing-guidelines.md` in full: heading spacing, CJK
-  table alignment, inline code, fenced-block language identifiers, the `박다`
-  vocabulary ban, and the rule that structure belongs to headings and never to
-  bold text.
-- Write in Korean. Technical terms may be written alongside their original
-  English form.
-- Break body text at sentence boundaries and keep every line within 80
-  columns: each sentence starts a new line, no line exceeds 80 columns
-  (CJK characters count as 2), and a sentence that does not fit breaks at
-  natural semantic boundaries (after a comma, before 이며/하지만/그러나/
-  그리고/하면/때문에, between clauses) as many times as needed. Never split
-  a title, a name, a number with its counter, or a footnote reference across
-  lines, never leave a one-syllable tail on its own line, and never indent a
-  continuation line, because an indented line renders as a code block. This
-  applies to prose only; tables, code blocks, headings, and footnote/URL
-  lines are exempt from both the sentence-break rule and the 80-column
-  limit, so never wrap or shorten them to fit. The full rule is in `writing-guidelines.md`. Check this
-  before invoking the post-processing of step 8b, not after, and verify the
-  80-column limit on the finished file.
-- Every fenced code block carries a language identifier (`python`, `bash`,
-  `text`, …). A bare fence is always wrong.
-- Code in a teaching note must be runnable, not illustrative. Prefer a complete
-  function over an ellipsis. Comment the lines that encode a decision, not the
-  lines that restate the syntax.
-- The H1 is Korean (step 3a). Every `##` and `###` heading is Korean too.
-- Sections are marked with headings, never with bold text. When the first
-  section runs long enough to need internal divisions, give those divisions
-  real sub-headings at the right level. A bold line standing alone above body
-  text is a structural defect, not a formatting choice.
-- Each section must do different work: 요약/소개 reports, 분석 explains,
-  비평 challenges, 인사이트 extends. Do not let sections overlap.
-- The document should read as if written by someone who disagrees with
-  parts of the source and has thought carefully about why.
-- Maintain the same tone and depth as existing TIL documents.
-- Read the finished document once as a reader who has not seen the source.
-  A sentence whose meaning cannot be stated plainly is rebuilt from its
-  meaning, not patched. The rule is `Every Sentence Must Make Sense` in
-  `writing-guidelines.md`.
-
-### 7a. Document shape — CLOSED SPEC (NO EXCEPTIONS)
-
-**A document produced by this skill has exactly the shape below. The set of
-line kinds allowed above the first `##` is closed: nothing else may appear
-there, however useful it seems.**
-
-```markdown
-# <한국어 제목>
-
-원문: [<원문 제목>](<URL>)
-
-HN 토론: <URL> (<점수>점, <댓글 수>개 댓글)
-
-Lobste.rs 토론: <URL> (<점수>점, <댓글 수>개 댓글)
-
-GN 토론: <URL>
-
-## <첫 섹션>
-
-...본문...
-
----
-
-[^handle]: <URL>
-```
-
-Rules that follow from it:
-
-- The H1 is line 1, Korean prose, followed by one blank line.
-- Exactly one source line, in the form step 4 selected. When the user asks
-  for several published pieces to be combined into one document (a
-  multi-part tutorial, for example), write one labeled source line per piece,
-  in order, each separated by a blank line. A non-article may use
-  two or more consecutive bare `<URL>` lines (homepage first, then repo), each
-  separated by a blank line.
-- Discussion lines come after the source line, one per line, separated by
-  blank lines, in the order HN → Lobste.rs → GN. HN and Lobste.rs carry
-  `(N점, N개 댓글)`, copied as the site reports it, including a negative
-  score such as `(-1점, 4개 댓글)`; GN carries the bare URL alone. A `Show GN:` /
-  `Ask GN:` line takes the GN slot and a `Show HN:` / `Ask HN:` line takes
-  the HN slot, as `[<제목>](URL)`. Two threads on the same
-  platform for the same subject get two lines of that platform, adjacent.
-- Existing documents in this repository also use four older header forms,
-  and the gate accepts them so those documents are left as they are: a
-  `원문: <URL>` source line without a title, a
-  `> <제목>` quote line directly above a bare source URL, a `GeekNews: <URL>`
-  line in the GN slot, and an `HN 토론:` / `Lobste.rs 토론:` line without
-  counts. New documents still use the forms above.
-- **No other labeled line exists.** `제품 페이지:`, `저자:`, `발표:`,
-  `관련 글:` and every other invented label is forbidden. Information like
-  that belongs in a body section, in prose.
-- The discussion lines are written by the reaction skills in step 9. Do not
-  invent, guess, or pre-fill them.
-
-**Sections are a closed set too.** Use the headings the step 6 template for
-your chosen body gives you, plus subject-fitting sections for a non-article.
-Never add a section that reports on the *process* of writing the document.
-`## 반응 현황`, `## 반응`, `## 커뮤니티 반응` and the like are forbidden: when
-a platform has no thread, that is reported to the user in chat, never as a
-section of the document. A document records what is true about the subject,
-not what the search turned up.
-
-### 7b. Footnotes — STRICT RULE (NO EXCEPTIONS)
-
-**Footnotes for outside pages are complete and exact; the analyzed source needs
-none per sentence.** When the prose names where something came from, the
-footnote closes that sentence and links that exact page. References go at
-sentence ends, not mid-sentence. **The analyzed source itself never takes a footnote — ABSOLUTE, ZERO
-TOLERANCE.** The source line under the title is its only link: no footnote
-for a sentence, a quotation, a figure, the date, or the author, and none in
-the titled form. Say what is needed in the prose. Before the gate and again
-after the reaction skills, compare every footnote definition's URL with the
-source line's URL; any match is deleted with all of its references. A
-document you enhance is checked the same way.
-Every sentence that rests on an outside page — a page the source quotes that
-was also opened and read, or material fetched to check or extend the source —
-carries its own footnote in the titled form of `writing-guidelines.md`
-(`[^label]: <매체>, [<원문 제목>](<URL>), <YYYY-MM-DD>`), and two pages mean two
-references. Rules 2 and 5 below govern the community-comment footnotes only.
-
-A woven-in reaction is attributed inline and carried by a footnote whose label
-is the commenter's handle:
-
-```markdown
-tttttaa는 회색지대 사례를 살펴볼수록 미묘해진다고 적었다.[^tttttaa]
-
-[^tttttaa]: <https://news.hada.io/topic?id=33582#cid123456>
-```
-
-1. Definitions collect at the bottom, after the last body section, under a
-   `---` rule, one per line, separated by blank lines.
-2. Every comment footnote definition is a bare `<URL>` in angle brackets. No prose, no quoted
-   comment text, no trailing commentary.
-3. The target is a permalink to the individual comment, never the thread root.
-4. Labels and definitions are one-to-one. A defined label that nothing
-   references, and a reference with no definition, are both defects.
-5. The label is the handle exactly as that site spells it. On a collision with
-   an existing label, disambiguate with a suffix (`[^handle-lobsters]`), never
-   by renaming the person.
-6. **Never write an anchor you have not observed.** Comment ids are read off
-   the page or the API response you actually fetched. Constructing one that
-   looks plausible — guessing a `#cid`, incrementing an id, reusing a
-   neighbouring comment's anchor — is fabrication, and it has happened in this
-   repository before. If you cannot see the id, do not cite the comment.
-7. A footnote reference must not sit inside a code fence or an inline code
-   span. Regex character classes like `[^,]` and `[^)]` inside a fence read as
-   footnote syntax to some tooling; rewrite the expression or move it out of
-   the snippet rather than leaving the collision in place.
 
 ### 8. Output
 
@@ -724,141 +197,36 @@ If $1 is provided, create the file at that path.
 If it is not provided, propose an appropriate directory and filename and
 confirm with the user.
 
-### 8a. File name — STRICT RULE (NO EXCEPTIONS)
 
-**The file name is the subject. Nothing else.**
-
-Use lowercase English kebab-case. Include only words that identify which
-subject this is. Never include words that state what category, medium, or
-kind of artifact the subject is, and never describe what this document does
-to the subject.
-
-Name a named thing by its name. Name an argument by its claim. Name a
-specific release or incident by its identifier. Add words only to
-disambiguate, and only words that narrow the subject.
-
-Keep it short. Do not transliterate Korean; the name stays English even
-though the H1 is Korean (step 3a).
-
-**Mandatory check before writing the file:**
-
-1. Read the file name back without the extension.
-2. Ask of each word: does it answer *which* thing this is, or *what kind of*
-   thing this is?
-3. Delete every word that answers the second question.
-
-### 8b. Post-processing and the format gate — MANDATORY SEQUENCE
-
-**Run these four commands, in this order, every time, on every file this
-skill writes or enhances. The document is not written until they pass.**
+File name rules (step 8a), the four post-processing commands (step 8b) and what
+the gate cannot check (step 8c) are in
+[references/output-and-gate.md](references/output-and-gate.md). Run the four
+commands in this order on every file this skill writes or enhances:
 
 ```bash
-# 1. straight quotes → curly, outside fenced code
 python3 .claude/skills/quotes-curly/scripts/convert_quotes.py <file>
-
-# 2. restore straight quotes inside inline `code spans`
-#    (convert_quotes.py skips fenced blocks but not spans)
 python3 .claude/skills/analyze-article/scripts/fix_code_spans.py <file>
-
-# 3. pad table cells so the pipes line up (CJK counts as two)
 python3 .claude/skills/analyze-article/scripts/align_tables.py <file>
-
-# 4. the format gate
 python3 .claude/skills/analyze-article/scripts/check_format.py <file>
 ```
 
-`check_format.py` enforces the mechanical half of this skill: the H1, the
-closed header block of step 7a, the source-line form of step 4, the ban on
-`## 요약` in a non-article, the completeness and order of the analytical body
-from step 5a, code-fence language identifiers,
-CJK table alignment, standalone bold lines, indentation that would render as
-a code block, the `박다` vocabulary ban, quote direction inside and outside
-code, and footnote integrity from step 7b.
-
-It prints `OK` or `FAIL` with a line number for each defect. **A `FAIL` is
-not advisory.** Fix the file and run it again until it prints `OK`. Never
-report a document as finished, and never move to the next URL in a queue,
-while the gate is failing. Do not edit the gate to make a document pass.
-
-If you believe the gate is wrong about a specific rule, say so to the user
-and stop; do not route around it silently.
-
-### 8c. What the gate cannot check
-
-The script checks shape. These remain your judgment, and are checked by
-reading the file you just wrote:
-
-1. Is the H1 Korean prose that carries the source's claim, rather than a
-   transliteration or a flattened topic label?
-2. Does the body structure match step 5a's choice — analytical for a source
-   that argues, practical for one that teaches?
-3. Do the sections do different work, or do two of them restate each other?
-4. Is every number, name, and quoted phrase traceable to the fetched text
-   rather than to memory?
-5. Does every footnote point at a comment you actually observed?
-6. Is the file name the subject and nothing else (step 8a)?
+The last command must print `OK`. A `FAIL` is not advisory: fix the file and
+run it again. Do not edit the gate to make a document pass; if the gate seems
+wrong about a rule, say so and stop.
 
 ### 9. Community reactions
 
-After the gate in step 8b has printed `OK`, automatically invoke the
-following three skills in sequence via the Skill tool, passing the output file path as the argument to
-each:
+After the gate prints `OK`, run `hackernews-reactions`, `lobsters-reactions`
+and `geeknews-reactions` on the file, in that order, each with the file path as
+the argument, even when no thread is expected. Each search is independent: a
+result on one platform says nothing about another. A document is not done until
+all three have run with a concrete outcome (comments woven in, or no thread
+found). Details and the per-file checklist are in
+[references/reactions.md](references/reactions.md).
 
-1. `hackernews-reactions` — finds the Hacker News thread and weaves key
-   comments into the document.
-2. `lobsters-reactions` — finds the Lobste.rs thread and weaves key comments
-   into the document.
-3. `geeknews-reactions` — finds the GeekNews (news.hada.io) thread and weaves
-   key native GN comments into the document.
+### 10. Run the format gate again
 
-Run them regardless of whether the user asked. If a skill reports that no
-thread was found, that is a normal result — note it briefly and continue to
-the next skill.
-
-**Mandatory verification (NO EXCEPTIONS):** A document is not done — and
-must NOT be reported to the user as done — until all three reaction skills
-have been explicitly run against it in this turn, each with a concrete
-outcome (comments woven in, or "no thread found"). This applies with equal
-force whether you are processing one URL or a long queue of many; a long
-queue is not a reason to compress or skip this step for any individual
-file.
-
-Before reporting ANY file as complete (including in a queue's final summary
-table), run this checklist for that file:
-
-1. Was `hackernews-reactions` invoked for this exact file this turn? What
-   was the outcome?
-2. Was `lobsters-reactions` invoked for this exact file this turn? What was
-   the outcome?
-3. Was `geeknews-reactions` invoked for this exact file this turn? What was
-   the outcome?
-
-If the answer to any question is "not yet" or "unsure," STOP and run it
-before moving on — do not proceed to the next file or to the summary table
-with any of the three unresolved. GeekNews is the one most often skipped
-(it requires a browser, not a simple API call) — do not let that extra
-friction be a reason to defer or drop it. "I already checked HN and that
-was thin, so GN is probably thin too" is not a valid basis for skipping the
-GN check — each source must be searched independently regardless of what
-the others returned.
-
-### 10. Run the format gate again — FINAL STEP
-
-The reaction skills in step 9 edit the document: they insert discussion lines
-into the header block, weave sentences into body sections, and append footnote
-definitions. Every one of those edits can break the shape that step 8b just
-certified — a discussion line in the wrong order or missing its counts, a
-footnote defined but never referenced, a handle colliding with an existing
-label, curly quotes landing inside a code span in a quoted comment.
-
-So the gate runs a second time, after the last reaction skill has finished:
-
-```bash
-python3 .claude/skills/analyze-article/scripts/check_format.py <file>
-```
-
-**A document is finished when this second run prints `OK`.** Not when the
-prose is good, not when the reactions are woven in, not when the queue is
-long and the next URL is waiting. Report the file as complete only after
-you have seen `OK` from this run, and in a queue report only files that
-reached it.
+The reaction skills edit the header, the body and the footnotes, so run
+`check_format.py` once more after the last one. A document is finished only
+when this second run prints `OK`; in a queue, report only files that reached
+it.

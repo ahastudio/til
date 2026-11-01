@@ -1,0 +1,40 @@
+[
+  {
+    "skills": [
+      "analyze-article"
+    ],
+    "query": "/analyze-article https://example.com/blog/why-we-moved-off-kubernetes (an opinion post)",
+    "files": [],
+    "expected_behavior": [
+      "Fetches the full text before writing, never from the title",
+      "Source line is 원문: [원문 제목](URL) directly under a Korean H1",
+      "Body has ## 분석, ## 비평, ## 인사이트 in that order",
+      "The analyzed source has no footnote",
+      "check_format.py prints OK as the last command"
+    ]
+  },
+  {
+    "skills": [
+      "analyze-article"
+    ],
+    "query": "/analyze-article https://github.com/example/project (a repository)",
+    "files": [],
+    "expected_behavior": [
+      "Source line is a bare <URL> with no 원문: label and no titled link",
+      "Does not use ## 요약; opens with a fitting heading such as ## 소개",
+      "Runs the three reaction skills, then the gate again, before reporting"
+    ]
+  },
+  {
+    "skills": [
+      "analyze-article"
+    ],
+    "query": "/analyze-article on a URL already cited by an existing TIL document",
+    "files": [],
+    "expected_behavior": [
+      "Finds the existing document through the source-URL grep",
+      "Enhances that file instead of writing a second one",
+      "Reports which file was enhanced and what was added or corrected"
+    ]
+  }
+]
