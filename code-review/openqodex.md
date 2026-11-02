@@ -1,5 +1,9 @@
 # OpenQodex: 코딩 에이전트가 쓴 변경을 별도 리뷰어가 푸시 전에 검토하는 도구
 
+> OpenQodex: code review for coding agents
+
+<https://openqodex.com/>
+
 <https://github.com/openqodex/openqodex>
 
 GN 토론: <https://news.hada.io/topic?id=36426>
