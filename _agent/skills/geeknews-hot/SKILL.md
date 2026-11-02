@@ -6,7 +6,6 @@ description:
   duplicate existing documents. Use when the user asks for the hot GeekNews
   articles to be written up as TIL documents.
 argument-hint: '[count (default 5)]'
-disable-model-invocation: true
 ---
 
 Pick popular GeekNews articles and, for each one, write a TIL document in the
