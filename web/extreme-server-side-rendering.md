@@ -4,7 +4,7 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=43100870> (28점, 5개 댓글)
 
-Lobste.rs 토론: <https://lobste.rs/s/tprfej/extreme_server_side_rendering> (40점, 21개 댓글)
+Lobste.rs 토론: <https://lobste.rs/s/tprfej/extreme_server_side_rendering> (62점, 26개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=33384>
 
@@ -133,6 +133,8 @@ HTTP 응답이 스트림이라는 것,
 이 성질들은 1990년대 저속 회선을 위한 것이었다.
 페이지 전체를 받을 때까지 흰 화면을 보여주는 대신 위에서부터 그려나가는 것이
 당시에는 필수적인 최적화였고, 그 동작이 표준의 일부로 굳었다.
+Lobste.rs의 andersmurphy도 청크 전송 인코딩과 이른 flush 같은 기법을
+과거에 구글이 검색 결과를 빠르게 보여 주려고 썼다고 적는다.[^andersmurphy]
 
 저자가 한 일은 그 동작을 끝까지 밀어붙인 것이다.
 점진적 렌더링이 “느린 회선에 대한 대응”이 아니라
@@ -170,11 +172,23 @@ viraptor는 그 기억에 이름을 붙인다 —
 처음에는 `document.write()`를 잘못 기억한 것이라고 생각했는데,
 “포에버 프레임(forever frame)”을 잊고 있었다는 것이다.[^viraptor]
 그 기법에는 전용 nginx 모듈까지 있었다고 덧붙인다.
+jdh는 이 방법이 이전에 Lobste.rs에 올라온 글에서 설명된,
+JavaScript 없이 페이지를 실시간으로 갱신하는 방법과 같다고 짚는다.[^jdh]
+그 글은 이 문서가 열어 보지 않았다.
 
 포에버 프레임은 Comet 시대의 표준 기법 중 하나였다.
 숨긴 iframe으로 끝나지 않는 응답을 받고,
 서버가 그 스트림에 스크립트 조각을 계속 흘려보내 부모 페이지를 갱신하는 방식이다.
 XSSR과의 차이는 갱신 수단이 스크립트냐 HTML과 CSS냐이고, 구조는 같다.
+위키백과의 Comet 항목도 숨긴 iframe 방식을 이렇게 설명한다.
+응답을 청크로 보내 브라우저가 끝나지 않는 응답으로 여기게 하고,
+이벤트가 생길 때마다 스크립트 블록을 채워 넣는 기법이라는
+것이다.[^wikipedia-comet]
+그 항목이 꼽는 단점은 오류 처리가 믿을 만하지 않고
+클라이언트가 요청의 상태를 추적할 수 없다는 점이다.[^wikipedia-comet]
+같은 항목은 WebSocket과 서버 전송 이벤트(Server-sent Events)가 2011년 즈음
+표준화되면서
+이 방식이 쓸모를 잃었다고 쓴다.[^wikipedia-comet]
 
 그러니 이 글의 기여를 다시 규정해야 한다.
 발명이 아니라, 사라진 기법을 JavaScript 없이 재구성한 것이다.
@@ -214,25 +228,81 @@ Rails 앱의 동시 처리 수는 요청 처리량이고, XSSR의 500개는 유�
 저자는 “생각만큼 나쁘지 않다”는 절 제목으로
 실용성을 주장하는 쪽에 발을 걸친다.
 
+Lobste.rs의 andersmurphy는 스트림에 brotli나 zstd 압축을 걸면
+스트리밍 압축이 매우 잘 들어 지연 시간에 큰 도움이 된다고 적는다.[^andersmurphy]
+저자가 든 초당 약 20KiB라는 수치가 압축을 걸지 않은 전송인지는
+글에 나와 있지 않다.
+
 ### Pleroma 사고가 이 글에서 가장 실질적인 부분이다
 
 데모를 페디버스에 올렸더니 서버가 반복해서 내려갔다는 서술은 일화처럼 읽히지만,
 실제로는 XSSR이 웹 생태계와 어떻게 충돌하는지에 대한 유일한 실증이다.
 
 문제의 지점이 링크 미리보기라는 것이 중요하다.
+글이 밝히는 것은 서버 사이드의 링크 미리보기 생성에서 문제가 났다는 데까지다.
+왜 그 단계에서 막혔는지는 적혀 있지 않고, 아래는 이 문서의 추정이다.
 링크를 게시하면 서버가 그 URL을 가져와 제목과 이미지를 뽑는데,
-그 가져오기가 응답의 끝을 기다린다.
-끝나지 않는 응답을 만나면 그 작업이 영원히 붙들리고,
-여러 인스턴스가 같은 링크를 미리보기하면 자원이 고갈된다.
+그 가져오기가 응답의 끝을 기다린다면
+끝나지 않는 응답을 만난 작업은 붙들리고,
+여러 인스턴스가 같은 링크를 미리보기할 때 자원이 고갈될 수 있다.
 
 이것이 시사하는 바는 XSSR의 진짜 제약이 브라우저가 아니라 중간자들이라는 점이다.
 브라우저는 잘 처리했다 — Firefox도 Chromium도 문제없이 렌더링했다.
-문제를 일으킨 것은 응답이 유한하다고 가정한 모든 소프트웨어다.
+문제를 일으킨 것은 이 글이 확인한 범위에서는 Pleroma의 링크 미리보기 코드다.
+같은 가정을 한 소프트웨어가 더 있는지는 글이 다루지 않는다.
 
 저자가 이것을 보안 버그로 신고하고 패치되었다고 적은 것은 성실한 처리다.
 동시에 이 사건은 XSSR이 실용 기술이 되려면 무엇이 필요한지도 알려준다 —
 프로토콜은 이미 지원하지만 생태계는 지원하지 않으며,
 생태계를 고치는 일은 명세를 읽는 것보다 훨씬 오래 걸린다.
+
+### 서버 사이드 렌더링이라는 이름을 두고 Lobste.rs에서 갈린 논쟁
+
+Lobste.rs에서 가장 많은 추천(+33)을 받은 댓글은 기법이 아니라 용어를 다룬다.
+tomhukins는 요즘 웹 개발자가 렌더링(rendering)을 HTML 생성이라는 뜻으로 쓰는
+것이 불편하다고 적는다.[^tomhukins]
+렌더링은 브라우저의 렌더링 엔진이 HTML과 CSS 등을 상호작용할 수 있는 문서로
+바꾸는 일이고,
+서버와 클라이언트 애플리케이션은 둘 다 그 과정에 들어갈 HTML을 생성할 뿐이라는
+구분이다.[^tomhukins]
+그는 2003년 Perl 웹 템플릿 발표에서 다룬 세 엔진이
+render가 아니라 각각 process, output, output이라는 말을 썼고,
+같은 시기의 PHP도 output을 썼다고 덧붙인다.[^tomhukins-2003]
+
+반론이 여럿 붙었다.
+joelg는 템플릿 처리나 컴파일 일반을 렌더링이라 부르는 것이 흔하고 자연스러운
+용법이라고 답한다.[^joelg]
+enobayram은 렌더링이 표현을 더 구체적인 것으로 바꾸는 일이라면 어디에나 쓸 수
+있는 추상적인 개념이라고 말한다.
+그가 드는 예는 User 객체가 HTML 태그로, 태그가 사각형과 글꼴로,
+다시 텍스처 버퍼와 셰이더로, 끝으로 화면 버퍼의 비트로 바뀌는
+단계들이다.[^enobayram]
+amw-zero는 다의어(polyseme)라는 개념을 아느냐고 되물으며
+단어가 비슷한 개념에 옮겨 쓰이는 것은 언어의 일반 현상이라고 한다.[^amw-zero]
+adamshaylor는 템플릿에 render를 쓰는 것이 최근 개발자들의 혁신이라는 통념이
+틀렸고
+적어도 1999년경 Perl Template Toolkit까지 거슬러 올라간다고
+주장한다.[^adamshaylor]
+
+adamshaylor의 주장과 tomhukins의 기억은 같은 도구를 두고 어긋난다.
+tomhukins는 Template Toolkit이 process라는 말을 썼다고 하고,
+adamshaylor는 같은 도구에서 render가 1999년경부터 쓰였다고 한다.
+이 문서는 adamshaylor가 링크한 근거를 열어 보지 않아 어느 쪽이 맞는지 판정하지
+못한다.
+jmmv는 또 다른 오해를 증언한다.
+서버 사이드 렌더링이라는 말을 처음 들은 것은 자원이 제한된 초기 모바일
+프레임워크 맥락이었고,
+서버가 브라우저의 일을 대신해 비트맵을 돌려주는 것이라고 오래 믿었다가
+HTML 생성일 뿐이라는 것을 알고 놀랐다는 것이다.[^jmmv]
+
+이 논쟁이 이 글과 닿는 지점은 XSSR이 두 일을 갈라 보여 준다는 데 있다.
+이것은 이 문서의 해석이다.
+XSSR에서 서버가 하는 일은 시간에 따라 이어지는 HTML과 CSS의 흐름을 만드는
+것이고,
+그것을 화면으로 바꾸는 일은 끝까지 브라우저가 한다.
+tomhukins가 가른 두 의미가 이 구조에서는 한눈에 분리되므로,
+저자가 쓴 렌더링이라는 이름이 맞는지와 별개로
+이 구분은 XSSR을 설명할 때 쓸모가 있다.
 
 ## 비평
 
@@ -275,8 +345,8 @@ JS 없이 작동한다는 성질은 통상 접근성과 함께 이야기되는�
 입력 쪽은 더 나쁘다.
 화면 전체를 덮은 보이지 않는 제출 버튼은 시각적 사용자에게는 영리한 요령이지만,
 키보드와 스크린 리더 사용자에게는 이름도 역할도 없는 컨트롤이다.
-저자가 “한 번 클릭해 선택하고 나면 스페이스바와 엔터로도 된다”고 적은 것은
-우연히 키보드 접근을 얻은 것이지 설계한 것이 아니다.
+저자는 한 번 클릭해 선택하고 나면 스페이스바와 엔터로도 된다고 적는데,
+이것을 키보드 접근을 겨냥한 설계로 볼 근거는 글에 없다.
 
 이 공백이 문제인 이유는 저자가 향후 작업으로 제안한 것 때문이다.
 구형 기기를 위한 프록시 — 헤드리스 브라우저로 렌더링해 XSSR로 전송하는 것 — 는
@@ -300,8 +370,14 @@ JS 없이 작동한다는 성질은 통상 접근성과 함께 이야기되는�
 차이는 클라이언트에 작은 런타임이 있느냐다.
 XSSR은 그것을 0으로 만들고,
 대신 브라우저가 무한한 응답을 파싱하며 DOM을 계속 키우게 한다.
-저자가 인정한 “몇 분 뒤 느려짐”이 정확히 그 대가다 —
-갱신이 기존 노드를 교체하는 것이 아니라 스트림에 계속 덧붙는 방식이기 때문이다.
+저자가 인정한 “몇 분 뒤 느려짐”이 그 대가일 수 있다.
+글은 원인을 밝히지 않으며,
+스트림에 계속 덧붙는 방식 때문이라는 것은 이 문서의 추정이다.
+Lobste.rs의 vbernat도 서버 전송 이벤트와 달리 이 방식에서는
+브라우저가 처음부터 도착한 내용을 모두 메모리에 들고 있어야 할 것이고,
+파싱 전의 형태와 파싱 후의 형태를 둘 다 들고 있을 수도 있다고
+추측한다.[^vbernat]
+이것은 vbernat의 추측이며 이 문서도 측정으로 확인하지 못했다.
 
 이 비교를 하지 않으면 XSSR이 “JS 있는 방식 대 JS 없는 방식”의 선택처럼 보인다.
 실제 선택은 “몇 킬로바이트의 클라이언트 런타임 대 무한히 자라는 문서”이고,
@@ -314,8 +390,25 @@ HN에서 AdieuToLogic은 저자가 “더 나은 방법이 있으면 좋지 않�
 프레임워크로 정리한 것이 정확히 htmx이고,
 저자는 그것을 개선 대상으로만 언급하고 이름은 대지 않는다.
 
+그러나 같은 스레드의 least는 htmx가 저자가 신식 SSR이라 부른 것을 그대로 하고
+있는데
+어떤 점에서 더 낫다는 것인지 모르겠다고 되묻는다.[^least]
+AdieuToLogic은 htmx가 주는 가치가 저자가 꼽은 프런트엔드 로직 유지보수를 없애는
+데 있다고 답한다.
+HTML5, CSS3, htmx, jQuery, ParsleyJS 같은 것을 쓰면
+브라우저는 내용을 그리는 본래 역할에 집중하고
+유지할 프런트엔드 로직이 없다는 것이다.[^AdieuToLogic-reply]
+이 문서가 보기에 이 답에서 로직이 없다는 말은 직접 쓴 스크립트가 없다는 뜻이다.
+htmx와 jQuery 같은 클라이언트 코드는 여전히 브라우저에서 실행되므로,
+XSSR이 클라이언트 런타임을 0으로 만든다는 것과는 같은 주장이 아니다.
+
 향후 작업으로 제안한 서버 사이드 React에 대해서도 smw가 답한다.
 그것은 기본적으로 Elixir의 LiveView이며 훌륭하다는 것이다.[^smw]
+Lobste.rs의 soulcutter도 저자가 Phoenix LiveView를 접해 봤는지 궁금하며,
+LiveView가 이런 비슷한 실험에서 태어났을 법하다고 쓴다.[^soulcutter]
+andersmurphy는 클라이언트 JavaScript를 조금 허용한다면
+클라이언트에 morph 알고리즘이 있고 서버 전송 이벤트(SSE)를 쓰는
+Datastar를 쓸 수 있다고 권한다.[^andersmurphy]
 
 이 두 댓글이 함께 보여주는 것은 이 글의 서지가 얇다는 점이다.
 서버가 UI를 주도하고 클라이언트를 얇게 유지한다는 목표를 향해
@@ -336,6 +429,12 @@ Lobste.rs의 colonelpanic이 이 문장을 문제 삼는다.
 집단적 기억상실을 겪고 있는 것 아니냐고 묻는다.[^colonelpanic]
 그리고 그런 명백히 틀린 전제에서 출발하는 글은
 진지하게 받아들이기 어렵다고 덧붙인다.
+maximilian은 일부 프런트엔드 개발자는 15년 전에 태어나지도 않았다고 답하고,
+자신은 아홉 살쯤 GeoCities에서 순수 HTML 사이트를 만지기 시작했다고
+말한다.[^maximilian]
+colonelpanic은 그래도 그것이 전문 분야라면 DOM은 알아야 하는 영역이고,
+이렇게 명백히 틀린 전제에서 출발하는 글은 진지하게 받아들일 수 없다고
+되받는다.[^colonelpanic-reply]
 
 정확히 말하면 저자의 문장은 자기 정의 안에서는 참이다 —
 구식 SSR을 “프런트엔드 로직이 없는 것”으로 정의했으니
@@ -360,14 +459,16 @@ DoS 벡터이므로 보안 버그로 신고했고, 패치되었다.
 외부 URL을 가져오는 코드에 타임아웃과 크기 제한이 없는 것은 실제로 결함이다.
 
 그러나 뒤집어 보면 XSSR로 만든 사이트는
-URL 하나로 여러 서버를 무너뜨릴 수 있는 물건이다.
-저자가 의도 없이 올린 링크 하나가 페디버스 인스턴스 여러 개를 반복해서 내렸다.
-같은 성질을 의도적으로 쓰면 손쉬운 공격 도구가 된다.
+URL 하나로 다른 서버를 무너뜨릴 수 있는 물건이다.
+저자의 서버는 링크 하나를 올린 뒤 내려갔고,
+다른 Pleroma 서버들이 비슷한 정전을 겪었을 것이라는 것은 저자의 짐작이다.
+같은 성질을 의도적으로 쓰면 공격 도구가 될 수 있다는 것은 이 문서의 추론이다.
 
 그렇다면 이 기술을 소개하는 글은
 “이것을 배포하면 무엇을 깨뜨릴 수 있는가”를 함께 다뤄야 한다.
-링크 미리보기뿐 아니라 크롤러, 아카이버, 리더 모드, 기업 프록시,
-그리고 지금은 웹을 가장 많이 읽는 주체인 AI 크롤러가 전부 같은 가정 위에 있다.
+링크 미리보기뿐 아니라 크롤러, 아카이버, 리더 모드, 기업 프록시가
+같은 가정 위에 있는지도 따져 봐야 한다.
+이 목록은 이 문서의 추측이며 어느 것도 확인하지 못했다.
 저자가 신고와 패치로 자기 몫을 다한 것과 별개로,
 이 기법을 따라 하려는 독자에게 필요한 경고는 글에 없다.
 
@@ -391,8 +492,12 @@ HTTP 응답은 언젠가 끝난다는 가정이고, 거의 모든 클라이언�
 저자의 게시물 하나가 여러 인스턴스를 내린 것처럼.
 
 같은 구조의 취약점이 웹에 얼마나 더 있을지는 알 수 없다.
-슬로로리스 공격이 20년 전에 같은 성질을 서버 쪽에서 보여줬고,
-그때 웹 서버들은 타임아웃을 배웠다.
+슬로로리스(Slowloris)는 2009년에 공개된 도구로,
+불완전한 HTTP 요청을 느리게 보내 서버의 연결 풀을 채웠다.[^wikipedia-slowloris]
+완화책으로 꼽힌 것에는 최소 전송 속도와 최대 연결 지속 시간의 설정이
+있었다.[^wikipedia-slowloris]
+같은 성질이 이번에는 방향이 바뀌어 클라이언트 쪽에서 나타난 셈이다.
+서버 쪽은 이런 설정으로 대응했지만,
 클라이언트 쪽 — 크롤러, 프리뷰 생성기, 스크래퍼 — 은 같은 교훈을 아직 배우지 못했고,
 지금 그 쪽 코드를 가장 많이 새로 쓰고 있는 것은 AI 회사들이다.
 
@@ -449,6 +554,19 @@ HTTP가 무상태라는 성질을 우아하다고 여겼지만,
 지금 XSSR이 서 있는 자리가 그 지점이다 —
 우아한 원리가 실무의 요구와 만나기 직전이고, 만나는 순간 우아함이 깎인다.
 
+연결 상태를 추적하기 어렵다는 점은 이미 포에버 프레임의 알려진 단점이었다.
+위키백과의 Comet 항목은 클라이언트가 요청의 상태를 추적할 수 없고
+오류 처리가 믿을 만하지 않다고 적는다.[^wikipedia-comet]
+Lobste.rs의 andersmurphy는 실무에서 쓰는 완화책을 하나 소개한다.
+스트림에 `<meta http-equiv="refresh" content="1">` 태그를 실어 보내면
+브라우저가 1초 뒤 페이지를 다시 불러와 연결을 되살리고,
+그는 이것을 30초 타이머와 함께 보내 연결이 30초마다 다시 시작되게 한다고
+한다.[^andersmurphy]
+연결이 끊긴 클라이언트도 같은 방식으로 재시도가 된다는 것이다.[^andersmurphy]
+이 문서가 보기에 이 방식은 JavaScript 없이 재연결을 얻는 대신
+페이지를 다시 불러오는 것이므로,
+다시 불러온 뒤에도 남아야 하는 상태는 전부 서버가 들고 있어야 한다.
+
 ### 이 기법의 실제 쓸모는 게임이 아니라 진행 상황 표시에 있다
 
 저자가 Flappy Bird를 고른 것은 시연으로서 탁월하지만,
@@ -482,7 +600,45 @@ HTTP가 무상태라는 성질을 우아하다고 여겼지만,
 ---
 
 [^DustyFuzzy]: <https://lobste.rs/s/tprfej/extreme_server_side_rendering#c_espxxh>
+
 [^viraptor]: <https://lobste.rs/s/tprfej/extreme_server_side_rendering#c_s7pkw3>
+
 [^colonelpanic]: <https://lobste.rs/s/tprfej/extreme_server_side_rendering#c_xpgmre>
+
 [^AdieuToLogic]: <https://news.ycombinator.com/item?id=43146254>
+
 [^smw]: <https://news.ycombinator.com/item?id=43146201>
+
+[^least]: <https://news.ycombinator.com/item?id=43147065>
+
+[^AdieuToLogic-reply]: <https://news.ycombinator.com/item?id=43180359>
+
+[^jdh]: <https://lobste.rs/s/tprfej/extreme_server_side_rendering#c_ktzqch>
+
+[^andersmurphy]: <https://lobste.rs/s/tprfej/extreme_server_side_rendering#c_tiaco8>
+
+[^vbernat]: <https://lobste.rs/s/tprfej/extreme_server_side_rendering#c_9q9iqw>
+
+[^soulcutter]: <https://lobste.rs/s/tprfej/extreme_server_side_rendering#c_pliuhf>
+
+[^maximilian]: <https://lobste.rs/s/tprfej/extreme_server_side_rendering#c_t2yvt3>
+
+[^colonelpanic-reply]: <https://lobste.rs/s/tprfej/extreme_server_side_rendering#c_c8qdi4>
+
+[^tomhukins]: <https://lobste.rs/s/tprfej/extreme_server_side_rendering#c_es0dm4>
+
+[^tomhukins-2003]: <https://lobste.rs/s/tprfej/extreme_server_side_rendering#c_4z2pqn>
+
+[^joelg]: <https://lobste.rs/s/tprfej/extreme_server_side_rendering#c_xbgvjo>
+
+[^enobayram]: <https://lobste.rs/s/tprfej/extreme_server_side_rendering#c_o2m0gn>
+
+[^amw-zero]: <https://lobste.rs/s/tprfej/extreme_server_side_rendering#c_buvijw>
+
+[^adamshaylor]: <https://lobste.rs/s/tprfej/extreme_server_side_rendering#c_slm3lk>
+
+[^jmmv]: <https://lobste.rs/s/tprfej/extreme_server_side_rendering#c_ewipit>
+
+[^wikipedia-comet]: Wikipedia, [Comet (programming)](<https://en.wikipedia.org/wiki/Comet_(programming)>)
+
+[^wikipedia-slowloris]: Wikipedia, [Slowloris (cyber attack)](<https://en.wikipedia.org/wiki/Slowloris_(cyber_attack)>)
