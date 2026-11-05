@@ -6,7 +6,7 @@ Most of the rules below are enforced mechanically by the format gate in step
 8b. They are written out here so you produce a conforming document the first
 time, rather than writing freely and patching afterwards.
 
-- Follow `_agent/rules/writing-guidelines.md` in full: heading spacing, CJK
+- Follow `_agent/skills/writing-guidelines/SKILL.md` in full: heading spacing, CJK
   table alignment, inline code, fenced-block language identifiers, the `박다`
   vocabulary ban, and the rule that structure belongs to headings and never to
   bold text.
@@ -22,7 +22,7 @@ time, rather than writing freely and patching afterwards.
   continuation line, because an indented line renders as a code block. This
   applies to prose only; tables, code blocks, headings, and footnote/URL
   lines are exempt from both the sentence-break rule and the 80-column
-  limit, so never wrap or shorten them to fit. The full rule is in `writing-guidelines.md`. Check this
+  limit, so never wrap or shorten them to fit. The full rule is in the `writing-guidelines` skill. Check this
   before invoking the post-processing of step 8b, not after, and verify the
   80-column limit on the finished file.
 - Every fenced code block carries a language identifier (`python`, `bash`,
@@ -43,4 +43,4 @@ time, rather than writing freely and patching afterwards.
 - Read the finished document once as a reader who has not seen the source.
   A sentence whose meaning cannot be stated plainly is rebuilt from its
   meaning, not patched. The rule is `Every Sentence Must Make Sense` in
-  `writing-guidelines.md`.
+  the `writing-guidelines` skill.

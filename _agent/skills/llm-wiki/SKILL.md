@@ -168,7 +168,7 @@ speaks to more than one sub-theme.
 
 ### 5. Compile the pages
 
-Write in Korean, following `.agent/rules/writing-guidelines.md`.
+Write in Korean, following `_agent/skills/writing-guidelines/SKILL.md`.
 
 **`_wiki/<slug>/index.md`:**
 

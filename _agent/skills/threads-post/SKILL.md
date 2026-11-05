@@ -15,7 +15,7 @@ backbone.
 
 **The output document MUST be written in Korean.**
 
-This skill applies `writing-guidelines.md` → «Social Posts as a Starting
+This skill applies the `writing-guidelines` skill → «Social Posts as a Starting
 Point» and «Source Footnotes in Researched Documents» in full. Nothing here
 relaxes either rule.
 
@@ -66,7 +66,7 @@ write from it.
 
 ### 2. Read the whole thread in Claude in Chrome
 
-Per `web-fetching.md`, open the permalink in Claude in Chrome and read it
+Per the `web-fetching` skill, open the permalink in Claude in Chrome and read it
 with `get_page_text`. This returns every post in the author's thread, the
 replies, and a "Related threads" block. Ignore "Related threads"; it is
 other people's unrelated posts.
@@ -132,7 +132,7 @@ account, the author's interpretation, or the fact that the post exists.
 
 ### 6. Write the document
 
-Structure follows the subject, as `writing-guidelines.md` → «Note Document
+Structure follows the subject, as the `writing-guidelines` skill → «Note Document
 Structure» describes. Typical shapes:
 
 - A thing that happened or a person: 소개, the event, a timeline or detail

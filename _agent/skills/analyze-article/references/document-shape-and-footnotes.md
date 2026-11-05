@@ -81,7 +81,7 @@ source line's URL; any match is deleted with all of its references. A
 document you enhance is checked the same way.
 Every sentence that rests on an outside page — a page the source quotes that
 was also opened and read, or material fetched to check or extend the source —
-carries its own footnote in the titled form of `writing-guidelines.md`
+carries its own footnote in the titled form of the `writing-guidelines` skill
 (`[^label]: <매체>, [<원문 제목>](<URL>), <YYYY-MM-DD>`), and two pages mean two
 references. Rules 2 and 5 below govern the community-comment footnotes only.
 

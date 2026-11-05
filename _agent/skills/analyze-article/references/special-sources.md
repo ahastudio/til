@@ -11,7 +11,7 @@ explicitly rather than improvising.
 
 | Source type        | Fetch method                              | Source line                        |
 | ------------------ | ----------------------------------------- | ---------------------------------- |
-| Twitter            | Claude in Chrome (see `web-fetching.md`)  | `트윗: [<제목 또는 첫 문장>](URL)` |
+| Twitter            | Claude in Chrome (see the `web-fetching` skill)  | `트윗: [<제목 또는 첫 문장>](URL)` |
 | YouTube            | `yt-dlp` info JSON + captions (see below) | `영상: [<영상 제목>](URL)`         |
 | Paper (PDF/arXiv)  | WebFetch, or Read the PDF                 | `논문: [<논문 제목>](URL)`         |
 | Press release      | WebFetch                                  | `원문: [<제목>](URL)`              |
@@ -37,7 +37,7 @@ same thread.
 For Twitter, the service is always called Twitter in prose, never X, even
 when the source writes X or 엑스; the format gate fails prose that calls it X.
 For Twitter, `twitter.com` is used instead of `x.com` per
-`writing-guidelines.md`. For a long tweet, call it a `트윗`, not a `스레드`,
+the `writing-guidelines` skill. For a long tweet, call it a `트윗`, not a `스레드`,
 unless the user says otherwise.
 
 A tweet that links to a Twitter Article (long-form post) shows only a `t.co`

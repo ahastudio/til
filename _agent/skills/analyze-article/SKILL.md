@@ -107,7 +107,7 @@ summarize accurately, fetch again asking for the body verbatim, or retrieve
 the page directly and strip the markup. Never write the 요약 section from a
 thin summary — numbers, names, and quoted phrasing must come from the actual
 text. For sources WebFetch cannot handle, see step 4a and
-`_agent/rules/web-fetching.md`.
+`_agent/skills/web-fetching/SKILL.md`.
 
 For a YouTube URL (`youtube.com`, `youtu.be`), skip WebFetch entirely and go
 straight to `yt-dlp` as described in step 4a. WebFetch returns only the title.

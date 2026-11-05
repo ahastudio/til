@@ -30,7 +30,7 @@ commit_sandbox() {
 
   run_codex "
   이 저장소의 규칙 파일은 '_agent/rules/' 에 있다. '.agent/' 가 아니다.
-  커밋 메시지 규칙은 '_agent/rules/git-commit-message.md' 를 읽고 그대로 따른다.
+  커밋 메시지 규칙은 '_agent/skills/git-commit/SKILL.md' 를 읽고 그대로 따른다.
 
   git diff --staged 내용을 기반으로 Git Commit Message를 작성하고,
   ${COMMIT_MESSAGE_FILE} 파일에 저장해줘.
@@ -83,7 +83,7 @@ add_today_section() {
 
   run_codex "
 이 저장소의 규칙 파일은 '_agent/rules/' 에 있다. '.agent/' 가 아니다.
-마크다운 작성 규칙은 '_agent/rules/writing-guidelines.md' 를 읽고 따른다.
+마크다운 작성 규칙은 '_agent/skills/writing-guidelines/SKILL.md' 를 읽고 따른다.
 단, 그 규칙의 출처 각주(footnote) 규정은 ${SANDBOX_FILE}에 적용하지 않는다.
 ${SANDBOX_FILE}에는 각주 참조('[^id]')도, 각주 정의('[^id]: ...')도,
 각주 앞의 '---' 구분선도 절대 쓰지 마.

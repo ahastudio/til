@@ -71,7 +71,7 @@ Two things about GeekNews, both verified:
 
 - **`/search?q=...` is JavaScript-rendered.** `curl` and `WebFetch` both get
   the page shell with zero results and HTTP 200. An empty result from it is
-  not evidence of absence (see `web-fetching.md`, «An Empty Result Is Not a
+  not evidence of absence (see the `web-fetching` skill, «An Empty Result Is Not a
   Result»). The shell is also the **same size for every query** — roughly
   52KB whether the term has 484 hits or none — so a length or diff heuristic
   will not reveal that the search never ran.
@@ -87,7 +87,7 @@ allowed.
 
 #### Strategy A — the GN search box in a real browser (primary)
 
-Per `web-fetching.md`, use a real browser (Claude in Chrome; fall back to
+Per the `web-fetching` skill, use a real browser (Claude in Chrome; fall back to
 `agent-browser` only when Chrome is not connected, and say so). Open
 `https://news.hada.io/search?q=<keywords>` and read the rendered page, not the
 HTML.
@@ -291,7 +291,7 @@ If footnotes already exist, append new ones to the existing block.
 
 ### 8. Writing rules
 
-- Follow all writing guidelines in AGENTS.md, including `writing-guidelines.md`
+- Follow all writing guidelines in AGENTS.md, including the `writing-guidelines` skill
   (natural Korean, sentence-per-line body text, heading spacing, etc.).
 - Do not alter sections that have no relevant GN reactions.
 - Do not remove or rewrite existing content — only add or extend.
