@@ -1,3 +1,8 @@
+---
+name: web-fetching
+description: Rules for fetching web content in this repository, covering the order of attempts (plain fetch, direct retrieval, Claude in Chrome), tweets, paywalled and logged-in pages, JavaScript-rendered pages, and why an empty search result is not proof of absence. Use before opening any URL, reading a tweet, searching a site, or concluding that a page or thread does not exist.
+---
+
 # Web Content Fetching
 
 ## Table of Contents

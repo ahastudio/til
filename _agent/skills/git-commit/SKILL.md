@@ -1,3 +1,8 @@
+---
+name: git-commit
+description: Rules for writing a commit message in this repository (staged-diff check, imperative summary of at most 50 characters, a body that explains why, Co-Authored-By trailer, no session-link trailer, Korean translation after committing). Use whenever the user asks to commit or to write a commit message.
+---
+
 # Git Commit Message Guide
 
 ## Table of Contents
@@ -48,6 +53,7 @@ from the diff" is not an excuse. Write the body. Always.**
 8. Body must explain "why", not just restate "what"
 9. Every commit MUST include a Co-Authored-By trailer at the end
 10. NEVER include a session URL or any session-link trailer
+11. No conventional-commit prefix in the summary (`sync:`, `feat:`, `fix:`)
 
 ## No Session-Link Trailers (ABSOLUTE PRIORITY — NO EXCEPTIONS)
 
