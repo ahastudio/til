@@ -70,7 +70,8 @@ Copy this list into the reply and tick it off per document (a queue repeats it p
 ```
 
 - First argument: source URL (required)
-- Second argument: output file path (optional; if omitted, ask the user)
+- Second argument: output file path (optional; if omitted, choose it yourself
+  under step 8 and ask only when step 8 says to)
 
 ### Multiple URLs in one invocation
 
@@ -194,8 +195,21 @@ before writing the header and again before finishing.
 ### 8. Output
 
 If $1 is provided, create the file at that path.
-If it is not provided, propose an appropriate directory and filename and
-confirm with the user.
+If it is not provided, choose the directory and file name yourself: the
+directory that already holds the closest existing documents on the subject,
+and a file name that follows step 8a. Do not ask the user to confirm it, and
+state the chosen path in the report.
+
+Ask the user only when one of these holds:
+
+- **A conflict**: the path you would choose already exists, or an existing
+  document that covers the same source or subject would be overwritten or
+  duplicated by it.
+- **Real doubt**: two or more directories fit equally well and nothing in the
+  repository settles which one the user would expect.
+
+In either case ask one short question that names the candidates, then
+continue with the answer.
 
 
 File name rules (step 8a), the four post-processing commands (step 8b) and what
