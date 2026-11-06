@@ -8,6 +8,10 @@ HN 토론: <https://news.ycombinator.com/item?id=40176532> (63점, 25개 댓글)
 
 HN 토론: <https://news.ycombinator.com/item?id=45722915> (2점, 0개 댓글)
 
+Lobste.rs 토론: <https://lobste.rs/s/zy8rgm/fyrox_1_0_0> (28점, 1개 댓글)
+
+GN 토론: <https://news.hada.io/topic?id=2874>
+
 ## 소개
 
 Fyrox는 Rust로 작성한 2D·3D 범용 게임 엔진이다.
@@ -203,6 +207,8 @@ UI 메시지는 도우미 생성자 대신 열거형 변형을 직접 쓰도록 
 ### 지표
 
 2026년 10월 8일 GitHub API와 crates.io API로 확인한 수치다.
+2026년 11월 6일에 GitHub API로 다시 확인하면 스타 9,653개, 포크 463개,
+열린 이슈와 PR 60개이고 마지막 푸시는 11월 5일이다.
 
 | 항목                           | 값                       |
 | ------------------------------ | ------------------------ |
@@ -469,6 +475,15 @@ Rust 컴파일 모델은 그 기대와 첫 10분의 빌드 사이에 간극을 �
 Fyrox가 비 Rust 개발자에게 다가가려면
 기능 추가보다 이 첫 경험의 비용을 줄이는 쪽이 더 큰 효과를 낼 것으로 보인다.
 
+다른 Rust 프로젝트의 스레드에서도 Fyrox는 같은 방식으로 언급되었다.
+2025년 10월 GPUI 컴포넌트 HN 스레드에서 nu11ptr는 Rust UI 크레이트 가운데
+위젯이 가장 완성된 것으로 `fyrox-ui`를 꼽으면서도
+Fyrox 밖에서는 거의 쓰이거나 알려지지 않았다고 적었다.[^nu11ptr-gpui]
+Buttons840은 Fyrox가 가장 성숙한 Rust 게임 엔진으로 보이는데
+아무도 쓰지 않고 신경 쓰지 않는 것이 Rust 게임 개발에 대한 회의를 준다고 했다.[^Buttons840]
+이는 댓글 작성자의 인상이며 이 문서가 확인한 사용 통계가 아니다.
+성숙도와 인지도가 따로 움직인다는 점이 이 문서가 읽은 1.0 이후의 상황과 맞는다.
+
 ---
 
 [^mrDIMAS-3]: <https://news.ycombinator.com/item?id=24520335>
@@ -496,3 +511,7 @@ Fyrox가 비 Rust 개발자에게 다가가려면
 [^shaha]: <https://news.hada.io/topic?id=2874#cid9465>
 
 [^vaguelytagged]: <https://lobste.rs/s/zy8rgm/fyrox_1_0_0#c_itfjvz>
+
+[^nu11ptr-gpui]: <https://news.ycombinator.com/item?id=45719344>
+
+[^Buttons840]: <https://news.ycombinator.com/item?id=45721756>

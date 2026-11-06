@@ -2,7 +2,7 @@
 
 원문: [Developer repositories moved from GitHub to GitLab](https://blog.roku.com/developer/gitlab-move)
 
-HN 토론: <https://news.ycombinator.com/item?id=50222622> (274점, 187개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=50222622> (310점, 226개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=35934>
 
@@ -128,6 +128,15 @@ GitLab 쪽은 CyanLite2가 에이전트가 쏟아내는 저품질 결과로 넘�
 했다.[^0xbadcafebee]
 otterley는 이미 그렇게 되었다며 GitLab을 주 포지로 쓰는 쪽의 경험이라고
 했다.[^otterley]
+misnome은 GitLab도 크기가 작아 덜 보도될 뿐 마찬가지로 나쁘다며
+상태 페이지의 장애 이력을 링크했고,
+직접 자체 호스팅하는 프리미엄 GitLab도 하루에 한 시간쯤 멈춘다고 했다.[^misnome]
+Volundr는 중간 규모 회사에서 자체 호스팅 GitLab을 관리했는데
+내장 백업 명령은 가동 중단 없이 돌아갔고,
+다만 시점이 일관된 스냅샷은 아니라고 답했다.[^Volundr]
+bluesnowmonkey는 업무용 GitHub 계정이 Claude가 `gh` 명령 여러 개를 병렬로 돌렸다는 이유로
+정지되었고 며칠째 지원 요청에 답이 없다고 적었다.[^bluesnowmonkey]
+포지가 에이전트 트래픽을 다루는 방식이 사용자에게 계정 정지로 돌아온 사례다.
 이 증언들은 모두 댓글의 주장이며 이 문서는 확인하지 못했다.
 다만 흐름은 분명하다.
 포지가 에이전트의 부하를 받는 방식이 한도와 결제 정책으로 이어진다면, 장애를
@@ -144,6 +153,14 @@ neya는 모두가 이렇게 하기를 원한다고 했고,[^neya] robswc는 GitL
 rr808은 Roku가 Fox에 인수되는 중이니 두 회사 모두 깨끗하지 않다고 했고,[^rr808]
 cramer4next는 그 거래가 아직 마무리되지 않았고 GitHub를 떠난 일과의 관계가
 무엇이냐고 되물었다.[^cramer4next]
+gchamonlive는 큰 조직에는 GitLab이 더 잘 설계되어 있다고 보았지만,[^gchamonlive]
+macki0는 모든 작업을 하나의 파일과 조건문으로 통제하게 하는 GitLab 파이프라인이
+GitHub Actions나 Jenkins보다 불편하다고 반박했다.[^macki0]
+두 의견은 같은 도구를 놓고 정반대를 말하므로,
+Roku가 어느 쪽 이유로 옮겼는지에 대한 근거가 되지 못한다.
+cxr은 전날 올린 RSG 2.0 SDK의 TypeScript 이전 글이
+새 SDK가 오픈소스라는 더 중요한 소식인데도 거의 주목받지 못했다고 적었다.[^cxr]
+이 공지에 몰린 관심이 이전의 내용이 아니라 이전이라는 사실에 있었다는 뜻이다.
 이유를 공개하지 않으면 독자는 자기 입장을 이유 자리에 채운다.
 이 사건이 거래 때문인지는 글에도 댓글에도 근거가 없다.
 
@@ -197,3 +214,15 @@ cramer4next는 그 거래가 아직 마무리되지 않았고 GitHub를 떠난 �
 [^rr808]: <https://news.ycombinator.com/item?id=50223119>
 
 [^cramer4next]: <https://news.ycombinator.com/item?id=50223397>
+
+[^misnome]: <https://news.ycombinator.com/item?id=50223080>
+
+[^Volundr]: <https://news.ycombinator.com/item?id=50223274>
+
+[^bluesnowmonkey]: <https://news.ycombinator.com/item?id=50226087>
+
+[^gchamonlive]: <https://news.ycombinator.com/item?id=50223150>
+
+[^macki0]: <https://news.ycombinator.com/item?id=50226036>
+
+[^cxr]: <https://news.ycombinator.com/item?id=50224364>
