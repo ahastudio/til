@@ -2,11 +2,11 @@
 
 원문: [Open Source as We Know It Is Dead](https://jross.me/open-source-as-we-know-it-is-dead/)
 
-HN 토론: <https://news.ycombinator.com/item?id=49973839> (102점, 64개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=49973839> (103점, 64개 댓글)
 
 HN 토론: <https://news.ycombinator.com/item?id=49968875> (5점, 1개 댓글)
 
-Lobste.rs 토론: <https://lobste.rs/s/1hnx0k/open_source_as_we_know_it_is_dead> (42점, 78개 댓글)
+Lobste.rs 토론: <https://lobste.rs/s/1hnx0k/open_source_as_we_know_it_is_dead> (42점, 70개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=34900>
 
@@ -158,6 +158,10 @@ Grinberg의 “요청하지 않은 PR은 위험 신호”라는 말은
 이 비대칭이 코드 생성과 검토 사이의 병목이라는 지적은
 `open-source/cathedral-bazaar-winchester.md`에서
 Drew Breunig이 curl 사례로 한 말과 겹친다.
+GN의 synastry는 AI가 썼다고 해서 모두 가치 있는 코드는 아니므로
+PR을 가려낼 필요는 여전한데 스팸화가 그 일마저 어렵게 만든다고 적었다.
+품질 보장 없는 코드를 찍어내는 문턱이 낮아진 만큼
+가치 있는 코드를 쓰는 극소수 외에는 같이 망하는 길이라는 것이다.[^synastry]
 
 ### 사례 목록은 정책의 스펙트럼을 보여 준다
 
@@ -182,6 +186,9 @@ Lobste.rs의 alandekok은 슬롭 PR을 보내면 차단하겠다고 공지하자
 제출이 꽤 줄었다며,
 게으름이든 어리석음이든 악의든 시간을 낭비하게 하면
 모두 서비스 거부(DoS) 공격이라고 했다.[^alandekok]
+GN의 cable8mm은 반대 사례로 Laravel이 PR이 아니라 이슈를 닫았다고 전했고,
+AI를 거부하는 쪽과 적극 참여시키는 쪽으로 갈리는 느낌이라고 적었다.[^cable8mm]
+이 사례는 이 문서가 확인하지 못했고 댓글 작성자의 전언이다.
 
 ### 회사에서는 되는데 오픈소스에서는 왜 안 되는가
 
@@ -190,6 +197,10 @@ GN의 nephtyws는 회사에서는 AI 보조로 생산성이 크게 올랐다는 
 그 차이가 무엇이냐고 물었다.[^nephtyws]
 aaggddff는 회사에는 책임질 사람이 있지만
 오픈소스는 결국 개인 책임이라서가 아니냐고 답했다.[^aaggddff]
+osteoporosis는 회사 코드는 회사가 책임지지만
+오픈소스는 메인테이너가 책임지는 구조이고,
+GitHub에 장애가 반복되어도 매번 특정 개발자가 책임지거나 해고되지는 않는다고 했다.
+회사에서는 AI로 생산성은 올리고 책임은 회사 쪽으로 희석시킬 수 있다는 것이다.[^osteoporosis]
 이 질문이 글의 진단을 가장 정확히 겨눈다.
 회사 안에서는 기여자의 신원과 평판, 해고라는 제재가 이미 있으므로
 노력이라는 신호가 없어도 신뢰가 유지된다.
@@ -532,3 +543,9 @@ AI 슬롭 때문이 아니라 이 방어 장치 때문에 문을 통과하지 �
 [^trollbridge]: <https://news.ycombinator.com/item?id=49974187>
 
 [^Confiks]: <https://news.ycombinator.com/item?id=49977699>
+
+[^cable8mm]: <https://news.hada.io/topic?id=34900#cid67476>
+
+[^osteoporosis]: <https://news.hada.io/topic?id=34900#cid67195>
+
+[^synastry]: <https://news.hada.io/topic?id=34900#cid67137>
