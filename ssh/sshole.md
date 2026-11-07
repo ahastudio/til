@@ -54,6 +54,164 @@ musl과 PAM 없음 조합만 결과가 달랐다고 말한다.
 스스로 에이전트 무리(agent swarms)를 썼다고 밝히며,
 글은 wakefield 소속의 ozgun이 썼다.
 
+## 대응 방법
+
+이 절은 Alpine의 공식 보안 권고[^alpine-advisory]와 글쓴이의
+저장소[^sshole-repo]를 직접 읽고 정리한 것이다.
+명령은 두 곳에 적힌 그대로이며, 이 문서는 어느 서버에서도 실행해 보지 않았다.
+CVE 번호는 권고 작성 시점에 배정되지 않았다고 적혀 있고,
+그 뒤에 배정되었는지는 확인하지 못했다.[^alpine-advisory]
+
+### 1. 내 서버가 해당되는지 확인한다
+
+아래 다섯 조건이 모두 참일 때만 노출된다.
+하나라도 거짓이면 이 결함으로는 로그인되지 않는다.[^sshole-repo]
+
+| 조건                                              | 확인 방법                                                     |
+| ------------------------------------------------- | ------------------------------------------------------------- |
+| musl 위에서 돈다                                  | `ls /lib/ld-musl-*.so.1`                                      |
+| sshd가 PAM 없이 동작한다                          | `sshd -T`에서 `usepam`이 `no`이거나 PAM 없이 빌드된 패키지    |
+| 암호 로그인이 켜져 있다                           | `sshd -T`의 `passwordauthentication`이 `yes` (OpenSSH 기본값) |
+| 암호 칸이 정확히 `*`인 계정이 있다                | `awk -F: '$2=="*"{print $1}' /etc/shadow`                     |
+| `$5$` 또는 `$6$` 해시를 가진 계정이 하나라도 있다 | `awk -F: '$2 ~ /^\$[56]\$/{print $1}' /etc/shadow`            |
+
+위 명령은 저장소의 `check.sh`가 같은 항목을 읽는 방식을 풀어 쓴
+것이다.[^sshole-repo]
+`check.sh`는 root로 실행하면 이 다섯 조건과 수정된 버전인지를 한꺼번에 점검하고,
+결과를 종료 코드로 알려 준다.
+0이면 노출, 1이면 노출 아님, 2이면 판단 불가다.[^sshole-repo]
+이 문서가 읽은 `check.sh`는 설정과 `/etc/shadow`,
+바이너리의 연결 정보를 읽기만 했고
+파일을 바꾸거나 네트워크로 보내는 명령이 없었다.
+그래도 root로 돌리는 스크립트이므로 실행 전에 직접 읽는 편이 안전하다.
+스크립트는 설정을 읽지 못하면 파일을 대신 읽고 결과를 `probably`로
+표시한다.[^sshole-repo]
+배포판이 버전 번호를 올리지 않고 수정만 가져오는 경우에는 버전 문자열로 수정
+여부를 판단하는
+스크립트가 틀릴 수 있다고 스크립트 주석이 적는다.[^sshole-repo]
+
+노출되지 않는 경우로 권고가 든 것은 다음과 같다.[^alpine-advisory]
+
+- 컨테이너 안에서 sshd를 실행하지 않는 Docker 등의 환경.
+- `PasswordAuthentication no`인 시스템.
+- `openssh-server-pam`에 `UsePAM yes`인 시스템(`UsePAM no`이면 노출).
+- `/etc/shadow`에서 암호 칸이 `!`인 잠긴 계정. 암호로도 키로도 로그인할 수 없다.
+- `$` 형식 해시를 가진 계정이 하나도 없는 시스템.
+- cloud-init이 `PasswordAuthentication no`를 쓴 클라우드 이미지.
+
+주의할 점은 `$6$` 해시가 있는 계정이 한 개만 있어도 암호 칸이 `*`인 모든 계정이
+대상이 된다는 것이다.
+누군가 한 번 `passwd`를 실행하면 어제까지 안전하던 서버가 오늘
+노출된다.[^alpine-advisory]
+공격자가 계정 이름을 알아야 하므로 `root`처럼 흔한 이름이 가장 먼저 시도될
+수 있다.
+`root`는 기본 설정 `PermitRootLogin prohibit-password`가 막아 주지만,
+암호 없이 `doas`로 root가 될 수 있는 다른 계정이 로그인되면 이 보호는 소용이
+없다.[^alpine-advisory]
+
+### 2. 업데이트하고 sshd를 다시 시작한다
+
+Alpine은 `apk upgrade -U -a`로 올린 뒤 반드시 `rc-service sshd restart`를
+실행해야 한다.
+패키지를 올리는 것만으로는 이미 떠 있는 sshd가 바뀌지 않기
+때문이다.[^alpine-advisory]
+수정된 openssh 버전은 브랜치마다 다르다.[^alpine-advisory]
+
+| 브랜치 | 수정된 openssh 버전 |
+| ------ | ------------------- |
+| edge   | 10.6_p2-r0          |
+| 3.24   | 10.3_p1-r2          |
+| 3.23   | 10.2_p1-r1          |
+| 3.22   | 10.0_p1-r11         |
+| 3.21   | 9.9_p2-r1           |
+| 3.20   | 9.7_p1-r6           |
+| 3.19   | 9.6_p1-r3           |
+| 3.18   | 9.3_p2-r4           |
+| 3.17   | 9.1_p1-r7           |
+| 3.16   | 9.0_p1-r6           |
+
+3.21은 2026년 11월 1일에 지원이 끝났지만 같은 결함이 있어서 3.16까지 수정
+패키지를 냈다.[^alpine-advisory]
+올린 뒤에는 `sshd -V`로 버전을 확인하고 실행 중인 프로세스가 새 바이너리인지
+확인해야 한다.
+이 확인 방법은 이 문서의 제안이며 권고에는 없다.
+
+Alpine이 아닌 musl 배포판(OpenWrt, Buildroot,
+Yocto 등)은 이 문서가 각 배포판의 수정 상태를 확인하지 못했다.
+저장소는 OpenSSH 10.6p2에서 고쳐졌다고 적고,
+더 오래된 버전에는 upstream 수정 패치를 그대로 적용할 수 있으며 7.3p1 이상에서
+동작한다고 안내한다.[^sshole-repo]
+패치는 저장된 칸이 진짜 해시가 되기에는 너무 짧으면 비교를 건너뛰게
+한다.[^sshole-repo]
+
+### 3. 당장 올릴 수 없으면 암호 로그인을 끈다
+
+`PasswordAuthentication no`로 바꾸고 sshd를 다시 시작하면 이 결함은 완전히
+닫힌다.[^alpine-advisory][^sshole-repo]
+바꾸기 전에 SSH 키 로그인이 되는지 확인하고,
+새 로그인을 시험할 때까지 지금 세션을 열어 둬야 한다.
+암호 로그인만 쓰던 서버에서 이 설정을 먼저 바꾸면 스스로
+잠긴다.[^alpine-advisory]
+
+권고가 적은 절차는 다음과 같다.[^alpine-advisory]
+
+```sh
+mkdir -p /etc/ssh/sshd_config.d
+echo 'PasswordAuthentication no' > /etc/ssh/sshd_config.d/00-no-passwords.conf
+sed -i.bak -e '1i PasswordAuthentication no' \
+  -e 's/^\(\s*PasswordAuthentication[^y#]*\)yes/\1no/i' \
+  /etc/ssh/sshd_config
+sshd -t && rc-service sshd restart
+sshd -T | grep -i passwordauthentication
+```
+
+마지막 명령은 `passwordauthentication no`를 출력해야 한다.
+드롭인 디렉터리는 Alpine 3.19부터 기본 설정이 읽고 이전 버전은 무시하므로,
+옛 버전에서는 `sed` 줄이 실제로 일을 한다.
+`sed`는 `Match` 블록 안의 `yes`까지 모두 `no`로 바꾸고 원본을
+`/etc/ssh/sshd_config.bak`으로 남긴다.
+되돌리려면 드롭인 파일을 지우고 백업을 되돌려 놓는다.[^alpine-advisory]
+이 설정은 임시 조치이고 업데이트를 대신하지 않는다.
+저장소도 노출되지 않는 경우에조차 업데이트하라고 안내한다.[^sshole-repo]
+
+### 4. 클라우드 이미지는 따로 본다
+
+공식 tiny-cloud 이미지(qcow2, VHD, AMI) 3.18.11부터 3.24.3은
+암호 칸이 `*`이고 암호 없이 `doas`를 쓸 수 있는 `alpine` 사용자를 담고 있다.
+첫 부팅에서는 안전하지만 시스템에 `$6$` 해시가 하나라도 생기는 순간 공격할
+수 있다.
+관리자가 콘솔 암호를 설정하거나 user-data의 `hashed_passwd`로 사용자를 추가하는
+경우가 그렇다.
+공격자는 `alpine`으로 로그인한 뒤 `doas`로 root가 된다.[^alpine-advisory]
+3.21.10, 3.22.8, 3.23.8, 3.24.4 이후 빌드에는 수정 패키지가 들어 있고,
+그보다 앞선 이미지로 띄운 실행 중인 인스턴스는 모두 직접 업데이트하거나 암호
+로그인을 꺼야 한다.[^alpine-advisory]
+
+### 5. 이미 당했는지 확인한다
+
+`/var/log/messages`에서 암호가 없는 계정(`alpine`, `root`,
+키 전용 사용자)에 대한
+`Accepted password for` 줄을 찾는다.
+노출된 서버에서는 `doas` 사용 기록, 최근에 만든 사용자와 파일,
+`authorized_keys`도 살펴야 한다.
+로그인을 배제할 수 없으면 그 서버를 침해된 것으로 취급하라고 권고는
+말한다.[^alpine-advisory]
+정상 설정이라면 암호 칸이 `*`인 계정은 암호로 로그인할 수 없으므로,
+그런 계정의 `Accepted password` 한 줄이 곧 이상 신호다.
+이 해석은 권고의 설명에서 이 문서가 끌어낸 것이다.
+
+### 6. 이후에 지킬 것
+
+- 키 로그인만 쓸 서버는 `PasswordAuthentication no`를 기본값으로 둔다. 이번 결함은 암호 로그인을 켠 서버에만 해당한다.
+- 암호 칸이 `*`인 계정이 필요한지 점검한다. 필요 없는 키 전용 계정은 정리하고, 디렉터리 서비스(`nslcd`, `winbind`, `sssd`) 사용자는 모두 대상이라는 점을 기억한다.[^alpine-advisory]
+- 계정을 `!`로 잠그는 방법은 이 결함을 피하지만, 글쓴이에 따르면 PAM이 없는 sshd에서는 `!`가 SSH 키 로그인까지 막는다. 그래서 alpine이 root를 `*`로 되돌렸다. 키 전용 계정에 `!`를 쓰기 전에 키 로그인이 되는지 시험해야 한다.
+- 컨테이너는 sshd를 넣지 않고 `docker exec`나 `kubectl exec`를 쓰면 이 결함이 닿을 자리가 없다.[^alpine-advisory]
+
+이 절이 다루지 못한 것은 세 가지다.
+Alpine 이외 배포판의 수정 상태, 공식 docker 이미지에서 재현되지 않았다는
+보고의 원인,
+그리고 권고 이후에 CVE가 배정되었는지다.
+
 ## 분석
 
 ### 결함은 한 곳이 아니라 관례 여섯 개의 곱이다
@@ -145,7 +303,8 @@ Bender는 PAM 없는 alpine에서 공개 SFTP 서버를 운영하며 익명 접�
 tonnydourado는 조건이 모두 논리곱이라 하나만 빠지면 안전하고,
 대상 계정에는 유효한 로그인 셸이 있어야 하는데
 암호 없는 계정은 대개 `nologin` 같은 것을 쓴다는 점도 지적하며,
-이 취약점이 이론상 가능하지만 실제로는 드문 부류일 수 있다고 했다.[^tonnydourado]
+이 취약점이 이론상 가능하지만 실제로는 드문 부류일 수 있다고
+했다.[^tonnydourado]
 pizlonator는 조건을 하나씩 짚으며
 musl은 Alpine과 여러 임베디드 리눅스가 쓰고,
 PAM 없음은 최소 구성과 소스 설치의 기본이며,
@@ -163,11 +322,14 @@ OpenSSH 10.3p1)에서 root 암호 로그인을 켜고 257자 넘는 암호를 �
 않았다고 적었다.
 기본 암호 칸은 `!`였고, 직접 `*`로 바꿔도 마찬가지였다고 한다.[^scandinavian]
 이 질문에는 스레드에서 몇 가지 답이 달렸다.
-atmosx는 접근할 수 없는 Firecracker 가상머신에서 재현하지 못했다고 했고,[^atmosx]
+atmosx는 접근할 수 없는 Firecracker 가상머신에서 재현하지 못했다고
+했고,[^atmosx]
 emayljames는 먼저 틀린 암호를 한 번 시도해 보았느냐고 물었다.[^emayljames]
 글도 `*`가 들어 있는 계정은 틀린 시도가 먼저 있어야 한다고 적는다.
-f311a는 기본 설정에서는 되지 않고 musl과 PAM 없는 OpenSSH가 필요하다고 했고,[^f311a]
-zamadatix는 Alpine에서는 `openssh-server-pam`을 따로 설치해 PAM을 설정하지 않는 한
+f311a는 기본 설정에서는 되지 않고 musl과 PAM 없는 OpenSSH가 필요하다고
+했고,[^f311a]
+zamadatix는 Alpine에서는 `openssh-server-pam`을 따로 설치해 PAM을
+설정하지 않는 한
 설치 직후의 상태가 모두 그 조건이라고 답했다.[^zamadatix]
 글의 데모는 브라우저 안에서 시뮬레이션한 결과이므로,
 실제 이미지에서 어떤 설정을 더해야 재현되는지는 글만으로 확인되지 않는다.
@@ -248,17 +410,26 @@ traceroute66은 2026년에 `PasswordAuthentication=no` 없이 SSH를 운영하�
 자신의 서버가 해당되는지는 `sshd -T`로 실제 설정을 출력해 확인해야 한다.
 
 Lobste.rs에서도 같은 질문과 논점이 나왔다.
-siru는 비밀번호 로그인을 끄고 SSH 키를 쓰면 이 문제가 완전히 완화되는지 물었고,[^siru]
-sjamaan은 그렇다고 답하면서도 ssh가 기본으로 비밀번호 로그인을 켠 채 배포되는 것으로 안다고 덧붙였다.[^sjamaan]
-다른 갈래에서 sjamaan은 실패 시 항상 NULL을 돌려주는 API를 musl이 왜 바꿨는지, 고칠 곳은 그 API를 쓰는 프로그램이 아니냐고 물었다.
-Johz는 드물게 일어나는 일이라 테스트에서 놓치기 쉽고, 이미 잘못 처리하는 실제 프로그램이 많다면 프로그램을 하나씩 고치기보다 API 쪽에서 고치는 편이 쉬웠을 것이라고 짐작했다.[^Johz]
-sjamaan은 그런 프로그램은 대부분 glibc에서도 NULL을 받으므로 musl 혼자 바꿔서는 영향이 작다고 반박했고,[^sjamaan-2]
-siru는 NULL을 올바르게 확인하는 프로그램에는 호환 문제가 없으니 양쪽에서 고칠 수 있다고 보았다.
-이 논의는 댓글 작성자들의 추측이고, musl 쪽의 실제 이유는 이 문서가 확인하지 못했다.
+siru는 비밀번호 로그인을 끄고 SSH 키를 쓰면 이 문제가 완전히 완화되는지
+물었고,[^siru]
+sjamaan은 그렇다고 답하면서도 ssh가 기본으로 비밀번호 로그인을 켠 채 배포되는
+것으로 안다고 덧붙였다.[^sjamaan]
+다른 갈래에서 sjamaan은 실패 시 항상 NULL을 돌려주는 API를 musl이 왜 바꿨는지,
+고칠 곳은 그 API를 쓰는 프로그램이 아니냐고 물었다.
+Johz는 드물게 일어나는 일이라 테스트에서 놓치기 쉽고,
+이미 잘못 처리하는 실제 프로그램이 많다면 프로그램을 하나씩 고치기보다 API
+쪽에서 고치는 편이 쉬웠을 것이라고 짐작했다.[^Johz]
+sjamaan은 그런 프로그램은 대부분 glibc에서도 NULL을 받으므로 musl 혼자 바꿔서는
+영향이 작다고 반박했고,[^sjamaan-2]
+siru는 NULL을 올바르게 확인하는 프로그램에는 호환 문제가 없으니 양쪽에서 고칠 수
+있다고 보았다.
+이 논의는 댓글 작성자들의 추측이고, musl 쪽의 실제 이유는 이 문서가
+확인하지 못했다.
 
 GN에서 xguru는 Alpine 운영자를 위한 영향 조건,
 브랜치별 수정 버전, 업데이트 뒤 sshd를 다시 시작하는 법과
-침입 흔적을 확인하는 법은 Alpine의 공식 보안 권고 정리를 참고하라고 안내했다.[^xguru]
+침입 흔적을 확인하는 법은 Alpine의 공식 보안 권고 정리를 참고하라고
+안내했다.[^xguru]
 글의 완화 안내보다 한 걸음 더 구체적인 운영 지침이 공식 권고 쪽에 있다는 뜻이다.
 이 문서는 그 권고를 열어 보지 않았다.
 
@@ -317,3 +488,7 @@ GN에서 xguru는 Alpine 운영자를 위한 영향 조건,
 [^mpyne]: <https://news.ycombinator.com/item?id=50379342>
 
 [^xguru]: <https://news.hada.io/topic?id=36654#cid69270>
+
+[^alpine-advisory]: Alpine Linux, [Security advisory: openssh-server password authentication bypass](https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/), 2026-11-05
+
+[^sshole-repo]: oz9un, [oz9un/sshole](https://github.com/oz9un/sshole), 2026-11-07
