@@ -27,6 +27,11 @@ HN 토론: <https://news.ycombinator.com/item?id=48028790> (10점, 2개 댓글)
   - [환경과 정리](#환경과-정리)
 - [다음 단계: 설정, 실험, 레이어](#다음-단계-설정-실험-레이어)
 - [다른 제품은 언제 쓰나](#다른-제품은-언제-쓰나)
+- [Sentry를 대신할 수 있는가](#sentry를-대신할-수-있는가)
+  - [기능별 판정](#기능별-판정)
+  - [OpenTelemetry 지원](#opentelemetry-지원)
+  - [비용: 무료로 어디까지 쓸 수 있는가](#비용-무료로-어디까지-쓸-수-있는가)
+  - [도입 전에 직접 확인할 것](#도입-전에-직접-확인할-것)
 - [트레이드오프와 함정](#트레이드오프와-함정)
 - [도입 체크리스트](#도입-체크리스트)
 - [분석](#분석)
@@ -494,6 +499,155 @@ Parameter Store는 코드가 게이트인지 실험인지 몰라도
 CLI `@statsig/siggy`가 있다.[^consoleapi][^cli]
 Console API의 변경 요청은 15분에 약 1,800회까지다.[^consoleapi]
 
+## Sentry를 대신할 수 있는가
+
+오류의 호출 스택 추적, 사용자 환경 정보,
+분산 추적처럼 [Sentry](../devops/sentry.md)에서 자주 쓰던 기능을 Statsig로 얻을
+수 있는지를 2026년 11월 7일 기준 공식 문서에서 확인했다.
+결론부터 말하면 모두 확보되지는 않는다.
+웹의 오류 스택과 환경 정보는 자동 수집으로 얻을 수 있고,
+서버의 오류 스택은 직접 보내야 하며,
+분산 추적은 제한 프리뷰다.
+아래 판정에서 문서에 없다는 것은 지원하지 않는다는 뜻이 아니라 이 문서가 읽은
+문서에서 확인하지 못했다는 뜻이다.
+
+### 기능별 판정
+
+| Sentry에서 쓰던 기능      | Statsig 문서에서 확인된 것                                                                                                          | 판정                          |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| 웹 JavaScript 오류와 스택 | 자동 수집 플러그인의 `auto_capture::error` 이벤트가 JavaScript 오류를 스택, 오류 메시지, 맥락과 함께 잡는다[^webanalytics]          | 확인됨                        |
+| 콘솔 로그                 | `statsig::log_line` 이벤트가 로그 수준, 내용, 스택(있으면)을 담지만 기본은 꺼져 있어 설정으로 켜야 한다[^autocapture]               | 확인됨(켜야 함)               |
+| 서버 오류와 스택          | 자동 수집 설명은 없고, SDK의 `forwardLogLineEvent`에 오류 메시지와 `err.stack`을 직접 넘기는 예시가 있다[^infra-start]              | 수동으로만                    |
+| 소스맵과 난독화 해제      | 설명이 없다                                                                                                                         | 확인하지 못함                 |
+| 이슈 그룹화와 담당자 지정 | 로그 탐색기는 검색, 필터, 시각화를 말할 뿐 오류를 이슈로 묶는다는 설명이 없다[^infra-overview]                                      | 확인하지 못함                 |
+| 모바일 크래시 보고        | 설명이 없다                                                                                                                         | 확인하지 못함                 |
+| 브라우저, OS, IP, 국가    | 사용자 객체가 userAgent(웹), ip, country, systemName, systemVersion, browserName, browserVersion(웹)을 SDK가 추론한다[^user-object] | 확인됨                        |
+| 화면, 네트워크, 유입 경로 | 자동 수집 메타데이터에 화면과 뷰포트 크기, 연결 유형과 RTT, 로케일, 시간대, 리퍼러, UTM 값이 있다[^autocapture]                     | 확인됨                        |
+| 기기 모델                 | 문서에서 찾지 못했다. `statsigMetadata`의 필드도 읽은 페이지에는 없었다[^user-object]                                               | 확인하지 못함                 |
+| 사용자 식별과 속성        | `userID`, `email`, `custom`, `customIDs`가 있고 `privateAttributes`는 저장되지 않고 이벤트 기록에서 빠진다[^user-object]            | 확인됨                        |
+| 릴리스와 버전 추적        | `appVersion` 필드를 모바일 SDK가 추론한다는 것이 전부이고 릴리스 추적이나 배포 표시는 설명이 없다[^user-object]                     | 일부                          |
+| 분산 추적                 | OTLP로 트레이스를 보내 트레이스 탐색기에서 본다. 직접 전송은 TypeScript와 Node뿐이고 제한 프리뷰다[^infra-overview][^infra-traces]  | 일부(프리뷰)                  |
+| 세션 리플레이             | rrweb으로 녹화하고 화면 내용에 개인정보 필터를 적용할 수 있다. 캡처 내용, 보존 기간, 한도는 설명이 없다[^sessionreplay]             | 확인됨(세부는 불명)           |
+| 웹 성능                   | `auto_capture::web_vitals`가 CLS, FCP, LCP, TTFB, INP를 보낸다[^webanalytics]                                                       | 확인됨                        |
+| 알림                      | 상위 지표 알림(Topline Alerts)이 로그와 지표를 조건으로 하고 PagerDuty, Slack, Datadog과 이어진다[^infra-overview][^integrations]   | 확인됨(오류 이슈 단위는 불명) |
+| Sentry와의 연동           | 통합 개요에 Sentry가 없고 Bugsnag이 이벤트 전달 대상으로 이름만 있다[^integrations]                                                 | 문서에 없음                   |
+
+웹 오류 수집은 같은 플러그인 한 줄로 켜는 자동 수집이다.
+설정 방법은 앞의 Web Analytics 문서의 스크립트 태그나
+`StatsigAutoCapturePlugin`을 `StatsigClient`에 넣는 방식이고,
+콘솔 로그만 `consoleLogAutoCaptureSettings`처럼 따로 켜야
+한다.[^webanalytics][^autocapture]
+이벤트는 콘솔의 이벤트 화면과 지표 탐색기에서 본다.[^webanalytics]
+`eventFilterFunc`로 특정 이벤트를 버릴 수 있고,
+프로젝트 설정에서 이벤트 종류를 끌 수도 있다.[^webanalytics]
+
+서버에서는 이 정도로 자동이 아니다.
+문서의 예시는 `try`와 `catch`에서
+`forwardLogLineEvent(user, 'error', 'unhandled error', {message, stack})`를 직접
+부르는 방식이다.[^infra-start]
+수준은 trace, debug, info, log, warn, error이고 이렇게 보낸 기록은 로그
+탐색기에서 본다.[^infra-start]
+처리되지 않은 예외를 자동으로 잡아 주는 설정은 읽은 문서에 없었다.
+
+### OpenTelemetry 지원
+
+Statsig는 OTLP(OpenTelemetry Protocol) 수신 엔드포인트를 연다.
+이 절은 Infra Analytics의 시작하기, 트레이스 빠른 시작,
+서버의 OpenTelemetry 가이드를 직접 읽은 내용이다.
+
+| 항목             | 문서의 내용                                                                                                                                            |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 엔드포인트       | `https://api.statsig.com/otlp`이고 신호별 경로는 `/v1/traces`, `/v1/metrics`, `/v1/logs`다[^infra-start]                                               |
+| 인증             | 요청 헤더 `statsig-api-key`에 서버 SDK 시크릿 키를 넣는다. 키는 콘솔의 Settings > Keys & Environments에서 만든다[^otel-k8s]                            |
+| 인코딩           | OTLP 형식이되 JSON 인코딩을 받는다고 적고, Node 예시는 `OTEL_EXPORTER_OTLP_PROTOCOL=http/json`을 쓴다[^otel-k8s][^infra-start]                         |
+| 직접 전송        | 앱에서 Statsig로 곧바로 보내는 것은 TypeScript와 Node뿐이다[^infra-traces]                                                                             |
+| 다른 언어        | Collector로 보내고 Collector가 OTLP/HTTP로 Statsig에 전달한다. 문서의 Python과 Go 예시도 로컬 Collector 주소(`localhost:4318`)로 보낸다[^infra-traces] |
+| Collector 조건   | `otlphttp` 내보내기의 `encoding: json`은 Collector v0.95.0 이상이 필요하다. Collector 쪽 수신은 gRPC와 HTTP가 모두 열려 있다[^infra-start]             |
+| 로그             | pino와 winston 브리지로 보내거나 Statsig SDK의 `forwardLogLineEvent`를 쓴다. Vercel에서는 통합이 로그를 자동으로 전달한다[^infra-start]                |
+| 쿠버네티스       | DaemonSet과 Deployment 두 Collector를 Helm 차트 0.75.1로 설치하는 안내가 있고, 로그와 지표 수집에 쓸 수신기와 프로세서를 나열한다[^otel-k8s]           |
+| 브라우저 추적    | 별도의 웹 트레이서 설정이 필요하고 비밀 키를 클라이언트에 두면 안 되므로 Collector를 거치라고 한다[^infra-start]                                       |
+| 상태             | 로그와 지표는 일반 안내이고 트레이스는 제한 프리뷰이며 Slack으로 접근을 요청해야 한다[^infra-overview]                                                 |
+| 보존, 한도, 요금 | 읽은 페이지에 없다                                                                                                                                     |
+
+OpenTelemetry의 형식 자체는 표준이지만 쓰는 조건에는 제약이 붙는다는 것이 이
+문서의 읽기다.
+JSON 인코딩만 설명되어 있고 Statsig로 gRPC 전송하는 방법은 적혀 있지 않다.
+시크릿 키가 서버 SDK 키여서 브라우저에서 직접 보내기에는 맞지 않는다.
+문서는 프로덕션에서 Collector를 권장하고, Collector를 두면 테일 기반 샘플링 같은
+고급 샘플링을 더할 수 있다고 설명한다.[^infra-start]
+
+이 문서가 확인한 문서 사이의 불일치가 둘 있다.
+서버의 OpenTelemetry 가이드는 머리글 설명에서 Statsig 서버 SDK를 계측해 SDK
+초기화, 평가, 이벤트 기록의 스팬과 지표와 로그를 얻는다고 하지만,
+본문은 쿠버네티스 Collector 설치와 Statsig 전송 설정만 다룬다.[^otel-k8s]
+또 개요 페이지는 트레이스가 제한 프리뷰라고 하지만 트레이스 빠른 시작에는 그
+말이 없고 일반 기능처럼 예제를 보여 준다.[^infra-overview][^infra-traces]
+트레이스 ID, 스팬의 부모와 자식 관계, 워터폴 화면,
+서비스 사이의 컨텍스트 전파를 설명하는 페이지는 찾지 못했다.
+스팬을 만드는 코드만 있고 보는 화면은 설명이 없어서,
+분산 추적으로 쓸 수 있는지는 문서만으로 가릴 수 없다.
+
+### 비용: 무료로 어디까지 쓸 수 있는가
+
+Sentry를 Statsig로 바꾸려는 이유가 비용이라면 무료 범위가 판단의 중심이다.
+2026년 11월 7일 기준으로 각 사의 가격 페이지에 적힌 무료 범위를 나란히 놓았다.
+단위가 서로 달라서 숫자를 직접 비교할 수는 없다.
+
+| 항목          | Statsig Developer(무료)                        | Sentry Developer(무료)                       | GlitchTip Free(무료)                      |
+| ------------- | ---------------------------------------------- | -------------------------------------------- | ----------------------------------------- |
+| 월 이벤트     | 계량 이벤트 200만 개[^pricing]                 | 오류 5천 건[^sentry-pricing]                 | 이벤트 1,000개[^glitchtip-home]           |
+| 로그          | 별도 한도가 적혀 있지 않다[^pricing]           | 5GB[^sentry-pricing]                         | 가격 페이지에 한도 없음                   |
+| 트레이스      | 별도 한도가 적혀 있지 않다[^pricing]           | 스팬 500만 개[^sentry-pricing]               | 가격 페이지에 한도 없음                   |
+| 세션 리플레이 | 월 5만 개[^pricing]                            | 50개[^sentry-pricing]                        | 없음                                      |
+| 사용자(좌석)  | 무제한[^pricing]                               | 1명[^sentry-pricing]                         | 가격 페이지에 제한 없음                   |
+| 보존          | 분석 1년[^pricing]                             | 30일 조회[^sentry-pricing]                   | 30일[^glitchtip-home]                     |
+| 유료 첫 단계  | Pro 월 150달러, 이벤트 500만 개 포함[^pricing] | Team 월 26달러, 오류 5만 건[^sentry-pricing] | Small 월 15달러, 10만 건[^glitchtip-home] |
+
+읽을 때 조심할 점이 셋 있다.
+첫째, Statsig의 200만은 오류가 아니라 계량 이벤트(metered events)다.
+가격 페이지 FAQ는 SDK로 기록한 로그 이벤트, 지표 가져오기, 부분 출시 플래그의 노출을 계량 이벤트로 정의한다.[^pricing]
+`auto_capture::error` 같은 자동 수집 오류 이벤트가 이 계량에 들어가는지는 읽은 가격 페이지와 Infra Analytics 문서 어디에도 없었다.
+들어간다면 오류 한 건이 이벤트 한 개를 쓰므로 같은 월 200만이 오류 수백만 건처럼 보이겠지만,
+같은 한도를 페이지뷰와 클릭 같은 자동 수집 이벤트와 나누어 쓴다는 점이 함정이다.
+이는 이 문서의 추정이며 확인하지 못했다.
+둘째, 무료 한도를 넘었을 때의 동작이 Sentry와 다르다.
+Statsig FAQ는 Developer에서 한도를 넘으면 신용카드를 넣으라는 안내가 뜨고,
+Developer에 머물면 게이트와 설정 타기팅은 계속 동작하되 지표 리프트 계산이 멈춘다고 적는다.[^pricing]
+오류 수집 자체가 멈추는지는 적혀 있지 않다.
+셋째, Statsig의 유료 첫 단계가 가장 비싸다.
+오류 추적만 필요한 팀에게 Pro 월 150달러는 Sentry Team 월 26달러나 GlitchTip Small 월 15달러의 여러 배다.
+Pro의 초과분은 이벤트 1,000개당 0.05달러, 곧 100만 개당 50달러다.[^pricing]
+Sentry의 Team 초과 요금은 읽은 가격 페이지에 금액이 없어서 비교하지 못했다.[^sentry-pricing]
+
+여기서 비용만 보고 나오는 결론은 이렇다.
+무료 범위 안에서 웹 오류와 환경 정보를 제품 지표와 함께 보는 것이 목적이고 월 이벤트가 수백만 건 이하라면 Statsig Developer로 0원이 가능해 보인다.
+다만 이는 오류 이벤트가 계량 한도 안에서 정상 수집된다는 가정 위에 있다.
+오류를 이슈로 묶고 담당자를 지정하고 소스맵을 적용하는 일이 필요하다면,
+앞 절의 판정처럼 그 기능이 확인되지 않아서 무료인 것이 곧 대체라는 뜻은 아니다.
+오류 추적만을 싸게 하려는 목적이라면 Sentry 호환 SDK를 받는 GlitchTip이 월 15달러에 10만 건을 주고,
+직접 호스팅하면 소프트웨어 비용은 없다.[^glitchtip-home]
+GlitchTip은 [별도 문서](../devops/glitchtip.md)에 정리했다.
+
+### 도입 전에 직접 확인할 것
+
+문서만으로는 가릴 수 없는 것이 많아서 Sentry를 대신하기 전에 아래를 실제
+계정에서 확인해야 한다.
+이 문서는 계정에 데이터를 보내 보지 않았다.
+
+- `auto_capture::error` 이벤트의 필드와 스택 형식이 운영 빌드(압축된 번들)에서 읽을 수 있는지, 소스맵이 적용되는지.
+- 서버 예외를 `forwardLogLineEvent`로 보냈을 때 스택이 로그 탐색기에서 검색과 묶음이 되는지.
+- 같은 오류가 반복될 때 이슈 단위로 세는 화면이 있는지, 오류율 알림을 건 수 있는지.
+- 기기 모델과 앱 버전이 필요한 모바일 앱에서 어떤 값이 실제로 들어오는지, 크래시 보고를 받는지.
+- 자동 수집 오류와 로그 이벤트가 계량 이벤트로 세어지는지, 사용량 화면(Usage & Billing)에서 오류 이벤트가 따로 보이는지, 월 200만을 넘으면 오류 수집이 멈추는지.
+- 트레이스 프리뷰에 접근해 서비스 사이의 호출이 하나의 트레이스로 이어지는지, 보존 기간과 한도와 요금이 얼마인지.
+- 기존 OpenTelemetry 설정이 JSON 인코딩과 `statsig-api-key` 헤더 조건에서 그대로 동작하는지.
+
+이 중 앞의 셋이 만족되지 않으면 Statsig는 Sentry의 대체가 아니라 보완이다.
+웹 오류와 환경 정보를 제품 지표와 한곳에서 보고 싶다는 목적에는 맞고,
+오류를 이슈로 관리하고 서비스 사이의 호출을 따라가야 한다면 Sentry나 별도의 추적
+도구를 함께 두는 편이 안전하다.
+이는 이 문서의 해석이며, 문서가 이 용도를 보증하거나 부인한 것은 아니다.
+
 ## 트레이드오프와 함정
 
 - 초기화 지연. 클라이언트에서 await 방식은 첫 화면이 늦고,
@@ -858,3 +1012,21 @@ ORM News 글이 짚은 가격과 로드맵의 불확실성을 사실로 확인�
 [^npm-nodecore]: npm, [@statsig/statsig-node-core](https://www.npmjs.com/package/@statsig/statsig-node-core)
 
 [^pypi-pycore]: PyPI, [statsig-python-core](https://pypi.org/project/statsig-python-core/)
+
+[^autocapture]: Statsig Docs, [Autocapture](https://docs.statsig.com/webanalytics/autocapture), 2026-11-07
+
+[^user-object]: Statsig Docs, [User (StatsigUser) Object](https://docs.statsig.com/api/content/sdks/user), 2026-11-07
+
+[^infra-overview]: Statsig Docs, [Infra Analytics Overview](https://docs.statsig.com/infra-analytics/overview), 2026-11-07
+
+[^infra-start]: Statsig Docs, [Getting Started with OTEL + Statsig](https://docs.statsig.com/infra-analytics/getting-started), 2026-11-07
+
+[^infra-traces]: Statsig Docs, [Traces Explorer Quick Start](https://docs.statsig.com/infra-analytics/send-traces), 2026-11-07
+
+[^otel-k8s]: Statsig Docs, [Ingesting Open Telemetry Data](https://docs.statsig.com/server/concepts/open_telemetry), 2026-11-07
+
+[^integrations]: Statsig Docs, [Integrations Overview](https://docs.statsig.com/api/content/integrations/introduction), 2026-11-07
+
+[^sentry-pricing]: Sentry, [Pricing: Free Developer Plan, Pay as You Grow | Sentry](https://sentry.io/pricing/), 2026-11-07
+
+[^glitchtip-home]: GlitchTip, [Open Source Error Tracking | GlitchTip](https://glitchtip.com/), 2026-11-07
