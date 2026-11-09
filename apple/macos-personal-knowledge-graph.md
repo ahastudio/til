@@ -2,7 +2,7 @@
 
 원문: [Anatomy of Apple's Personal Knowledge Graph — Eighth Rank](https://8rank.ai/game/apple-intelligence-personal-knowledge-graph)
 
-HN 토론: <https://news.ycombinator.com/item?id=50403097> (418점, 242개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=50403097> (799점, 428개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=36748>
 
@@ -172,6 +172,17 @@ iPhone에서 donate된 이름과 연락처, 심지어 관리형 업무 프로필
 한 대를 잃어버리거나 팔 때 그 안에 있는 것은 그 기기의 데이터가 아니라 계정
 전체의 사회적 지도일 수 있다.
 글도 통신 기록이 다른 기기에서도 가져온다고 쓴다.
+zenocon은 개인 맥에서 이 도구를 돌렸더니 자신이 업무용 맥에서만 쓰는 Slack
+채널이 나왔다고 썼다.
+같은 사람이라고 판단한 뒤 두 노트북의 지식 그래프를 합친 것으로 보인다는
+해석을 달았는데, 이는 한 사용자의 추측이다.[^zenocon]
+출처에 대해서도 보고가 갈린다.
+brotman42는 자신의 그래프에 WhatsApp으로만 연락하는 사람들이 들어 있어서
+Signal과 WhatsApp 같은 서드파티 앱의 알림이 재료로 쓰이는 것 같다고
+썼다.[^brotman42]
+tacker2000은 통화 기록과 Signal 맥 앱에서 온 듯한 그룹 대화 이름을 봤지만
+데이터 양은 많지 않았다고 했다.[^tacker2000]
+이 문서는 어느 출처가 실제인지 확인하지 못했다.
 
 ### 끌 수 없다는 것이 법적 쟁점과 신뢰 문제를 겹친다
 
@@ -182,6 +193,8 @@ Ungh는 Siri와 인텔리전스를 모두 끄고 막았는데도 여전히 쌓�
 했고,[^ungh]
 ProllyInfamous도 Siri를 완전히 껐는데 왜 계속 수집하느냐고
 물었다.[^prollyinfamous]
+procaryote는 Apple Intelligence를 한 번도 켠 적이 없는데도 이 파일들이 있다고
+썼다.[^procaryote]
 이 문서는 끄는 방법이 실제로 있는지 확인하지 못했고,
 글도 방법을 제시하지 않는다.
 이 지점에서 법적 논쟁도 열렸다.
@@ -248,3 +261,11 @@ jamienk는 macOS 27.2에는 전체 디스크 접근 항목이 더 이상 보이�
 [^kccqzy]: <https://news.ycombinator.com/item?id=50405569>
 
 [^jamienk]: <https://news.ycombinator.com/item?id=50405819>
+
+[^zenocon]: <https://news.ycombinator.com/item?id=50407310>
+
+[^brotman42]: <https://news.ycombinator.com/item?id=50413100>
+
+[^tacker2000]: <https://news.ycombinator.com/item?id=50412190>
+
+[^procaryote]: <https://news.ycombinator.com/item?id=50406952>

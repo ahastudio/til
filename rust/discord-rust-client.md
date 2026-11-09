@@ -2,9 +2,13 @@
 
 원문: [Discord is ditching Electron and its new app uses less RAM](https://www.theverge.com/news/1027379/discord-ditching-electron-web-app)
 
-HN 토론: <https://news.ycombinator.com/item?id=50378625> (394점, 335개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=50378625> (493점, 432개 댓글)
+
+HN 토론: <https://news.ycombinator.com/item?id=50403507> (409점, 411개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=36657>
+
+GN 토론: <https://news.hada.io/topic?id=36778>
 
 ## 요약
 
@@ -27,6 +31,18 @@ Vishnevskiy는 Windows 클라이언트가 RAM을 290MB만 쓰는 화면도 올�
 1GB 이상에 쉽게 이른다고 덧붙이며 이를 분명한 개선으로 본다.
 언제 완전히 전환될지는 분명하지 않고,
 Vishnevskiy는 곧 사용자 테스트에 들어가기를 바란다고 했다.
+
+Windows Latest의 Abhijith M B는 2026년 11월 6일 기사에서
+같은 발표 직후 올라온 시연 영상을 프레임 단위로 살폈다고 전한다.[^windowslatest]
+15초짜리 영상에서 현재 Electron 클라이언트와 새 Rust 클라이언트를
+ThinkPad 두 대에서 나란히 켠다.
+Electron 앱이 먼저 실행되어 약 3초간 어두운 빈 창을 보이다가 팁 문구를 띄우고,
+새 클라이언트는 1.5초쯤 뒤에 실행했는데도 1초 안에 창이 나타났다고 한다.
+옛 앱이 실행 약 5초 만에 인터페이스에 이르렀을 때
+Rust 앱은 이미 친구 목록을 불러온 상태였다는 것이다.[^windowslatest]
+Discord 직원들은 둘 다 콜드 스타트였다고 확인했고,
+트레이에서 뜬 것이 아니냐는 질문에 영상을 찍은 직원은
+그랬다면 친구 목록이 이미 불러와져 있었을 것이라고 답했다고 한다.[^windowslatest]
 
 기사에 없는 정보가 원본 글에 하나 더 있다.
 이 문서가 Twitter에서 직접 읽은 그의 글에서
@@ -66,6 +82,37 @@ kayson은 GPUI 첫 화면의 CSS 같은 메서드 체이닝이 끔찍해 보인�
 ogoffart는 Rust가 UI를 기술하기에 좋은 언어가 아니라며 Slint는 그 때문에 별도
 언어를 쓴다고 답했다.[^ogoffart]
 이 논쟁은 이 발표가 어떤 UI 개발 경험을 택했는지를 보여 주는 맥락이다.
+GN에서 sudosudo는 새 프로그램을 만들 때 GPUI를 쓰는 편이 나을지 고민된다며
+속도는 앞서지만 선뜻 손이 가지 않는다고 했다.[^sudosudo]
+
+Windows Latest는 웹 기술이 남는 자리도 정리한다.
+YouTube 임베드와 Activities는 시스템 웹뷰를 쓰고
+Vishnevskiy는 Tauri와 비슷한 방식이라고 했다고 한다.
+웹 앱은 화면은 HTML로 그리되 로직은 JavaScript가 아니라 WebAssembly로 돌리고,
+로그인 토큰은 Windows의 자격 증명 관리자 같은 시스템 키링에 둔다는 설명이다.
+앱의 모양과 동작은 현재와 같다고 한다.[^windowslatest]
+Tauri를 쓰지 않은 이유로 HN의 giancarlostoro는 리눅스의 WebKitGTK에서
+WebRTC가 기본으로 동작하지 않는다는 점을 들었다.
+이는 한 사용자의 경험이며 Discord가 밝힌 이유는 아니다.[^giancarlostoro]
+
+### 시작 속도는 업데이트 방식과 함께 읽어야 한다
+
+Windows Latest에 따르면 현재 앱은 업데이트를 확인하며 시작 화면을 보이고,
+X의 한 사용자는 이것이 매번 5~10초 걸린다고 했다.
+새 클라이언트가 이를 건너뛰는 이유로 Discord 직원은
+아주 빨리 부팅하고 새 아키텍처라서 그런 화면이 필요 없으며
+업데이트는 백그라운드에서 자동으로 한다고 답했다.
+Microsoft Store나 Windows 업데이트 조정 플랫폼으로 넘기지는 않는다고도 했다.[^windowslatest]
+HN에서 gloosx는 Discord를 켤 때마다 업데이트를 받는데,
+완전히 업데이트된 두 클라이언트의 시작 시간을 비교하는 것은 의미가 적다고 했다.[^gloosx]
+이는 한 사용자의 경험이다.
+영상이 보여 주는 속도 차가 업데이트 방식의 차이에서 왔는지,
+코드 구조의 차이에서 왔는지는 이 영상만으로 가를 수 없다.
+petterroea는 제품이 출시되어 실제로 쓰이기 전에는 이미 보여 줬다고 말하기
+어렵다고 했다.[^petterroea]
+기사는 Discord가 Electron 안에서도 고치려 했다고 덧붙인다.
+9월 패치 노트에 Electron 42로 올리자 CPU 중앙값이 약 17% 줄었지만
+p50 메모리가 약 4% 늘었다고 적혀 있었다는 것이다.[^windowslatest]
 
 ## 비평
 
@@ -88,6 +135,18 @@ HN의 hbn은 기사에 Rust 클라이언트를 만들고 있다는 말과
 현재 앱이 1GB 이상에 쉽게 이른다는 것도 기사의 서술이지 측정이 아니다.
 아직 사용자 테스트에 들어가지 않은 빌드의 한 장면이므로,
 기능이 모두 옮겨진 뒤에도 이 수치가 유지되는지는 알 수 없다.
+
+Windows Latest 기사는 이 질문 가운데 하나에 답을 싣는다.
+290.2MB는 계정 두 개를 동시에 로그인한 상태의 수치였다고
+Vishnevskiy가 답했고, 새 클라이언트는 계정 동시 실행을 지원한다고 한다.[^windowslatest]
+같은 기사는 현재 앱이 보통 1GB 아래라는 Discord 직원의 2025년 12월 발언과
+견주어 약 70% 낮다고 계산한다.
+이는 다른 시점의 다른 측정을 비교한 것이고,
+기사 스스로도 초기 빌드의 한 장면이며 Discord가 두 클라이언트의 같은 조건
+벤치마크를 내놓지 않았다고 적는다.[^windowslatest]
+그래서 같은 조건에서 현재 앱이 얼마를 쓰는지라는 질문은 여전히 남는다.
+HN에서 Neywiny는 계정 두 개라는 설명만 되풀이될 뿐 뒷받침이 없다고 했고,[^neywiny]
+ycui7은 70% 줄어든 290MB도 여전히 끔찍하다고 했다.[^ycui7]
 
 ### Electron이 나쁘다는 전제에 대한 반론이 있다
 
@@ -221,3 +280,17 @@ Vencord 같은 확장을 위한 공식 통로가 발표되면
 [^ogoffart]: <https://news.ycombinator.com/item?id=50380850>
 
 [^Telaneo]: <https://news.ycombinator.com/item?id=50379308>
+
+[^windowslatest]: Windows Latest, [Every Windows 11 app should kill Electron, and Discord just showed why: no “Starting” screen and 70% less RAM, even with two accounts signed in](https://www.windowslatest.com/2026/11/06/every-windows-11-app-should-kill-electron-and-discord-just-showed-why-no-starting-screen-and-70-less-ram-even-with-two-accounts-signed-in/), 2026-11-06
+
+[^neywiny]: <https://news.ycombinator.com/item?id=50403983>
+
+[^ycui7]: <https://news.ycombinator.com/item?id=50410552>
+
+[^gloosx]: <https://news.ycombinator.com/item?id=50413505>
+
+[^petterroea]: <https://news.ycombinator.com/item?id=50403965>
+
+[^giancarlostoro]: <https://news.ycombinator.com/item?id=50407695>
+
+[^sudosudo]: <https://news.hada.io/topic?id=36778#cid69427>

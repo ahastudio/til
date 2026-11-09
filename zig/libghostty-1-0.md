@@ -2,9 +2,9 @@
 
 원문: [Libghostty 1.0 – Mitchell Hashimoto](https://mitchellh.com/writing/libghostty-1-0)
 
-HN 토론: <https://news.ycombinator.com/item?id=50399933> (915점, 150개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=50399933> (1061점, 191개 댓글)
 
-Lobste.rs 토론: <https://lobste.rs/s/0ouxwf/libghostty_1_0>
+Lobste.rs 토론: <https://lobste.rs/s/0ouxwf/libghostty_1_0> (166점, 12개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=36736>
 
@@ -46,6 +46,18 @@ bash는 메모리를 너무 써서 dash를 써야 했다고 한다.
 앞으로는 안정성에 집중하면서 가능한 한 많은 터미널 프로토콜을 켜고 끌 수 있게
 구현하겠다고 한다.
 글 맨 앞 각주는 이 글이 AI의 도움 없이 직접 쓴 것이라고 밝힌다.
+글은 C로 약 1,500줄이면 2025년의 거의 모든 터미널보다 기능이 많고 빠른
+터미널을 만들 수 있다고도 주장한다.
+Rust, Go, JavaScript, Swift, Python, .NET, Elixir, Dart, Java 등의 커뮤니티
+바인딩이 있다고 한다.
+Antithesis가 이 라이브러리로 TUI 프로그램을 퍼징해 btop 등에서 실제 버그를
+찾았다는 사례도 들었다.
+
+공식 문서 사이트(lib.ghostty.org/vt)도 같은 라이브러리를 소개한다.
+문서는 libghostty-vt가 수백 개 프로젝트에서 쓰이고,
+자체 추정으로는 매일 수천만 명이 쓴다고 적는다.[^vt-docs]
+생성한 터미널에 바이트를 쓰고 화면 상태를 읽어 내는 C 예제가 첫 화면에 있으며,
+이 예제는 GUI 창도 PTY도 쓰지 않는다.[^vt-docs]
 
 ## 분석
 
@@ -89,6 +101,23 @@ gignico는 다시, C API가 Zig를 가려도 라이브러리를 빌드하려면 
 ABI 약속은 소비자 쪽의 마찰은 없애지만 빌드하는 쪽의 마찰까지 없애지는 않는다는
 구분이다.
 
+### 이식성은 테스트한 환경과 빌드만 한 환경으로 나뉜다
+
+글은 플랫폼 표를 둘로 나눈다.
+CI에서 단위 테스트와 예제 전체를 돌리는 쪽은 Linux(glibc, musl)와 macOS 13+,
+iOS 13+, FreeBSD, Windows x86_64, Android, wasm32 freestanding이다.
+빌드만 하고 테스트는 돌리지 않는 쪽은 베어메탈 riscv32와 thumb,
+WASI, Windows arm64, illumos, 32비트 x86이다.
+공식 문서는 이 구분을 적지 않고 베어메탈 RISC-V와 ARM을 포함한 여러 환경에서
+빌드하고 테스트한다고 한 문장으로 묶는다.[^vt-docs]
+같은 라이브러리에 대한 두 서술의 수위가 다른 것이다.
+임베더라면 자기 환경이 어느 표에 있는지를 본문 쪽 서술로 확인해야 한다.
+WebAssembly 빌드는 속도용과 크기용 두 가지이고,
+크기용은 모든 기능을 켜도 1MB 아래이며,
+읽기 전용 뷰어라면 입력 인코딩, 검색, 선택, Kitty 그래픽을 빼서 대략 절반으로
+줄일 수 있다고 글은 말한다.
+빠진 함수는 그대로 내보내져 `GHOSTTY_UNSUPPORTED`를 돌려준다.
+
 ## 비평
 
 ### 안정된 ABI와 아직 확장 중인 프로토콜 사이에 긴장이 있다
@@ -106,6 +135,8 @@ ABI 약속은 소비자 쪽의 마찰은 없애지만 빌드하는 쪽의 마찰
 ### 성능과 폭을 보여 주는 수치는 한 사람의 시험이다
 
 1만 개 터미널 시험은 인상적이지만 글쓴이가 직접 돌린 한 번의 시험이다.
+공식 문서는 입출력 처리량이 알려진 어떤 터미널 에뮬레이터보다 빠르다고 쓰지만
+비교 자료로 가는 링크를 달지 않았다.[^vt-docs]
 같은 조건에서 다른 에뮬레이터를 돌린 비교는 없고,
 bash가 메모리를 더 쓴다는 대목은 라이브러리가 아니라 쉘에 관한 이야기다.
 HN에서 VadimPR은 libghostty-vt 1.0을 Mudlet의 ANSI 디코더로 시험해 보니 속도
@@ -114,6 +145,12 @@ HN에서 VadimPR은 libghostty-vt 1.0을 Mudlet의 ANSI 디코더로 시험해 �
 UTF-8만 지원하고 스크롤백을 편집할 수 없기 때문이라고 한다.[^vadimpr]
 이 보고는 한 사용자의 한 용도에 한정되지만,
 빠르다는 주장이 모든 임베딩에 그대로 이어지지 않는다는 점은 보여 준다.
+satirr는 1만 개 시험에 감탄하면서 다중 사용자 서비스에 임베딩할 때
+터미널마다 메모리, 스크롤백, 이미지 디코딩, 파싱 작업의 한도를 둘 수 있는지,
+한도를 넘으면 다른 세션에 영향 없이 그 세션만 끝낼 수 있는지 물었다.[^satirr]
+이 댓글에는 답글이 달리지 않았다.
+글은 할당자를 바꿀 수 있고 스레드를 만들지 않는다고만 말하며,
+세션별 자원 한도에 대한 설명은 없다.
 
 ### 지속 가능성은 글이 다루지 않은 질문이다
 
@@ -162,6 +199,12 @@ libghostty를 그런 부품의 좋은 예로 들었다.[^gls2ro]
 그 비용을 한 번 치르고 여럿이 나눠 쓰는 라이브러리가 값어치를 갖는다.
 이는 글이 말하는 한 임베더의 버그 수정이 모두에게 이득이 된다는 주장과
 같은 논리다.
+KolmogorovComp는 이 글이 하위 호환성을 강조하는 것이 의외라고 했다.
+마이그레이션은 고통스럽지만 대체로 기계적이어서 에이전트가 잘하는 일이고,
+오히려 신뢰가 걸린 배포 쪽 강조가 맞다는 것이다.[^kolmogorovcomp]
+이 의견은 위 논리의 다른 면을 보여 준다.
+소비자 쪽의 마이그레이션 비용이 내려가면 ABI 안정성의 가치가 줄 수 있지만,
+배포판이 서명과 출처를 신뢰하는 부분은 사람의 판단으로 남는다.
 
 ### 표준이 없는 영역에서는 구현이 표준이 된다
 
@@ -209,3 +252,9 @@ Microsoft이 독점을 비판하며 자기 터미널을 밀 것이라고 반쯤 
 [^gignico]: <https://lobste.rs/s/0ouxwf/libghostty_1_0#c_5oaizr>
 
 [^student]: <https://lobste.rs/s/0ouxwf/libghostty_1_0#c_kquow0>
+
+[^satirr]: <https://news.ycombinator.com/item?id=50411237>
+
+[^kolmogorovcomp]: <https://news.ycombinator.com/item?id=50407386>
+
+[^vt-docs]: Ghostty, [libghostty-vt: libghostty-vt](https://lib.ghostty.org/vt/), 2026-11-09

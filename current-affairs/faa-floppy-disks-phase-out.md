@@ -4,6 +4,10 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=50388001> (381점, 317개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=36721>
+
+GN 토론: <https://news.hada.io/topic?id=36721>
+
 ## 요약
 
 로이터의 David Shepardson이 2026년 11월 5일(현지 기준 목요일)에 쓴 기사다.
