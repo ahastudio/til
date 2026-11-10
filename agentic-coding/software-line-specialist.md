@@ -4,7 +4,7 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=50386777> (3점, 4개 댓글)
 
-Lobste.rs 토론: <https://lobste.rs/s/yoywed/software_line_specialist> (122점, 15개 댓글)
+Lobste.rs 토론: <https://lobste.rs/s/yoywed/software_line_specialist> (123점, 15개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=36742>
 
@@ -19,8 +19,9 @@ HN 댓글에서도 2028년 보존 기록이 가능한지 묻는 반응이 나왔
 
 공고의 설정은 이렇다.
 ACME는 소규모 가게의 재무 모니터링을 돕는 시리즈 A 스타트업이고,
-2년 전부터 AI 우선으로 일해 설계, 개발, QA, CI/CD, 인프라, 데이터 분석이
-모두 에이전트와 연결되어 있다고 한다.
+Maltese Falcon Capital의 투자로 1,500만 달러를 최근 조달했다고 한다.
+회사는 2년 전부터 AI 우선으로 일해 설계, 개발, QA, CI/CD, 인프라,
+데이터 분석이 모두 에이전트와 연결되어 있다고 말한다.
 회사는 자기 스택이 영어라고 말한다.
 영어가 99.5%까지 해 주었으니 마지막 0.5%를 닫아 줄 엔지니어를 뽑는다는 것이다.
 프롬프트로는 풀리지 않고 에이전트를 반복에 빠뜨리는 문제,
@@ -38,6 +39,10 @@ ACME는 소규모 가게의 재무 모니터링을 돕는 시리즈 A 스타트�
 AI 없이 결함을 찾아 고치는 라이브 디버깅, 문화 적합성 면접, CTO 면접이다.
 마지막에는 이 직무가 한 번에 한 가지 일만 하게 허용되고
 기능 개발은 맡지 않으며, 그런 일은 AI 네이티브 공고를 보라는 문구가 있다.
+공고 맨 위의 안내 배너도 이 자리가 코드만 다루는 직무이고 AI 네이티브 직무는
+다른 공고를 보라고 알린다.
+있으면 좋은 요건 가운데 DB 관리 경험에는 에이전트들 말로는 Postgres라는
+괄호 설명이 붙어 있고, 필수 요건의 디버거는 따옴표 안에 적혀 있다.
 
 ## 분석
 
@@ -56,13 +61,15 @@ AI 없이 결함을 찾아 고치는 라이브 디버깅, 문화 적합성 면�
 ### 경력의 가치가 AI 이전이라는 날짜로 매겨진다
 
 요건은 2022년 이전의 TypeScript 경력이다.
-같은 기술을 쓴 시간이 아니라 AI 도구가 나오기 전에 익힌 시간만 인정한다는 뜻이다.
+같은 기술을 쓴 시간이 아니라 AI 도구가 나오기 전에 익힌 시간만 인정한다는
+뜻이다.
 이는 직접 읽고 고치는 능력이 에이전트 시대에 희귀해진다는 전제를 날짜 하나로
 표현한 것이다.
 면접의 지필 시험에서 ACID를 자기 말로 설명하게 하고 AI 없이 디버깅하게 하는
 것도 같은 전제 위에 있다.
 Lobste.rs에서 lknuth는 이런 개발자가 앞으로 저배경 강철, 곧 핵실험 이전에
-만들어져 방사능에 오염되지 않은 강철처럼 귀하게 여겨질 것이라고 비유했다.[^lknuth]
+만들어져 방사능에 오염되지 않은 강철처럼 귀하게 여겨질 것이라고
+비유했다.[^lknuth]
 회사는 에이전트의 추론 기록을 볼 수 있게 해 주겠다고 하지만,
 입사 전 평가에서는 그 도움을 모두 뺀다.
 
@@ -74,6 +81,28 @@ Lobste.rs에서 lknuth는 이런 개발자가 앞으로 저배경 강철, 곧 �
 이 구조에서 라인 스페셜리스트의 일이 성공적일수록 같은 종류의 일이 줄어든다.
 공고는 미래의 주니어를 가르친다고 적어 이 자리가 계속 필요할 것처럼 말하지만,
 앞의 구조와 서로 맞지 않는다.
+
+### 회사가 자기 시스템의 사실을 에이전트에게 묻는다
+
+DB 관리 경험 항목의 괄호는 에이전트들이 Postgres라고 말한다는 것이다.
+회사가 자기 데이터베이스가 무엇인지 직접 알지 못하고 에이전트의 보고를 받아
+적는다는 뜻으로 읽힌다.
+Lobste.rs에서 travisgriggs는 공고를 읽다가 이 줄에서 소리 내어 웃었다고
+썼다.[^travisgriggs-lobsters]
+
+이 줄은 공고 전체의 전제를 한 줄로 압축한다.
+에이전트가 만든 시스템에서는 사람이 시스템의 사실을 먼저 알지 못하고,
+라인 스페셜리스트가 처음 하는 일은 무엇이 어디에 있는지를 알아내는 것이다.
+요건에 적힌 미지의 코드베이스에 뛰어드는 탐정이라는 표현과 같은 이야기다.
+
+디버거에 붙은 따옴표도 같은 방향을 가리킨다.
+nickmonad는 이 단어에서 웃음이 터졌다고 썼고,[^nickmonad-debugger]
+lucasluitjes는 몇 시간에서 며칠씩 일할 의향을 묻는 요건과
+한 번에 한 가지 일만 하게 해 주겠다는 배려 문장에서 웃었다고
+썼다.[^lucasluitjes]
+따옴표는 디버거가 이 조직에서는 낯선 옛 도구처럼 취급된다는 암시로 읽을 수
+있다.
+이는 이 문서의 해석이고 글이 직접 말한 것은 아니다.
 
 ## 비평
 
@@ -96,6 +125,11 @@ HN에서 verdverm은 이 글에 HN은 채용 게시판이 아니라고 답했다
 internet_points는 웃기다며 지원 버튼을 눌렀다고 썼다.[^internet-points]
 Lobste.rs에서 twm은 페이지 메타 설명의 지원 클릭 42명이라는 문구를
 빼어난 한 수라고 짚었다.[^twm]
+conartist6는 지원 링크를 누르면 릭롤(rickroll) 영상이 나온다는 것을 뒤늦게
+발견했다고 썼다.[^conartist6]
+kcmoiq는 상단의 Wayback Machine 위젯이 실제로 동작하는지 헷갈렸고,
+roryokane은 이 공고라는 허구 속에서 2028년 12월 15일 판본임을 보여 주려고
+일부러 동작하지 않게 만든 위젯이라고 답했다.[^kcmoiq][^roryokane]
 풍자가 사실적인 형식을 빌릴수록 맥락 없이 본 사람에게는 형식이 내용을 이긴다.
 다만 이 비평은 글의 결함이라기보다 장르의 비용이다.
 이 글은 풍자라는 표지를 의도적으로 아끼는 선택을 한 것이다.
@@ -117,6 +151,8 @@ Lobste.rs에서 nickmonad는 자신이 이 직무를 진지하게 받아들일 �
 gcupc는 돈이 충분하다면 하겠지만 오래 하지 않아도 될 만큼이어야 한다고
 답했다.[^gcupc]
 웃음 뒤에 개발자들이 실제 직무 변화를 가볍지 않게 느낀다는 반응이 있다.
+miah는 최근 해고되어 많은 자리에 지원했지만 거절만 받았고, 업계에서 30년을
+일했으며, 이런 공고가 나오기를 간절히 기다린다고 썼다.[^miah]
 
 에이전트가 할 수 있는 일의 범위가 넓어질수록 사람의 직무는 그 바깥 틈으로
 좁아진다.
@@ -165,3 +201,17 @@ gcupc는 돈이 충분하다면 하겠지만 오래 하지 않아도 될 만큼�
 [^nickmonad]: <https://lobste.rs/s/yoywed/software_line_specialist#c_e6bmle>
 
 [^gcupc]: <https://lobste.rs/s/yoywed/software_line_specialist#c_gatzzo>
+
+[^travisgriggs-lobsters]: <https://lobste.rs/s/yoywed/software_line_specialist#c_5drlbl>
+
+[^lucasluitjes]: <https://lobste.rs/s/yoywed/software_line_specialist#c_eo04zb>
+
+[^nickmonad-debugger]: <https://lobste.rs/s/yoywed/software_line_specialist#c_gnmesi>
+
+[^conartist6]: <https://lobste.rs/s/yoywed/software_line_specialist#c_agfiua>
+
+[^kcmoiq]: <https://lobste.rs/s/yoywed/software_line_specialist#c_kcmoiq>
+
+[^roryokane]: <https://lobste.rs/s/yoywed/software_line_specialist#c_w4qi1m>
+
+[^miah]: <https://lobste.rs/s/yoywed/software_line_specialist#c_z66vyg>

@@ -1,4 +1,4 @@
-# 컨테이너 기반 마이크로서비스 개발 환경 만들기: Vultr 인스턴스와 Mac mini·Mac Studio 구매 비교
+# 컨테이너 기반 마이크로서비스 개발 환경 만들기
 
 <https://www.apple.com/kr/shop/buy-mac/mac-mini>
 

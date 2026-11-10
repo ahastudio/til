@@ -1,4 +1,4 @@
-# CS336: Language Modeling from Scratch
+# CS336: 언어 모델을 처음부터 만들며 배우는 스탠퍼드 강의
 
 <https://cs336.stanford.edu/>
 

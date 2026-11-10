@@ -2,7 +2,11 @@
 
 원문: [I built a programming language that LLMs can't use • Dominik Picheta's blog](https://blog.picheta.me/post/killswitch-lang/)
 
+원문: [KillSwitch-Bench](https://bench.killswitch-lang.org/)
+
 HN 토론: <https://news.ycombinator.com/item?id=50135762> (284점, 218개 댓글)
+
+Show HN: [Show HN: Benchmarking LLM ability to code in an adversarial language](https://news.ycombinator.com/item?id=50139549)
 
 GN 토론: <https://news.hada.io/topic?id=35623>
 
@@ -90,31 +94,41 @@ Fable 5.1과 Gemini 4 Argon은 지나치게 민감한 안전장치 때문에 성
 ### 66.8은 통과율이 아니라 비용과 코드 크기를 섞은 종합 점수다
 
 벤치마크 페이지는 점수가 통과율과 비용, 코드 크기를 합친 것이라고
-적는다.[^bench]
-같은 페이지의 맨 위는 Claude Opus 5로 66.8%에 과제당 1.49달러, 8분 31초이고,
-2위 GPT-6.1 Sol은 59.2%에 0.30달러, 3위 Claude Opus 5.5는 58.7%에
-0.32달러다.[^bench]
+적는다.
+2026년 11월 10일에 본 같은 페이지의 맨 위는 11월 9일에 공개된
+Claude Fable 5.2로 78.2%에 과제당 0.46달러, 1분 42초다.
+그 아래가 글이 최고로 꼽은 Claude Opus 5로 66.8%에 1.49달러, 8분 31초이고,
+3위 GPT-6.1 Sol은 59.2%에 0.30달러, 4위 Claude Opus 5.5는 58.7%에
+0.32달러다.
+글이 쓰인 뒤 최고 점수가 66.8에서 78.2로 올라, 이 문서의 제목과 요약이 말하는
+최고 점수는 글이 쓰인 시점의 값이다.
+Fable 5.2는 비용과 시간도 Opus 5보다 낮아, 종합 점수에서 통과율의 이득에 더해
+비용 쪽의 이득이 겹쳤을 수 있다는 것이 이 문서의 추론이다.
 Opus 5가 더 비싸고 오래 걸리는데도 앞선 것은 통과율의 차이가 비용 벌점을
 넘었다는 뜻일 텐데,
 통과율 자체는 페이지 본문에 보이지 않으므로 이는 이 문서의 추론이다.
-글이 안전장치 때문에 나빴다고 한 Fable 5.1은 46.7%로 22개 가운데 7위이고
-Gemini 4 Argon은 47.1%로 5위여서, 나쁘다는 말은 상위권과 견준 상대적인
-평가다.[^bench]
+글이 안전장치 때문에 나빴다고 한 Fable 5.1은 46.7%로 24개 가운데 8위이고
+Gemini 4 Argon은 47.1%로 6위여서, 나쁘다는 말은 상위권과 견준 상대적인
+평가다.
+같은 계열의 Fable 5.2가 78.2%로 1위인 것을 두고,
+Anthropic은 Fable 5.2의 안전 분류기가 불필요한 차단을 Fable 5.1보다 약 55%
+줄였다고 밝힌다.[^anthropic-52]
+점수 상승이 차단 감소에서 왔는지는 이 페이지로 알 수 없고,
+이 문서가 확인한 것은 두 사실이 같은 시기에 있다는 점까지다.
 
 시험 방식도 글보다 구체적이다.
 에이전트는 과제 프롬프트와 SPEC.md, AI_SPEC.md를 받고 일부 과제에서는 인터프리터
-바이너리도 받는다.[^bench]
+바이너리도 받는다.
 인터넷은 막혀 있고 과제당 예산은 5달러, 제한 시간은 30분이며
 모든 모델이 과제마다 최소 두 번 시험받고 평가는 LLM 없이 결정적으로
-이루어진다.[^bench]
+이루어진다.
 글은 명세 하나만 말하고 AI용 명세 파일이 따로 있다는 점은 쓰지 않았다.
 이 문서는 AI_SPEC.md를 열지 않았으므로 그 내용은 확인하지 못했다.
 
 리더보드는 글보다 새롭다.
-페이지에서 Gemini 4 Argon, Kimi K3.1 Pro, MiniMax M3.1 Flash에는 새로 추가됐다는
-표시가 붙고,
+이번에 본 페이지에서 새로 추가됐다는 표시는 Fable 5.2에만 붙어 있고,
 Kimi K3.1 Pro는 47.0%로 글이 최고 오픈 웨이트 모델이라고 한 MiMo-V2.6-Pro의
-38.3%보다 높다.[^bench]
+38.3%보다 높다.
 페이지가 가중치 공개 여부를 표시하지 않아
 Kimi K3.1 Pro가 오픈 웨이트인지, 글의 서술이 지금도 맞는지는 이 문서가 확인하지
 못했다.
@@ -147,7 +161,7 @@ Rust 인터프리터 소스를 분석해 언어 자체를 이해하는 것을 �
 dom96은 이후 댓글에서 대부분의 과제에 인터프리터 바이너리가 주어지고
 일부 모델은 그것을 역공학한다고 밝혔다.[^dom96-binary]
 벤치마크 페이지는 일부 과제에만 바이너리가 포함된다고 적어 두 표현이
-다르다.[^bench]
+다르다.
 저자는 우회를 막지 못하더라도 모델을 느리게 하는 것만으로 쓸모가 있다고
 했다.[^dom96-slow]
 그렇다면 이 벤치마크는 우회를 막는 장치가 아니라 우회에 드는 시간과 비용을
@@ -164,8 +178,12 @@ LLM에게 적대적인 언어라고
 명세만 던져 줘도 C에서도 고생할 것이라고 이었다.[^nottorp]
 이 두 댓글은 제목이 말하는 사용 불가와 글의 내용 사이의 거리를 보여 준다.
 글이 보인 것은 명세 파일을 주었을 때 최고 모델이 종합 점수 66.8을 낸다는
-사실이다.[^bench]
+사실이다.
 훈련 데이터에 이 언어가 들어간 뒤의 성적은 알 수 없다.
+
+벤치마크가 가치 있다는 반대쪽 평가도 HN에 올라왔다.
+한 사용자는 적대적 언어가 부정확하고 어긋난 의사소통 속에서도 모델이 생산적으로
+남는지를 재며, 이것이 실제 업무의 성격을 닮았다고 적었다.[^ijidak]
 
 ### 글의 질문에 이 실험이 답하지 못한다
 
@@ -235,7 +253,7 @@ Fable과 Gemini Argon 4가 크게 걸린다고 했다.[^dom96-guard]
 반대 방향의 단서는 글이 말한 상관이다.
 저자는 이 단순한 과제의 성적이 다른 벤치마크와 맞물려 고무적이라고 했지만
 상관을 어떻게 계산했는지는 쓰지 않았고 벤치마크 페이지 본문에도 그런 비교는
-보이지 않는다.[^bench]
+보이지 않는다.
 상관이 높다면 이 점수가 일반 능력 순위와 크게 다르지 않다는 뜻이어서 위의 읽기에
 불리하다.
 어느 쪽인지는 함정을 뺀 판의 점수가 나와야 알 수 있다.
@@ -254,7 +272,7 @@ LLM이 다른 종류의 상태 변화는 쉽게 다루는 것 같아 왜 이것�
 글자 수 세기와 스택 추적과 함정은 서로 다른 능력을 재므로
 점수를 항목별로 나누어 공개하면 훨씬 많은 것을 알 수 있다.
 벤치마크 페이지의 본문에는 종합 점수와 비용, 시간만 있고
-글자 수 세기나 스택 추적, 함정별로 나눈 점수는 보이지 않는다.[^bench]
+글자 수 세기나 스택 추적, 함정별로 나눈 점수는 보이지 않는다.
 
 ### 만들기를 즐기기 위해 만든 어려운 도구는 연구의 도구가 되기 전에 취미의 도구다
 
@@ -311,8 +329,6 @@ HN의 lifeisloving은 이것이 LLM을 속이려고
 
 [^lifeisloving]: <https://news.ycombinator.com/item?id=50146098>
 
-[^bench]: KillSwitch-Bench, [KillSwitch-Bench](https://bench.killswitch-lang.org/)
-
 [^dom96-binary]: <https://news.ycombinator.com/item?id=50150529>
 
 [^dom96-slow]: <https://news.ycombinator.com/item?id=50150394>
@@ -324,3 +340,7 @@ HN의 lifeisloving은 이것이 LLM을 속이려고
 [^dom96-guard]: <https://news.ycombinator.com/item?id=50145979>
 
 [^dom96-guard2]: <https://news.ycombinator.com/item?id=50150454>
+
+[^anthropic-52]: Anthropic, [Introducing Claude Fable 5.2 and Claude Mythos 5.2](https://www.anthropic.com/claude-fable-and-mythos-5-2), 2026-11-09
+
+[^ijidak]: <https://news.ycombinator.com/item?id=50215120>
