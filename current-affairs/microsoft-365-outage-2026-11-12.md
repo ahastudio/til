@@ -2,7 +2,7 @@
 
 <https://status.cloud.microsoft/>
 
-HN 토론: <https://news.ycombinator.com/item?id=50471731> (903점, 784개 댓글)
+HN 토론: <https://news.ycombinator.com/item?id=50471731> (1164점, 979개 댓글)
 
 GN 토론: <https://news.hada.io/topic?id=37073>
 
@@ -43,6 +43,19 @@ CNN은 독일 철도 Deutsche Bahn이 Outlook이 매우 느려 우회 일정 배
 영국 의료 쪽에서는 응급 호출 자체는 영향이 없지만 111과 999 서비스가 환자 정보를 평소 방식으로 넘기지 못해 적체가 생긴다는 노조의 말이 나온다.[^bbc]
 반면 NHS 측 단체의 대표는 이메일이 막혔을 때의 대체 절차가 있어 임상과 운영 시스템은 대체로 작동한다고 말했다.[^bbc]
 
+CNN의 추가 보도는 홍콩의 은행원들이 출근해서 점심 때까지 이메일과 Teams에 접속하지 못했고,
+일본 정부는 부처와 기관이 근무일 대부분 이메일을 보내지 못해 직원들이 문서를 종이로 복사해 다뤘다고 전한다.
+호주의 학교와 법원과 정부 서비스, 필리핀 법원도 영향을 받았다.
+미국에서는 하원이 영향을 받았다고 밝혔고, 콜로라도 Arapahoe 카운티 보안관실은 보석금 처리가 지연되었다고 했다.
+Jacksonville과 Austin 등 여러 시 정부가 이메일 장애를 알렸고, 디트로이트의 전기차 회사 Workhorse Group은 3분기 실적 발표를 월요일로 미뤘다.[^cnn]
+
+AI 서비스도 연쇄로 흔들렸다.
+OpenAI는 Microsoft 커넥터에 문제가 있어 ChatGPT를 포함한 일부 도구가 기대대로 작동하지 않는다고 밝혔고,
+Anthropic은 Claude 사용자 수천 명이 Downdetector에 문제를 신고한 뒤 금요일 오전 6시(미국 동부) 직후 수정을 배포하고 복구를 지켜보고 있다고 했다.[^cnn]
+영향이 Microsoft 안에서 Exchange 기반 기능으로 번졌다는 점도 CNN은 짚는다.
+Outlook과 Copilot은 영향을 받았고, 이미 일정에 잡힌 Teams 회의는 캘린더 연동이 막혔으며,
+Word와 Excel과 PowerPoint의 기본 기능은 작동했지만 클라우드 인쇄와 SharePoint 공유 같은 일부 기능은 영향을 받았다.[^cnn]
+
 한국의 GeekNews 사용자 한 명도 Teams에서 팀원이 모두 오프라인으로 표시되고,
 Outlook으로 인증 코드를 받지 못해 일부 사이트에 접속하지 못한다고 적었다.[^semjei]
 이메일이 다른 서비스의 인증 수단일 때 장애가 연쇄된다는 보고이다.
@@ -55,6 +68,26 @@ Microsoft는 이 장애가 사이버 보안 침해 때문이 아니라고 밝혔
 장애가 해결된 뒤에 전체 보고서를 공개하겠다고도 했다.[^bbc]
 이메일 대기 시간 한도는 Outlook 같은 클라이언트가 메일 수신을 기다리는 최대 시간이다.
 Gmail 같은 다른 서비스에서 보낸 메일이 복구 뒤에 도착하지 못하는 일을 막으려는 조치이다.
+
+복구가 이어지면서 원인에 대한 설명도 나왔다.
+CNN에 따르면 금요일(2026년 11월 13일) 미국 동부 시간 오전 7시경 Microsoft는 이메일 전달 성능이 영향받은 인프라의 점점 더 큰 부분에서 개선되고 있다고 밝혔다.
+이어서 북미가 유럽과 아시아보다 빨리 회복되고 있다고 지역별 속도를 설명했다.
+오전 10시경에는 대기 중인 이메일 대기열이 크게 줄어 정상 수준에 가까워졌다고 했다.[^cnn]
+낮 12시경(미국 동부)에는 근본 문제를 해결했다고 밝히고 사과했다.
+Microsoft가 Twitter에 올린 설명에 따르면 장애는 이전의 네트워크 용량 업그레이드 중에 생긴 문제가 최근의 네트워크 변경 뒤에 표면화되어 시작되었고, 사이버 보안이나 AI와 관련된 문제가 아니었다.
+Microsoft는 검토 뒤에 사후 보고서를 전부 공개하겠다고 다시 밝혔다.[^cnn]
+BBC도 같은 설명을 전한다. 사과와 함께 이 장애가 사이버나 AI와 에이전트와 무관하고 이전 네트워크 용량 업그레이드 중에 생겼다고 했으며, 최소 70개국에서 Teams와 Outlook과 Copilot에 접속할 수 없었다고 요약한다.[^bbc]
+CNN은 이 시점에 라이브 보도를 종료했다.
+
+### 복구 뒤에 나온 피해 추정
+
+CNN은 미시간의 싱크탱크 Anderson Economic Group의 추정도 전한다.
+생산성 손실 비용이 약 70억 달러에 이를 수 있다는 것이다.
+이 기관은 보고된 4억 3000만 명의 이용자 대부분은 불편을 겪었을 뿐 실제 경제적 손실은 입지 않았고,
+실질적으로 영향을 받은 사용자는 목요일 최대 2600만 명, 금요일 최대 5100만 명이라고 본다.
+또 Microsoft가 구독료로 하루 약 8억 달러를 환불해야 할 수 있다고 추정한다.
+이 추정을 낸 회장 Patrick Anderson은 이것이 아는 것이 한정된 시작점이며 전체 규모를 모른다고 말했다.[^cnn]
+이 수치는 한 기관의 추정이고, 계산 방법은 CNN 기사에 자세히 나오지 않는다.
 
 ## 분석
 
@@ -78,13 +111,15 @@ HN 댓글들은 이 출처를 직접 옮긴 것이므로 순서와 문구가 맞
 
 ### 가설은 상태 점검 실패와 재접속 폭주로 모인다
 
-원인에 대한 Microsoft의 최종 설명은 아직 없다.
-HN의 한 댓글이 세운 가설은 공식 갱신 내용과 맞는 구조이다.
+Microsoft는 금요일에 원인을 짧게 설명했지만 사후 보고서는 아직 나오지 않았다.[^cnn]
+이전 네트워크 용량 업그레이드 중의 문제가 최근 네트워크 변경 뒤 표면화했다는 설명이다.
+HN의 한 댓글이 세운 가설은 이 설명과 방향이 맞는 구조이다.
 네트워크 변경이 연결 설정 비용을 올리거나 대량 재접속을 일으켜 앞단 서버의 보안 연결 처리가 포화되고,
 포화된 서버는 상태 점검에 실패해 풀에서 빠지며,
 남은 서버가 더 많은 부하를 받아 함께 실패하고,
 끊긴 클라이언트가 다시 연결을 시도하면서 부하가 커진다는 순환이다.[^mattmcknight]
-이는 댓글의 이론이며 Microsoft가 확인한 것이 아니다.
+이 댓글은 Microsoft의 설명이 나오기 전에 쓰였고, 네트워크 변경이 시작점이라는 점에서만 Microsoft의 설명과 겹친다.
+재접속 폭주 같은 세부 메커니즘은 Microsoft가 확인한 것이 아니다.
 다만 Microsoft가 밝힌 증상, 곧 상태 점검 실패와 서버 무응답, 재시작해도 구제되지 않는 과부하와 모순되지는 않는다.
 48시간으로 늘린 이메일 대기 시간 한도 조치도 트래픽을 조심스럽게 다시 들인다는 설명과 같은 방향이다.
 
@@ -155,13 +190,14 @@ Microsoft의 전체 보고서가 나오면 다음을 확인한다.
 같은 일이 다시 일어나지 않게 하는 구조 변경이다.
 보고서가 상태 점검 오작동과 부하 순환을 말하면 이 문서의 해석은 강해지고,
 다른 원인을 말하면 약해진다.
-그 전까지 이 장애의 원인으로 알려진 확정 정보는 침해가 아니라는 것과 인프라 부하 및 상태 점검 문제를 조사 중이라는 것뿐이다.
+그 전까지 이 장애의 원인으로 알려진 확정 정보는 침해가 아니라는 것, 이전 네트워크 용량 업그레이드 중의 문제가 최근 네트워크 변경 뒤 표면화했다는 Microsoft의 짧은 설명, 상태 페이지가 보인 인프라 부하와 상태 점검 문제이다.
+두 번째 설명이 어떤 변경이었고 왜 상태 점검 실패로 이어졌는지는 보고서가 나와야 연결된다.
 
 ---
 
-[^bbc]: [Schools, GPs and businesses hit by global Microsoft outage as company scrambles to solve issue](https://www.bbc.com/news/live/cq5y10ge3dp3t), BBC News, 2026-11-13 확인
+[^bbc]: [Schools, GPs and businesses hit by global Microsoft outage as company scrambles to solve issue](https://www.bbc.com/news/live/cq5y10ge3dp3t), BBC News, 2026-11-13 확인, 2026-11-14 다시 확인
 
-[^cnn]: [Global Microsoft outage leaves millions without access to Outlook email, Teams and other tools](https://www.cnn.com/2026/11/12/business/live-news/microsoft-global-outage-intl-hnk), CNN, 2026-11-13 확인
+[^cnn]: [Global Microsoft outage leaves millions without access to Outlook email, Teams and other tools](https://www.cnn.com/2026/11/12/business/live-news/microsoft-global-outage-intl-hnk), CNN, 라이브 보도 종료 뒤 2026-11-14 다시 확인
 
 [^nazgul]: <https://news.ycombinator.com/item?id=50472046>
 
