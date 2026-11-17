@@ -1,4 +1,4 @@
-# Haskell Foundation의 기술 리더십 위원회는 빌드 속도, 디버깅, 온보딩, 보안, 10년 된 코드의 컴파일 가능성을 비전으로 내걸었다
+# Haskell Foundation의 기술 비전
 
 원문: [A technical vision for the Haskell ecosystem](https://discourse.haskell.org/t/a-technical-vision-for-the-haskell-ecosystem/15078)
 

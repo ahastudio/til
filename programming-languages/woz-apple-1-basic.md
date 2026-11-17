@@ -1,4 +1,4 @@
-# Woz는 Apple 1 BASIC을 컴퓨터를 만들기 전에 종이에 6502 기계어로 손으로 어셈블했고, 이는 당시 8비트 취미가들의 보통 방식이었다
+# Woz는 Apple 1 BASIC을 어떻게 썼나
 
 원문: [How did Woz write the Apple 1 BASIC before building the computer?](https://retrocomputing.stackexchange.com/questions/17957)
 

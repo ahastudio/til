@@ -1,4 +1,4 @@
-# imiell은 Claude와 함께 소프트웨어 직함 104개의 계보도를 그려 직함이 쪼개지고 합쳐지고 재활용되는 패턴을 읽지만, 날짜는 출처 없는 추정이다
+# 소프트웨어 직함의 계보도
 
 원문: [A Family Tree of Software Job Titles](https://zwischenzugs.com/2026/11/03/a-family-tree-of-software-job-titles/)
 

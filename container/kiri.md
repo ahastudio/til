@@ -1,4 +1,4 @@
-# Kiri는 Docker API를 받는 Rust 데몬 하나로 컨테이너를 돌리는 데스크톱 런타임이고, “Docker보다 8배 빠르다”는 주장은 컨테이너 시작 시간 한 가지를 잰 값이다
+# Kiri: Rust로 만든 컨테이너 런타임
 
 <https://runkiri.com/>
 

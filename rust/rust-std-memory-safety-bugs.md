@@ -1,4 +1,4 @@
-# Microsoft FORGE Lab은 Rust 표준 라이브러리에서 안전한 코드만으로 정의되지 않은 동작을 일으키는 버그를 찾았고, 원인을 세 가지 잘못된 신뢰로 분류했다
+# Rust 표준 라이브러리의 메모리 안전성 버그
 
 원문: [Memory Safety Bugs in Rust Standard Library](https://forge-blog.github.io/posts/rust-std-memory-safety/)
 
