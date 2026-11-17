@@ -1,4 +1,4 @@
-# Crissy Field는 Lovable로 만든 앱 15만 9천여 개를 분석해 로그인 없이 개인 정보가 읽히는 사례를 많이 찾았지만, 30%라는 수치를 유출률로 읽으면 안 된다고 단서를 단다
+# Lovable 앱에서 노출된 개인 데이터
 
 원문: [Lovable: Many Apps Built on the Platform Expose Sensitive Data](https://www.crissyfield.de/research/lovable-en/)
 

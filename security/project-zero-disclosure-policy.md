@@ -1,4 +1,4 @@
-# Project Zero는 “90 + 30”을 버리고 보고 후 N일에 공개하는 “Full X”로 바꿔 2028년에는 30일까지 줄이겠다고 밝혔다
+# Project Zero의 새 공개 정책
 
 원문: [Policy and Disclosure: 2026 Edition](https://projectzero.google/2026/11/disclosure-policy.html)
 

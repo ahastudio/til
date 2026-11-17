@@ -1,4 +1,4 @@
-# DeepMind는 AlphaProof Code로 Signal의 libsignal을 기계어 수준에서 검증했다고 밝혔고, 증명된 것은 버그가 없다는 사실이 아니라 정해 둔 보안 명세이다
+# AlphaProof Code의 Signal 검증
 
 원문: [Introducing AlphaProof Code: a breakthrough in verifying complex software at depth](https://deepmind.google/blog/introducing-alphaproof-code/)
 

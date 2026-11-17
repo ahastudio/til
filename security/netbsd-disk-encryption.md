@@ -1,4 +1,4 @@
-# NetBSD에서는 루트를 암호화하지 않고 /home과 /var와 /usr만 cgd 파티션으로 옮겨 표준 설치와 부팅 절차를 유지하는 절충안을 쓸 수 있다
+# NetBSD의 부분 디스크 암호화
 
 원문: [Disk encryption on NetBSD - achieving secrecy](https://netbsd.org/~nia/disk-encrypt/)
 

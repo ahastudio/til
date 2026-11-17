@@ -1,4 +1,4 @@
-# PyPI는 프로젝트 페이지에 보안 탭과 출처 경고를 넣었고, 반응은 신뢰할 수 있는 게시자 제도가 소규모 제공자를 배제하는지로 갈렸다
+# PyPI 프로젝트 페이지의 보안 신호
 
 원문: [PyPI's redesigned project pages with clearer security signals are now live](https://blog.pypi.org/posts/2026-11-06-ui-updates-complete/)
 
