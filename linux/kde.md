@@ -4,6 +4,8 @@
 
 HN 토론: <https://news.ycombinator.com/item?id=50092528> (29점, 1개 댓글)
 
+GN 토론: <https://news.hada.io/topic?id=37168>
+
 ## 내용
 
 CultRepo가 2026-10-14에 올린 약 62분짜리 다큐멘터리이다.

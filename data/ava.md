@@ -2,6 +2,8 @@
 
 <https://github.com/antvis/AVA>
 
+GN 토론: <https://news.hada.io/topic?id=37317>
+
 ## 소개
 
 Ant Group의 데이터 시각화 팀 AntV가 만드는 TypeScript 라이브러리이다.
@@ -79,7 +81,7 @@ README는 질의 결과를 확인하게 하지만 생성된 SQL의 권한 제한
 ### 외부 반응
 
 HN에서 이 저장소의 주소로 올라온 스레드는 검색되지 않았고, Lobste.rs 검색(AntV와 저장소 이름)에서는 같은 조직의 다른 저장소(gatsby-theme-antv)만 나왔다.
-GeekNews는 검색 중 봇 확인 화면이 나타나 확인하지 못했다. 이는 토픽이 없다는 뜻이 아니라 검색을 하지 못했다는 뜻이다.
+GeekNews에는 토픽이 있고 사용자 댓글이 하나 있었다. 하네스 에이전트를 구현하며 DuckDB를 도구로 썼는데 이 프로젝트를 보고 배우겠다는 짧은 반응이어서 본문에 엮지 않았다.
 
 ## 인사이트
 
