@@ -1,4 +1,4 @@
-# SpaceX는 Starship 15차 비행에서 궤도 비행을 마친 우주선을 발사탑이 처음 붙잡았다고 밝혔고, 부스터는 연료 부족으로 포획을 시도하지 않았다
+# SpaceX Starship 15차 비행
 
 원문: [Starship Flight 15](https://www.spacex.com/launches/starship-flight-15)
 

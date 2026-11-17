@@ -1,4 +1,4 @@
-# 연방 판사는 삼성·SK하이닉스·마이크론의 기각 신청을 전부 거부했지만, 이는 담합이 증명되었다는 뜻이 아니라 소송을 이어 갈 만큼 그럴듯하다는 판단이다
+# DRAM 담합 소송 기각 신청 거부
 
 원문: [Judge Refuses to Dismiss DRAM Supply Conspiracy Suit Against Samsung, SK Hynix, Micron](https://litnews.ai/articles/garciaguirre-samsung-sk-hynix-micron-dram-conspiracy-suit-survives-dismissal)
 

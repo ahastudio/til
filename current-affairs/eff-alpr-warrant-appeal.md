@@ -1,4 +1,4 @@
-# EFF와 ACLU는 제6순회항소법원에 번호판 인식 데이터 검색이 영장 필요한 수색이라고 주장하는 의견서를 냈다
+# 번호판 인식 검색과 영장 의견서
 
 원문: [We’re Asking an Appeals Court to Require a Warrant for ALPR Searches](https://www.eff.org/deeplinks/2026/11/were-asking-appeals-court-require-warrant-alpr-searches)
 

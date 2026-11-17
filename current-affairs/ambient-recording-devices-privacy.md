@@ -1,4 +1,4 @@
-# EFF는 상시 녹음·기록 기기가 프라이버시를 개인의 선택에서 주변 모든 사람의 문제로 바꾼다고 주장하지만, 기기별 기술 비교는 다음 글로 미룬다
+# 상시 녹음 기기와 프라이버시
 
 원문: [Tech Companies Are Trying to Shift the Concept of Privacy Again](https://www.eff.org/deeplinks/2026/11/tech-companies-are-trying-shift-entire-concept-privacy-again)
 

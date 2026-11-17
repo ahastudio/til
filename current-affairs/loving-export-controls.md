@@ -1,4 +1,4 @@
-# 한 개인 블로거는 칩 수출 통제를 지지하는 미국 AI 연구소들이 오히려 해로운 쪽이라고 주장하지만, 근거로 든 사건 대부분은 글만으로는 확인되지 않는다
+# AI 연구소와 칩 수출 통제
 
 원문: [Machines of Loving Export Controls](https://mercuriusdream.com/loving-controls/)
 

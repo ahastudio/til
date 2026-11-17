@@ -1,4 +1,4 @@
-# Mercuria 선박 중개인의 법정 진술서는 호르무즈 위기 때 해협 안에서 유조선 계약이 사실상 불가능했고 감소하는 체선료와 Adnoc 셔틀이 해법이었음을 보여 준다
+# 호르무즈 위기와 Mercuria 진술서
 
 원문: [A rare glimpse inside the high-risk, high-reward Hormuz trade](https://www.lloydslist.com/LL1158922/A-rare-glimpse-inside-the-highrisk-highreward-Hormuz-trade)
 

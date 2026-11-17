@@ -1,4 +1,4 @@
-# Gary Marcus는 Amodei의 질병 극복 전망에 대한 전문가 반박을 모아 Eli Lilly CEO까지 가세했다고 전하지만, 반박의 핵심 근거는 임상 시간과 데이터의 한계이다
+# Amodei의 질병 극복 전망에 대한 반박
 
 원문: [Breaking: Eli Lilly CEO becomes latest to push back on Dario Amodei’s ludicrous, Elizabeth Holmes-like medical claims](https://garymarcus.substack.com/p/breaking-eli-lilly-ceo-becomes-latest)
 
