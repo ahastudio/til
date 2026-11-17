@@ -66,8 +66,16 @@ def check_header(lines, issues):
     if not lines or not lines[0].startswith("# "):
         issues.append("1: 첫 줄이 H1이 아님")
         return None
-    if not re.search(r"[가-힣]", lines[0]):
-        issues.append("1: H1에 한글이 없음 (H1은 한국어 산문)")
+    title = lines[0][2:].strip()
+    width = sum(2 if ord(c) > 0x2E80 else 1 for c in title)
+    if width > 50:
+        issues.append(f"1: H1이 너무 김 ({width}칸, 최대 50칸). 한 문장으로 짧고 평범하게")
+    if re.search(r"(지만|면서|으며|이며|므로|도록|라며|다며|인데|는데|고 말|다고)\b|[,;:] .*[,;] ", title):
+        issues.append("1: H1이 여러 절을 이어 붙임 (한 절로. 접속어와 쉼표 나열 금지)")
+    if len(re.findall(r"\d[\d.,]*", title)) > 2:
+        issues.append("1: H1에 숫자가 너무 많음 (숫자는 본문에)")
+    if re.search(r"(라고|다고|한다고|했다고) ?(말하지만|주장하지만|하지만|보고하지만|밝히지만)|근거는|자기 ?보고|자사 ?(보고|발표|측정)", title):
+        issues.append("1: H1에 비평·단서가 들어 있음 (제목은 대상이나 주장만, 비평은 ## 비평에)")
     if len(lines) > 1 and lines[1].strip():
         issues.append("2: H1 다음에 빈 줄이 없음")
 

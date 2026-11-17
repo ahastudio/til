@@ -3,7 +3,7 @@ name: analyze-article
 description: >-
   Read a web source — an article OR a non-article (GitHub repo, project
   homepage, service site) — and write a TIL document (in Korean). The H1 title
-  is written in Korean. Published pieces (articles, posts, papers, tweets,
+  should read well for Korean readers (Korean preferred, not required). Published pieces (articles, posts, papers, tweets,
   videos) get a `원문: [원문 제목](URL)` titled-link source line and a
   `## 요약` section; non-articles get bare URL line(s) with NO `원문:`
   label, no titled link, and a fitting first heading like `## 소개`. Body
@@ -30,7 +30,7 @@ points to when you reach that step instead of relying on an earlier read.
 
 - Usage, Multiple URLs in one invocation: queue handling, one document at a time
 - 1. Fetch the source; 2. Check for duplicates: both are in this file
-- 3, 3-1, 3a, 4. Classify the subject and choose the source-link line: [references/subject-and-source-line.md](references/subject-and-source-line.md) (article vs. non-article, product pages, Korean H1, `원문:` vs. bare URL)
+- 3, 3-1, 3a, 4. Classify the subject and choose the source-link line: [references/subject-and-source-line.md](references/subject-and-source-line.md) (article vs. non-article, product pages, short H1, `원문:` vs. bare URL)
 - 4a. Special source types: [references/special-sources.md](references/special-sources.md) (Twitter, YouTube with `yt-dlp`, papers, press releases, forum threads)
 - 5, 5a, 6, 7. Choose the body structure and write: [references/body-structure.md](references/body-structure.md) (argue vs. teach, both templates) and [references/writing-rules.md](references/writing-rules.md) (line breaks, headings, code fences)
 - 7a, 7b. Keep the document shape and the footnotes exact: [references/document-shape-and-footnotes.md](references/document-shape-and-footnotes.md) (closed header, closed section set, footnote rules)
@@ -43,6 +43,7 @@ These hold even if only the top of this file is read. The steps below and the
 reference files give the full rules.
 
 - Never write from a title, a summary or memory. If the source cannot be read, stop and report.
+- **The H1 is short and plain (ABSOLUTE).** One clause, at most 50 display columns, a topic or a single plain claim. Never a thesis sentence: no `A는 B라고 말하지만 C이다`, no critique or caveat in the title, no stacked numbers, no connectives (`~지만`, `~며`, `~면서`). Write it the way a person would name the document. The gate fails violations. Detail: references/subject-and-source-line.md step 3a.
 - Source line: a published piece gets `원문: [제목](<URL>)` (or its labeled variant); a thing (repository, homepage) gets bare URL line(s), never `원문:`.
 - The header is closed: H1, one source line, then HN, Lobste.rs, GN lines. The analyzed source never takes a footnote.
 - An analytical body carries `## 분석`, `## 비평`, `## 인사이트`, all three, in that order.
@@ -143,7 +144,7 @@ source. Say which case it is when reporting.
 ### 3, 3-1, 3a, 4. Classify the subject and choose the source-link line
 
 Read [references/subject-and-source-line.md](references/subject-and-source-line.md)
-before writing anything. It decides the source-link line and the Korean H1.
+before writing anything. It decides the source-link line and the H1.
 
 - A published piece (article, post, paper, tweet, video) gets
   `원문: [<원문 제목>](<URL>)` or its labeled variant, never a bare URL.
@@ -151,7 +152,7 @@ before writing anything. It decides the source-link line and the Korean H1.
   `<URL>` line(s) with no label and no link text. Never `원문:`.
 - A product page is a source about the product; the document is about the
   product and attributes claims to its maker.
-- The H1 is Korean prose that carries the source's claim.
+- The H1 is short and plain and easy for a Korean reader; Korean is preferred, not required.
 
 ### 4a. Special source types
 

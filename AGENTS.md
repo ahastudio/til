@@ -24,6 +24,7 @@ are authoritative. Search for a section title to read it in full.
 - Report Completion With Evidence: state the check that was run and what it printed; a bare "done" or "all pass" is not a report; a subagent's success report is not evidence
 - Rules: which skill or rule file applies (commit message, any `.md` file, web fetching, slash commands)
 - Rule Writing Guidelines: write behavioral principles, keep rules agent-agnostic; write only what the agent cannot find in the repository; keep files short; a rule with no exceptions is also enforced by the agent's enforcement settings, and growing emphasis is the signal to move it there; prefer a check that returns pass or fail
+- Document Titles: the H1 is short and plain, one clause, no thesis sentence, no critique or caveat in it; the gate enforces it
 - Every Text File Ends With A Newline: every text file you create or edit ends with exactly one newline; measure the last byte after every write, after every script that rewrites the file, and for all touched files before reporting
 - Forbidden Actions: never use the memory system; never touch global paths such as `~/.claude/`; never declare something missing from one failed search
 - Documentation Work: separate what a source reports from inference and recommendation; the analyzed source never takes a footnote; outside pages get exact footnotes per sentence; the service is Twitter, never X; do not force English terms into Korean; every sentence must make sense to a stranger
@@ -465,6 +466,29 @@ When adding or editing rules in this file:
   preferences in prose.
 - Prefer a check that comes back pass or fail over a description of quality,
   and name the command that runs it.
+
+## Document Titles (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**The H1 of a TIL document is short and plain: one clause, at most 50 display
+columns (a Hangul syllable counts as 2). Name the subject or state the single
+point, the way a person would label the document.**
+
+Root cause of a repeated failure: titles were written as thesis sentences that
+packed the source's claim, several figures, and the document's own verdict into
+one long line. It reads as showing off, and the user finds that style
+repellent.
+
+- Forbidden: a title with a connective or a second clause (`~지만`, `~며`,
+  `~면서`, a comma list), a critique or caveat inside the title (`근거는 …`,
+  `자사 보고`, `…라고 주장하지만`), stacked numbers, and any title that works as
+  a thesis statement.
+- The H1 does not have to be Korean. Make it easy for a Korean reader where
+  that comes naturally; never force a stiff translation.
+- Critique goes in `## 비평`, numbers in the body, never in the H1.
+- The format gate (`check_format.py`) fails such titles. A document is not
+  finished until it passes.
+- When a title is corrected, retitle every document written in the same
+  session in the same pass.
 
 ## Every Text File Ends With A Newline (ABSOLUTE PRIORITY — NO EXCEPTIONS)
 

@@ -4,7 +4,7 @@
 
 - [3. Classify the subject — article vs. non-article (CRITICAL)](#3-classify-the-subject-article-vs-non-article-critical)
 - [3-1. A product is the subject, its page is only a source (STRICT RULE)](#3-1-a-product-is-the-subject-its-page-is-only-a-source-strict-rule)
-- [3a. Document title (H1) — write it in Korean](#3a-document-title-h1-write-it-in-korean)
+- [3a. Document title (H1) — short, plain, easy for a Korean reader](#3a-document-title-h1-short-plain-easy-for-a-korean-reader)
 - [4. Source-link line — STRICT RULE (NO EXCEPTIONS)](#4-source-link-line-strict-rule-no-exceptions)
 
 ## 3. Classify the subject — article vs. non-article (CRITICAL)
@@ -60,22 +60,35 @@ document read as a summary of marketing copy, which is the wrong subject.
   opposite. When extracted text and the rendered table cannot be matched
   with certainty, open the page in the browser and read the cells.
 
-## 3a. Document title (H1) — write it in Korean
+## 3a. Document title (H1) — short, plain, easy for a Korean reader
 
-**The `#` heading is written in Korean, not copied from the source.**
-The document is a Korean note; its title is the first thing the reader sees
-and must read as Korean prose.
+**The `#` heading should be easy for a Korean reader to read. Korean is
+preferred where it comes naturally, but it is NOT required.** A title in English,
+or a mix, is fine when that reads better (a product name, an established term, a
+source title that is already short and clear). Do not force a stiff translation
+just to make the title Korean.
 
 - Convey what the source is about. Do not transliterate the English title into
-  Hangul, and do not paste the original title as the H1.
+  Hangul. Using the source's own short, clear title as the H1 is fine; a long or
+  clickbait source title is shortened and plainly restated.
 - Keep product names, project names, and established technical terms in their
   original form: `SwiftUI`, `ClickHouse`, `Soppo`, `PostgreSQL`, `MCP`.
   Translate the surrounding words, not these.
 - A `<제품명>: <한국어 설명>` shape works well when the subject is a named
   thing. A plain Korean sentence or noun phrase works well when the subject is
   an argument.
-- If the source title carries a claim, the Korean H1 should carry that claim
-  too — do not flatten it into a neutral topic label.
+- If the source title carries a claim, the H1 should carry that claim
+  too, plainly — do not flatten it into a neutral topic label.
+- **The H1 is short and plain.** One clause, at most 50 display columns (a
+  Hangul syllable counts as 2, so about 25 syllables). The gate fails a longer
+  one. Say what the source is or claims, in the words a person would use when
+  telling a friend about it.
+- **No clever, clause-stacked, GeekNews-style titles. Do not play the smart analyst in the title.** Do not pack the source's
+  claim, the numbers, and the document's own verdict into one sentence. Forbidden
+  shapes: `A는 B라고 말하지만 근거는 C이다`, `…지만, …는 …에 불과하다`, a title that
+  already contains the critique (`자사 보고`, `근거는 …`, `주장하지만`), several
+  figures in a row, and a title that sounds like a thesis statement. Critique
+  belongs in `## 비평`, numbers in the body.
 
 Examples:
 
@@ -86,14 +99,16 @@ Examples:
 | GitHub has alternatives, but no replacement  | GitHub에는 대안이 있지만 대체재는 없다 |
 | Soppo (project homepage)                     | Soppo: Go에 빠진 기능을 더한 언어      |
 | The next chapter of our AI momentum          | Google AI 모멘텀의 다음 장             |
+| Qwen4-Max: Your New Teammate Has Arrived     | Qwen4-Max 공개                         |
+| All Code Is Slop (Except Mine)               | 에이전트 코드를 믿게 만드는 방법       |
 
 This rule governs the H1 only. Two things stay in their original language:
 
 - The `원문:` link text keeps the source's own title, untranslated (step 4).
 - The file name stays lowercase English kebab-case.
 
-If the H1 is in English, the document is wrong regardless of how good the body
-is. Fix it before writing the first section.
+An English or mixed H1 is allowed. What is not allowed is a long, clever,
+thesis-like title in any language.
 
 **This rule applies to documents written from now on only.** Many existing TIL
 documents have English H1 titles. That is a settled decision, not a backlog:

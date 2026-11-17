@@ -14,7 +14,7 @@ specific release or incident by its identifier. Add words only to
 disambiguate, and only words that narrow the subject.
 
 Keep it short. Do not transliterate Korean; the name stays English even
-though the H1 is Korean (step 3a).
+though the H1 follows step 3a.
 
 **Mandatory check before writing the file:**
 
@@ -64,7 +64,7 @@ and stop; do not route around it silently.
 The script checks shape. These remain your judgment, and are checked by
 reading the file you just wrote:
 
-1. Is the H1 Korean prose that carries the source's claim, rather than a
+1. Is the H1 short, plain and easy for a Korean reader, rather than a
    transliteration or a flattened topic label?
 2. Does the body structure match step 5a's choice — analytical for a source
    that argues, practical for one that teaches?
