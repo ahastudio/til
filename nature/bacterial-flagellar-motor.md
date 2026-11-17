@@ -1,4 +1,4 @@
-# Oxford Molecular Motors 그룹의 박테리아 편모 모터 페이지는 이온 흐름으로 도는 회전 엔진의 구조와 조립과 부품 교환을 소개하고, 페이지의 갱신 여부는 불확실하다
+# 박테리아 편모 모터
 
 <https://www.physics.ox.ac.uk/research/group/oxford-molecular-motors/research/bacterial-flagellar-motor>
 

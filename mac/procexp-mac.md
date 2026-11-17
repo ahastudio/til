@@ -1,4 +1,4 @@
-# Procexp-Mac는 Sysinternals Process Explorer를 macOS로 옮긴 Microsoft 저장소이고, 첫 반응은 기능보다 모양과 라이선스에 쏠렸다
+# Procexp-Mac: macOS용 Process Explorer
 
 <https://github.com/microsoft/Procexp-Mac>
 

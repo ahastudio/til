@@ -1,4 +1,4 @@
-# “500 Lines or Less”의 3D 모델러는 씬 그래프와 콜백 두 가지 구조로 레거시 OpenGL 위에 CAD의 세 기능을 파이썬으로 구현한다
+# 500 Lines or Less의 3D 모델러
 
 원문: [500 Lines or Less: A 3D Modeller](https://aosabook.org/en/500L/a-3d-modeller.html)
 

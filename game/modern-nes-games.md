@@ -1,4 +1,4 @@
-# Jordi는 지금을 NES의 두 번째 부흥기라고 부르며 신작 NES 게임 25개를 순위 없이 가나다순으로 소개하고, 하드웨어 한계를 비트는 기법을 중심에 둔다
+# NES의 두 번째 부흥기
 
 원문: [25 of my favourite modern NES games](https://jordi.inversethought.com/blog/25-of-my-favourite-modern-nes-games/)
 

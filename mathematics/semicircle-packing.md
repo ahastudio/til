@@ -1,4 +1,4 @@
-# rorz는 Paradigm의 반원 15개 포장 퍼즐을 손그림과 직접 만든 도구와 Codex로 풀어 반지름 2.94853에 이르렀고, 가장 즐거웠던 것은 순위가 아니라 도구 만들기였다고 쓴다
+# 반원 포장 퍼즐
 
 원문: [Semicircle packing](https://rorz.io/writing/semicircle-packing)
 

@@ -1,4 +1,4 @@
-# 중고 휴대폰 한 대에 카메라와 GPS와 저장소가 이미 들어 있어 Raspberry Pi 조합보다 싸다는 주장은 개수와 갱신 문제에서 힘이 약해진다
+# 라즈베리 파이 대신 중고 휴대폰
 
 원문: [Why get an expensive Pi when I have an old phone?](https://so.long.thanks.fish/why-pi-when-i-have-an-old-phone/)
 

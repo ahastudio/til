@@ -1,4 +1,4 @@
-# Apollo의 유탄 발사기는 무기가 아니라 능동 지진 탐사 실험의 폭발원이었다는 한 줄 답변이 HN에서는 농담과 운영 방식 논쟁을 불렀다
+# Apollo의 유탄 발사기
 
 원문: [Why did some Apollo missions carry a grenade launcher?](https://space.stackexchange.com/questions/37775/why-did-some-apollo-missions-carry-a-grenade-launcher)
 

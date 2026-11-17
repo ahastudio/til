@@ -1,4 +1,4 @@
-# Quanta는 생명 기원 연구가 하나의 분자를 찾는 싸움에서 여러 분자의 계와 기능으로 옮겨 갔다고 정리하지만, 생명을 실험실에서 만든 사례는 아직 없다
+# 생명 기원 연구의 새 시각
 
 원문: [The Evolving Story of How Chemistry Became Biology](https://www.quantamagazine.org/the-evolving-story-of-how-chemistry-became-biology-20261112/)
 

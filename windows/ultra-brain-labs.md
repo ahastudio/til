@@ -1,4 +1,4 @@
-# Ultra-Brain-Labs는 KERNEL32.dll 하나만 쓰는 C11 파일 세 개로 로컬 에이전트 파이프와 MCP 어댑터를 만들고, 모든 수치에 CI 출처를 단다
+# Ultra-Brain-Labs: 로컬 에이전트 런타임
 
 <https://github.com/CSY8515/Ultra-Brain-Labs>
 

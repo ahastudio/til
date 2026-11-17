@@ -1,4 +1,4 @@
-# Bond 영화의 코르크스크루 점프는 Cornell 연구소의 충돌 시뮬레이션 기술자가 컴퓨터로 계산해 설계한 첫 스턴트였다는 기사는 지금 사실로 확인하기 어려운 인터뷰 증언에 기댄다
+# Bond 영화의 코르크스크루 점프
 
 원문: [Astro Spiral: The Greatest Car Stunt Was Also The World’s First Computer-Modeled Stunt](https://boldentrance.com/astro-spiral-the-greatest-car-stunt/)
 

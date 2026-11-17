@@ -1,4 +1,4 @@
-# Sold For What?는 사진 한 장을 보고 실제 거래 가격을 맞히는 브라우저 게임이고, 문제 수는 글의 109개에서 사이트의 349개로 늘어 있었다
+# Sold For What?: 거래 가격 맞히기 게임
 
 <https://soldforwhat.pages.dev/ko/>
 

@@ -1,4 +1,4 @@
-# Erik Gauger는 시칠리아의 모든 감귤이 아시아 야생 원종 넷에서 나왔다는 계보도를 그렸고, HN은 단독 페이지로는 설명이 부족하다고 지적했다
+# 시칠리아 감귤의 족보
 
 원문: [The Sicilian Citrus Family Tree](https://www.notesfromtheroad.com/europa/citrus-family-tree.html)
 

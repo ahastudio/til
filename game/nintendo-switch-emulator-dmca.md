@@ -1,4 +1,4 @@
-# Nintendo가 GitHub에 DMCA 통지 네 건을 보내 Switch 에뮬레이터 둘과 모드칩 펌웨어 저장소 144개를 내렸고, IGN은 이를 AI 시대의 에뮬레이션 단속으로 읽는다
+# Nintendo의 Switch 에뮬레이터 DMCA 통지
 
 원문: [Nintendo Takes Down Switch Emulators and Mod Chip Firmware in Massive GitHub DMCA Sweep](https://www.ign.com/articles/nintendo-takes-down-switch-emulators-and-mod-chip-firmware-in-massive-github-dmca-sweep)
 
