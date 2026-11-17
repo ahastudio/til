@@ -1,4 +1,4 @@
-# OpenAI는 기업이 ChatGPT에서 소유권을 등록하고 비즈니스 에이전트로 고객과 대화하는 기능을 베타로 열었고, 반응은 광고 사업의 확장으로 읽는 쪽이 많았다
+# ChatGPT의 비즈니스 에이전트
 
 원문: [Introducing Businesses in ChatGPT | OpenAI](https://openai.com/index/introducing-businesses-chatgpt/)
 

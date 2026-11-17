@@ -1,4 +1,4 @@
-# iOS 음악 앱 개발자들은 App Store 심사가 몇 주씩 걸리고 자동 거절이 반복된다고 말하지만, 원인이 AI라는 부분은 추정이다
+# App Store 심사가 길어졌다는 앱 개발자들
 
 원문: [AI is turning Apple’s app review process into a nightmare for developers](https://synthanatomy.com/2026/11/ai-is-turning-apples-app-review-process-into-a-nightmare-for-developers.html)
 

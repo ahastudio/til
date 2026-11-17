@@ -1,4 +1,4 @@
-# 미시간대 연구진은 오픈 모델 세 개로 비영어 텍스트를 만들 때 에너지가 1.4배에서 180배 든다고 측정했고, 원인은 토큰 수라고 설명한다
+# 비영어 텍스트 생성의 에너지 비용
 
 원문: [Generative AI uses more energy on non-English text](https://news.umich.edu/generative-ai-uses-more-energy-on-non-english-text/)
 

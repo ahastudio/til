@@ -1,4 +1,4 @@
-# Bain Capital Ventures는 기업용 AI 제품 가격에 정답이 없고, 고정과 변동을 섞은 모델이 많으며 구매자는 사용량 과금을 싫어한다고 정리한다
+# 기업용 AI 가격 책정 패턴
 
 원문: [There Is No AI Pricing Playbook. Here Are the Patterns Winning Right Now.](https://baincapitalventures.com/insight/there-is-no-ai-pricing-playbook-here-are-the-patterns-winning-right-now/)
 

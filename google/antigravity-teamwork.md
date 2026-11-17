@@ -1,4 +1,4 @@
-# Google은 Antigravity /teamwork와 Gemini 4로 수학·화학·시스템 엔지니어링의 미해결 문제 결과를 한꺼번에 공개했고, 글의 문장 품질과 도구 차별성에는 의문이 따랐다
+# Antigravity /teamwork 공개
 
 원문: [Advancing science & engineering with Antigravity’s /teamwork](https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/)
 

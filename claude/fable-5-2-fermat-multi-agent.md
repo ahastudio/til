@@ -1,4 +1,4 @@
-# Anthropic은 에이전트 1,000개가 Fable 5.2 초기 버전으로 페르마의 마지막 정리를 28.7시간에 다시 형식화했다고 밝히며, 이를 샌드박스와 이중 감시 안에서 한 장난감 실험이라고 부른다
+# Fable 5.2와 페르마의 마지막 정리
 
 원문: [Safely scaling multi-agent teams with Claude Fable 5.2](https://claude.dev/blog/safely-scaling-multi-agent-teams-with-fable-5-2/)
 

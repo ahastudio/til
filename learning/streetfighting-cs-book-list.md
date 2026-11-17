@@ -1,4 +1,4 @@
-# “거리 싸움꾼 컴퓨터 과학자”용 도서 목록은 30여 권을 입문과 중급과 고급으로 나누고, 머신러닝과 양자와 보안과 가속기는 일부러 뺀다
+# 거리 싸움꾼 컴퓨터 과학자용 도서 목록
 
 원문: [Book list for streetfighting computer scientists](https://nick-black.com/dankwiki/index.php?title=Book_list_for_streetfighting_computer_scientists)
 

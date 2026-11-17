@@ -1,4 +1,4 @@
-# deepseek-v3-jax는 DeepSeek-V3의 핵심 구조를 순수 JAX 190줄로 다시 짜 맥북 에어에서 3,620만 파라미터 모델을 2.6시간 학습시킨 구현이다
+# deepseek-v3-jax
 
 <https://github.com/Vaibhaav-Tiwari/deepseek-v3-jax>
 
