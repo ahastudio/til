@@ -1,5 +1,7 @@
 # DESIGN.md — Google Labs의 AI 에이전트용 디자인 시스템 명세 형식
 
+<https://stitch.google.com/docs/design-md/specification>
+
 <https://github.com/google-labs-code/design.md>
 
 ## 명세
@@ -15,6 +17,11 @@ YAML 프론트매터(front matter)에 기계 판독 가능한 디자인 토큰�
 컴포넌트 토큰은 `{colors.primary}`처럼 중괄호 참조 문법으로 다른 토큰을 가리킬 수 있다.
 섹션 순서도 규정되어 있으며, Overview, Colors, Typography, Layout, Elevation & Depth,
 Shapes, Components, Do's and Don'ts의 8개 섹션이 이 순서로 등장해야 한다.
+
+저장소가 홈페이지로 등록한 주소는 stitch.google.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Stitch - Design with AI”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## CLI
 

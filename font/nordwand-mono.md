@@ -1,5 +1,7 @@
 # Nordwand Mono: Python 코드로 그린 코딩용 네오 그로테스크 고정폭 글꼴
 
+<https://tywr.github.io/Nordwand-Mono/>
+
 <https://github.com/tywr/Nordwand-Mono>
 
 HN 토론: <https://news.ycombinator.com/item?id=50141581> (543점, 152개 댓글)
@@ -23,6 +25,11 @@ Sharp Type의 Alpes Mono, Dalton Maag의 Ubuntu Mono를 든다.
 코드는 MIT 라이선스(`LICENSE.txt`)이고
 글꼴 자체는 SIL Open Font License 1.1(`LICENSE-FONT.txt`)이다.[^license]
 README는 두 라이선스를 언급하지 않으므로 저장소 파일을 열어야 알 수 있다.
+
+저장소가 홈페이지로 등록한 주소는 tywr.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Nordwand Mono – Free Monospaced Programming Font”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 특징
 

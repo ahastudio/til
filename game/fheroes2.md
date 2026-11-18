@@ -1,5 +1,7 @@
 # fheroes2: Heroes of Might and Magic II 엔진을 처음부터 다시 만든 오픈소스 프로젝트
 
+<https://ihhub.github.io/fheroes2/>
+
 <https://github.com/ihhub/fheroes2>
 
 HN 토론: <https://news.ycombinator.com/item?id=50230384> (147점, 50개 댓글)
@@ -24,6 +26,11 @@ README의 목표는 원작을 재현하면서 게임플레이와 그래픽, 로�
 후원은 Patreon, PayPal, Boosty로 받고, 전부 앞으로의 개발에만 쓴다고 밝힌다.
 그래픽 제작, 번역, 문서 사이트 개발에도 참여할 수 있고, 소통 창구는 Facebook,
 VK, Discord다.
+
+저장소가 홈페이지로 등록한 주소는 ihhub.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “fheroes2 | A recreation of the Heroes of Might and Magi…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 설치와 원본 게임 파일
 

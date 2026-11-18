@@ -1,6 +1,6 @@
 # MonoSketch
 
-<https://monosketch.io>
+<https://monosketch.io/>
 
 MonoSketch는 ASCII 기반으로 스케치와 다이어그램을 만드는 도구다.
 공식 사이트의 핵심 문구는

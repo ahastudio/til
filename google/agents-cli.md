@@ -1,5 +1,7 @@
 # agents-cli: 코딩 에이전트를 Google Cloud 에이전트 전문가로 만드는 스킬
 
+<https://google.github.io/agents-cli/>
+
 <https://github.com/google/agents-cli>
 
 ## 소개
@@ -36,6 +38,11 @@ CLI 명령은 넓다.
 평가 방법론에는 LLM-as-judge와 적응형 루브릭이 들어간다.
 로컬 개발(create·run·eval)에는 AI Studio API 키만 있으면 되고,
 배포와 클라우드 기능에는 Google Cloud가 필요하다.
+
+저장소가 홈페이지로 등록한 주소는 google.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Agents CLI: build AI agents on Google Cloud that meet y…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

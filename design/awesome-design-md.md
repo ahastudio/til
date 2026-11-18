@@ -1,5 +1,7 @@
 # Awesome DESIGN.md
 
+<https://getdesign.md/>
+
 <https://github.com/VoltAgent/awesome-design-md>
 
 ## 요약
@@ -27,6 +29,11 @@ AI 에이전트에게 “이 디자인 시스템을 따라 페이지를 만들�
 커스텀 DESIGN.md 요청 서비스와 스폰서십 프로그램도 운영한다.
 기여는 기존 파일 개선과 이슈 제보를 중심으로 이루어지며,
 PR 제출 전 이슈를 먼저 열도록 안내한다.
+
+저장소가 홈페이지로 등록한 주소는 getdesign.md이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “getdesign.md — DESIGN.md collection for AI coding agents”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

@@ -1,5 +1,7 @@
 # GeoLibre: 설치 없이 브라우저에서 도는 클라우드 네이티브 GIS
 
+<https://geolibre.app/>
+
 <https://github.com/opengeos/GeoLibre>
 
 HN 토론: <https://news.ycombinator.com/item?id=48479852> (301점, 23개 댓글)
@@ -26,6 +28,11 @@ GeoJSON·GeoParquet·GeoPackage·Shapefile 같은 로컬 벡터 레이어를 지
 베이스맵·스트리트뷰·LiDAR·GeoAgent 플러그인 시스템을 갖췄다.
 QGIS와 직접 경쟁하기보다,
 클라우드 네이티브 워크플로에 최적화된 브라우저 우선의 보완재를 자처한다.
+
+저장소가 홈페이지로 등록한 주소는 geolibre.app이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Home - GeoLibre”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

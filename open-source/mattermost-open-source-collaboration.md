@@ -1,5 +1,7 @@
 # Mattermost: 셀프호스팅 팀 협업 플랫폼
 
+<https://mattermost.com/>
+
 <https://github.com/mattermost/mattermost>
 
 HN 토론: <https://news.ycombinator.com/item?id=31858829> (264점, 127개 댓글)
@@ -24,6 +26,11 @@ Android, iOS, Windows, macOS, Linux 네이티브 앱을 제공한다.
 오픈코어(open core) 모델이다.
 기본 기능은 오픈소스(MIT)이고, 고급 보안/컴플라이언스/엔터프라이즈 기능은
 유료 구독(Professional, Enterprise)으로 제공된다.
+
+저장소가 홈페이지로 등록한 주소는 mattermost.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Mattermost | Operational and AI Sovereignty for Critica…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 
@@ -52,9 +59,9 @@ HashiCorp가 BSL 라이선스로 전환해 커뮤니티 반발을 샀던 사례�
 
 Lobste.rs의 초기 반응은 라이선스 전략의 변천을 보여주는 역사적 단면이다.
 Mattermost 1.0 출시 당시 stip[^stip-lobsters]은
-"AGPL이므로 바이너리를 그대로 사용하거나 상업 라이선스를 구입하지 않으면
-수정 사항을 공개해야 한다"고 경고했다.
-Hamcha[^hamcha-lobsters]는 이에 "상업 라이선스 옵션이 있다면 AGPL이 사실상 무의미해진다"고 반박했다.
+“AGPL이므로 바이너리를 그대로 사용하거나 상업 라이선스를 구입하지 않으면
+수정 사항을 공개해야 한다”고 경고했다.
+Hamcha[^hamcha-lobsters]는 이에 “상업 라이선스 옵션이 있다면 AGPL이 사실상 무의미해진다”고 반박했다.
 이 비판은 오픈코어 모델의 핵심 모순을 정확히 짚는다.
 카피레프트로 커뮤니티 기여를 유인하면서 동시에 상업 라이선스로 탈출구를 열어두면,
 커뮤니티는 라이선스가 실제로는 영업 도구임을 눈치챈다.
@@ -137,7 +144,7 @@ Mattermost가 이 포지셔닝에 집중하는 것은 올바른 전략이다.
 karaterobot[^karaterobot]은 4년간 DigitalOcean 최저가 드롭릿에서 Mattermost를 운영한 경험을 공유했다.
 Slack의 1만 메시지 제한에서 벗어나기 위해 이전했지만,
 무료 버전에서는 검색 품질이 낮고 비공개 대화 내보내기가 불가능하다는 점을 지적했다.
-"유료 결제를 안 하니 이해한다"면서도, "메시지 내보내기 불가는 사실상의 Lock-in"이라고 평했다.
+“유료 결제를 안 하니 이해한다”면서도, “메시지 내보내기 불가는 사실상의 Lock-in”이라고 평했다.
 
 오픈소스 셀프호스팅을 선택한 이유가 데이터 주권임에도,
 자신의 데이터를 완전히 이동할 수 없는 구조는 아이러니다.

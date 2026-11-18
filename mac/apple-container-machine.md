@@ -1,5 +1,7 @@
 # apple/container — Apple Silicon Mac의 네이티브 리눅스 컨테이너
 
+<https://apple.github.io/container/documentation/>
+
 <https://github.com/apple/container>
 
 HN 토론: <https://news.ycombinator.com/item?id=44229348> (769점, 409개 댓글)
@@ -23,6 +25,11 @@ Swift 코드가 Linux 사용자 공간 바이너리로 빌드된다는 사실 �
 
 저장소에 `.claude/` 디렉토리가 포함되어 있어 Claude Code를 통한 AI 기여를 공식적으로 장려하고 있다.
 Apple이 오픈소스 프로젝트에 AI 협업 도구를 직접 포함시킨 점이 눈길을 끈다.
+
+저장소가 홈페이지로 등록한 주소는 apple.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Documentation”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## Container Machine
 
@@ -90,10 +97,10 @@ dontdoxxme[^dontdoxxme-mem]는 공식 기술 문서를 인용하며 아직 미�
 
 ## 비평
 
-Lobste.rs의 ianloic[^ianloic]은 "언제부터 'container'가 'Linux VM 실행'을 의미하게 됐냐"고 직접적으로 물었다.
+Lobste.rs의 ianloic[^ianloic]은 “언제부터 'container'가 'Linux VM 실행'을 의미하게 됐냐”고 직접적으로 물었다.
 Apple이 macOS 컨테이너화를 드디어 제공한다고 기대했다가 실망했다는 반응이다.
 sknebel[^sknebel]은 대부분의 개발자가 Linux 컨테이너만 접해봤기 때문에 그것이 사실상 표준으로 굳었다고 반박했지만,
-"native macOS 컨테이너도 있으면 좋겠다"고 덧붙였다.
+“native macOS 컨테이너도 있으면 좋겠다”고 덧붙였다.
 Microsoft의 Windows 컨테이너, FreeBSD의 OCI 컨테이너가 이미 존재하는 상황에서,
 Apple만 자사 OS 네이티브 컨테이너를 제공하지 않는다는 지적은 유효하다.
 
@@ -128,7 +135,7 @@ Apple이 커뮤니티 기여를 AI 도구와 함께 공식화하는 방향은 �
 
 ### 오픈소스 협업 태도의 변화
 
-HN의 pxc[^pxc]는 저장소 README에 "기여를 환영하고 장려한다"는 문구가 포함된 점을 Apple로서는 매우 이례적이라고 평가했다.
+HN의 pxc[^pxc]는 저장소 README에 “기여를 환영하고 장려한다”는 문구가 포함된 점을 Apple로서는 매우 이례적이라고 평가했다.
 WebKit은 KHTML의 적대적 포크에서 출발했고, Darwin은 필요에 따라 코드를 공개하는 방식이었다는 점에서,
 이번 프로젝트가 진정한 커뮤니티 협업의 선례가 될 수 있다는 기대를 표명했다.
 holycrapwhodat[^holycrapwhodat]은 이를 반박하며, WebKit은 2005년부터 이미 공개 버그 트래커와 패치 리뷰를 갖춘 정식 오픈소스 프로젝트였고
@@ -138,7 +145,7 @@ Swift도 2015년부터 그러했다고 지적했다.
 ### Linux의 사실상 표준 지위
 
 sho_hn[^sho_hn]은 이제 두 주요 데스크톱 OS(Windows의 WSL, macOS의 `container`)가 모두 리눅스 VM을 공식 지원한다는 사실에서
-"Linux가 이겼다"는 역설적 결론을 도출했다.
+“Linux가 이겼다”는 역설적 결론을 도출했다.
 리눅스 자체가 데스크톱을 정복한 것이 아니라, 리눅스 syscall API가 사실상 가장 광범위한 애플리케이션 인터페이스가 됐다는 의미다.
 
 ### Apple 클라우드 진출의 포석

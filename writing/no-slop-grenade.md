@@ -1,6 +1,6 @@
 # 슬롭 수류탄을 던지지 말라고 대신 말해 주는 한 장짜리 사이트
 
-<https://noslopgrenade.com>
+<https://noslopgrenade.com/>
 
 HN 토론: <https://news.ycombinator.com/item?id=48219992> (717점, 417개 댓글)
 

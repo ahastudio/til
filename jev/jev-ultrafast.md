@@ -1,5 +1,7 @@
 # Jev Ultrafast: 행동 공간을 매번 새로 만들어 한 번의 요청으로 고르는 브라우저 에이전트
 
+<https://browser-use.com/>
+
 <https://github.com/browser-use/jev-ultrafast>
 
 HN 토론: <https://news.ycombinator.com/item?id=49735979> (88점, 14개 댓글)
@@ -20,6 +22,11 @@ Python으로 작성되었고 MIT 라이선스다.
 
 Browser Use와 TypeSafe의 협업 결과물이며, README 상단에 Browser Use Cloud 대기자 명단 링크가 있다.
 이 점은 나중에 다시 짚는다.
+
+저장소가 홈페이지로 등록한 주소는 browser-use.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Browser Use: Browser Agents and Cloud Browsers”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 행동 공간
 

@@ -1,5 +1,7 @@
 # 알한글 — macOS 네이티브 HWP/HWPX 유틸리티
 
+<https://postmelee.github.io/alhangeul-macos/>
+
 <https://github.com/postmelee/alhangeul-macos>
 
 ## 소개
@@ -15,6 +17,11 @@ Rust 기반 [`rhwp`](https://github.com/edwardkim/rhwp) 코어를 macOS 앱, Qui
 앱 이름 “알한글”의 “알(R)”은 `rhwp` 메인테이너가 “알(R), 모두의 한글”이라는 철학에서 붙인 이름이다.
 [GeekNews 댓글](https://news.hada.io/topic?id=29692)에서 이 이름이 잘 알려진 보안 소프트웨어 브랜드와 혼동될 수 있다는 우려가 제기되었지만, `rhwp` 메인테이너가 부여한 명칭이라는 배경 설명이 이어졌다.
 `cadenzah`를 비롯한 여러 사용자가 프로젝트의 완성도를 높이 평가했고, `jhk0530`은 “안녕히 계세요... 한컴”이라는 반응을 남겼다.
+
+저장소가 홈페이지로 등록한 주소는 postmelee.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “알한글 - Mac용 HWP/HWPX 뷰어”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 아키텍처
 
@@ -56,13 +63,13 @@ brew install --cask postmelee/tap/alhangeul
 
 ## 이정표
 
-| 버전          | 주요 변화                                          |
-| ------------- | -------------------------------------------------- |
-| `v0.1.x`      | Finder 통합, Quick Look, WebView 뷰어, PDF 내보내기 |
-| `v0.2`        | Spotlight/mdimporter, 문서 정보 추출               |
-| `v0.3`        | 배치 변환, CLI, Shortcuts 연동                     |
-| `v0.5+`       | Native macOS 뷰어/에디터 셸                        |
-| `v2.0`        | Agent-ready 문서 환경, structured patch API         |
+| 버전     | 주요 변화                                           |
+| -------- | --------------------------------------------------- |
+| `v0.1.x` | Finder 통합, Quick Look, WebView 뷰어, PDF 내보내기 |
+| `v0.2`   | Spotlight/mdimporter, 문서 정보 추출                |
+| `v0.3`   | 배치 변환, CLI, Shortcuts 연동                      |
+| `v0.5+`  | Native macOS 뷰어/에디터 셸                         |
+| `v2.0`   | Agent-ready 문서 환경, structured patch API         |
 
 ## 분석
 

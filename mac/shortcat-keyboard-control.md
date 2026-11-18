@@ -1,6 +1,6 @@
 # Shortcat — 키보드만으로 맥 전체 제어하기
 
-<https://shortcat.app>
+<https://shortcat.app/>
 
 GeekNews: <https://news.hada.io/topic?id=30268>
 

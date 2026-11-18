@@ -1,5 +1,7 @@
 # Spleeter: 사전 학습 모델을 함께 공개해 음원 분리를 상품에서 기본 기능으로 바꿨다
 
+<https://research.deezer.com/projects/spleeter.html>
+
 <https://github.com/deezer/spleeter>
 
 HN 토론: <https://news.ycombinator.com/item?id=21431071> (1,460점, 175개 댓글)
@@ -33,6 +35,11 @@ Apple M1 칩에서 TensorFlow 호환성 문제로 알려진 이슈가 있어
 저장소는 `deezer/spleeter`이고 코드 라이선스는 MIT다.
 2019년 9월 26일에 만들어졌고 별 28,396개, 포크 3,058개,
 열린 이슈 278개이며 마지막 푸시는 2026년 6월 18일이다.
+
+저장소가 홈페이지로 등록한 주소는 research.deezer.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Deezer Research - Spleeter”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 채택
 

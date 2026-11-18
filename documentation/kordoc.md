@@ -1,5 +1,7 @@
 # kordoc: 한컴오피스 없이 HWP·HWPX·PDF를 Markdown으로 바꾸는 파서
 
+<https://pubax.org/kordoc/>
+
 <https://github.com/chrisryugj/kordoc>
 
 Show GN: [kordoc - 한컴오피스 없이 HWP·HWPX·PDF를 마크다운으로 바꾸는 파서](https://news.hada.io/topic?id=35956)
@@ -22,6 +24,11 @@ GeekNews에 올린 글에서 만든 사람은 업무 문서가 거의 HWP라서 
 돈다.
 라이선스는 MIT이고, Node.js 20 이상에서 macOS, Linux, Windows를 지원한다.
 수집 시점의 최신 배포는 2026년 10월 25일의 4.24.5다.
+
+저장소가 홈페이지로 등록한 주소는 pubax.org이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “kordoc: HWP·HWPX·PDF를 마크다운으로 바꾸는 오픈소스”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 사용법
 

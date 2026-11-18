@@ -1,5 +1,7 @@
 # Aura Autopilot: 게임을 직접 플레이하며 배우는 실시간 플레이테스트 에이전트
 
+<https://www.tryaura.dev/autopilot>
+
 <https://github.com/ramenvr/autopilot>
 
 ## 소개
@@ -47,6 +49,11 @@ Claude Code나 Codex에서 쓰려면 터미널에서 `autopilot connect claude` 
 프롬프트마다 PIE 창을 띄우고 프로젝트의 소스 코드를 읽고, PIE를 탐색하고,
 프롬프트에 따라 플레이한다.
 끝나면 PIE 창이 닫히고 보고서가 생성된다.
+
+저장소가 홈페이지로 등록한 주소는 www.tryaura.dev이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Aura Autopilot”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 동작 방식
 

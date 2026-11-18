@@ -1,6 +1,6 @@
 # 수리 가능하고 소형인 오픈 하드웨어 프린터, OpenPrinter
 
-<https://www.opentools.studio>
+<https://www.opentools.studio/>
 
 HN 토론: <https://news.ycombinator.com/item?id=48797916> (1111점, 279개 댓글)
 

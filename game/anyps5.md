@@ -1,5 +1,7 @@
 # AnyPS5: PS5 실행 파일을 에뮬레이터 없이 Linux·Windows 프로그램으로 다시 링크하는 도구
 
+<https://boykopovar.github.io/AnyPS5/>
+
 <https://github.com/boykopovar/AnyPS5>
 
 HN 토론: <https://news.ycombinator.com/item?id=49985664> (371점, 323개 댓글)
@@ -58,6 +60,11 @@ Ratchet & Clank: Rift Apart 같은 상용 타이틀을 띄우다 멈춘 지점�
 정적 재컴파일로 고전 DOS 데모를 브라우저에서 돌리는 사례는
 `game/demoscene-recomp.md`에 정리되어 있다.
 AnyPS5는 원본과 대상의 CPU가 같아 명령어를 번역하지 않는다는 점에서 그와 다르다.
+
+저장소가 홈페이지로 등록한 주소는 boykopovar.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “AnyPS5 · Converter”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 동작 방식
 

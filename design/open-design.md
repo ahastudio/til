@@ -1,5 +1,7 @@
 # Open Design
 
+<https://open-design.ai/>
+
 <https://github.com/nexu-io/open-design>
 
 HN 토론: <https://news.ycombinator.com/item?id=47985750> (119점, 71개 댓글)
@@ -36,6 +38,11 @@ CLI가 없는 경우 OpenAI 호환 BYOK 프록시로 같은 파이프라인을 �
 (4) 인터랙티브 질문 폼이 리다이렉트의 80%를 막는다,
 (5) 데몬이 에이전트에게 실제 로컬 파일시스템을 준다,
 (6) 프롬프트 스택이 곧 제품이다.
+
+저장소가 홈페이지로 등록한 주소는 open-design.ai이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “OpenDesign — Best Open Source Claude Design Alternative”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 사용법
 

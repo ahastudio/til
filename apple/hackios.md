@@ -1,5 +1,7 @@
 # HackiOS: Android 폰에서 iOS 16.5 사용자 영역을 돌리는 XNU 이식 프로젝트
 
+<https://hackios-web.vercel.app/en>
+
 <https://github.com/oosexgang/hackios-xnu-kernel>
 
 HN 토론: <https://news.ycombinator.com/item?id=50196718> (489점, 179개 댓글)
@@ -28,6 +30,11 @@ README는 이 프로젝트가 ROM이 아니라 연구 벤치이며, 세션이 �
 IPSW에서 iOS를 꺼내는 스크립트, Metal/Mesa 작업)다.
 저장소 상태는 2026년 10월 22일에 생성됐고 10월 23일에도 푸시가 있으며, 스타 968,
 포크 165, 언어는 C이다(2026년 10월 23일 확인).
+
+저장소가 홈페이지로 등록한 주소는 hackios-web.vercel.app이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “HakiOS: the Darwin kernel on Android phones”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 동작 방식
 

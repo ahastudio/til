@@ -1,5 +1,7 @@
 # pixelfx: 코드로 그린 픽셀 아트 이펙트 244개와 Claude Code 스킬
 
+<https://patch-gg.github.io/pixelfx/>
+
 <https://github.com/patch-gg/pixelfx>
 
 ## 소개
@@ -19,6 +21,11 @@ with Claude»로 밝힌다.
 `src/core/sim.js`와 파일 맨 위에 그렇게 적힌 이펙트는 Duprez의 코드를 가져다
 고친 것이라고 한다.
 이 문서는 README만 읽고 쓴 것이며 갤러리나 코드를 직접 실행해 보지는 않았다.
+
+저장소가 홈페이지로 등록한 주소는 patch-gg.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “pixelfx”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 구성
 

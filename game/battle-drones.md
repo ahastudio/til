@@ -1,5 +1,7 @@
 # Battle Drones: 코딩 에이전트에게 더 재미있게 만들라고 말해 얻은 RTS
 
+<https://simonw.github.io/battledrones/>
+
 <https://github.com/simonw/battledrones>
 
 [Battle Drones—a vibe coded RTS with audio-based multiplayer](https://simonwillison.net/2026/Oct/20/battledrones/)
@@ -60,6 +62,11 @@ v12는 소리 멀티플레이다.
 넘지 않을 것이라고 한다.
 글은 끝에서 이런 게임이 진지하게 받아들여질 길이 보인다고 쓰면서
 스스로는 아직 합당한 노력을 하지 않았다고 말한다.
+
+저장소가 홈페이지로 등록한 주소는 simonw.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Battle Drones”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

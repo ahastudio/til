@@ -1,6 +1,6 @@
 # OpenPencil: .fig 파일을 열고 AI와 스크립트로 다루는 오픈소스 디자인 에디터
 
-<https://openpencil.dev>
+<https://openpencil.dev/>
 
 <https://github.com/open-pencil/open-pencil>
 

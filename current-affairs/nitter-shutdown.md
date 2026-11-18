@@ -1,5 +1,7 @@
 # Nitter 공개 인스턴스가 rate limit이 아니라 정지 요구 서한으로 전면 중단되었다
 
+<https://nitter.net/>
+
 <https://github.com/zedeus/nitter/issues/1442>
 
 HN 토론: <https://news.ycombinator.com/item?id=49437283> (725점, 620개 댓글)
@@ -41,6 +43,11 @@ Xcancel.com 같은 다른 공개 인스턴스도 정지 요구를 받았다고 �
 그리고 Twitter가 최근 익명 열람을 단속하고
 Linux와 Firefox 사용자에게 인간 확인과 신원 인증을 요구하는 흐름과
 이 조치가 관련 있을 것이라는 추측도 나왔다.
+
+저장소가 홈페이지로 등록한 주소는 nitter.net이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “nitter.net”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

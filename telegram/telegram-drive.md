@@ -1,5 +1,7 @@
 # Telegram Drive
 
+<https://www.cameronamer.com/>
+
 <https://github.com/caamer20/Telegram-Drive>
 
 ## 소개
@@ -38,6 +40,11 @@ REST API를 제공하는데, 포트와 API 키 인증을 설정할 수 있고 Op
 transfer chunk sizing), 적응형 keep-alive를 묶은 “VPN Optimizer”로 고지연
 연결에서의 안정성을 노린다. 라이선스는 MIT이며 자유 오픈소스 소프트웨어를
 표방한다.
+
+저장소가 홈페이지로 등록한 주소는 www.cameronamer.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Cameron Amer - Portfolio”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

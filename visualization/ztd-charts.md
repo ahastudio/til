@@ -1,5 +1,7 @@
 # ztd-charts: 한 카드에 한 가지만 말하게 만들고 AI 에이전트가 JSON으로 쓰게 한 React 차트 라이브러리
 
+<https://charts.ztd.app/>
+
 <https://github.com/Junhan2/ztd-charts>
 
 ## 소개
@@ -51,6 +53,11 @@ MCP 서버는 도구 다섯 개를 제공한다.
 저장소에는 에이전트가 차트 고르기부터 검증된 미리보기까지 따라가는
 스킬(`skills/ztd-charts/SKILL.md`)과 라이브러리 전체를 한 파일에 담은
 `llms.txt`도 있다.
+
+저장소가 홈페이지로 등록한 주소는 charts.ztd.app이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “ztd charts · 47 React charts that move with your data”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 코드를 열어 본 결과
 

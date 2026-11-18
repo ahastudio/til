@@ -1,5 +1,7 @@
 # Cloudy: 블러와 렌즈와 셰이더 효과를 독립된 modifier로 나눈 Kotlin Multiplatform 라이브러리
 
+<https://skydoves.github.io/Cloudy/>
+
 <https://github.com/skydoves/Cloudy>
 
 ## 소개
@@ -17,6 +19,11 @@ README의 Gradle 예시는 `com.github.skydoves:cloudy:1.0.0-alpha01`을 가리�
 그래서 README의 설명은 알파를 기준으로 쓴 것으로 보이고,
 안정 버전으로 시작하면 API가 다를 수 있다. 이 문서는
 두 버전의 차이를 대조하지 않았다.
+
+저장소가 홈페이지로 등록한 주소는 skydoves.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Cloudy - Blur Effects for Compose Multiplatform”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 효과 네 가지
 

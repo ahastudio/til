@@ -1,5 +1,7 @@
 # LinuxPDF: PDF 안에서 RISC-V 에뮬레이터로 Linux를 돌리다
 
+<https://linux.doompdf.dev/>
+
 <https://github.com/ading2210/linuxpdf>
 
 HN 토론: <https://news.ycombinator.com/item?id=42891937> (183점, 38개 댓글)
@@ -30,6 +32,11 @@ Linux 커널이 PDF 안에서 부팅되는 데 약 30~60초가 걸리는데,
 Chrome의 PDF 엔진이 V8 JIT 컴파일러를 비활성화하기 때문이다.
 파일 시스템은 32비트 Buildroot(기본)와
 약 두 배 느린 64비트 Alpine Linux를 지원한다.
+
+저장소가 홈페이지로 등록한 주소는 linux.doompdf.dev이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “LinuxPDF”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

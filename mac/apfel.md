@@ -1,6 +1,6 @@
 # apfel: Mac 내장 AI를 터미널에서 쓰게 해주는 CLI 도구
 
-<https://apfel.franzai.com>
+<https://apfel.franzai.com/>
 
 <https://github.com/Arthur-Ficial/apfel>
 

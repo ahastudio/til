@@ -1,5 +1,7 @@
 # Jeff: 집에서 학습한 0.8B 모델로 Jev와 같은 요청을 30ms 안에 결정하기
 
+<https://jeffhub.ai/>
+
 <https://github.com/firelex/jeff>
 
 HN 토론: <https://news.ycombinator.com/item?id=49883844> (571점, 223개 댓글)
@@ -29,6 +31,11 @@ AutoJev는 Qwen3.8-27B를 Jev 스타일 결정을 내도록 파인튜닝하는 �
 README가 스스로 그은 경계는 분명하다.
 아주 작은 모델이므로 선택지 사이의 빠르고 잘 보정된 판단은 하지만, 추론은 훨씬 큰 모델 위에서 도는 Jev를 따라가지 못한다.
 제로샷 정확도가 부족하면 자기 예시로 짧게 파인튜닝하라는 것이 README의 답이다.
+
+저장소가 홈페이지로 등록한 주소는 jeffhub.ai이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Jeff | A New Software Primitive”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 요청 형식
 

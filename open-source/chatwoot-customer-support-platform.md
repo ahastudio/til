@@ -1,5 +1,7 @@
 # Chatwoot: 오픈소스 고객 지원 플랫폼
 
+<https://www.chatwoot.com/help-center>
+
 <https://github.com/chatwoot/chatwoot>
 
 HN 토론: <https://news.ycombinator.com/item?id=21559139> (417점, 79개 댓글)
@@ -22,6 +24,11 @@ Captain은 Chatwoot에 내장된 AI 에이전트로, 반복적인 문의를 자�
 Telegram, Line, SMS 등이다.
 Slack 통합, Dialogflow 챗봇, Shopify, Google Translate, Linear 이슈 트래커 연동도 지원한다.
 
+저장소가 홈페이지로 등록한 주소는 www.chatwoot.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Chatwoot Help Center and Product Documentation”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
+
 ## 분석
 
 ### 셀프호스팅 고객 지원 플랫폼의 현실적 수요
@@ -32,11 +39,11 @@ Chatwoot은 이 가격 압박을 데이터 주권 요구와 함께 해소한다.
 GDPR 준수를 위해 고객 데이터를 자체 서버에 보관해야 하는 유럽 기업들,
 의료나 금융 규제 환경의 기업들에게 셀프호스팅은 선택이 아닌 필수다.
 
-HN에서 tarr11은 "스타트업에게 Intercom 가격은 터무니없다"며 공감을 표했고[^tarr11],
+HN에서 tarr11은 “스타트업에게 Intercom 가격은 터무니없다”며 공감을 표했고[^tarr11],
 비영리단체를 운영하는 rushils는 월 350달러의 지원 서비스 비용을 절감하고 싶다고 밝혔다[^rushils].
 가격 민감성은 단계별로 다르다는 점도 주목된다.
-randomsearch는 "초기 빌딩 단계에서는 극도로 가격에 민감하지만,
-궤도에 오르고 나면 신경 쓰지 않는다"며 수익이 생기기 전에 쥐어짜는 Intercom 방식을 비판했다[^randomsearch].
+randomsearch는 “초기 빌딩 단계에서는 극도로 가격에 민감하지만,
+궤도에 오르고 나면 신경 쓰지 않는다”며 수익이 생기기 전에 쥐어짜는 Intercom 방식을 비판했다[^randomsearch].
 초기 진입 장벽을 낮추면 장기 고객 충성도가 높아진다는 현실적 통찰이다.
 
 그러나 셀프호스팅의 비용이 단순히 라이선스 비용의 대체가 아니라는 지적도 있다.
@@ -76,7 +83,7 @@ AI 에이전트의 실제 정확도 같은 실용적 품질 지표는
 
 artur_makly는 Intercom 고객 입장에서 마이그레이션을 검토하려면
 기능 비교표와 개발 로드맵이 있어야 한다고 지적했다[^artur_makly].
-'"대안(Alternative)"이라는 단어는 기존 유료 제품의 현재 기능 범위를 비교한다는
+'“대안(Alternative)”이라는 단어는 기존 유료 제품의 현재 기능 범위를 비교한다는
 기대를 수반하는 매우 무거운 단어'라는 표현은,
 오픈소스 프로젝트가 브랜딩과 실제 구현 사이의 간극을 어떻게 관리해야 하는지를 짚는다.
 

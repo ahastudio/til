@@ -1,5 +1,7 @@
 # LivLiv Player: 의존성 없이 30KB로 2.5D 캐릭터를 웹에 올리고 립싱크와 얼굴 추적까지 붙이는 플레이어
 
+<https://livliv-dev.github.io/player/>
+
 <https://github.com/livliv-dev/player>
 
 ## 소개
@@ -35,6 +37,11 @@ README는 이 플레이어와 `.livliv` 형식이 LivLiv의 자체 작업이며
 Live2D 소프트웨어나 Cubism SDK를 쓰지 않고 `.moc3`나 `.cmo3` 파일을 읽지도 않는다고
 적는다.
 Live2D는 Live2D Inc.의 상표이고 LivLiv는 그 회사와 관계가 없다고도 적는다.
+
+저장소가 홈페이지로 등록한 주소는 livliv-dev.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “LivLiv Player: examples”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 사용법
 

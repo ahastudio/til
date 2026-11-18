@@ -1,6 +1,6 @@
 # Ductus: 내 손글씨로 폰트 만들기
 
-<https://ductus.sorenblank.com>
+<https://ductus.sorenblank.com/>
 
 HN 토론: <https://news.ycombinator.com/item?id=50509972> (368점, 63개 댓글)
 

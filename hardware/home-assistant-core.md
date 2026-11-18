@@ -1,5 +1,7 @@
 # Home Assistant Core
 
+<https://www.home-assistant.io/>
+
 <https://github.com/home-assistant/core>
 
 ## 소개
@@ -23,6 +25,11 @@ README는 굳이 강조한다.
 Home Assistant는 현재 Open Home Foundation 산하 프로젝트로
 공식 인정받고 있으며, 이는 특정 기업이 아니라
 비영리 재단이 프로젝트의 지속성을 담보하는 구조라는 뜻이다.
+
+저장소가 홈페이지로 등록한 주소는 www.home-assistant.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Home Assistant”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 
