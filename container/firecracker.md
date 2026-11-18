@@ -1,5 +1,7 @@
 # Firecracker: AWS Lambda와 Fargate를 위해 만든 최소 구성의 KVM microVM 모니터
 
+<https://firecracker-microvm.github.io/>
+
 <https://github.com/firecracker-microvm/firecracker>
 
 HN 토론: <https://news.ycombinator.com/item?id=18539532> (24점, 10개 댓글)
@@ -23,6 +25,11 @@ Kata Containers와 Flintlock 같은 컨테이너 런타임에 통합되었다고
 열린 이슈는 141개이고 마지막 푸시는 11월 6일이다.
 이 문서는 직접 설치하거나 시험하지 않았고 README와 GitHub API,
 HN 댓글에서 읽은 내용만 정리했다.
+
+저장소가 홈페이지로 등록한 주소는 firecracker-microvm.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Firecracker”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 구조와 기능
 

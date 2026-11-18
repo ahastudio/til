@@ -1,6 +1,6 @@
 # Filament: 체크포인트와 무결성 검증을 갖춘 교체 가능한 데이터 복제 엔진
 
-<https://filament.getgalaxy.io>
+<https://filament.getgalaxy.io/>
 
 <https://github.com/galaxy-io/filament>
 

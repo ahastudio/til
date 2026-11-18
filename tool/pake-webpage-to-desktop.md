@@ -1,5 +1,7 @@
 # Pake — 웹페이지를 데스크톱 앱으로
 
+<https://pake.run/>
+
 <https://github.com/tw93/Pake>
 
 ## 소개
@@ -12,6 +14,11 @@ GPL-3.0 라이선스로 공개되어 있으며, 빌드 결과물에 대해서는
 “인스톨러가 Electron 패키지보다 거의 20배 작으며 일반적으로 10MB 미만”이라고 강조한다.
 이는 Electron이 Chromium과 Node.js 전체를 번들링하는 것과 달리,
 Tauri가 운영체제의 네이티브 웹뷰(macOS의 WebKit, Windows의 WebView2)를 활용하기 때문이다.
+
+저장소가 홈페이지로 등록한 주소는 pake.run이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Pake · Turn any website into a lightweight desktop app”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

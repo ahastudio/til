@@ -1,6 +1,6 @@
 # 소프트웨어 공학의 법칙들
 
-<https://lawsofsoftwareengineering.com>
+<https://lawsofsoftwareengineering.com/>
 
 ## 소개
 

@@ -1,5 +1,7 @@
 # DBDelve: Rust로 만든 데이터베이스 클라이언트
 
+<https://dbdelve.github.io/>
+
 <https://github.com/ShayanAbbas1/dbdelve>
 
 Show HN: [Show HN: DBDelve – Open-Source DB Client Made with Rust and GPUI](https://news.ycombinator.com/item?id=50427934) (125점, 50개 댓글)
@@ -17,6 +19,11 @@ Rust와 GPUI로 만들었고 Electron과 JVM이 없다고 밝힌다.
 
 만든 사람은 README에서 성능이 좋고 현대적이며 램을 적게 쓰는 것을 원했고, 기존 DB 클라이언트는 Electron과 JVM으로 부풀었거나 유료라고 쓴다.
 어떤 기능도 유료 벽 뒤로 가지 않고 시간이 지나면 기존 도구와 기능이 같아질 것이라고 한다.
+
+저장소가 홈페이지로 등록한 주소는 dbdelve.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “DBDelve — a fast, native database client”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

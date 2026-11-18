@@ -1,5 +1,7 @@
 # AVA: 에이전트용 AI 네이티브 시각 분석 프레임워크
 
+<https://ava.antv.vision/>
+
 <https://github.com/antvis/AVA>
 
 GN 토론: <https://news.hada.io/topic?id=37317>
@@ -15,6 +17,11 @@ GitHub API 기준으로 2026년 11월 17일 현재 별 1,649개, 포크 171개, 
 
 현재 README의 핵심 문구는 이렇다.
 AVA를 JavaScript용 PandasAI라고 생각하라는 것이다. 자연어 데이터 분석과 시각화를 앱과 AI 에이전트에 가져온다고 한다.
+
+저장소가 홈페이지로 등록한 주소는 ava.antv.vision이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “AVA - AI-Native Visual Analytics | AntV”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

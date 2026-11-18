@@ -3,6 +3,8 @@
 마크다운에 자연어로 지시사항을 쓰면, AI 에이전트가 GitHub Actions 위에서
 실행한다. YAML을 직접 작성할 필요 없이 “무엇을 해줘”라고 쓰면 된다.
 
+<https://github.github.com/gh-aw/>
+
 <https://github.com/github/gh-aw>
 
 HN 토론: <https://news.ycombinator.com/item?id=46934107> (302점, 141개 댓글)
@@ -23,6 +25,11 @@ gh aw run daily-repo-status
 위자드가 AI 엔진 선택(Copilot, Claude Code, OpenAI Codex, Google Gemini, Pi),
 시크릿 설정, 워크플로우 배포까지 안내한다.
 실행하면 저장소 활동을 분석한 리포트가 이슈로 생성된다.
+
+저장소가 홈페이지로 등록한 주소는 github.github.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “GitHub Agentic Workflows”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 바로 쓸 수 있는 워크플로우
 

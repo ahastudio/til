@@ -1,5 +1,7 @@
 # Decepticon: 자율 레드팀 에이전트
 
+<https://decepticon.red/>
+
 <https://github.com/PurpleAILAB/Decepticon>
 
 ## 소개
@@ -13,6 +15,11 @@ XBOW 검증 벤치마크에서 102/104(98.08%)의 통과율을 기록했다.
 난이도별로는 Easy 100%, Medium 98%, Hard 87.5%다.
 
 라이선스는 Apache 2.0이다.
+
+저장소가 홈페이지로 등록한 주소는 decepticon.red이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Decepticon”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 아키텍처
 

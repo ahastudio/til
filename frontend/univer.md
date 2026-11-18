@@ -1,5 +1,7 @@
 # Univer: 웹앱에 스프레드시트와 문서 편집기를 넣는 오픈소스 코어와 상용 Office SDK
 
+<https://univer.ai/>
+
 <https://github.com/dream-num/univer>
 
 HN 토론: <https://news.ycombinator.com/item?id=40171216> (178점, 53개 댓글)
@@ -31,6 +33,11 @@ AI SDK는 Office 기능을 기존 에이전트와 워크플로에 연결해 콘�
 이 저장소가 Apache-2.0으로 주는 것은 웹 SDK의 코어 아키텍처와 엔진 구현이고,
 상용 웹 SDK 플러그인, 서버 SDK, 상용 AI SDK 확장은 따로 배포되고 따로 라이선스된다고
 README가 구분한다.
+
+저장소가 홈페이지로 등록한 주소는 univer.ai이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Univer: Office SDK & Office Harness for AI Agents”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 구조와 기능
 

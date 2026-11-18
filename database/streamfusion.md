@@ -1,6 +1,6 @@
 # StreamFusion: Flink SQL 연산자를 Rust와 Arrow로 대신 실행하는 오픈소스 가속기
 
-<https://streamfusion.tech>
+<https://streamfusion.tech/>
 
 <https://github.com/datafusion-contrib/StreamFusion>
 

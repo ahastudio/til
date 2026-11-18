@@ -1,5 +1,7 @@
 # Jacquard: AI가 쓰고 사람이 검토하는 코드를 위한 언어
 
+<https://jacquardlang.org/>
+
 <https://github.com/jbwinters/jacquard-lang>
 
 HN 토론: <https://news.ycombinator.com/item?id=48894630> (78점, 43개 댓글)
@@ -24,6 +26,11 @@ Jacquard는 이 질문에 답하기 위해 언어 차원에서 세 가지를 명
 `sample`과 `observe` 연산을 사용하는 프로그램은 모든 경우의 수를 남김없이 열거해 정확한 결과 확률을 계산할 수 있다.
 또한 프로그램은 소스 바이트가 아니라 정준화된 구조를 해시하므로, 주석이나 포맷팅, 단순한 변수 이름 변경은 해시를 바꾸지 않는다.
 버전 0.1은 엔드투엔드로 동작하는 연구 프로토타입이며, JIT 컴파일이나 동시성, 정형 건전성 증명 같은 프로덕션 기능은 아직 구현되어 있지 않다.
+
+저장소가 홈페이지로 등록한 주소는 jacquardlang.org이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Jacquard programming language”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

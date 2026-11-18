@@ -1,5 +1,7 @@
 # PR Agent (qodo-ai/pr-agent)
 
+<https://docs.pr-agent.ai/>
+
 <https://github.com/qodo-ai/pr-agent>
 
 AI 기반 코드 리뷰 자동화 도구. Qodo에서 개발했으며
@@ -8,7 +10,7 @@ AI 기반 코드 리뷰 자동화 도구. Qodo에서 개발했으며
 ## 커맨드
 
 | 커맨드              | 역할                            |
-|---------------------|---------------------------------|
+| ------------------- | ------------------------------- |
 | `/describe`         | PR 제목·설명 자동 생성          |
 | `/review`           | 코드 품질 분석 및 문제점 리포트 |
 | `/improve`          | 리팩터링·최적화 제안            |
@@ -17,6 +19,11 @@ AI 기반 코드 리뷰 자동화 도구. Qodo에서 개발했으며
 | `/update_changelog` | CHANGELOG 자동 업데이트         |
 | `/generate_labels`  | PR 레이블 자동 생성             |
 | `/similar_issue`    | 유사 이슈 탐색                  |
+
+저장소가 홈페이지로 등록한 주소는 docs.pr-agent.ai이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Overview | PR-Agent”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 사용법
 
@@ -145,42 +152,42 @@ num_code_suggestions_per_chunk = 4
 
 ### `[pr_reviewer]`
 
-| 옵션                                   | 기본값  | 설명                    |
-|----------------------------------------|---------|-------------------------|
-| `require_score_review`                 | `false` | 1~10 점수 포함 여부     |
-| `require_tests_review`                 | `true`  | 테스트 커버리지 검토    |
-| `require_estimate_effort_to_review`    | `true`  | 리뷰 난이도 추정        |
-| `require_security_review`              | `true`  | 보안 취약점 검토        |
-| `require_can_be_split_review`          | `false` | PR 분리 권고 여부       |
-| `num_max_findings`                     | `3`     | 최대 지적 항목 수       |
-| `enable_review_labels_effort`          | `true`  | 노력도 레이블 자동 부착 |
-| `enable_review_labels_security`        | `true`  | 보안 레이블 자동 부착   |
-| `persistent_comment`                   | `true`  | 기존 리뷰 댓글 업데이트 |
-| `require_todo_scan`                    | `false` | TODO 주석 탐지          |
+| 옵션                                | 기본값  | 설명                    |
+| ----------------------------------- | ------- | ----------------------- |
+| `require_score_review`              | `false` | 1~10 점수 포함 여부     |
+| `require_tests_review`              | `true`  | 테스트 커버리지 검토    |
+| `require_estimate_effort_to_review` | `true`  | 리뷰 난이도 추정        |
+| `require_security_review`           | `true`  | 보안 취약점 검토        |
+| `require_can_be_split_review`       | `false` | PR 분리 권고 여부       |
+| `num_max_findings`                  | `3`     | 최대 지적 항목 수       |
+| `enable_review_labels_effort`       | `true`  | 노력도 레이블 자동 부착 |
+| `enable_review_labels_security`     | `true`  | 보안 레이블 자동 부착   |
+| `persistent_comment`                | `true`  | 기존 리뷰 댓글 업데이트 |
+| `require_todo_scan`                 | `false` | TODO 주석 탐지          |
 
 ### `[pr_code_suggestions]` (`/improve`)
 
-| 옵션                               | 기본값  | 설명                       |
-|------------------------------------|---------|----------------------------|
-| `focus_only_on_problems`           | `true`  | 문제점에만 집중            |
-| `num_code_suggestions_per_chunk`   | `3`     | 청크당 제안 수             |
-| `max_number_of_calls`              | `3`     | 최대 LLM 호출 횟수         |
-| `parallel_calls`                   | `true`  | 병렬 청크 처리             |
-| `commitable_code_suggestions`      | `false` | 커밋 가능한 제안 형식      |
-| `new_score_mechanism_th_high`      | `9`     | High 등급 점수 임계값      |
-| `new_score_mechanism_th_medium`    | `7`     | Medium 등급 점수 임계값    |
-| `suggestions_score_threshold`      | `0`     | 최소 노출 점수 (0=전부)    |
+| 옵션                                  | 기본값  | 설명                    |
+| ------------------------------------- | ------- | ----------------------- |
+| `focus_only_on_problems`              | `true`  | 문제점에만 집중         |
+| `num_code_suggestions_per_chunk`      | `3`     | 청크당 제안 수          |
+| `max_number_of_calls`                 | `3`     | 최대 LLM 호출 횟수      |
+| `parallel_calls`                      | `true`  | 병렬 청크 처리          |
+| `commitable_code_suggestions`         | `false` | 커밋 가능한 제안 형식   |
+| `new_score_mechanism_th_high`         | `9`     | High 등급 점수 임계값   |
+| `new_score_mechanism_th_medium`       | `7`     | Medium 등급 점수 임계값 |
+| `suggestions_score_threshold`         | `0`     | 최소 노출 점수 (0=전부) |
 | `demand_code_suggestions_self_review` | `false` | 셀프 체크박스 추가      |
 
 ### `[pr_description]` (`/describe`)
 
-| 옵션                          | 기본값       | 설명                      |
-|-------------------------------|--------------|---------------------------|
-| `generate_ai_title`           | `false`      | AI가 제목도 생성          |
-| `add_original_user_description` | `true`     | 기존 설명 유지            |
-| `enable_pr_diagram`           | `true`       | 변경 흐름 다이어그램 추가 |
-| `use_bullet_points`           | `true`       | 불릿 포인트 형식          |
-| `collapsible_file_list`       | `'adaptive'` | 파일 목록 접기 방식       |
+| 옵션                            | 기본값       | 설명                      |
+| ------------------------------- | ------------ | ------------------------- |
+| `generate_ai_title`             | `false`      | AI가 제목도 생성          |
+| `add_original_user_description` | `true`       | 기존 설명 유지            |
+| `enable_pr_diagram`             | `true`       | 변경 흐름 다이어그램 추가 |
+| `use_bullet_points`             | `true`       | 불릿 포인트 형식          |
+| `collapsible_file_list`         | `'adaptive'` | 파일 목록 접기 방식       |
 
 ## 아키텍처 인사이트
 
@@ -220,7 +227,7 @@ AI 출력의 할루시네이션을 LLM 스스로 교정하는
 ### PR 압축(Token-Aware Compression)
 
 LLM 컨텍스트 윈도우보다 큰 PR을 처리하기 위해
-"토큰 인식 파일 패치 피팅" 기법을 사용한다.
+“토큰 인식 파일 패치 피팅” 기법을 사용한다.
 파일별로 토큰 예산을 배분하고 중요도가 낮은
 변경사항부터 잘라낸다.
 
@@ -259,7 +266,7 @@ LangFuse·LangSmith 콜백 연동으로 LLM 호출 추적과
 ### Claude Extended Thinking 지원
 
 Claude 모델 사용 시 Extended Thinking 기능을
-활성화할 수 있다. "thinking" 예산 토큰을 설정하면
+활성화할 수 있다. “thinking” 예산 토큰을 설정하면
 Claude가 더 깊이 추론한 뒤 응답한다.
 
 ```toml
@@ -338,14 +345,14 @@ LiteLLM 콜백을 통해 각 LLM 호출을 추적한다.
 
 ## 지원 AI 모델
 
-| 제공자    | 모델 ID 예시                      |
-|-----------|-----------------------------------|
-| OpenAI    | `gpt-5.2-2025-12-11`, `o4-mini`  |
-| Anthropic | `anthropic/claude-opus-4-5`       |
-| Google    | `gemini/gemini-2.0-flash`         |
-| DeepSeek  | `deepseek/deepseek-chat`          |
-| Ollama    | `ollama/llama3` (로컬)            |
-| Azure     | Azure OpenAI 엔드포인트 설정      |
+| 제공자    | 모델 ID 예시                    |
+| --------- | ------------------------------- |
+| OpenAI    | `gpt-5.2-2025-12-11`, `o4-mini` |
+| Anthropic | `anthropic/claude-opus-4-5`     |
+| Google    | `gemini/gemini-2.0-flash`       |
+| DeepSeek  | `deepseek/deepseek-chat`        |
+| Ollama    | `ollama/llama3` (로컬)          |
+| Azure     | Azure OpenAI 엔드포인트 설정    |
 
 ## 지원 플랫폼
 

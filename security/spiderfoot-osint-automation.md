@@ -1,5 +1,7 @@
 # SpiderFoot — OSINT 자동화 플랫폼
 
+<https://www.intel471.com/>
+
 <https://github.com/smicallef/spiderfoot>
 
 ## 소개
@@ -16,6 +18,11 @@ Python 3.7+로 작성되었으며 MIT 라이선스로 공개되어 있다.
 IP 주소, 도메인, 이메일, 전화번호, 사용자명, 비트코인 주소 등 다양한 타깃 유형을 지원하며,
 서브도메인 열거(enumeration), 이메일/연락처 추출, 위협 인텔리전스 조회,
 소셜 미디어 정찰, S3/클라우드 버킷 발견, 포트 스캔, 유출 데이터 검색 등을 수행한다.
+
+저장소가 홈페이지로 등록한 주소는 www.intel471.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Cyber Threat Intelligence | Fight Cyber Threats | Intel…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

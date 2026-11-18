@@ -1,5 +1,7 @@
 # Modern Web Guidance: 코딩 에이전트를 2019년식 JavaScript에서 웹 표준 기능으로 돌려놓는 스킬 모음
 
+<https://developer.chrome.com/docs/modern-web-guidance>
+
 <https://github.com/GoogleChrome/modern-web-guidance>
 
 Show HN: [Get your coding agent off ~2019 JavaScript, onto modern web primitives](https://news.ycombinator.com/item?id=50443812) (420점, 139개 댓글)
@@ -78,6 +80,11 @@ README는 가이드가 효과가 있다는 근거로 평가 체계를 내세운�
 README는 개인 프롬프트는 수집하지 않지만 설치 수, 호출한 에이전트 이름, 가이드
 조회 ID, 에이전트가 만든 검색어를 익명으로 수집한다고 밝히며
 `DISABLE_TELEMETRY=1`로 끌 수 있다고 안내한다.
+
+저장소가 홈페이지로 등록한 주소는 developer.chrome.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Modern Web Guidance | Chrome for Developers”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

@@ -1,5 +1,7 @@
 # Rocky — SQL 변환 엔진
 
+<https://rocky-data.dev/>
+
 <https://github.com/rocky-data/rocky>
 
 ## 소개
@@ -9,6 +11,11 @@ dbt와 유사한 SQL 모델 기반 워크플로를 지원하면서, 스키마 �
 
 지원하는 데이터 웨어하우스는 Databricks(프로덕션), Snowflake·BigQuery·Trino(베타), DuckDB(로컬 테스트)다.
 Apache 2.0 라이선스로 배포된다.
+
+저장소가 홈페이지로 등록한 주소는 rocky-data.dev이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Rocky: the typed graph between your code and your wareh…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

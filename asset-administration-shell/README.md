@@ -4,7 +4,14 @@
 
 ## IDTA-01001 - Metamodel of the Asset Administration Shell
 
+<https://industrialdigitaltwin.io/aas-specifications/>
+
 <https://github.com/admin-shell-io/aas-specs>
+
+저장소가 홈페이지로 등록한 주소는 industrialdigitaltwin.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Redirect Notice”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## Eclipse AASX Package Explorer and Server
 

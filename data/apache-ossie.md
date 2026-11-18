@@ -1,5 +1,7 @@
 # Apache Ossie: 시맨틱 메타데이터 교환 표준
 
+<https://ossie.apache.org/>
+
 <https://github.com/apache/ossie>
 
 ## 소개
@@ -15,6 +17,11 @@ Ossie는 JSON/YAML 기반 명세 파일로 시맨틱 모델을 표현하고,
 dbt, GoodData, Polaris, Salesforce 형식과의 상호 변환이 현재 지원된다.
 Python(74.6%)과 Java(24.7%)로 구현되어 있으며,
 1,213 stars · 149 forks 규모로 성장 중이다(2026년 7월 기준).
+
+저장소가 홈페이지로 등록한 주소는 ossie.apache.org이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Home - Apache Ossie (incubating)”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

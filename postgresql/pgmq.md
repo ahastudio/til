@@ -1,5 +1,7 @@
 # PGMQ - Postgres Message Queue
 
+<https://pgmq.github.io/pgmq/>
+
 <https://github.com/pgmq/pgmq>
 
 HN 토론: <https://news.ycombinator.com/item?id=37036256> (10점, 8개 댓글)
@@ -27,6 +29,11 @@ Tembo, Supabase, Sprinters, pgflow, FFmpegLab Server 등이 사용한다.
 - 메시지 아카이빙 (삭제 대신 장기 보관 가능)
 - 배치 작업 지원
 - 파티션된 큐 (pg_partman 활용)
+
+저장소가 홈페이지로 등록한 주소는 pgmq.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Redirecting”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## PostgreSQL 통합 방식
 

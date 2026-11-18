@@ -1,5 +1,7 @@
 # goshs: 레드팀과 개발자를 위한 단일 바이너리 파일 서버
 
+<https://goshs.de/>
+
 <https://github.com/patrickhener/goshs>
 
 ## 소개
@@ -18,6 +20,11 @@ JNDI 모드를 통한 Log4Shell 시뮬레이션, 리버스 셸 캐처와 페이�
 
 Kali Linux, Parrot OS 공식 패키지로 포함돼 있으며 Homebrew, Scoop, winget,
 Docker, Nix/NixOS, Alpine, AUR 등 주요 패키지 관리자를 모두 지원한다.
+
+저장소가 홈페이지로 등록한 주소는 goshs.de이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “goshs — Beyond Python's http.server”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

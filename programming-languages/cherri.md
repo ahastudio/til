@@ -1,5 +1,7 @@
 # Cherri - 애플 단축어를 코드로 작성하는 프로그래밍 언어
 
+<https://cherrilang.org/>
+
 <https://github.com/electrikmilk/cherri>
 
 ## 요약
@@ -22,6 +24,11 @@ CLI 도구와 함께 VSCode 익스텐션, macOS 앱, 웹 플레이그라운드�
 2022년 10월 시작된 프로젝트로, 2,000회 이상의 커밋이 누적된 활성 오픈소스 프로젝트다.
 Go로 구현되었으며(전체 코드베이스의 99.5%), GPL-2.0 라이선스를 따른다.
 Homebrew와 Nix를 통해 설치할 수 있다.
+
+저장소가 홈페이지로 등록한 주소는 cherrilang.org이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Scale Your Siri Shortcut Projects | Cherri”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

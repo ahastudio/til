@@ -1,5 +1,7 @@
 # sem — Git 위에 얹는 함수/클래스 단위 시맨틱 버전 관리
 
+<https://ataraxy-labs.github.io/sem/>
+
 <https://github.com/Ataraxy-Labs/sem>
 
 HN 토론: <https://news.ycombinator.com/item?id=47294924> (95점, 24개 댓글)
@@ -13,6 +15,11 @@ sem은 Git의 라인 기반 diff를 함수·클래스 같은 코드 엔티티 �
 설명한다.
 특히 구조적 변경을 정확히 이해해야 하는 AI 코딩 에이전트에게
 유용하도록 설계됐다.
+
+저장소가 홈페이지로 등록한 주소는 ataraxy-labs.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “sem”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 아키텍처
 

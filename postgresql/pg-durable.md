@@ -1,5 +1,7 @@
 # pg_durable — PostgreSQL을 위한 내구성 SQL 함수
 
+<https://microsoft.github.io/pg_durable/>
+
 <https://github.com/microsoft/pg_durable>
 
 HN 토론: <https://news.ycombinator.com/item?id=48414367> (380점, 87개 댓글)
@@ -14,6 +16,11 @@ Microsoft가 오픈소스로 공개한 `pg_durable`은 PostgreSQL 안에서 장�
 Temporal 같은 외부 오케스트레이션 서비스나 Redis, 외부 큐 없이 PostgreSQL 내부에서
 내구성 있는 실행(durable execution) 패턴을 구현한다. 모든 실행 상태가 PostgreSQL에
 저장되므로 기존 백업 및 관찰 가능성(observability) 인프라를 그대로 활용할 수 있다.
+
+저장소가 홈페이지로 등록한 주소는 microsoft.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “pg_durable — Durable SQL functions for PostgreSQL”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

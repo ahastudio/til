@@ -1,5 +1,7 @@
 # DigitalPlat FreeDomain: 모두를 위한 무료 도메인
 
+<https://dashboard.digitalplat.org/>
+
 <https://github.com/DigitalPlatDev/FreeDomain>
 
 ## 소개
@@ -11,13 +13,13 @@ DigitalPlat FreeDomain은 개인과 단체에게 무료 도메인을 제공하�
 
 제공되는 도메인 확장자는 다음과 같다.
 
-| 확장자        | 비고                  |
-| ------------- | --------------------- |
-| `.dpdns.org`  | DigitalPlat 자체 도메인 |
-| `.us.kg`      | 키르기스스탄 국가 도메인 |
-| `.qzz.io`     |                       |
-| `.xx.kg`      | 키르기스스탄 국가 도메인 |
-| `.qd.je`      | 저지 섬 국가 도메인    |
+| 확장자       | 비고                     |
+| ------------ | ------------------------ |
+| `.dpdns.org` | DigitalPlat 자체 도메인  |
+| `.us.kg`     | 키르기스스탄 국가 도메인 |
+| `.qzz.io`    |                          |
+| `.xx.kg`     | 키르기스스탄 국가 도메인 |
+| `.qd.je`     | 저지 섬 국가 도메인      |
 
 사용자는 대시보드(dash.domain.digitalplat.org)에서 도메인을 신청하고,
 Cloudflare, FreeDNS by Afraid.org, Hostry 등 원하는 DNS 제공자와 연동한다.
@@ -29,6 +31,11 @@ Cloudflare, FreeDNS by Afraid.org, Hostry 등 원하는 DNS 제공자와 연동�
 초기 기술 스택은 VPS 위의 BIND9, Python과 Flask 백엔드로 구성됐다.
 이후 남용 방지를 위해 자동화된 검토 파이프라인, 행동 패턴 점수 시스템,
 GitHub 기반 신원 확인을 도입했다.
+
+저장소가 홈페이지로 등록한 주소는 dashboard.digitalplat.org이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “DigitalPlat One”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

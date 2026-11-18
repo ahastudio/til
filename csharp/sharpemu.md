@@ -1,5 +1,7 @@
 # SharpEmu — C#로 짜는 PS5 에뮬레이터
 
+<https://sharpemu.app/>
+
 <https://github.com/par274/sharpemu>
 
 SharpEmu는 C#으로 작성된 실험적인 PlayStation 5 에뮬레이터다.
@@ -89,6 +91,11 @@ Yuzu(닌텐도 스위치), shadPS4(PS4) 모두 공개 직후 짧은 시간에
 “큰 변경은 사전에 논의해야 한다”는 규정을 명시한 것은, 이런
 급격한 관심 유입을 미리 예상하고 개발 프로세스를 방어적으로
 설계해 둔 흔적으로 읽을 수 있다.
+
+저장소가 홈페이지로 등록한 주소는 sharpemu.app이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “SharpEmu — experimental PS5 and PS4 emulator”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 비평
 

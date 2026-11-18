@@ -2,6 +2,8 @@
 
 > A Git-compatible VCS that is both simple and powerful
 
+<https://www.jj-vcs.dev/>
+
 <https://github.com/jj-vcs/jj>
 
 Jujutsu docs: <https://jj-vcs.github.io/jj/>
@@ -15,6 +17,11 @@ Jujutsu docs: <https://jj-vcs.github.io/jj/>
 <https://github.com/idursun/jjui>
 
 [jjui - Jujutsu 버전관리 시스템용 TUI | GeekNews](https://news.hada.io/topic?id=21217)
+
+저장소가 홈페이지로 등록한 주소는 www.jj-vcs.dev이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Redirecting”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## Articles
 

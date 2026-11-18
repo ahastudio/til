@@ -1,5 +1,7 @@
 # unbash: 실행하지 않고 Bash 구조만 보는 무의존 파서
 
+<https://unba.sh/>
+
 <https://github.com/webpro-nl/unbash>
 
 Demo: <https://unbash.statichost.page/>
@@ -34,6 +36,11 @@ Bash가 JSON이나 YAML이나 소스 코드 안에 들어 있을 때의 분업�
 먼저 호스트 언어의 파서로 셸 문자열을 뽑아내고, unbash는 그 문자열 안의 Bash 구조와 소스 범위를 제공하며,
 명령별 인자 의미와 정책은 소비자가 소유한다는 것이다.
 `process.argv`처럼 이미 `string[]`인 것을 파싱하려면 Node.js의 `parseArgs`나 yargs나 citty를 쓰라고 안내한다.
+
+저장소가 홈페이지로 등록한 주소는 unba.sh이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “unbash”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 파싱 범위와 명시된 비지원
 
@@ -120,14 +127,14 @@ unbash 쪽 차이로는 무의존 구조, ESM 전용 타입 TypeScript API,
 측정 환경은 Apple M1 Pro/32GB, Node.js 24.19.0이다.
 괄호 안은 unbash의 상대 속도다.
 
-| 파서                         |  short (1.1KiB) | advanced (0.9KiB) | medium (150KiB) | large (970KiB) |
-| ---------------------------- | --------------: | ----------------: | --------------: | -------------: |
-| unbash                       |            76.5 |              70.5 |            95.3 |          112.4 |
-| tree-sitter-bash (네이티브)  |      4.60 (17x) |        6.55 (11x) |      15.07 (6x) |     11.92 (9x) |
-| tree-sitter-bash (WASM)      |      4.59 (17x) |        5.64 (12x) |      8.59 (11x) |     7.64 (15x) |
-| sh-syntax                    |    0.03 (2981x) |      0.03 (2015x) |      7.49 (13x) |     13.63 (8x) |
-| bash-parser                  |     0.27 (287x) |               n/a |             n/a |            n/a |
-| @ericcornelissen/bash-parser |     0.25 (301x) |               n/a |             n/a |            n/a |
+| 파서                         | short (1.1KiB) | advanced (0.9KiB) | medium (150KiB) | large (970KiB) |
+| ---------------------------- | -------------- | ----------------- | --------------- | -------------- |
+| unbash                       | 76.5           | 70.5              | 95.3            | 112.4          |
+| tree-sitter-bash (네이티브)  | 4.60 (17x)     | 6.55 (11x)        | 15.07 (6x)      | 11.92 (9x)     |
+| tree-sitter-bash (WASM)      | 4.59 (17x)     | 5.64 (12x)        | 8.59 (11x)      | 7.64 (15x)     |
+| sh-syntax                    | 0.03 (2981x)   | 0.03 (2015x)      | 7.49 (13x)      | 13.63 (8x)     |
+| bash-parser                  | 0.27 (287x)    | n/a               | n/a             | n/a            |
+| @ericcornelissen/bash-parser | 0.25 (301x)    | n/a               | n/a             | n/a            |
 
 플레이그라운드로는 `unbash.statichost.page`와 `ast-explorer.dev`가 제공된다.
 

@@ -1,5 +1,7 @@
 # Apptainer: 루트 없는 HPC를 위해 도커를 뒤집은 컨테이너
 
+<https://apptainer.org/>
+
 <https://github.com/apptainer/apptainer>
 
 HN 토론: <https://news.ycombinator.com/item?id=44385742> (123점, 106개 댓글)
@@ -25,6 +27,11 @@ Apptainer(옛 Singularity)는 공유 시스템과 고성능 컴퓨팅(HPC) 환�
 매끄럽게 접근하게 해 주며, 과학 컴퓨팅에 결정적이다.
 겨냥하는 것은 상승된 권한이나 복잡한 데몬 관리 없이
 컨테이너를 배포하려는 연구자와 HPC 관리자다.
+
+저장소가 홈페이지로 등록한 주소는 apptainer.org이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Apptainer - Portable, Reproducible Containers”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

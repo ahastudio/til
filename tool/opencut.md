@@ -1,5 +1,7 @@
 # OpenCut
 
+<https://opencut.app/>
+
 <https://github.com/OpenCut-app/OpenCut>
 
 HN 토론: <https://news.ycombinator.com/item?id=44553752> (447점, 151개 댓글)
@@ -26,6 +28,11 @@ moon을 사용한다.
 라이선스는 MIT이며 fal.ai가 스폰서로 이름을 올리고 있다.
 다만 현재는 아키텍처 재설계가 진행 중이라는 이유로 외부 기여를 제한하고 있고,
 커뮤니티 참여는 Discord나 GitHub 이슈를 통한 논의로 한정된다.
+
+저장소가 홈페이지로 등록한 주소는 opencut.app이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “OpenCut”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 
@@ -191,7 +198,7 @@ jchw는 실제로 몇 초간 사용해 본 소감을 남겼는데,
 정작 사용해 보려면 저장소가 아니라 `opencut.app/projects`라는
 별도 주소를 찾아가야 했고, 대부분의 기능이 아직 TODO 상태였지만
 텍스트를 영상 위에 얹는 정도는 가능했다고 전했다[^jchw].
-CapCut 페이지 안에 "왜 CapCut을 쓰지 않는가"라는 이름의
+CapCut 페이지 안에 “왜 CapCut을 쓰지 않는가”라는 이름의
 비교 페이지를 별도로 만들어 둔 점도 눈에 띄었는데,
 eddythompson80과 bravesoul2는 그 페이지의 도발적인 어조를 지적하며
 씁쓸한 반응을 남겼다[^eddythompson80].

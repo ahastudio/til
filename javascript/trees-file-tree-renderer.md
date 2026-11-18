@@ -1,5 +1,7 @@
 # Trees — 파일 트리 렌더링 라이브러리
 
+<https://pierre.computer/>
+
 <https://github.com/pierrecomputer/pierre>
 
 ## 소개
@@ -7,6 +9,11 @@
 Trees는 VS Code 파일 탐색기와 같은 파일·디렉터리 구조를 렌더링하는 오픈소스 라이브러리다. “높은 커스터마이징 자유도와 성능 중심 설계”를 지향하며, React 래퍼와 바닐라 JavaScript 클래스 구현을 모두 제공한다.
 
 패키지명은 `@pierre/trees`이고, React 통합은 `@pierre/trees/react` 진입점으로 제공된다. 서버 사이드 렌더링(SSR)과 하이드레이션도 지원한다.
+
+저장소가 홈페이지로 등록한 주소는 pierre.computer이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Pierre Computer Company”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

@@ -1,5 +1,7 @@
 # Floci: LocalStack Community 종료에 맞춰 등장한 무료 AWS 로컬 에뮬레이터
 
+<https://floci.io/floci/>
+
 <https://github.com/floci-io/floci>
 
 Lobste.rs 토론: <https://lobste.rs/s/ebvrrh/floci_light_fluffy_always_free_aws_local>
@@ -41,6 +43,11 @@ LocalStack Community와 비교하면,
 유휴 메모리가 약 13MiB 대 143MiB,
 이미지 크기가 약 90MB 대 1.0GB,
 라이선스가 MIT 대 제한적이다.
+
+저장소가 홈페이지로 등록한 주소는 floci.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Floci”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

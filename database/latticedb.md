@@ -1,5 +1,7 @@
 # LatticeDB: 그래프, 벡터, 전문 검색을 파일 하나에 담은 임베디드 DB
 
+<https://latticedb.org/>
+
 <https://github.com/jeffhajewski/latticedb>
 
 HN 토론: <https://news.ycombinator.com/item?id=49437049> (190점, 54개 댓글)
@@ -27,6 +29,11 @@ README가 내세우는 요점은 다섯 가지다.
 | 이벤트 로그 하나 | 이름 있는 스트림과 그래프 변경 피드가 그래프 쓰기와 같은 WAL 경로를 공유 |
 | 로컬 우선        | 한 기기의 한 소유 프로세스, WAL 기반 내구성                              |
 | 빠름             | 노드 조회 0.13μs, 100만 벡터에서 재현율 100%로 0.83ms                    |
+
+저장소가 홈페이지로 등록한 주소는 latticedb.org이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “LatticeDB - Embedded Property-Graph Database”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 아키텍처
 

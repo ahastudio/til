@@ -2,6 +2,8 @@
 
 ## Acceptance Test
 
+<https://ahastudio.com/>
+
 <https://github.com/ahastudio/til/blob/main/test/fit.md>
 
 ### E2E Test
@@ -15,6 +17,11 @@
 - [CodeceptJS 3 시작하기](https://github.com/ahastudio/til/blob/main/test/20201207-codeceptjs.md)
 - [Cypress 시작하기](https://github.com/ahastudio/til/blob/main/test/20201208-cypress.md)
 - [TestCafé 시작하기](https://github.com/ahastudio/til/blob/main/test/20201209-testcafe.md)
+
+저장소가 홈페이지로 등록한 주소는 ahastudio.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Ashal aka JOKER”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## Unit Test
 

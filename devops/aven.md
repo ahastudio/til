@@ -1,5 +1,7 @@
 # Aven: 내 서버에 설치하는 Railway 스타일 배포 플랫폼
 
+<https://aven.turin.my/>
+
 <https://github.com/turin-dev/aven>
 
 GN 토론: <https://news.hada.io/topic?id=36386>
@@ -28,6 +30,11 @@ README에는 독립 프로젝트라는 고지가 맨 위에 있다.
 응답해서 프로젝트를 옮길 수 있게 한다고 설명한다.
 Dockerfile 없는 빌드는 Railway가 공개한 오픈소스 빌더 Railpack을 별도
 프로그램으로 실행한다.
+
+저장소가 홈페이지로 등록한 주소는 aven.turin.my이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Aven: your own PaaS on your own servers”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 설치와 시작
 

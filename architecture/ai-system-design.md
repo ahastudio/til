@@ -1,5 +1,7 @@
 # AI System Design: LLM 추론부터 에이전트와 면접 틀까지 한 README에 모은 학습 가이드
 
+<https://outcomeschool.com/program/ai-and-machine-learning>
+
 <https://github.com/amitshekhariitbhu/ai-system-design>
 
 ## 소개
@@ -12,6 +14,11 @@ AI System Design은 Outcome School 창업자 Amit Shekhar가 만든 학습 가�
 내용은 사실상 README 한 파일에 있고, 그 분량은 약 27만 바이트, `##` 제목 56개와 `###` 제목 145개이며, Outcome School 블로그로 가는 링크가 255개 들어 있다.
 README는 이 가이드가 AI 엔지니어, 생성형 AI 엔지니어, LLM 엔지니어, 에이전트 엔지니어, 포워드 디플로이드 엔지니어, AI 솔루션 아키텍트, MLOps와 LLMOps 엔지니어, AI 제품을 만드는 백엔드 엔지니어에게 도움이 된다고 적는다.
 AI 시스템 설계가 빠르게 움직이니 새 주제로 블로그를 쓰는 대로 계속 자랄 것이라는 안내도 붙어 있다.
+
+저장소가 홈페이지로 등록한 주소는 outcomeschool.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “AI and Machine Learning Program | Outcome School”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 구성
 

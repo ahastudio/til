@@ -1,5 +1,7 @@
 # Dreeve: 스포츠·피트니스 데이터를 위한 자체 호스팅 대시보드
 
+<https://dreeve.app/>
+
 <https://github.com/dreeveapp/dreeve>
 
 HN 토론: <https://news.ycombinator.com/item?id=49101030> (18점, 3개 댓글)
@@ -29,6 +31,11 @@ AI 기반 운동 추천, 공유 가능한 사용자 배지 생성,
 배포는 Docker 구성을 포함하며,
 Symfony 프레임워크 구성 요소, webpack 번들링,
 PHPUnit과 codecov 통합을 통한 테스트 인프라를 갖추고 있다.
+
+저장소가 홈페이지로 등록한 주소는 dreeve.app이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Dreeve - Self-hosted, open-source dashboard for your sp…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

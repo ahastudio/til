@@ -1,5 +1,7 @@
 # react-native-liquid-glassmorphism: Android 13의 AGSL 굴절 셰이더와 iOS 26의 UIGlassEffect를 한 컴포넌트로 묶은 라이브러리
 
+<https://himanshu-lal4.github.io/react-native-liquid-glassmorphism/>
+
 <https://github.com/himanshu-lal4/react-native-liquid-glassmorphism>
 
 ## 소개
@@ -26,6 +28,11 @@ README는 자기 라이브러리를 `expo-blur`,
 이 문서는 표의 판정을 사실로 옮기지 않았다.
 README에는 후원 링크와 검색어를 나열한 문단도
 있다. 기술적 내용은 별개로 읽어야 한다.
+
+저장소가 홈페이지로 등록한 주소는 himanshu-lal4.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Liquid Glass for iOS & Android | React Native Liquid Gl…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 요구 사항
 

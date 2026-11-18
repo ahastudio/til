@@ -1,5 +1,7 @@
 # Portal: 릴레이가 TLS를 종단하지 않는 셀프호스팅 터널
 
+<https://gosuda.github.io/portal-tunnel/>
+
 <https://github.com/gosuda/portal-tunnel>
 
 Show HN: [Portal – Relay network to expose local services to public web endpoint | Hacker News](https://news.ycombinator.com/item?id=46096538) (2점, 0개 댓글)
@@ -17,6 +19,11 @@ README가 내거는 조건이 넷이다. **포트 포워딩 없음, 인바운드
 
 [Cloudflare Quick Tunnels 노트](../cloudflare/quick-tunnels.md)가 다룬 문제와 같은 영역인데, 답이 정반대 방향이다.
 Quick Tunnels가 단일 사업자의 엣지에 모든 것을 맡기는 대신 마찰을 0으로 만든다면, Portal은 **릴레이를 신뢰하지 않는 것**을 설계의 출발점으로 삼는다.
+
+저장소가 홈페이지로 등록한 주소는 gosuda.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Portal Documentation”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 핵심 주장
 

@@ -1,5 +1,7 @@
 # GoScrapy — Go 기반 초고속 웹 스크래핑 프레임워크
 
+<https://goscrapy.com/>
+
 <https://github.com/tech-engine/goscrapy>
 
 ## 소개
@@ -7,6 +9,11 @@
 GoScrapy는 Python의 Scrapy 아키텍처를 Go로 재구현한 고성능 웹 스크래핑
 프레임워크다. Go의 동시성 모델을 활용하여 병렬 스크래핑을 지원하며,
 구조화된 워크플로우로 요청, 미들웨어, 데이터 파이프라인을 처리한다.
+
+저장소가 홈페이지로 등록한 주소는 goscrapy.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “GoScrapy - High-Performance Web Scraping Framework in Go”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 아키텍처
 

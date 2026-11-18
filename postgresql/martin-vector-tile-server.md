@@ -1,5 +1,7 @@
 # Martin
 
+<https://maplibre.org/martin/>
+
 <https://github.com/maplibre/martin>
 
 ## 소개
@@ -11,6 +13,11 @@ Apache-2.0 및 MIT 이중 라이선스로 제공된다.
 기존 타일 서버들은 사전 생성(pre-generated) 타일을 캐시에서 제공하는 방식을 사용한다.
 Martin은 요청 시점에 PostGIS에서 데이터를 직접 읽어 타일을 생성하므로, 데이터 변경이 즉시 반영된다.
 사전 생성 비용 없이 실시간 지도 데이터를 서빙할 수 있다는 것이 핵심 차별점이다.
+
+저장소가 홈페이지로 등록한 주소는 maplibre.org이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Index - Martin Tile Server Documentation”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

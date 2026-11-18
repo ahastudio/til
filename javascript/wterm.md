@@ -1,5 +1,7 @@
 # wterm: DOM으로 그리는 웹 터미널 에뮬레이터
 
+<https://wterm.dev/>
+
 <https://github.com/vercel-labs/wterm>
 
 HN 토론: <https://news.ycombinator.com/item?id=48320667> (66점, 18개 댓글)
@@ -20,6 +22,11 @@ README의 첫 문장은 “웹을 위한 터미널 에뮬레이터”이고,
 저장소 메타데이터로 보면 2026-04-14에 만들어졌고,
 이 글을 쓴 2026-11-04에도 푸시가 있었으며, 별은 3,642개다.
 HN 스레드는 2026-05-29에 올라왔다.
+
+저장소가 홈페이지로 등록한 주소는 wterm.dev이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “wterm | Terminal Emulator for the Web”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 패키지 구성
 

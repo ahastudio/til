@@ -1,5 +1,7 @@
 # HOP: HWP 문서를 열고 저장하는 오픈소스 데스크톱 앱
 
+<https://golbin.github.io/hop/>
+
 <https://github.com/golbin/hop>
 
 GN 토론: <https://news.hada.io/topic?id=32428>
@@ -28,6 +30,11 @@ Windows는 x64 `.msi`, Linux는 x64용 `.deb`/`.rpm`/AppImage와 arm64 `.deb`를
 제공하며, Arch 계열은 AUR의 `hop-openhwp-bin`으로 설치한다.
 Homebrew 패키지와 AUR 패키지는 모두 외부 기여자가 올린 것으로 README에 명시되어
 있다.
+
+저장소가 홈페이지로 등록한 주소는 golbin.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “HOP is Open HWP”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 아키텍처
 

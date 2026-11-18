@@ -1,5 +1,7 @@
 # Node MySQL 2
 
+<https://sidorares.github.io/node-mysql2/>
+
 <https://github.com/sidorares/node-mysql2>
 
 ## Promise

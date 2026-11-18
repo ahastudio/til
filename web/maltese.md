@@ -1,6 +1,6 @@
 # 말장난 말티즈: 로그인 없이 말장난만 겨루는 한 판의 웹앱
 
-<https://maltese.app>
+<https://maltese.app/>
 
 Show GN: [말장난 전문가들의 장 | GeekNews](https://news.hada.io/topic?id=23644)
 

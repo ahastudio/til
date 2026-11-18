@@ -1,5 +1,7 @@
 # syncular: 로컬 SQLite를 서버 커밋 로그로 맞추는 오프라인 우선 엔진
 
+<https://syncular.dev/>
+
 <https://github.com/syncular/syncular>
 
 HN 토론: <https://news.ycombinator.com/item?id=49142794> (79점, 29개 댓글)
@@ -34,6 +36,11 @@ SQLite·Postgres·D1과 함께 배포할 수 있다.
 이는 기반이 아니라 보조다.
 프로젝트는 Benjamin Kniffler가 유지하며 1.0 이전 상태이고,
 Apache-2.0 라이선스에 GitHub 별 270개, 구현 간 적합성 테스트를 갖췄다.
+
+저장소가 홈페이지로 등록한 주소는 syncular.dev이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “syncular: SQLite on every device, one log on your server”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

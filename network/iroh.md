@@ -1,5 +1,7 @@
 # iroh - 공개키 기반 P2P 네트워크 라이브러리
 
+<https://www.iroh.computer/>
+
 <https://github.com/n0-computer/iroh>
 
 ## 요약
@@ -29,6 +31,11 @@ GeekNews 본문은 iroh를 “위치와 무관하게 가장 빠른 네트워크 
 라이브러리로 요약한다.
 P2P 애플리케이션, 실시간 통신, IP 기반의 한계가 마찰을 일으키는 분산 시스템이
 주 대상이다.
+
+저장소가 홈페이지로 등록한 주소는 www.iroh.computer이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “iroh — Less net work for networks”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

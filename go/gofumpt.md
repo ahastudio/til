@@ -1,5 +1,7 @@
 # gofumpt
 
+<https://pkg.go.dev/mvdan.cc/gofumpt>
+
 <https://github.com/mvdan/gofumpt>
 
 HN 토론: <https://news.ycombinator.com/item?id=34748475> (98점, 88개 댓글)
@@ -17,6 +19,11 @@ Go 1.25 이상이 필요하며, Go 1.26.0 기준의 `gofmt` 코드를 포크해 
 ```bash
 go install mvdan.cc/gofumpt@latest
 ```
+
+저장소가 홈페이지로 등록한 주소는 pkg.go.dev이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “gofumpt command - mvdan.cc/gofumpt - Go Packages”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 추가 규칙
 
@@ -64,7 +71,7 @@ gofumpt는 표준 `gofmt` 위에 다음 규칙들을 추가로 적용한다.
 
 gopls를 통해 주요 에디터와 연동된다.
 
-- **VS Code**: `“formatting.gofumpt”: true` 설정으로 gopls에서 활성화
+- **VS Code**: `"formatting.gofumpt": true` 설정으로 gopls에서 활성화
 - **GoLand**: gofumpt 실행 파일을 파일 와처(file watcher)로 구성
 - **Vim/Neovim**: vim-go 또는 lspconfig의 gopls 설정
 - **Emacs**: lsp-mode 또는 eglot 설정
@@ -120,7 +127,7 @@ gofumpt로 포맷된 코드를 `gofmt`로 재처리해도 변경이 없어야 �
 
 gofumpt가 에디터 독립적 CLI 도구라는 사실보다 gopls(Go Language Server)와의 연동이
 더 중요한 채택 요인이다.
-gopls가 gofumpt를 공식적으로 지원하고 `“formatting.gofumpt”: true` 한 줄로
+gopls가 gofumpt를 공식적으로 지원하고 `"formatting.gofumpt": true` 한 줄로
 VS Code에서 활성화할 수 있다는 사실은,
 이 도구의 확산이 개별 개발자의 선택이 아니라
 언어 서버 생태계의 표준화를 통해 이루어짐을 의미한다.

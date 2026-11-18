@@ -1,6 +1,6 @@
 # HTMLcat: 브라우저에 이미 있는 기능을 주의 사항과 함께 한 장씩 적어 둔다
 
-<https://htmlcat.net>
+<https://htmlcat.net/>
 
 HN 토론: <https://news.ycombinator.com/item?id=49385860> (242점, 60개 댓글)
 

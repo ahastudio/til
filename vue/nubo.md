@@ -1,5 +1,7 @@
 # Nubo
 
+<https://nubohub.org/>
+
 <https://github.com/sirini/nubo>
 
 ## 소개
@@ -13,13 +15,18 @@ SSR(서버 사이드 렌더링)을 통한 SEO 최적화, 스킨 기반 UI 커스
 관리자 대시보드처럼 보호가 필요한 페이지는 보안을 위해 클라이언트 사이드 렌더링으로
 유지한다.
 
+저장소가 홈페이지로 등록한 주소는 nubohub.org이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “NUBO”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
+
 ## 기술 스택
 
-| 분류       | 도구                                             |
-| ---------- | ------------------------------------------------ |
-| 프론트엔드 | Nuxt 4, Vue 3, Pinia, shadcn-vue, Tailwind CSS, Tiptap |
-| 백엔드     | GoFiber v3 (GOAPI)                               |
-| 데이터베이스 | MySQL/MariaDB                                  |
+| 분류         | 도구                                                   |
+| ------------ | ------------------------------------------------------ |
+| 프론트엔드   | Nuxt 4, Vue 3, Pinia, shadcn-vue, Tailwind CSS, Tiptap |
+| 백엔드       | GoFiber v3 (GOAPI)                                     |
+| 데이터베이스 | MySQL/MariaDB                                          |
 
 ## 스킨 시스템
 

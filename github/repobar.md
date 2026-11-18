@@ -1,5 +1,7 @@
 # RepoBar - 메뉴 바에서 GitHub 저장소 상태 한눈에 보기
 
+<https://repobar.app/>
+
 <https://github.com/steipete/RepoBar>
 
 ## 요약
@@ -22,6 +24,11 @@ RepoBar는 macOS 메뉴 바에서 GitHub 저장소 상태를 실시간으로 모
 번들된 `repobar` CLI도 제공하여 터미널에서 JSON이나 텍스트 형식으로 저장소 정보를
 조회할 수 있다. Swift로 작성되었으며(95.2%), MIT 라이선스다.
 현재 v0.1.0 첫 번째 공개 릴리스 단계다.
+
+저장소가 홈페이지로 등록한 주소는 repobar.app이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “RepoBar — GitHub repositories in your menu bar”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

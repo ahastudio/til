@@ -1,6 +1,6 @@
 # Decomp Academy
 
-<https://decomp-academy.dev>
+<https://decomp-academy.dev/>
 
 <https://github.com/JackPriceBurns/decomp-academy-fe>
 

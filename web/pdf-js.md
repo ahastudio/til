@@ -1,5 +1,7 @@
 # PDF.js: PDF 구문 분석과 렌더링을 웹 표준 위에서 하는 Mozilla의 뷰어
 
+<https://mozilla.github.io/pdf.js/>
+
 <https://github.com/mozilla/pdf.js>
 
 HN 토론: <https://news.ycombinator.com/item?id=4520456> (371점, 90개 댓글)
@@ -26,6 +28,11 @@ Chrome 확장 프로그램은 Chrome 웹 스토어에 있고 별도 관리자(Ro
 온라인 데모는 최신 JavaScript 기능을 가정하는 현대 브라우저판과
 이전 브라우저용 레거시판이 따로 있고,
 PDF의 내부 구조를 보는 디버거 페이지도 있다.
+
+저장소가 홈페이지로 등록한 주소는 mozilla.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “PDF.js - Home”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 구성
 

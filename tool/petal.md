@@ -1,5 +1,7 @@
 # Petal: 공유받은 창이 내 데스크톱의 진짜 창이 되는 화면 공유 앱
 
+<https://petal.live/>
+
 <https://github.com/kiruna-labs/petal>
 
 Show HN: [Petal, open-source CoScreen/ScreenHero finally free](https://news.ycombinator.com/item?id=50092470)
@@ -26,6 +28,11 @@ Petal은 수익화하지 않고 무료 오픈소스로 두어 팀이 관심을 �
 확인한 시점에 별이 417개, 포크가 19개, 열린 이슈가 36개였고
 마지막 푸시는 10월 24일이었다.
 이름과 로고는 라이선스 허용 범위에 들지 않는다고 README가 따로 밝힌다.
+
+저장소가 홈페이지로 등록한 주소는 petal.live이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Petal — Open Source Pair Programming”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

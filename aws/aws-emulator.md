@@ -1,5 +1,7 @@
 # AWS Emulator는 AWS가 직접 만든 로컬 AWS API 에뮬레이터로, 서비스별 충실도 점수를 공개하고 AI 에이전트가 계속 고친다
 
+<https://docs.aws.amazon.com/emulator/latest/userguide/what-is-service.html>
+
 <https://github.com/aws/aws-emulator>
 
 HN 토론: <https://news.ycombinator.com/item?id=50456631> (899점, 250개 댓글)
@@ -76,6 +78,11 @@ IAM 정책과 리소스 기반 정책을 AWS처럼 평가하지 않는다.
 README는 `CARGO_TARGET_DIR`을 프로젝트 사이에 공유하고, CI에서 `target/`을 캐시하거나
 sccache를 쓰고, 에뮬레이터를 릴리스 커밋에 고정하라고 권한다.
 PR은 받지 않고 버그와 충실도 차이는 Issues로만 받는다.
+
+저장소가 홈페이지로 등록한 주소는 docs.aws.amazon.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “What is AWS Emulator? - AWS Emulator”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 만든 방식
 

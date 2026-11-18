@@ -1,5 +1,7 @@
 # CLX: Compile Lua to Native Executables Through C++20
 
+<https://samyeyo.github.io/clx/>
+
 <https://github.com/samyeyo/clx>
 
 HN 토론: <https://news.ycombinator.com/item?id=48871547> (142점, 32개 댓글)
@@ -31,6 +33,11 @@ clx --minimal file.lua   # 최소 라이브러리
 `load()`, `dofile()` 같은 동적 코드 평가가 순수 AOT 모드에서 지원되지 않는다.
 `debug` 모듈은 컴파일된 형태에서 사용 불가다.
 전통적인 Lua C API와 호환되지 않아 네이티브 모듈은 CLX 전용 C++ API를 써야 한다.
+
+저장소가 홈페이지로 등록한 주소는 samyeyo.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “clx — AOT Lua Compiler for Fast Native Standalone Execu…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

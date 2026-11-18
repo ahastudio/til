@@ -1,5 +1,7 @@
 # Chat2DB: 자기 모델을 붙이는 로컬 우선 AI 데이터베이스 클라이언트
 
+<https://chat2db.ai/>
+
 <https://github.com/OtterMind/Chat2DB>
 
 HN 토론: <https://news.ycombinator.com/item?id=39977008>
@@ -23,6 +25,11 @@ AI 어시스턴트는 사용자가 자신의 AI 모델을 가져와(“bring you
 배포 형태도 여러 갈래다.
 GitHub Releases의 데스크톱 설치본, Docker 컨테이너, 웹, CLI로 실행할 수 있다.
 Docker로 띄울 때는 기본적으로 `127.0.0.1:10825`에 바인딩하도록 예시가 짜여 있고, 실행 전에 암호화 키를 먼저 생성해야 한다.
+
+저장소가 홈페이지로 등록한 주소는 chat2db.ai이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Chat2DB - AI Text2SQL Tool for Easy Database Management”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

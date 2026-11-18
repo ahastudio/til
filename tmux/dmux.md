@@ -5,7 +5,7 @@ AI 코딩 에이전트를 병렬로 실행하는
 tmux와 Git worktree를 활용하여 여러 에이전트가
 격리된 환경에서 동시에 작업할 수 있게 한다.
 
-<https://dmux.ai>
+<https://dmux.ai/>
 
 <https://github.com/standardagents/dmux>
 

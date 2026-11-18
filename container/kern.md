@@ -1,6 +1,6 @@
 # kern: 데몬 없이 밀리초 단위로 컨테이너를 띄우는 rootless 런타임이자 에이전트 샌드박스
 
-<https://getkern.dev>
+<https://getkern.dev/>
 
 <https://github.com/getkern/kern>
 

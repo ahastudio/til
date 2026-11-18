@@ -1,5 +1,7 @@
 # Obscura
 
+<https://www.obscura.sh/>
+
 <https://github.com/h4ckf0r0day/obscura>
 
 ## 소개
@@ -8,16 +10,21 @@ Rust로 작성된 오픈소스 헤드리스 브라우저로, 웹 스크래핑과
 V8을 통한 실제 JavaScript 실행과 Chrome DevTools Protocol(CDP)을 지원하며, Puppeteer 및 Playwright와 호환된다.
 라이선스는 Apache 2.0이며 GitHub에서 6,400개 이상의 스타를 받았다.
 
+저장소가 홈페이지로 등록한 주소는 www.obscura.sh이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Obscura · Give every agent its own browser”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
+
 ## 성능 비교
 
 헤드리스 Chrome 대비 현저히 가벼운 사용량을 주장한다.
 
-| 항목        | Obscura | 헤드리스 Chrome |
-| ----------- | ------- | --------------- |
-| 메모리 사용 | 30 MB   | 200 MB+         |
-| 바이너리 크기 | 70 MB | 300 MB+         |
-| 페이지 로드 | 85 ms   | ~500 ms         |
-| 시작 시간   | 즉시    | ~2초            |
+| 항목          | Obscura | 헤드리스 Chrome |
+| ------------- | ------- | --------------- |
+| 메모리 사용   | 30 MB   | 200 MB+         |
+| 바이너리 크기 | 70 MB   | 300 MB+         |
+| 페이지 로드   | 85 ms   | ~500 ms         |
+| 시작 시간     | 즉시    | ~2초            |
 
 ## 주요 기능
 

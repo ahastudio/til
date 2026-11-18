@@ -1,5 +1,7 @@
 # dbtrail
 
+<https://dbtrail.com/>
+
 <https://github.com/dbtrail/dbtrail>
 
 ## 소개
@@ -15,6 +17,11 @@ dbtrail은 MySQL을 위한 타임머신을 표방하는 오픈소스 도구다.
 `SELECT * FROM orders WHERE id = 123 AS OF '2026-05-20 14:00:00'`
 같은 문법으로 과거 시점의 데이터를 그대로 조회할 수 있다는 점이
 프로젝트를 상징적으로 보여준다.
+
+저장소가 홈페이지로 등록한 주소는 dbtrail.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “DBTrail: HTAP for MySQL and MariaDB, open source”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 아키텍처
 

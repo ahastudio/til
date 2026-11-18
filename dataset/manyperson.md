@@ -1,6 +1,6 @@
 # ManyPerson
 
-<https://manyperson.com>
+<https://manyperson.com/>
 
 ## 소개
 

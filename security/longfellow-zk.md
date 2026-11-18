@@ -1,5 +1,7 @@
 # Longfellow ZK — Google의 연령 확인용 영지식 증명 라이브러리
 
+<https://longfellow-zk.github.io/longfellow-zk/>
+
 <https://github.com/google/longfellow-zk>
 
 관련 발표: <https://blog.google/innovation-and-ai/technology/safety-security/opening-up-zero-knowledge-proof-technology-to-promote-privacy-in-age-assurance/>
@@ -34,6 +36,11 @@ ZKP는 “어떤 사실이 참임을 증명하되 다른 어떤 데이터도 교
 예컨대 웹사이트 방문자가 생년월일이나 신분증 없이도 18세 이상임을 증명할 수 있게 해준다.
 아래 분석·비평·인사이트는 이 저장소가 공개될 당시의 HN·Lobsters 반응을 토대로,
 라이브러리가 실제로 해결하는 문제와 해결하지 못하는 문제를 함께 짚는다.
+
+저장소가 홈페이지로 등록한 주소는 longfellow-zk.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Longfellow”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 
