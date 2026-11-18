@@ -55,7 +55,7 @@ AI에게 문서를 읽히고, 테스트를 가져오고,
 
 Cloudflare 엔지니어 한 명이 AI(Claude)를 사용해
 1주일 만에 Next.js API 표면적의 94%를
-재구현했다(vinext). 토큰 비용 약 $1,100.
+재구현했다(Vinext). 토큰 비용 약 $1,100.
 
 이것이 가능했던 이유:
 
@@ -259,7 +259,7 @@ S3 호환 API, Redpanda(Kafka 호환 재작성)
 
 ### Cloudflare 사례의 한계 인식
 
-vinext가 Next.js API의 94%를 구현했다고 하지만,
+Vinext가 Next.js API의 94%를 구현했다고 하지만,
 나머지 6%와 엣지 케이스의 장기 안정성은
 다른 문제다.
 

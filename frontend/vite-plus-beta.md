@@ -29,7 +29,7 @@ tsdown CSS 모듈 지원, Oxlint React Compiler 린트 규칙, Oxfmt Svelte 포�
 채택 현황은 빠른 성장을 보여준다.
 2026년 1월 월간 다운로드 4,600회에서 7월(예상치) 330만 회로 증가했다.
 공개 저장소 1,300개 이상이 vite-plus에 의존한다(비공개 설치 제외).
-주요 채택 사례로 Dify(LLM 앱 플랫폼), BlockNote(React 리치 텍스트 에디터), vinext(Vite 기반 Next.js 호환 프레임워크),
+주요 채택 사례로 Dify(LLM 앱 플랫폼), BlockNote(React 리치 텍스트 에디터), Vinext(Vite 기반 Next.js 호환 프레임워크),
 îles(Vue 아일랜드 사이트 생성기), Inkline(멀티 프레임워크 UI 라이브러리) 등이 거론된다.
 
 1.0 로드맵에는 `vp run`용 원격 캐싱(Vite Task), GitLab CI/CD용 `setup-vp`, Homebrew 배포,

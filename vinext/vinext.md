@@ -1,15 +1,16 @@
 # Vinext
 
-GitHub: <https://github.com/cloudflare/vinext>
-
-블로그 글: [How we rebuilt Next.js with AI in one week | Cloudflare Blog](https://blog.cloudflare.com/vinext/)
+원문: [How we rebuilt Next.js with AI in one week](https://blog.cloudflare.com/vinext/)
 
 HN 토론: <https://news.ycombinator.com/item?id=47142156> (540점, 236개 댓글)
 
-## 요약
+GN 토론: <https://news.hada.io/topic?id=26988>
+
+## 소개
 
 Vinext는 Next.js API 표면을 Vite 위에서 재구현한
 Vite 플러그인이다.
+이 절의 수치는 원문인 Cloudflare 블로그 글이 발표한 것이고, 프로젝트 사이트와 저장소의 현재 서술은 `vinext/README.md`에 따로 정리했다.
 
 Next.js를 fork하거나 `next build` 출력을 감싸는 방식이 아니라,
 Next.js의 라우팅·SSR·`next/*` 모듈 임포트·CLI를
@@ -22,6 +23,52 @@ Next.js의 라우팅·SSR·`next/*` 모듈 임포트·CLI를
 - **94%** Next.js API 표면 커버리지
 - **$1,100** 상당의 AI 토큰 소비
 - **1주일** 개발 기간
+
+## 블로그 글이 적은 것
+
+원문은 Cloudflare 블로그에 실린 글(2026년 2월 24일 게시, 9월 28일 수정)이다. 글에 저자 표기는 없고 일인칭으로 엔지니어링 매니저 한 명이 AI를 이끌었다고 쓴다. 첫 커밋은 2월 13일이다. 글의 메타 설명은 빌드가 최대 4배 빠르고 번들이 57% 작다고 한다.
+앞의 소개 절은 핵심 수치만 적었으므로 글의 나머지를 보충한다.
+
+### 문제 설정
+
+Next.js는 가장 인기 있는 React 프레임워크이지만 Cloudflare와 Netlify와 AWS Lambda에 배포하려면 Turbopack 빌드 출력을 대상마다 다시 짜야 한다고 글은 쓴다.
+OpenNext가 이를 풀지만 한계에 금방 부딪히고 「두더지 잡기」이며 Next.js 출력을 역공학하는 방식은 버전 사이에 예측하기 어려운 변화를 낳는다고 한다. Next.js가 어댑터 API를 만들고 있고 Cloudflare도 협업하지만 어댑터는 여전히 Turbopack에 의존하고 빌드와 배포만 다룬다고 한다.
+`next dev`는 Node.js에서만 돌아서 Durable Objects, KV, AI 같은 플랫폼 바인딩을 개발 중에 시험하려면 우회가 필요하다는 점도 든다.
+
+### 벤치마크
+
+공유한 33개 라우트의 App Router 앱으로 Next.js 16과 비교했다. Next.js 빌드에서 TypeScript 검사와 ESLint를 껐고 `force-dynamic`을 써서 정적 사전 렌더링을 건너뛰게 했으며, 벤치마크는 `main` 병합마다 GitHub CI에서 돈다고 한다.
+
+| 프로덕션 빌드 시간(평균)   | 시간   | Next.js 대비 |
+| -------------------------- | ------ | ------------ |
+| Next.js 16.1.6 (Turbopack) | 7.38초 | 기준         |
+| Vinext (Vite 7, Rollup)    | 4.64초 | 1.6배 빠름   |
+| Vinext (Vite 8, Rolldown)  | 1.67초 | 4.4배 빠름   |
+
+| 클라이언트 번들(gzip) | 크기    | Next.js 대비 |
+| --------------------- | ------- | ------------ |
+| Next.js 16.1.6        | 168.9KB | 기준         |
+| Vinext (Rollup)       | 74.0KB  | 56% 작음     |
+| Vinext (Rolldown)     | 72.9KB  | 57% 작음     |
+
+글은 이 수치가 컴파일과 번들링만 잰 것이고 서빙 성능이 아니며 방향만 보여 주는 값이라고 적는다. 빌드 4배는 Vite 8의 Rolldown에서 나온 값이고 Rollup에서는 1.6배이다.
+
+### 배포와 구조
+
+- Workers 배포: `vinext deploy`가 빌드하고 Worker 설정을 만들어 배포한다. App Router와 Pages Router 모두 클라이언트 하이드레이션과 상태가 동작한다고 한다. ISR은 KV 캐시 핸들러(`KVCacheHandler`와 `setCacheHandler`)로 하고 캐시 층은 교체할 수 있으며 대용량에는 R2, Cache API 기반 층이 진행 중이라고 한다.
+- 95/5: 코드의 약 95%가 순수 Vite(라우팅, 모듈 심, SSR 파이프라인, RSC 통합)이고 다른 호스트의 채택을 바란다. Vercel 개념 증명이 30분 안에 끝났다고 한다.
+- 상태: 일주일이 안 된 실험이고 대규모 검증이 없다. Vitest 1,700개 이상과 Playwright 380개(Next.js 테스트와 OpenNext의 Cloudflare 적합성 테스트 이식 포함), Next.js 16 API 표면의 94%라고 한다. 국가 디자인 스튜디오(National Design Studio)가 베타 사이트 CIO.gov를 프로덕션에서 돌린다고 한다.
+- 정적 사전 렌더링: ISR은 되지만 빌드 때의 사전 렌더링(`generateStaticParams()`)은 아직 지원하지 않는다. 의도한 출시 결정이고 로드맵에 있으며, 전부 정적인 사이트는 이득이 적어 Astro를 권한다고 글이 적는다.
+- TPR: 실험 기능이며 기본값으로 만들 계획이다. 배포 때 Cloudflare 존 분석을 조회해 트래픽이 많은 페이지만 사전 렌더링한다. 글의 예시 출력은 고유 경로 12,847개 중 184개가 트래픽의 90%를 덮어 184개를 8.3초에 KV 캐시에 사전 렌더링한다는 것이다. 글은 페이지 10만 개 사이트에서 트래픽의 90%가 50개에서 200개 페이지에 몰린다고 추정한다.
+
+### 만든 과정
+
+글은 AI에게 맞는 문제의 네 조건을 든다. Next.js가 잘 명세되어 있고, 정교한 종단 간 테스트 스위트(코드에 출처 표기)가 있고, Vite가 번들링과 HMR과 ESM을 맡고 `@vitejs/plugin-rsc`가 RSC를 맡으며, 모델이 구조 전체를 맥락에 담을 수 있다는 것이다. 네 가지가 동시에 맞아야 했다고 쓴다.
+일정은 첫 저녁에 두 라우터의 기본 SSR과 미들웨어와 서버 액션과 스트리밍, 이튿날 오후에 App Router 플레이그라운드 11개 라우트 중 10개 렌더링, 사흘째에 `vinext deploy`로 앱 배포, 나머지는 보강과 API 커버리지 94%이다.
+작업 방식은 OpenCode에서 Claude와 몇 시간 구조를 정하고(북극성), 작업 정의, AI의 구현과 테스트 작성, 테스트 실행, 통과하면 병합하고 아니면 오류를 되돌려 주는 반복이다. AI 리뷰 에이전트가 풀 리퀘스트를 검토하고 다른 에이전트가 의견을 처리했다. 일부 풀 리퀘스트가 틀린 Next.js 동작을 자신 있게 구현했다고 인정한다. 브라우저 검증에는 agent-browser를 썼다. 합계는 800개 이상의 OpenCode 세션과 약 1,100달러의 Claude API 토큰이다.
+글은 소프트웨어에 대한 의미로, 추상화는 사람이 시스템을 머릿속에 담도록 돕기 위해 있고 AI는 전체를 담아 중간 프레임워크가 필요 없을 수 있으며 어느 추상화가 근본인지 불분명하다고 쓴다.
+감사 인사는 Vite 팀(`@vitejs/plugin-rsc` 없이는 만들기 어려웠을 것)과 잘 문서화된 API와 포괄적 테스트를 제공한 Next.js 팀에 간다.
+사용은 `npx skills add cloudflare/vinext` 후 AI에게 이전을 맡기거나 `npx vinext init`, `npx vinext dev`, `npx vinext deploy`로 한다.
 
 ## 배경: 왜 만들었나
 
@@ -37,12 +84,12 @@ Cloudflare가 느낀 문제는 두 가지였다.
 
 ## OpenNext와의 차이
 
-| 항목          | OpenNext                          | Vinext                       |
-|---------------|-----------------------------------|------------------------------|
-| 방식          | next build 결과를 플랫폼에 맞게 변환 | 빌드 자체를 Vite로 대체       |
-| Next.js 의존  | 있음                              | 없음                          |
-| API 재구현    | 부분적                            | 전체                          |
-| 깨짐 위험     | Next.js 내부 변경 시 높음         | API 표면 변경 시에만           |
+| 항목         | OpenNext                             | Vinext                  |
+| ------------ | ------------------------------------ | ----------------------- |
+| 방식         | next build 결과를 플랫폼에 맞게 변환 | 빌드 자체를 Vite로 대체 |
+| Next.js 의존 | 있음                                 | 없음                    |
+| API 재구현   | 부분적                               | 전체                    |
+| 깨짐 위험    | Next.js 내부 변경 시 높음            | API 표면 변경 시에만    |
 
 ## 핵심 기능
 
@@ -142,7 +189,7 @@ adithyassekhar가 인용했듯, Next.js 팀의 잘 문서화된 API 표면과
 
 이 서사가 문제인 이유는 그것이 AI의 성취를 과장하기 때문이다.
 troupo가 본문에 묻혀 있다고 짚은 문장이 핵심이다.
-vinext의 약 95%가 순수 Vite이고,
+Vinext의 약 95%가 순수 Vite이고,
 라우팅·모듈 심·SSR 파이프라인·RSC 통합 어느 것도 Cloudflare 특화가 아니라는 것,
 곧 진짜 성취는 사람이 만든 Vite라는 것이다[^troupo].
 AI가 일주일에 채운 것은 Next.js라는 명세와 Vite라는 엔진,
@@ -179,7 +226,7 @@ wewewedxfgdf도 “재구현했더니 쉬웠다”는 이야기에 깊이 회의
 이 문서의 기존 인사이트는 1,700개의 테스트와 380개의 E2E 테스트를
 AI 코드에 대한 신뢰의 근거로 제시했다.
 그러나 그 신뢰는 발표 직후 시험대에 올랐다.
-공개 직후 Vercel이 vinext의 취약점들을 공개 폭로했고,
+공개 직후 Vercel이 Vinext의 취약점들을 공개 폭로했고,
 보안 연구자들은 “바이브 코딩된 Next.js 대체물을 바이브 해킹한다”는 제목으로
 그 취약점들을 파고들었다.
 HN에서 thawab이 Next.js가 RSC 구현 때문에 원격 코드 실행 취약점을 겪었다며
@@ -210,14 +257,18 @@ samtheprogram은 README의 아이러니를 짚었다.
 Node.js 프로덕션 서버(`vinext start`)는 테스트용이고
 Workers 배포보다 덜 완전하며, Cloudflare Workers가 주 타깃이라는 것이다[^samtheprogram].
 
-이 모순이 드러내는 것은 vinext의 진짜 목적이다.
+GeekNews에서도 같은 의심이 나왔다.
+click은 블로그 글의 논조는 그렇지 않지만 정적 사이트 생성을 의도적으로 뺀 것이 정적 사이트에는 Astro를 쓰라는 함의로 읽힌다고 했다[^click-gn].
+OpenNext에 힘을 보태는 편이 낫지 않았느냐는 t7vonn의 아쉬움[^t7vonn]에는, 지향점이 다르다는 답이 달렸다. OpenNext는 Next.js 빌드 결과물을 변환하고 Vinext는 Turbopack을 Vite로 대체하는 전체 재작성이라는 것이다[^click-gn-opennext].
+
+이 모순이 드러내는 것은 Vinext의 진짜 목적이다.
 발표는 라우팅·SSR 파이프라인이 Cloudflare 비특화라 이식 가능하다고 하지만,
-실제로 완전히 지원되는 배포 대상은 Cloudflare Workers다.
-곧 vinext는 중립적 프레임워크가 아니라
+현재 사이트는 Nitro를 거쳐 다른 호스트로도 배포할 수 있다고 하지만, README가 Node 프로덕션 서버를 테스트용으로 구분하는 점에서 완전히 지원되는 주 대상은 Cloudflare Workers로 읽힌다.
+곧 Vinext는 중립적 프레임워크가 아니라
 Next.js 앱을 Cloudflare Workers로 끌어오는 통로다.
 이것은 이 저장소의 다른 노트가 EmDash에서 관찰한 패턴,
 곧 오픈소스를 인프라 채택의 미끼로 삼는 전략의 반복이다.
-Astro 인수와 vinext 개발이 겹치는 것도 모순이 아니라,
+Astro 인수와 Vinext 개발이 겹치는 것도 모순이 아니라,
 어떤 경로로든 개발자를 Cloudflare 런타임으로 데려오려는 여러 베팅으로 읽힌다.
 공개된 소스와 이식 가능하다는 문구가,
 실제로는 한 플랫폼으로 수렴하는 기울기를 가린다.
@@ -234,7 +285,7 @@ Next.js를 쓰는 앱 코드는 `next/*` import,
 Server Action 시그니처에만 의존한다.
 
 내부 컴파일러가 무엇인지는 관심 밖이다.
-이 사실이 vinext의 가능성을 열었다.
+이 사실이 Vinext의 가능성을 열었다.
 
 “구현을 교체해도 사용자 코드는 그대로”라는 전략은
 플러그인 아키텍처, 인터페이스 우선 설계의
@@ -246,7 +297,7 @@ HN에서 switz는 이 계약이 AI 시대에 낳는 뒤틀린 유인을 짚었�
 잘 명세된 API는 좋은 설계의 증거이지만,
 동시에 그 명세가 AI에게 복제의 청사진이 된다.
 Next.js가 자기 API를 잘 문서화한 바로 그 미덕이,
-vinext가 그것을 일주일에 재구현할 수 있게 한 조건이 되었다.
+Vinext가 그것을 일주일에 재구현할 수 있게 한 조건이 되었다.
 명세를 공개하고 계약을 명확히 하는 오픈소스의 미덕이,
 AI가 그 구현을 값싸게 복제하는 시대에는
 경쟁 우위를 스스로 넘겨주는 일이 될 수 있다.
@@ -254,7 +305,8 @@ AI가 그 구현을 값싸게 복제하는 시대에는
 ### 2. 빌드 도구 교체가 성능 레버가 된다
 
 Next.js 컴파일러를 Vite로 바꾼 것만으로
-빌드 4x 향상, 번들 57% 감소가 나왔다.
+블로그 글은 빌드 4배 향상, 번들 57% 감소가 나왔다고 했다.
+프로젝트 사이트의 현재 수치는 최대 2배와 약 23%로 더 낮고 방향만 보여 주는 값이라고 한다(`vinext/README.md`).
 
 프레임워크 기능 설계와
 빌드 도구 효율이 분리 가능한 문제임을
@@ -313,3 +365,9 @@ AI가 쓴 코드 1,700개 테스트와
 [^ratorx]: <https://news.ycombinator.com/item?id=47144174>
 
 [^samtheprogram]: <https://news.ycombinator.com/item?id=47144960>
+
+[^click-gn]: <https://news.hada.io/topic?id=26988#cid51891>
+
+[^t7vonn]: <https://news.hada.io/topic?id=26988#cid51886>
+
+[^click-gn-opennext]: <https://news.hada.io/topic?id=26988#cid51889>
