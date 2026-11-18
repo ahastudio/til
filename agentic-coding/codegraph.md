@@ -1,5 +1,7 @@
 # CodeGraph
 
+<https://colbymchenry.github.io/codegraph/>
+
 <https://github.com/colbymchenry/codegraph>
 
 ## 소개
@@ -11,16 +13,21 @@ CodeGraph는 AI 코딩 에이전트(Claude Code, Cursor, Codex 등)를 위한 �
 로컬 전용으로 동작하며 외부 API나 API 키가 필요 없다.
 파일 감시자(FSEvents/inotify/ReadDirectoryChangesW)로 변경 사항을 자동 동기화한다.
 
+저장소가 홈페이지로 등록한 주소는 colbymchenry.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “codegraph — Understand any codebase as a graph”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
+
 ## 성능 벤치마크
 
 7개 실제 코드베이스 대상 중앙값 기준:
 
-| 지표           | 개선율  |
-| -------------- | ------- |
-| 비용 절감      | 35%     |
-| 토큰 감소      | 57%     |
-| 실행 속도 향상 | 46%     |
-| 도구 호출 감소 | 71%     |
+| 지표           | 개선율 |
+| -------------- | ------ |
+| 비용 절감      | 35%    |
+| 토큰 감소      | 57%    |
+| 실행 속도 향상 | 46%    |
+| 도구 호출 감소 | 71%    |
 
 대형 저장소에서 효과가 두드러진다.
 VS Code(TypeScript, ~10k 파일) 기준으로는 비용 26% 절감, 토큰 78% 감소, 속도 52% 향상, 도구 호출 85% 감소를 기록했다.

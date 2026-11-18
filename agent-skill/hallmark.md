@@ -1,5 +1,7 @@
 # hallmark — AI 티가 나지 않는 디자인을 위한 안티 슬롭 스킬
 
+<https://www.usehallmark.com/>
+
 <https://github.com/Nutlope/hallmark>
 
 ## 소개
@@ -32,6 +34,11 @@ Claude Code는 `~/.claude/skills/hallmark/`, Cursor는
 스터디 사례가 보조 문서로 함께 제공된다.
 저장소는 MIT 라이선스이며, 이 글을 쓰는 시점 기준 4,205개의 별과
 251개의 포크를 받으며 트렌딩 저장소 목록에 올라 있다.
+
+저장소가 홈페이지로 등록한 주소는 www.usehallmark.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Hallmark, design taste for coding agents”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

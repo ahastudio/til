@@ -1,5 +1,7 @@
 # Open Interpreter — 저비용 모델에 최적화된 코딩 에이전트
 
+<https://www.openinterpreter.com/>
+
 <https://github.com/openinterpreter/openinterpreter>
 
 ## 소개
@@ -21,6 +23,11 @@ GitHub Trending 상위권에 올랐으며 65,684개의 star, 5,659개의 fork를
 하네스 중 하나를 즉시 전환할 수 있다.
 같은 원리로 `/model` 명령을 사용하면 모델 제공자와 모델도 TUI 안에서 바로
 바꿀 수 있다.
+
+저장소가 홈페이지로 등록한 주소는 www.openinterpreter.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Open Interpreter | Coding agent for open models”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

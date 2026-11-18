@@ -1,5 +1,7 @@
 # claude-code-templates — Claude Code 설정·모니터링 올인원 CLI
 
+<https://www.aitmpl.com/>
+
 <https://github.com/davila7/claude-code-templates>
 
 ## 소개
@@ -14,16 +16,21 @@ Claude for Open Source Program의 지원을 받는다.
 플래그 조합으로 개별 컴포넌트를 즉시 설치할 수 있다. 웹 대시보드([aitmpl.com](https://aitmpl.com))에서
 100여 개 이상의 컴포넌트를 탐색하고 설치 명령을 복사할 수도 있다.
 
+저장소가 홈페이지로 등록한 주소는 www.aitmpl.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Claude Code Templates: 1,990+ Agents, Commands, Skills…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
+
 ## 컴포넌트 유형
 
-| 유형            | 설명                                              | 예시                                                   |
-| --------------- | ------------------------------------------------- | ------------------------------------------------------ |
-| **Agents**      | 특정 도메인 전문 AI 역할                          | 보안 감사, React 성능 최적화, DB 아키텍트              |
-| **Commands**    | 커스텀 슬래시 명령                                | `/generate-tests`, `/optimize-bundle`, `/check-security` |
-| **MCPs**        | 외부 서비스 통합                                  | GitHub, PostgreSQL, Stripe, AWS, OpenAI                |
-| **Settings**    | Claude Code 설정값                                | 타임아웃, 메모리, 출력 스타일                          |
-| **Hooks**       | 자동화 트리거                                     | 커밋 전 검증, 완료 후 액션                             |
-| **Skills**      | 점진적 공개 방식의 재사용 가능 역량               | PDF 처리, Excel 자동화                                 |
+| 유형         | 설명                                | 예시                                                     |
+| ------------ | ----------------------------------- | -------------------------------------------------------- |
+| **Agents**   | 특정 도메인 전문 AI 역할            | 보안 감사, React 성능 최적화, DB 아키텍트                |
+| **Commands** | 커스텀 슬래시 명령                  | `/generate-tests`, `/optimize-bundle`, `/check-security` |
+| **MCPs**     | 외부 서비스 통합                    | GitHub, PostgreSQL, Stripe, AWS, OpenAI                  |
+| **Settings** | Claude Code 설정값                  | 타임아웃, 메모리, 출력 스타일                            |
+| **Hooks**    | 자동화 트리거                       | 커밋 전 검증, 완료 후 액션                               |
+| **Skills**   | 점진적 공개 방식의 재사용 가능 역량 | PDF 처리, Excel 자동화                                   |
 
 ## 설치 예시
 

@@ -1,5 +1,7 @@
 # Odysseus — 셀프 호스팅 AI 워크스페이스
 
+<https://odysseus-dev.github.io/odysseus/>
+
 <https://github.com/pewdiepie-archdaemon/odysseus>
 
 HN 토론: <https://news.ycombinator.com/item?id=48346693> (239점, 105개 댓글)
@@ -13,6 +15,11 @@ Odysseus는 ChatGPT, Claude 같은 인터페이스의 로컬 대안이다. YouTu
 데이터가 로컬에 남고 하드웨어를 직접 제어한다는 프라이버시 우선 철학을 바탕으로
 설계되었다. vLLM, llama.cpp, Ollama 같은 로컬 모델 소스와 OpenAI API 같은 외부
 제공자를 모두 지원한다.
+
+저장소가 홈페이지로 등록한 주소는 odysseus-dev.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Odysseus — A Self-Hosted AI Workspace”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

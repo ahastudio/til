@@ -1,5 +1,7 @@
 # QwenPaw: 내 컴퓨터나 클라우드에 설치해 여러 채팅 앱으로 부르는 개인용 AI 비서
 
+<http://qwenpaw.agentscope.io/>
+
 <https://github.com/agentscope-ai/QwenPaw>
 
 HN 토론: <https://news.ycombinator.com/item?id=47591580> (2점, 1개 댓글)
@@ -18,6 +20,11 @@ HN에는 그 이름으로 올라온 글이 있습니다.[^ekzhu]
 프로젝트가 스스로 내세우는 특징은 세 겹 기억, 로컬 모델 내장,
 커널 수준 샌드박스, 여러 에이전트의 병렬 실행, 여러 채팅 채널 연결입니다.
 이 문서의 설명은 README에서 가져온 것이고, 직접 설치해 돌려 본 결과가 아닙니다.
+
+저장소가 홈페이지로 등록한 주소는 qwenpaw.agentscope.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “QwenPaw — Works for you, grows with you.”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 무엇이 들어 있나
 

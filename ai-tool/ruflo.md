@@ -1,5 +1,7 @@
 # Ruflo
 
+<https://cognitum.one/ruPro>
+
 <https://github.com/ruvnet/ruflo>
 
 HN 토론: <https://news.ycombinator.com/item?id=47385336> (3점, 2개 댓글)
@@ -17,6 +19,11 @@ Raft 합의 알고리즘을, 분산 통신에 가십(gossip) 프로토콜을 사
 
 GitHub 저장소는 50,400개 이상의 스타와 5,600개 이상의 포크를 기록하고 있으며,
 1,483회의 릴리스와 6,425회의 커밋을 통해 활발하게 개발 중이다.
+
+저장소가 홈페이지로 등록한 주소는 cognitum.one이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Cognitum.One — Intelligence Where the Physical World Ha…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 
@@ -83,8 +90,8 @@ Ruflo는 클로드 코드의 MCP(Model Context Protocol) 확장 포인트를 깊
 포지셔닝하고 있음을 의미한다.
 
 실제 채택 사례도 등장하고 있다. Claude와 Ruflo 조합으로 프로젝트 관리 대시보드
-(OpenFlow)를 구축한 팀의 andycodeman은 "우리에게 가장 좋은 결과를 내는 워크플로가
-이것이어서 선택했다"고 밝혔다.[^andycodeman] vibe coding 환경에서 AI의 불필요한
+(OpenFlow)를 구축한 팀의 andycodeman은 “우리에게 가장 좋은 결과를 내는 워크플로가
+이것이어서 선택했다”고 밝혔다.[^andycodeman] vibe coding 환경에서 AI의 불필요한
 인터럽트를 방지하기 위해 Ruflo를 사용한다는 사용자 사례도 보고됐다.[^chunpaiyang]
 이처럼 초기 사용자들은 Ruflo를 에이전트 자율 실행의 흐름 제어 수단으로 활용하는
 경향을 보인다.

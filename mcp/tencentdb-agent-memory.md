@@ -1,5 +1,7 @@
 # TencentDB Agent Memory
 
+<https://tencentcloud.github.io/TencentDB-Agent-Memory/>
+
 <https://github.com/TencentCloud/TencentDB-Agent-Memory>
 
 ## 소개
@@ -21,6 +23,11 @@ TencentDB Agent Memory는 Tencent Cloud가 공개한 AI 에이전트용 장기 �
 기존 요약 방식이 추적 가능성을 남기지 않는 손실적 압축,
 그리고 벡터 스토어의 조각난 조회가 거시적인 지도를 제공하지 못하는
 평면적 메모리 문제다.
+
+저장소가 홈페이지로 등록한 주소는 tencentcloud.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “TencentDB Agent Memory”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 4단계 점진형 파이프라인
 

@@ -1,5 +1,7 @@
 # OpenShorts — 오픈소스 AI 숏폼 영상 플랫폼
 
+<https://www.openshorts.app/>
+
 <https://github.com/mutonby/openshorts>
 
 ## 소개
@@ -7,6 +9,11 @@
 OpenShorts는 롱폼 영상을 바이럴 숏츠로 변환하는 클립 생성기, AI 배우를 활용한 UGC(User-Generated Content) 마케팅 영상 제작 도구, 유튜브 스튜디오 기능을 하나의 플랫폼에 통합한 자기 호스팅(self-hosted) 오픈소스 프로젝트다.
 워터마크 없음, 업로드 제한 없음, 무료라는 세 가지를 내세우며 Opus Clip(\$15~29/월), Klap(\$23~63/월) 같은 유료 경쟁 서비스와 차별화한다.
 MIT 라이선스로 공개되어 있으며, Docker 기반 자기 호스팅을 지원한다.
+
+저장소가 홈페이지로 등록한 주소는 www.openshorts.app이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “OpenShorts: Free AI Clip Maker & Clipping Tool, Open So…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 
@@ -34,18 +41,18 @@ MIT 라이선스로 공개되어 있으며, Docker 기반 자기 호스팅을 �
 
 ## 기술 스택
 
-| 역할              | 기술                                            |
-| ----------------- | ----------------------------------------------- |
-| 바이럴 탐지       | Google Gemini 3.0 Flash                         |
-| 얼굴 추적         | MediaPipe + YOLOv8                              |
-| 자막              | faster-whisper                                  |
-| TTS/더빙          | ElevenLabs                                      |
-| AI 배우 생성      | Flux 2 Pro                                      |
-| 립싱크            | Hailuo 2.3 Fast img2video + VEED Lipsync        |
-| 영상 합성         | FFmpeg                                          |
-| 프론트엔드        | React + Vite                                    |
-| SNS 업로드        | Upload-Post                                     |
-| 스토리지          | S3 (비공개 클립 + 공개 갤러리)                  |
+| 역할         | 기술                                     |
+| ------------ | ---------------------------------------- |
+| 바이럴 탐지  | Google Gemini 3.0 Flash                  |
+| 얼굴 추적    | MediaPipe + YOLOv8                       |
+| 자막         | faster-whisper                           |
+| TTS/더빙     | ElevenLabs                               |
+| AI 배우 생성 | Flux 2 Pro                               |
+| 립싱크       | Hailuo 2.3 Fast img2video + VEED Lipsync |
+| 영상 합성    | FFmpeg                                   |
+| 프론트엔드   | React + Vite                             |
+| SNS 업로드   | Upload-Post                              |
+| 스토리지     | S3 (비공개 클립 + 공개 갤러리)           |
 
 [GeekNews 댓글](https://news.hada.io/topic?id=29715)에서는 AI Shorts가 현재 영어와 스페인어만 지원한다는 점이 지적되었다.
 

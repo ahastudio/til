@@ -1,5 +1,7 @@
 # Ponytail
 
+<https://ponytail.dev/>
+
 <https://github.com/DietrichGebert/ponytail>
 
 HN 토론: <https://news.ycombinator.com/item?id=48527946> (94점, 17개 댓글)
@@ -24,6 +26,11 @@ Ponytail은 AI 에이전트의 코드 생성 방식을 최적화하는 플러그
 
 FastAPI + React 저장소를 대상으로 한 실험 결과로 코드 줄 수 54% 감소, 비용 20% 절감, 실행 속도 27% 향상, 보안/접근성 기준 100% 준수를 주장한다.
 `/ponytail [lite|full|ultra|off]`, `/ponytail-review`, `/ponytail-audit`, `/ponytail-debt` 등의 명령으로 강도를 조절하거나 과엔지니어링을 감사할 수 있다.
+
+저장소가 홈페이지로 등록한 주소는 ponytail.dev이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “ponytail 5: the lazy senior dev for your AI agent”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 
@@ -50,7 +57,7 @@ Ponytail이 제안하는 해법은 시스템 프롬프트 수준의 행동 규�
 무엇이 필요하고 무엇이 과잉인지를 판단하는 컨텍스트 이해가 있기 때문이다.
 
 wiradikusuma의 HN 댓글은 이 지점을 정확하게 짚는다.[^wiradikusuma]
-`<input type=“date”>`는 어떤 시나리오에서는 충분하지만, 다른 시나리오에서는 더 복잡한 컴포넌트가 필요하다.
+`<input type="date">`는 어떤 시나리오에서는 충분하지만, 다른 시나리오에서는 더 복잡한 컴포넌트가 필요하다.
 시니어 개발자는 PRD와 코드베이스 맥락을 읽고 이 판단을 한다.
 Ponytail이 에이전트에게 이 맥락 판단을 얼마나 전달할 수 있는가는 열린 질문이다.
 

@@ -1,5 +1,7 @@
 # Rapid-MLX
 
+<https://rapidmlx.com/>
+
 <https://github.com/raullenchai/Rapid-MLX>
 
 ## 소개
@@ -10,6 +12,11 @@ Ollama 대비 4.2배 빠른 성능과 0.08초의 TTFT(Time To First Token)를 �
 시나리오에서 달성한다고 주장한다.
 
 Homebrew, pip, 원라이너 스크립트로 설치할 수 있으며 Apache 2.0 라이선스로 공개되어 있다.
+
+저장소가 홈페이지로 등록한 주소는 rapidmlx.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Rapid-MLX: Local LLMs on Mac, up to 4× faster than MLX”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 
@@ -34,11 +41,11 @@ PydanticAI, LangChain, smolagents 등 기존 OpenAI API 기반 도구에 설정 
 
 ### 메모리별 모델 권장
 
-| 메모리   | 권장 모델              | 속도       |
-| -------- | ---------------------- | ---------- |
-| 16 GB    | Qwen3.5-4B             | 160 tok/s  |
-| 32 GB    | Qwen3.5-27B            | 141 tok/s  |
-| 64 GB 이상 | Qwen3.5-35B ~ 122B   | 83 tok/s   |
+| 메모리     | 권장 모델          | 속도      |
+| ---------- | ------------------ | --------- |
+| 16 GB      | Qwen3.5-4B         | 160 tok/s |
+| 32 GB      | Qwen3.5-27B        | 141 tok/s |
+| 64 GB 이상 | Qwen3.5-35B ~ 122B | 83 tok/s  |
 
 ## 설치
 

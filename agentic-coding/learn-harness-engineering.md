@@ -1,5 +1,7 @@
 # Learn Harness Engineering
 
+<https://walkinglabs.github.io/learn-harness-engineering/>
+
 <https://github.com/walkinglabs/learn-harness-engineering>
 
 ## 소개
@@ -37,6 +39,11 @@ YOUR PROJECT ROOT
 과정의 학습 경로는 6개 페이즈 12주 분량이다.
 문제 인식(1) → 저장소 구조화(2) → 세션 연결(3) → 피드백과 범위 설정(4) → 검증(5) → 완전한 하네스 구축(6).
 캡스톤 프로젝트는 Electron 기반의 개인 지식 베이스 데스크톱 앱으로, 문서 임포트, 라이브러리 관리, 인덱싱, AI 기반 Q&A, 인용을 포함한 답변 생성 기능을 에이전트로 구축한다.
+
+저장소가 홈페이지로 등록한 주소는 walkinglabs.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Learn Harness Engineering”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

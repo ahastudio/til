@@ -1,5 +1,7 @@
 # Skyvern: LLM과 컴퓨터 비전으로 브라우저를 자동화하는 에이전트
 
+<https://www.skyvern.com/>
+
 <https://github.com/Skyvern-AI/skyvern>
 
 ## 소개
@@ -31,6 +33,11 @@ SDK의 핵심은 Playwright `page` 객체에 네 가지 AI 커맨드를 추가�
 기록하고 있다.
 클라우드 버전은 안티봇 감지 우회, 프록시 네트워크, CAPTCHA 해결 기능을 번들로 제공한다.
 
+저장소가 홈페이지로 등록한 주소는 www.skyvern.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Skyvern: AI-Powered Browser Automation for Any Website”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
+
 ## 분석
 
 ### Playwright 확장으로서의 설계 철학
@@ -40,7 +47,7 @@ Skyvern이 Playwright를 대체하는 것이 아니라 확장하는 방식을 �
 Playwright는 이미 검증된 브라우저 자동화 인프라를 갖추고 있고, 개발자들에게 친숙하다.
 Skyvern은 그 위에 AI 레이어를 얹어, 기존 Playwright 코드베이스를 완전히 버리지 않고도
 점진적으로 AI 기능을 도입할 수 있는 마이그레이션 경로를 제공한다.
-특히 AI 폴백 모드(`page.click(“#selector”, prompt=“...”)`)는 셀렉터가 유효할 때는
+특히 AI 폴백 모드(`page.click("#selector", prompt="...")`)는 셀렉터가 유효할 때는
 빠른 전통 방식을 쓰고, 실패 시에만 AI를 호출함으로써 비용과 속도 균형을 맞춘다.
 
 ### 에이전트 스웜 아키텍처
@@ -97,7 +104,7 @@ WebBench의 WRITE 태스크(폼 입력, 로그인, 파일 다운로드)에서 �
 
 ### “AI 폴백” 패턴은 새로운 소프트웨어 레이어의 원형이다
 
-Skyvern의 `page.click(“#selector”, prompt=“Click the Submit button”)` 인터페이스는
+Skyvern의 `page.click("#selector", prompt="Click the Submit button")` 인터페이스는
 표면적으로는 작은 기능 추가처럼 보이지만, 더 큰 소프트웨어 설계 패턴의 원형이다.
 “전통 방식을 시도하고, 실패하면 AI로 폴백”이라는 구조는 단순히 브라우저 자동화에만
 적용되는 것이 아니다.
@@ -116,7 +123,7 @@ AI 모델의 추론 속도가 빨라질수록 이 트레이드오프의 최적�
 기존 XPath/CSS 셀렉터 기반 자동화가 레이아웃 변경에 취약한 근본 원인은,
 웹이 “의미(semantics)”와 “표현(presentation)”을 충분히 분리하지 못했기 때문이다.
 HTML의 `<button>`, `<input>`, `<form>` 같은 시맨틱 태그가 있지만, 실제 웹 개발에서는
-`<div class=“btn”>`, `<span onclick=“”>` 같은 표현 중심 코드가 남발된다.
+`<div class="btn">`, `<span onclick="">` 같은 표현 중심 코드가 남발된다.
 이 때문에 자동화 도구는 시맨틱 의미가 아니라 DOM 구조나 CSS 클래스에 의존하게 되고,
 디자인 리뉴얼마다 스크립트가 깨진다.
 Vision LLM이 스크린샷을 보고 “이것이 로그인 버튼이다”를 인식하는 것은, 인간이 시각적

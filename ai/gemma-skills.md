@@ -1,5 +1,7 @@
 # gemma-skills – Google Gemma 모델 개발·훈련 스킬 모음
 
+<https://gemma.ai/>
+
 <https://github.com/google-gemma/gemma-skills>
 
 ## 소개
@@ -19,6 +21,11 @@ Python으로 작성되었으며 796개의 스타를 받았다.
 
 설치는 Vercel Skills CLI 또는 Context7 Skills CLI를 통해 대화형으로
 탐색하거나 특정 스킬을 직접 설치하는 방식으로 이루어진다.
+
+저장소가 홈페이지로 등록한 주소는 gemma.ai이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Google Gemma 4 Open Models - Gemma Documentation”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

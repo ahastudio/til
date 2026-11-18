@@ -1,5 +1,7 @@
 # Cog: Dockerfile 없이 ML 모델을 프로덕션 컨테이너로 싸는 도구
 
+<https://cog.run/>
+
 <https://github.com/replicate/cog>
 
 HN 토론: <https://news.ycombinator.com/item?id=31105507> (160점, 14개 댓글)
@@ -28,6 +30,11 @@ Dockerfile을 쓰는 대신 Nvidia 베이스 이미지, 의존성의 효율적 �
 특정 Python 버전 설치, 합리적 환경 변수 기본값을 갖춘 최적화된 이미지를 생성한다.
 `cog run`으로 로컬 실행, `cog build`로 이미지 빌드,
 `cog serve`로 HTTP 서버를 띄우며, Replicate 배포와 통합된다.
+
+저장소가 홈페이지로 등록한 주소는 cog.run이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Cog”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

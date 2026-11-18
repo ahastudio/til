@@ -1,5 +1,7 @@
 # MLC LLM: 컴파일러로 모든 기기에서 LLM을 돌리는 배포 엔진
 
+<https://llm.mlc.ai/>
+
 <https://github.com/mlc-ai/mlc-llm>
 
 HN 토론: <https://news.ycombinator.com/item?id=35763483> (303점, 106개 댓글)
@@ -30,6 +32,11 @@ AMD(Vulkan, ROCm), NVIDIA(Vulkan, CUDA), Apple(Metal), Intel(Vulkan) GPU,
 iPhone·iPad(A 시리즈 Metal), Android(Adreno·Mali GPU의 OpenCL),
 브라우저의 WebGPU와 WebAssembly, 그리고 Linux·Windows 데스크톱을 아우른다.
 중앙화된 클라우드 인프라 없이 소비자 기기에서 네이티브로 배포하는 것을 강조한다.
+
+저장소가 홈페이지로 등록한 주소는 llm.mlc.ai이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “MLC LLM | Home”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

@@ -1,5 +1,7 @@
 # Recall — 오프라인 Claude Code 메모리 플러그인
 
+<https://recallplugin.dev/>
+
 <https://github.com/raiyanyahya/recall>
 
 ## 소개
@@ -12,6 +14,11 @@ Python으로 작성되었고 MIT 라이선스로 공개되어 있으며, GitHub�
 완전한 오프라인 동작(API 키, 외부 모델, 네트워크 전송 없음),
 토큰 효율성(요약에 LLM 호출 대신 TF-IDF + TextRank 알고리즘 사용),
 프라이버시 우선(모든 트랜스크립트가 사용자 로컬 머신에만 존재).
+
+저장소가 홈페이지로 등록한 주소는 recallplugin.dev이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Bundled Page”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

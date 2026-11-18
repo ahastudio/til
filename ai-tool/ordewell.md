@@ -1,6 +1,6 @@
 # Ordewell: 목표 하나를 작업 그래프로 쪼개 작업마다 다른 코딩 에이전트와 모델에 맡기는 오케스트레이터
 
-<https://ordewell.ai>
+<https://ordewell.ai/>
 
 <https://github.com/ordewell/ordewell>
 

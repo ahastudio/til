@@ -1,5 +1,7 @@
 # Bifrost
 
+<https://www.getmaxim.ai/>
+
 <https://github.com/maximhq/bifrost>
 
 ## 소개
@@ -8,6 +10,11 @@ Go로 작성된 초고속 엔터프라이즈 AI 게이트웨이다.
 OpenAI, Anthropic, AWS Bedrock, Google Vertex AI 등 15개 이상의 AI 제공자를 단일 OpenAI 호환 API로 통합한다.
 추가 지연시간 11µs, 5,000 RPS에서 100% 성공률을 성능 지표로 제시한다.
 Apache 2.0 라이선스.
+
+저장소가 홈페이지로 등록한 주소는 www.getmaxim.ai이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Bifrost (by Maxim AI) | Enterprise AI Gateway Built for…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

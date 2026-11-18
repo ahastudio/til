@@ -1,6 +1,6 @@
 # Phone Harness: 휴대폰 제어 에이전트 도구
 
-<https://phone-harness.com>
+<https://phone-harness.com/>
 
 <https://github.com/phone-harness/phone-harness>
 

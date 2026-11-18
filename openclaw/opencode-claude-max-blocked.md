@@ -1,5 +1,7 @@
 # Claude Max가 OpenCode에서 끊긴 밤
 
+<https://opencode.ai/>
+
 <https://github.com/anomalyco/opencode/issues/7410>
 
 HN 토론: <https://news.ycombinator.com/item?id=46549823> (625점, 513개 댓글)
@@ -38,6 +40,11 @@ cedws는 Claude Code가 효율을 위해 Haiku와 Opus를 자동으로 오가는
 Christopher-R-Perkins가 구체적으로 확인해 주었다 — Claude Code의 Explore 에이전트는 Haiku를, statusline-setup은 Sonnet을, Claude Code Guide는 Haiku를 쓰고 나머지가 상속받는다는 것이다.
 cantalupo555는 `opencode.json`에 `small_model`을 `anthropic/claude-haiku-4-5`로 지정하는 해법을 공유했다.
 dearkafka는 이것이 완전히 예상된 동작이라고 정리했다 — 네이티브 Claude Code가 캐시된 토큰에 더 의존하기 때문에 부분적으로 “더 멍청”하고, 그것이 그들이 이따금 OpenCode를 쓰는 Max 계정을 차단하는 이유라는 것이다.
+
+저장소가 홈페이지로 등록한 주소는 opencode.ai이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “OpenCode | The open source coding agent for any model”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

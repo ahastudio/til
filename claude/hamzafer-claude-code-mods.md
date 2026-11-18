@@ -1,5 +1,7 @@
 # hamzafer/claude-code-mods: 바로 설치해 쓰는 Claude Code mod 모음
 
+<https://hamzafer.github.io/claude-code-mods/>
+
 <https://github.com/hamzafer/claude-code-mods>
 
 ## 소개
@@ -16,6 +18,11 @@ mod 25개를 하나의 마켓플레이스로 배포하고, 원하는 것만 골�
 mod가 무엇인지와 직접 만드는 법은
 [Claude Code mods 입문](claude-code-mods.md)에 정리되어 있다.
 이 저장소는 그 API로 만든 결과물을 실제로 써 보는 쪽의 출발점이다.
+
+저장소가 홈페이지로 등록한 주소는 hamzafer.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Claude Code mods and themes: plugins for context, usage…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 설치하기
 

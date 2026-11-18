@@ -1,5 +1,7 @@
 # TorchTPU: PyTorch 코드를 `device="tpu"` 한 줄로 TPU에 올리는 Google과 Meta의 네이티브 백엔드
 
+<https://torchtpu.readthedocs.io/en/0.2.0/>
+
 <https://github.com/google-pytorch/torch_tpu>
 
 HN 토론: <https://news.ycombinator.com/item?id=50169053> (342점, 73개 댓글)
@@ -36,6 +38,11 @@ JAX를 대체하는 것은 아니고 기존 PyTorch 코드베이스가 다시 �
 TPU로 오는 입구라는 설명이다.[^faq]
 HN의 mathisfun123도 이것이 pytorch/xla를 대체하는 것이라고
 짧게 답했다.[^mathisfun123]
+
+저장소가 홈페이지로 등록한 주소는 torchtpu.readthedocs.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “TorchTPU Documentation”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 목차
 

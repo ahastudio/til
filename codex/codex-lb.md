@@ -1,5 +1,7 @@
 # codex-lb: 여러 ChatGPT/Codex 계정을 묶는 로드 밸런서
 
+<https://soju06.github.io/codex-lb/>
+
 <https://github.com/Soju06/codex-lb>
 
 ## 소개
@@ -20,15 +22,20 @@ Docker로 실행하면 컨테이너 로그에 일회성 부트스트랩 토큰�
 `/var/lib/codex-lb/`에 저장되며, 데이터베이스는 SQLite(기본값)와
 PostgreSQL을 선택할 수 있다.
 
+저장소가 홈페이지로 등록한 주소는 soju06.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “codex-lb”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
+
 ## 주요 기능
 
 ### 라우팅 전략
 
 codex-lb는 8가지 부하 분산 전략을 제공한다.
 
-| 전략                | 설명                                    |
-| ------------------- | --------------------------------------- |
-| Capacity weighted    | 여유 할당량이 많은 계정 우선            |
+| 전략                  | 설명                                   |
+| --------------------- | -------------------------------------- |
+| Capacity weighted     | 여유 할당량이 많은 계정 우선           |
 | Relative availability | 편향 계수를 조절해 강한 계정 위주 분배 |
 | Usage weighted        | 최근 소비 패턴에 반응해 분배           |
 | Round robin           | 자격 있는 계정을 균등하게 순환         |
@@ -53,7 +60,7 @@ API 키에는 만료 시점, 모델 제한, 일/주/월 단위 토큰·비용
 
 Codex CLI는 `model_providers` 설정에서 `base_url`을
 `http://127.0.0.1:2455/backend-api/codex`로 지정하고
-`wire_api = “responses”`를 쓰면 codex-lb를 프로바이더로 인식한다.
+`wire_api = "responses"`를 쓰면 codex-lb를 프로바이더로 인식한다.
 `CODEX_LB_UPSTREAM_STREAM_TRANSPORT=websocket` 환경 변수로
 네이티브 WebSocket 스트리밍도 지원한다.
 OpenCode, Python OpenAI SDK, OpenClaw도 각각 `baseURL`/`base_url`을
@@ -106,7 +113,7 @@ OpenAI가 API 스펙을 바꾸거나 Codex 전용 백엔드 경로의 동작을
 놓인다.
 즉 이 프로젝트의 안정성은 스스로 통제할 수 없는 업스트림의
 API 안정성에 근본적으로 의존한다.
-`wire_api = “responses”`처럼 Codex 고유의 전송 방식까지
+`wire_api = "responses"`처럼 Codex 고유의 전송 방식까지
 흉내 내야 하는 지점은, 표준 준수를 넘어 특정 벤더의 비공개
 구현 세부사항을 리버스 엔지니어링해 맞춰야 하는 유지보수
 부담으로 이어질 수 있다.

@@ -1,6 +1,6 @@
 # Mobile Harness: 휴대폰 제어용 에이전트 지침
 
-<https://mobile-harness.com>
+<https://mobile-harness.com/>
 
 <https://github.com/droidrun/mobile-harness>
 

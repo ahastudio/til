@@ -1,5 +1,7 @@
 # Pixel Agents: 코딩 에이전트를 픽셀 오피스의 캐릭터로 지켜보다
 
+<https://pixel-agents.com/>
+
 <https://github.com/pixel-agents-hq/pixel-agents>
 
 ## 소개
@@ -36,6 +38,11 @@ Claude Code가 현재 레퍼런스 구현이고, Codex·Gemini·Cursor가 로드
 레이트 리밋과 토큰 예산의 체력 바와 점수를 갖춘 진짜 게임이 되는 것,
 그리고 오케스트레이터 캐릭터로 팀을 짜고 에이전트끼리 일을 넘기는
 오케스트레이션의 최전선을 넓히는 것이다.
+
+저장소가 홈페이지로 등록한 주소는 pixel-agents.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Pixel Agents: A playful way to manage your AI workforce”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

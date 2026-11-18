@@ -1,5 +1,7 @@
 # VoxCPM2: 토크나이저 없는 다국어 음성 합성 시스템
 
+<https://voxcpm.com/>
+
 <https://github.com/OpenBMB/VoxCPM>
 
 ## 요약
@@ -25,6 +27,11 @@ Apache-2.0 라이선스로 공개되어 상업적 사용이 자유롭고,
 GGML/GGUF 포맷을 통한 CPU 추론을 지원하며,
 8GB VRAM GPU에서도 동작한다.
 고성능 GPU에서는 RTF(Real-Time Factor) 0.13까지 달성한다.
+
+저장소가 홈페이지로 등록한 주소는 voxcpm.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “VoxCPM”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

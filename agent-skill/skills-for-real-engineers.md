@@ -1,5 +1,7 @@
 # Skills for Real Engineers
 
+<https://www.aihero.dev/skills>
+
 <https://github.com/mattpocock/skills>
 
 ## 소개
@@ -8,6 +10,11 @@ Matt Pocock의 “Skills for Real Engineers”는 Claude Code와 다른 코딩 �
 “바이브 코딩”이 아닌 실제 엔지니어링 원칙에 기반한 AI 보조 개발을 목표로 한다.
 작고 조합 가능하며 적응 가능한 도구들로 AI 에이전트의 네 가지 공통 실패 모드를 해결한다.
 GitHub에서 66.1k 스타, 5.7k 포크를 기록하고 있다.
+
+저장소가 홈페이지로 등록한 주소는 www.aihero.dev이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “AI Skills for Real Engineers”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 설치 및 설정
 

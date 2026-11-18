@@ -1,5 +1,7 @@
 # DeerFlow 2.0 — ByteDance의 장기 실행 SuperAgent 하네스
 
+<https://deerflow.tech/>
+
 <https://github.com/bytedance/deer-flow>
 
 ## 소개
@@ -10,6 +12,11 @@ DeerFlow 2.0은 ByteDance가 공개한 오픈소스 에이전트 하네스(agent
 1.0 버전이 “Deep Research 프레임워크”였다면, 2.0은 완전히 재작성되어 범용 SuperAgent 플랫폼으로 탈바꿈했다.
 
 LangGraph와 LangChain을 기반으로 구축되었으며, MIT 라이선스로 공개되어 있다.
+
+저장소가 홈페이지로 등록한 주소는 deerflow.tech이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “DeerFlow”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

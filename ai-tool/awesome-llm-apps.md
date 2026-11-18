@@ -3,6 +3,8 @@
 > A curated collection of awesome LLM apps built with RAG and
 > AI agents.
 
+<https://www.theunwindai.com/>
+
 <https://github.com/Shubhamsaboo/awesome-llm-apps>
 
 ## 개요
@@ -13,6 +15,11 @@ OpenAI, Anthropic, Google, xAI, Qwen, Llama 등
 다양한 모델을 사용한 실용적인 구현 예제를 제공한다.
 GitHub 스타 98.4k 이상으로 커뮤니티 검증을 받았다.
 Apache-2.0 라이선스.
+
+저장소가 홈페이지로 등록한 주소는 www.theunwindai.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “unwind ai”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 저장소 구조
 
@@ -88,20 +95,20 @@ clone 후 원하는 프로젝트만 골라 `pip install`로
 
 #### 도메인별 에이전트 팀
 
-| 도메인       | 팀 구성                             |
-|--------------|-------------------------------------|
-| 금융         | Finance Team, Personal Finance      |
-| 법률         | Legal Team (클라우드 & 로컬)        |
-| 부동산       | Real Estate Team                    |
-| 채용         | Recruitment Team                    |
-| 경쟁 분석    | Competitor Intelligence Team        |
-| 영업         | Sales Intelligence Team             |
-| SEO          | SEO Audit Team                      |
-| 교육         | Teaching Team                       |
-| 게임 설계    | Game Design Team                    |
-| VC 실사      | VC Due Diligence Team               |
-| 여행         | Travel Planner Team                 |
-| 서비스 대행  | Services Agency (CrewAI)            |
+| 도메인      | 팀 구성                        |
+| ----------- | ------------------------------ |
+| 금융        | Finance Team, Personal Finance |
+| 법률        | Legal Team (클라우드 & 로컬)   |
+| 부동산      | Real Estate Team               |
+| 채용        | Recruitment Team               |
+| 경쟁 분석   | Competitor Intelligence Team   |
+| 영업        | Sales Intelligence Team        |
+| SEO         | SEO Audit Team                 |
+| 교육        | Teaching Team                  |
+| 게임 설계   | Game Design Team               |
+| VC 실사     | VC Due Diligence Team          |
+| 여행        | Travel Planner Team            |
+| 서비스 대행 | Services Agency (CrewAI)       |
 
 #### 멀티모달 팀
 

@@ -1,6 +1,6 @@
 # Skybridge: MCP 앱을 만드는 풀스택 React 프레임워크
 
-<https://skybridge.tech>
+<https://skybridge.tech/>
 
 <https://github.com/alpic-ai/skybridge>
 

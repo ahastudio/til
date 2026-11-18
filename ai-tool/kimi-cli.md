@@ -1,5 +1,7 @@
 # Kimi CLI
 
+<https://moonshotai.github.io/kimi-code/en/guides/migration>
+
 <https://github.com/MoonshotAI/kimi-cli>
 
 ## 소개
@@ -10,6 +12,11 @@ Moonshot AI가 개발한 터미널 AI 에이전트다.
 
 현재 Kimi Code CLI로 발전 중이며, 기존 kimi-cli 프로젝트는 단계적으로 종료된다.
 `pip install kimi-cli`로 설치 시 Kimi Code CLI로 자동 마이그레이션된다.
+
+저장소가 홈페이지로 등록한 주소는 moonshotai.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Migrating from kimi-cli | Kimi Code CLI Docs”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

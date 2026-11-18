@@ -1,5 +1,7 @@
 # Open Generative AI
 
+<https://muapi.ai/open-generative-ai>
+
 <https://github.com/Anil-matcha/Open-Generative-AI>
 
 ## 소개
@@ -8,6 +10,11 @@ Open Generative AI는 Higgsfield AI, Freepik, Krea AI, Openart AI 같은 상업 
 200개 이상의 AI 모델을 무료로 제공하며, 콘텐츠 필터 없이 이미지·영상 생성을 지원한다.
 MIT 라이선스로 자가 호스팅이 가능하며, 데스크톱 앱(macOS, Windows, Linux)과 웹 버전 모두 제공한다.
 GitHub에서 12.1k 스타, 2.2k 포크를 기록하고 있다.
+
+저장소가 홈페이지로 등록한 주소는 muapi.ai이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Open Generative AI — Free AI Image & Video Studio | Mua…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

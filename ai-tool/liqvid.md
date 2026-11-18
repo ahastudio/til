@@ -1,5 +1,7 @@
 # Liqvid
 
+<https://liqvidjs.org/>
+
 <https://github.com/liqvidjs/liqvid>
 
 ## 소개
@@ -15,6 +17,11 @@ GitHub 스타 810개로 소규모 커뮤니티를 형성하고 있고,
 KaTeX 수식, React Three Fiber(3D), CodeMirror(코드 편집기), THREE.js 등
 웹 생태계 라이브러리와 직접 통합할 수 있어,
 수학 강의, 코딩 튜토리얼, 3D 인터랙티브 설명 같은 기술 교육 콘텐츠에 특히 유용하다.
+
+저장소가 홈페이지로 등록한 주소는 liqvidjs.org이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Create interactive videos in React | Liqvid”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 아키텍처
 
@@ -34,11 +41,11 @@ Script 초기화를 통해 Playback을 자동으로 생성한다.
 
 Liqvid는 DOM 조작 대신 CSS로 컴포넌트의 시간 동기화를 처리한다:
 
-| 데이터 어트리뷰트    | 동작                                              |
-| -------------------- | ------------------------------------------------- |
-| `data-from-first`    | 지정 마커 이후부터 요소를 표시                    |
-| `data-from-last`     | 지정 마커 임계값 이전에는 요소를 숨김             |
-| `data-during`        | 현재 마커 이름이 접두사 패턴과 일치할 때만 표시   |
+| 데이터 어트리뷰트 | 동작                                            |
+| ----------------- | ----------------------------------------------- |
+| `data-from-first` | 지정 마커 이후부터 요소를 표시                  |
+| `data-from-last`  | 지정 마커 임계값 이전에는 요소를 숨김           |
+| `data-during`     | 현재 마커 이름이 접두사 패턴과 일치할 때만 표시 |
 
 `opacity: 0; pointer-events: none`으로 구현해 DOM 리플로우 없이
 레이아웃 스래싱(layout thrashing)을 방지한다.
@@ -57,16 +64,16 @@ liqvid audio convert audio.webm
 
 ## 패키지 구성
 
-| 패키지             | 역할                                               |
-| ------------------ | -------------------------------------------------- |
-| `liqvid`           | 메인 패키지 (Playback, Script, Player)             |
-| `@liqvid/keymap`   | 키보드 단축키 맵                                   |
-| `@liqvid/playback` | Playback 클래스                                    |
-| `@liqvid/utils`    | 애니메이션 헬퍼 함수                               |
-| `@liqvid/katex`    | KaTeX 수식 통합                                    |
-| `@liqvid/react-three` | React Three Fiber 3D 통합                       |
-| `@liqvid/renderer` | CLI audio, build, render, thumbs 명령              |
-| `@liqvid/magic`    | 리소스 매크로 문법                                 |
+| 패키지                | 역할                                   |
+| --------------------- | -------------------------------------- |
+| `liqvid`              | 메인 패키지 (Playback, Script, Player) |
+| `@liqvid/keymap`      | 키보드 단축키 맵                       |
+| `@liqvid/playback`    | Playback 클래스                        |
+| `@liqvid/utils`       | 애니메이션 헬퍼 함수                   |
+| `@liqvid/katex`       | KaTeX 수식 통합                        |
+| `@liqvid/react-three` | React Three Fiber 3D 통합              |
+| `@liqvid/renderer`    | CLI audio, build, render, thumbs 명령  |
+| `@liqvid/magic`       | 리소스 매크로 문법                     |
 
 개발 중인 패키지로는 캡션 편집기(`captioning`), GSAP 통합, i18n,
 Web Components 기반 새 Player(`player`), MathJax/XyJax 통합이 있다.
@@ -91,7 +98,7 @@ Liqvid의 가장 강력한 아이디어는 타임라인을 절대 시간(timesta
 
 `[name, duration]`으로 정의하면, 순서를 바꾸거나 구간을 추가·삭제할 때
 뒤따르는 모든 시간을 손으로 다시 계산할 필요가 없다.
-마커 이름으로 `script.parseStart(“intro/”)` 같이 접근하므로
+마커 이름으로 `script.parseStart("intro/")` 같이 접근하므로
 타임라인 리팩토링이 코드 리팩토링만큼 자연스럽다.
 
 이것은 CSS 클래스명 기반 스타일링이 인라인 스타일보다 유지보수하기 쉬운 것과

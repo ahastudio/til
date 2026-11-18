@@ -1,5 +1,7 @@
 # Stagehand: 확장 프로그램 안에서 도는 에이전트용 브라우저 SDK
 
+<https://www.stagehand.dev/>
+
 <https://github.com/browserbase/stagehand>
 
 HN 토론: <https://news.ycombinator.com/item?id=49756671> (133점, 35개 댓글)
@@ -26,6 +28,11 @@ Playwright MCP의 과도한 토큰 소비에 대한 불만도 여러 번 봤다�
 그래서 v4에서는 브라우저 시작 시 자동으로 로드되는 확장 프로그램이 브라우저를 제어하며,
 일괄 명령과 토큰 효율적인 `act()`, `extract()`를 갖추고
 새 구조로 Playwright 대비 속도 2배, 토큰 사용량 80퍼센트 절감을 냈다고 밝힌다.[^wittydeveloper]
+
+저장소가 홈페이지로 등록한 주소는 www.stagehand.dev이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “The SDK for browser agents | Stagehand”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 세 가지 원시 동작
 

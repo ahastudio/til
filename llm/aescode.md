@@ -1,5 +1,7 @@
 # AesCode: 이미지 생성 모델의 안목을 빌려 인포그래픽을 코드로 그리는 모델
 
+<https://microsoft.github.io/AesCode/>
+
 <https://github.com/microsoft/AesCode>
 
 ## 소개
@@ -109,6 +111,11 @@ python -m inference.generate \
  생성을 이어 가게 되어 있다.
 “그려진 이미지는 레이아웃을 주고, 사실은 사용자가 준다”는 것이
  이 파이프라인의 분업이다.
+
+저장소가 홈페이지로 등록한 주소는 microsoft.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “AesCode — Good design. Written in code.”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

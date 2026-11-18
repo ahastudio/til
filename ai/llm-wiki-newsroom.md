@@ -1,5 +1,7 @@
 # LLM Wiki Newsroom — 다중 에이전트 지식 관리 시스템
 
+<https://alfadur7.github.io/llm-wiki-newsroom/>
+
 <https://github.com/alfadur7/llm-wiki-newsroom>
 
 ## 소개
@@ -10,6 +12,11 @@ LLM Wiki Newsroom은 alfadur7이 만든 다중 에이전트 지식 관리 시스
 
 Claude Code를 주 에이전트로 삼고, Python 도구로 그래프 빌드·린트·쿼리를 처리한다.
 MIT 라이선스이며, 별점 57개에 릴리스 v0.3.0까지 나온 활성 프로젝트다.
+
+저장소가 홈페이지로 등록한 주소는 alfadur7.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “LLM Wiki Newsroom | Turn documents into a cross-linked…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 아키텍처
 
@@ -27,14 +34,14 @@ Copy Editor(교열), Desk(검토), Editor-in-Chief(최종 승인).
 
 Claude Code 기반 슬래시 커맨드로 시스템을 운영한다.
 
-| 커맨드          | 기능                               |
-| --------------- | ---------------------------------- |
-| `/wiki-ingest`  | 문서 흡수 및 연관 페이지 갱신      |
-| `/wiki-query`   | 그래프 순회 기반 질문 응답         |
-| `/wiki-graph`   | 지식 그래프 시각화 생성            |
-| `/wiki-lint`    | 위키 상태 점검 및 자동 수정        |
-| `/wiki-discover`| 예상치 못한 연결 탐색              |
-| `/wiki-trail`   | 저장된 읽기 경로 구성              |
+| 커맨드           | 기능                          |
+| ---------------- | ----------------------------- |
+| `/wiki-ingest`   | 문서 흡수 및 연관 페이지 갱신 |
+| `/wiki-query`    | 그래프 순회 기반 질문 응답    |
+| `/wiki-graph`    | 지식 그래프 시각화 생성       |
+| `/wiki-lint`     | 위키 상태 점검 및 자동 수정   |
+| `/wiki-discover` | 예상치 못한 연결 탐색         |
+| `/wiki-trail`    | 저장된 읽기 경로 구성         |
 
 ## 주요 기능
 

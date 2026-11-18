@@ -1,5 +1,7 @@
 # Open SWE - 오픈소스 사내 코딩 에이전트 프레임워크
 
+<https://www.langchain.com/blog/open-swe-an-open-source-framework-for-internal-coding-agents>
+
 <https://github.com/langchain-ai/open-swe>
 
 ## 요약
@@ -12,6 +14,11 @@ Slack, Linear, GitHub에서 호출하면 샌드박스 환경에서
 코드를 수정하고 PR을 열어주는 구조다.
 
 MIT 라이선스. 6.9k 스타. Claude Opus 4.6을 기본 모델로 사용한다.
+
+저장소가 홈페이지로 등록한 주소는 www.langchain.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Open SWE: An Open-Source Framework for Internal Coding…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 아키텍처
 
@@ -39,14 +46,14 @@ MIT 라이선스. 6.9k 스타. Claude Opus 4.6을 기본 모델로 사용한다.
 
 ### 핵심 컴포넌트
 
-| 컴포넌트             | 역할                                          |
-| -------------------- | --------------------------------------------- |
-| `agent/server.py`    | CLI 진입점, 샌드박스 관리, 에이전트 초기화     |
-| `agent/webapp.py`    | FastAPI 웹훅 서버 (Slack/Linear/GitHub)        |
-| `agent/prompt.py`    | 시스템 프롬프트 구성 및 컨텍스트 주입          |
-| `agent/tools/`       | 도구 6개 (PR, HTTP, URL, Slack, Linear, GitHub)|
-| `agent/middleware/`   | 미들웨어 4개 (에러, 큐, 빈 메시지, PR 안전망) |
-| `agent/integrations/` | 샌드박스 백엔드 (Modal, Daytona, Runloop 등)  |
+| 컴포넌트              | 역할                                            |
+| --------------------- | ----------------------------------------------- |
+| `agent/server.py`     | CLI 진입점, 샌드박스 관리, 에이전트 초기화      |
+| `agent/webapp.py`     | FastAPI 웹훅 서버 (Slack/Linear/GitHub)         |
+| `agent/prompt.py`     | 시스템 프롬프트 구성 및 컨텍스트 주입           |
+| `agent/tools/`        | 도구 6개 (PR, HTTP, URL, Slack, Linear, GitHub) |
+| `agent/middleware/`   | 미들웨어 4개 (에러, 큐, 빈 메시지, PR 안전망)   |
+| `agent/integrations/` | 샌드박스 백엔드 (Modal, Daytona, Runloop 등)    |
 
 ### 도구 목록
 
@@ -79,11 +86,11 @@ Deep Agents 내장 도구 (파일 조작, 검색, grep, todo, 서브에이전트
 
 ### 호출 방식과 스레드 관리
 
-| 플랫폼   | 호출 방법                           | 시그니처 검증       |
-| -------- | ----------------------------------- | ------------------- |
-| Slack    | 봇 멘션 + `repo:owner/name`        | 타임스탬프 기반     |
-| Linear   | 이슈에 `@openswe` 코멘트           | HMAC-SHA256         |
-| GitHub   | PR 리뷰에서 봇 태그                 | X-Hub-Signature-256 |
+| 플랫폼 | 호출 방법                   | 시그니처 검증       |
+| ------ | --------------------------- | ------------------- |
+| Slack  | 봇 멘션 + `repo:owner/name` | 타임스탬프 기반     |
+| Linear | 이슈에 `@openswe` 코멘트    | HMAC-SHA256         |
+| GitHub | PR 리뷰에서 봇 태그         | X-Hub-Signature-256 |
 
 결정론적 스레드 ID로 후속 메시지를 같은 에이전트에 라우팅한다.
 스레드가 활성 상태이면 새 실행 대신 메시지 큐에 추가하여

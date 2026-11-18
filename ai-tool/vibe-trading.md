@@ -1,5 +1,7 @@
 # Vibe-Trading — 자연어로 구동하는 AI 멀티에이전트 트레이딩 플랫폼
 
+<https://vibetrading.wiki/home/>
+
 <https://github.com/HKUDS/Vibe-Trading>
 
 ## 소개
@@ -7,6 +9,11 @@
 Vibe-Trading은 홍콩대학교 데이터과학 연구소(HKUDS)에서 개발한 오픈소스 AI 멀티에이전트 금융 워크스페이스다. 자연어 입력만으로 트레이딩 전략 코드를 자동 생성·백테스트·내보낼 수 있으며, A주, 홍콩, 미국, 한국, 일본 주식부터 암호화폐, 선물, 외환까지 글로벌 시장을 아우른다. MIT 라이선스로 공개되었으며 연구 목적 전용임을 명시하고 있다.
 
 HKUDS의 에이전트 생태계(ClawTeam, NanoBot, CLI-Anything, OpenSpace) 중 금융 분석에 특화된 구성 요소로, 자기진화 스킬과 영구 메모리를 핵심으로 삼는다.
+
+저장소가 홈페이지로 등록한 주소는 vibetrading.wiki이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Vibe-Trading Wiki - Finance Research Agent”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

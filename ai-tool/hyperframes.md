@@ -1,5 +1,7 @@
 # HyperFrames: HTML을 쓰면 비디오로 렌더링되는, 에이전트를 위한 오픈소스 프레임워크
 
+<https://hyperframes.heygen.com/>
+
 <https://github.com/heygen-com/hyperframes>
 
 Show HN: [Show HN: HyperFrames – Render Video from HTML via Chrome's BeginFrame API](https://news.ycombinator.com/item?id=47797513)
@@ -29,6 +31,11 @@ CLI로 로컬에서 쓰고, 코딩 에이전트에 스킬을 설치해 쓰고,
 데스크톱 앱 HyperFrames Studio가 macOS, Windows, Linux용으로 있고 무료이며,
 Pro 플랜은 HeyGen의 비디오, 이미지, 음성, 음악 모델을 더한다고 한다.
 요구 사항은 Node.js 22 이상과 FFmpeg이다.
+
+저장소가 홈페이지로 등록한 주소는 hyperframes.heygen.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “HyperFrames: Make videos with your AI agent”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 아키텍처
 

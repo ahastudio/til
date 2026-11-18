@@ -1,5 +1,7 @@
 # Claude Code 사고 토큰 감소와 복잡한 엔지니어링 품질 퇴행
 
+<https://code.claude.com/docs/en/overview>
+
 <https://github.com/anthropics/claude-code/issues/42796>
 
 ## 요약
@@ -20,6 +22,11 @@
 보고서는 확장 사고가 복잡한 워크플로우에서 “있으면 좋은 것”이 아니라 구조적으로
 필수적임을 주장하며, Anthropic에 투명성, “최대 사고” 티어, API 응답의 사고 토큰
 메트릭 제공을 요청했다.
+
+저장소가 홈페이지로 등록한 주소는 code.claude.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Overview - Claude Code Docs”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

@@ -1,5 +1,7 @@
 # OpenExecutive: 해고된 개발자들이 CEO 자리를 AI로 되받아치다
 
+<https://openexecutive.ai/>
+
 <https://github.com/SenteLabsAI/OpenExecutive>
 
 HN 토론: <https://news.ycombinator.com/item?id=49458418> (1023점, 713개 댓글)
@@ -31,6 +33,11 @@ GTM 전략·브랜드·PR을 맡는 최고마케팅책임자,
 백엔드는 Python 3.11과 FastAPI, 프런트엔드는 Next.js 15와 Tailwind이며,
 웹 UI뿐 아니라 Slack·이메일·Telegram·Google Chat·Discord·CLI로도 접근한다.
 `ANTHROPIC_API_KEY`를 설정하고 `make dev`로 실행한다.
+
+저장소가 홈페이지로 등록한 주소는 openexecutive.ai이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Open Executive”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

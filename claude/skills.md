@@ -248,7 +248,7 @@ MCP 지시는 서버와 도구의 올바른 사용법을 다룬다. Skill 지시
 같은 Skill이 Claude.ai, Claude Code, API에서 수정 없이 실행된다. Agent Skills
 오픈 표준을 따른다.
 
-<https://agentskills.io>
+<https://agentskills.io/>
 
 ## The Agent Skills Directory
 

@@ -1,5 +1,7 @@
 # stitch-skills — Stitch를 위한 에이전트 스킬 모음
 
+<https://stitch.google.com/docs/mcp/setup>
+
 <https://github.com/google-labs-code/stitch-skills>
 
 ## 소개
@@ -15,6 +17,11 @@ Gemini CLI 같은 여러 코딩 에이전트에 설치해 쓸 수 있도록 설�
 스크립트), `resources/`(참고 자료), `examples/`(예시 구현)로
 구성된다. 동작을 위해서는 에이전트 환경에 Stitch MCP 서버가 설정되어
 있어야 한다.
+
+저장소가 홈페이지로 등록한 주소는 stitch.google.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Stitch via MCP - Stitch Docs”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

@@ -1,5 +1,7 @@
 # ACE: 에이전트가 경험에서 배우는 학습 루프
 
+<https://www.kayba.ai/>
+
 <https://github.com/kayba-ai/agentic-context-engine>
 
 HN 토론: <https://news.ycombinator.com/item?id=47289274> (5점, 0개 댓글)
@@ -41,6 +43,11 @@ ACE는 Kayba의 오픈코어 전략의 오픈소스 절반이다. 상용 플랫�
 실패가 발생한 뒤 Sentry·PostHog·OpenTelemetry와 연동해 즉각 수정 PR을 제안하는
 사후(reactive) 디버깅이다. 두 제품을 함께 쓰면 같은 실수의 반복은 ACE가 막고,
 새로운 실패의 수정은 Kayba가 처리하는 에이전트 신뢰성 스택이 된다.
+
+저장소가 홈페이지로 등록한 주소는 www.kayba.ai이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Kayba | Every agent error, traced and fixed automatical…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

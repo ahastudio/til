@@ -1,5 +1,7 @@
 # Next AI Draw.io
 
+<https://next-ai-drawio.jiang.jp/>
+
 <https://github.com/DayuanJiang/next-ai-draw-io>
 
 ## 소개
@@ -19,6 +21,9 @@ Claude, GPT, Gemini, DeepSeek, Ollama 등 여러 모델 제공자를 갈아 끼�
 공개된 지 1년이 조금 넘은 시점에 이미 3만 3천 개가 넘는 스타와 3천 6백 개가
 넘는 포크를 모았고, 오늘 GitHub 트렌딩에 올라오면서 하루 동안 81개의 스타가
 추가로 붙었다.
+
+저장소가 홈페이지로 등록한 주소는 next-ai-drawio.jiang.jp이다.
+읽은 시점(2026년 11월 18일)에 열리지 않았다(2026년 11월 18일)에 열리지 않았다(HTTP Error 502: Bad Gateway).
 
 ## 분석
 

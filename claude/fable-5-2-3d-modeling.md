@@ -1,5 +1,7 @@
 # Claude Fable 5.2로 3D 모델링하기: 확인된 사실, 쓸 만한 작업 방식, 사례의 신뢰도를 정리한 자료집
 
+<https://drama.so/prompts/fable-5-2>
+
 <https://github.com/mofa-si/awesome-fable-5-2-videos>
 
 ## 이 자료집이 다루는 것
@@ -28,6 +30,11 @@ Fable 5.2가 아니라 한 단계 앞의 Fable 5(6~7월 공개)나 Opus 5.5에 �
 해당 자료는 그렇게 표시했다.
 이 문서는 영상은 열어 보지 못했고,
 영상에 달린 트윗의 글과 저장소의 데이터를 읽었다.
+
+저장소가 홈페이지로 등록한 주소는 drama.so이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Claude Fable 5.2 Prompts & Videos — real examples you c…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 이 저장소를 어떻게 읽을까
 

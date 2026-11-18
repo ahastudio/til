@@ -1,5 +1,7 @@
 # pdf-inspector: Firecrawl의 Rust PDF 분류·추출 라이브러리
 
+<https://firecrawl.github.io/pdf-inspector/>
+
 <https://github.com/firecrawl/pdf-inspector>
 
 ## 소개
@@ -33,6 +35,11 @@ Rust 의존성, CLI(`pdf2md`, `detect-pdf`) 네 가지 인터페이스를 제공
 종합 점수 0.78로 opendataloader(0.84)에 이어 2위이며, pymupdf4llm(0.73),
 markitdown(0.58)을 앞선다. OCR·ML 기반 엔진(docling, marker, mineru)은
 0.83~0.88이지만 같은 코퍼스에 2~180분이 걸린다.
+
+저장소가 홈페이지로 등록한 주소는 firecrawl.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “pdf-inspector — fast, open-source PDF to Markdown”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

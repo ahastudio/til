@@ -1,6 +1,6 @@
 # ego lite: 사람과 에이전트가 같은 브라우저를 나눠 쓰게 만든 설계
 
-<https://lite.ego.app>
+<https://lite.ego.app/>
 
 <https://github.com/citrolabs/ego-lite>
 

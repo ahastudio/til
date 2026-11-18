@@ -1,5 +1,7 @@
 # code-review-graph
 
+<https://code-review-graph.com/>
+
 <https://github.com/tirth8205/code-review-graph>
 
 ## 소개
@@ -11,6 +13,11 @@ AI 어시스턴트에게 MCP를 통해 필요한 컨텍스트만 정확히 제�
 6개 실제 레포지토리에서 38배~528배의 토큰 절감 효과를 벤치마크로 측정했다.
 Python 3.10+ 환경에서 `pip install code-review-graph`로 설치하고
 `code-review-graph install` 명령 하나로 지원 플랫폼을 자동 감지해 설정한다.
+
+저장소가 홈페이지로 등록한 주소는 code-review-graph.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “code-review-graph — Local code intelligence for MCP”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

@@ -1,5 +1,7 @@
 # Open Agents
 
+<https://open-agents.dev/>
+
 <https://github.com/vercel-labs/open-agents>
 
 ## 요약
@@ -24,6 +26,11 @@ Vercel의 Workflow SDK를 사용한 내구성 있는(durable) 다단계 실행,
 최소 PostgreSQL과 JWE 시크릿이 필요하고
 전체 기능에는 10개 이상의 환경 변수가 요구된다.
 Labs 프로젝트로 API 안정성은 보장되지 않는다.
+
+저장소가 홈페이지로 등록한 주소는 open-agents.dev이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Open Agents”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

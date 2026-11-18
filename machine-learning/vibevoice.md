@@ -1,5 +1,7 @@
 # VibeVoice — Microsoft의 오픈소스 프론티어 음성 AI 모델
 
+<https://microsoft.github.io/VibeVoice/>
+
 <https://github.com/microsoft/VibeVoice>
 
 HN 토론: <https://news.ycombinator.com/item?id=47933236> (377점, 174개 댓글)
@@ -16,6 +18,11 @@ ASR 모델은 최대 60분 분량의 오디오를 단일 패스로 처리하며,
 평가받는다.
 Simon Willison의 테스트에서 1시간 분량의 오디오를 Mac에서 8분 45초 만에 처리하며,
 특히 화자 분리 성능이 두드러졌다.
+
+저장소가 홈페이지로 등록한 주소는 microsoft.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “VibeVoice”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 모델
 

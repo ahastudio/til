@@ -7,7 +7,7 @@ DeepWiki와 소프트웨어의 유동성(malleability)에 대한 글.
 
 ## DeepWiki
 
-<https://deepwiki.com>
+<https://deepwiki.com/>
 
 GitHub 저장소를 자동으로 위키 페이지로 변환하고, 코드에 대해 Q&A할 수 있는
 서비스. URL에서 `github`을 `deepwiki`로 바꾸면 바로 사용 가능하다. MCP 서버도

@@ -1,5 +1,7 @@
 # agent-desktop: 스크린샷 대신 접근성 트리로 데스크톱 앱을 조작하는 에이전트용 CLI
 
+<https://agent-browser.dev/desktop>
+
 <https://github.com/vercel-labs/agent-desktop>
 
 Show HN: [Agent-desktop – Native desktop automation CLI for AI agents](https://news.ycombinator.com/item?id=47982708) (99점, 44개 댓글)
@@ -57,6 +59,11 @@ Automation, Linux의 AT-SPI를 쓴다.
 README는 61개 명령 이름 중 57개가 실제로 동작하며, 키와 마우스를 누른 채
 유지하는 네 개는 이를 풀어 주는 데몬이 생길 때까지 실행을 거부한다고 밝힌다.
 지원 환경은 macOS 13 이상, Windows 10 1809 이상, Ubuntu 24.04 이상이다.
+
+저장소가 홈페이지로 등록한 주소는 agent-browser.dev이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “agent-desktop | Desktop Automation for AI”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

@@ -1,6 +1,6 @@
 # Traycer: 이미 낸 구독 위에서 여러 코딩 에이전트를 한 작업 공간으로 묶는 앱
 
-<https://traycer.ai>
+<https://traycer.ai/>
 
 <https://github.com/traycerai/traycer>
 

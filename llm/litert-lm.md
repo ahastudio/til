@@ -1,5 +1,7 @@
 # LiteRT-LM — Google의 엣지 디바이스용 LLM 추론 프레임워크
 
+<https://developers.google.com/edge/litert-lm>
+
 <https://github.com/google-ai-edge/LiteRT-LM>
 
 ## 소개
@@ -14,6 +16,11 @@ Apache-2.0 라이선스로 제공되며, Android, iOS, 웹, 데스크톱, 라즈
 최신 버전 v0.10.2부터 Gemma 4를 지원한다.
 멀티모달(vision, audio 입력)과 Function Calling(에이전트 워크플로우)을 지원하는 점이 특징이다.
 언어 API는 Kotlin(Android), Python, C++이 안정화되어 있으며, Swift는 개발 중이다.
+
+저장소가 홈페이지로 등록한 주소는 developers.google.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Google AI Edge | Google for Developers”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 사용법
 

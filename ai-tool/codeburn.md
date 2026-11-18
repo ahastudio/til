@@ -1,5 +1,7 @@
 # CodeBurn
 
+<https://codeburn.app/>
+
 <https://github.com/getagentseal/codeburn>
 
 Show GN: [CodeBurn - AI 코딩 도구 토큰 사용량/비용 추적 TUI 대시보드 | GeekNews](https://news.hada.io/topic?id=29343)
@@ -13,17 +15,22 @@ API 키나 프록시 없이 디스크의 세션 데이터를 직접 읽어 비�
 
 AgentSeal이 개발했으며, MIT 라이선스로 배포된다.
 
+저장소가 홈페이지로 등록한 주소는 codeburn.app이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “AI Coding Cost & Token Usage Tracker for Claude Code, C…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
+
 ## 주요 기능
 
-| 기능                | 설명                                                               |
-| ------------------- | ------------------------------------------------------------------ |
-| 비용 추적           | 입력/출력/캐시 토큰 기반 가격 책정 (LiteLLM 활용)                 |
-| 작업 분류           | 코딩, 디버깅, 기능개발 등 13가지 카테고리로 자동 분류             |
-| 원샷 레이트         | 재시도 없이 성공한 편집 작업 비율 추적                            |
-| 최적화 분석         | 낭비 패턴 감지 및 수정 제안 (`codeburn optimize`)                  |
-| 모델 비교           | 모델 간 성능 지표 비교 분석 (`codeburn compare`)                   |
-| Yield 분석          | Git 커밋과 연관지어 생산성 평가 (`codeburn yield`)                 |
-| 다중 통화           | 162개 통화 지원                                                    |
+| 기능        | 설명                                                  |
+| ----------- | ----------------------------------------------------- |
+| 비용 추적   | 입력/출력/캐시 토큰 기반 가격 책정 (LiteLLM 활용)     |
+| 작업 분류   | 코딩, 디버깅, 기능개발 등 13가지 카테고리로 자동 분류 |
+| 원샷 레이트 | 재시도 없이 성공한 편집 작업 비율 추적                |
+| 최적화 분석 | 낭비 패턴 감지 및 수정 제안 (`codeburn optimize`)     |
+| 모델 비교   | 모델 간 성능 지표 비교 분석 (`codeburn compare`)      |
+| Yield 분석  | Git 커밋과 연관지어 생산성 평가 (`codeburn yield`)    |
+| 다중 통화   | 162개 통화 지원                                       |
 
 ## 지원 도구
 
@@ -63,12 +70,12 @@ codeburn report --format json  # JSON 형식 출력
 
 각 도구의 세션 데이터 경로를 직접 읽는다:
 
-| 도구          | 데이터 경로                          |
-| ------------- | ------------------------------------ |
-| Claude Code   | `~/.claude/projects/`                |
-| Cursor        | `~/.config/Cursor/` (SQLite DB)      |
-| Codex         | `~/.codex/sessions/`                 |
-| Gemini CLI    | `~/.gemini/tmp/`                     |
+| 도구        | 데이터 경로                     |
+| ----------- | ------------------------------- |
+| Claude Code | `~/.claude/projects/`           |
+| Cursor      | `~/.config/Cursor/` (SQLite DB) |
+| Codex       | `~/.codex/sessions/`            |
+| Gemini CLI  | `~/.gemini/tmp/`                |
 
 ## 분석
 

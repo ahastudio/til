@@ -1,5 +1,7 @@
 # Onyx: 50개 넘는 앱의 지식을 색인해 AI 에이전트에 대 주는 컨텍스트 레이어
 
+<https://onyx.app/>
+
 <https://github.com/onyx-dot-app/onyx>
 
 Show HN: [Open-source Deep Research across workplace applications](https://news.ycombinator.com/item?id=43242551)
@@ -19,6 +21,10 @@ HN의 한 댓글은 이 프로젝트가 Danswer에서 이름을 바꾼 것이라
 알린다.[^PhilippGille]
 라이선스는 README가 MIT 배지를 달면서도 두 판이 있다고 설명하고, GitHub의
 라이선스 필드는 판별 불가로 나온다.
+
+저장소가 홈페이지로 등록한 주소는 onyx.app이다.
+읽은 시점(2026년 11월 18일)에 열 수 있었으나 첫 화면 제목은 없었다.
+사이트 본문은 읽지 않았다.
 
 ## 동작 방식
 

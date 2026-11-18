@@ -1,5 +1,7 @@
 # Agent Skills - Addy Osmani의 프로덕션급 AI 코딩 에이전트 스킬 모음
 
+<https://skills.addy.ie/>
+
 <https://github.com/addyosmani/agent-skills>
 
 HN 토론: <https://news.ycombinator.com/item?id=48015397> (376점, 212개 댓글)
@@ -24,6 +26,11 @@ skills CLI(70개 이상 에이전트 지원)부터 Claude Code 플러그인, Cur
 CLI, Codex, Windsurf, GitHub Copilot, Kiro 등 플랫폼별 방식까지 폭넓게
 지원한다. MIT 라이선스로 공개돼 있으며, 창시자 Addy Osmani 외에 Federico
 Bartoli와 Joan León이 협력자로 이름을 올리고 있다.
+
+저장소가 홈페이지로 등록한 주소는 skills.addy.ie이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “agent-skills - production-grade engineering skills for…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

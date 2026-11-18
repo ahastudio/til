@@ -2,7 +2,7 @@
 
 <https://github.com/hmmhmmhm/daiso-mcp>
 
-<https://mcp.aka.page>
+<https://mcp.aka.page/>
 
 ## 소개
 

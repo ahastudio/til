@@ -1,5 +1,7 @@
 # Memdoor team-solve: 작은 모델 다섯 역할을 YAML 파일로 엮은 코딩 문제 풀이 워크플로
 
+<https://memdoor.ai/>
+
 <https://github.com/guregodevo/memdoor/tree/main/examples/workflows/team-solve>
 
 HN 토론: <https://news.ycombinator.com/item?id=50320995> (418점, 203개 댓글)
@@ -22,6 +24,11 @@ Memdoor 자체는 저장소 설명에서 단일 CLI 바이너리로 된 가벼�
 에이전트이자 멀티 에이전트 하네스(harness)로, 로컬이나 SSH로 돌린다고 한다.
 라이선스는 Apache-2.0이고 저장소는 2026년 10월 5일에 만들어졌으며,
 이 글을 쓸 때 별은 221개였다.[^api]
+
+저장소가 홈페이지로 등록한 주소는 memdoor.ai이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Memdoor — the open coding agent with Team Mode: cheap m…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 결과
 

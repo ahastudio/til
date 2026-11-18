@@ -1,5 +1,7 @@
 # Deep Chat: 한 줄로 심는 프레임워크 독립 AI 채팅 컴포넌트
 
+<https://deepchat.dev/>
+
 <https://github.com/OvidijusParsiunas/deep-chat>
 
 HN 토론: <https://news.ycombinator.com/item?id=37889444> (68점, 4개 댓글)
@@ -23,6 +25,11 @@ MIT 라이선스에 GitHub 별 3,700개, 포크 453개를 기록한다.
 포커스 모드·소개 패널·동적 모달·위로 쌓이는 메시지 같은 모드를 제공한다.
 백엔드 없이 브라우저에 모델을 올릴 수도 있고,
 “모든 것이 커스터마이즈 가능하다”고 내세운다.
+
+저장소가 홈페이지로 등록한 주소는 deepchat.dev이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Deep Chat”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

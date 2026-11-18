@@ -1,5 +1,7 @@
 # Skills for Design Engineers (emilkowalski/skills)
 
+<https://aiforui.dev/skills>
+
 <https://github.com/emilkowalski/skills>
 
 ## 소개
@@ -14,6 +16,11 @@ UI 디테일을 오래 다뤄온 저자가, 자신이 코드 리뷰에서 반복
 easing 함수를 ease-in과 ease-out 중 아무렇게나 고르거나, 그림자와 색상 값을
 근거 없이 결정하는 경향이 있다. 이 저장소는 그런 판단을 명시적 규칙으로
 바꿔 에이전트가 참조하도록 만든다.
+
+저장소가 홈페이지로 등록한 주소는 aiforui.dev이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “AI Skills for UI by Emil Kowalski”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 설치법
 

@@ -1,5 +1,7 @@
 # ktransformers
 
+<https://kvcache-ai.github.io/ktransformers/>
+
 <https://github.com/kvcache-ai/ktransformers>
 
 ## 소개
@@ -12,6 +14,11 @@ CPU-GPU 이종 컴퓨팅을 통해 대형 언어 모델의 추론과 파인튜�
 둘째, LLaMA-Factory를 활용한 SFT(Supervised Fine-Tuning) 파인튜닝이다.
 
 MiniMax-M3, GLM-5.2, DeepSeek-V4-Flash, Kimi-K2.5 같은 모델의 Day0 지원을 목표로 한다.
+
+저장소가 홈페이지로 등록한 주소는 kvcache-ai.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Introduction - Ktransformers”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 주요 기능
 

@@ -1,5 +1,7 @@
 # Awesome Claude Fable 5
 
+<https://evolink.ai/claude-fable-5-2>
+
 <https://github.com/EvoLinkAI/awesome-claude-fable-5>
 
 <https://github.com/EvoLinkAI/awesome-claude-fable-5/blob/main/README_ko.md>
@@ -11,6 +13,11 @@ Claude Fable 5(2026년 6월 9일 출시)의 실증적 활용 사례 78건을 큐
 그리고 명시적으로 서술된 한계를 기준으로 수집했다.
 공개 크리에이터, 개발자, 벤치마크 팀의 사례를 포함하며
 한국어를 포함한 10개 이상의 언어로 작성된 내용을 다룬다.
+
+저장소가 홈페이지로 등록한 주소는 evolink.ai이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Claude Fable 5.2 API: Lower Pricing & Model ID | EvoLink”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 카테고리별 구성
 

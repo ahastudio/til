@@ -1,6 +1,6 @@
 # getdeck: AI 에이전트가 새로 그리지 않고 골라 쓰는 슬라이드 레이아웃 카탈로그
 
-<https://getdeck.co>
+<https://getdeck.co/>
 
 Show GN: [getdeck - 슬라이드 레이아웃을 내 템플릿으로 저장하고 웹에서 고치는 서비스](https://news.hada.io/topic?id=36644)
 

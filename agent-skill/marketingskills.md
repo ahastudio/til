@@ -1,5 +1,7 @@
 # marketingskills — 마케터를 위한 에이전트 스킬 모음
 
+<https://marketing-skills.com/>
+
 <https://github.com/coreyhaines31/marketingskills>
 
 ## 소개
@@ -34,6 +36,11 @@ Windsurf 등 Agent Skills 명세를 지원하는 어떤 에이전트에서도 �
 MIT 라이선스로 공개되어 있고, 이 글을 쓰는 시점 기준 별 38,558개,
 포크 6,162개를 기록하며 오늘 하루에만 별 299개가 늘어 트렌딩
 저장소 목록에 올라 있다.
+
+저장소가 홈페이지로 등록한 주소는 marketing-skills.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Marketing Skills for AI Agents — Claude Code Skills Lib…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

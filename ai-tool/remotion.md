@@ -1,5 +1,7 @@
 # Remotion
 
+<https://www.remotion.dev/>
+
 <https://github.com/remotion-dev/remotion>
 
 ## 소개
@@ -12,6 +14,11 @@ Remotion은 React로 비디오를 프로그래밍 방식으로 제작하는 프�
 사실상 표준(de facto standard)으로 자리잡았다.
 GitHub Unwrapped(GitHub 연간 리뷰 개인화 비디오), Fireship의 유튜브 콘텐츠 등
 프로덕션 레벨의 사용 사례로 검증됐다.
+
+저장소가 홈페이지로 등록한 주소는 www.remotion.dev이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Remotion | Make videos programmatically”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 아키텍처
 
@@ -42,20 +49,20 @@ React 컴포넌트 → Webpack 번들링 → 헤드리스 Chrome
 
 ## 주요 패키지
 
-| 패키지                     | 역할                                       |
-| -------------------------- | ------------------------------------------ |
-| `remotion`                 | 핵심 훅, 시퀀스, 보간 유틸리티             |
-| `@remotion/player`         | 브라우저 임베드 플레이어 컴포넌트          |
-| `@remotion/lambda`         | AWS Lambda 분산 렌더링                     |
-| `@remotion/serverless`     | 클라우드 서버리스 렌더링 추상화 레이어     |
-| `@remotion/cloudrun`       | Google Cloud Run 렌더링                    |
-| `@remotion/media-parser`   | 브라우저/Node.js 미디어 파일 파서          |
-| `@remotion/captions`       | 자막 렌더링                                |
-| `@remotion/skia`           | React Native Skia 통합                     |
-| `@remotion/three`          | React Three Fiber (3D) 통합                |
-| `@remotion/lottie`         | Lottie 애니메이션 통합                     |
-| `@remotion/studio`         | 개발용 브라우저 스튜디오 환경              |
-| `@remotion/mcp`            | MCP 서버 통합                              |
+| 패키지                   | 역할                                   |
+| ------------------------ | -------------------------------------- |
+| `remotion`               | 핵심 훅, 시퀀스, 보간 유틸리티         |
+| `@remotion/player`       | 브라우저 임베드 플레이어 컴포넌트      |
+| `@remotion/lambda`       | AWS Lambda 분산 렌더링                 |
+| `@remotion/serverless`   | 클라우드 서버리스 렌더링 추상화 레이어 |
+| `@remotion/cloudrun`     | Google Cloud Run 렌더링                |
+| `@remotion/media-parser` | 브라우저/Node.js 미디어 파일 파서      |
+| `@remotion/captions`     | 자막 렌더링                            |
+| `@remotion/skia`         | React Native Skia 통합                 |
+| `@remotion/three`        | React Three Fiber (3D) 통합            |
+| `@remotion/lottie`       | Lottie 애니메이션 통합                 |
+| `@remotion/studio`       | 개발용 브라우저 스튜디오 환경          |
+| `@remotion/mcp`          | MCP 서버 통합                          |
 
 ## 렌더링 방식
 
@@ -79,13 +86,13 @@ Rust 컴포지터와 FFmpeg가 이를 MP4로 인코딩한다.
 Remotion은 소스 공개(source-available) 모델을 사용한다.
 OSI 인증 오픈소스가 아니며, 규모에 따라 유료 라이선스가 필요하다:
 
-| 대상                            | 라이선스                  | 비용           |
-| ------------------------------- | ------------------------- | -------------- |
-| 개인 / 직원 3인 이하 조직       | Free License              | 무료           |
-| 비영리 / 교육 기관              | Free License              | 무료           |
-| 직원 4인 이상 영리 조직         | Company License           | 좌석당 $25/월  |
-| 자동화 렌더링 파이프라인 구축   | Remotion for Automators   | $0.01/렌더, 최소 $100/월 |
-| 엔터프라이즈                    | Enterprise License        | $500+/월       |
+| 대상                          | 라이선스                | 비용                     |
+| ----------------------------- | ----------------------- | ------------------------ |
+| 개인 / 직원 3인 이하 조직     | Free License            | 무료                     |
+| 비영리 / 교육 기관            | Free License            | 무료                     |
+| 직원 4인 이상 영리 조직       | Company License         | 좌석당 $25/월            |
+| 자동화 렌더링 파이프라인 구축 | Remotion for Automators | $0.01/렌더, 최소 $100/월 |
+| 엔터프라이즈                  | Enterprise License      | $500+/월                 |
 
 ## 분석
 

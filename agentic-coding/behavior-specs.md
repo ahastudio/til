@@ -1,5 +1,7 @@
 # Behavior Specs: 에이전트의 행동을 궤적 전체에 걸쳐 정의하는 표준
 
+<https://www.agentbehavior.dev/>
+
 <https://github.com/braintrustdata/agentbehavior>
 
 GN 토론: <https://news.hada.io/topic?id=32962>
@@ -24,6 +26,11 @@ Apache License 2.0으로 공개되어 있고 별 339개를 받았다.
 어떤 리뷰어·루브릭·채점기·평가가 측정하기 전에 기준을 먼저 정의하므로,
 궤적을 검토하고 평가를 설계하고 프롬프트를 정렬할 때
 하나의 문서화된 단일 진실 원천에 맞출 수 있다는 것이다.
+
+저장소가 홈페이지로 등록한 주소는 www.agentbehavior.dev이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Agent behavior”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 명세
 

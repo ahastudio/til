@@ -1,5 +1,7 @@
 # HERMES.md 커밋 메시지 과금 라우팅 버그
 
+<https://code.claude.com/docs/en/overview>
+
 <https://github.com/anthropics/claude-code/issues/53262>
 
 HN 토론: <https://news.ycombinator.com/item?id=47952722> (989점, 422개 댓글)
@@ -11,6 +13,11 @@ Claude Code v2.1.119에서 git 커밋 메시지에 대소문자를 정확히 구
 트리거 조건이 매우 구체적이다. `HERMES.md`(대문자)는 실패하지만 `hermes.md`(소문자), `HERMES`(확장자 없음), `HERMES.txt`, `AGENTS.md`, `README.md`는 모두 정상 작동한다. Claude Code가 시스템 프롬프트에 최근 git 커밋 이력을 포함시키는 과정에서 서버 사이드 로직이 이 특정 문자열에 반응해 다른 과금 경로로 라우팅하는 것이 근본 원인으로 파악됐다.
 
 초기 고객 지원 대응은 “기술적 오류로 인한 잘못된 청구 라우팅에 대해 보상을 제공하기 어렵다”는 내용이었다. 이 답변이 HN에 공유되면서 논쟁이 폭발했다. Anthropic 팀원 Thariq이 직접 개입해 “영향받은 모든 사용자에게 전액 환불과 월 구독료에 해당하는 추가 크레딧을 지급한다”고 밝혔고, 지원 흐름이 복잡한 버그를 엔지니어링팀으로 라우팅하지 않았던 점을 인정했다. 추가 폭로 사항도 있었다. 익명의 Anthropic 직원은 초기 지원 응답이 Claude 자체가 생성한 것이라고 인정했다.[^throwaway449933]
+
+저장소가 홈페이지로 등록한 주소는 code.claude.com이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Overview - Claude Code Docs”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

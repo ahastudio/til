@@ -1,6 +1,6 @@
 # Ternlight — 5~7MB WASM 번들에 넣은 삼진 가중치 임베딩 모델
 
-<https://ternlight-demo.vercel.app>
+<https://ternlight-demo.vercel.app/>
 
 <https://github.com/soycaporal/ternlight>
 

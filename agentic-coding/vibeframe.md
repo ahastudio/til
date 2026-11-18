@@ -1,5 +1,7 @@
 # VibeFrame
 
+<https://vibeframe.ai/>
+
 <https://github.com/vericontext/vibeframe>
 
 ## 소개
@@ -11,15 +13,20 @@ Claude Code, Codex, Cursor 같은 AI 에이전트와 직접 통합된다.
 TypeScript(97.4%)로 작성되었고 Node.js 20+, FFmpeg, Chrome/Chromium이 필요하다.
 MIT 라이선스를 적용한다.
 
+저장소가 홈페이지로 등록한 주소는 vibeframe.ai이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “VibeFrame - frontier video generation for coding agents”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
+
 ## 워크플로 아키텍처
 
 세 가지 레인(lane)으로 작업을 분류한다.
 
-| 레인            | 목적                       | 입력                          |
-| --------------- | -------------------------- | ----------------------------- |
-| BUILD           | 다중 장면 완성 영상         | 스토리보드 + 디자인 문서      |
-| GENERATE/ASSET  | 독립 미디어 생성            | 직접 프롬프트                 |
-| EDIT/REMIX      | 기존 미디어 수정            | 미디어 파일                   |
+| 레인           | 목적                | 입력                     |
+| -------------- | ------------------- | ------------------------ |
+| BUILD          | 다중 장면 완성 영상 | 스토리보드 + 디자인 문서 |
+| GENERATE/ASSET | 독립 미디어 생성    | 직접 프롬프트            |
+| EDIT/REMIX     | 기존 미디어 수정    | 미디어 파일              |
 
 ## CLI
 

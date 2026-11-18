@@ -1,5 +1,7 @@
 # OpenIntelligentUI: 질문에 맞춰 차트와 계산기와 지도를 그려 주는 오픈소스 채팅 인터페이스
 
+<https://opengenerativeui.copilotkit.ai/>
+
 <https://github.com/CopilotKit/OpenIntelligentUI>
 
 GN 토론: <https://news.hada.io/topic?id=35735>
@@ -27,6 +29,11 @@ README의 시연 장면(여행 경로 지도,
 비용 나누기 계산기)이 그 소개와 겹치는 점은 있지만
 README는 OpenAI나 ChatGPT를 언급하지 않는다.
 OpenAI의 기능을 열어 둔 대안이라는 해석은 GeekNews 쪽 제목이 붙인 틀이다.
+
+저장소가 홈페이지로 등록한 주소는 opengenerativeui.copilotkit.ai이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Open Intelligent UI — Answers you can interact with”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 동작 방식
 

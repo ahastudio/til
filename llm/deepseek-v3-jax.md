@@ -1,5 +1,7 @@
 # deepseek-v3-jax
 
+<https://vaibhaav.in/writing/deepseek-v3-jax/>
+
 <https://github.com/Vaibhaav-Tiwari/deepseek-v3-jax>
 
 Show HN: [Show HN: DeepSeek V3 in ~200 lines of pure Jax](https://news.ycombinator.com/item?id=50497589) (237점, 22개 댓글)
@@ -17,6 +19,11 @@ README는 이것이 아키텍처 시연이지 강한 언어 모델이 아니라�
 코드를 실행하거나 글(vaibhaav.in)의 본문을 읽지는 않았다.
 
 만든 사람은 HN 스레드에서 DeepSeek V3를 다르게 만드는 것을 이해하려고 세 가지 핵심 아이디어를 처음부터 다시 구현했다고 설명한다. 다중 헤드 잠재 어텐션(MLA), 보조 손실 대신 편향으로 부하를 맞추는 전문가 혼합(MoE), 다중 토큰 예측(MTP)이다.
+
+저장소가 홈페이지로 등록한 주소는 vaibhaav.in이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “DeepSeek V3 in 190 lines of pure JAX · Vaibhaav Tiwari”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 구현한 것
 

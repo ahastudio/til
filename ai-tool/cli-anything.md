@@ -1,5 +1,7 @@
 # CLI-Anything: 모든 소프트웨어를 에이전트 네이티브로 만드는 프레임워크
 
+<https://clianything.cc/>
+
 <https://github.com/HKUDS/CLI-Anything>
 
 HN 토론: <https://news.ycombinator.com/item?id=47360545> (4점, 0개 댓글)
@@ -34,6 +36,11 @@ HN 토론: <https://news.ycombinator.com/item?id=47364480> (2점, 1개 댓글)
   - [“진짜 소프트웨어 통합”이 드러내는 AI 자동화의 근본 문제](#진짜-소프트웨어-통합이-드러내는-ai-자동화의-근본-문제)
   - [소프트웨어 에코시스템의 에이전트 네이티브 전환이 만드는 새로운 계층 구조](#소프트웨어-에코시스템의-에이전트-네이티브-전환이-만드는-새로운-계층-구조)
   - [7단계 파이프라인의 메타적 함의: AI가 AI 도구를 만든다](#7단계-파이프라인의-메타적-함의-ai가-ai-도구를-만든다)
+
+저장소가 홈페이지로 등록한 주소는 clianything.cc이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “CLI-Anything Hub - Agent-Friendly CLI Registry”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 소개
 

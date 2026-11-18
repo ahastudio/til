@@ -1,5 +1,7 @@
 # Caveman - 원시인 말투로 LLM 출력 토큰 절약하기
 
+<https://docs.caveman.so/caveman>
+
 <https://github.com/JuliusBrussee/caveman>
 
 ## 요약
@@ -8,6 +10,11 @@ Caveman은 Claude Code/Codex의 응답을 “원시인 말투”로 간소화하
 약 65% 줄이는 클로드 스킬이다. 불필요한 인사말, 부연 설명, 권고 표현을 제거하고
 기술 용어와 코드 블록은 정확히 보존한다. Lite/Full/Ultra 세 단계 강도를 지원하며,
 메모리 파일(CLAUDE.md 등)도 압축하여 입력 토큰까지 절감한다.
+
+저장소가 홈페이지로 등록한 주소는 docs.caveman.so이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Caveman: reduce AI agent tokens with a voice and a prox…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

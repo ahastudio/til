@@ -1,5 +1,7 @@
 # Mirage — AI 에이전트를 위한 통합 가상 파일시스템
 
+<https://www.strukto.ai/>
+
 <https://github.com/strukto-ai/mirage>
 
 ## 소개
@@ -11,6 +13,11 @@ AI 에이전트가 각 서비스별 SDK를 별도로 학습하는 대신, Unix �
 Apache 2.0 라이선스로 공개되어 있으며, Python(`mirage-ai`)과 TypeScript(`@struktoai/mirage-node`) SDK를 모두 제공한다.
 OpenAI Agents SDK, LangChain, Pydantic AI, CAMEL, OpenHands 같은 주요 에이전트 프레임워크와 호환된다.
 Claude Code와 Codex 같은 코딩 에이전트에서도 배시를 통해 마운트된 모든 리소스에 접근할 수 있다.
+
+저장소가 홈페이지로 등록한 주소는 www.strukto.ai이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Strukto — The Virtual Terminal for AI Agents”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 아키텍처
 

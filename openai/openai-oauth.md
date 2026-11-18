@@ -1,5 +1,7 @@
 # openai-oauth - ChatGPT 계정으로 OpenAI API를 무료 사용하는 비공식 도구
 
+<https://openai-oauth.vercel.app/>
+
 <https://github.com/EvanZhouDev/openai-oauth>
 
 ## 요약
@@ -22,6 +24,11 @@ Vercel AI SDK 프로바이더 패키지로도 제공된다.
 로그인에 별도 명령(`npx @openai/codex login`)이 필요하며,
 상태 유지 대화가 불가능하여 매 요청마다 전체 히스토리를 전송해야 한다.
 라이선스는 AGPL-3.0이며 OpenAI와 무관한 비공식 프로젝트다.
+
+저장소가 홈페이지로 등록한 주소는 openai-oauth.vercel.app이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “OpenAI OAuth”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 분석
 

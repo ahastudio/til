@@ -1,5 +1,7 @@
 # Hugging Face Skills
 
+<https://huggingface.co/>
+
 <https://github.com/huggingface/skills>
 
 Hugging Face Skills는 에이전트 작업을 재사용 가능한 스킬 단위로
@@ -28,6 +30,11 @@ Hugging Face Skills는 에이전트 작업을 재사용 가능한 스킬 단위�
 
 신규 스킬 추가 속도보다,
 “누가 유지보수하는가”와 “언제 폐기하는가”가 운영 성패를 결정한다.
+
+저장소가 홈페이지로 등록한 주소는 huggingface.co이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “Hugging Face – The AI community building the future.”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 바로 적용 가능한 도입 체크리스트
 

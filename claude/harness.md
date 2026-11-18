@@ -1,5 +1,7 @@
 # Harness — Claude Code 에이전트 팀 & 스킬 아키텍트
 
+<https://revfactory.github.io/harness/>
+
 <https://github.com/revfactory/harness>
 
 GN 토론: <https://news.hada.io/topic?id=27969>
@@ -23,6 +25,11 @@ GeekNews 운영자 xguru는 첫 댓글에서 저자가 카카오 AI Native 전�
 소개했습니다.[^xguru]
 현재 README는 `TeamCreate` 기반의 v1이 더는 없는 실험용 API에 기대고 있었다고
 적으므로, 그 소개글은 v1 기준의 설명입니다.
+
+저장소가 홈페이지로 등록한 주소는 revfactory.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “harness | A meta-skill that designs domain-specific age…”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## v2에서 달라진 것
 

@@ -1,5 +1,7 @@
 # no-mistakes: AI 기반 Git 푸시 게이트
 
+<https://kunchenguid.github.io/no-mistakes/>
+
 <https://github.com/kunchenguid/no-mistakes>
 
 HN 토론: <https://news.ycombinator.com/item?id=47838708> (19점, 6개 댓글)
@@ -20,6 +22,11 @@ Go로 작성됐으며(코드베이스의 99.8%), 2026년 7월 기준 GitHub 스�
 
 Claude, Codex, RovoDev, OpenCode, Pi, Copilot 등 주요 AI 코딩 에이전트를 지원하며,
 `acpx`를 통해 커스텀 타겟도 연결할 수 있다.
+
+저장소가 홈페이지로 등록한 주소는 kunchenguid.github.io이다.
+읽은 시점(2026년 11월 18일)에 열어
+첫 화면 제목이 “git push no-mistakes | git push no-mistakes”임을 확인했다.
+사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
 
 ## 진입점
 
