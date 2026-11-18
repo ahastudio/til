@@ -180,6 +180,14 @@ GitHub repository, a project homepage).
   URL lines (homepage first, then repo), each on its own line separated by a
   blank line.
 
+**A bare address that has only a domain ends with a slash.** Write
+`<https://www.google.com/>`, never `<https://www.google.com>`, so
+the line reads as an address and not as a stray word. An address that already
+has a path takes no added slash: `<http://www.google.com/ncr>`,
+`<https://github.com/org/project>`. This applies to every bare `<URL>` source
+line (homepages, sites, repositories) and the gate fails a domain-only address
+without the slash.
+
 There is ZERO case where a GitHub repository or a product/service homepage
 gets an `원문:` label or a `[text](url)` link. If you catch yourself typing
 either one for a repo or a homepage, STOP — you misclassified the subject in
@@ -224,7 +232,7 @@ Resolve it in this order, and do all of it:
    ```markdown
    # 이름: 설명
 
-   <https://project-site.example>
+   <https://www.google.com/>
 
    <https://github.com/org/project>
    ```

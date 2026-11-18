@@ -87,6 +87,9 @@ def check_header(lines, issues):
         issues.append("1: H1이 조사로 끝나 미완성 구임 (명사로 끝나게)")
     if re.search(r"(라고|다고|한다고|했다고) ?(말하지만|주장하지만|하지만|보고하지만|밝히지만)|근거는|자기 ?보고|자사 ?(보고|발표|측정)", title):
         issues.append("1: H1에 비평·단서가 들어 있음 (제목은 대상이나 주장만, 비평은 ## 비평에)")
+    for n, ln in enumerate(lines[1:14], start=2):
+        if re.fullmatch(r"<https?://[^/<>?#\s]+>", ln.strip()):
+            issues.append(f"{n}: 도메인만 있는 주소는 끝에 / 를 붙임 (예: <https://www.google.com/>). 경로가 있으면 붙이지 않음")
     if len(lines) > 1 and lines[1].strip():
         issues.append("2: H1 다음에 빈 줄이 없음")
 

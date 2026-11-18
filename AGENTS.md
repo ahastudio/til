@@ -490,6 +490,7 @@ repellent. The title names the subject; the thinking belongs in the body.
   person. Write as if the author would read it.
 - The H1 does not have to be Korean. Never force a stiff translation.
 - Critique goes in `## 비평`, numbers in the body, never in the H1.
+- A bare `<URL>` line that has only a domain ends with `/` (`<https://www.google.com/>`); an address with a path takes no added slash. The gate fails the missing slash.
 - The format gate (`check_format.py`) fails the mechanical forms. A passing
   gate does not prove the title is a name, so the read-aloud check is still
   required. A document is not finished until it passes both.

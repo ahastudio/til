@@ -197,3 +197,12 @@ README는 기술 사양보다 사용 경험을 먼저 보여주는 구성이다.
 Revo를 짧은 시간에 이해시키는 데 효과적이지만,
 운영 의사결정자 관점에서 필요한 릴리스 정책은 상대적으로 얇다.
 ```
+
+## Bare Addresses: Domain-Only Ends With A Slash
+
+A bare address written on its own line (`<URL>`) that has only a domain ends
+with a slash: `<https://www.google.com/>`, never
+`<https://www.google.com>`. An address with a path takes no added slash
+(`<https://example.com/docs>`, `<https://github.com/org/project>`). The
+format gate of `analyze-article` fails a domain-only address without the
+slash. When editing any document, fix such a line in the same pass.
