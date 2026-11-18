@@ -30,7 +30,7 @@ points to when you reach that step instead of relying on an earlier read.
 
 - Usage, Multiple URLs in one invocation: queue handling, one document at a time
 - 1. Fetch the source; 2. Check for duplicates: both are in this file
-- 3, 3-1, 3a, 4. Classify the subject and choose the source-link line: [references/subject-and-source-line.md](references/subject-and-source-line.md) (article vs. non-article, product pages, short H1, `원문:` vs. bare URL)
+- 3, 3-1, 3a, 4, 4-1. Classify the subject and choose the source-link line: [references/subject-and-source-line.md](references/subject-and-source-line.md) (article vs. non-article, product pages, short H1, `원문:` vs. bare URL, a repository's project site)
 - 4a. Special source types: [references/special-sources.md](references/special-sources.md) (Twitter, YouTube with `yt-dlp`, papers, press releases, forum threads)
 - 5, 5a, 6, 7. Choose the body structure and write: [references/body-structure.md](references/body-structure.md) (argue vs. teach, both templates) and [references/writing-rules.md](references/writing-rules.md) (line breaks, headings, code fences)
 - 7a, 7b. Keep the document shape and the footnotes exact: [references/document-shape-and-footnotes.md](references/document-shape-and-footnotes.md) (closed header, closed section set, footnote rules)
@@ -43,8 +43,10 @@ These hold even if only the top of this file is read. The steps below and the
 reference files give the full rules.
 
 - Never write from a title, a summary or memory. If the source cannot be read, stop and report.
-- **The H1 is short and plain (ABSOLUTE).** One clause, at most 50 display columns, a topic or a single plain claim. Never a thesis sentence: no `A는 B라고 말하지만 C이다`, no critique or caveat in the title, no stacked numbers, no connectives (`~지만`, `~며`, `~면서`). Write it the way a person would name the document. The gate fails violations. Detail: references/subject-and-source-line.md step 3a.
+- **The H1 is a NAME, not a sentence (ABSOLUTE).** A noun phrase or proper name of at most 50 display columns that says what the document is about (`Solid 2.0 정식 출시`, `Apple 서비스 장애`, `SaaS 바이럴 루프 사례`). Never a claim, a verdict, a question, a sentence ending in `~다`, a title ending in a particle, a `~고`/`~지만` join, or a clever analyst line. Insight goes in the body, never in the title. Read the H1 aloud before saving: if a reader could agree or disagree with it, rewrite it as a name. Detail: references/subject-and-source-line.md step 3a.
+- **Tone (ABSOLUTE).** Respectful and plain in the title and the whole document. No contempt, dismissal, sarcasm, scolding, orders to the reader or the author, or know-it-all voice. Criticize the claim and its evidence, never the person.
 - Source line: a published piece gets `원문: [제목](<URL>)` (or its labeled variant); a thing (repository, homepage) gets bare URL line(s), never `원문:`.
+- **A GitHub repository always brings its project site (ABSOLUTE).** Call `https://api.github.com/repos/<owner>/<repo>` and read `homepage`; when it is empty, look in the README, the org profile and the package manifest. Open and read the site, and put its bare `<URL>` first and the repository second in the header. If no site exists, say so in `## 소개`. Detail: references/subject-and-source-line.md step 4-1.
 - The header is closed: H1, one source line, then HN, Lobste.rs, GN lines. The analyzed source never takes a footnote.
 - An analytical body carries `## 분석`, `## 비평`, `## 인사이트`, all three, in that order.
 - After writing, run the four post-processing commands of step 8b; the last one (`check_format.py`) must print `OK`.
@@ -56,6 +58,7 @@ Copy this list into the reply and tick it off per document (a queue repeats it p
 
 ```text
 - [ ] 1. Fetch the source in full (stop and report if unreadable)
+- [ ] 1a. GitHub repository: read `homepage` from the GitHub API, read the site, put it in the header
 - [ ] 2. Duplicate check: URL, proper nouns, directory
 - [ ] 3-4a. Classify the subject; choose the source line and the fetch method
 - [ ] 5-7b. Choose the body structure; write; check header and footnotes
@@ -114,6 +117,11 @@ text. For sources WebFetch cannot handle, see step 4a and
 For a YouTube URL (`youtube.com`, `youtu.be`), skip WebFetch entirely and go
 straight to `yt-dlp` as described in step 4a. WebFetch returns only the title.
 
+For a GitHub repository, also resolve and read the project site before writing
+(step 4-1 in `references/subject-and-source-line.md`): the API's `homepage`
+field first, then the README, the org profile and the package manifest. The
+site's address goes into the header and the site is read in full.
+
 ### 2. Check for duplicates
 
 Check in this order, and do all three before concluding anything:
@@ -152,6 +160,8 @@ before writing anything. It decides the source-link line and the H1.
   `<URL>` line(s) with no label and no link text. Never `원문:`.
 - A product page is a source about the product; the document is about the
   product and attributes claims to its maker.
+- A GitHub repository is resolved to its project site (step 4-1): the site's bare
+  `<URL>` goes first, the repository's second.
 - The H1 is short and plain and easy for a Korean reader; Korean is preferred, not required.
 
 ### 4a. Special source types

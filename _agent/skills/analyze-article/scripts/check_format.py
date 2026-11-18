@@ -62,6 +62,9 @@ def split_fences(lines):
     return flags, errors
 
 
+TITLE_DA_NOUNS = {"바다", "다", "소다", "비다"}
+
+
 def check_header(lines, issues):
     if not lines or not lines[0].startswith("# "):
         issues.append("1: 첫 줄이 H1이 아님")
@@ -74,6 +77,14 @@ def check_header(lines, issues):
         issues.append("1: H1이 여러 절을 이어 붙임 (한 절로. 접속어와 쉼표 나열 금지)")
     if len(re.findall(r"\d[\d.,]*", title)) > 2:
         issues.append("1: H1에 숫자가 너무 많음 (숫자는 본문에)")
+    # A title is a NAME (a noun phrase), never a sentence.
+    last = re.split(r"[\s:]+", title.rstrip(" .?!"))[-1]
+    if re.search(r"[가-힣]다$", last) and last not in TITLE_DA_NOUNS or re.search(r"(합니다|입니다|이에요|예요|까)$", last) or title.rstrip().endswith(("?", "!")):
+        issues.append("1: H1이 문장으로 끝남 (서술어 금지. 제목은 이름이나 명사구로: '~ 공개', '~ 개발 로그', '~의 구조')")
+    if re.search(r"[았었였겠했됐졌]고 [가-힣]|[가-힣]고 [가-힣]+(은|는|이|가|을|를) ", title):
+        issues.append("1: H1이 '~고'로 절을 이어 붙임 (한 절로. 두 주장을 한 제목에 넣지 않는다)")
+    if re.search(r"[가-힣](을|를|에게|에서|으로|로|에|와|과|도|만|보다|처럼)$", title.rstrip(" .")):
+        issues.append("1: H1이 조사로 끝나 미완성 구임 (명사로 끝나게)")
     if re.search(r"(라고|다고|한다고|했다고) ?(말하지만|주장하지만|하지만|보고하지만|밝히지만)|근거는|자기 ?보고|자사 ?(보고|발표|측정)", title):
         issues.append("1: H1에 비평·단서가 들어 있음 (제목은 대상이나 주장만, 비평은 ## 비평에)")
     if len(lines) > 1 and lines[1].strip():

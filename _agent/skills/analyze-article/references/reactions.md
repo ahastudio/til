@@ -64,3 +64,11 @@ prose is good, not when the reactions are woven in, not when the queue is
 long and the next URL is waiting. Report the file as complete only after
 you have seen `OK` from this run, and in a queue report only files that
 reached it.
+
+## Repositories: search by the project site too
+
+For a GitHub repository, run every reaction search on both addresses: the
+repository URL and the project site's domain (from step 4-1 of
+`subject-and-source-line.md`). A discussion is often submitted under the site
+address, and a search by the repository URL alone misses it. Report which
+addresses were searched.

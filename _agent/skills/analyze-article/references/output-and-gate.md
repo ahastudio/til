@@ -73,3 +73,11 @@ reading the file you just wrote:
    rather than to memory?
 5. Does every footnote point at a comment you actually observed?
 6. Is the file name the subject and nothing else (step 8a)?
+
+## The gate cannot check the project site
+
+`check_format.py` cannot know that a GitHub repository has a `homepage`. Before
+reporting a repository document, confirm by hand that the `homepage` field of
+the GitHub API was read, that the site (if any) was opened, and that its bare
+`<URL>` is the first source line above the repository's. The report states the
+address, or states that the repository registers none.
