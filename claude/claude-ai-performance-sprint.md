@@ -1,4 +1,4 @@
-# claude.ai를 2주 만에 3배 빠르게: 측정할 수 있으면 Claude가 줄일 수 있다는 교훈과 그 대가
+# claude.ai 성능 개선 스프린트
 
 원문: [How we made claude.ai 3x faster in two weeks / claude.dev Blog](https://claude.dev/blog/how-we-made-claude-ai-faster/)
 
@@ -144,6 +144,8 @@ Claude는 이것들을 몇 분에서 몇 시간 만에 만들었고,
 11분 만에 다섯 개의 측정 스레드가 동시에 돌았다.
 측정 도구가 싸지면, 무엇을 측정할지가 병목이 된다.
 팀이 가장 레버리지가 큰 일을 더 측정할 것을 찾는 것이라고 정리한 이유다.
+GeekNews에서는 한 사용자가 이 글을 두고 역시 데이터가 중요하다고 짧게 답했다.[^kaydash]
+GeekNews 토픽의 나머지 댓글은 Hacker News 의견을 다시 모은 GN⁺ 계정의 요약이라 이 문서는 GeekNews 이용자의 반응으로 쓰지 않았다.
 
 ### 대리 지표를 쓰되 연관성을 먼저 증명하게 한 것이 이 방법의 안전판이다
 
@@ -517,3 +519,5 @@ Tepix는 이 보고서에 비용이 빠져 있으며,
 [^Remnant44]: <https://news.ycombinator.com/item?id=49835359>
 
 [^augment_me-constraints]: <https://news.ycombinator.com/item?id=49839752>
+
+[^kaydash]: <https://news.hada.io/topic?id=34206#cid66257>
