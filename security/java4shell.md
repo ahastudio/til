@@ -42,6 +42,17 @@ Calif가 보인 영향은 다음과 같다.
 - 리눅스에서는 `/proc/cpuinfo`에 `avx512f`, `avx512bw`, `avx512vbmi`, `bmi2` 네 플래그가 모두 있는지로 자기 CPU가 해당하는지 확인할 수 있다.
 - 한계로 밝힌 것: 일부 공격 프로필은 요청 본문의 일부만 보내는 스트리밍이 필요해, 본문 전체를 버퍼링하는 프록시(nginx 기본값)가 그 시점 조절을 없앤다. 다만 이것이 일반적인 완화책은 아니라고 적는다(Elasticsearch는 완전한 요청 하나로 돌아가고, 웹소켓 업그레이드 뒤에는 버퍼링이 적용되지 않는다).
 
+Amazon Linux 2023의 보안 권고 ALAS2023-2026-3478은 이 CVE를 Important로
+분류하고 `java-17-amazon-corretto` 패키지가 영향을 받는다고 밝히며,
+`dnf update java-17-amazon-corretto --releasever 2023.12.20261117`로
+고친 버전(17.0.21.1.2)으로 올리라고 권한다.[^alas2023]
+같은 권고는 CVE-2026-114938 외에 CVE-2026-114939부터 114946까지
+OpenJDK의 security-libs(org.ietf.jgss, javax.net.ssl), core-libs,
+hotspot/runtime, hotspot/compiler, core-svc/java.lang.management
+구성 요소에 걸친 별개의 취약점 일곱 건을 같은 패치에 함께
+묶었다고 밝히지만, 각 취약점의 구체적인 내용은 적지 않는다.[^alas2023]
+Calif의 보고서는 이 추가 일곱 건을 다루지 않는다.
+
 보고서는 또 AI를 쓴 발견 과정을 적는다.
 
 - 발견: 연구원이 OpenJDK의 JIT 컴파일러, intrinsic, 널리 쓰이는 API, 암호 부분을 Codex에게 감사시켰고 20분 가까이 쓸모없는 결과를 무시하며 프롬프트를 밀어붙인 끝에 이 결함이 나왔다고 한다. 발견에 1시간, 첫 동작하는 공격 코드까지 2시간이 더 들었고 토큰 비용은 200달러 미만이라고 한다.
@@ -144,6 +155,8 @@ Calif가 나중에 공개한다는 제품별 공격 체인이 실제로 보고�
 셋 모두 이 문서가 확인하지 못했다.
 
 ---
+
+[^alas2023]: Amazon Web Services, [ALAS2023-2026-3478](https://alas.aws.amazon.com/AL2023/ALAS2023-2026-3478.html), 2026-11-18
 
 [^ievans]: <https://news.ycombinator.com/item?id=50538391>
 
