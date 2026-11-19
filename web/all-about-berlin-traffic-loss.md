@@ -72,6 +72,9 @@ HN에서는 모든 콘텐츠를 유료로 돌리라는 조언과 구글을 상�
 ### 외부 반응
 
 HN 스레드는 429점 403개 댓글이다. 글 자체에 HN, Mastodon, LinkedIn, Twitter에서 논의되었다고 적혀 있다.
+글 머리에는 이 글의 후속 글(`/blog/life-after-ai`)이 있다는 갱신 안내가 붙어 있고 이 문서는 그 글을 열지 못했다.
+글 끝의 「언급」 목록에는 The Telegraph, Forbes, NPR의 The Indicator, Deutschlandfunk, The Ringer, OMR, PPC Land 등이 있고, 「비슷한 이야기」로 Stack Overflow의 질문 수 급감, 여행 블로그 사례, Liliputing이 링크되어 있다.
+같은 글은 5월 26일에도 HN에 올라온 적이 있고(9점, 댓글 2개) 지금의 스레드는 그와 별개이다.
 Lobste.rs에서는 `nicolasbouliane.com` 도메인이 올라온 적이 없다.
 GeekNews에는 같은 글의 토픽이 있으나 댓글이 하나이고, 그것도 HN 댓글을 다시 모은 GN⁺ 계정의 요약이라 GeekNews 이용자의 반응은 없다.
 
