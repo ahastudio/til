@@ -494,6 +494,11 @@ repellent. The title names the subject; the thinking belongs in the body.
 - The format gate (`check_format.py`) fails the mechanical forms. A passing
   gate does not prove the title is a name, so the read-aloud check is still
   required. A document is not finished until it passes both.
+- The format gate applies only to documents written through the
+  `analyze-article` skill. A document written any other way (a comparison
+  note, a rewrite of an existing note, a document the user asked for directly)
+  is not run through the gate, and a failing gate on such a document is not a
+  defect. The read-aloud title check still applies to every document.
 - When a title is corrected, retitle every document written in the same
   session in the same pass.
 
