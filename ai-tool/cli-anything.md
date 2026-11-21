@@ -1,4 +1,4 @@
-# CLI-Anything: 모든 소프트웨어를 에이전트 네이티브로 만드는 프레임워크
+# CLI-Anything과 CLI-Hub
 
 <https://clianything.cc/>
 
@@ -38,9 +38,14 @@ HN 토론: <https://news.ycombinator.com/item?id=47364480> (2점, 1개 댓글)
   - [7단계 파이프라인의 메타적 함의: AI가 AI 도구를 만든다](#7단계-파이프라인의-메타적-함의-ai가-ai-도구를-만든다)
 
 저장소가 홈페이지로 등록한 주소는 clianything.cc이다.
-읽은 시점(2026년 11월 18일)에 열어
-첫 화면 제목이 “CLI-Anything Hub - Agent-Friendly CLI Registry”임을 확인했다.
-사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
+2026년 11월 20일에 본문까지 읽었고, 제목은 “CLI-Anything Hub - Agent-Friendly CLI Registry”이다.
+사이트는 CLI-Hub의 웹 화면이다.
+표어는 “Any software. Any codebase. Any Web API.”이고,
+설치 경로로 `npx skills`(에이전트용)와 `pip install cli-anything-hub`(사람용)를 나란히 둔다.
+데모 세 개(FreeCAD, Blender, Draw.io)와 “매트릭스”라는 묶음 목록, 문서 페이지로 이어진다.
+CLI 수와 분류 수를 보여 주는 칸은 자바스크립트로 채워지는 자리표시자였고,
+내가 읽은 시점에는 값이 비어 있어 사이트에서 개수를 확인하지 못했다.
+사이트의 설명은 제작자의 주장이다.
 
 ## 소개
 
@@ -269,6 +274,11 @@ Zoom, Mailchimp 같은 클라우드 API 기반 서비스나 Sketch 같은 클로
 웨어가 포함되어 있지만, 이 경우의 생성 방법론이 오픈소스 소프트웨어와 근본적으로
 다르다. Zoom CLI는 REST API를 래핑하고, GIMP CLI는 실제 GIMP 백엔드를 호출한다.
 이 두 접근 방식의 품질 차이와 한계가 문서에서 충분히 다루어지지 않는다.
+README는 이 공백을 로드맵의 미완 항목으로 남겨 둔다.
+“클로즈드 소스 소프트웨어와 웹 서비스를 CLI로 묶는 패키징 지원”이 체크되지 않았다.
+사이트의 표어가 “Any Web API”를 내세우는 것과 대비된다.
+따라서 현재 방법론은 소스가 있는 소프트웨어를 전제로 하고,
+API 래핑은 개별 기여에 맡겨져 있다고 읽힌다(이 문서의 해석).
 
 ### README 수치가 서로 맞지 않는다
 
@@ -359,6 +369,11 @@ FreeCAD 매크로 생성기는 출력 경로를 작은따옴표로 감싸 파이
 2026-10-21에 내가 요청해 보니 이 주소는 `NoSuchBucket`과 함께 404를 돌려주었다.
 같은 이름의 버킷을 누군가 만들면 에이전트가 읽고
 따르는 지시문을 바꿔치기할 수 있다는 이슈가 열려 있다[^issue-576].
+프로젝트 사이트가 “SKILL”과 “Agent SKILL (SKILL.md)”로 연결하는 주소도
+서드파티 DigitalOcean 호스트
+(`reeceyang.sgp1.cdn.digitaloceanspaces.com/SKILL.md`)이다.
+2026-11-20에 내 환경의 DNS는 이 호스트를 NXDOMAIN으로 답했다.
+한 곳의 리졸버 결과이므로 다른 곳에서도 그런지는 확인하지 못했다.
 설치 전에 사용자 확인을 요구하라는 문서
 보완 PR도 2026-04-08부터 병합되지 않았고[^issue-202],
 내가 읽은 `main`의 메타 스킬에는 확인 지시가 없었다.
