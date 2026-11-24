@@ -1,8 +1,12 @@
-# Pixel Agents: 코딩 에이전트를 픽셀 오피스의 캐릭터로 지켜보다
+# Pixel Agents
 
 <https://pixel-agents.com/>
 
 <https://github.com/pixel-agents-hq/pixel-agents>
+
+HN 토론: <https://news.ycombinator.com/item?id=47167543> (1점, 0개 댓글)
+
+GN 토론: <https://news.hada.io/topic?id=26921>
 
 ## 소개
 
@@ -12,16 +16,19 @@ Pixel Agents는 “에이전트를 오케스트레이션하는 가장 유쾌한 
 캐릭터는 책상으로 걸어가 앉고,
 파일을 편집할 때 타이핑하고, 검색할 때 읽고,
 입력을 기다리며 막히면 말풍선으로 신호를 보낸다.
-MIT 라이선스에 TypeScript로 작성되었고,
-GitHub 별 9,100여 개, pablodelucca가 만들며 2026년 2월에 시작되었다.
+MIT 라이선스에 TypeScript로 작성되었고, 2026년 2월 8일에 시작되었다.
+2026년 11월 25일 GitHub API로 본 별은 10,357개이고,
+저장소는 pixel-agents-hq 조직 아래에 있다.
+VS Code 마켓플레이스의 확장 식별자는 여전히 pablodelucca.pixel-agents이다.
 
 같은 코드베이스에서 두 형태로 배포된다.
 VS Code 확장은 에이전트를 VS Code 터미널에 띄우고 패널에 캐릭터를 그린다.
 독립 실행형 CLI는 `npx pixel-agents`로 로컬 서버를 띄워
 같은 사무실을 브라우저 앱으로 제공하며, tmux·원격·비VS Code 워크플로에 유용하다.
-아키텍처는 완전히 에이전트·에디터 독립적이다.
+회사는 아키텍처가 에이전트·에디터 독립적이라고 소개한다.
 타입이 붙은 `HookProvider` 인터페이스가 통합 경계를 정의해,
-새 AI 도구를 더하는 것이 코드의 하위 디렉터리 하나가 된다.
+새 AI 도구를 더하는 것이 코드의 하위 디렉터리 하나가 된다는 설명이다.
+이 문서가 코드를 읽고 확인한 범위는 아래 `## 동작 방식`과 비평에 적었다.
 Claude Code가 현재 레퍼런스 구현이고, Codex·Gemini·Cursor가 로드맵에 있다.
 
 기능은 넓다.
@@ -43,6 +50,110 @@ Claude Code가 현재 레퍼런스 구현이고, Codex·Gemini·Cursor가 로드
 읽은 시점(2026년 11월 18일)에 열어
 첫 화면 제목이 “Pixel Agents: A playful way to manage your AI workforce”임을 확인했다.
 사이트 본문은 읽지 않았고, 사이트의 설명은 제작자의 주장이다.
+
+## 동작 방식
+
+이 절은 2026년 11월 25일에 저장소의 커밋 4dd14d6(2026년 11월 9일, `package.json`
+버전 1.6.0)을 받아 코드를 읽고 쓴 것이다.
+소스를 읽었을 뿐 설치하거나 실행하지는 않았다.
+파일 경로는 저장소 루트 기준이다.
+
+### 네 개의 층
+
+저장소 안내 문서(`CLAUDE.md`)는 층 사이의 의존 방향을 한쪽으로만 허용한다고 적는다.
+`core/`는 아무것도 가져오지 않는다.
+`server/`와 `webview-ui/`는 `core/`만 가져오고,
+`adapters/vscode/`는 `core/`와 `server/`를 가져온다.
+`core/asyncapi.yaml`이 메시지 계약의 단일 출처이고
+`core/src/messages.ts`는 그 계약에서 자동 생성된다.
+`server/`는 Fastify 서버와 에이전트 수명주기 런타임이고,
+`webview-ui/`는 React 19와 Canvas로 사무실을 그린다.
+테스트 파일을 거르지 않은 채 `wc`로 센 TypeScript 합계는 61,720줄이며
+`e2e/` 도우미 파일이 포함되어 있다.
+
+### 신호는 두 갈래로 들어온다
+
+첫째는 Claude Code의 훅(hook)이다.
+설치 시 `~/.claude/settings.json`에 12개 이벤트의 훅 항목이 들어간다.
+이벤트는 `SessionStart`, `SessionEnd`, `Stop`, `PermissionRequest`, `Notification`,
+`PreToolUse`, `PostToolUse`, `PostToolUseFailure`, `SubagentStart`, `SubagentStop`,
+`TeammateIdle`, `TaskCompleted`이다
+(`server/src/providers/hook/claude/constants.ts`의 `CLAUDE_HOOK_EVENTS`).
+훅이 실행하는 `claude-hook.ts`는 표준 입력의 JSON을 읽어
+등록부에 있는 살아 있는 서버마다 `/api/hooks/claude`로 POST하고,
+제한 시간은 2초이며 실패해도 조용히 종료 코드 0으로 끝난다.
+`UserPromptSubmit`과 `TaskCreated`는 일부러 설치하지 않는다.
+아무도 쓰지 않는 이벤트를 받으면 사용자의 프롬프트 글이 서버로 가서
+버려지기만 하기 때문이라고 같은 파일의 주석이 설명한다.
+
+둘째는 대화 기록 파일이다.
+Claude Code가 `~/.claude/projects/<작업 경로>/*.jsonl`에 쓰는 기록을
+500ms 주기로 읽는다(`server/src/constants.ts`의 `FILE_WATCHER_POLL_INTERVAL_MS`).
+훅은 도구 이름은 주지만 `Read foo.ts` 같은 상태 문장과
+하위 에이전트의 실제 도구 식별자는 주지 않는다.
+그래서 `transcriptParser.ts`의 `processTranscriptLine`이
+`assistant` 기록의 `tool_use` 블록을 읽어 그 내용을 채운다.
+훅이 한 번이라도 도착한 에이전트는 `hookDelivered` 표시가 켜지고,
+그 에이전트에는 추측용 타이머가 꺼진다.
+추측용 타이머는 도구 허가를 기다린다고 보는 7초(`PERMISSION_TIMER_DELAY_MS`)와
+글을 쓰다 멈췄다고 보는 5초(`TEXT_IDLE_DELAY_MS`)이다.
+파일 감시만 쓰는 휴리스틱 모드는 훅이 없는 환경을 위한 예비 경로이다.
+
+### 훅 이벤트가 캐릭터 신호가 되는 길
+
+`normalizeHookEvent`(`claude.ts`)가 Claude 고유의 필드를 읽는 유일한 자리이고,
+그 아래로는 정규화된 `AgentEvent`만 흐른다고 주석이 밝힌다.
+대응은 다음과 같다.
+
+| Claude 훅                                                | 정규화된 이벤트                       |
+| -------------------------------------------------------- | ------------------------------------- |
+| `PreToolUse`                                             | `toolStart`(임시 식별자 `hook-시각`)  |
+| `PostToolUse`, `PostToolUseFailure`                      | `toolEnd`(식별자 `current`)           |
+| `Stop`                                                   | `turnEnd`, 화면 문구는 완료           |
+| `Notification`(`idle_prompt`)                            | `turnEnd`, 입력 대기(`awaitingInput`) |
+| `PermissionRequest`, `Notification`(`permission_prompt`) | `permissionRequest`                   |
+| `SubagentStart`, `SubagentStop`                          | `subagentStart`, `subagentEnd`        |
+
+`PostToolUse`에는 도구 식별자가 없으므로 핸들러가 자기 상태로 짝을 맞춘다.
+캐릭터가 하위 에이전트로 갈라지는 `Task`와 `Agent` 도구는 훅이 아닌 대화 기록으로
+만든다. 실제 식별자가 있어야 `SubagentStop`과 맞출 수 있기 때문이다.
+에이전트가 등록되기 전에 도착한 훅은 `SessionRouter`가 5초(`HOOK_EVENT_BUFFER_MS`)
+동안 쌓아 두었다가 등록되면 흘려보낸다.
+`/clear`는 `SessionEnd`(이유 clear)와 `SessionStart`(출처 clear)가 거의 동시에
+오므로 2초(`SESSION_END_GRACE_MS`)의 유예를 둔다.
+`Read`, `Grep`, `Glob`, `WebFetch`, `WebSearch`는 읽기 동작, 나머지는 타이핑 동작으로
+분류되고(`readingTools`), `Task`, `Agent`, `AskUserQuestion`은 허가 타이머에서 제외된다.
+
+### 캐릭터의 상태기계
+
+웹 화면의 `CharacterState`는 `IDLE`, `WALK`, `TYPE` 세 가지뿐이다
+(`webview-ui/src/office/types.ts`).
+`webview-ui/src/office/engine/characters.ts`의 `updateCharacter`는 다음처럼 움직인다.
+
+- 에이전트가 활동 중이면 좌석까지 `findPath`로 길을 찾아 걷고 앉아서 두 프레임을
+  번갈아 타이핑한다. `findPath`는 대각선 없는 4방향 격자의 너비 우선 탐색이다.
+- 활동이 끝나면 `seatTimer`가 지난 뒤 일어나 `IDLE`이 되고,
+  2초에서 20초 사이의 임의 간격으로 걸을 곳을 고른다.
+- 돌아다닌 횟수가 3~6번이라는 한도에 닿으면 좌석으로 돌아가 쉰다.
+  쉬는 시간은 `SEAT_REST_MIN_SEC`와 `SEAT_REST_MAX_SEC`로 정한 120~240초이다.
+
+### 통신과 보안
+
+서버는 기본으로 `127.0.0.1`에 붙고 포트는 0, 곧 운영체제가 정한다.
+훅 수신 경로 `POST /api/hooks/:providerId`는 Bearer 토큰으로 막고
+본문은 64KB로 제한한다(`httpServer.ts`, `MAX_HOOK_BODY_SIZE`).
+독립 실행형의 WebSocket은 출처(Origin) 검사를 하고
+토큰이 없는 접속은 읽기 전용 사무실이 된다.
+토큰은 UUID이고 `~/.pixel-agents/standalone-token`에 파일 모드 0600으로 저장되며,
+유출에 대비한 회전(rotate) 경로가 있다(`serverToken.ts`).
+`settings.json`에 쓰기 전에는 동의 단계를 거치고,
+사용자 설정을 파싱할 수 없으면 쓰기를 중단하며
+처음 한 번 `settings.json.pixel-agents.backup`을 남긴다.
+동의 문구는 훅이 도구 이름과 도구 입력을 이 컴퓨터의 서버로 보낸다고 밝히고,
+`--host`로 네트워크에 열면 그 범위가 넓어진다는 점을 숨기지 않는다
+(`consentCopy.ts`).
+사용 한도 막대를 켜면 사용자의 상태 줄(status line) 명령을 감싸서
+`rate_limits`와 컨텍스트 사용률만 서버로 보낸다고 저장소 문서는 설명한다.
 
 ## 분석
 
@@ -112,6 +223,27 @@ Pixel Agents가 보여 줄 수 있는 것은 각 에이전트의 훅이 노출�
 에이전트 독립은 그 에이전트들이 관찰 가능한 훅을 제공할 때만 성립한다.
 
 ## 비평
+
+### 에이전트 독립은 훅 층까지만 코드로 확인된다
+
+`HookProvider`는 정규화 경계 하나만 Claude에 묶어 두려는 설계이고,
+`provider.ts`의 첫 주석은 지금 `HookProvider`만 있고
+다른 종류의 제공자는 두 번째 제공자가 실제로 들어올 때 그 필요에 맞춰 더한다고 적는다.
+`server/src/providers/index.ts`의 `hookProviders` 배열도 `claudeProvider` 하나뿐이다.
+그런데 대화 기록을 읽는 `transcriptParser.ts`는 `record.type === 'assistant'`와
+`tool_use` 블록, 즉 Claude Code 기록의 모양을 제공자 디렉터리 밖에서 직접 읽는다.
+이 문서가 확인한 것은 이 부분까지이고, 다른 도구를 붙일 때 이 파서가 어떻게 바뀌어야
+하는지는 확인하지 못했다.
+회사가 말하는 하위 디렉터리 하나의 비용은 훅 층의 이야기로 읽는 것이 정확하다.
+
+### 보는 즐거움을 위해 사용자 설정과 로컬 서버를 연다
+
+사무실을 보려면 사용자 홈의 `settings.json`에 12개 훅이 들어가고
+도구 이름과 입력이 로컬 서버로 간다.
+저장소는 이것을 동의 단계, 백업, 읽기 전용 접속, 토큰으로 줄이려 했고
+코드에서 그 장치들을 확인했다.
+다만 기본 주소를 `127.0.0.1`에서 바꾸는 선택은 사용자에게 남아 있으며,
+그 경우 토큰이 유출되면 에이전트 실행과 터미널 접근까지 열린다고 README가 직접 적는다.
 
 ### 활동을 보여 주는 것과 정확성을 보장하는 것은 다르다
 
@@ -184,6 +316,15 @@ Pixel Agents는 다중 에이전트 운영을 매력적으로 만들지만,
 붐빔이 곧 통제는 아니다.
 지켜볼 수 있는 것과 책임질 수 있는 것 사이의 간극이,
 캐릭터가 늘어날수록 넓어진다.
+
+### 같은 것을 만들던 사람들
+
+GeekNews에서 hmmhmmhm과 stomx는 비슷한 것을 만들고 있었다고 답했다.[^hmmhmmhm][^stomx]
+2026년 11월 25일 GitHub 검색에서 같은 계열의 저장소가 열 개 넘게 나왔고
+pixtuoid, Claude Office, Clawd on Desk, Star Office UI, Agent Campus, Arcane Agents,
+Miniverse, StarNet 등은 이 저장소의 다른 문서로 정리했다.
+이 계열의 도구가 같은 시기에 많이 생긴다는 것은 필요가 널리 느껴진다는 간접 증거이지만
+어느 방식이 낫다는 증거는 아니다.
 
 ## 인사이트
 
@@ -261,3 +402,9 @@ Pixel Agents는 그 조각 중 가독성을 맡는다.
 Pixel Agents의 유쾌한 사무실은 그중 가장 인간적인 층,
 곧 사람이 실제로 무슨 일이 벌어지는지 볼 수 있게 하는 층을 맡는다.
 보는 것은 신뢰의 시작이지 신뢰 자체는 아니다.
+
+---
+
+[^hmmhmmhm]: <https://news.hada.io/topic?id=26921#cid51781>
+
+[^stomx]: <https://news.hada.io/topic?id=26921#cid51780>
