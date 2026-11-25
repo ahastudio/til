@@ -1,0 +1,204 @@
+# T3 Code 텔레메트리 소스 조사
+
+트윗: [最近 X 上一堆人在推 @theo 做的开源项目 T3 Code，吹它是自由开源的本地 AI 编程神器。](https://twitter.com/realchendahuang/status/2125153472450527440)
+
+HN 토론: <https://news.ycombinator.com/item?id=50628947> (12점, 1개 댓글)
+
+HN 토론: <https://news.ycombinator.com/item?id=50639142> (18점, 1개 댓글)
+
+## 요약
+
+`@realchendahuang`(陈大黄)이 2026년 11월 24일에 올린 중국어 트윗이다.
+T3 Code의 소스 코드와 GitHub 이력을 처음부터 끝까지 살펴본 결과를
+정리했다고 하며,
+T3 Code가 기본으로 켜진 텔레메트리(telemetry)로 사용자 데이터를 모았다고
+비판한다.
+조회수는 약 210만이다.
+이후 GitHub 이슈 댓글과 Hacker News 스레드가 이 트윗을 논란의 출발점으로
+가리킨다.
+
+트윗이 시간순으로 짚는 사실은 다음과 같다.
+- 3월 6일: PR #174가 병합되어 PostHog 텔레메트리가 기본으로 켜졌다.
+  당시 문서도, 앱 안의 안내도, 설정 스위치도 없었다고 한다.
+- 6월 18일: Theo가 홈페이지 개편 커밋에서 웹사이트의 약속
+  (사용자가 동의하지 않으면 텔레메트리 없음)을 공지 없이 지웠다고 한다.
+- 6월 23일: 텔레메트리를 끄는 설정을 요청한 이슈 #1397을
+  유지보수자 Julius가 계획 없음으로 닫았다고 한다.
+- 7월: 약속과 실제가 다르다는 이슈 #4123이 열렸고,
+  10월 21일 Theo의 계정이 닫았다가 하루 뒤 다시 열렸으며
+  11월 4일에 다시 닫혔다고 한다.
+- 9월부터 11월: 커뮤니티가 낸 끄기 스위치 PR 네 건(#13458, #16763,
+  #21248, #27077)이 모두 병합되지 않았고, 마지막 건은 11월 17일에 닫혔다고 한다.
+- 10월: Theo가 올린 PR #15028로 전송처가 자체 서버 `ingest.t3.codes`로 바뀌었고,
+  서버가 원본 이벤트의 사본을 남긴 뒤 PostHog로 넘긴다고 한다.
+- 10월 19일: Theo의 PR #21506이 다른 도구의 로그인 파일
+  (`~/.codex/auth.json`, `~/.claude.json`)에서 계정 ID를 읽어
+  솔트 없는 SHA-256 해시로 전송한다고 한다.
+
+트윗은 이를 두고 사용자 신뢰로 성장한 뒤 데이터를 자기 자산으로 삼은 것이라고
+결론짓고,
+`T3CODE_TELEMETRY_ENABLED=false`와 `T3CODE_OTEL_SDK_DISABLED=true`를 설정하거나
+`ingest.t3.codes`를 `hosts`로 막으라고 권한다.
+어조는 개인에 대한 강한 비난이며, 아래 분석은 사실 주장만 따로 떼어 대조한다.
+
+## 분석
+
+### GitHub 기록으로 확인된 것
+
+트윗의 사실 주장 대부분은 저장소 기록과 맞는다.
+이 문서가 확인한 것은 다음과 같다.
+
+- PR #174는 2026년 3월 6일에 병합되었고 제목이 익명 PostHog 텔레메트리를
+  제공자 수명주기 이벤트용으로 추가한다는 것이다.[^pr174]
+- 6월 18일의 커밋 3bdaa6e는 Theo Browne의 이름으로 올라왔고
+  커밋 메시지는 홈페이지의 내비게이션, 히어로, 추천 문구를 다듬는다는 내용이다.
+  변경 내용에는 마케팅 페이지에서 텔레메트리 없음이라는 문구와
+  동의하지 않으면 없다는 부연 문구가 삭제된 줄이 있다.
+  메시지에는 이 삭제가 언급되지 않는다.[^commit3bdaa6e]
+- 이슈 #1397은 2026년 3월 25일에 열렸고 6월 23일에 계획 없음으로 닫혔다.
+  닫을 때 Julius가 남긴 답은 수집 목적이 플랫폼과 사용자 수 파악이며
+  개인 정보나 에이전트 실행 내용은 수집하지 않고,
+  끄는 방법을 더 쉽게 만들지는 않겠다는 것이다.[^julius1397]
+- 이슈 #4123은 7월 18일에 열렸다.
+Theo의 계정이 10월 21일에 닫았고 22일에 다시 열었다가 11월 4일에 다시 닫았으며,
+  11월 24일에 잠겼다.[^issue4123]
+- PR #15028은 Theo가 올려 10월 18일에 병합되었다.
+  기본 전송처를 `ingest.t3.codes`로 바꾸고, 이 서버가 모든 이벤트를 보관하며
+  걸러 낸 일부만 PostHog로 넘기고, 전송 주기를 1초에서 10초로 늘린다.[^pr15028]
+- PR #21506도 Theo가 올려 10월 20일에 병합되었다.
+설명에 따르면 기존 식별자는 처음 발견한 제공자 로그인이라 설치 중간에 바뀔
+  수 있고
+  Codex 팀 계정은 워크스페이스 하나로 묶여서 설치 수를 정확히 세지 못해
+  이를 고친다는 것이다.
+  새 이벤트는 Codex CLI의 `user_id`와 `~/.claude.json`의 `accountUuid`를
+  소유자 정보로 보낸다고 적혀 있다.[^pr21506]
+
+### 트윗과 기록이 어긋나거나 확인되지 않은 것
+
+- 시점: #1397에서 6월 23일은 요청이 나온 날이 아니라 닫힌 날이다.
+  요청은 3월 25일에 열렸다.[^issue1397]
+- 이슈 #4123의 10월 21일 종료는 Theo 계정이 남긴 댓글에 따르면
+  일부 문제를 PR #14413으로 고쳤고 기본 켜짐과 동의, 고지, 정책 부분은
+  남았으니 새 이슈로 올리라는 것이었다.
+  댓글은 Claude가 Theo를 대신해 답한다는 문구로 시작한다.
+  #14413은 끄기 설정이 릴레이 추적에도 적용되게 하는 변경이다.[^pr14413]
+  트윗은 이를 관련 없는 수정이라고 부른다.
+  #14413이 다루는 것은 릴레이 추적의 끄기이고,
+이슈가 지적한 약속과 기본 켜짐은 그대로 남았다는 점에서 트윗의 지적은 반쯤 맞다.
+- 거부된 PR 네 건: 모두 병합되지 않고 닫힌 것은 확인했다.
+  #27077은 11월 17일에 Julius가 프로젝트가 맡을 일이 아니라는 말로 닫았다.
+  자동 리뷰 봇이 병합 가능으로 판정한 기록도 있다.
+  닫기 댓글에는 화면에 보이지 않는 `unwanted` 표지가 들어 있는데,
+  트윗이 말한 라벨은 이 표지로 보이며 GitHub 라벨 자체는 아니었다.[^pr27077]
+테스트 147건 통과와 유지보수자의 실기 검증이라는 말은 이 문서가 확인하지 못했다.
+  앞의 세 건이 닫힌 사유도 읽지 않았다.
+- 개인 정보의 범위: 현재 `docs/user/telemetry.md`는
+  이벤트에 모델 이름이 들어가지만 제공자 카탈로그에 없는 모델은
+  해당 제공자의 사용자 지정 모델로만 보고된다고 적는다.
+  트윗의 사설 모델 이름까지 보고된다는 말과 다르며,
+  UI 기능 30여 종 사용, 프로젝트와 스레드 수, 기기 모델 같은 항목은
+  이 문서가 코드에서 확인하지 못했다.[^docs]
+- 동기: 트윗은 모델 제공사와의 협상과 이용자 수 홍보가 목적이라고 단정한다.
+  기록에서 확인되는 동기는 Julius가 말한 사용자 수 파악이며
+  그 밖의 의도는 근거가 없는 추정이다.
+
+### 트윗 이후의 변화
+
+트윗이 올라온 같은 11월 24일에 PR #42299가 병합되었다.
+PR 설명은 분석이 서버 시작 때 `~/.codex/auth.json`과 `~/.claude.json`을 읽어
+솔트 없는 해시를 보냈고, 사용자는 식별되려고 그 제공자에 로그인한 것이
+아니었다고 인정한다.
+이제 식별자는 설치 때 만든 무작위 ID이며, 제공자 로그인 파일은 열지 않는다.
+Julius가 제공자 ID를 없애도 된다고 동의했다는 문장도 있다.[^pr42299]
+
+25일에는 `DO_NOT_TRACK=1`을 인식하는 PR #42629가 병합되었다.[^pr42629]
+설정에서 사용 데이터 공유를 끄는 스위치를 추가하는 PR #42625는
+이 문서를 쓰는 시점에 열려 있다.
+이 PR의 설명은 기본값이 켜짐이고 환경 변수가 우선한다고 적는다.[^pr42625]
+v0.1.12는 25일에 정식 릴리스로 올라왔지만
+릴리스 노트에서 #42299 번호는 찾지 못했다.
+
+## 비평
+
+### 사실과 평가가 한 글에 섞여 있다
+
+트윗의 앞부분은 PR 번호와 날짜를 근거로 하며 대부분 기록과 맞는다.
+뒷부분은 독재, 수확 같은 평가어와 동기의 단정으로 넘어간다.
+독자가 사실의 신뢰도를 평가어에 끌려 판단하기 쉽다.
+이 문서는 둘을 나눠서 앞의 것만 대조했다.
+
+### 거부 사유가 빠진 서술
+
+트윗은 끄기 스위치 PR 네 건이 모두 거부되었다고 쓰지만 각각의 사유를
+싣지 않는다.
+PR #27077은 프로젝트가 맡을 일이 아니라는 한 줄로 닫혔을 뿐 기술적 이유는
+적히지 않았다.
+이 사실은 트윗의 주장을 약하게 하기보다 오히려 근거를 보강한다.
+다만 사유를 모르는 세 건까지 같은 동기로 읽는 것은 추론이다.
+
+### 법적 평가는 이 글에 없다
+
+이슈 #4123과 #1397의 댓글에는 GDPR 위반 가능성과 미국 정부 관련 업무에서의
+준수 문제를 지적하는 사용자들이 있다.[^saltacc1397][^ewbrowntech]
+트윗은 법적 판단을 하지 않고, 이 문서도 하지 않는다.
+이 부분은 법률 전문가의 검토가 필요한 주제다.
+
+### 사용자의 실제 관찰
+
+Hacker News의 한 사용자는 안드로이드 앱을 직접 포크해 텔레메트리와 불필요한
+연결을 없앴고
+Little Snitch로 보면 끌 방법이 없어 보였다고 적었다.[^iloveyoutwo]
+이는 트윗이 말한 끌 수 없는 연결이 실제 관찰과 맞는다는 한 사례지만,
+어느 버전을 보았는지 적혀 있지 않다.
+
+## 인사이트
+
+- 텔레메트리 논란에서 쟁점이 되는 것은 수집 항목의 크기보다 고지와
+  동의의 순서다.
+이 사례에서 기록으로 확인되는 순서는 기본 켜짐, 문서화 지연, 홈페이지 약속 삭제,
+  끄기 스위치 거부이고, 사후에 일부 수집이 중단되었다.
+- 이 저장소의 [T3 Code](t3-code.md)는 서버 코드에서 같은 텔레메트리를 분석했고,
+같은 논란을 다른 시각에서 본 [T3 Code 개인정보 논란과 Theo의 창업
+  이력](t3-code-privacy-controversy.md)과
+  함께 읽으면 사실, 코드, 논평이 구분된다.
+- 오픈소스 코딩 에이전트를 쓸 때는 다른 도구의 인증 파일을 읽는지부터 확인한다.
+  이번 사례는 공개 저장소의 PR과 코드로 확인할 수 있었으므로,
+  쓰는 도구의 저장소에서 인증 파일 경로를 읽는 코드를 검색해 볼 수 있다.
+- 확인할 것은 세 가지다.
+  PR #42625의 사용 데이터 공유 스위치가 병합되는지,
+  기본값이 켜짐으로 유지되는지,
+  v0.1.12 이후 릴리스에서 제공자 ID 전송이 실제로 사라졌는지다.
+
+---
+
+[^pr174]: GitHub, [Add anonymous PostHog telemetry for provider lifecycle events](https://github.com/pingdotgg/t3code/pull/174), 2026-03-06
+
+[^commit3bdaa6e]: GitHub, [Polish marketing homepage: nav, hero, and endorsements (#3137)](https://github.com/pingdotgg/t3code/commit/3bdaa6e1), 2026-06-18
+
+[^issue1397]: GitHub, [[Feature]: Telemetry opt-out functionality](https://github.com/pingdotgg/t3code/issues/1397), 2026-03-25
+
+[^issue4123]: GitHub, [Why promise no opt-out telemetry while telemetry has been on the whole time? Without even a button to turn it off.](https://github.com/pingdotgg/t3code/issues/4123), 2026-07-18
+
+[^pr15028]: GitHub, [feat(server): send telemetry through ingest.t3.codes](https://github.com/pingdotgg/t3code/pull/15028), 2026-10-03
+
+[^pr21506]: GitHub, [feat(server): analytics records a stable install id and who owns each install](https://github.com/pingdotgg/t3code/pull/21506), 2026-10-19
+
+[^pr14413]: GitHub, [fix(telemetry): honor opt-out for relay tracing](https://github.com/pingdotgg/t3code/pull/14413), 2026-09-30
+
+[^pr27077]: GitHub, [feat(server,web,desktop): turn telemetry off in Settings or with `t3 telemetry`](https://github.com/pingdotgg/t3code/pull/27077), 2026-10-29
+
+[^docs]: GitHub, [Product usage data](https://github.com/pingdotgg/t3code/blob/main/docs/user/telemetry.md), 2026-11-25
+
+[^pr42299]: GitHub, [fix(server): analytics no longer reads or sends Codex and Claude account IDs](https://github.com/pingdotgg/t3code/pull/42299), 2026-11-24
+
+[^pr42629]: GitHub, [fix(telemetry): honor DO_NOT_TRACK](https://github.com/pingdotgg/t3code/pull/42629), 2026-11-25
+
+[^pr42625]: GitHub, [feat(telemetry): add a product usage data toggle in settings](https://github.com/pingdotgg/t3code/pull/42625), 2026-11-25
+
+[^julius1397]: <https://github.com/pingdotgg/t3code/issues/1397#issuecomment-4782481328>
+
+[^saltacc1397]: <https://github.com/pingdotgg/t3code/issues/1397#issuecomment-4985139863>
+
+[^ewbrowntech]: <https://github.com/pingdotgg/t3code/issues/4123#issuecomment-5346421854>
+
+[^iloveyoutwo]: <https://news.ycombinator.com/item?id=50639655>
