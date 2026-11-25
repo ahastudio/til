@@ -1,0 +1,263 @@
+# Proxmox
+
+> Proxmox VE: open-source server virtualization platform
+
+<https://www.proxmox.com/>
+
+<https://pve.proxmox.com/wiki/Main_Page>
+
+<https://github.com/proxmox>
+
+## 제품
+
+Proxmox Server Solutions GmbH가 만드는 서버 제품군이다.
+
+| 제품                        | 역할                                               | 문서                                |
+| --------------------------- | -------------------------------------------------- | ----------------------------------- |
+| Proxmox Virtual Environment | KVM 가상 머신과 LXC 컨테이너를 돌리는 하이퍼바이저 | <https://pve.proxmox.com/pve-docs/> |
+| Proxmox Backup Server       | 중복 제거 방식의 백업 서버                         | <https://pbs.proxmox.com/docs/>     |
+| Proxmox Datacenter Manager  | 여러 VE와 PBS를 한곳에서 보는 중앙 관리 화면       | <https://pdm.proxmox.com/docs/>     |
+
+제품 소개 페이지에는 위 셋 외에 Proxmox Mail Gateway도 나란히 놓여 있다.[^site]
+이 문서는 앞의 셋을 다룬다.
+
+## Proxmox VE
+
+### 개념
+
+Debian 기반 하이퍼바이저다.
+KVM과 QEMU로 가상 머신(VM)을, LXC로 컨테이너를 돌린다.
+Ceph로 스토리지 클러스터를 구성하고, 이 모두를 하나의 웹 관리 화면으로 묶는다.[^reg]
+Proxmox는 Debian을 그대로 쓰지 않고 기능을 더하도록 바꿔서 쓴다.[^reg]
+소스 코드는 GNU Affero General Public License 3판으로 공개되어 있다.[^intro]
+
+### 구성 요소
+
+공식 소개 문서가 꼽는 기능은 다음과 같다.[^intro]
+
+| 영역     | 내용                                                                                                                           |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| 관리 API | 전체 API가 JSON Schema로 정의되어 있어 외부 관리 도구가 붙기 쉽다                                                              |
+| 권한     | 사용자나 그룹에 역할을 경로 단위로 주는 ACL 방식                                                                               |
+| 인증     | Active Directory, LDAP, Linux PAM, 내장 인증 서버                                                                              |
+| 스토리지 | 로컬 LVM, 디렉터리, ZFS와 NFS, CIFS, iSCSI, Ceph RBD, CephFS, Proxmox Backup Server                                            |
+| 백업     | `vzdump`가 실행 중인 컨테이너와 KVM 게스트의 일관된 스냅샷 백업을 만든다                                                       |
+| 고가용성 | 감시 타이머(watchdog) 기반 펜싱으로 노드 고장을 감지해 다른 노드에서 서비스를 재시작한다. Pacemaker 같은 외부 도구가 필요 없다 |
+| 네트워크 | 브리지 모델, VLAN, 본딩, 존 단위 격리와 VXLAN, EVPN을 지원하는 SDN                                                             |
+| 방화벽   | VM이나 컨테이너 인터페이스 단위 패킷 필터, 보안 그룹                                                                           |
+
+공유 스토리지에 VM을 두면 모든 노드가 디스크 이미지에 직접 접근하므로 실행 중인 VM을 중단 없이 라이브 마이그레이션할 수 있다.[^intro]
+소개 문서는 이런 통합을 하이퍼컨버지드 인프라(HCI)로 설명하고, 장점으로 확장성, 낮은 비용, 데이터 보호, 단순함, 벤더 종속 없음을 든다.[^intro]
+Ceph와 ZFS는 웹 화면만으로 배포하고 관리할 수 있다고 한다.[^intro]
+
+### 버전 흐름
+
+| 버전          | 출시일     | 기반         | 커널 | QEMU   | ZFS   | Ceph                   |
+| ------------- | ---------- | ------------ | ---- | ------ | ----- | ---------------------- |
+| 8.1           | 2023-11-23 | Debian 12.2  | 6.5  | 8.1.2  | 2.2.0 | Reef 18.2.0            |
+| 8.2           | 2024-04-24 | Debian 12.5  | 6.8  | 8.1.5  | 2.2.3 | Reef 18.2.2            |
+| 8.3           | 2024-11-21 | Debian 12.8  | 6.8  | 9.0.2  | 2.2.6 | Reef 18.2.4            |
+| 8.4           | 2025-04-09 | Debian 12.10 | 6.8  | 9.2.0  | 2.2.7 | Squid 19.2.1           |
+| 9.0           | 2025-08-05 | Debian 13    | 6.14 | 10.0.2 | 2.3.3 | Squid 19.2.3           |
+| 9.1           | 2025-11-19 | Debian 13.2  | 6.17 | 10.1.2 | 2.3.4 | Squid 19.2.3           |
+| 9.2           | 2026-05-21 | Debian 13.5  | 7.0  | 11.0   | 2.4   | Squid 19.2.3, Tentacle |
+| 9.2 for arm64 | 2026-08-05 | Debian 13.6  | 7.0  | 11.0   | 2.4   | Tentacle 20.2.3        |
+
+값은 Roadmap 위키의 릴리스별 헤더에서 옮겼다.
+8.x는 각 릴리스가 6.14 같은 새 커널을 선택 사항으로 함께 제공하기도 해서, 표의 커널은 안정 기본값이다.[^road]
+VE 8.4의 지원 종료 시점은 검색 요약에서만 보았고 원문을 확인하지 못했다.
+
+### 8.x에서 쌓인 기능
+
+- 8.1: Secure Boot를 지원한다. Proxmox가 서명한 shim 부트로더를 쓰며, 기존 설치도 재설치 없이 전환할 수 있다.
+  SDN의 핵심이 실험 단계에서 지원 단계로 올라오고 DHCP IPAM 플러그인(기술 미리보기)이 생겼으며, 알림 시스템이 새로 생겼다.[^road]
+- 8.2: 다른 하이퍼바이저에서 게스트를 가져오는 가져오기 마법사가 생겼다.
+  첫 구현은 VMware ESXi용이고, 데이터를 백그라운드로 옮기는 동안 Proxmox VE에서 게스트를 먼저 시작할 수 있다.
+  무인 설치 ISO 준비 도구, 백업 대상이 느릴 때 게스트 IO 영향을 줄이는 백업 펜싱(fleecing), nftables 기반 방화벽(opt-in 기술 미리보기)도 이 버전이다.[^road]
+- 8.3: 태그별로 게스트를 묶어 보는 Tag View, SDN과 방화벽의 IP 집합 연동, OVF와 OVA 가져오기 개선, 웹훅 알림 대상, 컨테이너 백업의 변경 감지 모드가 들어왔다.[^road]
+- 8.4: NVIDIA vGPU 같은 중개 장치를 쓰는 VM의 라이브 마이그레이션, 외부 백업 솔루션용 백업 제공자 플러그인 API, virtiofs로 호스트 디렉터리를 VM과 공유하는 기능이 들어왔다.[^road]
+
+### 9.0 (2025-08-05)
+
+- 스토리지: 두껍게 할당(thick-provisioned)한 LVM에서 VM 스냅샷을 쓸 수 있다.
+  “스냅샷을 볼륨 체인으로” 방식이며 기술 미리보기다.
+  스토리지 박스가 iSCSI나 Fibre Channel LUN으로 내주는 공유 LVM이 주 대상이다.[^road][^reg]
+- 고가용성: 노드 친화성(특정 노드에만 배치)과 리소스 친화성(함께 두기 또는 흩어 두기) 규칙이 생겼다.[^road]
+- SDN: OpenFabric과 OSPF 패브릭으로 노드를 라우팅 네트워크로 엮는다.
+  Ceph 풀 메시나 VPN의 언더레이로 쓸 수 있다.[^road]
+- 모바일 웹 화면: Rust의 Yew 프레임워크로 다시 만들었고, 모바일에서 접속하면 자동으로 전환된다.[^road]
+- ZFS 2.3.3: 기존 RAIDZ 풀에 장치를 거의 중단 없이 더한다.
+  레벨은 바뀌지 않아 RAID-Z2에 더해도 패리티가 둘인 RAID-Z2다.[^road][^reg]
+- 노드 관리: 네트워크 인터페이스 이름을 MAC 주소에 묶는 `pve-network-interface-pinning` 도구가 생겼다.
+  업데이트로 이름이 바뀌어 설정을 손으로 고쳐야 하는 일을 줄이기 위해서다.[^road]
+- 지표: OTLP/HTTP로 외부 OpenTelemetry 수집기에 지표를 보내는 플러그인이 생겼다.[^road]
+- 설치: CPU 마이크로코드 패키지를 함께 설치한다.[^road]
+
+#### 8에서 9로 올릴 때 알려진 변경
+
+Roadmap 위키의 알려진 문제와 호환성 변경 항목은 다음과 같다. 항목 제목만 옮겼고 각 항목의 세부는 위키에 있다.[^road]
+
+- 테스트 저장소 이름이 `pve-test`로 바뀌었다.
+- 네트워크 인터페이스 이름이 바뀔 수 있다.
+- VirtIO vNIC의 MTU 필드 기본값이 바뀌었다.
+- AppArmor 4가 들어왔다.
+- `VM.Monitor` 권한이 사라졌고 저장소 복제를 위한 `VM.Replicate` 권한이 새로 생겼다.
+- cgroupv1과 하이브리드 계층 지원이 끝났다.
+- 특권 컨테이너를 만들려면 `Sys.Modify` 권한이 필요하다.
+- 백업의 `maxfiles` 설정과 GlusterFS 지원이 끝났다.
+
+업그레이드 절차는 공식 문서 “Upgrade from 8 to 9”에 있고 8.4에서의 업그레이드는 매끄럽다고 로드맵은 적는다.[^road]
+
+### 9.1 (2025-11-19)
+
+- OCI 이미지로 LXC 컨테이너를 만든다. 이미지를 올리거나 레지스트리에서 받아 템플릿으로 쓰며, 애플리케이션 컨테이너는 기술 미리보기다.[^road]
+- 가상 TPM 상태를 qcow2 형식으로 저장해, NFS나 CIFS 같은 파일 스토리지에서도 TPM이 있는 VM의 스냅샷을 만든다.[^road]
+- 중첩 가상화를 vCPU 플래그로 세밀하게 켠다. `host` vCPU 타입 전체를 쓰는 대신의 선택지다.[^road]
+- SDN 상태 표시가 자세해졌다. 브리지와 VNet이 연결된 게스트를 보여 주고 EVPN 존은 학습한 IP와 MAC 주소를 보여 준다.[^road]
+- 알려진 문제 항목: NVIDIA vGPU 호환성, 일부 Dell PowerEdge 서버의 커널 6.17 부팅, LINSTOR/DRBD와 커널 6.17 호환성, 커널 6.17.9 이상에서 AMD Zen5의 RDSEED 명령 문제.[^road]
+
+### 9.2 (2026-05-21)
+
+- 동적 로드 밸런싱: 클러스터 리소스 스케줄러(CRS)가 노드와 게스트의 실시간 사용률로 HA가 관리하는 게스트를 자동 마이그레이션해 노드 불균형을 줄인다.
+  동작과 민감도는 HA 패널이나 데이터센터 옵션에서 조정한다.[^road]
+- SDN: WireGuard와 BGP가 새 패브릭 프로토콜로 들어왔고, 경로 맵과 프리픽스 목록으로 BGP와 EVPN 경로를 걸러 낸다.
+  OSPF 패브릭의 경로 재배포, EVPN 컨트롤러 옵션, EVPN의 IPv6 언더레이도 추가되었다.[^road]
+- 웹 화면에서 사용자 지정 CPU 모델을 만들고 고친다. VM의 CPU 플래그 선택기가 노드별 지원 여부를 보여 줘 클러스터 호환성 문제를 미리 알아본다.[^road]
+- HA 해제와 재무장: `disarm-ha`와 `arm-ha` 명령으로 클러스터 네트워크 변경 같은 계획된 작업을 노드 펜싱 없이 한다.
+  해제 동안 HA 리소스 상태는 보존된다.[^road]
+- 커널 7.0이 새 안정 기본값이고 Ceph Tentacle 20.2.1을 선택할 수 있다.[^road]
+- 알려진 문제 항목: 비활성화된 HA 스택에서의 일시적 업그레이드 문제, proxmox-boot-tool을 쓰는 OVH 시스템이 memtest86+로 부팅되는 문제, VBS를 켠 Windows VM이 Intel 호스트에서 `host` CPU 타입일 때 가끔 멈추는 문제(qemu-server 9.2.0에 수정), 일부 RAID 컨트롤러와 설치 ISO 커널의 호환성.[^road]
+
+### 9.2 arm64 (2026-08-05)
+
+- x86-64가 아닌 CPU 아키텍처를 지원하는 첫 Proxmox VE 릴리스다.
+  NVIDIA Grace와 Vera 같은 엔터프라이즈 arm64 시스템을 공식 지원하고, 그 밖의 UEFI 기반 ARMv9-A 이상 하드웨어는 최선 노력 방식이다.[^road]
+- 코드베이스, 저장소, 릴리스 주기는 x86-64와 같다.
+  호스트는 UEFI로 부팅하고 ACPI로 하드웨어를 설명해야 하며, Raspberry Pi 같은 디바이스 트리 전용 보드는 지원하지 않는다.[^road]
+- VM의 SeaBIOS, AMD SEV, Intel GVT-g는 쓸 수 없고, 라이브 마이그레이션은 같은 아키텍처의 노드 사이에서만 된다.[^road]
+
+## Proxmox Backup Server
+
+### 개념
+
+VM, 컨테이너, 물리 호스트를 백업하는 클라이언트-서버 방식의 백업 솔루션이다.
+Proxmox VE에 맞춰 최적화되었고, 중복 제거, 압축, 인증된 암호화를 지원한다.
+구현 언어는 Rust이고, 클라이언트와 서버 사이 통신은 모두 TLS다.[^pbs]
+
+### 구조
+
+서버가 백업 데이터를 저장하고 데이터스토어를 만들고 관리하는 API를 제공한다.
+백업 클라이언트는 이 API로 접근하며, `proxmox-backup-client` 명령줄 도구로 파일 백업을 만들고 복원한다.
+QEMU와 LXC에는 Proxmox VE에 통합된 클라이언트가 있다.
+하나의 백업은 여러 아카이브를 담을 수 있다. VM을 백업하면 디스크마다 별도 아카이브가 되고 VM 설정은 별도 파일이다.
+덕분에 백업 전체를 훑지 않고 필요한 부분만 복원할 수 있다.[^pbs]
+
+### 주요 기능
+
+| 기능          | 설명                                                                         |
+| ------------- | ---------------------------------------------------------------------------- |
+| 중복 제거     | 주기적 백업의 중복 데이터를 걸러 저장 공간을 줄인다                          |
+| 증분 백업     | 바뀐 부분만 읽고 보낸다                                                      |
+| 무결성        | SHA-256 체크섬                                                               |
+| 원격 동기화   | 새 데이터를 담은 차이만 원격지로 전송한다                                    |
+| 압축          | Zstandard                                                                    |
+| 암호화        | 클라이언트 측 AES-256 GCM                                                    |
+| 테이프 백업   | 장기 보관용 테이프 라이브러리 관리                                           |
+| 랜섬웨어 대응 | 세밀한 접근 제어, 무결성 검증, 원격 동기화와 테이프를 이용한 오프사이트 백업 |
+| 제한 없음     | 백업 저장 공간이나 클라이언트 수에 인위적 제한이 없다                        |
+
+소스 코드는 AGPLv3이고, 구독 등급과 관계없이 엔터프라이즈 저장소를 쓸 수 있으며 Basic 이상에서는 고객 포털도 쓴다고 문서는 밝힌다.[^pbs]
+Proxmox VE 쪽 통합 문서는 전체 백업과 중복 제거, 클라이언트 측 암호화, 테이프나 S3 백업, 다른 PBS와의 동기화를 이 통합의 이점으로 든다.[^intro]
+
+### 4.0
+
+Debian 13 기반이고 커널 6.14와 OpenZFS 2.3.3을 쓴다.
+이동식 데이터스토어를 마운트하면 자동으로 동기화하도록 설정할 수 있다.
+S3 스토리지 지원이 기술 미리보기로 들어왔다. S3 버킷에 백업을 두면 서버가 고장나도 백업은 영향을 받지 않아, 새 서버를 올려 원격 백업을 되찾을 수 있다.[^reg]
+공식 문서 목차에는 랜섬웨어 보호, 3-2-1 규칙, 테이프 백업, 동기화 작업(push 방향 포함), 알림 대상 같은 항목이 있다.[^pbs]
+
+## Proxmox Datacenter Manager
+
+### 개념
+
+떨어진 위치에 있는 Proxmox VE와 PBS를 한곳에서 보는 중앙 관리 플랫폼이다.
+등록된 인스턴스를 remote라 부르고, 노드, VM, 컨테이너, 스토리지, 백업 데이터스토어를 하나의 목록으로 보여 준다.
+단일 노드와 클러스터를 모두 다룬다.[^pdm]
+개별 remote의 웹 화면으로 건너가는 통로(escape hatch)가 있고, 중앙 관리자가 병목이나 단일 장애점이 되지 않는 느슨한 결합 구조를 목표로 한다.[^pdm]
+
+### 핵심 기능
+
+- 중앙 인벤토리와 통합 자원 모니터링, 문제를 강조하는 전역 대시보드
+- 전체 인프라의 작업 로그 모아 보기
+- 노드와 게스트의 시작, 정지, 재부팅, 종료
+- 서버 전체의 업데이트와 보안 패치 확인
+- 같은 클러스터 안 또는 다른 클러스터 사이의 게스트 라이브 마이그레이션
+- LDAP, Active Directory, OpenID Connect 인증과 세밀한 권한
+- ACME(Let's Encrypt) 인증서 관리
+
+문서 목차에는 이 밖에 자동 설치(prepared answers를 쓰는 ISO 준비), Ceph 클러스터 개요, EVPN을 포함한 SDN 연동, 사용자 정의 뷰와 대시보드 위젯, 구독 키 관리가 있다.[^pdm]
+
+### 기술 구성
+
+백엔드는 Rust로 쓰인 JSON REST API이고, Proxmox 프로젝트의 표준인 두 데몬 구조를 따른다.
+외부 요청은 권한 없는 사용자로 도는 주 API 데몬이 받고, 시스템 작업은 root로 도는 특권 데몬이 로컬 유닉스 소켓으로만 받는다.
+통신은 TCP 443(HTTPS)이다.
+프런트엔드는 Rust와 Yew로 쓴 단일 페이지 앱으로, WebAssembly로 컴파일된다.[^pdm]
+
+### 출시와 보안 주의
+
+heise 기사(2025-12-05)는 PDM 1.0과 PBS 4.1이 Proxmox VE 9.1처럼 Debian 13.2, 사용자 지정 커널 6.17.2, OpenZFS 2.3.4를 기반으로 한다고 전한다.[^search]
+같은 기사는 PDM이 모든 인프라의 단일 진입점이라 침해되면 노드와 클러스터는 물론 백업까지 위험해진다고 지적한다.
+권고는 불필요한 인바운드 트래픽 차단, 백업의 클라이언트 측 암호화, 안전하지 않은 망에서는 VPN 사용이다.
+PDM이 VE와 PBS에 접속하는 방향이지 그 반대가 아니라는 점이 부담을 줄인다고 하며, Proxmox는 중기적으로 추가 보안 수단을 내놓을 계획이라고 한다.[^search]
+기사는 PDM의 기능으로 오프라인에서도 마지막 상태를 보여 주는 로컬 캐시, 역할 기반 사용자 지정 뷰, 여러 remote에 걸친 EVPN 존과 VNet 설정, 모든 remote로의 통합 셸 접근도 꼽는다.[^search]
+
+### 라이선스와 지원
+
+공식 문서의 라이선스 문단은 AGPL 3판 이상이라고 적고, heise 기사도 Proxmox VE, PBS와 같은 AGPLv3라고 쓴다.[^pdm][^search]
+세 제품 모두 무료로 내려받아 쓸 수 있고 엔터프라이즈 저장소 접근에 소액의 구독료를 받는다.[^search]
+PDM 1.0의 엔터프라이즈 저장소 접근은 연 540유로(세전)이고 추가 지원은 연 1,080~4,320유로라고 heise는 전한다.[^search]
+같은 기사는 PDM의 FAQ를 인용해 엔터프라이즈 저장소를 쓰려면 설정된 remote 대부분이 구독을 가져야 한다고 적는데, 문장 일부가 잘려 정확한 비율은 이 문서가 확인하지 못했다.
+
+## 구독과 저장소
+
+PBS와 PDM 공식 문서는 Basic, Standard, Premium 구독으로 엔터프라이즈 저장소와 기술 지원을 제공한다고 적는다.[^pbs][^pdm]
+PBS 문서에는 구독 없이 쓰는 No-Subscription 저장소 항목이 있다.[^pbs]
+Proxmox VE 9.0은 테스트 저장소 이름을 `pve-test`로 바꿨다.[^road]
+PDM 1.0의 가격은 위 heise 기사에서 옮겼고, VE와 PBS의 가격은 확인하지 않았다.
+
+## 한계
+
+- Roadmap 위키의 변경 내역은 각 릴리스의 하이라이트와 목차를 읽은 것이며, 수백 개 항목으로 된 전체 변경 내역과 알려진 문제의 세부는 읽지 않았다.
+- 버전 표는 헤더 값이고 실제 설치본의 패키지 버전은 이후 업데이트로 달라진다.
+- VE 8.4의 지원 종료 시점은 검색 결과 요약에서만 보았다.
+- heise 기사의 PDM 가격과 구독 조건은 2025-12 시점이다.
+- PBS의 성능이나 용량 수치, VE와 PBS의 구독 가격은 다루지 않았다.
+- 커뮤니티 반응(Hacker News, Lobste.rs, GeekNews)은 아직 모으지 않았다.
+
+## 문서
+
+- [Proxmox VE에서 microVM 운영하기](proxmox-microvm.md)
+
+## 다른 폴더에서 Proxmox를 다룬 문서
+
+- [동네 치과의 AX 전환기](../ai/dental-clinic-ax.md)
+- [N100 미니 PC 한 대로 서비스 28개를 돌리는 셀프호스팅](../devops/what-i-self-host.md)
+- [CVE-2026-98432](../security/cve-2026-98432.md)
+- [DynIP](../network/dynip.md)
+
+---
+
+[^reg]: Liam Proven, [Viennese virtualization veteran releases Proxmox VE 9 and Backup Server 4](https://www.theregister.com/2025/08/11/proxmox_ve9_and_bs4/), The Register, 2025-08-11
+
+[^road]: Proxmox, [Roadmap](https://pve.proxmox.com/wiki/Roadmap)
+
+[^intro]: Proxmox, [Introduction](https://pve.proxmox.com/pve-docs/chapter-pve-intro.html)
+
+[^pbs]: Proxmox, [What is Proxmox Backup Server?](https://pbs.proxmox.com/docs/introduction.html)
+
+[^pdm]: Proxmox, [Proxmox Datacenter Manager Introduction](https://pdm.proxmox.com/docs/introduction.html)
+
+[^site]: Proxmox, [Proxmox Virtual Environment 9.0 press release](https://www.proxmox.com/en/about/company-details/press-releases/proxmox-virtual-environment-9-0)
+
+[^search]: heise, [Control Proxmox Centrally with the New Datacenter Manager](https://heise.de/-11104601)
