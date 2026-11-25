@@ -181,6 +181,10 @@ Skill 없이: 12 메시지, 실패 3회, 사용자가 과정 설명. Skill 있�
 |                          | 너무 길거나  | SKILL.md 5,000단어 이하 유지 |
 |                          | 묻혀 있음    |                              |
 
+위 표는 `SKILL.md` 한도를 5,000단어로 적지만, 공개 표준 명세는 5,000토큰 미만을
+권장하고 본문을 500줄 아래로 두라고 적는다.[^spec]
+단어와 토큰은 단위가 다르므로 이 표의 값은 명세와 맞지 않는다.
+
 ## Chapter 5: 실전 패턴
 
 ### 패턴 1: 순차 워크플로
@@ -276,3 +280,7 @@ MCP만으로는 "도구가 있다"까지이고, Skill이 있어야 "도구를 �
 Anthropic이 권장하는 접근법은 흥미롭다. 모든 케이스를 커버하려 하지 말고, 하나의
 어려운 작업에서 Claude를 성공시킨 뒤 그 과정에서 효과가 있었던 것을 Skill로
 추출하라. 이건 소프트웨어 개발의 "Make it work, then make it right" 원칙과 같다.
+
+---
+
+[^spec]: Agent Skills, [Specification](https://agentskills.io/specification)

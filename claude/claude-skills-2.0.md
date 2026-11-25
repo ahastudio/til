@@ -75,6 +75,11 @@ Show concrete examples of using this Skill.
 | SKILL.md 본문 | 수백 토큰 | 트리거 시 |
 | 참조 파일 | 수천 토큰 | 필요 시 |
 
+공개 표준인 Agent Skills 명세는 메타데이터를 약 100토큰으로, `SKILL.md` 본문을
+5,000토큰 미만으로 권장한다고 적는다.[^spec]
+위 표의 수십, 수백, 수천이라는 값은 명세의 수치와 다르며 원문 설명이다.
+명세는 참조 파일 로드를 필요할 때로만 정하고 토큰 수는 적지 않는다.[^spec]
+
 ### MCP vs Skills
 
 저자가 제시하는 비유: **주방(Kitchen) vs 레시피(Recipe)**
@@ -295,3 +300,7 @@ Claude가 영원히 그 방식으로 일한다."**
 이 프로젝트에서도 `skills/` 디렉터리를 적극 활용해
 코드 리뷰, 명세 작성, 커밋 메시지 생성 등 반복 워크플로우를
 Skill로 체계화하는 것을 고려할 만하다.
+
+---
+
+[^spec]: Agent Skills, [Specification](https://agentskills.io/specification)

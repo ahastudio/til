@@ -71,6 +71,14 @@ Skill은 점진적 공개(Progressive Disclosure)로 효율성을 유지한다.
 
 실제로 사용하기 전까지는 이름과 설명만 비용이 든다.
 
+공개 표준 명세도 같은 세 단계를 적는다.[^spec]
+메타데이터는 약 100토큰이고, 본문은 5,000토큰 미만을 권장하며,
+`SKILL.md`는 500줄 아래로 두고 파일 참조는 한 단계 깊이로 둔다.[^spec]
+Anthropic의 스킬 소개 글은 이를 목차, 개별 장, 부록이 있는 매뉴얼에
+견준다.[^eng]
+점진적 공개를 한곳에 모은 정리는
+[Progressive Disclosure](../agent-skill/progressive-disclosure.md)에 있다.
+
 ## SKILL.md 구조
 
 모든 Skill은 `SKILL.md` 파일이 필요하다. YAML 프론트매터와 마크다운 본문으로
@@ -275,3 +283,9 @@ CLI 등 17개 이상의 에이전트 도구에서 사용할 수 있다.
 - [Claude Skills 제작 완전 가이드](./claude-skills-guide.md)
 - [코드 리뷰 스킬 분석](./code-review-skill.md)
 - [Anthropic 공식 스킬 저장소](./skills-library.md)
+
+---
+
+[^spec]: Agent Skills, [Specification](https://agentskills.io/specification)
+
+[^eng]: Anthropic, [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills), 2025-10-16
