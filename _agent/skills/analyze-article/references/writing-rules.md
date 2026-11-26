@@ -12,6 +12,12 @@ time, rather than writing freely and patching afterwards.
   bold text.
 - Write in Korean. Technical terms may be written alongside their original
   English form.
+- Lists and prose: follow "Lists And Prose" in
+  `_agent/skills/writing-guidelines/references/markdown-format.md` in full.
+  Judge every list on its own: reasoning is never a bullet list, a short
+  parallel enumeration is never flattened into a sentence, and `## 인사이트`,
+  `## 비평` and `## 분석` never contain bullet lists (`###` headings that are
+  names, with prose under them).
 - Break body text at sentence boundaries and keep every line within 80
   columns: each sentence starts a new line, no line exceeds 80 columns
   (CJK characters count as 2), and a sentence that does not fit breaks at

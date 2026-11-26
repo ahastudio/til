@@ -25,6 +25,7 @@ are authoritative. Search for a section title to read it in full.
 - Rules: which skill or rule file applies (commit message, any `.md` file, web fetching, slash commands)
 - Rule Writing Guidelines: write behavioral principles, keep rules agent-agnostic; write only what the agent cannot find in the repository; keep files short; a rule with no exceptions is also enforced by the agent's enforcement settings, and growing emphasis is the signal to move it there; prefer a check that returns pass or fail
 - Document Titles: the H1 is a name (noun phrase), never a sentence, claim, verdict or clever analyst line; read it aloud before saving; the gate enforces the mechanical forms
+- Lists And Prose: judge every list on its own; never bullets in 인사이트, 비평, 분석; never flatten a short parallel list into a sentence; ordinal passages are split into paragraphs; a delegated conversion carries the rule in full
 - Every Text File Ends With A Newline: every text file you create or edit ends with exactly one newline; measure the last byte after every write, after every script that rewrites the file, and for all touched files before reporting
 - Forbidden Actions: never use the memory system; never touch global paths such as `~/.claude/`; never declare something missing from one failed search
 - Documentation Work: separate what a source reports from inference and recommendation; the analyzed source never takes a footnote; outside pages get exact footnotes per sentence; the service is Twitter, never X; do not force English terms into Korean; every sentence must make sense to a stranger
@@ -501,6 +502,29 @@ repellent. The title names the subject; the thinking belongs in the body.
   defect. The read-aloud title check still applies to every document.
 - When a title is corrected, retitle every document written in the same
   session in the same pass.
+
+## Lists And Prose (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**Judge every list on its own. The shape of the content decides the form, and
+habit in either direction is a defect.**
+
+- Reasoning, contrast, cause and conclusion are prose. A bullet whose item
+  holds a reason, runs to two sentences, or needs the item before it is a
+  defect.
+- `## 인사이트`, `## 비평` and `## 분석` are never bullet lists. Each point gets
+  a `###` heading that is a name, with two to four sentences of prose under it.
+- Three or more short items of the same kind that a reader will scan or count
+  (named parts, steps, commands, claims) stay a list. An item with several
+  attributes is a table. Never flatten such a list into a sentence with commas.
+- Prose that names its items with ordinals (첫째, 둘째, 셋째) puts each
+  ordinal in its own paragraph, with a blank line between, when the passage is long.
+- Never convert a document wholesale. Open each list, decide it alone, and say
+  in the report which lists were kept and which were converted.
+- A delegated conversion carries the full rule in its instruction. "Remove the
+  bullets" alone is the instruction that causes the damage.
+
+The full tests and the pass or fail check are in `Lists And Prose` of the
+`writing-guidelines` skill (`references/markdown-format.md`).
 
 ## Every Text File Ends With A Newline (ABSOLUTE PRIORITY — NO EXCEPTIONS)
 

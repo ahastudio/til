@@ -27,8 +27,9 @@ run its mandatory check before finishing.
 - `references/korean-clarity.md`: every sentence must make sense, the banned verb
   stem `박-`, forbidden figurative metaphors, English alongside any ambiguous
   Korean word, standard full terminology
-- `references/markdown-format.md`: headings instead of bold, heading and
-  footnote spacing, one table row is one record, table alignment, inline code,
+- `references/markdown-format.md`: headings instead of bold, lists versus prose
+  (judge each list; never bullets in 인사이트, 비평, 분석; never flatten a short
+  parallel list), heading and footnote spacing, one table row is one record, table alignment, inline code,
   fenced code languages, note document structure, line breaks in body text
 - `references/source-footnotes.md`: titled footnotes per sentence for outside
   pages, the analyzed source never takes a footnote, social posts as a

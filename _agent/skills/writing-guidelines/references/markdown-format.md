@@ -3,6 +3,7 @@
 ## Contents
 
 - Structure Belongs to Headings: never bold text where a heading belongs
+- Lists And Prose: judge every list on its own; reasoning is never a bullet list, a short parallel enumeration is never flattened into a sentence
 - Heading Spacing, One Table Row Is One Record, Table Alignment: blank lines around headings, no split rows, CJK counts as 2 columns
 - Footnote Spacing: one blank line between definitions
 - Inline Code Formatting, Fenced Code Block Language: wrap code-like tokens; every fence has a language
@@ -45,6 +46,137 @@ Rules:
 This check runs on every document, including ones where the sections are short
 and the bold form looks tidy. Tidiness is not a reason. If you catch yourself
 writing a bold line as a section opener: STOP and decide the outline instead.
+
+## Lists And Prose: Judge Every List On Its Own (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**A list is neither good nor bad. The shape of the content decides, one list at
+a time. Habit in either direction is a defect, and a blanket rule such as
+"remove the bullets" or "use bullets for clarity" is the exact way this goes wrong.**
+
+Root cause of a repeated failure: documents were written with reasoning chopped
+into bullets, and the repair was a blanket conversion that also flattened short
+parallel lists into one long sentence. Both are wrong. The reader lost the
+count and the scanning that a list gives, in the one case, and lost the argument
+that prose gives, in the other.
+
+### Two defects, with their tests
+
+- **Defect A: reasoning chopped into bullets.** Each of these makes a list the
+  wrong form:
+  - an item holds a reason, a contrast, a condition or a conclusion;
+  - an item runs to two sentences or more;
+  - an item depends on the one before it (because, but, so, therefore);
+  - the list is the whole content of a section whose job is to argue.
+  Write it as prose: one paragraph per claim, connected by the words that carry
+  the logic.
+- **Defect B: a parallel enumeration flattened into prose.** A list is right
+  and must be kept or restored when all of these hold:
+  - three or more items, each the same kind of thing (named parts, steps of a
+    procedure, commands, criteria, claims to verify, cases);
+  - each item is a noun phrase or one short clause that stands alone;
+  - the reader will scan it, count it, compare it or tick it off.
+  A sentence of the form "A, B, C 세 가지다" that hides a count the reader needs
+  is Defect B. An item with several attributes each is a table, not a list.
+
+### Sections that are never bullet lists (ABSOLUTE)
+
+`## 인사이트` is never a bullet list, and neither is `## 비평`, `## 분석`, or any
+section that argues. A heading that only contains the word, such as `## 코드 분석`
+in a practical document, is judged by the five questions like any other section. Give each point a `###` heading that is a name (a noun
+phrase, never a sentence) and write short prose under it, two to four
+sentences. What to verify next is its own `### 확인할 것` in prose.
+A bullet list inside such a section is a violation even when the items are
+short. An enumeration that is part of the evidence (the three claims a source
+makes, the parts of a design) may be a short list inside the prose of 요약 or
+분석, because it enumerates facts and does not argue.
+
+### Ordinal enumeration in prose
+
+When prose names its items with ordinals (첫째, 둘째, 셋째, 넷째), each
+ordinal opens its own paragraph, with a blank line between paragraphs. An
+ordinal block of one short sentence may stay inside the paragraph that
+introduces it only when the whole enumeration is three sentences or fewer.
+A long passage that runs the ordinals together under one paragraph is a
+defect. The check is a paragraph that holds two or more lines starting with
+an ordinal.
+
+### Judging a list before keeping, writing or converting it
+
+Answer each question for the list in front of you, in this order:
+
+1. Does any item need another item to be understood? Yes: prose.
+2. Is any item longer than one short line? Yes: prose, or split the item.
+3. Are there three or more items of the same kind that the reader will scan or
+   count? Yes: keep the list.
+4. Does each item have two or more attributes of its own? Yes: a table.
+5. Is this an insight, a critique or an analysis? Yes: prose under `###`
+   headings, whatever the answers above.
+
+### Worked examples (decide by these, not by taste)
+
+Keep as a list (Defect B if flattened): three short items of one kind.
+
+```markdown
+트윗은 논란이 된 세 가지를 든다.
+- 기본으로 켜진 텔레메트리(telemetry)
+- 로컬 인증 설정을 읽어 사용자 식별자를 만드는 동작
+- 원격 연결의 신뢰 경계
+```
+
+Flattened wrongly into one sentence: `트윗이 논란으로 든 것은 기본으로 켜진
+텔레메트리, 로컬 인증 설정을 읽어 식별자를 만드는 동작, 원격 연결의 신뢰 경계
+세 가지다.` The count and the scanning are lost. Restore the list.
+
+Also lists: the thirteen parts of a product, the steps of a procedure, the
+parameters of a command, a release's headline features when each is one short
+line, the claims a source makes when each is one short clause, the criteria of
+a checklist.
+
+Prose (Defect A if listed): each item gives a reason or a contrast.
+
+```markdown
+- 점진적 공개는 토큰을 줄인다.
+- 그래서 비용이 준다.
+- 하지만 지연이 늘어난다.
+```
+
+This is one argument cut into three lines. Write it as a paragraph: `점진적 공개는
+토큰을 줄여 비용을 낮추지만, 모델 호출이 하나 늘어 지연이 커진다.`
+
+Ordinal passages whose items each need two or more sentences are prose: one
+paragraph per ordinal, a blank line between. Ordinal items that are each one
+short clause are a list, written with `- `, not with 첫째, 둘째.
+
+An insight, critique or analysis section is prose under `###` headings, even
+when its points are short.
+
+### When converting an existing document
+
+- Never convert wholesale. Open every list, answer the five questions, and
+  decide that list alone.
+- Never merge a three-item list into a sentence with commas. If the rule says
+  keep it, keep the list and its line breaks.
+- When the task is delegated to another agent, the instruction must carry this
+  section in full. An instruction that says only to remove bullets produces
+  Defect B.
+- Report, for every list touched, what was kept as a list, what was converted
+  and the reason, and which lists were restored after an earlier wrong
+  conversion. A report that says only that the bullets were removed is not a
+  report.
+- Before finishing, reread every converted passage once as the reader and ask
+  whether a scanning reader lost a count, an order or a comparison. If so, restore
+  the list.
+
+**Mandatory check before finishing any `.md` write or edit:**
+
+1. List every bullet or numbered line under `## 인사이트`, `## 비평`,
+   `## 분석`. The count must be zero:
+   `awk '/^## /{s=$0} /^[ ]*([-*]|[0-9]+\.) /{if(s ~ /^## (인사이트|비평|분석)$/) print FILENAME": "s": "$0}' <file>`
+2. Search for the phrases `세 가지다`, `네 가지다`, `다섯 가지다` and a line
+   that ends in a comma and runs on for three or more same-kind noun phrases. Each
+   hit is a candidate for Defect B; apply the five questions.
+3. Search for any bullet whose item has two or more sentences or contains
+   because, but or so. Each hit is Defect A.
 
 ## Heading Spacing
 
