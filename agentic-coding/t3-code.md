@@ -134,23 +134,27 @@ RPC 계약 `rpc.ts`는 2,493줄이다.
 `apps/`에는 서버, 웹, 데스크톱, 모바일, 홈페이지가 있고
 `packages/`에는 다음 묶음이 있다.
 
-- 제공자: `provider-core`, `provider-acp`, `provider-acp-registry`, `provider-cursor`,
-  `provider-fx`, `provider-grok`, `provider-kiro`, `provider-muse`,
-  `provider-opencode`, `provider-pi`.
-  Claude, Codex, Antigravity의 어댑터는 이 패키지가 아니라
-  `apps/server/src/orchestration-v2/Adapters/`에 있다.
-- 소스 컨트롤: GitHub, GitLab, Bitbucket, Azure DevOps, Forgejo, GitCafe용 패키지.
-  PR 연결과 정의가 서비스별 패키지로 나뉘어 있다.
-- 비밀 값: `secret-provider-onepassword`와 정의 패키지.
-- 그 밖: 이슈 트래커(Linear), `ssh`, `tailscale`, 공유 클라이언트 런타임(`client-runtime`).
+| 묶음        | 패키지                                                                                                                                                                            | 비고                                                                                                         |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| 제공자      | `provider-core`, `provider-acp`, `provider-acp-registry`, `provider-cursor`, `provider-fx`, `provider-grok`, `provider-kiro`, `provider-muse`, `provider-opencode`, `provider-pi` | Claude, Codex, Antigravity의 어댑터는 이 패키지가 아니라 `apps/server/src/orchestration-v2/Adapters/`에 있다 |
+| 소스 컨트롤 | GitHub, GitLab, Bitbucket, Azure DevOps, Forgejo, GitCafe용 패키지                                                                                                                | PR 연결과 정의가 서비스별 패키지로 나뉘어 있다                                                               |
+| 비밀 값     | `secret-provider-onepassword`와 정의 패키지                                                                                                                                       | -                                                                                                            |
+| 그 밖       | 이슈 트래커(Linear), `ssh`, `tailscale`, 공유 클라이언트 런타임(`client-runtime`)                                                                                                 | -                                                                                                            |
 
-`native/`에는 Rust로 만든 `resource-monitor`와 리눅스 스냅샷 보조 도구,
-`infra/relay`에는 T3 Connect 중계 서버의 코드가 있다.
-`evals/`에는 PR 내용 생성, 스레드 제목, 음성 정리,
-MCP 도구 사용 같은 평가 묶음이 있다.
-서버 의존성에는
-Claude Agent SDK(`@anthropic-ai/claude-agent-sdk`), `@cursor/sdk`,
-`node-pty`, `playwright-core`, 음성 인식용 `transcribe-cpp`가 들어 있고,
+저장소의 나머지 디렉터리는 다음과 같다.
+
+- `native/`: Rust로 만든 `resource-monitor`와 리눅스 스냅샷 보조 도구
+- `infra/relay`: T3 Connect 중계 서버의 코드
+- `evals/`: PR 내용 생성, 스레드 제목, 음성 정리, MCP 도구 사용 같은 평가 묶음
+
+서버 의존성에는 다음이 들어 있다.
+
+- Claude Agent SDK(`@anthropic-ai/claude-agent-sdk`)
+- `@cursor/sdk`
+- `node-pty`
+- `playwright-core`
+- 음성 인식용 `transcribe-cpp`
+
 서버 전반은 Effect 프레임워크로 쓰였다.
 
 ### 오케스트레이터는 명령 직렬화와 한 트랜잭션 쓰기로 이루어진다
@@ -164,16 +168,25 @@ Claude Agent SDK(`@anthropic-ai/claude-agent-sdk`), `@cursor/sdk`,
 새 일을 받기 전에 정리한다고 문서가 적는다.
 
 버전 2 전환의 비용도 문서에 드러난다.
-- 첫 실행에서 `state.sqlite`를 `statev2.sqlite`로 복사하고 복사본에만 새 마이그레이션을 적용한다.
-- 스레드 대화는 읽거나 이어 갈 때 가져오며,
-  제공자 세션 정체성, 체크포인트, 도구 호출, 승인,
-  제안된 계획은 가져오지 않는다.
-- 가져온 스레드를 처음 이어 갈 때는 새 제공자 세션을 만들고
-  최근 대화를 32,000자 안에서 잘라 넘긴다.
-- 클라이언트와 서버의 프로토콜 버전(현재 2)이 다르면 `/ws`가 HTTP 426으로 거부한다.
-- 마이그레이션 ID는 이름이 아니라 번호만 비교하므로,
-  포크가 같은 번호를 쓰면 이후 업스트림 마이그레이션이 영원히 건너뛰어진다고 문서가 경고한다.
-  포크의 스키마 변경은 별도 테이블에 두라는 것이 문서의 결론이다.
+첫 실행에서 `state.sqlite`를 `statev2.sqlite`로 복사하고 복사본에만 새
+마이그레이션을 적용한다.
+스레드 대화는 읽거나 이어 갈 때 가져오며, 다음은 가져오지 않는다.
+
+- 제공자 세션 정체성
+- 체크포인트
+- 도구 호출
+- 승인
+- 제안된 계획
+
+가져온 스레드를 처음 이어 갈 때는 새 제공자 세션을 만들고
+최근 대화를 32,000자 안에서 잘라 넘긴다.
+
+클라이언트와 서버의 프로토콜 버전(현재 2)이 다르면 `/ws`가 HTTP 426으로
+거부한다.
+마이그레이션 ID는 이름이 아니라 번호만 비교하므로,
+포크가 같은 번호를 쓰면 이후 업스트림 마이그레이션이 영원히 건너뛰어진다고
+문서가 경고한다.
+포크의 스키마 변경은 별도 테이블에 두라는 것이 문서의 결론이다.
 
 이 마지막 항목은 이 프로젝트가 내세우는 포크 가능성의 실무적인 한계다.
 홈페이지의 포크 안내는 개인 빌드를 만드는 데는 맞으나,
@@ -182,26 +195,37 @@ Claude Agent SDK(`@anthropic-ai/claude-agent-sdk`), `@cursor/sdk`,
 ### 제공자 차이는 기능 선언으로 다룬다
 
 앞서 어댑터가 차이를 숨긴다고 썼으나 코드의 모양은 숨기기보다 선언하기에 가깝다.
-`CommandPolicy.ts`는 `queued_messages`, `active_steering`, `interrupt`,
-`interrupt_restart_steering`, `native_fork`, `fork_from_turn`, `rollback`,
-`rollback_snapshot`, `context_handoff`, `strong_terminal_status`를
-능력(capability)으로 나열하고,
-제공자가 만족하지 못하면 `CommandPolicyCapabilityUnsupportedError`로 명령을 거부한다.
+`CommandPolicy.ts`는 다음을 능력(capability)으로 나열한다.
+
+- `queued_messages`
+- `active_steering`
+- `interrupt`
+- `interrupt_restart_steering`
+- `native_fork`
+- `fork_from_turn`
+- `rollback`
+- `rollback_snapshot`
+- `context_handoff`
+- `strong_terminal_status`
+
+제공자가 만족하지 못하면 `CommandPolicyCapabilityUnsupportedError`로 명령을
+거부한다.
 어댑터는 `ProviderAdapter.ts`에 정의된 이벤트를
 (세션, 스레드, 턴, 노드, 하위 에이전트, 메시지, 턴 항목, 조종 갱신)
 내보내는 방식으로 실행 그래프를 채운다.
 
 `providers.md`는 제공자마다 다른 위험을 구체적으로 적는다.
-- 같은 드라이버라도 인스턴스별로 계정과 상태를 분리한다.
-- OpenCode 2.x는 인스턴스당 서버 하나를 쓰고 스레드마다 `t3-code-<thread>`라는
-  MCP 항목을 등록하며, 세션 권한 규칙이 다른 스레드의 항목을 막는다.
-- OpenCode가 “항상 허용”을 프로젝트 전체에 저장하므로,
-  자동 승인은 `once`로만 답해서 감독 스레드의 권한이 넓어지지 않게 한다.
-- Antigravity는 인스턴스별 프로필을 두고 파일 기반 자격 증명을 강제한다.
-  macOS 키체인 항목이 인스턴스끼리 공유되는 것을 피하려는 것이다.
-- 텍스트 생성 보조는 도구 요청을 거부하지만,
-  프롬프트 지시와 도구 거부가 네이티브 샌드박스를 만들지는 않는다고
-  문서가 스스로 적는다.
+같은 드라이버라도 인스턴스별로 계정과 상태를 분리한다.
+OpenCode 2.x는 인스턴스당 서버 하나를 쓰고 스레드마다 `t3-code-<thread>`라는
+MCP 항목을 등록하며, 세션 권한 규칙이 다른 스레드의 항목을 막는다.
+OpenCode가 “항상 허용”을 프로젝트 전체에 저장하므로,
+자동 승인은 `once`로만 답해서 감독 스레드의 권한이 넓어지지 않게 한다.
+
+Antigravity는 인스턴스별 프로필을 두고 파일 기반 자격 증명을 강제한다.
+macOS 키체인 항목이 인스턴스끼리 공유되는 것을 피하려는 것이다.
+텍스트 생성 보조는 도구 요청을 거부하지만,
+프롬프트 지시와 도구 거부가 네이티브 샌드박스를 만들지는 않는다고
+문서가 스스로 적는다.
 
 ### 보안 모델은 환경이 샌드박스가 아니라는 전제에서 출발한다
 
@@ -209,8 +233,11 @@ Claude Agent SDK(`@anthropic-ai/claude-agent-sdk`), `@cursor/sdk`,
 서버를 실행한 운영체제 사용자의 권한으로
 에이전트와 터미널을 의도적으로 실행한다고 분명히 적는다.
 전체 권한 세션은 그 사용자의 셸과 같다고 하며,
-보안 작업의 범위를 누가 세션을 얻는가, 세션 종류마다 닿는 범위는 어디까지인가,
-폐기와 상한이 지켜지는가로 한정한다.
+보안 작업의 범위를 다음 세 질문으로 한정한다.
+
+- 누가 세션을 얻는가
+- 세션 종류마다 닿는 범위는 어디까지인가
+- 폐기와 상한이 지켜지는가
 
 주체는 다음과 같이 나뉜다.
 
@@ -232,11 +259,13 @@ Claude Agent SDK(`@anthropic-ai/claude-agent-sdk`), `@cursor/sdk`,
 편의를 위해 신뢰를 한 단계로 합치고, 좁히는 일은 사용자에게 맡긴다.
 
 코드에서 확인한 것은 두 가지다.
-- 새 스레드의 기본 실행 모드는 `packages/contracts/src/providerPolicy.ts`의
-  `DEFAULT_RUNTIME_MODE = "full-access"`이고, 모드 순서는
-  `approval-required` < `auto-accept-edits` < `auto` < `full-access`다.
-- RPC 메서드마다 필요한 범위는 `RpcAuthorization.ts`의 표로 선언되어 있어서,
-  소켓 인증이 모든 메서드의 권한을 뜻하지는 않는다.
+하나는 새 스레드의 기본 실행 모드로,
+`packages/contracts/src/providerPolicy.ts`의
+`DEFAULT_RUNTIME_MODE = "full-access"`이고, 모드 순서는
+`approval-required` < `auto-accept-edits` < `auto` < `full-access`다.
+다른 하나는 RPC 메서드마다 필요한 범위가 `RpcAuthorization.ts`의 표로 선언되어
+있다는 점이다.
+그래서 소켓 인증이 모든 메서드의 권한을 뜻하지는 않는다.
 
 MCP 접근은 사용자가 범위 목록이 아니라
 읽기 전용 또는 실행 모드 상한을 고르게 한다.
@@ -247,17 +276,18 @@ MCP 도구는 모두 오케스트레이션이어서 `orchestration:operate` 하�
 이 규칙을 타입으로 강제한다고 문서가 설명한다.
 
 T3 Connect의 신뢰 가정은 문서가 직접 밝힌다.
-- 중계(relay)는 신뢰하는 중개자이고, 환경 세션 토큰은 중계가 받지 않는다.
-  클라이언트가 자신의 DPoP 키로 환경과 직접 교환한다.
-- 그러나 중계가 일회용 부트스트랩 자격을 요청하는 서명 권한을 쥐고 있으며,
-  DPoP는 정직한 교환에서 자격 재사용을 막을 뿐
-  중계의 서명 키가 탈취된 경우를 무해하게 만들지는 않는다고 명시한다.
-- 장치 승인(`requireConnectDeviceApproval`)이 이 위험을 줄이지만
-  코드의 기본값은 `false`다.
-  문서에 따르면 꺼져 있는 동안에는 교환을 마친 모든 키가 신뢰 장치로 기록된다.
-- 관리형 터널은 서버 자신의 루프백 HTTP 출처만 노출하고,
-  중계는 호출자가 준 URL이 아니라 자기 할당 정보에서 엔드포인트를 찾는다.
-  같은 호스트의 다른 서비스가 터널로 열리지 않게 하려는 것이다.
+중계(relay)는 신뢰하는 중개자이고, 환경 세션 토큰은 중계가 받지 않는다.
+클라이언트가 자신의 DPoP 키로 환경과 직접 교환한다.
+그러나 중계가 일회용 부트스트랩 자격을 요청하는 서명 권한을 쥐고 있으며,
+DPoP는 정직한 교환에서 자격 재사용을 막을 뿐
+중계의 서명 키가 탈취된 경우를 무해하게 만들지는 않는다고 명시한다.
+
+장치 승인(`requireConnectDeviceApproval`)이 이 위험을 줄이지만
+코드의 기본값은 `false`다.
+문서에 따르면 꺼져 있는 동안에는 교환을 마친 모든 키가 신뢰 장치로 기록된다.
+관리형 터널은 서버 자신의 루프백 HTTP 출처만 노출하고,
+중계는 호출자가 준 URL이 아니라 자기 할당 정보에서 엔드포인트를 찾는다.
+같은 호스트의 다른 서비스가 터널로 열리지 않게 하려는 것이다.
 
 ### 텔레메트리는 기본으로 켜져 있다
 
@@ -268,29 +298,57 @@ T3 Connect의 신뢰 가정은 문서가 직접 밝힌다.
 프롬프트, 응답, 파일 내용, 인증 토큰, 대화 ID는 들어가지 않는다고 한다.
 설치 수를 세려고 T3 Connect 계정, 로그인한 OpenAI와 Claude 계정,
 기기별 임의 식별자를 해시해서 보낸다.
+이 단락은 이 문서를 쓴 시점의 서버 코드 기준이며,
+로그인한 OpenAI와 Claude 계정을 쓰는 부분은 11월 24일에 바뀌었다(아래).
 
 끄는 범위는 하나가 아니다.
-- 서버 환경 변수 `T3CODE_TELEMETRY_ENABLED=false`나 관리 정책의 `telemetry: false`는
-  제품 이벤트와 릴레이 추적을 끈다.
-- 브라우저 웹 앱은 이 환경 변수를 읽지 않으며,
-  빌드에 릴레이 추적이 설정되어 있으면
-  서버가 옵트아웃해도 자체 연결 추적을 보낸다.
-- 모바일 앱은 충돌 보고를 설정에서 끌 수 있지만, 릴레이 추적은 끌 수 없다.
-- 호스트의 “에이전트 활동 게시”를 켜면 프로젝트와 스레드 제목, 모델 이름,
-  활동 상태가 모바일 알림용으로 T3 Connect 릴레이에 올라가며,
-  텔레메트리 옵트아웃이 이 기능을 끄지 않는다.
+아래 표는 범위마다 무엇으로 끄고 무엇이 남는지를 정리한 것이다.
+
+| 범위               | 끄는 방법                                                                  | 꺼지는 것                 | 남는 것                                                                                            |
+| ------------------ | -------------------------------------------------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------- |
+| 서버               | 환경 변수 `T3CODE_TELEMETRY_ENABLED=false`, 관리 정책의 `telemetry: false` | 제품 이벤트와 릴레이 추적 | -                                                                                                  |
+| 브라우저 웹 앱     | 서버의 환경 변수를 읽지 않으므로 해당 없음                                 | -                         | 빌드에 릴레이 추적이 설정되어 있으면 서버가 옵트아웃해도 자체 연결 추적을 보낸다                   |
+| 모바일 앱          | 설정에서 충돌 보고를 끈다                                                  | 충돌 보고                 | 릴레이 추적은 끌 수 없다                                                                           |
+| 에이전트 활동 게시 | 호스트에서 켜는 기능이며 텔레메트리 옵트아웃이 끄지 않는다                 | -                         | 켜면 프로젝트와 스레드 제목, 모델 이름, 활동 상태가 모바일 알림용으로 T3 Connect 릴레이에 올라간다 |
+
+브라우저 웹 앱은 서버 설정과 별개로 동작하므로
+서버에서 옵트아웃해도 이 경로까지 막히지는 않는다.
+에이전트 활동 게시도 텔레메트리와 다른 기능이어서
+옵트아웃과 상관없이 따로 확인해야 한다.
 
 README의 요약은 API 요금을 따로 받지 않고
 사용자가 구독 중인 플랜을 그대로 쓰게 할 뿐 아무것도 팔지 않는다는 것인데,
 이와 비교하면 이 항목이 가장 눈에 띄는 보충 정보다.
 
+### 2026년 11월 24일 이후의 변화
+
+이 텔레메트리는 11월 24일에 올라온 트윗 한 건으로 논란이 되었다.
+트윗이 말한 사실과 GitHub 기록을 하나씩 대조한 결과는
+[T3 Code 텔레메트리 소스 조사](t3-code-telemetry.md)에,
+같은 논란을 창업자의 이력과 신뢰 문제로 본 글은
+[T3 Code 개인정보 논란과 Theo의 창업 이력](t3-code-privacy-controversy.md)에 있다.
+
+같은 날 병합된 PR은 분석이 서버 시작 때 Codex와 Claude의 로그인 파일을 열어
+솔트 없는 해시를 보내던 동작을 없앴다.
+식별자는 설치할 때 만든 무작위 ID가 되고, T3 Connect 계정과 기기
+식별자는 남는다.
+현재 릴리스를 쓰는 설치는 업데이트 전까지
+옛 식별자를 계속 보낸다고 PR 설명이 적는다.[^t3pr42299]
+다음 날에는 `DO_NOT_TRACK=1`을 인식하게 하는 PR이 병합되었고,[^t3pr42629]
+설정 화면에 사용 데이터 공유 스위치를 넣는 PR은
+이 문서를 쓰는 시점에 열려 있다.[^t3pr42625]
+기본값을 켜짐으로 두는 점은 이 PR에서도 그대로다.
+위의 끄는 범위 목록은 이 변화를 반영해 다시 확인해야 한다.
+
 ### 이 분석이 확인하지 못한 것
+
+이 분석이 확인하지 못한 것은 다음과 같다.
 
 - 코드를 실행하지 않았으므로 문서가 말하는 동작(롤백 거부, 이벤트 가지치기,
   장치 승인 흐름)이 실제로 그렇게 동작하는지는 확인하지 않았다.
-- `Orchestrator.ts` 17,032줄 가운데 앞부분의 가져오기 목록만 읽었다.
+- `Orchestrator.ts` 17,032줄 가운데서는 앞부분의 가져오기 목록만 읽었고,
   명령 처리 로직은 파일 이름과 문서에 기대어 서술했다.
-- 보안 경계를 감사하지 않았다. 위 서술은 `SECURITY.md`와 내부 문서의 주장이다.
+- 보안 경계는 감사하지 않았고, 위 서술은 `SECURITY.md`와 내부 문서의 주장이다.
 - 줄 수는 번역과 생성 파일을 가려내지 않은 값이다.
 - 의존성의 버전과 라이선스 상태는 매니페스트에서 읽기만 했다.
 
@@ -333,7 +391,8 @@ T3 Code는 이 로그인을 그대로 이어받아 동작하므로
 | LAN 또는 사설망 | `t3 serve --host <사설 IP>`로 열고 `t3 pair`의 QR 또는 링크로 짝짓기 | 같은 네트워크나 Tailscale 안에서만 쓸 때     |
 | 기타            | Tailscale, 다른 VPN, 공개 URL, SSH                                   | 이미 쓰는 네트워크 구성이 있을 때            |
 
-한 컴퓨터에 경로가 여럿이면 속도순으로 정렬해 첫 번째로 응답하는 경로로 연결하고,
+한 컴퓨터에 경로가 여럿이면 속도순으로 정렬해 첫 번째로 응답하는 경로로
+연결하고,
 우선순위가 더 높은 경로가 살아나는지 1분마다 다시 확인해 그쪽으로 되돌아간다.
 집에서는 LAN으로, 밖에서는 T3 Connect로 자동으로 바뀐다.
 `127.0.0.1` 주소는 링크를 연 기기에서만 닿으므로
@@ -526,7 +585,9 @@ Antigravity는 Full access에서도 자체 승인 요청을 보낼 수 있다.
 텔레메트리가 기본으로 켜져 있고 끄는 방법이 클라이언트마다 다르다.
 서버 환경 변수는 브라우저 웹 앱의 연결 추적을 끄지 못하고,
 모바일 앱의 릴레이 추적과 호스트의 에이전트 활동 게시는 별도 설정이다.
-상세는 코드 분석 절에 정리했다.
+상세는 코드 분석 절에 정리했고,
+논란의 경과와 이후 변화는
+[T3 Code 텔레메트리 소스 조사](t3-code-telemetry.md)에 있다.
 
 T3 Connect를 쓴다면
 장치 승인(`requireConnectDeviceApproval`)의 기본값이 꺼져 있다.
@@ -584,3 +645,9 @@ T3 Code의 문서화된 기본값은 반대다.
 [^versecafe]: <https://news.ycombinator.com/item?id=50175133>
 
 [^preommr]: <https://news.ycombinator.com/item?id=50175238>
+
+[^t3pr42299]: GitHub, [fix(server): analytics no longer reads or sends Codex and Claude account IDs](https://github.com/pingdotgg/t3code/pull/42299), 2026-11-24
+
+[^t3pr42629]: GitHub, [fix(telemetry): honor DO_NOT_TRACK](https://github.com/pingdotgg/t3code/pull/42629), 2026-11-25
+
+[^t3pr42625]: GitHub, [feat(telemetry): add a product usage data toggle in settings](https://github.com/pingdotgg/t3code/pull/42625), 2026-11-25
