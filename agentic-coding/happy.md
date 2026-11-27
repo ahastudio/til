@@ -388,6 +388,36 @@ E2EE를 신뢰의 근거로 내세우면서 자체 호스팅이 오래 깨져 �
 다만 도입을 검토한다면 봐야 할 것은 최근 커밋 빈도가 아니라, 자신에게
 중요한 영역의 이슈가 실제로 닫히고 있는지다.
 
+### 개인정보 문서와 코드의 간극
+
+이 문서의 특장점 항목은 텔레메트리와 추적 코드가 없다고 적었지만,
+저장소의 `PRIVACY.md`는 앱이 PostHog로 사용 이벤트를 보내며
+설정에서 끌 수 있다고 밝힌다.[^privacy]
+같은 정책은 PostHog가 요청의 IP 주소를 받아 대략적인 위치를 추정한다고도
+적는다.[^privacy]
+메시지와 코드, 파일 경로는 보내지 않는다는 서술이어서
+T3 Code처럼 기본값을 숨겼다는 논란과는 결이 다르다.
+T3 Code 쪽 경과는 [T3 Code 텔레메트리 소스 조사](t3-code-telemetry.md)에 있다.
+
+챙겨 볼 쟁점은 정책 문구와 코드가 어긋난다는 이슈다.
+2026년 9월 23일에 열린 #1833은 세 가지를 짚는다.[^i1833]
+푸시 알림이 기기끼리만 오간다는 문구와 달리 세션 요약 평문이 릴레이를
+거친다는 것, 분석 이벤트 `session_switched`가 릴레이의 세션 ID를 실어
+익명이라는 문구를 깬다는 것, 코드에 계정 삭제 경로가 없다는 것이다.[^i1833]
+작성자는 메시지 내용이 전송되지 않는다는 점과 끄기 스위치가 동작한다는
+점은 인정한다.[^i1833]
+이슈는 읽은 시점에 열려 있고 댓글이 없으며,
+두 번째 항목만 고치는 PR #1839도 열려 있다.[^p1839]
+이 문서는 코드를 직접 대조하지 않았으므로 이슈 작성자의 주장으로만 옮긴다.
+
+자체 호스팅과 조직 배포에도 같은 종류의 문제가 보고되어 있다.
+README대로 자체 호스팅하면 웹 앱이 알리지 않고 공식 클라우드 서버에
+접속한다는 이슈 #1677이 열려 있고,[^i1677]
+MDM으로 분석 끄기와 서버 고정을 지원하는 PR #1824는 수백 명에게 배포하려는
+사용자가 병합을 요청한 상태다.[^p1824]
+도입을 검토한다면 알림에 담기는 내용, 분석을 끄는 방법, 자체 호스팅의 서버
+접속처를 직접 확인해 볼 만하다.
+
 ### 모바일에서의 코드 리뷰 한계
 
 코드는 본질적으로 넓은 화면과 정밀한 입력을 요구하는 매체다.
@@ -505,3 +535,17 @@ Happy의 다중 에이전트 지원이 의미 있는 이유도 기능이 많아�
 - [이슈 #1587 — 서브에이전트 실행 중 유휴로 보고되는 문제](https://github.com/slopus/happy/issues/1587)
 - [이슈 #1628 — 세션 목록이 백그라운드 작업을 표시하지 못하는 문제](https://github.com/slopus/happy/issues/1628)
 - [PR #1612 — 위 문제의 구현 제안](https://github.com/slopus/happy/pull/1612)
+- [이슈 #1833 — PRIVACY.md와 코드의 불일치](https://github.com/slopus/happy/issues/1833)
+- [이슈 #1677 — 자체 호스팅 웹 앱이 호스팅 서버로 연결되는 문제](https://github.com/slopus/happy/issues/1677)
+
+---
+
+[^privacy]: GitHub, [Privacy Policy for Happy Coder](https://github.com/slopus/happy/blob/main/PRIVACY.md), 2026-10-08
+
+[^i1833]: GitHub, [PRIVACY.md does not match the code](https://github.com/slopus/happy/issues/1833), 2026-09-23
+
+[^p1839]: GitHub, [fix(app): stop sending the relay's session identity to analytics](https://github.com/slopus/happy/pull/1839), 2026-09-23
+
+[^i1677]: GitHub, [Self-hosted web app silently connects to the hosted cloud server](https://github.com/slopus/happy/issues/1677), 2026-08-08
+
+[^p1824]: GitHub, [feat(ios): support managed server and analytics configuration](https://github.com/slopus/happy/pull/1824), 2026-09-21
