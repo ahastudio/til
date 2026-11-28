@@ -344,6 +344,25 @@ def check_vocab_and_quotes(lines, in_fence, issues):
             issues.append(f"{i + 1}: 인라인 코드 안의 굽은 따옴표 — 곧은 따옴표여야 함")
 
 
+PROCESS_VERB = r"(읽었|읽은|읽지|읽고|열어|열지|열었|확인(하지|한|했|하|된)|검증(하지|했|한)|재현|실행(하지|했|한|해)|설치(하지|했|한)|시험(하지|했)|대조|훑|내려받|보지 (않|못)|찾지|따라 해|직접)"
+PLATFORM_ABSENCE = re.compile(
+    r"(HN|Hacker News|Lobste\.rs|GeekNews|GN)[^\n]{0,40}(스레드|댓글|토론)[^\n]{0,25}(찾지 못|없었|없다|반영하지|확인하지)"
+)
+
+
+def check_process_disclaimers(lines, in_fence, issues):
+    """The document never reports on its own reading, checking or running."""
+    for i, line in enumerate(lines):
+        if in_fence[i] or line.startswith("[^") or line.startswith("<"):
+            continue
+        if re.match(r"^#{1,6}\s+.*(확인할 것|확인하지 못|열어 보지|읽지 못)", line):
+            issues.append(f"{i + 1}: 작성 과정 보고 제목 금지 (확인할 것 등)")
+        if re.search(r"이 문서(는|가|도|를|에서|에는|에서는)", line) and re.search(PROCESS_VERB, line):
+            issues.append(f"{i + 1}: 문서가 자기 읽기·확인·실행을 보고하는 문장 금지")
+        elif PLATFORM_ABSENCE.search(line):
+            issues.append(f"{i + 1}: 토론 스레드·댓글의 유무를 본문에 쓰지 말 것 (채팅으로만 보고)")
+
+
 def check_filename(path, issues):
     base = os.path.basename(path)
     if not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*\.md", base):
@@ -362,6 +381,7 @@ def check(path):
     check_footnotes(text, lines, in_fence, issues)
     check_prose(lines, in_fence, issues)
     check_vocab_and_quotes(lines, in_fence, issues)
+    check_process_disclaimers(lines, in_fence, issues)
 
     print(f"{path} | {'OK' if not issues else 'FAIL'}")
     if kind:

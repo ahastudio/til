@@ -30,6 +30,8 @@ GN — each platform is searched independently, because GN's own userbase and
 discussion patterns differ from HN's and Lobste.rs's, and a thread on one
 platform says nothing about whether one exists on another.
 
+**Reports about the search never go into the document (ABSOLUTE).** When no thread or no comment is found, say so to the user in chat. Never write it into the file, in any form. See `No Process Reports In Documents` in `AGENTS.md`.
+
 ## Contents
 
 Section titles match the headings below; search for a title to jump to it.

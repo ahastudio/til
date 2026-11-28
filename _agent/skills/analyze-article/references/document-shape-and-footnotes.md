@@ -67,6 +67,14 @@ a platform has no thread, that is reported to the user in chat, never as a
 section of the document. A document records what is true about the subject,
 not what the search turned up.
 
+**The same holds for single sentences, list items, table cells, headings and
+footnotes (ABSOLUTE).** Never write that the document or its writer read,
+opened, ran, installed, reproduced, verified or failed to find something. Never
+write a `확인할 것`, `확인하지 못한 것` or similar section. Never write that a
+thread or a comment does or does not exist. A real limit of the source is
+criticized as a property of the source in `## 비평`. `check_format.py` fails
+these lines; a hit is deleted, never softened.
+
 ## 7b. Footnotes — STRICT RULE (NO EXCEPTIONS)
 
 **Footnotes for outside pages are complete and exact; the analyzed source needs

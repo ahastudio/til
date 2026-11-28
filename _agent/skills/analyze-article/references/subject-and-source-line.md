@@ -124,7 +124,8 @@ issues orders, grades the author, or talks down to the source or the reader.
   questions, and a know-it-all voice that announces what the source "really"
   means. Quote a harsh word only when a commenter said it, and attribute it.
 - Criticism is about the claim and its evidence, in plain polite register:
-  `근거가 제시되지 않았다`, `이 문서가 확인하지 못했다`. Never about the
+  `근거가 제시되지 않았다`, `출처가 밝혀지지 않았다`. Never a sentence about
+  what the writer read, ran or failed to check. Never about the
   author's character, competence or motives.
 - Write as if the author would read the document. If a sentence would be rude
   said to their face, rewrite it.

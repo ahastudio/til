@@ -28,6 +28,7 @@ are authoritative. Search for a section title to read it in full.
 - Lists And Prose: judge every list on its own; never bullets in 인사이트, 비평, 분석; never flatten a short parallel list into a sentence; ordinal passages are split into paragraphs; a delegated conversion carries the rule in full
 - Every Text File Ends With A Newline: every text file you create or edit ends with exactly one newline; measure the last byte after every write, after every script that rewrites the file, and for all touched files before reporting
 - Forbidden Actions: never use the memory system; never touch global paths such as `~/.claude/`; never declare something missing from one failed search
+- No Process Reports In Documents: a document never states what the author read, opened, ran, installed, verified or failed to find, and never states whether a discussion thread or comment exists; no section for it; the gate fails it; such a line is a defect to be deleted, not a courtesy
 - Documentation Work: separate what a source reports from inference and recommendation; the analyzed source never takes a footnote; outside pages get exact footnotes per sentence; the service is Twitter, never X; do not force English terms into Korean; every sentence must make sense to a stranger
 
 ## User Authority Protocol (ABSOLUTE PRIORITY)
@@ -608,6 +609,44 @@ does not exist.
 - If still not found, ask the user for the correct path.
 - NEVER conclude that something does not exist. If you cannot find it,
   that is your failure — not proof of absence.
+
+## No Process Reports In Documents (ABSOLUTE PRIORITY — NO EXCEPTIONS)
+
+**A document states what the source says and what the author concludes. It
+never states what the writer did, could not do, or did not check.**
+
+Root cause of a repeated failure: closing sections and stray sentences that
+confessed the work process, in a "to be checked" voice, were added to look
+careful. They carry no information about the subject, they bury the content,
+and the user found them repellent.
+
+Forbidden in every document, in every section, as a sentence, a list item, a
+table cell, a heading or a footnote:
+
+- Any statement that the document or its writer read, opened, ran, installed,
+  reproduced, verified, compared or tried something, or failed to (`이 문서는
+  ~읽지 않았다`, `열어 보지 못했다`, `설치하거나 실행하지 않았다`,
+  `확인하지 못했다`, `직접 검증하지 않았다`, `재현하지 않았다`).
+- Any section whose subject is what remains unchecked: `확인할 것`,
+  `확인하지 못한 것`, `한계와 확인`, or any heading built from the same idea.
+- Any sentence saying whether a Hacker News, Lobste.rs or GeekNews thread or
+  comment exists, was found, was searched for, or was woven in.
+
+Where the information goes instead:
+
+- The state of the search and of the checking is reported to the user in the
+  chat message, never in the file.
+- A real limit of the source itself (a number with no origin, a claim with no
+  evidence) is criticized as a property of the source in `## 비평`, with no
+  mention of what the writer did.
+- Never write a sentence about the document itself as an object that read,
+  checked or ran anything. The subject of a sentence is the source, the
+  people who commented, or the claim.
+
+Enforcement: `check_format.py` fails any such heading or sentence. Before
+saving any document, search it for `이 문서` and `확인할 것` and delete every
+hit that reports the process. When a file you did not write contains such a
+line, delete it as part of the same edit.
 
 ## Documentation Work
 

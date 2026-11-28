@@ -72,3 +72,9 @@ repository URL and the project site's domain (from step 4-1 of
 `subject-and-source-line.md`). A discussion is often submitted under the site
 address, and a search by the repository URL alone misses it. Report which
 addresses were searched.
+
+## No Reports About The Search In The File (ABSOLUTE)
+
+Whether a thread or a comment was found, not found, searched, skipped or woven
+in is reported to the user in chat only. The document never says it, not in a
+section, not in a sentence, not in a footnote. The gate fails it.
