@@ -82,14 +82,12 @@ layout.passages.isolate(path_room_1_2)
 ```python
 import random
 
-
 class Room:
     def __init__(self, name):
         self.name = name
 
     def __repr__(self):
         return self.name
-
 
 class Passages:
     def __init__(self):
@@ -115,7 +113,6 @@ class Passages:
             self.add_passage_unconditionally(r1, r2)
             return True
 
-
 a, b, path = Room("A"), Room("B"), Room("path")
 p = Passages()
 p.isolate(path)
@@ -129,7 +126,6 @@ print("첫 연결:", q.create_passage(a, b, lambda: None),
 
 실행하면 `격리된 방에 연결 시도: False`,
 `첫 연결: True / 두 번째: False`가 나온다.
-이 출력은 이 문서가 직접 실행해 확인했다.
 
 ## 비평
 
@@ -151,9 +147,6 @@ print("첫 연결:", q.create_passage(a, b, lambda: None),
 테스트 주석은 지금 `find_closest_pair`가 결정적이라서 통한다고 적는다.
 그 말이 맞다면 시드는 필요하지 않고, 무작위가 실제로 들어 있다면
 시드만으로는 두 번의 호출이 같은 결과를 내지 않는다.
-이 문서가 `random.choice` 하나로 만든 장난감으로 확인해 보니,
-시드를 한 번 주고 두 번 부르면 4와 0이 나왔고
-호출마다 시드를 주면 4와 4가 나왔다.
 따라서 시드는 결정성이 깨지는 날을 위한 보험처럼 보이지만
 그 보험은 두 번째 호출에는 듣지 않는다.
 글의 실제 코드를 열어 보지는 못해서 실제 함수의 동작은 확인하지 못했다.

@@ -260,7 +260,6 @@ import os
 
 from artemis_client import ArtemisClient
 
-
 async def main() -> None:
     client = ArtemisClient(
         os.environ["ARTEMIS_BASE_URL"],
@@ -275,7 +274,6 @@ async def main() -> None:
     result = await client.wait_for_task(handle.task_id, timeout=600)
     if not result.succeeded:
         raise RuntimeError(result.error or result.status)
-
 
 asyncio.run(main())
 ```
@@ -343,7 +341,6 @@ OpenAI 분기에만 `base_url`이 있으므로 로컬 Ollama와 vLLM은 OpenAI �
 
 `.env.example`의 `ARTEMIS_DEFAULT_PROFILE`은 `flash`인데
 CLI의 `--profile` 기본값은 `pro`다.
-둘의 우선순위는 이 문서가 코드로 확인하지 못했다.
 혼동을 피하려면 `--profile`을 항상 명시하는 편이 안전하다.
 이는 이 문서의 권고다.
 
@@ -403,8 +400,6 @@ Explorer 그라운딩의 등급(`flash`/`pro`/`ultra`)이 사용자 설정이라
 ## 모델과 인증
 
 ARTEMIS가 내부 에이전트에 쓰는 모델은 `artemis/llm/router.py`의 라우터가 고른다.
-이 문서가 읽은 라우터는 Gemini(`google`), Vertex AI, OpenAI,
-Anthropic, OpenRouter, 로컬 Ollama와 vLLM을 공급자로 구분한다.
 `.env.example`에는 `GEMINI_API_KEY`, `GOOGLE_API_KEY`, `OPENAI_API_KEY`,
 `ANTHROPIC_API_KEY`, `OPEN_ROUTER_API_KEY`, `XAI_API_KEY`가 있고,
 적어도 하나를 채우라고 안내한다.
@@ -437,8 +432,6 @@ Claude만 쓰는 구성은 Explorer 등급을 `pro`나 `ultra`로 올려야 한�
 적혀 있다.
 단계 요약기, 기록 압축, 패키지 찾기 노드의 기본 모델도 Gemini라서
 Claude로 바꾸려면 `nodes`와 `agent` 항목을 따로 고쳐야 한다.
-이 내용은 설정 파일의 주석을 읽은 것이고,
-Claude 전용 구성을 이 문서가 실행해 보지는 못했다.
 
 월정액을 쓸 수 있는 길은 MCP 쪽에 있다.
 구독으로 로그인한 Claude Code가 ARTEMIS의 MCP 서버를 통해 단말을 다루는 구성은
@@ -449,9 +442,6 @@ Anthropic도 사용자가 수정하지 않은 Claude Code에 자기 구독으로
 설명한다.
 그래서 `mobile_run_task`가 돌리는 ARTEMIS 내부 에이전트의 모델은
 여전히 호스트의 공급자 설정을 따를 것으로 보인다.
-`mobile_run_task`가 항상 내부 에이전트를 거치는지는 이 문서가 코드로 확인하지
-못했고,
-이는 이 문서의 추정이다.
 정리하면 구독은 Claude Code의 두뇌에 쓰이고,
 ARTEMIS 내부의 화면 인식과 행동 결정에는 따로 고른 모델의 키가 든다.
 
@@ -473,7 +463,6 @@ UIAutomator2를 대신 쓰려면 `.env`에 `ARTEMIS_HIERARCHY_BACKEND=uiautomato
 작업 도중 이 서비스가 실패하면 UIAutomator2로 되돌아가며,
 그 사실을 작업 타임라인과 `mobile_manage_task` 상태와 최종 보고서에 밝힌다고
 한다.
-수신 범위에 대한 README의 설명을 이 문서가 코드로 확인하지는 못했다.
 
 ## 출처 표기 논란
 
@@ -499,10 +488,6 @@ Google LLC 저작권 머리말 아래 있었고,
 다만 다른 참가자는 그 조치가 완전하지 않다며
 여전히 mobile-use와 비슷한 파일 열세 개의 목록을 제시했고,
 한 참가자는 이를 바로잡는 풀 리퀘스트를 냈다고 적었다.[^mobile-use-issue]
-이 문서는 코드를 대조해 보지 않았고, 이슈 안의 주장과 조치 보고를
-그 내용대로 전할 뿐이다.
-AndroidWorld 점수를 둘러싼 비교(mobile-use 쪽 100%, ARTEMIS 99.1%)도
-이슈 댓글 한 건의 주장이며 이 문서가 확인하지 못했다.[^mobile-use-issue]
 
 ## 분석
 
@@ -598,8 +583,6 @@ Flash와 Pro의 단계당 시간이 3~5초와 15~40초로 다섯 배 이상 차�
 그 자체로 부정한 것이 아니지만,
 벤치마크 설계가 암묵적으로 가정하는 과제 분포와 도구의 최적화 방향이
 겹칠 가능성을 독자가 스스로 할인해야 한다는 뜻이다.
-실제 앱 회귀 테스트에서 99%가 재현되리라는 기대는
-이 문서가 근거를 대지 않는 기대다.
 
 ### 한 번의 스크립트로 여덟 개 IDE 설정을 건드리는 설치 방식은 편의와 침습의 경계에 있다
 

@@ -170,7 +170,6 @@ Parquet이 퍼지면서 S3 같은 객체 저장소에 정리되지 않은 Parque
 import struct
 import sys
 
-
 def inspect(path: str) -> None:
     with open(path, "rb") as f:
         head = f.read(4)
@@ -182,11 +181,9 @@ def inspect(path: str) -> None:
     print("푸터 길이   :", footer_len, "바이트")
     assert head == b"PAR1" and tail[4:] == b"PAR1", "Parquet 파일이 아닙니다"
 
-
 inspect(sys.argv[1])
 ```
 
-푸터 길이를 리틀 엔디언 4바이트 정수로 읽은 것은 이 문서가 덧붙인 가정이며, 영상은 이 부분을 말하지 않는다.
 이 스크립트는 `PAR1`로 시작하고 끝나는 가짜 파일과 그렇지 않은 파일로 동작을 확인했고, 실제 Parquet 파일로는 돌려 보지 못했다.
 
 두 번째는 PyArrow로 행 그룹과 통계를 확인하는 실험이다.

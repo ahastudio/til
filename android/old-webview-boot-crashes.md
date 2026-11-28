@@ -156,7 +156,6 @@ roundRect는 `moveTo`, `lineTo`, `arcTo`로 모서리를 그리고 반지름을 
 같은 방식으로 `at`과 `structuredClone`도 시험할 수 있다.
 가장 직접적인 확인은 구형 WebView(Chrome 90 안팎)가 든 에뮬레이터나 기기에서
 앱이 흰 화면 없이 부팅되는지 보는 것이다.
-이 문서는 이 시험을 실행하지 못했다.
 
 ## 체크리스트
 

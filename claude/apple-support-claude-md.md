@@ -13,8 +13,6 @@ Apple은 즉시 v5.13.1 긴급 업데이트를 통해 해당 파일을 제거했
 노출된 `Claude.md`는 앱 내 채팅 시스템의 아키텍처 문서로,
 “Juno AI”라는 내부 프로젝트명, 비동기 스트리밍 구현, 멀티백엔드 프로토콜,
 SAComponents라는 UI 컴포넌트 라이브러리 참조 등이 담겨 있었다.
-이 문서는 코드 실행 지시문이 아니라 AI 에이전트가 해당 코드베이스를 이해하도록
-돕는 컨텍스트 파일로, Claude Code의 `CLAUDE.md` 컨벤션을 그대로 따른 형태다.
 
 이 사건은 Apple이 Anthropic과 깊이 협력하고 있다는 사실을 다시 한번 드러냈다.
 Bloomberg의 Mark Gurman은 Anthropic이 Apple에게 “연 수십억 달러,

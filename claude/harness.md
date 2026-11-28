@@ -15,8 +15,6 @@ README는 이를 Claude Code용 팀 설계 공장(team-architecture factory)이�
 저장소는 2026년 3월 26일에 만들어졌고 라이선스는 Apache-2.0이며,
 별 9,326개, 포크 1,341개, 열린 이슈 3개입니다.
 마지막 푸시는 9월 28일이고 README의 버전 배지는 2.1.0입니다.
-이 문서는 README를 읽어 정리한 것이고, 플러그인을 직접 설치해 돌려 본 결과가
-아닙니다.
 
 GeekNews에는 3월 29일에 소개글이 올라왔습니다.
 소개글은 실행 모드를 에이전트 팀(`TeamCreate`, `SendMessage`, `TaskCreate`)과

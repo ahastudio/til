@@ -176,8 +176,6 @@ Stability AI의 공개 글은 결과물을 draft-quality라고 부른다.[^stabi
 울퉁불퉁하고 정밀도가 낮다고 적는다.
 작성자는 `--mc-resolution`과 `--chunk-size`를 바꿔 봤지만 쓸 만한 결과를 얻지
 못했다며, README의 소개 GIF에 나온 메시를 만든 과정과 값을 묻는다.[^issue-149]
-같은 증상이라는 댓글이 달렸을 뿐 이 문서가 읽은 범위에서 개발자의 답은
-없었다.[^issue-149]
 
 커뮤니티의 평도 비슷하다.
 TRELLIS 스레드에서 horsawlarway는 ComfyUI의 TripoSR 노드와 마칭 큐브로 만든
@@ -246,8 +244,6 @@ TripoSR이 그 일을 하지 않는다는 말을 이 README가 직접 하지는 
 
 단일 이미지에서 뒷면과 옆면을 채우는 것은 학습으로 얻은 사전 지식이다.
 이슈 #89는 앞, 뒤, 옆 사진을 함께 넣을 수 있느냐고 묻는다.
-이 문서가 읽은 범위에서는 같은 요청이 이어졌을 뿐 구현이나 답은
-없었다.[^issue-89]
 TRELLIS 스레드에서 hi_hi는 F-117 사진을 넣었더니 윤곽이 전혀 맞지 않았고 여러
 각도의 이미지를 넣을 수 있기를 바랐다고 썼다.[^hi_hi]
 한 장의 입력으로는 알 수 없는 면이 있고, 그 면의 모양은 모델의 취향이 된다.
@@ -258,8 +254,6 @@ TRELLIS 스레드에서 hi_hi는 F-117 사진을 넣었더니 윤곽이 전혀 �
 
 논문은 데이터 큐레이션, 렌더링, 채널 수 40, 마스크 손실, 국소 렌더링 감독을
 개선으로 나열한다.
-그러나 이 문서가 읽은 본문에는 각 항목을 빼고 학습한 비교가 없고, 결과 절은
-완성된 모델과 다른 방법의 비교만 싣는다.
 채널 수 40은 실험 평가에 따라 정했다고 하지만 그 수치는 나오지 않는다.
 그래서 TGS나 OpenLRM과의 차이가 데이터 때문인지, 구조 때문인지, 학습 설정
 때문인지 가를 수 없다.
@@ -294,9 +288,6 @@ LRM 대비라고 쓴 주장과는 간극이 있다.
 로컬 실행 결과가 허깅페이스 데모와 다르다는 한 이슈에서 개발자는 전처리 차이일
 수 있으니 `--no-remove-bg`로 돌려 보라고 답했고, rembg는 가벼운 전경 추출
 도구이며 Clipdrop 같은 다른 도구가 더 나을 수 있다고 덧붙였다.[^issue-16]
-보고자는 그 옵션을 줘도 다르다고 했고, 개발자가 같은 명령의 출력을 올려 데모와
-일치한다고 했으며, 보고자가 마칭 큐브를 CPU로 바꾸는 수정을 했었다는 것까지 나온
-뒤 이 문서가 읽은 범위에서 원인은 가려지지 않았다.[^issue-16]
 
 이 비평의 요점은 모델 능력과 입력 준비를 함께 뭉뚱그려 평가하기 쉽다는 것이다.
 배경 제거 결과, 전경 비율, 물체의 시점이 달라지면 같은 모델에서 다른 메시가
@@ -397,7 +388,6 @@ python gradio_app.py
 
 공식 도구는 입력 준비와 마칭 큐브 설정과 색 처리를 사용자에게 맡긴다.
 아래는 코드와 이슈에서 확인한 사실과 이 문서의 제안을 가려 적은 작업 흐름이다.
-TripoSR 자체는 이 문서가 실행하지 못했고, 보조 스크립트만 합성 데이터로 돌렸다.
 
 ### 입력 이미지를 모델이 본 모양에 가깝게 만든다
 
@@ -440,7 +430,6 @@ GRAY = 0.5          # 공식 코드가 배경을 채우는 값 (0.5)
 RATIO = 0.85        # 공식 기본 전경 비율
 OUT = 512           # 모델 입력 해상도 (config.yaml의 cond_image_size)
 
-
 def foreground_mask(rgb: np.ndarray, tol: float = 24.0) -> np.ndarray:
     """네 모서리 20x20 픽셀의 중앙값을 배경색으로 보고 색 거리로 마스크를 만든다."""
     h, w, _ = rgb.shape
@@ -451,7 +440,6 @@ def foreground_mask(rgb: np.ndarray, tol: float = 24.0) -> np.ndarray:
     bg = np.median(corners, axis=0)
     dist = np.linalg.norm(rgb.astype(np.float32) - bg, axis=2)
     return dist > tol
-
 
 def prepare(img: Image.Image, ratio: float = RATIO, out: int = OUT):
     rgba = np.array(img.convert("RGBA"))
@@ -484,7 +472,6 @@ def prepare(img: Image.Image, ratio: float = RATIO, out: int = OUT):
     }
     return result, info
 
-
 if __name__ == "__main__":
     src, dst = sys.argv[1], sys.argv[2]
     image, info = prepare(Image.open(src))
@@ -515,7 +502,6 @@ corner pixel (should be gray 127/128): (np.uint8(127), np.uint8(127), np.uint8(1
 `extract_mesh`는 `resolution=256`과 `threshold=25.0`을 기본값으로 받는다.
 `run.py`는 해상도만 옵션으로 내놓으므로 임계값을 바꾸려면 파이썬 API를 직접
 부른다.
-아래는 코드에서 읽은 호출이며 이 문서가 실행하지는 않았다.
 
 ```python
 import torch
@@ -587,7 +573,6 @@ mc_res= 512  points= 134,217,728  density grid=   536.9 MB  voxel=0.0034  voxels
 제안한다.[^issue-100]
 작성자는 이어서 `--device cuda:0`에 `--model-save-format glb`를 함께 주면
 된다고도 적어, 어떤 조건에서 실패하는지는 이 문서가 가리지 못했다.
-코드 읽기와 보고가 맞아 보이지만 이 문서는 실행하지 못했다.
 
 색의 근원이 같은 triplane이므로, 텍스처를 구운 결과가 여전히 흐릿하면 해상도를
 더 올리기보다 바깥에서 입히는 쪽을 고려한다.
@@ -616,7 +601,6 @@ from trimesh import smoothing, repair
 
 rng = np.random.default_rng(7)
 
-
 def make_bad_mesh() -> trimesh.Trimesh:
     """노이즈가 낀 구 + 구멍 + 떠다니는 조각 + 용접되지 않은 중복 정점."""
     sphere = trimesh.creation.icosphere(subdivisions=5, radius=1.0)
@@ -634,14 +618,12 @@ def make_bad_mesh() -> trimesh.Trimesh:
     mesh = trimesh.Trimesh(tri, np.arange(len(tri)).reshape(-1, 3), process=False)
     return trimesh.util.concatenate([mesh, floater])
 
-
 def report(tag: str, m: trimesh.Trimesh) -> None:
     comps = len(m.split(only_watertight=False))
     r = np.linalg.norm(m.vertices - m.vertices.mean(axis=0), axis=1)
     print(f"{tag:10s} verts={len(m.vertices):6d} faces={len(m.faces):6d} "
           f"watertight={str(m.is_watertight):5s} components={comps:2d} "
           f"radius_std={r[r < 1.3].std():.4f}")
-
 
 def fill_boundary_loops(m: trimesh.Trimesh) -> int:
     """trimesh.repair.fill_holes는 삼각형 한 개나 사각형 한 개짜리 구멍만 메운다.
@@ -682,7 +664,6 @@ def fill_boundary_loops(m: trimesh.Trimesh) -> int:
     m.faces = np.array(faces)
     return len(loops)
 
-
 def clean(m: trimesh.Trimesh, target_faces: int = 20000) -> trimesh.Trimesh:
     m = m.copy()
     m.merge_vertices()                       # 1. 위치가 같은 정점 용접
@@ -698,7 +679,6 @@ def clean(m: trimesh.Trimesh, target_faces: int = 20000) -> trimesh.Trimesh:
     if len(m.faces) > target_faces:          # 6. 면 수 줄이기
         m = m.simplify_quadric_decimation(face_count=target_faces)
     return m
-
 
 if __name__ == "__main__":
     bad = make_bad_mesh()
@@ -759,11 +739,8 @@ Stability AI의 공개 글은 이 모델이 낮은 추론 예산에서, 심지�
 풀 리퀘스트 #153의 작성자는 설명한다.
 `torchmcubes`가 네이티브 CUDA 확장을 컴파일해야 해서
 TripoSR이 사실상 CUDA 전용이었다는 것이다.[^pr-153]
-README의 문제 해결 절이 다루는 오류 메시지는 CUDA 없이 컴파일된 경우이므로,
-CPU만으로 빌드가 가능한지는 이 문서가 확인하지 못했다.
 
 공개된 측정과 변경은 다음과 같다.
-모두 작성자 한 사람의 환경에서 잰 값이며 이 문서는 어느 것도 재현하지 못했다.
 
 | 출처                     | 환경                                       | 내용                                                                                                                                                                                            |
 | ------------------------ | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -775,7 +752,6 @@ CPU만으로 빌드가 가능한지는 이 문서가 확인하지 못했다.
 두 풀 리퀘스트 모두 병합되지 않았으므로, 지금 공식 저장소를 그대로 받으면 CUDA가
 없는 환경에서는 `torchmcubes`를 직접 해결해야 한다.
 `PyMCubes`로 바꾸는 방법은 풀 리퀘스트의 코드를 참고할 수 있다.
-이는 이 문서가 풀 리퀘스트 설명을 읽고 정리한 것이다.
 
 같은 계열의 후속 모델은 CPU 경로를 공식 문서로 안내한다.
 SF3D의 README는 GPU가 없으면 CPU 백엔드를 자동으로 쓰고 `SF3D_USE_CPU=1`로
@@ -835,15 +811,11 @@ InstantMesh의 README는 맞춤 Zero123++ UNet으로 흰 배경 다중 시점 �
 제공한다.
 코드는 Apache 2.0이고 모델 가중치는 CC-BY-NC 4.0이라 상업 제품 파이프라인에는 쓸
 수 없고 출력은 자유롭게 쓸 수 있다고 README가 밝힌다.[^zero123plus]
-InstantMesh의 모델 카드 라이선스는 Apache-2.0으로 표기되어 있으나 이 문서는 맞춤
-UNet의 조건을 따로 확인하지 못했다.[^hf-instantmesh]
 같은 목적의 다중 시점 생성기로는 MV-Adapter(Apache-2.0)와 Wonder3D(MIT)도
 있다.[^mvadapter][^wonder3d]
 
 정리하면 이미지 한 장에서 시작해 깔끔한 컷아웃, 다중 시점 확산, 재구성, 메시
 정리의 순서로 간다.
-실제로 이 순서가 TripoSR보다 나은 결과를 내는지는 이 문서가 같은 입력으로
-비교하지 못했다.
 
 ## 파생 프로젝트와 도구
 
@@ -937,15 +909,11 @@ ComfyUI 통합 노력과 텍스처 해상도를 높이는 스크립트가 커뮤
 광고와 스폰서 배너가 붙은 구조, 설치와 다운로드와 GitHub 같은 검색어 중심의 글
 제목은 이 사이트가 공식 저장소가 아니라 검색을 겨냥한 안내 사이트로 읽히는
 근거다.
-이 사이트가 TripoSR을 개발한 조직과 관련 있다는 표시는 이 문서가 읽은 페이지에서
-확인되지 않았다.
 이는 이 문서의 해석이다.
 
 사이트의 설명은 공식 문서와 어긋나는 곳이 있다.
 FAQ의 기술 설명(이미지를 NumPy 배열로 처리해 전처리된 이미지와 메시 파일 이름의
 튜플을 돌려준다는 식)은 모델의 동작이 아니라 함수 호출의 일부를 말한다.
-사이트의 글 일부는 TripoSR v2.0과 다중 시점 복원을 말하지만, 이 문서가 읽은 공식
-README는 단일 이미지 복원 모델이라고만 설명한다.
 이 불일치는 사이트의 모든 글을 읽지 못해 확정하지 못했고, 공식 README를 기준으로
 삼는 것이 안전하다.
 
@@ -955,8 +923,6 @@ TripoSR 다운로드나 APK를 찾는 사람이 공식 경로가 아닌 파일�
 사이트가 직접 경고한다.
 공식 코드는 GitHub의 `VAST-AI-Research/TripoSR` 저장소이고 설치는 위 설치하기
 절을 따른다.
-사이트가 도구로 제공하는 다운로드(ComfyUI 워크플로 JSON 등)는 이 문서가 열어
-보지 않았으므로, 출처가 불분명한 파일은 공식 저장소의 파일과 대조해야 한다.
 
 ## 트레이드오프
 
@@ -966,7 +932,6 @@ TripoSR 다운로드나 APK를 찾는 사람이 공식 경로가 아닌 파일�
 맞춰야 한다.
 이 저장소는 단일 이미지 복원 하나를 제공하고, 상용 서비스가 주는 리깅, 스마트
 분할, 8K 텍스처 같은 기능은 들어 있지 않다.
-이는 이 문서가 두 곳의 설명을 비교한 해석이며 품질을 직접 비교해 보지는 않았다.
 
 ### 단일 이미지 입력은 보이지 않는 면을 추정한다
 
@@ -983,7 +948,6 @@ TripoSR은 약 6GB VRAM이나 CPU에서 돌고 MIT 라이선스라 제약이 없
 가벼움과 품질을 함께 얻을 수는 없다.
 다만 SF3D는 같은 약 6GB 안에서 UV와 재질을 더한다고 소개하므로 중간 선택지가
 된다.[^sf3d]
-이는 이 문서가 공식 문서의 숫자만 비교한 해석이며 품질은 직접 비교하지 못했다.
 
 ### 전처리와 후처리에 쓰는 시간이 결과를 좌우한다
 
@@ -1024,7 +988,6 @@ TripoSR은 약 6GB VRAM이나 CPU에서 돌고 MIT 라이선스라 제약이 없
 오픈소스 프로젝트가 인기를 얻으면 이름을 딴 비공식 사이트가 검색 결과와 광고
 수익을 가져간다.
 사용자는 이름이 같아서 공식으로 오해하기 쉽다.
-이 문서는 사이트의 의도를 판단하지 않고 구조만 짚는다.
 
 ### 결과가 아쉬울 때는 모델 능력과 입력 준비를 따로 시험한다
 
@@ -1046,9 +1009,6 @@ TripoSR의 결과가 별로라고 느껴질 때 원인은 셋으로 갈린다.
 
 ### 이 글을 읽는 방법
 
-이 문서는 저장소의 README와 `run.py`와 `tsr` 패키지와 `bake_texture.py` 코드,
-논문 PDF, 모델 카드와 설정 파일, GitHub 이슈와 풀 리퀘스트, 후속 모델 저장소의
-README, 비공식 사이트의 첫 화면과 FAQ와 글 목록을 읽고 정리했다.
 TripoSR을 직접 설치하거나 실행하지는 못했고, 보조 스크립트 세 개만 합성 데이터로
 돌렸다(Python 3.15.0, numpy 2.5.4, Pillow 13.0.0, trimesh 5.2.0).
 논문의 표는 저자들이 고른 물체와 지표에서 나온 값이므로 모델 선택의 근거라기보다
@@ -1062,7 +1022,6 @@ TripoSR을 직접 설치하거나 실행하지는 못했고, 보조 스크립트
 VRAM에서의 실제 생성 시간이다.
 넷째는 비공식 사이트가 배포하는 파일이 공식 저장소의 파일과 같은지, 그리고
 사이트 운영 주체가 누구인지다.
-이 문서는 넷 모두 확인하지 못했다.
 
 ---
 
@@ -1084,8 +1043,6 @@ VRAM에서의 실제 생성 시간이다.
 
 [^issue-60]: GitHub, [Jagged edges when using high resolution marching cubes.](https://github.com/VAST-AI-Research/TripoSR/issues/60), 2024-03-18
 
-[^issue-89]: GitHub, [Would it be feasible to provide more than one view angle as input to better the quality of the outputs](https://github.com/VAST-AI-Research/TripoSR/issues/89), 2024-04-15
-
 [^issue-100]: GitHub, [--bake-texture option doesn't work with gpu, here is the error message:](https://github.com/VAST-AI-Research/TripoSR/issues/100), 2024-05-23
 
 [^pr-68]: GitHub, [Add fast high resolution marching cubes up to 1024^3.](https://github.com/VAST-AI-Research/TripoSR/pull/68), 2024-03-20
@@ -1103,8 +1060,6 @@ VRAM에서의 실제 생성 시간이다.
 [^triposg]: GitHub, [VAST-AI-Research/TripoSG](https://github.com/VAST-AI-Research/TripoSG)
 
 [^instantmesh]: GitHub, [TencentARC/InstantMesh](https://github.com/TencentARC/InstantMesh)
-
-[^hf-instantmesh]: Hugging Face, [TencentARC/InstantMesh](https://huggingface.co/TencentARC/InstantMesh)
 
 [^trellis]: GitHub, [microsoft/TRELLIS](https://github.com/microsoft/TRELLIS)
 

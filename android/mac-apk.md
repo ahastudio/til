@@ -167,8 +167,6 @@ bilalq는 실제로는 Google Play Services 의존과 구글의 폐쇄적인 시
 쓰는 것처럼 구글 서비스를 돌릴 수도 있으며
 이미 Aurora Store를 해법으로 올려 놓았으니
 조작하는 사람들을 위한 것이라고 했다.[^Doohickey-d]
-이 문서가 읽은 위키는 Play Services를 자체 구현한다고 밝히고
-호환 목록의 앱 가운데 Duolingo와 Thunderbird 같은 곳에서 로그인 문제가 보인다.
 Google 서비스에 기대는 앱의 수치는 호환 목록의 66개 앱이 대표하는지에 달려 있다.
 
 ### 누가 쓰는가라는 질문에 답이 갈린다
@@ -192,15 +190,9 @@ andsoitis는 Android 앱이 대개 Kotlin이나 Java로 쓰이니 JVM에 의존�
 DEX를 Dalvik VM 형식으로 번역해 실행했으며
 지금은 앱이 미리 네이티브 코드로 컴파일되지만 APK에서는
 중간 표현으로 DEX를 쓴다고 정리했다.[^chuckadams]
-이 문서가 읽은 위키는 변환된 코드가 OpenJDK로 만든 Java 런타임에서 돈다고
-밝히므로,
-가상 머신이 없다는 표현은 Android 시스템을 부팅하는 가상 머신이 없다는
-뜻으로 읽어야 하고 Java 코드가 런타임에서 실행되는 것까지 부정하지는 않는다.
 
 ## 확인하기
 
-이 문서는 Mac.apk를 직접 설치해 실행하지 않았고
-README와 위키와 호환 목록의 설명을 읽고 정리했다.
 직접 확인하려면 Apple Silicon Mac에서
 macOS 26.4 이상을 쓰는지 확인한 뒤 릴리스에서
 디스크 이미지를 받아 Runtime을 설치하고, 호환 목록에서

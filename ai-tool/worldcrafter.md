@@ -36,9 +36,6 @@ WorldCrafter는 지나간 장면을 따로 기억해 두었다가,
 Hugging Face 오픈소스 팀의 Apolinario가 ZeroGPU 위에 데모 Space를 만들어
 저자에게 넘겼고, 지금은 `Drexubery/worldcrafter-demo`에서 돌아간다.
 
-이 문서는 README, 프로젝트 페이지, arXiv 논문 HTML판, `LICENSE.txt`,
-Hugging Face 모델 카드와 파일 목록, 그리고 `git clone --depth 1`로 받은 코드를
-읽고 썼다.
 모델과 데모는 직접 실행하지 않았다.
 아래의 품질, 속도 수치는 모두 논문과 문서가 밝힌 값이다.
 

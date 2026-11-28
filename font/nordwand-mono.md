@@ -137,7 +137,6 @@ kqr은 높은 `<`와 `>`가 실제 유니코드 왼쪽과
 README가 보여 주는 문자 범위는 라틴 문자와 키릴 문자 표본이다.
 한글, 일본어와 중국어, Nerd Font 아이콘, 가변 글꼴, 힌팅에 관한 설명은 없다.
 GeekNews에 다시 모인 HN 의견에도 가변 글꼴을 지원하느냐는 질문이 있었지만
-이 문서는 그 답을 찾지 못했다.[^gn-plus]
 한국어를 함께 쓰는 개발자라면
 한글이 어떤 글꼴로 대체되는지와 폭이 맞는지를 먼저 확인해야 한다.
 
@@ -169,7 +168,6 @@ gorgoiler는 A 하나를 그리려고 글꼴 라이브러리를 끌어오지 않
 x 높이를 바꾸면 곡선과 연결부가 어긋난다.
 매개변수로 글꼴을 만든다는 아이디어는 Donald Knuth의
 METAFONT가 오래전에 탐구한 방향과 닮았다.
-이는 이 문서의 비유이고 METAFONT는 이 문서가 확인하지 않았다.
 
 ### 합자는 기본값이 아니라 선택 항목이어야 했다
 
@@ -232,5 +230,3 @@ Findecanor의 0과 8, kqr의 꺾쇠와 유니코드 꺾쇠가 그 예다.
 [^gorgoiler]: <https://news.ycombinator.com/item?id=50162290>
 
 [^traxler]: <https://news.ycombinator.com/item?id=50162002>
-
-[^gn-plus]: <https://news.hada.io/topic?id=35699#cid68094>

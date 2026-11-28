@@ -104,7 +104,6 @@ README가 꼽는 기능은 다음과 같다.
 `--skills`로 스킬을 지정하거나 프로젝트의 기술 스택에서 자동으로 고른다.
 `--skip-permissions`와 같은 뜻의 `--dangerously-skip-permissions` 별칭도 있다.
 
-이 문서를 쓴 환경에서는 설치하거나 실행하지 않았다.
 README, `skills/do/README.md`, `codeagent-wrapper/README.md`의 앞부분
 5,000자를 읽었고,
 나머지 모듈의 README와 소스 코드는 열지 않았다.

@@ -54,7 +54,6 @@ import hmac
 import struct
 import time
 
-
 def hotp(key: bytes, counter: int, digits: int = 6, algo=hashlib.sha1) -> str:
     # 1단계: HMAC(key, 카운터 8바이트, 빅 엔디언)
     mac = hmac.new(key, struct.pack(">Q", counter), algo).digest()
@@ -64,12 +63,10 @@ def hotp(key: bytes, counter: int, digits: int = 6, algo=hashlib.sha1) -> str:
     code = struct.unpack(">I", mac[offset:offset + 4])[0] & 0x7FFFFFFF
     return str(code % 10**digits).zfill(digits)
 
-
 def totp(key: bytes, at: float | None = None, step: int = 30, t0: int = 0,
          digits: int = 6, algo=hashlib.sha1) -> str:
     now = time.time() if at is None else at
     return hotp(key, int((now - t0) // step), digits, algo)
-
 
 def verify(key: bytes, code: str, last_used_step: int, step: int = 30,
            window: int = 1, digits: int = 6, at: float | None = None):
@@ -81,7 +78,6 @@ def verify(key: bytes, code: str, last_used_step: int, step: int = 30,
         if hmac.compare_digest(hotp(key, s, digits), code):
             return s
     return None
-
 
 if __name__ == "__main__":
     # RFC 6238 부록 B의 시험 값(SHA-1, 8자리)
@@ -180,8 +176,6 @@ RFC 4226은 지연이나 잠금 방식이 로그인 세션을 가로질러 적�
 ## 확인하기
 
 위 코드를 파일로 저장해 실행하면 RFC 부록 B의 시험 값 5개가 모두 `OK`로 나온다.
-이 문서를 쓰면서 같은 구현으로 RFC의 시험 표 전체(SHA-1, SHA-256,
-SHA-512 각 6개 시각, 총 18개)를 확인했고 모두 일치했다.
 SHA-256과 SHA-512는 키 길이를 각각 32바이트와 64바이트로 늘린 ASCII
 문자열(`1234567890`의 반복)을 쓴다.
 

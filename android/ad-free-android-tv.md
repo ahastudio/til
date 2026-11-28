@@ -88,8 +88,6 @@ curl -L -o smarttube.apk "$(curl -s https://api.github.com/repos/yuliskov/SmartT
 adb -s $D install smarttube.apk
 ```
 
-이 문서가 확인한 바로는 이 저장소의 최신 릴리스(32.68)에
-`_universal.apk` 자산이 실제로 있어서 명령의 패턴이 맞다.[^smarttube]
 TV에서 Downloader 앱으로 직접 받아 설치하는 방법도 있다.
 
 ### 런처 교체
@@ -207,8 +205,6 @@ SmartTube는 GitHub의 서드파티 앱이다.
 이 문서가 본 저장소는 MIT 라이선스이고 별이 3만 5천 개 남짓이다.[^smarttube]
 그래도 Play 스토어를 거치지 않으므로 검증 절차는 사용자 몫이고,
 글의 설치 명령은 최신 릴리스를 그대로 받아 설치할 뿐 해시를 확인하지 않는다.
-이 글의 설치 명령이 가져오는 릴리스는 이 문서를 쓴 날 갱신된 것이었으므로,
-받은 파일이 믿을 만한지는 릴리스 페이지와 서명을 확인하는 편이 안전하다.
 
 Button Mapper에 `WRITE_SECURE_SETTINGS`를 주는 것도 편의와 권한의 교환이다.
 이 권한이 있으면 앱이 보안 설정을 스스로 바꿀 수 있어서

@@ -19,9 +19,6 @@ README도 이 기법이 이 저장소의 발명이 아니라고 밝힌다.
 설치는 `npx skills add danielwh2/sprite-stacking`(Vercel의 skills CLI, Node 22.20 이상)이거나
 `skills/sprite-stacking`을 에이전트의 스킬 폴더에 복사하는 것이다.
 
-이 문서는 저장소를 받아 `README.md`, `SKILL.md`, 슬라이서 `views_to_slices.py`(`find_views`,
-`carve`, `views_to_slices`, `render_stack_image`, `thin_runs`와 인자 정의)와
-`tests/check.py` 전체를 직접 읽고 썼다.
 코드를 실행하지는 않았다.
 `compute_normals`, `detect_emissive`, `build_html_viewer`와 `viewer.html` 본문은 읽지 않았다.
 
@@ -126,9 +123,6 @@ SKILL.md는 먼저 갈림길을 둔다.
 
 `--html`로 쓰는 독립 페이지에는 README에 따르면 회전판(Turntable), 장면(Scene),
 슬라이스 훑기, 분해 보기, 운전·바람·파괴 모드, 낮밤 조명, 비와 눈, 16방향 PNG 내보내기가 있다.
-이 문서는 `viewer.html`에서 Turntable, Shatter, Rain, Snow, Drive, Time of Day, Exploded,
-Wind, `normZ`라는 이름이 실제로 나오는 것까지 확인했고
-동작하는지와 README의 프레임당 0.2~1.5ms 수치는 확인하지 못했다.
 
 ## 분석
 
@@ -160,10 +154,7 @@ GitHub 기여자 집계에서 사람과 `devin-ai-integration[bot]`이 각각 14
 풀 리퀘스트 8개의 작성자도 모두 그 봇 계정이고,
 제목은 “Add Living Diorama, Weather…”, “Improve sprite-stacking skill with …”처럼 기능 이름이다.
 교훈 표의 날짜도 11월 20일과 21일에 몰려 있다.
-이 문서가 확인한 것은 작성 이력까지이고,
-교훈 표의 각 줄이 실제 실패를 겪은 뒤 쓴 것인지는 저장소 안에서 확인하지 못했다.
 표의 “Cauchy-Schwarz 투영”이나 “Beer-Lambert 깊이 색조” 같은 처방은 수식으로는 그럴듯하지만
-이 문서가 그림으로 시험하지 못했다.
 
 ### 범위가 스킬의 이름을 넘는다
 
@@ -172,13 +163,11 @@ README와 SKILL.md는 가짜 3D 스프라이트를 만드는 스킬이라고 소
 영상 촬영용 장면 구성까지 들어 있다.
 SKILL.md 한 파일이 매우 길어서 에이전트가 읽는 문맥을 많이 쓰는 대가가 있다.
 스킬 설명(description)이 짧게 트리거를 정하는 반면 본문은 한 가지 작업의 상세 안내서에 가깝다.
-이 문서는 긴 본문이 에이전트의 결과를 개선하는지 측정하지 못했다.
 
 ### 점검의 한계
 
 `tests/check.py`는 자동으로 만든 소품(차, 나무, 탑)에 대한 시험 8가지로 구성되고
 README는 통과하면 `ok`를 출력한다고 적는다.
-이 문서는 이 테스트를 실행하지 않았다.
 코드를 읽어 확인한 시험 내용은 다음과 같다.
 - 시험 1은 차, 섞은 순서의 차, 키 큰 나무에서 `find_views`가 위 그림과 옆 그림의 크기를 맞게 고르는지 본다.
 - 시험 2는 차 지붕 층에 몸체 빨강이 남지 않는지, 시험 3은 갓 아래에 검은 복셀이 생기지 않는지 본다.
@@ -218,5 +207,3 @@ SKILL.md는 점검에서 걸리면 다시 생성하라고만 한다.
 1. 교훈 표의 `Rule` 행이 슬라이서의 경고나 시험으로 옮겨지는지.
 2. 에이전트가 이 긴 SKILL.md를 읽고 만든 결과가 읽지 않은 경우보다 나은지.
 3. 사람이 쓴 커밋과 봇이 쓴 풀 리퀘스트의 비중이 앞으로 어떻게 달라지는지.
-
-위 셋 모두 이 문서가 확인하지 못했다.

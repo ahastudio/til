@@ -108,16 +108,12 @@ ChatGPT-User의 요청은 열어 봤다는 뜻이지 쓰였다는 뜻이 아니�
 
 ### 같은 사이트를 다르게 말하는 곳이 있다
 
-이 문서가 stateglobe.com의 첫 화면을 열어 보니
-100만 개가 넘는 통계를 내세우고 있었다.[^stateglobe]
 글은 통계 페이지 5만 개와 목록형 글 1만 5천 개를 말한다.
 100만이 페이지 안의 개별 수치를 센 것인지, 그 사이에 늘린 것인지는 알 수 없다.
 글은 사이트가 지금은 면책 문구를 단다고 쓴다.
 내가 본 첫 화면과 바닥글에는 모든 통계가 2026년 추정과 전망이며
 업계 추세 분석에 기반한다는 문구가 있다.
 이는 지어낸 수치라는 고지가 아니라 흔한 추정 면책 문구다.
-다른 페이지에 다른 문구가 있을 수 있으나
-이 문서가 확인한 범위에서는 가짜라는 표시가 없었다.[^stateglobe]
 
 ### 한 번의 비교와 이해관계가 결론을 만든다
 
@@ -223,8 +219,6 @@ HN의 Lerc는 이것이 흔한 오해의 실제를 찾을 때 특히 나쁘다�
 [^jfrbfbreudh]: <https://news.ycombinator.com/item?id=50167282>
 
 [^Lerc]: <https://news.ycombinator.com/item?id=50172060>
-
-[^stateglobe]: StateGlobe, [StateGlobe — 1M+ Digital Marketing Statistics (2026)](https://stateglobe.com/)
 
 [^peec-page]: Peec AI, [70+ Generative Engine Optimization (GEO) Statistics for 2026](https://peec.ai/ai-search-geo-statistics)
 

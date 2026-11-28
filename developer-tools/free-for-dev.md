@@ -13,7 +13,6 @@ GN 토론: <https://news.hada.io/topic?id=759>
 free-for.dev는 무료 개발자 티어(free tier)를 제공하는 서비스를 모은 목록이다.
 페이지는 docsify로 만든 얇은 껍데기이고,
 본문은 실행 시점에 저장소 `ripienaar/free-for-dev`의 README를 불러와 보여준다.
-이 문서는 그 README 전문을 읽고 썼다.
 
 목록의 범위는 시스템 관리자와 DevOps 실무자 같은 인프라 개발자가 쓸 만한
 서비스로 한정된다.

@@ -23,8 +23,6 @@ Adobe Photoshop의 오픈소스 클린룸(clean-room) 재구현이다.
 제품군 전체와 첫 반응, 그리고 README가 내세운 기능 목록은
 `design/artcraft-apps.md`가 이미 다뤘고,
 ArtCraft 본체는 `design/artcraft.md`에 있다.
-이 문서는 저장소를 직접 받아서 코드, 문서, 커밋 이력, 이슈를 읽고
-PhotoCraft 하나를 더 깊게 본다.
 앱을 빌드하거나 실행하지는 않았고, 테스트 코퍼스도 내려받아 돌려 보지 않았다.
 
 저장소는 2026년 9월 30일에 만들어졌다.

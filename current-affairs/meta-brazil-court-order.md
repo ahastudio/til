@@ -140,15 +140,12 @@ henearkr는 선거 기간에 브라질 위치의 요청에 특별한 처리가 �
 선거 홍보물을 만들어 달라고 하면 요청하지 않아도 보우소나루의 번호 22로 만들고,
 룰라의 번호 13으로는 특정 후보를 위한 것이라며 거절하다가, 물으면 일관성이
 없었다고 인정하면서도 새 대화에서는 같은 행동을 반복한다는 것이다.
-이 주장은 Reddit 글을 근거로 들었고, 이 문서는 그 글을 확인하지
-못했다.[^nextaccountic]
 그는 Meta AI의 시스템 프롬프트가 공개되면 도움이 될 것이라고 덧붙였다.
 
 ### 판단 주체에 대한 불신이 양쪽에서 나온다
 
 ETH_start는 브라질 연방대법원이 검열로 악명 높고, 뉴욕타임스에 따르면 2020년
 이후 계정 차단 명령이 223건이라고 했다.[^ETH_start]
-이는 이 문서가 확인하지 못한 주장이다.
 vrganj는 그것이 주권적 권리이고 Meta가 브라질의 주권에 간섭할 권리는 없다고
 응수했다.[^vrganj]
 이 글이 다루는 기관은 대법원이 아니라 선거법원이지만, 댓글에서는 두 기관에 대한
@@ -237,8 +234,6 @@ Meta의 답변은 글이 나올 때까지 없었고, 글도 단체의 주장이 
 [^shubhamjain]: <https://news.ycombinator.com/item?id=50229824>
 
 [^henearkr]: <https://news.ycombinator.com/item?id=50229972>
-
-[^nextaccountic]: <https://news.ycombinator.com/item?id=50230343>
 
 [^ETH_start]: <https://news.ycombinator.com/item?id=50229848>
 

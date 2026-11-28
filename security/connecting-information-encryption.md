@@ -15,9 +15,6 @@ PASS, NICE, KCB 같은 본인확인 서비스를 붙인 서비스라면
 2026년 상반기에는 티빙과 CU 택배에서도 CI가 유출되었다.
 이 흐름 속에서 “CI 암호화가 의무화된다”는 이야기가 돌았는데,
 실제 규정을 읽어 보면 의무의 근거, 대상, 시행일이 항목마다 다르다.
-이 문서는 근거 조문을 원문으로 확인해 정리하고,
-“그래서 해시면 되는가, 솔트나 비밀키가 필요한가”라는 질문에
-규정이 답하는 부분과 답하지 않는 부분을 나누어 적는다.
 
 ## 무엇이 언제 바뀌었나
 
@@ -342,27 +339,22 @@ PERSON_KEY_DOMAIN = b"ci-person-key\x00"
 CI_LENGTH = 88
 KEY_LENGTH = 32
 
-
 def normalized_ci(ci: str) -> bytes:
     trimmed = ci.strip()
     if len(trimmed) != CI_LENGTH:
         raise ValueError(f"CI 길이가 {CI_LENGTH}자가 아닙니다")
     return trimmed.encode("ascii")
 
-
 def person_key_message(ci: str) -> bytes:
     return PERSON_KEY_DOMAIN + normalized_ci(ci)
-
 
 def require_key_length(key: bytes) -> bytes:
     if len(key) != KEY_LENGTH:
         raise ValueError(f"키는 {KEY_LENGTH}바이트여야 합니다")
     return key
 
-
 def local_person_key(ci: str, key: bytes) -> bytes:
     return hmac.new(require_key_length(key), person_key_message(ci), hashlib.sha256).digest()
-
 
 def kms_person_key(ci: str, kms_client, key_id: str) -> bytes:
     response = kms_client.generate_mac(
@@ -372,12 +364,10 @@ def kms_person_key(ci: str, kms_client, key_id: str) -> bytes:
     )
     return response["Mac"]
 
-
 def random_test_ci() -> str:
     import base64
 
     return base64.b64encode(os.urandom(66)).decode()
-
 
 if __name__ == "__main__":
     key = os.urandom(KEY_LENGTH)
@@ -672,12 +662,10 @@ CREATE TABLE IF NOT EXISTS person_identity (
 )
 """
 
-
 class DuplicatePerson(Exception):
     def __init__(self, member_id):
         super().__init__(f"이미 가입한 사람입니다(member_id={member_id})")
         self.member_id = member_id
-
 
 def person_keys_of(ci: str) -> dict[int, bytes]:
     message = person_key_message(ci)
@@ -686,15 +674,12 @@ def person_keys_of(ci: str) -> dict[int, bytes]:
         for version, key in LIVE_KEYS.items()
     }
 
-
 def register(conn, member_id: int, ci: str, source: str,
              version: int = CURRENT_VERSION) -> None:
     register_person_keys(conn, member_id, person_keys_of(ci), source, version)
 
-
 def reverify(conn, ci: str, source: str):
     return reverify_person_keys(conn, person_keys_of(ci), source)
-
 
 def register_person_keys(conn, member_id, person_keys, source, version) -> None:
     with conn:
@@ -704,7 +689,6 @@ def register_person_keys(conn, member_id, person_keys, source, version) -> None:
         except sqlite3.IntegrityError:
             raise DuplicatePerson(find_member(conn, person_keys)) from None
 
-
 def reverify_person_keys(conn, person_keys, source):
     with conn:
         member_id = find_member(conn, person_keys)
@@ -713,12 +697,10 @@ def reverify_person_keys(conn, person_keys, source):
                             person_keys[CURRENT_VERSION], source)
         return member_id
 
-
 def reject_if_already_registered(conn, person_keys) -> None:
     existing = find_member(conn, person_keys)
     if existing is not None:
         raise DuplicatePerson(existing)
-
 
 def find_member(conn, person_keys):
     for version, person_key in person_keys.items():
@@ -727,14 +709,12 @@ def find_member(conn, person_keys):
             return member_id
     return None
 
-
 def member_with_key(conn, version, person_key):
     row = conn.execute(
         "SELECT member_id FROM person_identity WHERE key_version = ? AND person_key = ?",
         (version, person_key),
     ).fetchone()
     return row[0] if row else None
-
 
 def has_version(conn, member_id, version) -> bool:
     row = conn.execute(
@@ -743,17 +723,14 @@ def has_version(conn, member_id, version) -> bool:
     ).fetchone()
     return row is not None
 
-
 def insert_identity(conn, member_id, version, person_key, source) -> None:
     conn.execute(
         "INSERT INTO person_identity VALUES (?, ?, ?, ?, ?)",
         (member_id, version, person_key, source, utc_now()),
     )
 
-
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
-
 
 def register_or_duplicate(conn, member_id, ci, source):
     try:
@@ -762,12 +739,10 @@ def register_or_duplicate(conn, member_id, ci, source):
         return duplicate.member_id
     return None
 
-
 def stored_rows(conn):
     return conn.execute(
         "SELECT member_id, key_version FROM person_identity ORDER BY key_version"
     ).fetchall()
-
 
 if __name__ == "__main__":
     conn = sqlite3.connect(":memory:")
@@ -1291,30 +1266,24 @@ INDEX_KEY = base64.b64decode(os.environ["CI_INDEX_KEY_B64"])
 ENC_KEY_VERSION = "v1"
 ENC_KEY = base64.b64decode(os.environ["CI_ENC_KEY_B64"])
 
-
 def ci_index(ci: str) -> str:
     return with_version(INDEX_KEY_VERSION, hmac_hex(INDEX_KEY, normalized_ci(ci)))
-
 
 def encrypt_ci(ci: str, member_id: str) -> str:
     nonce = os.urandom(NONCE_LENGTH)
     ciphertext = AESGCM(ENC_KEY).encrypt(nonce, normalized_ci(ci), member_id.encode())
     return with_version(ENC_KEY_VERSION, base64.b64encode(nonce + ciphertext).decode())
 
-
 def decrypt_ci(token: str, member_id: str) -> str:
     payload = base64.b64decode(payload_of(token, expected_version=ENC_KEY_VERSION))
     nonce, ciphertext = payload[:NONCE_LENGTH], payload[NONCE_LENGTH:]
     return AESGCM(ENC_KEY).decrypt(nonce, ciphertext, member_id.encode()).decode("ascii")
 
-
 def hmac_hex(key: bytes, message: bytes) -> str:
     return hmac.new(key, message, hashlib.sha256).hexdigest()
 
-
 def with_version(version: str, value: str) -> str:
     return f"{version}:{value}"
-
 
 def payload_of(token: str, expected_version: str) -> str:
     version, payload = token.split(":", 1)
@@ -1322,14 +1291,12 @@ def payload_of(token: str, expected_version: str) -> str:
         raise ValueError(f"알 수 없는 키 버전: {version}")
     return payload
 
-
 def rejects_other_member(token: str, other_member_id: str) -> bool:
     try:
         decrypt_ci(token, other_member_id)
     except InvalidTag:
         return True
     return False
-
 
 if __name__ == "__main__":
     ci = random_test_ci()

@@ -117,7 +117,6 @@ Anthropic은 스킬 메타데이터를 점진적 공개의 첫 단계로 설명�
 
 세 가지 사용성 요소가 개선된다는 문장은 주장이며, 이 글은 개선 정도를
 측정한 결과를 싣지 않는다.
-이 문서도 그 정도를 확인하지 못했다.
 
 ### 시대와 적용 범위
 
@@ -153,12 +152,6 @@ Anthropic은 가장 자주 쓰는 도구 3~5개는 지연 로드하지 말라고
 따라서 참조 사슬을 깊게 만들지 않는 지침을 조심스럽게 따르는 정도가
 근거 있는 선택이다.
 
-### 확인할 것
-
-확인해 볼 것은 이 대응이 실제로 성립하는지다.
-Workday 연구팀의 보고서는 스킬 라이브러리가 커질수록 점진적 공개가
-검색 품질을 높이지만 지연 시간을 조금 늘린다고 보고한다.[^wd]
-
 ---
 
 [^eng]: Anthropic, [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills), 2025-10-16
@@ -166,5 +159,3 @@ Workday 연구팀의 보고서는 스킬 라이브러리가 커질수록 점진�
 [^bp]: Anthropic, [Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
 
 [^ts]: Anthropic, [Tool search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool)
-
-[^wd]: Guilin Zhang 외, [Report: Progressive Disclosure of Agent Skills](https://arxiv.org/abs/2609.35692), 2026-09-28

@@ -258,8 +258,8 @@ kehyoung이 옮긴 한 문장이 같은 방향을 가리킨다. 문서는 만들
 
 용어 자체를 문제 삼은 반응들도 있었다.
 acrophiliac은 보안, 프라이버시, 법적 고려사항 같은 항목이 설계 문서보다는 명세에 들어갈 비기능 요구사항에 가깝다고 지적했다.[^acrophiliac]
-cryptonector는 더 정교한 구분을 제시했다. 인터페이스와 그 계약은 설계 문서보다 아키텍처 문서에 들어가는 편이 낫고 설계 문서는 내부 세부여야 하는데, 두 가지를 구분하는 회사가 거의 없어서 실제로는 설계 문서가 아키텍처와 설계의 혼합물이 된다는 것이다.[^cryptonector]
-zumtrotz는 이 문서가 CONOPS나 소프트웨어 아키텍처 문서에 가깝게 읽히는데 높은 수준에서 보면 충분히 상세하지 않고 낮은 수준에서 보면 너무 상세하다며, 기업 환경에서 독자가 아키텍트인지 다른 개발자인지 자신인지 모르겠다고 물었다.[^zumtrotz]
+cryptonector는 더 정교한 구분을 제시했다.
+인터페이스와 그 계약은 설계 문서보다 아키텍처 문서에 들어가는 편이 낫고 설계 문서는 내부 세부여야 하는데, 두 가지를 구분하는 회사가 거의 없어서 실제로는 설계 문서가 아키텍처와 설계의 혼합물이 된다는 것이다.[^cryptonector]
 
 규제 영역의 관점도 나왔다.
 randusername은 DO-178C(항공우주)와 IEC 62304(의료기기) 설계 문서를 작업해 봤는데 그쪽은 범위가 훨씬 좁다며, 원문의 설계 문서는 규제 소프트웨어 제출용 문서 묶음의 상당 부분을 덮을 만큼 포괄적이라고 평가했다.
@@ -321,7 +321,6 @@ LLM이 생성한 명세는 대개 수십 쪽이 되어 읽고 검토하다 지�
 그는 그것을 훑으며 방향과 접근을 바꾸고, 나머지 장식적인 문장은 LLM에 맥락을 주는 몫으로 둔다고 적었다.[^chandureddyvari]
 
 Tsarp는 문서의 형식 자체를 바꿨다.
-오늘날 모든 모델과 하네스가 스킬을 잘 다루도록 학습되어 있으므로 프로젝트 문서 전체를 스킬로 구조화했고, 마크다운 파일 프런트매터에 “언제 이 문서를 읽어야 하는가”와 “언제 읽지 말아야 하는가” 두 키를 추가했다는 것이다.[^Tsarp]
 사람용 문서에는 없던 메타데이터인데, 독자가 검색이 아니라 선택으로 문서에 접근하는 에이전트라면 필요해지는 항목이다.
 
 반대편 극단도 스레드에 있었다.
@@ -395,8 +394,6 @@ Lobste.rs에서 gigawhitlocks는 더 강한 결론을 냈다.
 
 [^cryptonector]: <https://news.ycombinator.com/item?id=49704202>
 
-[^zumtrotz]: <https://news.ycombinator.com/item?id=49698331>
-
 [^randusername]: <https://news.ycombinator.com/item?id=49698022>
 
 [^0xbadcafebee]: <https://news.ycombinator.com/item?id=49698292>
@@ -406,8 +403,6 @@ Lobste.rs에서 gigawhitlocks는 더 강한 결론을 냈다.
 [^gbrindisi]: <https://news.ycombinator.com/item?id=49698092>
 
 [^chandureddyvari]: <https://news.ycombinator.com/item?id=49707930>
-
-[^Tsarp]: <https://news.ycombinator.com/item?id=49698707>
 
 [^Kuyawa]: <https://news.ycombinator.com/item?id=49699073>
 

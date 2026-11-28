@@ -140,7 +140,6 @@ const DefaultStaleIf = "(:now-refreshed)>" +
 ## 따라 하기
 
 아래 과정 가운데 `hn scan`으로 전체를 받는 단계는
-이 문서를 쓰며 실행하지 않았다.
 DuckDB 쿼리는 HN API에서 직접 받은 아이템 4,499개로 만든 표본에서
 DuckDB 1.5.6으로 실행해 확인했다.
 표본은 id 1번부터 1,499번까지와,

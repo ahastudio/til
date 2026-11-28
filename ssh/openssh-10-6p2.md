@@ -52,8 +52,6 @@ OpenSSH 개발자 Damien Miller는 같은 날 Mastodon 계정 hachyderm.io에서
 문제를 전날 알았고, AI 에이전트가 버그를 몇 시간 안에 다시 발견하는 사례를
 여러 번 보았기 때문에 긴 비공개 유예 기간(embargo)을 공격자에게 이로운
 위험한 관행으로 본다고 설명했다.[^miller-post]
-이 문서는 그 게시물에서 확인한 범위만 전하고,
-취약점의 작동 방식은 다루지 않는다.
 
 ## 분석
 
@@ -120,16 +118,12 @@ phoronixrly는 musl 기반 OpenWrt 라우터의 Dropbear도 영향이 없느냐�
 물었다.[^phoronixrly]
 mijoharas는 취약점 발견자의 설명 페이지 하단에 Dropbear는 영향이 없다고
 적혀 있다고 알렸다.[^mijoharas]
-이 문서는 그 페이지를 열어 보지 않았고, 댓글이 전한 내용으로만 언급한다.
 OpenSSH 릴리스 노트만으로는 Dropbear 질문에 답할 수 없다는 점이 요점이다.
 
 ### 보안 페이지에 항목이 없다는 지적은 이 문서에서도 확인된다
 
 entuno는 릴리스 노트가 이 건을 심각한 보안 우회책이라고 하는데
 보안 페이지에는 아무 것도 없다고 지적했다.[^entuno]
-이 문서를 쓰는 시점에 OpenSSH 보안 페이지를 열어 보니
-가장 최신 항목이 2025년 4월 9일이고 10.6p2 관련 항목은
-없었다.[^openssh-security]
 다만 10.6 릴리스 노트에도 여러 보안 수정이 있었으므로
 이 페이지가 최근 릴리스를 반영하지 않는 것으로 보인다.
 단정할 수는 없으나, 빠르게 대응해야 하는 운영자가 보안 페이지만 보면
@@ -179,7 +173,6 @@ Damien Miller의 게시물은 Alpine Linux 개발자들이 매우 짧은 시간 
 이는 하류(downstream) 쪽이 같은 속도를 낼 수 있어야 이 방침이
 효과를 낸다는 점을 보여 준다.
 
-이 관계는 이 문서가 확인하지 못한 부분을 남긴다.
 공개 속도가 빨라져서 실제로 악용이 줄었는지는 노트가 말하지 않으며,
 지표가 없다.
 이 방침이 효과가 있다는 판단은 이후 릴리스의 공개 간격과 악용 사례를
@@ -203,8 +196,6 @@ OpenSSH 팀이 근본 원인이 밖에 있다고 보면서도 `sshd`에서 먼�
 ---
 
 [^miller-post]: Hachyderm, [OpenSSH 10.6p2 has been released with a workaround for a critical vulnerability.](https://hachyderm.io/@damienmiller/117563026759098135), 2026-11-05
-
-[^openssh-security]: OpenSSH, [OpenSSH: Security](https://www.openssh.com/security.html)
 
 [^ale42]: <https://news.ycombinator.com/item?id=50377767>
 

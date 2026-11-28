@@ -6,9 +6,12 @@
 
 ## 소개
 
-mirroir-mcp는 MCP 클라이언트(Claude Code, Codex, Cursor, VS Code, Claude Desktop, Hermes, OpenClaw 등)가 macOS의 iPhone Mirroring 앱을 통해 실제 아이폰을 보고 조작하게 하는 Swift 기반 MCP 서버이다. 사이트의 문구는 에이전트가 진짜 아이폰을 쓰게 하라는 것이다.
-개발자 모드, Xcode, WebDriverAgent, 탈옥이 필요 없고 아이폰에는 아무것도 설치하지 않는다고 한다. 이름의 mirroir는 miroir의 옛 프랑스어 표기라고 README가 설명한다. 저작권 표시는 Async-IO이다.
-이 문서는 `mirroir.dev` 홈페이지와 문서 페이지, 저장소 README와 `docs/`의 시작하기, 도구, 권한, 스킬과 CI 문서, GitHub API 수치와 최신 릴리스를 읽었다. 직접 설치해 써 보지 않았고 `docs/`의 한계, 화면 인식, 보안, FAQ, 설치, CLI, 컴파일된 스킬 문서와 `mirroir-run` 문서, 변경 기록은 열지 못했다.
+mirroir-mcp는 MCP 클라이언트(Claude Code, Codex, Cursor, VS Code, Claude Desktop, Hermes, OpenClaw 등)가 macOS의 iPhone Mirroring 앱을 통해 실제 아이폰을 보고 조작하게 하는 Swift 기반 MCP 서버이다.
+사이트의 문구는 에이전트가 진짜 아이폰을 쓰게 하라는 것이다.
+개발자 모드, Xcode, WebDriverAgent, 탈옥이 필요 없고 아이폰에는 아무것도 설치하지 않는다고 한다.
+이름의 mirroir는 miroir의 옛 프랑스어 표기라고 README가 설명한다.
+저작권 표시는 Async-IO이다.
+직접 설치해 써 보지 않았고 `docs/`의 한계, 화면 인식, 보안, FAQ, 설치, CLI, 컴파일된 스킬 문서와 `mirroir-run` 문서, 변경 기록은 열지 못했다.
 Dale Seo의 한국어 블로그 글[^blog]이 이 도구를 소개한 내용은 각주로 대조해 적었다.
 설명은 모두 프로젝트의 주장이다.
 
@@ -146,7 +149,6 @@ GeekNews에서는 `mirroir`와 `iPhone Mirroring MCP`로 검색했고 대조 쿼
 OCR과 비전 모드의 정확도와 지연,
 `blockedApps`와 보안 모델이 실제로 막는 경로,
 릴리스가 빠르게 바뀌는 동안의 호환성 유지이다.
-셋 모두 이 문서가 확인하지 못했다.
 
 ---
 

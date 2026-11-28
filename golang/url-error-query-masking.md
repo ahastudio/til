@@ -31,13 +31,11 @@ Get "https://api.example.com/v1/summary?account=<acct>": context deadline exceed
 
 ### Go 소스에서 확인한 것
 
-이 문서는 Go 저장소의 소스에서 글의 주장을 확인했다.
 `net/url`의 `Error`는 Op, URL, Err 세 필드를 가지고, `Error()` 문자열은 `Op`와 `URL`과 `Err`를 이어 붙인 것이다.[^url]
 `http.Client`가 실패를 `url.Error`로 감쌀 때 쓰는 URL 문자열은 `stripPassword` 함수를 거치는데,
 이 함수는 사용자 정보에 비밀번호가 있을 때 그것만 별표로 바꾸고 나머지는 그대로 돌려준다.[^client]
 그러므로 쿼리 문자열은 가려지지 않는다.
 글쓴이가 말한 표준 라이브러리가 지우는 것은 주소 속 비밀번호뿐이라는 문장과 일치한다.
-이 문서는 저장소의 현재 기본 브랜치 소스를 읽었고, Go 1.25의 해당 릴리스 소스는 열어 보지 않았다.
 Go를 실행해 실제 출력을 만들어 보지도 않았다.
 
 ## 해결

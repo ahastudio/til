@@ -10,8 +10,6 @@ GIF, 루프 영상),
 Claude Code 스킬입니다.
 저장소는 2026년 11월 1일에 올라왔고 커밋은 하나, 별은 0개, 포크는 1개입니다.
 언어는 TypeScript와 JavaScript(`.mjs`)이고, 파일은 52개입니다.
-이 문서는 README와 `SKILL.md`, 파일 목록, `vfx/LICENSE`를 읽어 정리한 것이고,
-스킬을 설치해 렌더해 본 결과가 아닙니다.
 
 설치는 저장소를 `~/.claude/skills/pixel-making`으로 복제하는 것이 전부입니다.
 Node 22.18 이상을 권하고(`.ts` 효과를 바로 실행하기 위해서),
@@ -40,8 +38,6 @@ node scripts/render.mjs vfx/explosion.ts --fx --opts '{"size":1.2}' --seconds 2
 `SKILL.md`는 이 스킬이 Sprite Fusion의 Hugo Duprez가 Claude와 Codex로 픽셀 VFX를
 만들며 정리한 방식을 따른다고 밝히고, 원문으로 `spritefusion.com`의 블로그
 글을 듭니다.
-이 문서는 그 글을 열어 보지 않았으므로,
-아래는 `SKILL.md`가 옮겨 적은 내용입니다.
 
 여섯 가지 원칙이 있습니다.
 

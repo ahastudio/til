@@ -21,8 +21,6 @@ Article이다.
 번씩 던지는 예로 전 과정을 보여주며, 코드는 저자의 GitHub 저장소로
 공개했다고 한다.
 
-이 문서는 그 절차를 실무 순서로 다시 정리하고,
-글의 숫자가 무엇을 증명하고 무엇을 증명하지 못하는지를 따진다.
 글이 쓰는 도구는 Confident AI와 DeepEval이므로,
 도구에 묶이지 않는 원리와 도구에 묶이는 부분을 나눠 적는다.
 
@@ -79,7 +77,6 @@ eval harness는 그 점수를 내는 장치다.
 코드는 글의 저장소를 그대로 옮긴 것이 아니라,
 같은 구조를 이 문서가 다시 쓴 것이다.
 DeepEval의 정확한 호출 방식은 글의 설명을 따르되,
-이 문서는 그 API를 직접 실행해 보지 않았다.
 
 ### 1단계: 트래픽에서 시작하고 요청에 출처 태그를 단다
 
@@ -142,11 +139,9 @@ import requests
 URL = os.environ["APP_URL"]
 HEADERS = {"Authorization": f"Bearer {os.environ['APP_API_TOKEN']}"}
 
-
 def wake_up():
     # 무료 호스팅은 유휴 시 잠들므로 첫 요청 전에 깨운다
     requests.get(f"{URL}/health", timeout=120).raise_for_status()
-
 
 def ask(question: str, source: str = "harness"):
     for attempt in range(3):
@@ -215,7 +210,6 @@ import sys
 
 REPEATS = 3  # 평가를 돌릴 때 쓴 반복 횟수와 같아야 한다
 
-
 def status(passes: list[bool]) -> str:
     if len(passes) != REPEATS:
         return "error"  # 앱 호출이 점수 전에 실패했다
@@ -224,7 +218,6 @@ def status(passes: list[bool]) -> str:
     if not any(passes):
         return "always fail"
     return "flaky"
-
 
 def main(old_path: str, new_path: str) -> int:
     old = {q: status(p) for q, p in json.load(open(old_path)).items()}
@@ -251,7 +244,6 @@ def main(old_path: str, new_path: str) -> int:
 
     # 항상 통과하던 질문이 항상 실패로 바뀌었거나 결과가 비었을 때만 막는다
     return 1 if found["깨짐"] or found["오류"] else 0
-
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv[1], sys.argv[2]))
@@ -326,8 +318,6 @@ main에도 실패하는 골든이 있어서 첫 풀 리퀘스트부터 빨갛게
 증거를 넉넉히 주는 쪽이 안전해 보이지만,
 지어낸 사실 검사에 도움말 전체를 주면 봇이 보지 못한 문서로 정당화되는 답을
 통과시킬 수 있다.
-글이 이 가능성을 직접 다루지는 않으며, 이 문서가 두 메트릭의 증거 설계에서
-이끌어낸 해석이다.
 
 ### 한 번에 하나만 바꿀까
 
@@ -423,8 +413,6 @@ main이 좋아졌는데 기준선을 갱신하지 않으면 새로 고쳐진 질
 하지만 하네스의 원리와 이 제품의 기능은 다른 것이다.
 추적 수집, 실행 이름 붙이기, 회귀 화면은 다른 도구로 대체할 수 있고,
 이 문서의 구현 절은 그 원리 부분을 도구와 분리해 적으려 했다.
-글이 인용하는 외부 발언(Anthropic의 가이드,
-업계 인물들의 말)은 이 문서가 원문을 열어 보지 않았고 글이 전하는 대로만 옮겼다.
 
 ### 비용과 속도 수치는 작은 앱의 값이다
 

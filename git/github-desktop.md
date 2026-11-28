@@ -8,9 +8,11 @@ HN 토론: <https://news.ycombinator.com/item?id=16990699> (28점, 18개 댓글)
 
 ## 소개
 
-GitHub Desktop은 GitHub가 만드는 오픈소스 Git 데스크톱 클라이언트이다. 제품 페이지는 고생 없이 Git을 경험하라는 문구로 소개한다.
-`desktop.github.com`은 `github.com/apps/desktop`으로 영구 이동한다. 저장소의 홈페이지 필드도 이 주소이다.
-이 문서는 제품 페이지와 GitHub API 수치, 최신 릴리스, HN 글을 읽었다. 직접 설치해 써 보지 않았고 문서(`docs.github.com`)와 릴리스 노트 페이지, 베타 페이지는 열지 않았다.
+GitHub Desktop은 GitHub가 만드는 오픈소스 Git 데스크톱 클라이언트이다.
+제품 페이지는 고생 없이 Git을 경험하라는 문구로 소개한다.
+`desktop.github.com`은 `github.com/apps/desktop`으로 영구 이동한다.
+저장소의 홈페이지 필드도 이 주소이다.
+직접 설치해 써 보지 않았고 문서(`docs.github.com`)와 릴리스 노트 페이지, 베타 페이지는 열지 않았다.
 설명은 모두 GitHub의 주장이다.
 
 GitHub API로 읽은 시점(2026년 11월 19일)의 수치는 별 22,118개, 포크 10,724개, 열린 이슈 1,084개, 라이선스 MIT, 언어 TypeScript, 생성일 2016년 5월 11일, 마지막 푸시 2026년 11월 18일이다. 기본 브랜치는 `development`이고 주제어로 electron, git, github이 달려 있다.
@@ -89,7 +91,6 @@ GeekNews에서는 `GitHub Desktop`으로 검색해 이 제품을 원문으로 �
 충돌 해결과 대화형 리베이스 등 문서 페이지의 지원 범위,
 대형 저장소에서의 메모리와 속도,
 Linux 공식 지원 여부이다.
-셋 모두 이 문서가 확인하지 못했다.
 
 ---
 

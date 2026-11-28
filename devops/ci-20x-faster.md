@@ -18,8 +18,6 @@ Boardy의 엔지니어링 책임자 owen이 2026-10-31에 Twitter Article로 올
 저자는 이 달에 CI를 제품처럼 다루었고, 작업의 대부분을 휴대폰으로 Slack의 사내
 에이전트에게 시켜 했다고 한다.
 글 앞부분에는 이 글을 에이전트에게 주고 같은 일을 시키라는 말이 있다.
-이 문서는 그 글을 사람이 읽고 적용할 수 있는 순서로 다시 정리하고,
-글에 없는 확인 방법과 반대 증거를 덧붙인다.
 덧붙인 부분은 글이 아니라 필자의 것임을 구분해 적는다.
 
 ### 개선 내용
@@ -229,15 +227,12 @@ import sys
 from collections import defaultdict
 from datetime import datetime
 
-
 def gh(path):
     out = subprocess.run(["gh", "api", path], capture_output=True, text=True, check=True).stdout
     return json.loads(out)
 
-
 def ts(s):
     return datetime.fromisoformat(s.replace("Z", "+00:00"))
-
 
 def main():
     repo = sys.argv[1]
@@ -267,7 +262,6 @@ def main():
     top = sorted(steps.items(), key=lambda kv: -statistics.median(kv[1]))[:10]
     for (job, step), v in top:
         print(f"{statistics.median(v):7.0f}  {job[:28]} / {step[:50]}")
-
 
 main()
 ```

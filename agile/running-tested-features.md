@@ -85,7 +85,6 @@ RUNS = {
          "acc_pay_declined": True, "acc_history_list": True}],
 }
 
-
 def feature_is_running_tested(tests, runs):
     """테스트가 있고, 최근 runs 모두에서 그 테스트가 전부 통과했을 때만 True.
 
@@ -95,7 +94,6 @@ def feature_is_running_tested(tests, runs):
     if not tests:
         return False
     return all(run.get(t) is True for run in runs for t in tests)
-
 
 def rtf_by_day(features, runs_by_day, window=1):
     """날짜별 (day, RTF, 세지 못한 이유, 어제는 셌는데 오늘 못 센 기능)."""
@@ -120,10 +118,8 @@ def rtf_by_day(features, runs_by_day, window=1):
         history.append((day, len(counted), dict(missing), regressed))
     return history
 
-
 def bar(n, total):
     return "#" * n + "." * (total - n)
-
 
 if __name__ == "__main__":
     total = len(FEATURES)
@@ -251,7 +247,6 @@ RTF는 3으로 그대로이고, 회귀는 어제는 셌는데
 오늘은 못 센 기능을 따로 비교해야 드러났다.
 RTF 곡선만 보는 팀은 이 날의 회귀를 놓친다.
 글의 곡선은 순증가이고 총 회귀가 아니므로, 기능별 상태 전이를 함께 봐야 한다.
-이는 이 문서가 코드를 실행해서 확인한 점이다.
 
 ### 곡선 세 장은 실제 자료가 아니라 스케치다
 

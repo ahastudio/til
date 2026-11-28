@@ -112,7 +112,6 @@ WebSocket `/api/ws/agents`에 인증이 없고 tRPC 절차가 모두 `publicProc
 생성 절차만 `^[a-z0-9-_]+$`로 이름을 검사하고,
 수정과 삭제 절차는 임의의 `skillName` 문자열을 받아 `path.join` 뒤에 `rmSync`를 `recursive:true`로 부른다.
 `projectPath`도 아무 문자열이어서 `..`가 든 이름이 스킬 디렉터리 밖을 가리킬 수 있음을 직접 읽어 확인했다.
-이 문서는 이를 실행해 확인하지 않았다.
 `express.json`의 본문 한도가 50MB이고 CORS나 Origin 검사는 코드에서 찾지 못했다.
 
 ### 설명과 코드의 차이
@@ -148,5 +147,3 @@ Claude Code가 `result`, `turn_end`, `system init` 기록을 실제로 내보내
 1. 호스트 바인딩과 인증이 추가되는지.
 2. 에셋의 라이선스 표기가 정리되는지.
 3. 이후 커밋이 이어지는지.
-
-위 셋 모두 이 문서가 확인하지 못했다.

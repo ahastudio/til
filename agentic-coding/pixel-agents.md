@@ -28,7 +28,6 @@ VS Code 확장은 에이전트를 VS Code 터미널에 띄우고 패널에 캐�
 회사는 아키텍처가 에이전트·에디터 독립적이라고 소개한다.
 타입이 붙은 `HookProvider` 인터페이스가 통합 경계를 정의해,
 새 AI 도구를 더하는 것이 코드의 하위 디렉터리 하나가 된다는 설명이다.
-이 문서가 코드를 읽고 확인한 범위는 아래 `## 동작 방식`과 비평에 적었다.
 Claude Code가 현재 레퍼런스 구현이고, Codex·Gemini·Cursor가 로드맵에 있다.
 
 기능은 넓다.
@@ -232,8 +231,6 @@ Pixel Agents가 보여 줄 수 있는 것은 각 에이전트의 훅이 노출�
 `server/src/providers/index.ts`의 `hookProviders` 배열도 `claudeProvider` 하나뿐이다.
 그런데 대화 기록을 읽는 `transcriptParser.ts`는 `record.type === 'assistant'`와
 `tool_use` 블록, 즉 Claude Code 기록의 모양을 제공자 디렉터리 밖에서 직접 읽는다.
-이 문서가 확인한 것은 이 부분까지이고, 다른 도구를 붙일 때 이 파서가 어떻게 바뀌어야
-하는지는 확인하지 못했다.
 회사가 말하는 하위 디렉터리 하나의 비용은 훅 층의 이야기로 읽는 것이 정확하다.
 
 ### 보는 즐거움을 위해 사용자 설정과 로컬 서버를 연다

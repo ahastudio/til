@@ -58,8 +58,6 @@ JSON-RPC 2.0과 stdin/stdout이라는 본질적 구성 요소만 있으면
 
 ### 약점
 
-WelsonJS와 cscript의 구체적 사용법이 문서에서 충분히 설명되지 않아,
-같은 환경에 처한 다른 개발자가 곧바로 재현하기는 어렵다.
 WelsonJS 자체에 대한 사전 지식이 필요하며,
 JScript의 한계(현대 JavaScript 기능 부재)도 별도로 학습해야 한다.
 

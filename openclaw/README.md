@@ -123,7 +123,6 @@ OpenClaw 홈페이지의 표제는 “The AI that really does things”다.
 혼자 쓸 수도 있고 팀과 공유할 수도 있다.
 구독도, 호스팅 티어도, 토큰도 없으며 독립 501(c)(3) 재단이 관리한다고 밝힌다.
 
-이 문서는 홈페이지가 소개하는 설치, 기능, 운영 주체를 먼저 정리한다.
 그다음 이 저장소에 쌓인 OpenClaw 문서와 연결하고,
 홈페이지의 주장을 따져 보는 분석, 비평, 인사이트로 끝낸다.
 같은 범주의 제품으로 SpaceXSI의 Grok Bot이 있다.
@@ -220,7 +219,6 @@ OpenAI가 후원자이고 Peter Steinberger가 그곳에서 일하지만 OpenCla
 ## 공식 블로그가 채우는 빈칸
 
 홈페이지가 한 줄로 넘기는 세 주제를 공식 블로그가 따로 다룬다.
-이 문서는 세 글을 요약본으로 읽었으므로 세부는 원문에서 확인해야 한다.
 
 ### 재단 설립 글
 
@@ -247,7 +245,6 @@ University of Michigan, OpenAI이고 University of Michigan이 가장 큰 후원
 한다.[^foundation]
 커뮤니티 행사 ClawCon은 16개국에서 34회 열렸고 등록자가 3만 명에
 가깝다.[^foundation]
-이 문서가 읽은 요약에는 후원 금액, 이사회 구성, 의사 결정 방식이 나오지 않았다.
 
 ### OpenClaw Enterprise
 
@@ -309,7 +306,6 @@ Microsoft의 2026년 6월 2일 Build 글은 OpenClaw가 Windows에서 Microsoft 
 Containers 안에서 네이티브로 돈다고 소개한다.
 TechCrunch의 같은 날 글은 Microsoft가 OpenClaw에서 공개적으로 영감을 받은 개인
 비서 Scout를 내놓았다고 전한다.
-이 문서는 이 네 글을 열어 보지 않았고, 홈페이지가 소개하는 내용을 그대로 옮겼다.
 
 ## Related
 
@@ -658,13 +654,9 @@ GeekNews의 `xguru`는 Hacker News 의견으로,
 수밖에 없다.
 기본 모델 설정, 온보딩 화면에서 처음 제시하는 모델,
 문서 예시의 모델 이름이 확인 대상이다.
-이 문서는 코드를 확인하지 않았으므로 이 문장을 참으로도 거짓으로도
-판단하지 않는다.
 금액 공개나 기본 모델 설정에서 한쪽 쏠림이 확인되면 이 문단의 평가는 바뀐다.
 
 공식 블로그는 이 빈칸을 일부 채우고 다른 빈칸을 드러낸다.
-재단 설립 글은 University of Michigan이 가장 큰 후원자라는 점까지 밝히지만,
-이 문서가 읽은 요약에는 금액과 이사회와 의사 결정 방식이 없었다.[^foundation]
 같은 글은 기술적 결정을 여전히 Steinberger가 내린다고 하고,
 OpenAI가 OpenClaw를 열린 독립 프로젝트로 유지하겠다고 약속했다고
 한다.[^foundation]

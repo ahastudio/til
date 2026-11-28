@@ -167,7 +167,6 @@ rows = [
 # 컬럼 기반: 같은 항목끼리 모여 있다 (같은 데이터를 세로로 다시 배치)
 cols = {name: [r[k] for r in rows] for k, name in enumerate(FIELDS)}
 
-
 def revenue_row_store():
     touched = 0
     out = defaultdict(int)
@@ -175,7 +174,6 @@ def revenue_row_store():
         touched += len(r)            # 행을 꺼내면 6개 항목이 따라온다
         out[r[2]] += r[4]
     return out, touched
-
 
 def revenue_column_store():
     touched = 0
@@ -186,7 +184,6 @@ def revenue_column_store():
         out[d] += a
     return out, touched
 
-
 for name, fn in [("row", revenue_row_store), ("column", revenue_column_store)]:
     t0 = time.perf_counter()
     result, touched = fn()
@@ -196,7 +193,6 @@ assert revenue_row_store()[0] == revenue_column_store()[0]
 print("same result: True")
 ```
 
-이 문서를 쓰는 환경에서 실행한 결과는 다음과 같다.
 행 방식은 1,800,000개, 컬럼 방식은 600,000개의 값을 건드렸고 결과는 같았다.
 건드리는 값이 세 배 차이가 나는 것은 항목 6개 가운데 2개만 읽기 때문이다.
 실제 분석 시스템은 여기에 압축과 디스크 단위 읽기가 더해지므로, 이 예제는 원리를 보는 용도일 뿐 성능 측정이 아니다.

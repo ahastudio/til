@@ -149,9 +149,6 @@ ADR(Architecture Decision Record, 아키텍처 결정 기록)이 같은 이유�
 뮤테이션 테스트 글의 수치도 해당 프로젝트의 사례로 받아들였다고 한다.
 
 그러면 이 글의 근거는 저자 개인의 작업 경험과 참고 문헌에 있다.
-참고 문헌에는 Kent Beck, Mitchell Hashimoto, Birgitta Böckeler, Ethan Mollick,
-Simon Willison, Anthropic, METR, DORA, Microsoft,
-Michael Nygard의 글이 올라 있지만, 이 문서는 그 글들을 열어 보지 않았다.
 따라서 다섯 질문은 검증된 처방이 아니라 한 사람이 정리한 작업 가설 목록으로
 받아들이는 편이 맞다.
 이 점은 저자 스스로 글 제목에 단상이라는 말을 붙이고 마지막 절을 지금의

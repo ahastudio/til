@@ -12,9 +12,13 @@ GN 토론: <https://news.hada.io/topic?id=37440>
 
 ## 소개
 
-Reticle은 코딩 에이전트가 「끝났다」고 한 작업을 실제로 돌아가는 앱에서 확인해 주는 도구이다. README의 문구는 에이전트가 끝났다고 하면 Reticle이 그것이 사실인지 알아낸다는 것이다. 실제로 돌아가는 앱을 조작하고 일어난 일을 읽어서 통과, 실패, 판단 불가의 판정과 고칠 파일과 줄 번호를 돌려준다.
-저장소 설명은 AI 에이전트가 코드를 만들어도 만든 것을 이해하지 못하는 문제를 두고, Jev 방식의 기계 친화적 런타임 인식을 웹과 데스크톱 앱에 가져온다고 한다. 이 문서가 읽은 README와 문서 페이지에는 「Jev-style」이라는 표현이 없었다.
-이 문서는 저장소 README 전문, 라이선스 파일, GitHub API 수치와 최근 릴리스 다섯 개, 문서 사이트(`docs.reticle.sh`)의 홈, 빠른 시작, 프레임워크, 문제 해결 페이지의 제목 구조를 읽었다. 직접 설치해 써 보지 않았다. 저장소의 홈페이지 필드인 `app.reticle.sh`는 대시보드로 보이며 JavaScript 앱이라 본문을 읽지 못했다. 문서 사이트의 나머지 페이지(도구 개요, 데스크톱, 프로덕션 모드, 텔레메트리 등)와 `SECURITY.md`는 열지 못했다.
+Reticle은 코딩 에이전트가 「끝났다」고 한 작업을 실제로 돌아가는 앱에서 확인해 주는 도구이다.
+README의 문구는 에이전트가 끝났다고 하면 Reticle이 그것이 사실인지 알아낸다는 것이다.
+실제로 돌아가는 앱을 조작하고 일어난 일을 읽어서 통과, 실패, 판단 불가의 판정과 고칠 파일과 줄 번호를 돌려준다.
+저장소 설명은 AI 에이전트가 코드를 만들어도 만든 것을 이해하지 못하는 문제를 두고, Jev 방식의 기계 친화적 런타임 인식을 웹과 데스크톱 앱에 가져온다고 한다.
+직접 설치해 써 보지 않았다.
+저장소의 홈페이지 필드인 `app.reticle.sh`는 대시보드로 보이며 JavaScript 앱이라 본문을 읽지 못했다.
+문서 사이트의 나머지 페이지(도구 개요, 데스크톱, 프로덕션 모드, 텔레메트리 등)와 `SECURITY.md`는 열지 못했다.
 설명은 모두 프로젝트의 주장이다.
 
 GitHub API로 읽은 시점(2026년 11월 19일)의 수치는 별 1,303개, 포크 254개, 열린 이슈와 풀 리퀘스트 279개, 언어 TypeScript, 생성일 2026년 6월 11일, 마지막 푸시 2026년 11월 17일이다. GitHub의 라이선스 표시는 `NOASSERTION`이다. 라이선스 파일은 Apache License 2.0(저작권 Reticle Labs, 2026)이고 짧은 개요이며 각 패키지의 `LICENSE`와 `NOTICE`가 우선한다고 적는다. Tauri용 Rust 크레이트 `reticle-tauri`는 MIT이다. 상업과 OEM 문의는 `hey@reticle.sh`이다.
@@ -70,7 +74,6 @@ Preact는 센서만 있고 구동은 검증되지 않았다. 소스 파일과 �
 - 프롬프트: 각 프롬프트는 가려진 채 `.reticle/`에 보관되고, 연결된 프로젝트는 기본으로 실행과 함께 프롬프트를 보낸다. 비밀번호, 토큰, 카드 번호는 캡처 전에 `[REDACTED]`로 바뀐다.
 - 텔레메트리: 익명 사용 횟수가 기본으로 켜져 있다. 어떤 명령과 도구가 쓰였는지와 무작위 식별자뿐이고 앱 내용, IP, 위치는 없다고 한다. 끄려면 `reticle telemetry disable`, `RETICLE_TELEMETRY=0`, `DO_NOT_TRACK=1`을 쓴다.
 - 프로덕션 빌드는 프로덕션 모드(서명된 로더)를 고르지 않으면 SDK를 포함하지 않는다.
-- 공급망: README는 npm SLSA 출처 증명, 설치 스크립트 없음, OpenSSF Scorecard 배지를 내세운다. 이 문서가 확인하지 못했다.
 
 ## 용도와 코드로 쓰는 검증
 
@@ -127,7 +130,7 @@ SDK가 앱 안에서 DOM과 네트워크와 상태를 직접 읽는 것은 화�
 
 ### 같은 주제의 다른 도구와 놓인다
 
-같은 영역에 앱 조작 검증과 하네스를 다룬 이 저장소의 다른 문서(`agentic-coding/frontierharness-eval-v1-1.md`, `agentic-coding/claude-code-team-verification.md`)가 있다. 이 문서는 Reticle을 그들과 같은 기준으로 비교하지 않았다.
+같은 영역에 앱 조작 검증과 하네스를 다룬 이 저장소의 다른 문서(`agentic-coding/frontierharness-eval-v1-1.md`, `agentic-coding/claude-code-team-verification.md`)가 있다.
 
 ## 비평
 
@@ -155,9 +158,8 @@ GitHub가 `NOASSERTION`으로 표시하고 라이선스 파일이 개요일 뿐�
 
 ### 외부 반응
 
-HN의 Show HN 글에는 댓글 여섯 개가 모두 질문이었다. 어떻게 빠르게 만드느냐, 결정적 재생은 어떻게 동작하느냐, 어떻게 토큰이 그렇게 효율적이냐, 데스크톱 앱에도 되느냐, 의료 에이전트와 전자의무기록에도 되느냐는 것이었고 이 문서가 읽은 범위에 제작자의 답은 없었다.[^reservedsnow][^arushsinghal][^dhanoa2019][^kunalshaw79][^priyansh6174]
+HN의 Show HN 글에는 댓글 여섯 개가 모두 질문이었다.
 Lobste.rs의 `reticle.sh` 도메인에는 글이 없었고 `reticle` 검색 결과는 모두 다른 주제였다.
-GeekNews 토픽은 이 프로젝트를 소개한 요약이고 이용자 댓글이 없었다.
 
 ## 인사이트
 
@@ -179,16 +181,3 @@ GeekNews 토픽은 이 프로젝트를 소개한 요약이고 이용자 댓글�
 제작사 밖에서 같은 조건으로 잰 검출률과 토큰 비용,
 CI 판정을 지원하는 프레임워크의 확대,
 릴리스가 안정되는 속도와 이슈 처리이다.
-셋 모두 이 문서가 확인하지 못했다.
-
----
-
-[^reservedsnow]: <https://news.ycombinator.com/item?id=50164053>
-
-[^arushsinghal]: <https://news.ycombinator.com/item?id=50164102>
-
-[^dhanoa2019]: <https://news.ycombinator.com/item?id=50164088>
-
-[^kunalshaw79]: <https://news.ycombinator.com/item?id=50164168>
-
-[^priyansh6174]: <https://news.ycombinator.com/item?id=50164130>

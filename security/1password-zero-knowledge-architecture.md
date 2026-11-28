@@ -10,7 +10,6 @@
 회사가 소환장을 받거나 서버가 침해당하더라도
 평문 비밀번호나 볼트 내용을 넘겨줄 수 없는 구조를 지향한다.
 
-이 문서는 마케팅 문구를 그대로 옮기지 않는다.
 1Password가 공개한 Security Design White Paper
 (<https://agilebits.github.io/security-design/>)의 구체적인 수치와 알고리즘,
 공개된 CVE, 독립 연구자의 비판, 회사 자체의 공개 인정 사례를

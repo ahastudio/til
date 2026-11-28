@@ -119,8 +119,6 @@ Dario Amodei의 마지막 답은 이 로드맵 위에
 거의 완성된 회사 비전 문서가 따로 있다는 사실을 알려 준다.[^roadmap]
 본문 상단의 “Prior docs”에도 Research Vision, Ambitious Timeline,
 April Sketch, May Sketch, RL for Tool Use, Alignment가 링크되어 있다.[^roadmap]
-즉 이 문서는 전략의 전부가 아니라
-여러 문서 가운데 연구 실행 계획을 요약한 한 층이다.
 
 ### 아이디어 자체는 당시에도 새롭지 않았다
 

@@ -9,10 +9,6 @@ GN 토론: <https://news.hada.io/topic?id=35839>
 백엔드 개발자 밀초(milcho0604)가 velog에 쓴 장애 분석이다.
 Mac이 부팅 진행률 5% 근처에서 멈췄고, 원인은 작성자가 만든 MCP 서버의 헤드리스
 Chrome 렌더러였다.
-이 문서는 글의 사실을 정리하고, 같은 상황에서 확인하고 고치는 순서로 다시
-배열한다.
-글의 수치와 소스 코드 서술은 모두 작성자의 것이며, 이 문서가 직접 재현하지는
-않았다.
 
 글에 따르면 증상은 두 번 나왔다.
 9월 30일 새벽에 재시동하자 진행 막대가 5%에서 멈췄고, 여섯 번 강제로 끄고 켰으며
@@ -59,8 +55,6 @@ GeekNews에서 skageektp가 왜 앱을 통째로 복제하느냐고 묻자 작�
 Chrome이 켜져 있는 동안 업데이트가 준비되면 돌고 있는 버전의 코드 서명이 맞지
 않게 되는 문제가 있어서, 켤 때 앱을 복제해 두고 그것을 붙잡고 있는 방식인 것
 같다는 것이다.[^milcho0604]
-질문한 쪽도 답한 쪽도 소스 주석을 근거로 하는 해석이며 Chrome 쪽 공식 설명은 이
-문서가 확인하지 못했다.[^skageektp]
 
 ### 렌더러가 매번 SIGKILL로 끝냈다
 
@@ -132,7 +126,6 @@ Chrome이 실행 중이면 `SIGKILL`로 같이 끝난다.
 ## 확인하기
 
 내 Mac에 복제본이 쌓이는지는 아래 명령으로 센다.
-작성자의 명령이며 이 문서가 실행해 보지는 않았다.
 
 ```bash
 ls "$(dirname "$(getconf DARWIN_USER_TEMP_DIR)")/X/com.google.Chrome.code_sign_clone" | wc -l
@@ -172,5 +165,3 @@ Playwright의 기본 목록이 덮이지 않았는가.
 ---
 
 [^milcho0604]: <https://news.hada.io/topic?id=35839#cid68267>
-
-[^skageektp]: <https://news.hada.io/topic?id=35839#cid68264>

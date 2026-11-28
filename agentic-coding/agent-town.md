@@ -15,11 +15,6 @@ GitHub API는 라이선스를 비어 있다고 돌려주고 저장소 안에 `LI
 별도 홈페이지는 없다.
 
 저장소를 받아 코드를 읽었으며 설치하거나 실행하지 않았다.
-`server.ts`, `server.prod.mjs`, `bin/agent-town.mjs`, `lib/ws-proxy.ts`, `lib/auggie-bridge.ts`,
-`lib/mcp/agent-town-mcp.mjs`, `lib/gateway.ts`, `lib/gateway-handler.ts`, `lib/persistence.ts`,
-`lib/hooks/useGateway.ts`, `lib/hooks/useTaskRouter.ts`, `lib/constants.ts`,
-`app/api/agents/discover/route.ts`, `components/game/entities/worker/`의 `task.ts`와 `idle.ts`,
-`components/game/systems/SceneEventBridge.ts`, `WorkerManager.ts`는 이 문서가 직접 읽었다.
 `lib/reducer.ts`와 `lib/store.ts`는 일부만, 테스트는 구조만 읽었다.
 HUD 컴포넌트 대부분과 `Worker.ts`의 세부는 읽지 못했다.
 별, 생성일, 커밋 수와 GitHub API의 라이선스 값은 이번에 다시 확인하지 못했다.
@@ -187,7 +182,6 @@ WebSocket 업그레이드는 Origin 헤더가 있을 때만 Host와 비교하고
 돌려주는 것은 에이전트 ID, 작업 공간 경로, 모델, 이름과 이모지, `SOUL.md` 앞 200자다.
 에이전트 ID는 정규식으로 거르지만 설정이 가리키는 작업 공간 경로는 `isSafePath` 검사를 받지 않는다.
 게이트웨이 토큰은 `localStorage`에 평문 JSON으로 저장된다(`persistence.ts`).
-이 문서는 이 경로들을 직접 시험하지 않았고, 위 내용은 코드를 읽은 결과다.
 
 ### 설명과 코드의 차이
 
@@ -211,7 +205,6 @@ WebSocket 업그레이드는 Origin 헤더가 있을 때만 Host와 비교하고
 CI는 포맷, 린트, 타입 검사, 빌드, 테스트, 감사(`continue-on-error`)를 돌린다.
 테스트가 아닌 TypeScript와 MJS는 약 1만 1,300줄이며 `.mjs` 사본이 중복해서 센 값이다.
 `.ts`와 `.tsx`만 세면 약 1만 200줄이다.
-이 문서는 테스트를 실행하지 않았다.
 
 ## 인사이트
 
@@ -227,5 +220,4 @@ CI는 포맷, 린트, 타입 검사, 빌드, 테스트, 감사(`continue-on-erro
 2. 라이선스 파일과 에셋 재배포 조건이 정리되는지.
 3. 브리지 인증이 추가되는지.
 
-위 셋 모두 이 문서가 확인하지 못했다.
 위 보안 서술은 코드 읽기에 근거하고 실행으로 재현하지 않았다.

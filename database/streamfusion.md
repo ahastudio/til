@@ -88,7 +88,6 @@ JAR은 TaskManager뿐 아니라 제출 클라이언트와 JobManager에도 있�
 Iceberg 어댑터는 JDK 17이 전부 필요하다.
 리눅스 ARM64 바이너리는 아직 배포하지 않으며,
 다른 Flink 라인 사이의 세이브포인트 업그레이드와 다운그레이드는 검증되지 않았다.
-이 문서를 쓴 환경에는 Flink 클러스터가 없어서 설치와 실행은 직접 해 보지 않았다.
 
 ## 쿼리가 가속되었는지 확인하기
 
@@ -168,7 +167,6 @@ README 스스로 짧은 전체 잡 시간에는 클라이언트 종료 시간이
 README는 Flash(Alibaba Cloud)와 Vera X(Ververica)가 Nexmark에서 5에서 10배를
 주장하고, Iron Vector(Irontools)는 무상태 파이프라인에서 약 97% 높은 처리량을
 주장한다고 쓴다.
-이 문서는 그 세 페이지를 열어 보지 않았고, README가 전하는 주장으로만 적는다.
 세 주장은 각자의 하드웨어와 벤치마크에서 나왔고,
 StreamFusion의 1.3에서 3.4배와 나란히 놓을 수 있는 숫자가 아니다.
 README도 StreamFusion이 Flash와 Vera X보다 초기 단계이고 연산자 폭과 공개

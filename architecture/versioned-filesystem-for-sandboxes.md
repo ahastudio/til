@@ -268,7 +268,6 @@ EBS처럼 영역 전체를 잃는 경우는 막지 못한다.
 
 브랜치 사이의 파일을 병합하지 않는 것은 병합 논리가 틀릴 여지를
 없애는 대신 초안의 결과를 라이브에 합치는 길이 없다는 뜻이다.
-이 문서가 확인한 글에는 초안의 결과를 라이브로 반영하는 방법이 나와 있지 않다.
 
 ## 함정
 
@@ -301,7 +300,6 @@ S3 없이 자체 호스팅하면 퇴출할 곳이 없어서 모든 팩이 디스
 """스냅샷 트리, 포인터 compare-and-swap, 충돌 판정을 흉내 내는 최소 예제."""
 from dataclasses import dataclass, field
 
-
 @dataclass(frozen=True)
 class Snapshot:
     """불변 스냅샷. 경로에서 파일 내용으로 가는 사상을 통째로 들고 있다."""
@@ -310,7 +308,6 @@ class Snapshot:
 
     def get(self, path):
         return dict(self.files).get(path)
-
 
 @dataclass
 class Volume:
@@ -343,7 +340,6 @@ class Volume:
         fa, fb = dict(self.snapshots[a].files), dict(self.snapshots[b].files)
         return {p for p in set(fa) | set(fb) if fa.get(p) != fb.get(p)}
 
-
 if __name__ == "__main__":
     v = Volume()
     base = v.head("live")
@@ -359,7 +355,6 @@ if __name__ == "__main__":
     print("draft의 events.db:", v.snapshots[v.head("draft")].get("events.db"))
 ```
 
-이 문서가 실행한 결과는 이렇다.
 A의 게시는 스냅샷 1을 만들고,
 같은 파일을 쓴 B는 `충돌: ['events.db']`로 실패한다.
 다른 파일을 쓴 B는 성공해 스냅샷 2가 되고

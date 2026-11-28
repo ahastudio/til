@@ -170,9 +170,6 @@ Mistral의 호스팅 서비스를 쓰는 길도 열려 있다.[^hf-license]
 
 ### 작은 모델의 CPU 추론은 예측을 운영 인프라의 부품으로 만든다
 
-가장 작은 모델 가중치는 21MB, 가장 큰 모델은 837MB이고,
-이 문서가 읽은 README는 PyTorch와 NumPy와 `safetensors`와
-`huggingface_hub`만 필요하다고 밝힌다.[^readme]
 Lobste.rs의 ktiosp는 이런 것이 있는 줄 몰랐고
 1GB도 안 될 만큼 작아서 놀랐다고 적었다.[^ktiosp]
 

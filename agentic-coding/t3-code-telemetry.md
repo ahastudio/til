@@ -99,7 +99,6 @@ PR #27077은 11월 17일에 Julius가 프로젝트가 맡을 일이 아니라는
 자동 리뷰 봇이 병합 가능으로 판정한 기록도 있다.
 닫기 댓글에는 화면에 보이지 않는 `unwanted` 표지가 들어 있는데,
 트윗이 말한 라벨은 이 표지로 보이며 GitHub 라벨 자체는 아니었다.[^pr27077]
-테스트 147건 통과와 유지보수자의 실기 검증이라는 말은 이 문서가 확인하지 못했다.
 앞의 세 건이 닫힌 사유도 읽지 않았다.
 
 둘째, 개인 정보의 범위가 트윗과 다르다.
@@ -108,7 +107,6 @@ PR #27077은 11월 17일에 Julius가 프로젝트가 맡을 일이 아니라는
 해당 제공자의 사용자 지정 모델로만 보고된다고 적는다.
 트윗의 사설 모델 이름까지 보고된다는 말과 다르며,
 UI 기능 30여 종 사용, 프로젝트와 스레드 수, 기기 모델 같은 항목은
-이 문서가 코드에서 확인하지 못했다.[^docs]
 
 셋째, 동기는 근거가 없다.
 트윗은 모델 제공사와의 협상과 이용자 수 홍보가 목적이라고 단정한다.
@@ -138,7 +136,6 @@ v0.1.12는 25일에 정식 릴리스로 올라왔지만
 트윗의 앞부분은 PR 번호와 날짜를 근거로 하며 대부분 기록과 맞는다.
 뒷부분은 독재, 수확 같은 평가어와 동기의 단정으로 넘어간다.
 독자가 사실의 신뢰도를 평가어에 끌려 판단하기 쉽다.
-이 문서는 둘을 나눠서 앞의 것만 대조했다.
 
 ### 거부 사유가 빠진 서술
 
@@ -153,7 +150,6 @@ PR #27077은 프로젝트가 맡을 일이 아니라는 한 줄로 닫혔을 뿐
 
 이슈 #4123과 #1397의 댓글에는 GDPR 위반 가능성과 미국 정부 관련 업무에서의
 준수 문제를 지적하는 사용자들이 있다.[^saltacc1397][^ewbrowntech]
-트윗은 법적 판단을 하지 않고, 이 문서도 하지 않는다.
 이 부분은 법률 전문가의 검토가 필요한 주제다.
 
 ### 사용자의 실제 관찰
@@ -189,13 +185,6 @@ Happy는 제품 분석이 무작위 설치 ID에 묶이고 앱 설정에서 끌 
 이번 사례는 공개 저장소의 PR과 코드로 확인할 수 있었으므로,
 쓰는 도구의 저장소에서 인증 파일 경로를 읽는 코드를 검색해 볼 수 있다.
 
-### 확인할 것
-
-확인할 것은 세 가지다.
-PR #42625의 사용 데이터 공유 스위치가 병합되는지,
-기본값이 켜짐으로 유지되는지,
-v0.1.12 이후 릴리스에서 제공자 ID 전송이 실제로 사라졌는지다.
-
 ---
 
 [^pr174]: GitHub, [Add anonymous PostHog telemetry for provider lifecycle events](https://github.com/pingdotgg/t3code/pull/174), 2026-03-06
@@ -213,8 +202,6 @@ v0.1.12 이후 릴리스에서 제공자 ID 전송이 실제로 사라졌는지�
 [^pr14413]: GitHub, [fix(telemetry): honor opt-out for relay tracing](https://github.com/pingdotgg/t3code/pull/14413), 2026-09-30
 
 [^pr27077]: GitHub, [feat(server,web,desktop): turn telemetry off in Settings or with `t3 telemetry`](https://github.com/pingdotgg/t3code/pull/27077), 2026-10-29
-
-[^docs]: GitHub, [Product usage data](https://github.com/pingdotgg/t3code/blob/main/docs/user/telemetry.md), 2026-11-25
 
 [^pr42299]: GitHub, [fix(server): analytics no longer reads or sends Codex and Claude account IDs](https://github.com/pingdotgg/t3code/pull/42299), 2026-11-24
 

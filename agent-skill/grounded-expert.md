@@ -23,9 +23,6 @@ memory)으로 답하면서 역할을 연기하고, 틀린 사실도 맞는 사�
 틀리면 고치는 절차라고 보고, persona 대신 그 절차를 강제하는 skill을 만들었다고
 설명한다.[^gn-topic]
 
-이 문서는 GeekNews 글과 저장소의 README, `plugin/SKILL.md`, `CHANGELOG.md`,
-`CONTRIBUTING.md`, `docs/openai-evaluation.md`,
-`plugin/agents/grounded-researcher.md`를 읽고 정리했다.
 skill을 설치해 실행해 보지는 못했다.
 동작과 효과에 관한 서술은 모두 제작자가 저장소에 적은 내용이며,
 직접 확인한 결과가 아니다.

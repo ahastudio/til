@@ -104,7 +104,6 @@ BASE = "https://api.deepseek.com/v1/tools"
 HEADERS = {"Authorization": f"Bearer {os.environ['DEEPSEEK_API_KEY']}"}
 RETRYABLE = {408, 429, 500, 502, 503, 504}
 
-
 def call(path: str, body: dict, attempts: int = 4) -> dict:
     for attempt in range(attempts):
         resp = requests.post(
@@ -118,7 +117,6 @@ def call(path: str, body: dict, attempts: int = 4) -> dict:
             resp.raise_for_status()
         time.sleep(2**attempt)  # 지수 백오프: 1, 2, 4초
     raise RuntimeError("unreachable")
-
 
 def search_then_read(question: str, min_score: float = 1.5, top: int = 3):
     found = call(
@@ -137,7 +135,6 @@ def search_then_read(question: str, min_score: float = 1.5, top: int = 3):
         pages.append((r["url"], page["title"], page["content"]))
         time.sleep(0.25)  # Fetch는 계정 5 QPS와 도메인별 제한이 따로 있다.
     return pages
-
 
 if __name__ == "__main__":
     for url, title, content in search_then_read("DeepSeek V4 release"):
@@ -368,8 +365,6 @@ curl -s -w '\n%{http_code}\n' https://api.deepseek.com/v1/tools/search \
 
 ### 문서가 말하지 않은 경계는 직접 재 본다
 
-이 문서는 필드와 한도는 정확하지만,
-검색 품질, 본문 추출 품질, 직접 호출의 무료 여부는 말하지 않는다.
 말하지 않은 부분을 가정으로 채우지 말고,
 작은 실험으로 확인한 뒤 의존한다.
 

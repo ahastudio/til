@@ -8,8 +8,9 @@ GN 토론: <https://news.hada.io/topic?id=147>
 
 ## 소개
 
-Fork는 Dan Pristupov와 Tanya Pristupova가 만드는 Mac과 Windows용 Git 클라이언트이다. 홈페이지는 이를 빠르고 친근한 Git 클라이언트라고 소개한다.
-이 문서는 홈페이지 전문과 라이선스 페이지, HN 글과 GeekNews 글을 읽었다. 직접 설치해 써 보지 않았고 릴리스 노트와 블로그는 열지 않았다.
+Fork는 Dan Pristupov와 Tanya Pristupova가 만드는 Mac과 Windows용 Git 클라이언트이다.
+홈페이지는 이를 빠르고 친근한 Git 클라이언트라고 소개한다.
+직접 설치해 써 보지 않았고 릴리스 노트와 블로그는 열지 않았다.
 설명은 모두 개발자의 주장이다.
 
 홈페이지가 소개하는 내용은 다음과 같다.
@@ -87,7 +88,6 @@ Lobste.rs에는 `git-fork.com` 도메인의 글이 없었다.
 같은 저장소에서 다른 GUI와 비교한 속도와 메모리,
 안정성 이슈의 빈도와 수정 속도,
 Linux 지원이나 소스 공개 같은 플랫폼 정책의 변화이다.
-셋 모두 이 문서가 확인하지 못했다.
 
 ---
 

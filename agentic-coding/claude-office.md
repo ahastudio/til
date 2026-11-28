@@ -11,7 +11,6 @@ MIT 라이선스에 TypeScript로 작성되었다.
 커밋은 116개이며 마지막 커밋은 2026년 11월 18일이다.
 저장소에 별도의 홈페이지는 등록되어 있지 않다.
 
-이 문서는 저장소를 받아 코드를 직접 읽고 썼다.
 설치, 빌드, 서버 실행, 테스트 실행은 하지 않았고 읽기만 했다.
 직접 읽은 파일은 `server/index.js`(5,099줄)의 인증·훅 이벤트·채팅·WebSocket 구간,
 `hooks/agent-tracker.sh`와 `hooks/agent-tracker.py`, `hooks/install-hooks.sh`다.
@@ -275,7 +274,6 @@ README와 `docs/reference.md`는 다섯 도구 모두 실험적이고 실제 세
 - 새 훅과 팀 보드는 저자도 실제 시험하지 못했다고 밝힌다.
   `docs/reference.md`가 팀 보드는 문서와 Claude Code 2.1.321 바이너리를 보고 만들었고 실제 팀으로 돌려 보지 않았다고 적는다.
   다른 AI 도구용 훅에는 실험적이라는 표시가 있다.
-- 테스트 수 “972개”라는 README의 주장은 이 문서가 실행으로 확인하지 못했다.
   다만 정적으로 세면 `tests/`에 `*.test.ts` 파일이 85개이고 `it(`·`test(`로 시작하는 줄이 1,713개다.
   `tests/` 안의 항목은 88개이며 테스트 85개에 `helpers.ts`, `hook-smoke.mjs`, `fixtures` 폴더가 더해진 수다.
   README의 972는 최신이 아닌 수치로 보이며, 이는 추정이다.
@@ -341,13 +339,3 @@ README와 `docs/reference.md`는 다섯 도구 모두 실험적이고 실제 세
 1. 팀 기능이 실제 에이전트 팀에서 작동하는지.
 2. 권한 응답 기능의 오작동 사례가 보고되는지.
 3. Claude Code의 훅 사양이 바뀔 때 설치 스크립트가 어떻게 따라가는지.
-
-위 셋 모두 이 문서가 확인하지 못했다.
-
-### 확인하지 못한 것
-
-- 테스트와 빌드를 실행하지 않아 통과 여부와 실제 테스트 수를 모른다.
-- `server/index.js`의 `processEvent` 전체와 `server/tasks.js`, `server/status.js`, `server/lan.js`의 본문은 머리말과 일부 구간만 읽었다.
-- `src/officeReducer.ts`의 걷기·좌석 배정·방 이동 로직과 Electron 자동 업데이트(`electron/*.cjs`)는 읽지 못했다.
-- LAN 전체 모드의 인증서 생성(`server/lan-cert.js`)과 폰 비밀 값 절차는 읽지 못했다.
-- 훅 이벤트별 실제 Claude Code payload가 파일 주석의 captured 2.1.300 설명과 같은지는 확인하지 못했다.

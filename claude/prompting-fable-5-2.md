@@ -19,12 +19,7 @@ Anthropic이 Claude Platform 문서에 올린 Claude Fable 5.2 전용 프롬프�
 읽는 문서다.
 이 문서는 같은 증상 순서가 아니라 동작, 값, 대가, 함정의 순서로 다시 정리했다.
 
-이 문서가 읽은 범위는 가이드 본문 전체와, 가이드가 근거로 연결한 Preserved
-thinking 문서와 Mid-conversation system messages 문서의 해당 대목이다.
-가이드의 수치는 모두 Anthropic이 자체 테스트에서 낸 값이며 이 문서가 Fable 5.2를
-호출해 재현하지는 않았다.
 가이드의 프롬프트 문구는 그대로 옮기지 않고 내용만 풀어 썼다.
-「확인하기」의 스크립트는 이 문서가 직접 실행한 것이고 모델을 호출하지 않는다.
 
 ## 동작 방식
 
@@ -417,13 +412,11 @@ Opus 5.5 시절의 지침이 Fable 5.2에서 후속 질문의 생각을 줄이�
 가이드의 두 가지 하니스 처방은 모델을 호출하지 않고 점검할 수 있다.
 하나는 사용자가 읽을 것이 없는 연속 도구 호출 단계 수를 세는 것이고, 다른 하나는
 요청 사이에 `system`, `tools`, 앞 `messages`가 바뀌었는지 보는 것이다.
-아래 스크립트는 파이썬 표준 라이브러리만 쓰고 이 문서가 실행했다.
 Fable 5.2가 실제로 어떻게 행동하는지는 이 실험이 보여 주지 않는다.
 점검 로직이 가이드의 설명대로 동작하는지만 모형 데이터로 보인다.
 
 ```python
 import json
-
 
 def longest_silent_run(assistant_turns):
     """사용자가 읽을 것이 없는 연속 도구 호출 단계의 최댓값을 센다.
@@ -445,7 +438,6 @@ def longest_silent_run(assistant_turns):
         longest = max(longest, current)
     return longest
 
-
 def prefix_edits(requests):
     """각 요청이 앞 요청의 system, tools, messages 앞부분을 그대로 유지했는지 본다."""
     problems = []
@@ -464,7 +456,6 @@ def prefix_edits(requests):
             if len(cur["messages"]) < n:
                 problems.append((i, "messages가 줄었다"))
     return problems
-
 
 # 1) 조용한 단계 세기
 tool = {"type": "tool_use", "name": "read_file"}

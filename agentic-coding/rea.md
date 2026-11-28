@@ -164,8 +164,6 @@ npx skills add morluto/rea --skill reverse-engineer-anything
 Ghidra와 IDA는 이미 설치된 것을 연결만 하며,
 REA는 Ghidra나 Java를 설치하거나 고치지 않는다.
 
-이 문서를 쓰면서 REA를 직접 설치하거나 실행하지는 않았다.
-
 ## 사례
 
 ### Windows 계산기의 % 버튼

@@ -42,7 +42,6 @@ Lisp가 게임 개발에서 어떤 자리에 있는지는
 Lisp Game Jam 출품작을 놓고 다룬다.
 Common Lisp를 고르는 이유는 `programming-languages/choosing-common-lisp.md`,
 튜토리얼이 쓰는 컴파일러 SBCL은 `programming-languages/sbcl.md`에 정리되어 있다.
-이 문서의 코드는 모두 원문에서 옮긴 것이며, 직접 실행해 보지는 않았다.
 
 ## 동작 방식
 

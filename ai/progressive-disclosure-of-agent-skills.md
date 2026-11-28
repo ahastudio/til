@@ -177,12 +177,6 @@ Qwen3-8B는 N=20에서 즉시 로딩이 0.68로 점진적 공개의 0.38보다 �
 이 점은 보고서가 직접 시험한 것이 아니라 어려운 방해 스킬의 약점에서
 이끌어 낸 추론이다.
 
-### 확인할 것
-
-확인할 것은 자기 환경의 같은 측정이다.
-스킬 수와 모델을 바꿔 토큰, 지연, 올바른 스킬 선택률을 함께 재 보는
-과정이 필요하다.
-
 ---
 
 [^nn]: Jakob Nielsen, [Progressive Disclosure](https://www.nngroup.com/articles/progressive-disclosure/), 2006-12-03

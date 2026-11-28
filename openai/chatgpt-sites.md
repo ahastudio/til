@@ -30,8 +30,6 @@ ChatGPT Sites는 ChatGPT와 대화하면서 웹사이트, 앱,
 
 같은 기능의 개발자 쪽 모습은 이 저장소의 `openai/codex-sites-plugin.md`에,
 ChatGPT Work 안에서 쓰는 모습은 `openai/chatgpt-work.md`에 정리되어 있다.
-이 문서는 제품 페이지의 한국어판을 기준으로 썼고,
-나는 Sites를 직접 써 보지 않았다.
 
 ## 만드는 흐름
 

@@ -115,7 +115,6 @@ HN에서 himata4113은 왜 벤치마크를 중간(medium)에서 했느냐고 물
 맞춘다는 뜻인지가 글에서 확인되지 않는다.
 글은 DeepSWE 성적을 말하지 않지만 ttul이 지적한 대로 Mercury 3는 DeepSWE에서
 46%로 Haiku의 52%보다 낮다고 한다.[^ttul]
-이 수치는 글에 없고 댓글이 전하는 것이어서 이 문서는 확인하지 못했다.
 
 ### 속도 주장이 실사용에서 지켜지는지 글이 보여 주지 않는다
 
@@ -142,8 +141,6 @@ HN에서 LarsDu88는 Google의 Gemini Diffusion 예비 논문이 작은 배치 �
 HN의 jacquesm은 가중치를 공개할 것이냐고
 물었고,[^jacquesm] SillyUsername은 이런 오픈 웨이트 모델을 기다렸는데
 아직 아니라고 아쉬워했다.[^SillyUsername]
-이 문서가 읽은 발표문은 Inception API와 OpenRouter와 Baseten과
-Vercel을 통한 제공만 말하고 가중치 공개는 말하지 않는다.
 이 저장소의 Mercury 2.5 문서도 열린 가중치가 아닌 점을 가장 큰 실망으로 꼽았다.
 
 ### 출시 할인이 가격 주장의 의미를 흐린다

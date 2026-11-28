@@ -9,8 +9,6 @@
 EAS Workflows는 Expo가 제공하는 클라우드 기반 CI/CD 파이프라인이다.
 빌드, 제출(submit), OTA 업데이트, 테스트 등 모바일 앱 라이프사이클 전반을
 하나의 매니지드 환경에서 자동화한다.
-이 문서는 EAS Workflows에 Maestro를 통합해 풀 리퀘스트마다 모바일 E2E
-테스트를 자동 실행하는 방법을 안내한다.
 
 Maestro는 YAML 기반의 선언적 모바일 UI 테스트 프레임워크다.
 Appium, Detox 등 기존 도구에 비해 문법이 단순하고 학습 곡선이 낮다는
@@ -102,8 +100,6 @@ iOS와 Android의 차이를 별도 워크플로우로 분리해 보여준 것도
 비용 모델에 대한 침묵은 가장 아쉬운 부분이다.
 EAS Build는 분 단위 과금이므로 PR마다 빌드+테스트를 돌리면 크레딧
 소모가 가속된다.
-GitHub Actions의 `paths-ignore`, `concurrency`, draft PR 필터 같은
-비용 절감 패턴을 이 문서는 다루지 않는다.
 
 ### 누락된 관점
 

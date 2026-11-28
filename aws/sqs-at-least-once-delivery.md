@@ -3,7 +3,6 @@
 Amazon SQS 표준 큐는 모든 메시지를 적어도 한 번 전달하지만,
 어떤 메시지는 두 번 이상 전달된다.
 버그가 아니라 계약이고, 중복 방어는 애플리케이션의 몫이다.
-이 문서는 그 계약 위에서 소비자를 어떻게 만들고 어떻게 검증하는지를 다룬다.
 
 ## 목차
 
@@ -170,7 +169,6 @@ class VisibilityHeartbeat:
 
     def __exit__(self, *exc):
         self.done.set()
-
 
 with VisibilityHeartbeat(msg["ReceiptHandle"], visibility_timeout=60):
     handle(msg)

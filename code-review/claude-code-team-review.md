@@ -835,7 +835,6 @@ PR이 자기를 심사할 규칙을 스스로 고칠 수 없게 하려는 것이
 제공하지 않는다고 적는다.[^cc-review-docs]
 문서가 제품 대신 꼽는 선택지는 로컬 `/code-review`,
 자기 CI에서 돌리는 Claude, 직접 만든 서브에이전트나 스킬이다.[^cc-review-docs]
-이 선택지가 데이터 보존 제로 조직에 열려 있는지는 이 문서가 확인하지 않았다.
 
 ### 다른 팀이 옮기는 순서는 측정에서 시작해 병합 관문에서 끝난다
 
@@ -928,15 +927,12 @@ import statistics
 import sys
 from collections import Counter, defaultdict
 
-
 def read(path):
     with open(path, newline="", encoding="utf-8") as f:
         return list(csv.DictReader(f))
 
-
 def pct(n, d):
     return f"{100 * n / d:5.1f}%" if d else "  n/a"
-
 
 def findings_report(rows):
     total = len(rows)
@@ -969,7 +965,6 @@ def findings_report(rows):
     old_all = sum(r["flags_old_code"] == "y" for r in rows)
     print(f"  전체 {pct(old_all, total)}가 첫 패스부터 있던 코드 (글의 59%에 해당하는 지표)")
 
-
 def eval_report(rows):
     print("[사고 평가 세트: 날짜별 재현율]")
     by_day = defaultdict(lambda: [0, 0])
@@ -986,12 +981,10 @@ def eval_report(rows):
         print(f"  {day}  {hit}/{n}  {rate:5.1%}{verdict}")
         prev = rate
 
-
 def clean_report(rows):
     harmful = sum(int(r["harmful_findings"]) > 0 for r in rows)
     print("[문제없는 PR에 돌린 결과]")
     print(f"  {len(rows)}개 중 해로운 수정을 부를 지적이 나온 PR {harmful}개  {pct(harmful, len(rows))}")
-
 
 def rounds_report(rows):
     r = [int(x["rounds_to_pass"]) for x in rows]
@@ -999,7 +992,6 @@ def rounds_report(rows):
     print(f"  PR {len(r)}개  평균 {statistics.mean(r):.2f}  "
           f"1라운드 통과 {pct(sum(x == 1 for x in r), len(r))}  "
           f"5라운드 이상 {pct(sum(x >= 5 for x in r), len(r))}")
-
 
 if __name__ == "__main__":
     folder = sys.argv[1]
@@ -1149,7 +1141,6 @@ import sys
 
 LINE = re.compile(r"^<!-- bughunter-severity: (.*) -->$")
 
-
 def decide(title: str, details_text: str):
     # 1) 이전 결과를 유지했고 Important 지적이 열려 있으면 심각도 줄이 없다. 제목부터 본다.
     if title.startswith("Code review not repeated"):
@@ -1171,7 +1162,6 @@ def decide(title: str, details_text: str):
     if counts.get("normal", 0) > 0:
         return "fail", f"Important {counts['normal']}건"
     return "pass", f"Important 0건 (nit {counts.get('nit', 0)}, pre-existing {counts.get('pre_existing', 0)})"
-
 
 CASES = [  # 합성 입력이다. 실제 체크런 출력이 아니다.
     ("Code review found 3 issues",
@@ -1281,7 +1271,6 @@ Graphite의 가이드는 시끄럽거나 도움이 안 되는 댓글의 비율�
 그 페이지에는 약 2년 전에 마지막으로 고쳤다는 표시가 있고 측정 방법은 적혀 있지
 않다.[^graphite-guide]
 검색 결과는 같은 회사의 제품 페이지에 5% 미만이라고 적혀 있다고 보여 주었는데,
-이 문서는 그 페이지를 열어 보지 못했다.
 어느 쪽에도 방법론이 붙어 있다고 확인하지 못했으므로 두 값 모두 벤더의 주장으로
 읽어야 한다.
 
@@ -1309,8 +1298,6 @@ Semgrep 계열 등이고 Anthropic의 리뷰어는 없으며,
 또 이 연구는 에이전트의 댓글이 반영되는 비율을 직접 재지 않고,
 다른 연구(Gan 등, 2025)를 인용해 사람의 댓글은 60%가,
 에이전트의 댓글은 0.9~19.2%가 반영된다고 적을 뿐이다.[^arxiv-cra]
-이 문서는 그 원 연구를 열어 보지 않았고,
-글의 반응 분류와 맞대 볼 외부 수치도 찾지 못했다.
 
 다른 방향의 증거는 Honeycomb에서 나왔다.
 Liz Fong-Jones는 2026년 7월 글에서 모노레포의 피크 평일 병합이 2025년 초 약
@@ -1745,7 +1732,6 @@ atty는 가끔 잘 쓴 문장이 나오다가 곧 Claude 특유의 표현으로 
 반면 lavezzi는 언어를 읽고 쓰는 데 그만큼 잠겨 있으면 문체가 옮는 것이 가능하니
 Anthropic 직원이 직접 썼다고 해도 믿을 수 있다고 했다.[^lavezzi]
 paimapi는 Pangram이 이 글의 80%를 AI가 쓴 것으로 본다는 결과 링크를 올렸는데,
-이 문서는 그 링크를 열어 확인하지 않았다.[^paimapi]
 Addy Osmani의 Twitter 판이 맨 끝에 원래 글을 다시 쓴 것이며 Pangram으로
 확인했다고 적은 것은, 글의 문체가 독자에게 걸리는 지점이라는 것을 저자들도
 알았다는 뜻으로 읽힌다.
@@ -1795,7 +1781,6 @@ IceDane은 이 팀이 사용자의 작업 흐름에 직접 영향을 주는 변�
 사례로는 속성 표시를 껐을 때도 커밋 메시지에 세션 링크를 넣은 일과,
 일정한 토큰 임계값을 넘고 시간이 지나면 세션을 자동으로 압축하기 시작했는데
 마지막으로 봤을 때 이 설정이 문서에 없었다는 점을 들었다.[^IceDane]
-두 주장 모두 댓글 작성자의 보고이고 이 문서가 확인한 것이 아니다.
 
 이 반응이 글의 방식과 만나는 지점은 글이 쓰는 안전장치의 범위다.
 되돌림과 장애는 문제가 터진 뒤에 남는 기록이다.
@@ -1980,7 +1965,6 @@ therealdrag0이 겪은 것처럼 결정 하나가 다섯 곳에 기록되면,[^t
 코드와 PR을 뒤지지 않고 한 문서에서 답할 수 없다면,
 그 문서를 만드는 일이 리뷰 자동화보다 먼저다.
 
-
 ### 리뷰가 건당 과금되는 계산이 되면 위험 등급은 예산 배분이 된다
 
 글은 리뷰의 비용을 말하지 않는다.
@@ -2074,7 +2058,6 @@ Anthropic의 CI 글은 테스트가 10배가 되고 CI 작업이 여섯 달 동�
 글이 야간에 기존 코드를 훑는 리뷰 에이전트를 돌린다고 한 것은 이 문제를 일부
 다루는 장치로 읽을 수 있다.
 다만 그 결과가 평가 세트로 되돌아가는지는 글에 없다.
-이 문서는 이 마지막 연결을 확인하지 못했다.
 
 ### 승인을 커밋에 묶는 설계는 서명의 오래된 구조이고, 새 공격 면도 함께 만든다
 
@@ -2247,8 +2230,6 @@ CI 워크플로 파일이 항상 사람을 요구하는 이유는 이 파일이 
 [^atty]: <https://news.ycombinator.com/item?id=50126499>
 
 [^lavezzi]: <https://news.ycombinator.com/item?id=50126152>
-
-[^paimapi]: <https://news.ycombinator.com/item?id=50124937>
 
 [^thr0w]: <https://news.ycombinator.com/item?id=50130273>
 

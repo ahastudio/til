@@ -180,9 +180,6 @@ AI 에이전트와 MCP를 모든 플랜에 넣는다.[^pricing]
 셋째 카드는 A/B 또는 다변량 테스트를 성장 단계에 둔다.
 요금표는 웹 실험의 A/B/n을 무료에도 넣지만
 실험 결과 보기는 무료와 Plus에 포함하지 않는다고 적는다.[^pricing]
-페이지가 마지막으로 수정된 5월 이후 요금표가
-바뀌었거나 두 페이지가 따로 관리되는 것으로 보이며,
-어느 쪽인지는 이 문서가 확인하지 못했다.
 
 ## 가격과 사용
 
@@ -219,7 +216,6 @@ Agent Analytics는 월간 에이전트 세션이 5,000건이고
 알림과 예측과 전환 동인 같은 기능은 상위 단계에 있다.
 홈페이지의 업계에서
 가장 후한 무료 플랜이라는 말은 이벤트 한도에 대해서는 사실일 수 있으나,
-이 문서가 비교 대상의 요금제를 조사하지 않았으므로 확인하지 못했다.
 
 ### 에이전트와 보안
 
@@ -234,7 +230,6 @@ HIPAA 고객에게는 BAA를 맺고 AI 하위 처리자와도 BAA를 맺었다�
 ISO 27001과 SOC 2 Type II 인증이라는 문장은 해당 페이지에서
 AWS 데이터 센터를 설명하는 대목에 들어 있다.
 Amplitude 자체의 인증 현황은 Customer Trust Portal로 안내되며
-이 문서가 열어 보지 않았다.[^security]
 
 ## 인수와 통합
 
@@ -428,8 +423,6 @@ Headless라는 이름이 그 선언이다. 화면은 선택 사항이고 데이�
 [^tei]: Amplitude, [What’s the ROI of Amplitude?](https://amplitude.com/resources/forrester-tei-report), 2024-12-02
 
 [^wave]: Amplitude, [The Forrester Wave™: Digital Analytics Solutions, Q3 2025](https://amplitude.com/resources/forrester-wave-digital-analytics-solutions), 2025-07-29
-
-[^security]: Amplitude, [Trust, Security and Privacy](https://amplitude.com/security-and-privacy)
 
 [^analytics-page]: Amplitude, [Product and Web Analytics Tool](https://amplitude.com/amplitude-analytics)
 

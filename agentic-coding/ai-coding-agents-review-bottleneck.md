@@ -8,8 +8,10 @@ GN 토론: <https://news.hada.io/topic?id=37405>
 
 ## 요약
 
-전자증거개시(eDiscovery) 분야 매체 ComplexDiscovery의 편집부가 2026년 10월 13일 올린 분석 기사이다. 하버드 박사과정 Fiona Chen과 James Stratton의 워킹 페이퍼 「Artificial Intelligence in the Firm: Bottlenecks in Software Production」를 소개하고 법률 AI 구매자에게 주는 시사점을 덧붙인다.
-이 문서는 기사 전문을 읽었다. 기사가 링크한 논문(PDF)은 텍스트를 추출하지 못해 읽지 못했으므로 아래 수치는 모두 기사가 전하는 값이다. 기사는 논문이 취업 시장용 논문이며 동료 심사를 마쳤다는 표시가 없다고 밝힌다.
+전자증거개시(eDiscovery) 분야 매체 ComplexDiscovery의 편집부가 2026년 10월 13일 올린 분석 기사이다.
+하버드 박사과정 Fiona Chen과 James Stratton의 워킹 페이퍼 「Artificial Intelligence in the Firm: Bottlenecks in Software Production」를 소개하고 법률 AI 구매자에게 주는 시사점을 덧붙인다.
+기사가 링크한 논문(PDF)은 텍스트를 추출하지 못해 읽지 못했으므로 아래 수치는 모두 기사가 전하는 값이다.
+기사는 논문이 취업 시장용 논문이며 동료 심사를 마쳤다는 표시가 없다고 밝힌다.
 
 기사가 전하는 연구의 내용은 다음과 같다.
 
@@ -41,7 +43,8 @@ HN에서 한 사용자는 하루 종일 AI가 쓴 코드를 리뷰하는데 즐�
 
 ### 논문의 독립성이 의심받을 수 있다
 
-기사가 직접 밝힌 대로 자료 제공자 Jellyfish와 저자들이 협력 관계이고 Jellyfish는 AI 도구를 파는 업계에 있다. 기사는 이것이 결과를 편향시킬 수 있다고 직접 결론 내리지 않고 한계로 나열한다. 이 문서는 논문을 읽지 못해 이 판단을 확인하지 못했다.
+기사가 직접 밝힌 대로 자료 제공자 Jellyfish와 저자들이 협력 관계이고 Jellyfish는 AI 도구를 파는 업계에 있다.
+기사는 이것이 결과를 편향시킬 수 있다고 직접 결론 내리지 않고 한계로 나열한다.
 
 ### 모델 세대가 낡았다는 반론이 있다
 
@@ -56,7 +59,6 @@ HN에서는 리뷰를 API, 스키마, 핵심 경로, 아키텍처에 집중하�
 
 ### 외부 반응
 
-HN 글 제목은 기사 제목과 같다. GeekNews 토픽은 요약이고 이용자 댓글이 없었다.
 Lobste.rs에는 `complexdiscovery.com` 도메인의 글이 없었다.
 
 ## 인사이트
@@ -75,7 +77,6 @@ Lobste.rs에는 `complexdiscovery.com` 도메인의 글이 없었다.
 논문 본문에서 확인한 수치와 정의(끝난 작업의 척도),
 최신 모델과 에이전트 세대에서의 반복 시험,
 Jellyfish 밖의 데이터에서의 재현이다.
-셋 모두 이 문서가 확인하지 못했다.
 
 ---
 

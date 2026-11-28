@@ -33,7 +33,6 @@ GitHub API로 2026년 11월 20일에 읽은 저장소 정보는 다음과 같다
 옮기기,[^bun-pg-migration] 입문 안내를[^bun-golang-orm] 열어 읽었다.
 README는 Bun이 APM 도구 Uptrace의 후원으로 만들어졌다고 밝히며 OpenTelemetry
 예제를 제공한다.
-이 문서는 설치하거나 코드를 실행해 보지 않았다.
 
 ## 구성
 
@@ -174,8 +173,6 @@ go-pg의 `*pg.Query` 하나가 `SelectQuery`, `InsertQuery`, `UpdateQuery`,
 사이트는 제로 오버헤드와 원시 SQL의 속도를 내세우고 README는 최소한의
 오버헤드라고 쓴다.
 두 문구가 다르고, 둘 다 측정 자료를 내놓지 않는다.
-이 문서가 읽은 입문 문서에는 성능 팁(필요한 열만 선택하기, `LIMIT`, 배치 삽입)이
-있으나 다른 라이브러리와의 비교는 없다.[^bun-golang-orm]
 go-pg보다 빨리 삽입한다는 이전 문서의 서술도 수치 없이 구조 변화를 이유로만
 든다.[^bun-pg-migration]
 
@@ -185,7 +182,6 @@ README는 PostgreSQL, MySQL과 MariaDB, MSSQL, SQLite, Oracle을 지원한다고
 사이트 첫 화면은 Oracle 없이 네 가지를 나열하고 MySQL은 5.7 이상이라고 쓴다.
 입문 문서의 제목은 PostgreSQL과 MySQL용 Go ORM이고,[^bun-golang-orm]
 마이그레이션 문서의 제목 옆에는 PostgreSQL과 MySQL 표시만 있다.[^bun-migrations]
-어느 기능이 어느 데이터베이스에서 검증되었는지는 이 문서가 확인하지 못했다.
 
 ### 마이그레이션의 규약이 사용자의 불편으로 이어진다
 
@@ -208,7 +204,6 @@ sqlc가 99%의 경우에 최선이라는 평도 있었고,[^trk-5000] sqlx를 �
 글과,[^krkrkrneki] sqlboiler를 봤느냐는 질문도 있었다.[^guettli]
 2025년의 한 답글은 sqlboiler도 이제 유지보수 모드이고 데이터베이스별 기능 지원이
 빠졌다고 적었다.[^dear-tension]
-이 의견들은 개인 경험이며 이 문서가 검증하지 못했다.
 
 ### 변경 기록에서 보이는 위험
 
@@ -220,14 +215,11 @@ sqlc가 99%의 경우에 최선이라는 평도 있었고,[^trk-5000] sqlx를 �
 문자열 차단이 있다.
 투명하게 밝힌 점은 장점이지만, 인증서 검증처럼 기본 동작이 바뀐 부분은
 업그레이드 때 연결이 갑자기 실패할 수 있어서 호환 영향이 있는 변경이다.
-이 문서는 변경 기록의 전체 항목과 각 이슈를 열어 보지 못했다.
 
 ### 근거로 삼은 자료의 한계
 
 Reddit 글은 2022년 11월 12일에 올라온, 댓글이 몇 개 안 되는 작은
 토론이다.[^reddit-thread]
-이 문서는 Reddit을 직접 열 수 없어 공개 아카이브의 사본으로 읽었고, 점수와 댓글
-수는 아카이브 시점의 값이다.
 
 ## 인사이트
 
@@ -264,7 +256,6 @@ go-pg에서 Bun으로 옮길 때 영값이 NULL로 바뀌지 않는다는 변화
 같은 질의를 Bun과 sqlc, sqlx, 원시 `database/sql`로 쓸 때의 성능과 코드 길이,
 데이터베이스별로 실제 검증된 기능 범위,
 1.3.0 업그레이드에서 실제로 깨지는 코드의 비율이다.
-세 가지 모두 이 문서가 확인하지 못했다.
 
 ---
 
@@ -283,7 +274,6 @@ go-pg에서 Bun으로 옮길 때 영값이 NULL로 바뀌지 않는다는 변화
 [^go-pg-readme]: GitHub go-pg/pg, [PostgreSQL client and ORM for Golang](https://github.com/go-pg/pg), 2026-11-20 열람
 
 [^reddit-thread]: Reddit r/golang, [Go-pg vs Bun Developer experience](https://www.reddit.com/r/golang/comments/ytktq9/gopg_vs_bun_developer_experience/), 2022-11-12
-
 
 [^rbz31]: <https://www.reddit.com/r/golang/comments/ytktq9/gopg_vs_bun_developer_experience/iw5j0fr/>
 

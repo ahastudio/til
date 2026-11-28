@@ -94,13 +94,8 @@ modifier의 파라미터를 `@OptimizedRecord` 데이터 클래스로 정의하�
 
 이 점이 이 주제에서 가장 중요한 한계이고, 이 문서의 판단이다.
 Haze나 Kyant Backdrop은 Compose 트리 안의 콘텐츠를 캡처해 효과를 입힌다.
-`Host` 안의 Compose 뷰는 React Native 뷰 계층과 별개의 트리이므로,
-`Host` 밖의 React Native 뷰가 backdrop이 되는 일반적인 구성에서는
-그 효과가 React Native 콘텐츠를 보지 못한다고 이 문서는
-추론한다. 가이드는 이 부분을 다루지 않아서 직접 확인한 내용이 아니다.
+가이드는 이 부분을 다루지 않아서 직접 확인한 내용이 아니다.
 Expo UI에는 Compose 안에 React Native 뷰를 넣는 `RNHostView`가 있다.[^expo-jc]
-그 안의 React Native 뷰가 Compose backdrop
-효과의 입력이 되는지는 이 문서가 확인하지 못했다.
 뒤 화면과 유리 요소가 모두 같은 `Host` 안의 Compose로 그려지는 화면이라면
 이 연결이 의미가 있다.
 

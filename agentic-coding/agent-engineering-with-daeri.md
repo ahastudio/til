@@ -22,7 +22,6 @@ Codedeck 채널이 2026년 10월 20일에 올린 86분짜리 합본 강의다.
 설명란에 링크가 없고 자막에도 이름이 나오지 않아 어떤 글인지는 확인하지 못했다.
 
 이 문서는 강의를 따라 읽으면서 일할 수 있게 쓴 실무형 정리다.
-강의가 말한 것, 이 문서가 확인한 것, 이 문서의 판단은 구분해서 적는다.
 영상의 한국어 자동 자막은 음성 인식 결과라 용어가 자주 깨진다.
 예를 들어 DAG는 「DH」로, CI는 「C」로 적혀 있었다.
 깨진 용어는 문맥으로 복원했고, 복원이 추정인 곳에는 그렇다고 적었다.
@@ -806,7 +805,6 @@ import tempfile
 STATE_PATH = os.path.join(tempfile.gettempdir(), "daeri_state.json")
 STEPS = ["receive", "classify", "summarize", "store"]
 
-
 def load_state():
     # 상태는 프로세스 밖(파일)에 둔다. 죽어도 남는다.
     if os.path.exists(STATE_PATH):
@@ -814,14 +812,12 @@ def load_state():
             return json.load(f)
     return {"step": 0, "done_calls": {}, "results": {}}
 
-
 def save_state(state):
     # 임시 파일에 쓰고 교체해, 쓰다 죽어도 반쪽짜리 파일이 남지 않게 한다.
     tmp = STATE_PATH + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(state, f, ensure_ascii=False)
     os.replace(tmp, STATE_PATH)
-
 
 def call_tool(state, call_id, fn, *args):
     # 호출마다 고유 번호를 붙이고, 끝난 호출은 다시 실행하지 않는다.
@@ -832,11 +828,9 @@ def call_tool(state, call_id, fn, *args):
     save_state(state)
     return result
 
-
 def send_mail(to):
     print(f"  [발송] {to}")
     return "sent"
-
 
 def run(crash_at=None):
     state = load_state()
@@ -850,7 +844,6 @@ def run(crash_at=None):
         state["step"] += 1
         save_state(state)
     print("완료")
-
 
 if __name__ == "__main__":
     if os.path.exists(STATE_PATH):
@@ -895,7 +888,6 @@ TOOLS = {
     "invoices": {"args": {"year_month": str}, "roles": {"lead"}},
 }
 
-
 def handle(request, role):
     # JSON-RPC 봉투: 모양은 항상 같다.
     req_id = request.get("id")
@@ -919,7 +911,6 @@ def handle(request, role):
                     "result": {"isError": True, "content": [{"type": "text", "text": f"invalid argument: {key}"}]}}
     return {"jsonrpc": "2.0", "id": req_id,
             "result": {"isError": False, "content": [{"type": "text", "text": f"ok: {params['name']}"}]}}
-
 
 if __name__ == "__main__":
     call = lambda n, a: {"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": n, "arguments": a}}
@@ -949,7 +940,6 @@ if __name__ == "__main__":
 ```python
 MAX_ATTEMPTS = 3
 
-
 def run_with_self_repair(attempt_fn, repair_fn):
     # 분석 있는 재시도: 시도마다 무엇을 바꿨는지 기록하고, 3회가 넘으면 사람에게 넘긴다.
     history = []
@@ -963,7 +953,6 @@ def run_with_self_repair(attempt_fn, repair_fn):
             code = change
     return {"ok": False, "handoff": "사람에게 넘김", "history": history}
 
-
 def attempt(code):
     if code == "initial":
         raise KeyError("amount_krw")
@@ -971,13 +960,11 @@ def attempt(code):
         raise ValueError("날짜 형식")
     return "합계 1,234"
 
-
 def repair(code, err, history):
     seen = {h["change"] for h in history}
     nxt = {"initial": "fix-column", "fix-column": "fix-date"}.get(code, code)
     assert nxt not in seen  # 같은 수정 반복 금지
     return nxt
-
 
 if __name__ == "__main__":
     print(run_with_self_repair(attempt, repair))
@@ -994,7 +981,6 @@ if __name__ == "__main__":
 
 ```python
 import time
-
 
 class CircuitBreaker:
     def __init__(self, threshold=3, reset_after=30.0, clock=time.monotonic):
@@ -1015,7 +1001,6 @@ class CircuitBreaker:
             raise
         self.failures, self.opened_at = 0, None
         return result
-
 
 if __name__ == "__main__":
     t = [0.0]

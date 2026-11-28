@@ -126,7 +126,6 @@ GitHub 릴리스 목록에서 v0.9는 2026년 11월 3일, v0.94는 11월 4일에
 ## 써 보기
 
 README의 선행 조건은 Node, 고정된 Lean 툴체인, OCaml과 Dune이다.
-이 문서는 아래 명령을 직접 실행해 보지 않았다.
 
 ```bash
 make setup                                   # node dependencies
@@ -147,8 +146,6 @@ README 스스로 이 함수가 `noUncheckedIndexedAccess`가 꺼진 `strict`에�
 통과한다고 적었다.
 그 옵션을 켜면 `xs[n - 1]`은 `string | undefined`로 읽히므로
 `string` 반환은 TypeScript 안에서도 오류가 될 것이다.
-이는 TypeScript의 옵션이 정한 동작에서 이 문서가 추론한 것이며 직접 실행해
-확인하지는 않았다.
 그렇다면 이 예는 TScert만 보여 줄 수 있는 능력을 대표하지 않는다.
 README가 Why 절에서 들었던 `any`, 타입 단언, 공변 배열로 인한 구멍이
 예로 나왔다면 차이가 더 분명했을 것이다.

@@ -12,8 +12,6 @@ Subvocal은 The Subvocal Company(YC F26)가 만드는 스마트 안경이다.
 해독한다고 한다.
 사이트 메타 설명은 컴퓨터를 위한 무음 텍스트 입력이며 말하는 속도로
 입력한다고 쓴다.
-이 문서가 읽은 `subvocal.company`는 JavaScript로 그려지는 페이지여서,
-화면의 문구 대신 사이트 번들에 들어 있는 문자열을 읽었다.
 
 ### 동작 원리
 
@@ -72,7 +70,6 @@ HN에서 avree가 말하기가 타자보다 빠르지 않다는 사람도 있다
 70~100단어인 데 비해
 말은 120~200단어이며, 말로 하면 텍스트를 머릿속에서 다듬지 않아 더 나은
 프롬프트가 나오는 경우가 많다고 답한다.[^aarushyadav-wpm]
-이것은 회사의 주장이며 이 문서가 확인한 것이 아니다.
 
 ### 하드웨어 선택은 센서 접근에서 정해졌다
 
@@ -92,11 +89,6 @@ atulvi의 이어폰 형태 질문에는 AR 디스플레이로 출력을 돌려�
 ### 정확도와 사용 가능한 범위가 공개되지 않았다
 
 글은 오류가 데이터 규모에 따라 빠르게 줄었다고만 하고 오류율 수치를 쓰지 않는다.
-HN의 collabs는 YouTube 영상에서 약 5% 오류율을 솔직하게 보여 준 점을 높이 평가하지만,[^collabs]
-이 문서는 그 영상을 열어 보지 않았고 댓글의 서술로만 전한다.
-rootusrootus는 이 제품이 프로토타입에서 분당 200단어 이상을 주장하며
-그 절반만 되어도 상위권 타자라고 쓰지만,[^rootusrootus]
-수치의 출처는 이 문서가 확인하지 못했다.
 demo4567은 오프라인 동작과 다른 언어 지원이 없으면 쓰지 않겠다고 하고
 RonanSoleste는 영어가 모국어가 아니라 같은 이유라고
 답한다.[^demo4567][^RonanSoleste]
@@ -119,13 +111,6 @@ vessenes의 질문에 aarushyadav는 해독이 노트북이나 휴대폰의 동�
 엔드투엔드 지연이 보통 500ms 미만이라고 답한다.
 호출어는 처음에는 없고 연결된 기기의 트리거 키를 쓴다고
 한다.[^aarushyadav-cloud]
-ethanpil은 데이터가 어디로 가는지, 맥과 리눅스, 윈도 지원, 구독 여부를 묻고
-vfosnar는 사용자 서버에 연결할 수 있는지 묻는데,[^ethanpil][^vfosnar]
-이 문서는 이에 대한 회사의 답을 스레드에서 찾지 못했다.
-사이트 번들의 개인정보 문구는 개인 정보를 팔지 않고 교차 맥락 광고에 공유하지
-않는다고 하지만,
-입 움직임 신호와 해독된 텍스트를 어떻게 다루는지는 이 문서가 읽은 문자열에서
-확인하지 못했다.
 
 ### 제품 사진과 사이트 설명에 대한 신뢰 논쟁이 있었다
 
@@ -135,7 +120,6 @@ dang은 사전 주문은 제품이 아직 없다는 것이고 기술은 진짜�
 답한다.[^dang]
 AStrangeMorrow는 사이트 전체가 눈에 띄게 AI가 만든 이미지로 채워진 것이 신뢰를
 주지 않는다고 한다.[^AStrangeMorrow]
-이 문서는 이미지가 AI로 만들어졌는지 확인하지 못했다.
 OhMeadhbh와 d1sxeyes는 홈페이지가 제품이 무엇인지 한 문장으로 알려 주지 않는다고
 지적하고,[^OhMeadhbh][^d1sxeyes]
 aarushyadav는 곧 고치겠다고 답한다.[^aarushyadav-site]
@@ -182,10 +166,6 @@ aarushyadav는 코 받침을 유지하겠다고 답한다.[^vessenes]
 
 [^aarushyadav-glasses]: <https://news.ycombinator.com/item?id=50346340>
 
-[^collabs]: <https://news.ycombinator.com/item?id=50341091>
-
-[^rootusrootus]: <https://news.ycombinator.com/item?id=50340756>
-
 [^demo4567]: <https://news.ycombinator.com/item?id=50345419>
 
 [^RonanSoleste]: <https://news.ycombinator.com/item?id=50345701>
@@ -195,10 +175,6 @@ aarushyadav는 코 받침을 유지하겠다고 답한다.[^vessenes]
 [^aarushyadav-internal]: <https://news.ycombinator.com/item?id=50347081>
 
 [^aarushyadav-cloud]: <https://news.ycombinator.com/item?id=50341849>
-
-[^ethanpil]: <https://news.ycombinator.com/item?id=50344101>
-
-[^vfosnar]: <https://news.ycombinator.com/item?id=50344103>
 
 [^ipsum2]: <https://news.ycombinator.com/item?id=50342045>
 

@@ -217,12 +217,6 @@ GeekNews의 kaydash는 이 기능이 Claude 모델에서는 잘 되지만 다른
 도구가 10개 미만이거나 전부 자주 쓰이면 이 기능을 끄는 것이 맞고,
 Workday의 스킬 실험도 점진적 공개가 지연을 조금 늘린다고 보고한다.[^wd]
 
-### 확인할 것
-
-확인할 것은 검색 단계에서의 실패율이다.
-글의 정확도 수치는 도구를 잘 고르는 쪽의 이득이며, 검색이 필요한 도구를
-찾지 못하는 비율은 따로 재야 한다.
-
 ---
 
 [^ts]: Anthropic, [Tool search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool)

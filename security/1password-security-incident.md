@@ -232,13 +232,6 @@ simonw가 계정이 이미 뚫린 뒤의 방어를 묻자 보호 브랜치, 별�
 빠진 정보와 강조의 차이가 보인다.
 이 사고에서는 토큰과 식별자가 요약에는 없고 본문에만 있었다.
 
-### 확인할 것
-
-블로그 글의 갱신 내용, 곧 영향받은 계정 수, 최초 접근 시점,
-직원 계정이 열린 경로, 독립 전문가의 검증 결과를 확인해야 한다.
-1Password가 보낸 개별 통지의 대상 기준도 확인이 필요하다.
-이 문서는 블로그 글을 읽은 11월 26일 기준으로 쓴 것이다.
-
 ---
 
 [^blog]: 1Password, [Update on a security incident involving 1Password’s backend systems.](https://1password.com/blog/update-on-nov-2026-security-incident), 2026-11-25

@@ -200,7 +200,6 @@ MIT의 6.001은 교재 Structure and Interpretation of Computer Programs(SICP)�
 강의에는 강연자가 둘 이상 나온다.
 3B 도입부에서 Hal이 앞 강의를 했다고 말하고, 6A에서는 Jerry가 앞 강의에서 대입을
 소개했다고 말하며, 7A에는 Susman이라는 이름이 한 번 나온다.
-어느 강의를 누가 했는지는 이 문서에서 확정하지 않는다.
 
 watersb는 몇 해 전 여름에 책상을 만드는 동안 이 강의를 오디오 팟캐스트처럼
 네 번쯤
@@ -5365,8 +5364,6 @@ Fenichel과 Yochelson이 1968, 69년쯤 Multics Maclisp용으로 발전시켰다
 
 강의는 1986년의 것이고 Lisp 칩, PDP-10, Multics Maclisp, Bobcat 같은 당시
 하드웨어와 Prolog에 대한 당시 MIT의 평가를 전제한다.
-8B의 Prolog에 대한 평가(“MIT의 태도는 1971년쯤 해 보고 옳지 않다고 결론지은
-것”)는 강연자의 의견이고, 이 문서는 그것을 사실로 확인하지 않았다.
 10B의 복사 수집기 속도(3MB를 1초 안에)와 메모리 수치도 당시 기계 기준이다.
 
 ### 컴퓨터 과학에는 현실의 제약이 없다는 말에 대한 반론

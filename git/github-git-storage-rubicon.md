@@ -141,9 +141,6 @@ HN에서 yakkomajuri는 이 글이 단단한 미래 계획이지만 지금의 �
 글이 수평 확장 기법은 기존 구조에서 이어받고, 이 설계는 저장소 하나 안의 수직
 확장을 위한 것이라고 밝히기 때문이다.
 글은 지금 가장 바쁜 저장소도 쓰기가 초당 수십 건에 그친다고도 적는다.[^yakkomajuri]
-usr1106은 기반이 Azure라는 점을 두고 신뢰성에 의문을 제기했는데,
-이는 별도 기사를 인용한 한 댓글러의 우려이며 이 문서는 그 기사를 확인하지
-못했다.[^usr1106]
 글은 현재 시스템의 장애를 다루지 않고 가용성이 어떻게 달라지는지도 수치로
 말하지 않는다.
 
@@ -157,7 +154,6 @@ usr1106은 기반이 Azure라는 점을 두고 신뢰성에 의문을 제기했�
 버전 하나의 비교로 응답이 끝나는 구조는 이 증폭을 흡수하기 위한 것이다.
 에이전트가 사람보다 훨씬 자주 최신 상태를 확인하는 동작을 한다면,
 앞으로의 병목은 쓰기가 아니라 최신인지 묻는 질문일 수 있다.
-이 문서가 확인하지 못한 것은 에이전트의 폴링 빈도가 실제로 어느 정도인지다.
 
 ### Git은 그대로이고 서버는 Git이 아니게 된다
 
@@ -193,7 +189,6 @@ mpalmer는 에이전트가 Git과 다른 것을 필요로 한다는 생각이 �
 문제는 나쁜 에이전트가 나쁜 저장소에 나쁜 양을 쏟는 데 있다고 반박했다.[^petervandijck][^mpalmer]
 jxramos는 Anthropic이 원천부터 소스 관리를 다시 설계하는 글을 읽었다고
 언급했다.[^jxramos]
-이 문서는 그 글을 열어 보지 못했다.
 GitHub의 글은 Git을 유지한다고 말하면서 Git 밖의 표면(원자적 커밋 API,
 클론 없는 읽기)을 계획에 넣었다는 점에서 두 입장 사이의 타협이다.
 Lobste.rs에서 priime은 Git에 얼마나 매여 있어야 하는지가 궁금하다며,
@@ -205,9 +200,6 @@ orib은 jj의 저장 형식에 대한 정보가 많지 않고 Git의 확장성�
 문제를 풀려던 것으로 보인다고 답했고,[^orib]
 masklinn은 jj 문서가 Git 백엔드만 실사용 단계이고 Git과 같은 방식으로 저장한다고
 분명히 적고 있다고 바로잡았다.[^masklinn]
-이 논쟁은 모두 댓글러들의 서술이며 이 문서는 jj 문서를 열어 보지 않았다.
-pksunkara는 Enroute가 Git 확장 문제를 이미 비슷하게 풀었다고 했는데,
-이는 그 댓글러의 주장이며 이 문서는 확인하지 못했다.[^pksunkara]
 
 ### 같은 문제에 합의를 남기는 쪽과 지우는 쪽이 갈린다
 
@@ -217,7 +209,6 @@ GitHub의 설계는 객체를 블롭에 두는 점이 같지만 참조를 위해
 남긴다.
 두 갈래의 차이는 참조의 순서를 누가 책임지느냐에 있고,
 이 글은 그 선택의 이유로 블롭 하나와 세그먼트 두 방식의 한계를 든다.
-다른 쪽 설계가 같은 한계를 어떻게 피하는지는 이 문서가 비교하지 않았다.
 두 설계의 차이가 실제로 갈리는 지점은 충돌 빈도가 높은 단일 브랜치에서
 관찰될 것이다.
 
@@ -229,8 +220,6 @@ GitHub의 설계는 객체를 블롭에 두는 점이 같지만 참조를 위해
 
 [^yakkomajuri]: <https://news.ycombinator.com/item?id=50400381>
 
-[^usr1106]: <https://news.ycombinator.com/item?id=50401930>
-
 [^bob1029]: <https://news.ycombinator.com/item?id=50403220>
 
 [^petervandijck]: <https://news.ycombinator.com/item?id=50402893>
@@ -238,8 +227,6 @@ GitHub의 설계는 객체를 블롭에 두는 점이 같지만 참조를 위해
 [^mpalmer]: <https://news.ycombinator.com/item?id=50404948>
 
 [^jxramos]: <https://news.ycombinator.com/item?id=50401543>
-
-[^pksunkara]: <https://news.ycombinator.com/item?id=50400695>
 
 [^priime]: <https://lobste.rs/s/y3hvme/inside_github_s_new_git_storage#c_c9ctfu>
 

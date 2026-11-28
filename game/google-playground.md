@@ -102,9 +102,7 @@ AI 생성물임을 나타내는 워터마크나 메타데이터를 지우는 것
 홍보 영상 설명 어디에도 Playground가 쓰는 모델 이름은 나오지 않는다.
 Android Headlines 같은 매체는 Playground가 Gemini, Nano Banana,
 Lyria 모델을 자체 엔진 하네스 안에서 연결한다고 보도했는데,
-이 문서를 쓰며 그 문장의 출처가 된 Google 측 원문은 확인하지 못했다.
 모델 구성은 언론 보도 수준의 정보로 남겨 둔다.
-이 문서를 쓰며 Playground를 직접 실행해 보지는 않았다.
 2026년 10월 10일 한국에서 도움말 FAQ 주소를 열었을 때는
 “Not available in your region” 페이지로 넘어갔다.
 

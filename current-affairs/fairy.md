@@ -49,7 +49,6 @@ Hada Studio는 GeekNews 자체에 Fairy를 먼저 도입했다.
 수수료를 바꾸면 30일 전에 고지하고, 변경 시점 이전의 후원에는 기존 요율을 적용한다.[^settlement]
 프로모션이나 제휴, 개별 계약이 있으면 그 기준이 우선한다.[^settlement]
 변경에 동의하지 않으면 서비스를 중단하고 탈퇴할 수 있고, 탈퇴하면 정산 가능 금액은 모두 정산된다.[^settlement]
-이 문서가 이전에 적었던 GitHub Sponsors와 Open Collective의 요율 비교는 확인하지 못해서 뺐다.
 
 결제 대행사는 Payple이다.
 GeekNews에서 partoth가 후원과 정산에 어떤 PG를 쓰는지 묻자,[^partoth] 운영자 xguru는 이런 서비스는 승인이 잘 나지 않는데 Payple이 해 주었고 응대도 빠르다고 답했다.[^xguru-payple]

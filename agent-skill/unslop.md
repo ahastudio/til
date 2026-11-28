@@ -95,8 +95,6 @@ Next.js, React, Vue, Svelte, Tailwind, 순수 HTML과 CSS에서 쓸 수 있고, 
 정사각 영상이다.
 한 페이지에서 CSS 값만 바꿔 간격, 색, 모서리가 제자리에서 변하게 하고, 슬롭에는
 빨간 선택 상자와 치수선을 그린다.
-`SKILL.md`는 이 영상이 화제가 되었다고 적는데, 이는 저자의 서술이며 이 문서는
-확인하지 못했다.
 모든 영상에는 “unslop by @heydamir” 표기가 들어가야 한다.
 
 README 끝에는 “Hire the unslopper”가 있다. 디자이너가 대신 해 주기를 바라면 핵심

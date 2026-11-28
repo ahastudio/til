@@ -109,12 +109,10 @@ def count_tokens(messages):
     """토큰 수를 단어 수로 어림한다. 실제로는 모델의 토크나이저를 쓴다."""
     return sum(len(m["content"].split()) for m in messages)
 
-
 def fake_llm(context):
     """상태가 없는 블랙박스를 흉내 낸다. 넘겨받은 context만 보고 답한다."""
     questions = [m["content"] for m in context if m["role"] == "user"]
     return f"받은 메시지 {len(context)}개, 지금까지 질문 {len(questions)}개, 마지막 질문: {questions[-1]}"
-
 
 class Agent:
     def __init__(self, system):
@@ -127,7 +125,6 @@ class Agent:
         self.context.append({"role": "assistant", "content": answer})
         return answer
 
-
 def compress(agent, summarizer):
     """서브 에이전트도 컨텍스트 배열 하나와 호출 한 번일 뿐이다.
     요약 담당에게 지금까지의 대화를 맡기고, 본 컨텍스트를 요약으로 바꾼다."""
@@ -137,7 +134,6 @@ def compress(agent, summarizer):
     short = f"요약: 지금까지 {len(agent.context) - 1}개 메시지를 주고받았다"
     agent.context = [agent.context[0], {"role": "assistant", "content": short}]
     return before, count_tokens(agent.context), summary
-
 
 if __name__ == "__main__":
     main = Agent("너는 도우미다")
@@ -315,7 +311,6 @@ HN의 zahlman은 bash를 주라는 말에 원격 서비스가 `rm -rf /`를 부�
 넣는다.
 글의 코드가 이 항목을 따로 처리한다는 점은 이 API가 그 항목을 요구한다는 뜻으로
 읽힌다.
-이 문서는 이를 API 문서로 확인하지 않았다.
 다른 모델 제공자로 옮기면 이 부분을 다시 맞춰야 한다.
 글이 말하는 직접 짜면 이해된다는 것은 모델 API의 세부를 이해한다는 뜻을
 포함한다.

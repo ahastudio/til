@@ -21,8 +21,6 @@ Pass Designer는 Apple Wallet에 들어가는 패스, 곧 탑승권, 이벤트 �
 내려받으려면 Apple Account로 로그인해야 한다.
 요청을 받으면 무료 등록을 마치고 Apple Developer Agreement에 동의해야 한다.
 
-이 문서는 제품 페이지와 Apple 개발자 문서의
-‘Creating a pass with Pass Designer’를 함께 읽고 썼다.
 나는 이 앱을 직접 실행하지 않았다.
 Wallet 패스 파일의 내부 구조와 손으로 만드는 과정은 이 저장소의
 `apple/ios-wallet-library-card.md`에 정리되어 있다.

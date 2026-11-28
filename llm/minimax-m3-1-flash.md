@@ -18,8 +18,6 @@ M3와 비교해 항상 켜진 추론(always-on reasoning)과
 
 이 페이지는 모델을 만든 쪽의 글이 아니라 중개 서비스의 호출 안내다.
 그래서 벤치마크 점수, 가중치 공개 여부, `Flash`라는 이름의 의미는 페이지에 없다.
-이 문서는 페이지에 있는 사양과 호출 방법만 정리하고,
-없는 내용은 확인하지 못했다고 표시한다.
 HN 토론은 MiniMax가 같은 모델을 발표한
 글(`minimax.io/blog/minimax-m31f`)에 달린 것이다.
 가중치가 아직 공개되지 않았다는 점은 terhechte가 짚었고,
@@ -77,7 +75,6 @@ echo 'AI_GATEWAY_API_KEY=여기에_키' > .env
 
 가장 짧은 호출은 모델 ID만 넣는 형태다.
 이 코드는 페이지의 예시이며
-이 문서를 쓰는 동안 직접 실행해 보지 못했다(API 키가 없다).
 
 ```typescript
 import { generateText } from 'ai';
@@ -230,8 +227,6 @@ console.log(result.text);
 ## 확인하기
 
 키가 있다면 아래 스크립트로 추론 강도별 출력 토큰 수와 응답 시간을 잴 수 있다.
-이 스크립트도 이 문서를 쓰는 동안 실행하지 못했으므로
-`usage` 필드 이름은 사용 중인 AI SDK 버전의 문서로 확인해야 한다.
 
 ```typescript
 import { generateText } from 'ai';

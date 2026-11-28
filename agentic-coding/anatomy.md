@@ -193,7 +193,6 @@ CONTRIBUTING은 코드에 주석을 쓰지 않는다는 규칙과 키트를 바�
 저장소를 내려받아 `node examples/dial-indicator/build.mjs`를 실행하면
 독립 HTML 페이지가 스크립트 옆에 쓰인다.
 `--light`를 붙이면 밝은 테마다.
-이 문서는 이 명령을 직접 실행하지 않았다.
 README의 설명만 읽고 정리한 것이므로,
 실제 출력의 품질은 `examples/`에 커밋된 페이지를 열어 확인해야 한다.
 

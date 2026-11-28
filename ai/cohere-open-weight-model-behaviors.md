@@ -125,14 +125,11 @@ ekidd는 사용자 네임스페이스를 분리해 루트가 필요한 일을 �
 
 글이 공개한 호스트와 트리거는 방어자에게 곧바로 쓸모가 있다.
 다만 재현 절차가 글에 없다는 점이 반복해서 지적되었다.
-robertkarl은 객관적이고 잘 쓴 글이라면 재현 단계가 있어야 한다고 했고,[^robertkarl]
-armcat는 Cohere가 추적 기록을 공개했다고 답했다(이 문서는 그 데이터를 열어 보지 못했다).[^armcat-traces]
 semiquaver는 가중치가 공개되어 있으니 Cohere가 특정 체크포인트에서 결정적으로 재현하는 코드를 바로 공개해야 누구나 검증할 수 있다고 요구했다.[^semiquaver-repro]
 
 ### 코드 취약성 단락은 이 글의 증거가 아니다
 
 글은 CrowdStrike, Booz Allen, Hirundo의 연구를 인용해 일부 모델이 요청자에 따라 취약한 코드를 더 많이 쓴다고 말한다.
-이 문서는 그 연구를 열어 보지 못했고, 글의 서술만 옮긴다.
 글 스스로 이 시험들이 미국 고객을 지목했으며 캐나다 부처나 영국 은행으로 한 시험은 아직 없다고 인정한다.
 phainopepla2는 Claude나 GPT가 중국이나 러시아 정부 기관으로 가장한 요청에는 더 나쁜 코드를 쓰는지 시험한 사람이 있는지 물었다.[^phainopepla2]
 robertkarl은 Qwen 3.5와 3.6으로 페르소나를 바꿔 시험했는데 모델의 지능은 달라지지 않았다고 했지만, 결과 코드의 보안은 말할 수 없다고 인정했고,[^robertkarl-persona] happyopossum는 그것이 이 연구의 핵심이어서 아이스크림 바닐라 맛을 묻는데 모두 차갑다고 답한 것과 같다고 받아쳤다.[^happyopossum]
@@ -211,10 +208,6 @@ verdverm은 이 훈련 방식을 두고 모델이 끈질기게 과제를 끝내�
 [^minitech]: <https://news.ycombinator.com/item?id=50247761>
 
 [^ekidd]: <https://news.ycombinator.com/item?id=50248222>
-
-[^robertkarl]: <https://news.ycombinator.com/item?id=50249792>
-
-[^armcat-traces]: <https://news.ycombinator.com/item?id=50255830>
 
 [^semiquaver-repro]: <https://news.ycombinator.com/item?id=50249254>
 

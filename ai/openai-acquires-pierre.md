@@ -88,7 +88,6 @@ Diffs의 편집 모드처럼 리뷰어가 문제를 본 자리에서 바로 고�
 Hacker News에서 rodonn은 에이전트로 코딩하는 일이 GitHub를 부러뜨리고 있어서
 모두가 Git을 쓰는 새로운 방식으로 옮겨 가고 있다고 적었다.[^rodonn]
 그는 Anthropic도 자체 시스템을 만들었다며 링크를 달았다.
-이 링크의 내용은 이 문서가 열어 보지 않았으므로 댓글의 주장으로만 전한다.
 dfhqll은 Cursor도 대규모 Git 인프라를 만들고 있고 Pierre도 같은 일을 한다고
 적었는데,
 그는 이를 개발자 도구 시장이 수익이 나지 않는 곳이라는 비판으로 이었다.[^dfhqll]
@@ -111,7 +110,6 @@ Legend2440은 인수 발표가 먼저 그 스타트업이 무엇인지 설명하
 그러나 사용자 수나 도입 사례처럼 규모를 가늠할 수 있는 숫자는 없다.
 Codex가 Trees와 Diffs를 쓴다는 말도 OpenAI의 주장이다.
 lxe는 Codex 앱을 뜯어본 저장소를 링크해 이 라이브러리가 쓰였다고 적었지만,
-이 문서는 그 저장소를 열어 보지 않았다.[^lxe]
 
 ### 오픈 소스로 남겠다는 약속은 소유권과 유지를 같은 것으로 다루지 않는다
 
@@ -141,7 +139,6 @@ OpenAI가 그 기능을 Codex로 가져오는 동안이라고 단서를 단다.
 Hacker News에서 ferryth는 Code Storage 사이트의 소개 문구를 옮겨 적었다.
 그에 따르면 이 서비스가 생성된 코드와 메모리 파일과 디자인 산출물을 저장하는 데
 Lovable, Poke, Anything, Bolt, Amp, Parahelp 같은 곳이 쓴다고 한다.[^ferryth]
-이 문서는 그 사이트를 열어 보지 않았으므로 확인된 고객 목록으로 쓰지 않는다.
 이 말이 사실이라면 고객 상당수가 AI 앱을 만드는 회사이고,
 그들의 저장소를 운영하는 주체가 모델 회사가 된다는 뜻이 된다.
 
@@ -211,8 +208,6 @@ Code Storage를 쓰는 팀은 지금 내보내기 경로를 한 번 시험해 �
 [^AdamN]: <https://news.ycombinator.com/item?id=50367683>
 
 [^Legend2440]: <https://news.ycombinator.com/item?id=50367030>
-
-[^lxe]: <https://news.ycombinator.com/item?id=50371601>
 
 [^rsanheim]: <https://news.ycombinator.com/item?id=50367693>
 

@@ -15,9 +15,6 @@ GitHub API는 라이선스를 비어 있다고 돌려주고 `LICENSE` 파일이 
 별도 홈페이지는 없다.
 
 저장소를 받아 코드를 읽었으며 설치하거나 실행하지 않았다.
-`bin/setup.js`, `hooks/` 5개 스크립트, `server/src/`의 비테스트 파일 전부,
-클라이언트의 `useFileActivity.ts`, `screen-flash.ts`, `agent-movement.ts`와
-`HabboRoom.tsx`의 주요 구간을 이 문서가 직접 읽었다.
 `client/src/drawing/`의 그리기 코드는 줄 단위로 읽지 않고 키워드 검색만 했다.
 
 ## 동작 방식
@@ -151,8 +148,6 @@ JSON은 셸 문자열 이어 붙이기로 만들며 `filePath`와 `toolName`은 
 ### 설정 파일을 덮어쓴다
 
 `npx`로 실행하면 확인 없이 `.claude/settings.local.json`의 `hooks`를 통째로 대입한다.
-이 문서가 `bin/setup.js`에서 `settings.hooks = hooksConfig.hooks;`를 확인했고
-같은 줄 위의 주석은 병합이라고 적는다.
 `setup.js` 193번째 줄이다.
 사용자의 기존 `hooks`가 있다면 사라진다.
 `settings.local.json`이 JSON 파싱에 실패하면 예외를 무시하고 빈 객체로 시작해
@@ -225,5 +220,3 @@ CI가 없고 추적 파일은 약 1만 1,800줄이다.
 1. 설정 병합이 덮어쓰기에서 실제 병합으로 바뀌는지.
 2. 포트 바인딩이 루프백으로 제한되는지.
 3. 프로젝트가 1월 이후 이어지는지.
-
-위 셋 모두 이 문서가 확인하지 못했다.

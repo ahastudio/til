@@ -128,7 +128,6 @@ Haze 2.0 소개 글은 Glass가 2.0에서 실험 단계이고
 `@ExperimentalHazeApi`가 필요 없어진다고 적는다.
 같은 항목에 `Modifier.hazeGlassContainer`가 추가된다고 한다.
 인접한 Glass 요소를 하나의 묶음으로 합치는 기능이다.
-이 문서는 이 항목이 들어간 정식 버전이 나왔는지 확인하지 못했다.
 
 ### 눌림과 접근성 설정
 

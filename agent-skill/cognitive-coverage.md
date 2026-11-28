@@ -99,7 +99,6 @@ README의 도구 표는 아홉 개다.
 | `find_by_file`          | 파일 경로를 참조하는 개념과 흐름을 반환                               |
 | `mark_status`           | 항목 하나의 상태를 바꾸고 매니페스트를 원자적으로 다시 씀             |
 
-이 문서를 쓴 환경에서는 스킬을 설치하거나 실행하지 않았다.
 README만 읽었고 `skills/cognitive-coverage/SKILL.md`와 `docs/HOW-IT-WORKS.md`는
 열지 않았다.
 

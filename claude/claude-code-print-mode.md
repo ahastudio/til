@@ -745,8 +745,6 @@ Google Cloud, Microsoft Foundry의 Claude에는 적용되지 않는다.[^support
 
 아래 스크립트는 실전 글의 구성[^devtk]과 이 문서의 공식 플래그를 맞춰
 다시 쓴 것이다.
-이 문서를 쓰면서 모든 스크립트를 실행해 보지는 않았고,
-인증 없이 실행했을 때의 결과만 직접 확인했다(아래 비평 절).
 
 ### 감싸개 스크립트: 재시도와 성공 판정
 
@@ -982,7 +980,6 @@ Claude Code 팀과의 인터뷰를 정리한 댓글에서 `swyx`는 헤드리스
 ### 종료 코드만으로는 성공을 알 수 없다
 
 공식 문서는 실행 도중의 실패가 오류가 아니라 결과로 stdout에 찍힌다고 적는다.
-이 문서를 쓰면서 이를 직접 확인했다.
 Claude Code 2.1.308에서 인증 정보 없이 `claude -p “hi” --bare --output-format
 json`을 실행하자 종료 코드는 1이었고, stdout에는 결과 객체가 나왔다.
 그 객체의 `subtype`은 `success`, `is_error`는 `true`,

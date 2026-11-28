@@ -18,8 +18,6 @@ README의 한 줄 설명은
 홈페이지 `octop.cloud`는 자바스크립트로 그리는 페이지라,
 정적 HTML에서는 제목과 “Understands you, helps you, grows with you”라는
 설명 문구만 읽을 수 있었다.
-그래서 이 문서는 주로 저장소의 README, `docs/`, 소스, 변경 이력, 릴리스를
-읽고 썼다.
 설치하거나 실행해 보지는 않았다.
 
 저장소는 2026년 7월 8일에 만들어졌다.

@@ -21,8 +21,6 @@ Chrome과 Firefox에서 돌려 주는 팬 프로젝트다.
 후원은 호스팅과 개발 비용을 위한 것이고 모두 같은 게임을 받으며 유료 혜택이
 없다고 한다.
 후원자에게는 Discord 역할만 준다.
-이 문서는 사이트를 직접 실행해 보지 않았고,
-홈페이지와 저장소 README, HN 댓글에서 읽은 내용만 정리했다.
 
 ## 동작 방식
 
@@ -68,10 +66,6 @@ HN에서 andix가 직접 호스팅할 수 있느냐고 물은 것의 답은 이 
 Linux에서는 별도 조치가 필요하다는 보고가 있다.
 popcar2는 Chromium에 `--enable-unsafe-webgpu`와 Vulkan 관련 옵션을 줘야 했다고
 적었다.[^popcar2]
-이에 herodoturtle는 그 플래그가 웹사이트에 보안 문제를 열 수 있다는 브라우저
-경고를 인용하며
-어떤 위험인지 알려 달라고 물었고, 이 문서가 읽은 범위에는 답이
-없었다.[^herodoturtle]
 judge2020은 샌드박스를 유지하는 다른 설정 방법을 올렸지만 Fedora와 NVIDIA
 드라이버에 한정된 것이다.[^judge2020]
 
@@ -99,7 +93,6 @@ README는 저장소에 게임의 코드나 데이터가 들어 있지 않으며 
 그런데 HN 댓글들은 `nfsu2.xyz`가 게임 자산을 직접 내려주고 있다고 읽었다.[^rvz]
 MayeulC는 이 게임이 어디서도 팔리지 않는다고 하면서도 자산까지 호스팅하는 것은
 법적으로 의심스럽다고 썼다.[^mayeulc]
-호스팅 사이트가 실제로 어떤 파일을 내주는지는 이 문서가 확인하지 못했다.
 README의 사용자 사본 방식과 호스팅 사이트의 즉시 실행이 어떻게 양립하는지는
 홈페이지에 설명이 없다.
 
@@ -143,7 +136,6 @@ nonethewiser는 자산이 들어간 디컴파일 배포와 진짜 게임 배포 
 diimdeep은 온라인이 로비 목록이 아니라 매치메이킹과 맞는 차종 구성이 있어야
 재미있다고 썼다.[^diimdeep]
 수천 명이 한 월드에 모이는 자유 주행은 인상적이지만,
-이 문서는 서버 규모와 비용을 확인하지 못했다.
 후원이 서버 비용을 감당하는지도 알 수 없다.
 andix가 오래 못 갈 것 같아 로컬로 돌리고 싶다고 한 반응은 이런 불안정성에서 나온
 것이다.[^andix]
@@ -169,8 +161,6 @@ Firefox에서도 매끄러웠다고 했다.[^lbreakjai]
 [^repo]: GitHub, [th0mk/nfsu2-web](https://github.com/th0mk/nfsu2-web), 2026-11-08
 
 [^popcar2]: <https://news.ycombinator.com/item?id=50404555>
-
-[^herodoturtle]: <https://news.ycombinator.com/item?id=50405109>
 
 [^judge2020]: <https://news.ycombinator.com/item?id=50406263>
 

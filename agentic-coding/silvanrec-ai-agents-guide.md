@@ -25,8 +25,6 @@ silvan(@silvanrec)이 2026년 8월 20일 Twitter에 올린 스페인어 장문 �
 관측 가능성(logs, tracing, evals)이 없는 에이전트는 제품이 아니라 데모이고,
 가장 높은 가격은 다중 에이전트와 레거시 시스템 통합에 있다고 한다.
 
-이 문서는 글의 주장을 그대로 따르지 않고,
-글이 가르치는 작업을 따라 할 수 있게 정리하면서 근거가 부족한 곳을 짚는다.
 글이 제시하는 금액이나 매출 수치는 없다는 점을 먼저 밝혀 둔다.
 
 ## 동작 방식
@@ -56,7 +54,6 @@ TOOLS = {
     },
 }
 
-
 def fake_model(messages):
     """실제 LLM 호출을 흉내 낸다.
     사용자 질문만 있으면 도구를 부르고, 도구 결과가 있으면 답한다."""
@@ -65,7 +62,6 @@ def fake_model(messages):
         return {"tool": "lookup_order", "args": {"order_id": "A-1001"}, "cost": 0.002}
     status = json.loads(last["content"])["status"]
     return {"answer": f"주문 상태: {status}", "cost": 0.001}
-
 
 def run_agent(question, max_steps=5, max_cost=0.05, log_path="agent_trace.jsonl"):
     messages = [{"role": "user", "content": question}]
@@ -86,7 +82,6 @@ def run_agent(question, max_steps=5, max_cost=0.05, log_path="agent_trace.jsonl"
             messages.append({"role": "tool", "content": json.dumps(result)})
     return {"status": "stopped", "reason": "step_limit", "spent": spent}
 
-
 if __name__ == "__main__":
     print(run_agent("A-1001 주문은 어디까지 왔나요?"))
 ```
@@ -101,7 +96,6 @@ if __name__ == "__main__":
 MCP(Model Context Protocol)는 글이 도구와 데이터 원천을 모델에 균일하게 노출하는
 개방형 표준으로 소개한다.
 글은 Anthropic, Google, OpenAI가 이를 채택하고 있다고 쓰는데,
-이 문서는 그 채택 상황을 따로 확인하지 않았고 글쓴이의 주장으로 남긴다.
 핵심 논리는 자기 도구를 MCP로 노출해 두면 모델이나 고객이 바뀌어도
 통합을 다시 쓰지 않는다는 것이다.
 

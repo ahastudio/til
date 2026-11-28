@@ -116,9 +116,6 @@ T-A는 발표문의 글이 모호하지만, 이는 수학적 엄밀성에 관심
 발표문은 새 증명이 모든 차원에서 Kakeya 추측을 해결했고 ETH가 거짓이며 QCD의
 존재를 증명했다고 쓴다.
 이 문장들은 OpenAI의 주장이다.
-이 문서는 어느 것도 독립적으로 검증하지 못했고, 발표문도 컴퓨터 과학 결과는 안내
-집단이 검증하고 이해해야 한다고 하며 물리 결과는 자료가 아직 공개되지 않았다고
-쓴다.
 
 HN의 auntienomen은 물리 결과를 구체적으로 의심했다.
 QCD와 Yang–Mills 결과가 전문가가 아는 것과 기대하는 것을 넘어서지 않는 듯하며,
@@ -138,8 +135,6 @@ jltsiren은 이 결과가 P=NP 쪽으로 믿음을 크게 옮기지 않는다고
 것이다.[^jltsiren]
 CaptainNegative는 P=NP의 새로운 귀결이 증명되면 정직하게는 믿음을 조금 옮겨야
 한다고 반박했다.[^CaptainNegative]
-jibalt는 Scott Aaronson이 3퍼센트에서 5퍼센트로 올랐다고 말한 것으로 안다고
-썼는데, 이는 댓글의 전언이고 이 문서가 확인한 것이 아니다.[^jibalt]
 
 ### 협력의 구조가 공정성 문제를 해결한다고 보기는 어렵다
 
@@ -179,8 +174,6 @@ criemen은 OpenAI가 먼저 자연어 증명을 만들고 그다음 별도 단�
 짚었다.
 실패가 적다면 모델이 증명을 한 번에 잘 쓴다는 뜻이고, 많다면 걸러낸 결과만 보고
 있다는 뜻이라는 것이다.[^criemen]
-abathologist는 시도 대비 성공이 한 자릿수 퍼센트라는 추정이 있다고 썼지만, 이는
-댓글이 인용한 외부 글의 추정이고 이 문서가 열어 보지 못했다.[^abathologist]
 
 이 질문은 결과의 진위와는 별개다.
 이미 Lean으로 확인된 증명이라면 시도 횟수가 많아도 참이다.
@@ -255,7 +248,6 @@ parineum은 생물학의 병목은 생각이 아니라 실험이고, AI가 실�
 시간 한계와 형식화의 진술이 일치하는지다.
 다른 하나는 물리 집단이 자료를 공개한 뒤 질량 간극과 속박에 관해 어떤 수준의
 결과로 정리하는지다.
-이 문서는 둘 다 확인하지 못했다.
 
 ---
 
@@ -275,8 +267,6 @@ parineum은 생물학의 병목은 생각이 아니라 실험이고, AI가 실�
 
 [^CaptainNegative]: <https://news.ycombinator.com/item?id=50253266>
 
-[^jibalt]: <https://news.ycombinator.com/item?id=50254270>
-
 [^titzer]: <https://news.ycombinator.com/item?id=50252074>
 
 [^noduerme]: <https://news.ycombinator.com/item?id=50254357>
@@ -288,8 +278,6 @@ parineum은 생물학의 병목은 생각이 아니라 실험이고, AI가 실�
 [^esalman]: <https://news.ycombinator.com/item?id=50251758>
 
 [^criemen]: <https://news.ycombinator.com/item?id=50253139>
-
-[^abathologist]: <https://news.ycombinator.com/item?id=50253498>
 
 [^QuesnayJr]: <https://news.ycombinator.com/item?id=50253133>
 

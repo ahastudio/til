@@ -167,7 +167,6 @@ HN에서 savant2는 이 글이 OpenPGP의 Web Key Directory(WKD)를 언급하지
 그는 Fastmail을 쓰는 도메인 중 MTA-STS를 강제하는 비율을 약 0.2%라고 적었고,
 Proton Mail과 비슷하며 Outlook(약 0.1%)과 Google(0.1% 미만)보다 높다고
 했다.[^8organicbits]
-이 수치는 그의 쿼리 결과이고 이 문서가 확인한 것이 아니다.
 
 Fastmail 쪽에서 답한 것으로 보이는 brongondwana는 이 영역에서 Fastmail이
 선구자가 아니며, 핵심 전문 분야가 아니므로 “모범 사례의 합의”를 따른다고
@@ -210,7 +209,6 @@ HN에서 user09812037은 이 서술이 지나치게 확신에 차 있다고 반�
 뿐이라고 썼다.[^user09812037]
 이는 한 댓글의 주장이고, joering2는 사용자가 많은 WhatsApp이 암호화되지 않았다면
 형사 재판에서 이미 드러났을 것이라고 답했다.[^joering2]
-두 주장 모두 이 문서가 확인한 것은 아니다.
 
 upofadown은 사용성 연구에서 컴퓨터과학 학생 28명 중 21명이 Signal에서 안전한
 종단간 연결을 맺고 유지하지 못했다고 썼다.[^upofadown]

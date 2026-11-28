@@ -423,7 +423,6 @@ CedarDB는 복잡한 쿼리를 여러 단계를 거쳐 LLVM IR로 내리고 기�
 README에 따르면 SQLDoom은 Postgres 와이어 프로토콜로 데이터베이스와 통신하고,
 일부 함수가 cedarscript를 쓰기 때문에 현재는 CedarDB가 필요하지만
 PL/pgSQL로 쉽게 옮길 수 있다고 한다.
-이 문서를 쓰면서 SQLDoom을 직접 실행하거나 공개 서버에 접속해 보지는 않았다.
 
 ## 분석
 

@@ -153,8 +153,6 @@ Dean 본인의 공지에 따르면 Discovery Loop는 Sanjay Ghemawat, Oriol Viny
 가속하는 것이고, 네 사람이 14년에서 30년간 함께 일해 왔다는 것이다.[^xtreak29]
 즉 Google 발표문은 두 사람의 퇴사로 서술했지만 실제로는 네 명이며, Vinyals와 Le는
 Gemini와 Transformer 계보의 핵심 인물이다.
-발표문이 이 두 이름을 언급하지 않은 것은 정보 선택이며, 그것이 이 문서를 사실 보고가
-아니라 서사 관리로 읽게 만든다.
 
 ### 두 메시지의 AGI 담론이 서로 다른 무게를 갖는다
 

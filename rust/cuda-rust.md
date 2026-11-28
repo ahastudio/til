@@ -265,8 +265,6 @@ HN에서 dllu는 NVIDIA가 HuggingFace를 소유하게 되었고 HuggingFace에 
 크레이트 Candle이 있으니 좋은 한 걸음이라고 적었다.[^dllu]
 melihelibol은 Candle과의 통합이 이미 있다며 풀 리퀘스트를
 가리켰다.[^melihelibol-candle]
-이 문서는 그 풀 리퀘스트를 열어 보지 않았으므로,
-통합이 어느 단계인지는 확인하지 못했다.
 
 ## 컴파일러가 잡아 주는 것
 

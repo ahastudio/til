@@ -103,8 +103,6 @@ README의 성능 그림은 두 장이다.
 
 둘째, 그림의 점은 모두 한 확장 도메인(scale-up domain) 안에서
 prefill 4개, decode 64개 GPU로 잰 것이다.
-셋째, 그림의 숫자는 이 문서가 눈으로 읽은 근사이고
-정확한 값은 `results.jsonl`을 직접 돌려 얻어야 한다.
 README는 재현 스크립트로 `examples/sweep/run_sweep.sh`를 가리킨다.
 
 ## 배포 Q&A가 알려 주는 운영 구조

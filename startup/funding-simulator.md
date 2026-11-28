@@ -94,8 +94,6 @@ pgt의 서술이 가장 상세하다[^pgt].
 플러스 버튼이 창업자를 하나 더 추가하는 것처럼 보여서 다음 단계로 가는 법을 한참 못 찾고 창업자를 추가했다 지웠다 했으며, “Run Simulation” 버튼을 찾았는데 없었고 추가한 블록에 마우스를 올려야 결과가 보인다는 것이 전혀 명확하지 않았다는 것이다.
 그리고 랜딩 페이지에서 다른 선택지가 없는데도 “New Startup”을 눌러야 하는 것이 불필요하다고 지적한다.
 
-andrewstuart도 요소를 몇 개 추가했는데 그다음에 뭘 해야 할지 몰랐다고 적었고[^andrewstuart], 실제로 이 문서를 쓰면서 도구를 열었을 때도 랜딩 화면에는 “New simulation” 버튼 하나뿐이고 그 뒤 화면에는 창업자 이름과 지분율 칸, “Add founder” 버튼만 보였다.
-
 jonshariat의 질문이 이 혼란의 근원을 짚는다 — 이것이 시뮬레이터인가 계산기인가[^jonshariat].
 시뮬레이터라면 실행 버튼과 결과 화면이 있어야 하고, 계산기라면 입력하는 동안 결과가 계속 보여야 한다.
 이 도구는 후자에 가까운데 이름은 전자이고 UI는 둘 다 아니다.
@@ -220,8 +218,6 @@ HDogueto가 남긴 말이 이 도구의 사회적 효과를 가리킨다[^hdogue
 [^luctia]: <https://news.ycombinator.com/item?id=39123944>
 
 [^pgt]: <https://news.ycombinator.com/item?id=39127342>
-
-[^andrewstuart]: <https://news.ycombinator.com/item?id=39126029>
 
 [^jonshariat]: <https://news.ycombinator.com/item?id=39121510>
 

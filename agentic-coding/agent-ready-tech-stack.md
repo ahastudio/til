@@ -172,7 +172,6 @@ Anthropic이 Atlassian을 약 400억 달러에 인수한다는 소문은 글이 
 확인되지 않은 소문은 논지가 맞다는 증거가 되지 못한다.
 Atlassian의 Remote MCP 서버가 2025년 5월 1일에 Anthropic을 첫 공식 파트너로,
 Cloudflare 위에서 베타로 나왔다는 부분은 Atlassian의 발표와 맞다.[^atlassian]
-2026년 2월의 정식 제공은 이 문서가 확인하지 못했다.
 
 ## 인사이트
 

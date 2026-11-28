@@ -12,7 +12,6 @@ GN 토론: <https://news.hada.io/topic?id=37724>
 
 Andreas Kling이 2026년 11월 23일에 올린 짧은 공지이다.
 Ladybird가 알파 단계에 들어갔고 macOS와 Linux용으로 내려받을 수 있다고 한다.
-이 문서는 공지의 전문을 읽고 썼으며, 분량이 짧아 공지가 말한 내용은 아래가 전부이다.
 
 - 정체: 새 엔진을 가진 브라우저이다.
   엔진은 처음부터 직접 만들었고 포크가 아니며, 주변의 브라우저 껍데기는 소박하지만 작동한다고 한다.
@@ -33,7 +32,6 @@ Ladybird가 알파 단계에 들어갔고 macOS와 Linux용으로 내려받을 �
 소스를 빌드하지 않고 내려받아 쓸 수 있게 되었다는 것과 그 뒤 자동으로 업데이트된다는 것이다.
 반대로 호환성의 정도나 성능에 대한 수치, 지원 일정은 공지에 없다.
 GeekNews의 요약은 웹 표준 테스트(WPT)에서 Safari Technology Preview를 앞질렀고 JavaScript JIT를 넣었다고 적지만,
-이 문서가 읽은 공지 본문에서는 그 문장을 찾지 못했다.
 그래서 이 문서는 그 수치를 사실로 쓰지 않는다.
 
 ### 보안 문구의 성격
@@ -52,7 +50,6 @@ FinnKuhn은 패스키로 로그인하는 사이트에서는 작동하지 않아 
 Lobste.rs의 smoores는 Ladybird로 댓글을 쓰고 있다고 하면서 일부 글꼴이 맞지 않는다고 했고,[^smoores]
 classichasclass는 Mac에서는 알파치고 상당히 다듬어졌다고 답했다.[^classichasclass]
 GeekNews의 edunga1은 문제 없이 탐색되지만 매직 마우스와 트랙패드의 앞으로/뒤로 제스처가 동작하지 않는다고 했다.[^edunga1]
-모두 개인의 사용 경험이며 이 문서가 직접 시험한 것은 아니다.
 
 ### 보안 주의
 
@@ -77,20 +74,17 @@ kvuj는 sqlite와 Skia 같은 검증된 라이브러리를 쓰면서 개선이 �
 diath는 LLM을 쓰는 개발이 진행 속도를 올렸다고 보았고,[^diath]
 moralestapia는 브라우저를 처음부터 만드는 일이 AI 시대에는 불가능할 만큼 어렵지 않다고 했다.[^moralestapia]
 youngtaff와 KingMob은 프로젝트 주도자의 정치적 견해와 과거 행동 때문에 쓰지 않겠다고 했다.[^youngtaff][^KingMob]
-이 논쟁은 공지와 직접 관련이 없고 이 문서는 사실 여부를 확인하지 못했다.
 
 ### Servo와의 차이
 
 Lobste.rs의 aCaB이 Servo와 비교를 묻자 op는 Servo는 임베딩을 염두에 두고 설계되었고
 Ladybird는 통과하는 WPT 시험이 훨씬 많다고 답했다.[^aCaB][^op-lobsters]
 moltonel은 Servo는 엔진이고 껍데기는 일부러 최소로 두는 반면 Ladybird는 전통적인 브라우저에 가깝다고 보탰다.[^moltonel]
-op의 WPT 서술은 댓글의 설명이며 이 문서는 수치를 확인하지 못했다.
 
 ### Rust 전환
 
 siwatanejo가 Rust 이식의 진행을 묻자 nicoburns는 C/C++/Rust 코드만 세면 절반 정도가 Rust이고
 외부 기여는 더 받지 않는다고 답했다.[^nicoburns]
-이 문서는 저장소의 언어 비율을 확인하지 못했다.
 
 ## 인사이트
 
@@ -108,8 +102,6 @@ siwatanejo가 Rust 이식의 진행을 묻자 nicoburns는 C/C++/Rust 코드만 
 2. 패스키, 제스처, 글꼴 같은 댓글에 나온 문제가 얼마나 빨리 고쳐지는지.
 3. 보안 제보 절차와 취약점 보고가 공개되는지.
 4. 자동 업데이트가 안정적으로 유지되는지.
-
-위 넷 모두 이 문서가 확인하지 못했다.
 
 ---
 

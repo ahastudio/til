@@ -107,7 +107,6 @@ Claude가 제공되는 곳이면 어디든 적용된다고 두 번 적는다.
 
 이 구조가 낳는 결과는 브뤼셀 효과의 교과서적 사례다.
 한 관할권의 규제가 전 세계 제품 사양이 되며, 규제를 만들지 않은 지역의 사용자도 그 사양을 받는다.
-HN에서 Computer0이 문서를 읽고 가장 먼저 짚은 것도 그 대비였는데, 미국에서는 이런 일이 없겠지만 EU에서는 일어난다고 인용하며 시작한 대목이다[^Computer0].
 그런데 문서를 끝까지 읽으면 미국에서도 일어난다.
 
 ### 두 표시 기법의 성숙도가 전혀 다른데 나란히 놓인다
@@ -216,7 +215,6 @@ JohnKemeny가 이 성질을 정확히 정리하는데, 완전한 보장은 못 �
 
 그리고 pshirshov가 반대 방향의 수를 예고한다.
 워터마크 모델을 어느 정도 재구성할 수 있게 되면 존재하는 모든 워터마크를 아무 글에나 결정론적으로 집어넣는 도구를 만들 수 있고, 그러면 워터마크의 목적이 자동으로 희석된다는 것이다[^pshirshov].
-탐지 체계에 대한 공격은 언제나 제거와 위조 두 방향인데, 이 문서는 제거만 한계로 다루고 위조는 다루지 않는다.
 
 ### 처리 표시와 저작 표시를 구별하지 않은 대가는 사용 방식의 후퇴로 나타난다
 
@@ -284,24 +282,3 @@ mchusma가 자기 결론으로 적은 것이 정확히 그 방향인데, 별도�
 그리고 그 준비는 문서화된 작업 방식이며, 어느 단계에서 모델을 썼고 무엇을 사람이 판단했는지를 밝힐 수 있는 상태다.
 공개 저장소의 커밋 이력과 초안 보존과 작업 노트가 그 역할을 하며, 이것들은 표시 체계와 무관하게 이미 존재하는 장치다.
 곧 이 문서가 촉발한 변화에 대응하는 가장 확실한 방법은 새 도구를 사는 것이 아니라 자기 과정을 남기는 오래된 습관이다.
-
----
-
-[^Computer0]: <https://news.ycombinator.com/item?id=49250343>
-[^simonw]: <https://news.ycombinator.com/item?id=49250569>
-[^ethin]: <https://news.ycombinator.com/item?id=49250765>
-[^COAGULOPATH]: <https://news.ycombinator.com/item?id=49253371>
-[^benrow]: <https://news.ycombinator.com/item?id=49250761>
-[^m-chrzan]: <https://news.ycombinator.com/item?id=49250930>
-[^wrsh07]: <https://news.ycombinator.com/item?id=49257743>
-[^VCFundedGenYer]: <https://news.ycombinator.com/item?id=49257644>
-[^Dilettante_]: <https://news.ycombinator.com/item?id=49255085>
-[^whack]: <https://news.ycombinator.com/item?id=49259508>
-[^akersten]: <https://news.ycombinator.com/item?id=49257127>
-[^dragonwriter]: <https://news.ycombinator.com/item?id=49262896>
-[^JohnKemeny]: <https://news.ycombinator.com/item?id=49255555>
-[^pshirshov]: <https://news.ycombinator.com/item?id=49256012>
-[^mchusma]: <https://news.ycombinator.com/item?id=49257983>
-[^sfink]: <https://news.ycombinator.com/item?id=49260091>
-[^bediger4000]: <https://lobste.rs/s/t8du5r/how_claude_marks_ai_generated_content#c_cdhvhf>
-[^gkoos]: <https://lobste.rs/s/t8du5r/how_claude_marks_ai_generated_content#c_4kde2l>

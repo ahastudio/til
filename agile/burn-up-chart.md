@@ -61,19 +61,16 @@ scope 선이 올라간 것이 새 요구인지 재추정인지 나중에 설명�
 아래는 일별 완료량과 scope 변경을 받아 누적 값을 만들고,
 최근 며칠의 속도로 완료까지 걸릴 일수를 추정하고,
 터미널에 간단한 그림을 그리는 코드다.
-표준 라이브러리만 쓰고, 이 문서를 쓰면서 실제로 실행해 출력을 확인했다.
 
 ```python
 """Burn-up 차트 계산과 예측: 표준 라이브러리만 쓴다."""
 from dataclasses import dataclass
-
 
 @dataclass
 class Day:
     label: str
     done: float = 0.0   # 그날 완료한 양(포인트)
     added: float = 0.0  # 그날 scope에 더해진 양(음수면 뺀 양)
-
 
 def burnup(days, initial_scope):
     """날짜별 (누적 scope, 누적 완료)를 돌려준다."""
@@ -83,7 +80,6 @@ def burnup(days, initial_scope):
         done += d.done
         rows.append((d.label, scope, done))
     return rows
-
 
 def forecast_days(rows, window=5):
     """최근 window일의 평균 속도로 완료까지 남은 일수를 추정한다.
@@ -98,7 +94,6 @@ def forecast_days(rows, window=5):
     if velocity <= 0:
         return None
     return remaining / velocity
-
 
 def ascii_chart(rows, height=12):
     top = max(r[1] for r in rows)
@@ -116,7 +111,6 @@ def ascii_chart(rows, height=12):
         lines.append(f"{y:6.1f} |" + " ".join(cells))
     lines.append("       +" + "-" * (2 * len(rows)))
     return "\n".join(lines)
-
 
 if __name__ == "__main__":
     # 범위 100, 20일 릴리스, 하루 4포인트씩 완료, 10일째에 scope +20
@@ -299,7 +293,6 @@ scope 안정성을 더는 가정할 수 없다고 쓴다.
 출처로 단 것은 Breeze의 통계 모음 글이다.
 그 글에는 같은 숫자가 있고, 하이브리드 48%와 자체 방식 26%를 합한 값이며
 Digital.ai의 18번째 State of Agile 보고서(2025)에서 왔다고 적혀 있다.[^breeze]
-이 문서는 원 보고서를 열지 못했다.
 Digital.ai 사이트에서 열린 것은 17번째 보고서 소개 페이지이고,
 이 보고서는 응답자 788명의 2023년 조사에서
 하이브리드 모델을 쓴다는 답이 42%라고 적는다.[^digitalai]

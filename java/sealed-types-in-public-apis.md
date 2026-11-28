@@ -98,7 +98,6 @@ java -cp out1 Main C
 javac -d out2 v2/SealedType.java v2/Main.java
 ```
 
-이 문서가 Temurin 25.0.3에서 실행한 결과는 이렇다.
 첫 실행은 `A`를 출력한다.
 두 번째 실행은 `java.lang.MatchException`이 `Main.main(Main.java:3)`에서
 던져진다.
@@ -179,9 +178,6 @@ EOF
 javac -d out3 v3/lib/Shape.java v3/lib/Hidden.java v3/app/Main.java
 ```
 
-이 문서가 같은 JDK에서
-실행했을 때 `default` 없는 `switch`는 모든
-값을 다루지 않는다는 오류로 컴파일에 실패했다.
 소비자가 `default -> "other"`를 더하면 컴파일되고 `circle`을 출력했다.
 이 우회는 소비자가 새 경우를 컴파일 시점에 놓치지
 않게 하는 대신 처음부터 `default`를 쓰게 강제한다.
@@ -228,7 +224,6 @@ JDK는 이런 옛 관용구를 모두 sealed로 바꿨고
 그때 받은 응답이 다소 무시하는 듯하고
 도움이 되지 않았다는 평가도 덧붙였다.[^nmadden]
 이 부분은 이 글의 기술적 논증과는 별개의 이야기이고
-이 문서는 보안 약점의 내용을 확인하지 못했다.
 
 ## 함정
 

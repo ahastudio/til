@@ -4,8 +4,6 @@
 
 인프라 명령이 항상 같은 작업 디렉터리를 가리키게 하려고 mise
 태스크를 쓰는 방법을 정리한 공식 쿡북이다.
-이 문서에서는 널리 알려진 Terraform이라는 이름으로 부르되,
-실제 실행 도구는 OpenTofu로 구성한다.
 OpenTofu는 Terraform의 오픈소스 포크이며 `devops/opentofu.md`에 따로 정리했다.
 
 쿡북은 설정 파일이 `terraform/` 하위 디렉터리에 있고,

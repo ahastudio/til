@@ -40,8 +40,6 @@ DeepMind의 과학·전략 이니셔티브 부사장 Pushmeet Kohli다.
 10월 글은 또 Search, Gemini 앱, Chrome에 들어간 검증 기능이 하루 100만 건 넘는
 요청을 처리한다고 밝힌다.
 
-이 문서는 공식 글 세 편, DeepMind의 SynthID 페이지, 포털의 FAQ와 약관,
-그리고 화면을 그리는 JavaScript 번들에 든 문구를 읽고 정리했다.
 포털에 직접 로그인해 파일을 올려 보지는 않았다.
 번들에서 읽은 내용은 그렇다고 밝힌다.
 

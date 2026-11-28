@@ -20,9 +20,6 @@
 매뉴얼이 지켜지는지를 확인하는 장치는 결국 같은 AI가 돌리는 검증 항목이고,
 그 검증을 바깥에서 강제하는 방법은 다루지 않는다.
 
-이 문서는 가이드의 구조를 정리하고,
-각 결정에 무엇이 걸려 있는지, 실제로 어디서 깨지는지,
-그리고 검증을 AI의 말이 아니라 실행으로 확인하는 방법을 다룬다.
 같은 생각을 Anthropic 쪽에서 먼저 말한 발표는
 `agent-skill/dont-build-agents-build-skills-instead.md`에 정리되어 있다.
 
@@ -313,7 +310,6 @@ AI가 출력한 새 `SKILL.md`를 실제 폴더에만 저장하고 업로드를 
 「We removed 80% of our agent's tools」인데,
 여기서 text-to-SQL 에이전트 d0는 에이전트 체인이 아니라 전문 도구를 줄이고
 파일 시스템과 bash를 준 사례이고 수치는 성공률 80%에서 100%다.
-가이드가 인용한 형편없다는 반응과 두 배라는 점수는 이 문서에서 찾지 못했다.
 
 더 곤란한 것은 방향이다.
 Vercel은 2026년 10월에도 d0 같은 전문 에이전트를 조율하는
@@ -387,16 +383,13 @@ import sys
 # 쉼표 자리 구분과 소수점을 허용하고, 퍼센트 기호는 떼어 낸다.
 NUMBER = re.compile(r"\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?")
 
-
 def normalize(token: str) -> str:
     # 1,234.50과 1234.5를 같은 값으로 본다.
     value = float(token.replace(",", ""))
     return f"{value:g}"
 
-
 def numbers_in(text: str) -> set[str]:
     return {normalize(m) for m in NUMBER.findall(text)}
-
 
 def main() -> int:
     if len(sys.argv) < 3:
@@ -411,7 +404,6 @@ def main() -> int:
         return 1
     print("PASS: 결과물의 숫자", len(numbers_in(output)), "개가 모두 원본에 있음")
     return 0
-
 
 if __name__ == "__main__":
     sys.exit(main())

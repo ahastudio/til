@@ -28,9 +28,6 @@ Wrangler 같은 Workers 인식 번들러가 처리하게 한다.
 모두 Artifacts 저장소에 푸시가 들어올 때 실행된다.
 GitHub이나 GitLab 저장소를 직접 연결하는 방법은 저장소에서 찾을 수 없다.
 
-이 문서는 README, 예제, 타입 정의를 읽고 정리한 것이며 직접
-배포해서 확인하지는 않았다.
-
 이 패키지는 2026년 8월 4일 Cloudflare 블로그 글 [Run CI/CD for millions of
 repos — on your platform, on Cloudflare](ci-workflows.md)에서
 CI SDK라는 이름으로 소개되었다.

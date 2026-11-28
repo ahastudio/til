@@ -10,8 +10,6 @@
 
 Maestro가 안드로이드에서 답답하다면 그 이유는 도구의 품질보다 구조에 있을
 가능성이 크다.
-이 문서는 Maestro의 안드로이드 쪽 구조적 한계를 공식 문서와 이슈로 확인하고,
-대안으로 꼽을 만한 도구를 같은 기준으로 비교한다.
 다루는 도구는 Espresso와 Compose 테스트 API, UI Automator 2.4, Kaspresso,
 Appium의 UiAutomator2 드라이버, Android Studio의 Journeys,
 그리고 에이전트 계열의 mobile-mcp와 ARTEMIS다.
@@ -21,8 +19,6 @@ Appium의 UiAutomator2 드라이버, Android Studio의 Journeys,
 도구마다 잘하는 축이 다르고, Maestro가 약한 축에서 강한 도구는 다른 축에서
 약하다.
 그래서 이 문서의 결론은 하나의 추천이 아니라 상황별 선택표다.
-이 문서는 각 도구의 공식 문서와 저장소를 읽고 정리한 것이며, 도구를 직접 설치해
-돌려 보지는 못했다.
 
 ## Maestro가 안드로이드에서 막히는 지점
 
@@ -127,7 +123,6 @@ Kaspresso는 Espresso와 UI Automator를 바탕으로
 불안정성 방어, Compose 지원, 스크린샷 테스트, Kotlin DSL, 상세한 로그와 리포트,
 ADB 지원, Allure 연동, Robolectric 지원을 얹은 프레임워크다.
 저장소는 UI Automator 명령 일부가 10배 빠르다고 주장한다.[^kaspresso]
-이 속도 주장은 저장소의 설명이며 이 문서가 재현하지 못했다.
 Espresso에서 옮기기 쉽다고 하므로, 이미 Espresso를 쓰는 팀이 불안정성과 보고서를
 보강하는 길로 적합하다.
 
@@ -255,7 +250,7 @@ Journeys가 인정하듯 같은 문장을 더 작은 단계로 쪼개야 정확�
 - Kaspresso의 10배 빠르다는 문구는 저장소의 주장이다. 이 문서가 확인하지
 못했으므로 자기 앱에서 재야 한다.
 - 에이전트 도구에 앱 권한과 계정을 넘길 때는 어떤 모델에 화면이 전달되는지
-확인해야 한다. 이 문서는 각 도구의 데이터 처리 방침을 확인하지 못했다.
+확인해야 한다.
 
 ## 확인하기
 

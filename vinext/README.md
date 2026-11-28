@@ -12,9 +12,11 @@ GN 토론: <https://news.hada.io/topic?id=26997>
 
 ## 소개
 
-Vinext는 Next.js의 공개 API 표면을 Vite 위에 처음부터 다시 구현한 Vite 플러그인이다. 저장소 설명은 Next.js API 표면을 다시 구현해 어디든 배포하게 하는 Vite 플러그인이라고 적고, README는 Cloudflare Workers를 주 배포 대상으로 삼아 Vite 위에서 Next.js 앱을 돌린다고 한다.
-`app/`, `pages/`, `next.config.js`를 그대로 두고 도구 체인만 바꾸는 것이 약속이다. Next.js의 포크가 아니고 `next build` 출력을 감싸는 방식도 아니다.
-이 문서는 `vinext.dev`의 홈페이지, 문서 첫 페이지, 호환성과 벤치마크 대시보드, 블로그 목록과 1.2 글, 저장소 README 전문과 SECURITY 문서, GitHub API 수치와 최근 릴리스 다섯 개, `vinext.io` 홈페이지를 읽었다. 직접 설치해 써 보지 않았고 문서 사이트의 하위 페이지(설치, 이전, OpenNext에서 이전, 캐싱, 추적, 차이점), 블로그 1.0과 1.1과 1.3과 1.4 본문, 대시보드의 개별 테스트 목록은 열지 못했다.
+Vinext는 Next.js의 공개 API 표면을 Vite 위에 처음부터 다시 구현한 Vite 플러그인이다.
+저장소 설명은 Next.js API 표면을 다시 구현해 어디든 배포하게 하는 Vite 플러그인이라고 적고, README는 Cloudflare Workers를 주 배포 대상으로 삼아 Vite 위에서 Next.js 앱을 돌린다고 한다.
+`app/`, `pages/`, `next.config.js`를 그대로 두고 도구 체인만 바꾸는 것이 약속이다.
+Next.js의 포크가 아니고 `next build` 출력을 감싸는 방식도 아니다.
+직접 설치해 써 보지 않았고 문서 사이트의 하위 페이지(설치, 이전, OpenNext에서 이전, 캐싱, 추적, 차이점), 블로그 1.0과 1.1과 1.3과 1.4 본문, 대시보드의 개별 테스트 목록은 열지 못했다.
 설명은 모두 프로젝트의 주장이다.
 
 세 주소의 관계는 다음과 같다.
@@ -103,8 +105,11 @@ Nitro Vite 플러그인을 `vinext()` 옆에 더한다(`nitro()`는 `nitro/vite`
 
 ### Node 독립 서버
 
-`output: "standalone"`이면 `vite build`가 `dist/standalone/`을 만들고 `node dist/standalone/server.js`로 돈다. 포트는 `PORT`(기본 3000), 바인드 주소는 `HOST`(기본 `0.0.0.0`)에서 읽는다. Next.js의 `HOSTNAME`이 아니므로 `HOSTNAME`만 둔 배포 설정은 수신 주소를 정하지 못한다.[^review] `startProdServer`의 옵션은 `port`, `host`, `outDir`, `serverDir`, `rscEntryPath`, `serverEntryPath`, `noCompression`이다.
-README는 Node 프로덕션 서버를 Workers 배포보다 덜 완전한 경로로 구분하는 것으로 읽힌다. 이 문서는 그 서술이 정확히 어디에 있는지 확인하지 못했다.
+`output: "standalone"`이면 `vite build`가 `dist/standalone/`을 만들고 `node dist/standalone/server.js`로 돈다.
+포트는 `PORT`(기본 3000), 바인드 주소는 `HOST`(기본 `0.0.0.0`)에서 읽는다.
+Next.js의 `HOSTNAME`이 아니므로 `HOSTNAME`만 둔 배포 설정은 수신 주소를 정하지 못한다.[^review]
+`startProdServer`의 옵션은 `port`, `host`, `outDir`, `serverDir`, `rscEntryPath`, `serverEntryPath`, `noCompression`이다.
+README는 Node 프로덕션 서버를 Workers 배포보다 덜 완전한 경로로 구분하는 것으로 읽힌다.
 
 ## 지원 범위
 
@@ -138,7 +143,9 @@ Next.js 16 API 표면의 약 94%가 전부 또는 부분 지원이고 나머지�
 | 지원 표면 커버리지    | 93.9% |
 | 실패한 지원 대상 파일 | 4개   |
 
-라우터별로 App Router는 지원 대상 99.7%와 전체 95.0%, Pages Router는 99.7%와 98.0%, 혼합은 100.0%와 96.9%이다. 테스트 파일은 799개이다. 지원 대상 통과율은 연기된 것, Next.js 컴파일러 전용, Vite 쪽 대응을 기다리는 스위트를 뺀 값이고 Next.js가 건너뛴 테스트는 두 비율에서 모두 빠진다고 한다. 개별 파일 목록과 실패 파일 이름은 이 문서가 읽지 못했다.
+라우터별로 App Router는 지원 대상 99.7%와 전체 95.0%, Pages Router는 99.7%와 98.0%, 혼합은 100.0%와 96.9%이다.
+테스트 파일은 799개이다.
+지원 대상 통과율은 연기된 것, Next.js 컴파일러 전용, Vite 쪽 대응을 기다리는 스위트를 뺀 값이고 Next.js가 건너뛴 테스트는 두 비율에서 모두 빠진다고 한다.
 
 ### 벤치마크
 
@@ -151,12 +158,14 @@ Next.js 16 API 표면의 약 94%가 전부 또는 부분 지원이고 나머지�
 | 개발 서버 콜드 스타트(큰 Pages Router 앱) | 22.69초 | 18.24초 |
 | 클라이언트 번들(gzip)                     | 185.6KB | 152.8KB |
 
-개발 서버 콜드 스타트는 일반 앱에서 Next.js가 더 빠르다. Vinext 쪽에는 클라이언트 진입 141.0KB, RSC 진입 닫힘 143.1KB, 서버 번들 250.5KB도 표시된다.
-출시 글의 수치(빌드 7.38초에서 1.67초로 4.4배, 번들 168.9KB에서 72.9KB로 57%)와 홈페이지의 현재 문구(빌드 최대 2배, 번들 약 23%, 185KB에서 143KB)와 대시보드의 값이 서로 다르다. 홈페이지의 143KB가 대시보드의 어느 지표인지는 이 문서가 확인하지 못했다. `vinext.io`는 출시 때의 4.4배, 57%, 테스트 2,080개 이상을 그대로 싣는다.
+개발 서버 콜드 스타트는 일반 앱에서 Next.js가 더 빠르다.
+Vinext 쪽에는 클라이언트 진입 141.0KB, RSC 진입 닫힘 143.1KB, 서버 번들 250.5KB도 표시된다.
+출시 글의 수치(빌드 7.38초에서 1.67초로 4.4배, 번들 168.9KB에서 72.9KB로 57%)와 홈페이지의 현재 문구(빌드 최대 2배, 번들 약 23%, 185KB에서 143KB)와 대시보드의 값이 서로 다르다.
+`vinext.io`는 출시 때의 4.4배, 57%, 테스트 2,080개 이상을 그대로 싣는다.
 
 ## 버전 흐름
 
-`vinext.dev/blog`의 목록은 1.0(2026년 9월 28일, 안정 API와 캐시 워밍)에서 1.1(10월 8일, 더 빠른 빌드와 개발 시작), 1.2(10월 14일), 1.3(10월 20일, 요청 수 감소와 Worker 미리 보기), 1.4(10월 28일, 서버 작업 감소와 하이드레이션 개선)까지 한 달 사이에 다섯 번 나왔다. 이 문서는 1.2 본문만 읽었고 나머지는 목록의 요약이다.
+`vinext.dev/blog`의 목록은 1.0(2026년 9월 28일, 안정 API와 캐시 워밍)에서 1.1(10월 8일, 더 빠른 빌드와 개발 시작), 1.2(10월 14일), 1.3(10월 20일, 요청 수 감소와 Worker 미리 보기), 1.4(10월 28일, 서버 작업 감소와 하이드레이션 개선)까지 한 달 사이에 다섯 번 나왔다.
 1.2의 내용은 `vinext init`이 `runWorkerFirst` 설정을 만들어 `public/` 파일에도 미들웨어를 돌리는 것, 캐시 키 수정(서로 다른 요청이 같은 키를 쓰지 않도록 `unstable_cache` 키를 SHA-256 다이제스트로, `x-api-key` 응답은 공유 Cloudflare 캐시에 저장하지 않음), Pages Router ISR이 `_document`를 포함한 전체 렌더를 하는 것, 서버 액션이 `@vitejs/plugin-rsc` 0.5.37을 요구하는 것, `next-intl` 검증, Module Federation 패키지이다.
 출시 글과 1.0 글은 각각 `vinext/vinext.md`와 `vinext/vinext-1-0.md`에 따로 정리했다.
 
@@ -238,7 +247,6 @@ Lobste.rs에서는 `vinext` 검색 결과가 이 프로젝트의 글이 아닌 �
 같은 조건에서 독립적으로 잰 빌드와 번들 크기,
 `"use cache"`와 PPR의 완성과 호환성 대시보드 실패 파일의 해소,
 Cloudflare 밖 플랫폼에서의 지원 수준이다.
-셋 모두 이 문서가 확인하지 못했다.
 
 ---
 

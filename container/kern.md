@@ -55,8 +55,6 @@ Kern Sandbox도 VM 안에서 쓰고, 그것을 호출하는 코드도 VM 안에�
 설치한 뒤 `kern doctor`가 호스트를 점검하고 고칠 것을 알려 준다.
 README는 Ubuntu 23.10 이상에서 먼저 root 권한의 설정 단계가 하나
 필요하다고 안내한다.
-이 문서를 쓴 환경은 macOS여서 설치와 실행은 직접 해 보지 않았고,
-`install.sh`의 내용도 읽지 않았다.
 소스에서 빌드하려면 패키지 이름을 줘야 한다고 프로젝트를 소개한 realexweb이
 Hacker News에서 안내했다.
 저장소에는 바이너리가 있는 패키지가 CLI, fuzz 하네스,

@@ -22,7 +22,6 @@ google3, Android, ChromeOS, Fuchsia, Chrome에서 쓰이는 Rust 코드가 코�
 
 가이드는 공개된 Rust 스타일 규칙과 Rust API Guidelines를 따르되, 충돌할 때만 이 가이드가 우선한다고 한다.
 서식은 대부분 `rustfmt`가 맡는다.
-이 문서는 가이드 전체를 옮기지 않고, 규칙을 고르는 데 쓸 수 있는 구조로 정리한다.
 
 ## 동작 방식
 

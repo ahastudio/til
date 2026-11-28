@@ -8,8 +8,10 @@ GN 토론: <https://news.hada.io/topic?id=37221>
 
 ## 요약
 
-2026년 11월 13일 NVIDIA 기술 블로그에 기술 마케팅 엔지니어 Fatima Fall이 쓴 튜토리얼이다. GB300 GPU가 든 DGX Station 두 대를 ConnectX-8 RDMA로 이어 vLLM으로 NVIDIA의 GLM-5.3 NVFP4 모델 하나를 서빙하는 과정을 단계별로 안내한다.
-이 문서는 글 전문을 읽었다. 직접 따라 하지는 않았고 함께 올라온 영상, 링크된 모델 카드와 플레이북, AIPerf와 vLLM 문서는 열지 못했다. 글에는 NVIDIA가 만든 AI 요약 블록이 붙어 있고 불완전할 수 있다고 표시되어 있다.
+2026년 11월 13일 NVIDIA 기술 블로그에 기술 마케팅 엔지니어 Fatima Fall이 쓴 튜토리얼이다.
+GB300 GPU가 든 DGX Station 두 대를 ConnectX-8 RDMA로 이어 vLLM으로 NVIDIA의 GLM-5.3 NVFP4 모델 하나를 서빙하는 과정을 단계별로 안내한다.
+직접 따라 하지는 않았고 함께 올라온 영상, 링크된 모델 카드와 플레이북, AIPerf와 vLLM 문서는 열지 못했다.
+글에는 NVIDIA가 만든 AI 요약 블록이 붙어 있고 불완전할 수 있다고 표시되어 있다.
 
 전제와 구성은 다음과 같다.
 
@@ -83,7 +85,8 @@ HN에서 한 사용자는 DGX를 10만 달러, 출력 100만 토큰당 1.4달러
 
 ### 하드웨어 대안과의 비교가 없다
 
-한 사용자는 4비트 모델을 RTX PRO 6000 8장으로 절반 가격에 서빙한 사례가 처리량이 60% 높다고 링크했다.[^jbellis] 글은 다른 구성과 비교하지 않는다. 이 문서는 해당 링크를 열지 못했다.
+한 사용자는 4비트 모델을 RTX PRO 6000 8장으로 절반 가격에 서빙한 사례가 처리량이 60% 높다고 링크했다.[^jbellis]
+글은 다른 구성과 비교하지 않는다.
 
 ### 한계가 글의 전제에 있다
 
@@ -93,7 +96,6 @@ NVFP4 양자화된 NVIDIA 체크포인트, 특정 이미지 다이제스트, 특
 
 HN 글 제목은 「Serving GLM-5.3 at 607.8 tok/s across two Nvidia DGX stations with vLLM」이다.
 Lobste.rs의 `developer.nvidia.com` 도메인에는 이 글이 없었고 `GLM` 검색에도 이 글이 없었다.
-GeekNews 토픽에는 HN 의견을 옮긴 GN⁺ 블록만 있고 이용자가 쓴 댓글은 없었다.
 
 ## 기억할 원칙
 

@@ -22,7 +22,6 @@ Node.js 22.19 이상이 필요하고 macOS, Linux, WSL에서 동작하며,
 
 홈페이지의 표어는 사고는 맡길 수 있어도 이해는 맡길 수 없다는 문장이다.
 홈페이지는 이 문장을 손자(Sun Tzu)의 말로 소개하지만 출처를 달지 않았다.
-이 문서도 이 문장이 정말 손자의 말인지 확인하지 못했다.
 HN에서도 Crowberry가 인용을 지어낸 것이 아니냐며 출처를 물었다.[^Crowberry]
 Claude Code, Codex, Cursor, OpenCode, Pi와 일반 Git에서 쓸 수 있다고 한다.
 답변은 코딩 에이전트에 전달되지 않고,

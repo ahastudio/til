@@ -8,9 +8,13 @@ GN 토론: <https://news.hada.io/topic?id=37417>
 
 ## 요약
 
-2026년 11월 18일 Wiz Research(Nir Ohfeld, Tomer Schwartz)가 낸 보안 분석 글이다. F5가 같은 날 낸 NGINX 보안 릴리스에 맞춘 조율된 공개이다.
-HTTP/2 구현의 두 취약점 CVE-2026-123633(연결 해제 후 사용, use-after-free)과 CVE-2026-123007(전송 윈도 정수 언더플로)이 NGINX 서버를 장악하는 데 쓰일 수 있다고 한다. Wiz는 둘 다 CVSS 4.0 9.2(Critical)로 매기고 NGINX가 2억 2,500만 개 이상의 웹사이트를 돌린다는 Netcraft와 W3Techs 자료를 인용한다. 발견자는 Wiz Research, Ikotas Labs, Metnir, Rapid7, Xint이고 서로 독립적으로 찾아 F5에 알렸다고 한다.
-이 문서는 Wiz 글 전문과 nginx.org의 보안 권고와 변경 기록, Ubuntu와 Debian과 Red Hat의 추적 페이지를 읽었다. F5의 권고 문서(K000163928, K000163926), CVE.org와 NVD 페이지는 내용이 없는 셸 페이지만 열려 읽지 못했다. 직접 재현하거나 서버에서 시험하지 않았다.
+2026년 11월 18일 Wiz Research(Nir Ohfeld, Tomer Schwartz)가 낸 보안 분석 글이다.
+F5가 같은 날 낸 NGINX 보안 릴리스에 맞춘 조율된 공개이다.
+HTTP/2 구현의 두 취약점 CVE-2026-123633(연결 해제 후 사용, use-after-free)과 CVE-2026-123007(전송 윈도 정수 언더플로)이 NGINX 서버를 장악하는 데 쓰일 수 있다고 한다.
+Wiz는 둘 다 CVSS 4.0 9.2(Critical)로 매기고 NGINX가 2억 2,500만 개 이상의 웹사이트를 돌린다는 Netcraft와 W3Techs 자료를 인용한다.
+발견자는 Wiz Research, Ikotas Labs, Metnir, Rapid7, Xint이고 서로 독립적으로 찾아 F5에 알렸다고 한다.
+F5의 권고 문서(K000163928, K000163926), CVE.org와 NVD 페이지는 내용이 없는 셸 페이지만 열려 읽지 못했다.
+직접 재현하거나 서버에서 시험하지 않았다.
 
 ## 지금 할 일
 
@@ -55,7 +59,6 @@ Wiz 글은 CVSS를 나열하지만 nginx.org의 심각도 등급(minor, medium, 
 
 - NGINX 오픈소스: 1.30.7(안정)과 1.31.9(메인라인)에서 위 취약점이 모두 고쳐졌다. 단 CVE-2026-120993은 메인라인 1.31.4에서 1.31.8에만 해당하고 1.31.9에서 고쳐졌다. 1.31.9는 헤더 줄에 콜론이 없는 요청을 거부하고 청크 본문의 프레이밍 오버헤드가 과하면 거부하는 변경도 포함한다.
 - NGINX Plus(Wiz 글의 표): CVE-2026-123633은 37.0.7.1과 37.2.0.1, CVE-2026-123007은 37.0.8.1과 37.3.0.1에서 고쳐졌다. F5 권고 원문을 읽지 못해 이 값은 Wiz의 서술이다.
-- 배포판 패키지: Ubuntu의 추적 페이지는 CVE-2026-123633에 대해 26.10, 26.04 LTS, 24.04 LTS, 22.04 LTS, 20.04 LTS, 18.04 LTS, 16.04 LTS를 「취약」으로 표시하고 고친 패키지 버전은 아직 적지 않았다(14.04 LTS는 영향 없음). Debian은 bookworm(1.22.1-9+deb12u10 보안 포함)과 trixie(1.26.3-3+deb13u10 보안 포함)와 forky(1.30.6-3)를 취약으로 표시하고, sid의 1.30.6-4는 「고침」이라고 적지만 상류 수정이 1.30.7이라는 점과 어긋나 이 문서가 확인하지 못했다. Red Hat 페이지는 예비 상태이고 제품별 표가 없었다. 읽은 시점(2026년 11월 19일)의 상태이므로 패키지 관리자의 최신 공지를 따로 확인한다.
 - NGINX Ingress Controller, Gateway Fabric, Unit 등 다른 제품의 고친 버전은 읽은 자료에 없었다.
 
 ## 임시 완화
@@ -68,7 +71,6 @@ HTTP/2를 끈다. Wiz 글과 Red Hat 모두 같은 방법을 안내한다.
 
 한계는 다음과 같다.
 
-- CVE-2026-123633에 대해서만 문서화된 완화이다(Red Hat). CVE-2026-123007에 대해서는 이 문서가 읽은 자료에 별도 우회책이 없었고, 같은 원인(HTTP/2)이므로 HTTP/2를 끄는 것이 막는다고 Wiz 글이 전제하는 것으로 읽힌다. 이는 이 문서의 해석이다.
 - 다른 CVE는 HTTP/2가 아니라 HTTP/3, 리졸버, 메일 프록시, stream, `alias`와 `try_files`에 있다. nginx.org의 제목에 따르면 HTTP/2를 끄는 것으로 막히지 않으므로 해당 기능을 쓰면 업그레이드가 필요하다. 이는 권고 제목에서 읽은 추론이다.
 - gRPC 서비스처럼 HTTP/2가 필수인 서비스는 끌 수 없다. HN에서 gRPC API가 주력인 서비스는 선택지가 아니라는 반응이 있었다.[^verst]
 
@@ -94,7 +96,7 @@ Wiz는 둘 다 CVSS 4.0 9.2의 인증 없는 원격 코드 실행이라고 쓴�
 ### 악용의 난이도에 대한 평가가 갈린다
 
 HN에서 한 사용자는 128GB의 HTTP/2 트래픽과 특정 CPU 명령이 필요해 실제로는 문제가 아니라는 트윗을 링크했고, 다른 사용자는 가치 있는 대상이면 의지 있는 공격자가 시도할 것이라고 반박했다.[^testtestmetest][^zackwu]
-이 문서는 그 트윗의 주장을 확인하지 못했다. Wiz도 악용이 어렵다고 쓰지만 공개된 분석(Xint의 글)이 이미 있다는 HN 댓글이 있다.[^pelzatessa]
+Wiz도 악용이 어렵다고 쓰지만 공개된 분석(Xint의 글)이 이미 있다는 HN 댓글이 있다.[^pelzatessa]
 
 ### 조율된 공개와 패치 노출 시차 논란이 있다
 
@@ -103,14 +105,14 @@ HN에서 한 사용자는 버그가 공개 저장소에서 일주일 전에 고�
 
 ### 글의 범위가 대응에 부족한 부분이 있다
 
-Wiz 글에는 노출된 인스턴스 수, 벤더 권고 링크(nginx.org 보안 권고와 F5 권고), 로그 질의가 없다. HN에서는 w3techs 기준으로 HTTP/2는 기본으로 켜져 있지 않고 약 12%의 서버가 쓴다고 짚었으나(출처는 그 댓글의 링크) 이 문서가 확인하지 못했다.[^fduran]
-프록시 뒤의 NGINX에 대한 영향도 글에서 명확히 구분되지 않는다. 한 사용자는 NGINX가 HAProxy 뒤에 있어 HTTP/2/TLS를 직접 받지 않으면 영향이 없다고 판단했으나 같은 릴리스의 다른 CVE(리졸버, 메일 프록시)는 평문 HTTP에도 해당한다는 반박이 있었다.[^8by3][^wildmxranat]
+Wiz 글에는 노출된 인스턴스 수, 벤더 권고 링크(nginx.org 보안 권고와 F5 권고), 로그 질의가 없다.
+프록시 뒤의 NGINX에 대한 영향도 글에서 명확히 구분되지 않는다.
+한 사용자는 NGINX가 HAProxy 뒤에 있어 HTTP/2/TLS를 직접 받지 않으면 영향이 없다고 판단했으나 같은 릴리스의 다른 CVE(리졸버, 메일 프록시)는 평문 HTTP에도 해당한다는 반박이 있었다.[^8by3][^wildmxranat]
 
 ### 외부 반응
 
 HN 글 제목은 「Unauthenticated remote code execution in Nginx」이다. 댓글의 한 갈래는 AI가 인터넷을 불태운다는 우려와 AI가 인터넷을 지킨다는 반론이었다.[^fn-mote][^jacobgold]
 Lobste.rs의 `wiz.io` 도메인에는 13건이 있으나 이 글은 없었다.
-GeekNews 토픽은 요약이고 이용자 댓글이 없었다.
 
 ## 기억할 원칙
 
@@ -141,8 +143,6 @@ GeekNews 토픽은 요약이고 이용자 댓글이 없었다.
 [^ryanschaefer]: <https://news.ycombinator.com/item?id=50547875>
 
 [^yerimyerimie]: <https://news.ycombinator.com/item?id=50547891>
-
-[^fduran]: <https://news.ycombinator.com/item?id=50550277>
 
 [^8by3]: <https://news.ycombinator.com/item?id=50548439>
 

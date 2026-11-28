@@ -259,8 +259,6 @@ Safety를 담당한다고 적는다.
 `final/tools/files.py`에는 `write_file`이 `@tool`로 등록돼 있고 `_write_approval_hook`과
 `_default_approval`이 함께 구현돼 있다.
 즉 “나중에 추가할 것”으로 적힌 기능이 이미 들어 있다.
-문서가 낡은 것이지 코드가 틀린 것은 아니지만, 이 문서는 “안전장치”를 설명하는 절이라 낡음의 비용이
-크다 — 학습자가 “쓰기 도구는 없으니 안심”이라고 읽고 넘어갈 수 있는 위치다.
 
 이 불일치가 우연이 아니라는 신호가 하나 더 있다.
 `final/README.md`는 각 파일에 `Part 2`, `Part 3`, `Part 4/6/8`, `Part 5`, `Part 7`이라는 번호를

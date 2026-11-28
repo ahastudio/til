@@ -107,9 +107,6 @@ tinylittleoffice가 약 20만 명을 끌고 호스팅 비용이 0달러였다는
 글은 Willison이 Battle Drones를 직접 썼고 게임 개발자가 아니라고 쓴다.
 HN에서 한 사용자는 저장소를 확인했더니 Claude가 쓴 것이라며
 직접 쓴 것이 맞느냐고 물었다.[^azangru]
-이 문서가 확인한 저장소의 README는 이 프로젝트를 바이브 코딩한 RTS라는 제목의
-Willison의 글에 연결하고, README의 나머지 부분은 Claude가 썼다고
-밝힌다.[^battledrones]
 글이 인용한 대목도 바이브 코딩이라는 말을 직접 쓰고 있으므로 글 안에서도
 방식은 드러나 있다.
 그렇다면 직접 썼다는 말은 스스로 만들었다는 뜻으로 읽어야 하고,
@@ -183,8 +180,6 @@ HN에서 한 사용자는 자신의 경험은 그 반대라고 했고,
 ---
 
 [^azangru]: <https://news.ycombinator.com/item?id=50432592>
-
-[^battledrones]: GitHub simonw/battledrones, [Battle Drones](https://github.com/simonw/battledrones), 게시일 표시 없음
 
 [^Devasta]: <https://news.ycombinator.com/item?id=50417764>
 

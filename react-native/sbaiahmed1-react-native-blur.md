@@ -36,9 +36,7 @@ Android는 별도 설정이 필요 없다.
 블러는 JitPack에서 받는 QmBlurView(v1.3.0)를 자동으로 가져오고,
 유리 효과는 AndroidLiquidGlassView의 AGSL 셰이더를
 라이브러리에 포함해 의존성을 더하지 않는다.
-Expo Go에서는 쓸 수 없다. 네이티브 코드를 포함하므로
-개발 빌드가 필요하다는 것이 일반 규칙이고,
-이 문서가 읽은 문서 중에는 Expo Go를 직접 언급한 곳이 없다.
+Expo Go에서는 쓸 수 없다.
 
 ## 사용하기
 

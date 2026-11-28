@@ -497,7 +497,6 @@ done
 
 ## 확인하기
 
-이 문서가 직접 확인한 것은 세 가지이다.
 첫째, 위의 세 JSON 예제(`Stop` 훅, `PostToolUse` 훅,
 권한 규칙)는 파서가 읽는 유효한 JSON이다.
 둘째, `Stop` 훅의 명령 `pnpm tsc --noEmit 1>&2 || exit 2`의 논리는 실패하는

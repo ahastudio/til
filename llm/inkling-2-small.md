@@ -281,7 +281,6 @@ H3과 H4의 혼합은 주로 Kimi K3와 자체 이전 모델에서 뽑은 궤적
 글은 이를 정확성과 정렬로 걸러 냈다고만 한다.
 다른 공개 모델의 출력으로 후반 훈련을 한다는 것은 그 모델의 습관과 한계가 일부
 전해진다는 뜻이고, 사용 조건이 어떻게 되는지는 글이 말하지 않는다.
-이 문서는 Kimi K3의 이용 조건을 읽지 않았다.
 
 HN에서는 이 점이 비용 계산의 논쟁으로 번졌다.
 ares623은 큰 연구소나 중국 연구소의 모델에서 증류한다면 총비용은 프런티어 설비
@@ -294,7 +293,6 @@ swid는 모든 것이 이전의 것 위에 쌓인다며 집의 비유로 받았�
 값을 매겨야 한다고 반박했다.[^anon373839]
 neuronexmachina는 Mistral도 다른 회사의 모델로 증류하지 않는 것으로 안다고
 했다.[^neuronexmachina]
-이 문서는 이전 기술 보고서를 열지 않아 moonu의 인용을 확인하지 못했다.
 
 ## 비평
 
@@ -332,7 +330,6 @@ Bolwin은 Artificial Analysis가 100만 토큰당 0.30달러, 0.03달러,
 1달러를 표시하고 과제당 비용이 1.18달러로 DeepSeek의 약 두 배라고
 답했고,[^Bolwin] syntaxing은 두 배에서 세 배 비싸지만 토큰 효율은 1017과 비슷해
 미국에서는 좋은 선택지일 수 있다고 정리했다.[^syntaxing-2]
-이 문서는 Artificial Analysis의 페이지를 열지 않아 이 숫자를 확인하지 못했다.
 lifeisloving은 가격에서 DeepSeek를 이기지 못하면 쓰지 않겠다고 했고 99%의 일에는
 DeepSeek 이상의 지능이 필요하지 않다고 주장했다.[^lifeisloving]
 크기에 대해서는 alexandra_au가 이전 Inkling Small이 2,660억이었는데 이번에는 두
@@ -352,7 +349,6 @@ DesignArena에서 가중치가 공개되면 최상위 오픈 웨이트 모델이
 같은 스냅샷에서 두 모델(Muse Wonder, Muse Spark 1.3)이 더 높고,
 글은 열세 개 모델의 막대 그래프가 1,100에서 시작한다고 밝혀 점수 차를 시각적으로
 크게 보이게 한다.
-이 문서는 DesignArena의 리더보드를 열어 보지 않았다.
 
 ### 맞춤화 비교는 한 과제이고 실행 횟수가 비대칭이다
 
@@ -481,7 +477,6 @@ DeepSeek와 비슷한 모델을 왜 또 만드느냐는 질문에[^singpolyma3] 
 어느 쪽이 더 큰 비중을 갖는지는 이 문서가 알 수 없다.
 Artificial Analysis가 이 모델을 중국 밖에서 개발된 가장 높은 점수의 오픈 웨이트
 모델이라고 소개한 글도 HN에 제출되었다.
-이 문서는 그 글을 열지 않았고 제목만 확인했다.[^aa-title]
 segmondy는 올해 초에는 이 점수가 최신(SOTA)이었을 것이라며,
 쓸 수 있고 쓸모가 있고 비용이 적당한지를 묻는 기준을 제시했다.[^segmondy-sota]
 
@@ -561,5 +556,3 @@ OpenCode에서 Fledge-Alpha로 시험한 실제 코딩 사용 후기가 쌓이�
 [^reasonableklout]: <https://news.ycombinator.com/item?id=50387249>
 
 [^segmondy-sota]: <https://news.ycombinator.com/item?id=50392555>
-
-[^aa-title]: <https://news.ycombinator.com/item?id=50388824>

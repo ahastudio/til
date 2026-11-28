@@ -14,8 +14,6 @@ Anthropic의 Claude Code와 Microsoft의 GitHub를 엔지니어에게만 허용�
 대부분의 트레이더와 은행가에게는 막았다고 전한다.
 거래, 퀀트 리서치, 소프트웨어 개발에 걸쳐 일하는 스트랫(strats)은 여전히
 접근할 수 있다고 한다.
-이 문서는 기사만 읽고 정리했으며 기사가 인용한 Bloomberg, Financial Times
-보도는 열어 보지 못했다.
 
 기사에 따르면 일부 트레이더는 불만이다.
 고객의 거래 흐름을 감시하고, 시장 움직임과 포지션을 모델링하고,
@@ -110,7 +108,6 @@ Goldman은 공식적으로는 일부 AI 도구를 제공한다고만 말했다.
 기사가 쓰는 원인은 추정에 가깝다.
 HN의 MallocVoidstar는 원 출처가 Bloomberg이고 State of AI는 AI가 쓴 글을 내는
 사이트로 보인다고 지적했다.[^MallocVoidstar]
-이는 댓글러의 판단이며 이 문서는 확인하지 못했다.
 다만 기사가 Bloomberg 보도를 다시 서술한 글이라는 것은 기사 스스로 밝힌
 사실이다.
 
@@ -121,7 +118,6 @@ HN의 MallocVoidstar는 원 출처가 Bloomberg이고 State of AI는 AI가 쓴 �
 이는 다른 회사의 사례이고 Goldman의 지출에 대한 수치는 없다.
 Bloomberg의 취재원들이 생산성이 검토에 들어갔다고 했다는 것까지가 직접적인
 근거다.
-비용 가설은 기사의 짐작이며 이 문서는 확인하지 못했다.
 HN의 legitster는 자기 조직이 종량제 청구 초과로 Claude 접근을 회수하고 있고,
 정액에 가까운 청구를 내건 Gemini가 파고든다고 썼다.[^legitster]
 cr125rider는 Claude Code가 주로 구독이고 보조금까지 받는 요금인데 왜 그런

@@ -41,13 +41,10 @@ for building bold ideas)라고 부르는 디자인 도구다.
 문구가 있다.
 HN에는 2025년 9월 30일에 Cursor용 디자인 모드로 올라온 글이 있고,
 2026년 9월 17일에는 Pen.dev라는 제목의 글이 올라왔다.
-이 문서는 이름이 바뀐 정확한 날짜를 확인하지 못했다.
 
 회사는 High Agency Inc.이고, 푸터에 a16z speedrun의 후원을 받는다고 적혀 있다.
 문서 사이트의 첫 화면은 2026년 10월 13일에 마지막으로 고쳐졌다고
 표시한다.[^pen-docs]
-이 문서는 홈페이지, 문서 사이트의 몇 페이지, 가격 페이지를 읽고 썼으며,
-도구를 직접 설치해 써 보지는 못했다.
 
 이 문서가 pen.dev를 따로 다루는 이유는 `design-tool/open-pencil.md`가 그린 차세대
 캔버스 구도에서 pen.dev만 소스 공개를 밝히지 않은 상용 도구이기 때문이다.
@@ -124,7 +121,6 @@ MCP 도구는 `get_style`, `read_skill`, `get_app_state`, `execute`가 표준이
 `spawn_agents`는 `-enable_spawn_agents`로 시작했을 때만 있다.[^pen-ai]
 도구가 여섯 개뿐이라는 점이 open-pencil의 100개가 넘는 도구와 대비된다.
 `execute` 하나가 `.pen` 문서를 조작하는 스크립트 실행 통로일 가능성이 있지만,
-이 문서는 그 내용을 확인하지 못했다.
 문서는 홈페이지가 말하는 WebMCP를 AI 연동 페이지에서 다루지 않는다.[^pen-ai]
 
 ### CLI와 인증은 계정 중심이다
@@ -173,8 +169,6 @@ Cursor 등)를 연결할 수 있다.[^pen-pricing]
 않는다.[^pen-pricing]
 Anthropic이 서드파티 도구에서의 구독 사용을 막았다는 공지는
 `claude/third-party-subscription-block.md`가 다룬다.
-자기 구독을 연결하는 경로 가운데 어느 것이 그 범위에 걸리는지는 이 문서가
-확인하지 못했다.
 Pro는 조직 개발자 키, 구성원과 역할 관리, 중앙 청구, 사용량 추적을 더하고,
 Ultra는 팀 전체의 공유 사용량 풀과 구성원 역할이 있는 팀 작업 공간을
 더한다.[^pen-pricing]
@@ -203,8 +197,6 @@ open-pencil과 ZSeven의 README와 문서에는 에이전트 사용 일수 한�
 스키마 공개와 도구의 소스 공개는 다른 문제이고,
 형식을 깨는 변경의 권리를 남겨 둔 문서의 태도는 형식이 도구의 사정에 따라 움직일
 수 있다는 뜻이다.
-오픈소스 여부가 필수 조건이라면 이 문서가 확인한 근거로는 pen.dev는
-해당되지 않는다.
 
 반면 형식의 공개는 실제 효과를 낸다.
 open-pencil은 지원되는 `.pen` 문서를 열고 로드맵은 `.pen`을 편집하고 저장하는
@@ -253,9 +245,6 @@ pen.dev는 같은 질문, 곧 에이전트가 디자인 도구를 얼마나 쓰�
 무료 단계는 로컬 우선 편집기와 로컬 `.pen` 파일이라고 소개되지만,[^pen-pricing]
 인증 페이지는 이메일 로그인과 작업 공간과 개발자 키를 전제로 하고,[^pen-auth]
 데이터가 어디로 가는지 밝히지 않는다.
-open-pencil은 개인정보 페이지에서 하루 한 번의 익명 신호와 네트워크 접속 목록을
-항목별로 적었는데,[^os-privacy] pen.dev에는 같은 수준의 공개가 이 문서가 읽은
-범위에 없다.
 로컬 우선이라는 말을 쓰는 도구들 사이에서 그 말이 보증하는 범위를 비교하려면 이
 항목이 필요하다.
 
@@ -277,8 +266,6 @@ open-pencil의 로드맵이 `.pen`을 일급 저장 대상으로 삼겠다고 �
 스키마를 공개했다고는 하지만 도구의 소스, 라이선스, 데이터 흐름은 문서에 없다.
 사용자가 오픈소스를 이유로 고르는 상황이라면 pen.dev는 비교 대상이 아니라
 기준선에 가깝다.
-이 문서는 pen.dev의 소스 저장소를 찾지 못했고,
-몇 가지 키워드로 한 GitHub 검색에서도 확인하지 못했다.
 저장소가 없다는 단정은 하지 않으며, 문서와 홈페이지가 밝히지 않았다는
 범위로만 쓴다.
 
@@ -296,12 +283,10 @@ Pro와 Ultra의 모델 크레딧 양, Enterprise의 한도,
 
 홈페이지는 수천 개의 레이어가 부드럽다고 쓰지만 측정 환경도 수치도 없다.
 HN 스레드에서 sarelta는 Claude Code와 Figma를 함께 쓰는 것이 필요하다고 하면서 Figma MCP를 그냥 쓰는 것과 성능을 비교하면 어떻겠느냐고 물었다.[^sarelta]
-이 질문에 답하는 자료는 이 문서가 읽은 범위에 없다.
 jannesblobel은 모든 것이 Git에 있고 디자인이 코드 옆에 놓여 버전과 기록과 협업을
 개발자 도구로 다룬다는 점이 눈에 띈다고 적었다.[^jannesblobel]
 다만 이 말이 pen.dev의 문서에 있는 Git 연동 기능에 대한 서술인지 `.pen`이
 JSON이라는 점에서 나온 추론인지는 구분되지 않는다.
-이 문서는 pen.dev 문서에서 Git 연동 기능을 확인하지 못했다.
 
 ## 인사이트
 
@@ -370,7 +355,6 @@ Figma는 좌석을 크게 나누고 MCP 호출을 막으며,
 각각의 비용(정가 + 토큰)과 수정 횟수를 기록하는 것이다.
 pen.dev에서는 무료 단계의 5일 한도가 며칠 만에 소진되는지도 함께 센다.
 결과가 도구마다 갈리면 팀에서 가장 자주 하는 작업에 맞춰 고르면 된다.
-이 문서는 그 비교를 하지 못했다.
 
 ### 승부는 `.pen`이 교환 형식이 되느냐에서 갈릴 수 있다
 
@@ -402,8 +386,6 @@ open-pencil이 `.pen`을 편집 가능한 저장 형식으로 삼는 날,
 [^figma-pricing]: Figma, [Pricing](https://www.figma.com/pricing/)
 
 [^penpot-pricing]: Penpot, [Penpot Pricing | From Professional to Enterprise Plans](https://penpot.app/pricing)
-
-[^os-privacy]: OpenPencil, [Privacy and Usage Stats](https://openpencil.dev/overview/privacy)
 
 [^os-roadmap]: OpenPencil, [Roadmap](https://openpencil.dev/development/roadmap)
 

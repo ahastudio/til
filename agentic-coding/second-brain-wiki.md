@@ -12,7 +12,6 @@ Brucky(`@danikkk_wqs`)가 2026년 10월 22일에 올린 Twitter Article이며,
 텍스트 파일 폴더다.
 저자는 이 방식을 Andrej Karpathy가 2026년 4월에 설명한 패턴이라고 소개하면서,
 그의 gist가 별 5천 개 이상과 포크 5천 개 이상을 받았다고 적는다.
-이 문서는 그 수치를 직접 확인하지 않았고, 저자의 서술로만 옮긴다.
 
 글이 남들의 복제본과 다르다고 내세우는 점은 시험이다.
 저자는 위키에 거짓 문장 하나, 곧 Bush가 1941년에 하이퍼텍스트를 발명했다는
@@ -23,9 +22,6 @@ Brucky(`@danikkk_wqs`)가 2026년 10월 22일에 올린 Twitter Article이며,
 스크립트의 출력은 해당 페이지에서 인용이 원본에 없다고 보고한다.
 
 이 문서는 글을 실무 노트로 재구성한다.
-글의 프롬프트와 설정은 그대로 옮기지 않고 구조와 판단 기준만 정리하며,
-린트 스크립트는 글의 부록 코드가 아니라 같은 규칙을 이 문서가 새로 짜서
-시험한 것이다.
 글의 주장과 이 문서의 해석은 구분해서 적는다.
 claude-obsidian 같은 완성된 도구를 다룬 `agent-skill/claude-obsidian.md`와 같은
 계열의 주제이며, 이 글의 고유한 부분은 도구가 아니라 검사를 코드로 옮긴 점이다.
@@ -118,22 +114,17 @@ LINK = re.compile(r"\[\[([^\]|#]+)(?:[#|][^\]]*)?\]\]")
 # 인용 줄 형식: > "원문 그대로" - raw/파일
 QUOTE = re.compile(r'^>\s*"(.+?)"\s*[-–—]+\s*(raw/\S+)\s*$', re.M)
 
-
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()[:16]
-
 
 def load():
     return json.loads(MANIFEST.read_text()) if MANIFEST.exists() else {}
 
-
 def rel(path):
     return str(path.relative_to(ROOT))
 
-
 def norm(text):
     return " ".join(text.split())
-
 
 def frontmatter(text):
     if not text.startswith("---\n"):
@@ -148,7 +139,6 @@ def frontmatter(text):
             fields[key.strip()] = value.strip()
     return fields
 
-
 def status():
     manifest, pending = load(), []
     for path in sorted(p for p in RAW.rglob("*") if p.is_file()):
@@ -162,13 +152,11 @@ def status():
         print(kind, key)
     return 0
 
-
 def done(raw, pages):
     manifest = load()
     manifest[raw] = {"sha": digest(ROOT / raw), "pages": pages}
     MANIFEST.write_text(json.dumps(manifest, indent=2, sort_keys=True))
     return 0
-
 
 def lint():
     errors, texts = [], {p.stem: (p, p.read_text()) for p in sorted(WIKI.rglob("*.md"))}
@@ -210,7 +198,6 @@ def lint():
     print(f"lint: 페이지 {len(texts)}개에서 문제 {len(errors)}건", file=sys.stderr)
     return 2 if errors else 0
 
-
 if __name__ == "__main__":
     command, args = (sys.argv[1] if len(sys.argv) > 1 else ""), sys.argv[2:]
     actions = {"status": lambda: status(), "lint": lambda: lint(),
@@ -231,8 +218,6 @@ Claude에게 전달되어 같은 턴에 고친다.
 `SessionStart` 훅은 `hot.md`와 대기 중인 수집 목록을 컨텍스트에 넣고,
 매처 값은 `startup`, `resume`, `clear`,
 `compact`라서 `/clear` 뒤에도 브리핑이 남는다.
-이 문서는 이 동작을 Claude Code 문서와 대조하지 않았으므로,
-적용 전에 사용하는 버전에서 직접 확인해야 한다.
 
 글이 권하는 수집 명령은 `.claude/skills/ingest/SKILL.md`에 두고
 `disable-model-invocation: true`로 사람이 직접 부르게 하는 것이다.
@@ -255,7 +240,6 @@ Claude Code 프로젝트를 같은 볼트에 연결하는 것이다.
 
 글은 숫자를 몇 개 주지만 대부분 경고용이다.
 아래는 글의 수치에 이 문서가 시작값과 근거를 붙인 표다.
-수치의 출처는 글이며 이 문서가 확인하지 않았다.
 
 | 값                    | 글이 주는 수치              | 시작값과 근거                                                            |
 | --------------------- | --------------------------- | ------------------------------------------------------------------------ |
@@ -268,8 +252,7 @@ Claude Code 프로젝트를 같은 볼트에 연결하는 것이다.
 측정할 것은 린트가 잡은 건수의 추이, 수집당 변경된 페이지 수,
 세션 시작 때 주입한 문서의 토큰 수다.
 글이 인용하는 R&D World의 한 달 후기는 약 760페이지에 이르렀고 좁은 용도에서는
-보통 수준의 도움이며 한 달 시점에는 유지 시간과 절약 시간이 비슷했다고 한다. 이
-문서는 그 후기를 열어 보지 않았다.
+보통 수준의 도움이며 한 달 시점에는 유지 시간과 절약 시간이 비슷했다고 한다.
 
 ## 트레이드오프
 
@@ -380,7 +363,6 @@ python3 brain.py lint; echo "exit=$?"   # 문제가 있으면 2
 이 수치들은 패턴이 유명하다는 사실을 보여 줄 뿐 잘 작동한다는 증거가 아니다.
 글 자신도 인기 있는 가이드들이 낡은 별 수와 존재하지 않는 설치 스크립트를
 인용한다고 지적하는데, 같은 문제가 인기 지표에 기대는 글의 논거에도 해당한다.
-이 문서는 그 수치도 확인하지 않았다.
 
 ### 경쟁자 비판을 제품 판매 때문이라며 깎아내린다
 
@@ -424,8 +406,6 @@ python3 brain.py lint; echo "exit=$?"   # 문제가 있으면 2
 
 ### 이 문서가 확인하지 못한 것을 구분해서 쓴다
 
-이 문서는 글의 수치(별, 조회수, 줄 수)와 Claude Code 동작에 대한 주장을 외부
-페이지에서 확인하지 않았다.
 스크립트는 이 문서가 직접 짜서 샘플 볼트에서 시험한 것이고,
 글의 부록 코드와 같지 않다.
 그래서 글이 주장한 설정의 동작은 사용하는 환경에서 한 번 시험한 뒤에

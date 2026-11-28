@@ -6,7 +6,6 @@ HN 토론: <https://news.ycombinator.com/item?id=50212065> (731점, 458개 댓�
 
 GN 토론: <https://news.hada.io/topic?id=35879>
 
-
 ## 요약
 
 Moonshot의 Kimi 팀이 2026년 10월 23일에 공개한 기술 블로그다.
@@ -135,7 +134,6 @@ daviTeodoro가 올린 가격표는 kimi-k3.1-pro가 입력 100만 토큰당 2달
 것이라고 짚었다.[^daviteodoro][^minimaxir-price]
 red_hare는 토큰이 더 장황하면 사실상 가격이 비교 모델과 가까워질 수 있다고
 계산했다.[^red_hare]
-이 수치들은 댓글이 전한 것이며 이 문서가 가격 페이지를 확인하지 못했다.
 
 ## 인사이트
 
@@ -161,7 +159,6 @@ jamienk는 Anthropic이 중국 AI 회사들에 제기한 혐의의 핵심이 증
 대량의 침해된 컴퓨터와 신용 카드 사용이라고 썼고,[^jamienk]
 johnnyApplePRNG는 상장을 앞둔 회사들의 홍보 문구를 짜깁기한 말이라며
 맞섰다.[^johnnyapplepng]
-이 논쟁은 근거가 제시되지 않은 채 끝났고 이 문서도 확인하지 못했다.
 이 글 자체는 학습 데이터의 출처를 다루지 않는다.
 
 ### 이 글을 읽는 방법
